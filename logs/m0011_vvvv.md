@@ -1,0 +1,625 @@
+---
+title: "0011_vvvv"
+date: 2020-06-25T01:56:27+66:00
+draft: false
+weight: 101103
+
+---
+
+### Log reference: <no value>
+
+```
+    loading [Config]:  ./tests/modtests/0011/upconfig.yml
+    Main config:
+                 Version -> 1.0.0
+                  RefDir -> ./tests/modtests/0011
+                 WorkDir -> refdir
+              AbsWorkDir -> /up_project/up/tests/modtests/0011
+                TaskFile -> up.yml
+                 Verbose -> vvvv
+              ModuleName -> compassionate_hopper9
+               ShellType -> /bin/sh
+           MaxCallLayers -> 8
+     MaxModuelCallLayers -> 256
+     :release version:  1.0.0
+     :verbose level:  vvvv
+    work dir: /up_project/up/tests/modtests/0011
+    -exec task: Main
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [compassionate_hopper9] instance id: [dev]
+    merged[ dev ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+      located task-> 1 [Main]: 
+    Task1: [Main ==> Main: main entry ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: "hello-module.Say_hello",
+      Dox: <nil>,
+      Func: "call",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+    })
+    
+    compassionate_hopper9: overall final exec vars:
+    
+    (*core.Cache)({
+    })
+    
+    loading [Config]:  ./upconfig.yml
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [hello-module] instance id: [nonamed]
+    merged[ nonamed ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+    =>call module: [hello-module] task: [Say_hello]
+    Executing tasker layer: 2
+    
+      located task-> 2 [Say_hello]: 
+    Task2: [TODO: Main Caller Taskname ==> Say_hello:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": "... hello",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: {
+        "a": "aaa"
+      },
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
+    })
+    
+    hello-module: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
+    })
+    
+    ~SubStep1: [print:  ]
+    ... hello
+    -Step2:
+    {
+      Name: "",
+      Do: "hi-module.Say_hi",
+      Dox: <nil>,
+      Func: "call",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    hello-module: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+     WARN: [config file does not exist] - [use builtin defaults]
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [hi-module] instance id: [nonamed]
+    merged[ nonamed ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+    =>call module: [hi-module] task: [Say_hi]
+    Executing tasker layer: 3
+    
+      located task-> 2 [Say_hi]: 
+    Task2: [TODO: Main Caller Taskname ==> Say_hi:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "... hi"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: {
+        "a": "aaa"
+      },
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 3
+    })
+    
+    hi-module: overall final exec vars:
+    
+    (*core.Cache)({
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 3
+    })
+    
+    ~SubStep1: [print:  ]
+    ... hi
+    -Step2:
+    {
+      Name: "",
+      Do: "hello.Say_hello",
+      Dox: <nil>,
+      Func: "call",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 3
+    })
+    
+    compassionate_hopper9: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 3
+    })
+    
+     WARN: [config file does not exist] - [use builtin defaults]
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [hello] instance id: [nonamed]
+    merged[ nonamed ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+    =>call module: [hello] task: [Say_hello]
+    Executing tasker layer: 2
+    
+      located task-> 3 [Say_hello]: 
+    Task3: [TODO: Main Caller Taskname ==> Say_hello:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": " .... hello from Say_hello"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    hello: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    ~SubStep1: [print:  ]
+     .... hello from Say_hello
+    -Step3:
+    {
+      Name: "",
+      Do: "hello.Say_hello",
+      Dox: <nil>,
+      Func: "call",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    compassionate_hopper9: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+     WARN: [config file does not exist] - [use builtin defaults]
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [hello] instance id: [nonamed]
+    merged[ nonamed ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+    =>call module: [hello] task: [Say_hello]
+    Executing tasker layer: 2
+    
+      located task-> 3 [Say_hello]: 
+    Task3: [TODO: Main Caller Taskname ==> Say_hello:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": " .... hello from Say_hello"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    hello: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    ~SubStep1: [print:  ]
+     .... hello from Say_hello
+    -Step4:
+    {
+      Name: "",
+      Do: "hello-dummy1.Say_world",
+      Dox: <nil>,
+      Func: "call",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    compassionate_hopper9: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+     WARN: [config file does not exist] - [use builtin defaults]
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [hello-dummy1] instance id: [nonamed]
+    merged[ nonamed ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+    =>call module: [hello-dummy1] task: [Say_world]
+    Executing tasker layer: 2
+    
+      located task-> 2 [Say_world]: 
+    Task2: [TODO: Main Caller Taskname ==> Say_world:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": " .... world from Say_world"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    hello-dummy1: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    ~SubStep1: [print:  ]
+     .... world from Say_world
+    -Step5:
+    {
+      Name: "",
+      Do: "hello-dummy2.Say_hello",
+      Dox: <nil>,
+      Func: "call",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    compassionate_hopper9: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+     WARN: [config file does not exist] - [use builtin defaults]
+    loading [Task]:  ./up.yml
+    ---------group vars----------
+    
+    global: {
+    }
+    
+    
+    groups members:[]
+    module: [hello-dummy2] instance id: [nonamed]
+    merged[ nonamed ] runtime vars:
+    {
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+    }
+    
+    =>call module: [hello-dummy2] task: [Say_hello]
+    Executing tasker layer: 2
+    
+      located task-> 3 [Say_hello]: 
+    Task3: [TODO: Main Caller Taskname ==> Say_hello:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": " .... hello from Say_hello",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    hello-dummy2: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    ~SubStep1: [print:  ]
+     .... hello from Say_hello
+    
+```
+
+##### Logs with different verbose level
+* [m0011 log - verbose level v](../../logs/m0011_v)
+* [m0011 log - verbose level vv](../../logs/m0011_vv)
+* [m0011 log - verbose level vvv](../../logs/m0011_vvv)
+* [m0011 log - verbose level vvvv](../../logs/m0011_vvvv)
+* [m0011 log - verbose level vvvvv](../../logs/m0011_vvvvv)
+
+##### References
+* [Related Chapter](../../module/0011)
