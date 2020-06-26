@@ -1,6 +1,6 @@
 ---
 title: "c0101_vvvvv"
-date: 2020-06-25T01:55:55+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11014
 
@@ -17,7 +17,7 @@ weight: 11014
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0101
                  Verbose -> vvvvv
-              ModuleName -> compassionate_jones2
+              ModuleName -> stoic_payne8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11014
     -exec task: task
     loading [Task]:  ./tests/functests/c0101
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f4fe0)(<nil>)
+    (*impl.Scopes)(0xc0001ecfe0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11014
     
     
     groups members:[]
-    module: [compassionate_jones2] instance id: [dev]
+    module: [stoic_payne8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 11014
     }
     
     
-    compassionate_jones2: overall final exec vars:
+    stoic_payne8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -139,7 +139,7 @@ weight: 11014
     }
     
     
-    compassionate_jones2: overall final exec vars:
+    stoic_payne8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -188,7 +188,7 @@ weight: 11014
     }
     
     
-    compassionate_jones2: overall final exec vars:
+    stoic_payne8: overall final exec vars:
     
     (*core.Cache)({
     })

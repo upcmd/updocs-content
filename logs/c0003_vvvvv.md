@@ -1,6 +1,6 @@
 ---
 title: "c0003_vvvvv"
-date: 2020-06-25T01:55:36+66:00
+date: 2020-06-27T03:09:13+66:00
 draft: false
 weight: 10034
 
@@ -17,7 +17,7 @@ weight: 10034
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0003
                  Verbose -> vvvvv
-              ModuleName -> clever_newton5
+              ModuleName -> evil_bohr0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10034
     -exec task: task
     loading [Task]:  ./tests/functests/c0003
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eadc0)(<nil>)
+    (*impl.Scopes)(0xc0001c6e20)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10034
     
     
     groups members:[]
-    module: [clever_newton5] instance id: [dev]
+    module: [evil_bohr0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +90,7 @@ weight: 10034
     }
     
     
-    clever_newton5: overall final exec vars:
+    evil_bohr0: overall final exec vars:
     
     (*core.Cache)({
     })

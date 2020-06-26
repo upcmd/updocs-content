@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10524
 
@@ -17,7 +17,7 @@ weight: 10524
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0052
                  Verbose -> vvvvv
-              ModuleName -> determined_hodgkin0
+              ModuleName -> silly_mayer1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10524
     -exec task: task
     loading [Task]:  ./tests/functests/c0052
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000187120)(<nil>)
+    (*impl.Scopes)(0xc000157180)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10524
     
     
     groups members:[]
-    module: [determined_hodgkin0] instance id: [dev]
+    module: [silly_mayer1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -96,7 +96,7 @@ weight: 10524
     }
     
     
-    determined_hodgkin0: overall final exec vars:
+    silly_mayer1: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -189,7 +189,7 @@ weight: 10524
     }
     
     
-    determined_hodgkin0: overall final exec vars:
+    silly_mayer1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -285,7 +285,7 @@ weight: 10524
     }
     
     
-    determined_hodgkin0: overall final exec vars:
+    silly_mayer1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

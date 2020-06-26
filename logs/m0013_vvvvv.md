@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:48+66:00
 draft: false
 weight: 101304
 
@@ -17,7 +17,7 @@ weight: 101304
               AbsWorkDir -> /up_project/up/tests/modtests/0013
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> pensive_einstein4
+              ModuleName -> backstabbing_wozniak5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 8
@@ -27,7 +27,7 @@ weight: 101304
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c8d80)(<nil>)
+    (*impl.Scopes)(0xc0001ead80)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 101304
     
     
     groups members:[]
-    module: [pensive_einstein4] instance id: [dev]
+    module: [backstabbing_wozniak5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +90,7 @@ weight: 101304
     }
     
     
-    pensive_einstein4: overall final exec vars:
+    backstabbing_wozniak5: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -102,7 +102,7 @@ weight: 101304
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c9d00)(<nil>)
+    (*impl.Scopes)(0xc00028e7e0)(<nil>)
     
     ---------group vars----------
     
@@ -237,7 +237,7 @@ weight: 101304
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002434e0)(<nil>)
+    (*impl.Scopes)(0xc00000f520)(<nil>)
     
     ---------group vars----------
     

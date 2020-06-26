@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10064
 
@@ -17,7 +17,7 @@ weight: 10064
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0006
                  Verbose -> vvvvv
-              ModuleName -> sick_morse2
+              ModuleName -> insane_darwin0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10064
     -exec task: task
     loading [Task]:  ./tests/functests/c0006
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017cf20)(<nil>)
+    (*impl.Scopes)(0xc000182f20)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10064
     
     
     groups members:[]
-    module: [sick_morse2] instance id: [dev]
+    module: [insane_darwin0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -96,7 +96,7 @@ weight: 10064
     }
     
     
-    sick_morse2: overall final exec vars:
+    insane_darwin0: overall final exec vars:
     
     (*core.Cache)({
     })

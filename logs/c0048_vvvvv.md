@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10484
 
@@ -17,7 +17,7 @@ weight: 10484
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0048
                  Verbose -> vvvvv
-              ModuleName -> berserk_tesla6
+              ModuleName -> angry_hopper1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10484
     -exec task: task
     loading [Task]:  ./tests/functests/c0048
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001a0820)(<nil>)
+    (*impl.Scopes)(0xc00017cfc0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10484
     
     
     groups members:[]
-    module: [berserk_tesla6] instance id: [dev]
+    module: [angry_hopper1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -113,7 +113,7 @@ weight: 10484
     }
     
     
-    berserk_tesla6: overall final exec vars:
+    angry_hopper1: overall final exec vars:
     
     (*core.Cache)({
       "STUDENT_NAME": "Tom Hanks",

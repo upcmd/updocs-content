@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10443
 
@@ -17,7 +17,7 @@ weight: 10443
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0044
                  Verbose -> vvvv
-              ModuleName -> determined_yalow7
+              ModuleName -> goofy_hypatia1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10443
     
     
     groups members:[]
-    module: [determined_yalow7] instance id: [dev]
+    module: [goofy_hypatia1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -64,8 +64,8 @@ weight: 10443
           "cmd": "{{.homedir}}"
         },
         {
-          "name": "print",
-          "cmd": "{{.yourhome}}"
+          "cmd": "{{.yourhome}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -89,7 +89,7 @@ weight: 10443
       "yourhome": "Your path is set to /root "
     })
     
-    determined_yalow7: overall final exec vars:
+    goofy_hypatia1: overall final exec vars:
     
     (*core.Cache)({
       "homedir": "/root",
@@ -129,11 +129,11 @@ weight: 10443
       "yourhome": "Your path is set to /root "
     })
     
-    determined_yalow7: overall final exec vars:
+    goofy_hypatia1: overall final exec vars:
     
     (*core.Cache)({
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     })
     
     cmd( 1):

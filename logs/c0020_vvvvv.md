@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10204
 
@@ -17,7 +17,7 @@ weight: 10204
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0020
                  Verbose -> vvvvv
-              ModuleName -> nostalgic_hypatia2
+              ModuleName -> grave_franklin4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10204
     -exec task: task
     loading [Task]:  ./tests/functests/c0020
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e920)(<nil>)
+    (*impl.Scopes)(0xc0002948e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10204
     
     
     groups members:[]
-    module: [nostalgic_hypatia2] instance id: [dev]
+    module: [grave_franklin4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar"
@@ -70,9 +70,9 @@ weight: 10204
       Dox: <nil>,
       Func: "call",
       Vars: {
+        "school": "sydney grammar",
         "gender": "male",
-        "studentname": "Tom",
-        "school": "sydney grammar"
+        "studentname": "Tom"
       },
       Dvars: <nil>,
       Desc: "call function with different vars",
@@ -89,8 +89,8 @@ weight: 10204
     current exec runtime vars:
     (*core.Cache)({
       "school": "sydney grammar",
-      "gender": "male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male"
     })
     
     [local] dvar expanded result:
@@ -100,24 +100,24 @@ weight: 10204
     
     scope[local] merged: {
       "school": "sydney grammar",
-      "gender": "male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male"
     }
     
     
-    nostalgic_hypatia2: overall final exec vars:
+    grave_franklin4: overall final exec vars:
     
     (*core.Cache)({
       "school": "sydney grammar",
-      "gender": "male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male"
     })
     
     caller's vars to task (function)::
     (*core.Cache)({
       "school": "sydney grammar",
-      "gender": "male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male"
     })
     
       located task-> 2 [function]: 
@@ -153,8 +153,8 @@ weight: 10204
     current exec runtime vars:
     (*core.Cache)({
       "school": "sydney grammar",
-      "gender": "male",
       "studentname": "Tom",
+      "gender": "male",
       "up_runtime_task_layer_number": 1
     })
     
@@ -165,19 +165,19 @@ weight: 10204
     
     scope[local] merged: {
       "school": "sydney grammar",
-      "gender": "male",
       "studentname": "Tom",
+      "gender": "male",
       "up_runtime_task_layer_number": 1
     }
     
     
-    nostalgic_hypatia2: overall final exec vars:
+    grave_franklin4: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "school": "sydney grammar",
+      "studentname": "Tom",
       "gender": "male",
-      "studentname": "Tom"
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

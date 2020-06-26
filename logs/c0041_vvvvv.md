@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10414
 
@@ -17,7 +17,7 @@ weight: 10414
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0041
                  Verbose -> vvvvv
-              ModuleName -> silly_pasteur0
+              ModuleName -> mad_swartz6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10414
     -exec task: task
     loading [Task]:  ./tests/functests/c0041
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001850a0)(<nil>)
+    (*impl.Scopes)(0xc0001eb0e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10414
     
     
     groups members:[]
-    module: [silly_pasteur0] instance id: [dev]
+    module: [mad_swartz6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +93,7 @@ weight: 10414
     }
     
     
-    silly_pasteur0: overall final exec vars:
+    mad_swartz6: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -170,7 +170,7 @@ weight: 10414
     }
     
     
-    silly_pasteur0: overall final exec vars:
+    mad_swartz6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -293,7 +293,7 @@ weight: 10414
     }
     
     
-    silly_pasteur0: overall final exec vars:
+    mad_swartz6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

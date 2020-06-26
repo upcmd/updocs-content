@@ -1,6 +1,6 @@
 ---
 title: "c0135_vvvvv"
-date: 2020-06-25T01:56:04+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11354
 
@@ -17,7 +17,7 @@ weight: 11354
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0135
                  Verbose -> vvvvv
-              ModuleName -> silly_ardinghelli0
+              ModuleName -> pensive_yalow8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11354
     -exec task: task
     loading [Task]:  ./tests/functests/c0135
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001cf360)(<nil>)
+    (*impl.Scopes)(0xc0001eb300)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11354
     
     
     groups members:[]
-    module: [silly_ardinghelli0] instance id: [dev]
+    module: [pensive_yalow8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -58,9 +58,9 @@ weight: 11354
     -------runtime global final merged with dvars-------
     
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
       located task-> 2 [task]: 
@@ -76,8 +76,8 @@ weight: 11354
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
+        "b": "local_bbb",
+        "a": "local_aaa"
       },
       Dvars: {
         {
@@ -122,9 +122,9 @@ weight: 11354
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -135,31 +135,31 @@ weight: 11354
     
     
     scope[local] merged: {
+      "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "da": "local_da",
+      "db": "local_db"
     }
     
     
-    silly_ardinghelli0: overall final exec vars:
+    pensive_yalow8: overall final exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
       "b": "local_bbb",
+      "da": "local_da",
+      "db": "local_db",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "da": "local_da"
+      "a": "local_aaa"
     })
     
     caller's vars to task (callee_task)::
     (*core.Cache)({
-      "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
       located task-> 1 [callee_task]: 
@@ -178,6 +178,9 @@ weight: 11354
               "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             },
             {
+              "flags": {
+                "failfast"
+              },
               "name": "assert",
               "cmd": {
                 "{{eq .a \"local_aaa\" }}",
@@ -185,9 +188,6 @@ weight: 11354
                 "{{eq .c \"global_ccc\" }}",
                 "{{eq .da \"local_da\" }}",
                 "{{eq .db \"callee_db\" }}"
-              },
-              "flags": {
-                "failfast"
               }
             }
           }
@@ -227,12 +227,12 @@ weight: 11354
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
+      "b": "local_bbb",
       "a": "local_aaa",
       "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb",
-      "up_runtime_task_layer_number": 1,
-      "c": "global_ccc"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -242,24 +242,24 @@ weight: 11354
     
     
     scope[local] merged: {
+      "da": "local_da",
       "db": "callee_db",
-      "b": "local_bbb",
       "up_runtime_task_layer_number": 1,
       "c": "global_ccc",
-      "a": "local_aaa",
-      "da": "local_da"
+      "b": "local_bbb",
+      "a": "local_aaa"
     }
     
     
-    silly_ardinghelli0: overall final exec vars:
+    pensive_yalow8: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "c": "global_ccc",
-      "a": "local_aaa",
       "da": "local_da",
       "db": "callee_db",
-      "b": "local_bbb"
+      "up_runtime_task_layer_number": 1,
+      "c": "global_ccc",
+      "b": "local_bbb",
+      "a": "local_aaa"
     })
     
     --Step1:
@@ -271,9 +271,6 @@ weight: 11354
           "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
         },
         {
-          "flags": {
-            "failfast"
-          },
           "name": "assert",
           "cmd": {
             "{{eq .a \"local_aaa\" }}",
@@ -281,6 +278,9 @@ weight: 11354
             "{{eq .c \"global_ccc\" }}",
             "{{eq .da \"local_da\" }}",
             "{{eq .db \"callee_db\" }}"
+          },
+          "flags": {
+            "failfast"
           }
         }
       },
@@ -301,12 +301,12 @@ weight: 11354
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
+      "up_runtime_task_layer_number": 1,
       "da": "local_da",
       "db": "callee_db",
-      "b": "local_bbb",
-      "up_runtime_task_layer_number": 1,
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -317,20 +317,20 @@ weight: 11354
     scope[local] merged: {
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "callee_db",
       "b": "local_bbb",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "da": "local_da",
+      "db": "callee_db"
     }
     
     
-    silly_ardinghelli0: overall final exec vars:
+    pensive_yalow8: overall final exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "local_aaa",
       "da": "local_da",
       "db": "callee_db",
+      "c": "global_ccc",
+      "a": "local_aaa",
       "b": "local_bbb",
       "up_runtime_task_layer_number": 1
     })

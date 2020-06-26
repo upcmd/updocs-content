@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:48+66:00
 draft: false
 weight: 101004
 
@@ -17,7 +17,7 @@ weight: 101004
               AbsWorkDir -> /up_project/up/tests/modtests/0010
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> dreamy_mayer0
+              ModuleName -> elegant_pare1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 101004
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017cd20)(<nil>)
+    (*impl.Scopes)(0xc0001ecd20)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 101004
     
     
     groups members:[]
-    module: [dreamy_mayer0] instance id: [dev]
+    module: [elegant_pare1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +90,7 @@ weight: 101004
     }
     
     
-    dreamy_mayer0: overall final exec vars:
+    elegant_pare1: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -102,7 +102,7 @@ weight: 101004
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017dca0)(<nil>)
+    (*impl.Scopes)(0xc0001edca0)(<nil>)
     
     ---------group vars----------
     
@@ -164,8 +164,8 @@ weight: 101004
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -237,7 +237,7 @@ weight: 101004
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f2e80)(<nil>)
+    (*impl.Scopes)(0xc000262e80)(<nil>)
     
     ---------group vars----------
     

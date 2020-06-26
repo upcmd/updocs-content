@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvv"
-date: 2020-06-25T01:55:56+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11023
 
@@ -17,7 +17,7 @@ weight: 11023
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0102
                  Verbose -> vvvv
-              ModuleName -> clever_engelbart9
+              ModuleName -> silly_pike4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11023
     
     
     groups members:[]
-    module: [clever_engelbart9] instance id: [dev]
+    module: [silly_pike4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
@@ -75,7 +75,7 @@ weight: 11023
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
-    clever_engelbart9: overall final exec vars:
+    silly_pike4: overall final exec vars:
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
@@ -102,25 +102,25 @@ weight: 11023
       Name: "",
       Do: {
         {
-          "cmd": {
-            "refdir": "/tmp",
-            "path": "jason.sex",
-            "verbose": "v",
-            "ymlfile": "mock_yml.yml"
-          },
           "flags": {
             "inplace"
           },
-          "name": "yml_delete"
+          "name": "yml_delete",
+          "cmd": {
+            "ymlfile": "mock_yml.yml",
+            "refdir": "/tmp",
+            "path": "jason.sex",
+            "verbose": "v"
+          }
         },
         {
+          "name": "readfile",
           "desc": "check new file content",
           "cmd": {
+            "filename": "mock_yml.yml",
             "dir": "/tmp",
-            "reg": "new_yml",
-            "filename": "mock_yml.yml"
-          },
-          "name": "readfile"
+            "reg": "new_yml"
+          }
         },
         {
           "name": "print",
@@ -145,23 +145,23 @@ weight: 11023
     
     current exec runtime vars:
     (*core.Cache)({
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      })
     })
     
-    clever_engelbart9: overall final exec vars:
+    silly_pike4: overall final exec vars:
     
     (*core.Cache)({
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      })
     })
     
     ~SubStep1: [yml_delete:  ]
@@ -194,9 +194,9 @@ weight: 11023
           }
         },
         {
-          "name": "print",
           "desc": "show the modified yml content registered",
-          "cmd": "{{.modified_yml}}"
+          "cmd": "{{.modified_yml}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -225,7 +225,7 @@ weight: 11023
       "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
-    clever_engelbart9: overall final exec vars:
+    silly_pike4: overall final exec vars:
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",

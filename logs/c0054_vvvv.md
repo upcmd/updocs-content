@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10543
 
@@ -17,7 +17,7 @@ weight: 10543
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0054
                  Verbose -> vvvv
-              ModuleName -> gloomy_mcclintock8
+              ModuleName -> desperate_curie1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10543
     
     
     groups members:[]
-    module: [gloomy_mcclintock8] instance id: [dev]
+    module: [desperate_curie1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 10543
     (*core.Cache)({
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -114,7 +114,7 @@ weight: 10543
       })
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -152,7 +152,7 @@ weight: 10543
       "last_result": (*utils.ExecResult)(<nil>)
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>)
@@ -198,7 +198,7 @@ weight: 10543
       "last_result": (*utils.ExecResult)(<nil>)
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>)
@@ -256,7 +256,7 @@ weight: 10543
       })
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -326,7 +326,7 @@ weight: 10543
     dvar> last_task_succeeded:
     "true"
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -403,7 +403,7 @@ weight: 10543
       })
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -461,7 +461,7 @@ weight: 10543
       })
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -483,9 +483,9 @@ weight: 10543
       Func: "shell",
       Vars: {
         "student": {
-          "name": "peter",
           "sex": "male",
-          "age": 23
+          "age": 23,
+          "name": "peter"
         }
       },
       Dvars: {
@@ -521,25 +521,25 @@ weight: 10543
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       }
     })
     
     dvar> condition:
     "true"
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)(<nil>),
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
       },
-      "condition": "true",
-      "last_result": (*utils.ExecResult)(<nil>)
+      "condition": "true"
     })
     
     cmd( 1):
@@ -559,9 +559,9 @@ weight: 10543
       Func: "shell",
       Vars: {
         "student": {
+          "name": "peter",
           "sex": "male",
-          "age": 23,
-          "name": "peter"
+          "age": 23
         }
       },
       Dvars: {
@@ -610,7 +610,7 @@ weight: 10543
     dvar> condition:
     "true"
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -619,9 +619,9 @@ weight: 10543
         ErrMsg: ""
       }),
       "student": {
+        "sex": "male",
         "age": 23,
-        "name": "peter",
-        "sex": "male"
+        "name": "peter"
       },
       "condition": "true"
     })
@@ -679,35 +679,35 @@ weight: 10543
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "complicated dvar evaluation as condition",
-        ErrMsg: ""
-      })
-    })
-    
-    dvar> condition:
-    "true"
-    
-    gloomy_mcclintock8: overall final exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
       "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      }
+    })
+    
+    dvar> condition:
+    "true"
+    
+    desperate_curie1: overall final exec vars:
+    
+    (*core.Cache)({
+      "student": {
         "sex": "male",
         "age": 23,
         "name": "peter"
       },
-      "condition": "true"
+      "condition": "true",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "complicated dvar evaluation as condition",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -727,9 +727,9 @@ weight: 10543
       Func: "shell",
       Vars: {
         "student": {
-          "name": "peter",
           "sex": "male",
-          "age": 23
+          "age": 23,
+          "name": "peter"
         }
       },
       Dvars: <nil>,
@@ -758,7 +758,7 @@ weight: 10543
       }
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -767,9 +767,9 @@ weight: 10543
         ErrMsg: ""
       }),
       "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
+        "age": 23,
+        "name": "peter"
       }
     })
     
@@ -810,15 +810,15 @@ weight: 10543
     
     current exec runtime vars:
     (*core.Cache)({
+      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      }),
-      "doc": "hello"
+      })
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -867,15 +867,15 @@ weight: 10543
       "doc": "hello"
     })
     
-    gloomy_mcclintock8: overall final exec vars:
+    desperate_curie1: overall final exec vars:
     
     (*core.Cache)({
+      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      }),
-      "doc": "hello"
+      })
     })
     
     ~SubStep1: [print:  ]

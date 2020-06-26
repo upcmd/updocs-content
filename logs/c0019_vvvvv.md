@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10194
 
@@ -17,7 +17,7 @@ weight: 10194
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0019
                  Verbose -> vvvvv
-              ModuleName -> kickass_curie5
+              ModuleName -> cranky_hodgkin2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10194
     -exec task: task
     loading [Task]:  ./tests/functests/c0019
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000264ea0)(<nil>)
+    (*impl.Scopes)(0xc0001ecea0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10194
     
     
     groups members:[]
-    module: [kickass_curie5] instance id: [dev]
+    module: [cranky_hodgkin2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar",
@@ -49,8 +49,8 @@ weight: 10194
     (core.Cache) (len=2) {
      (string) (len=6) "school": (string) (len=14) "sydney grammar",
      (string) (len=2) "sg": (map[string]interface {}) (len=2) {
-      (string) (len=4) "name": (string) (len=14) "sydney grammar",
-      (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000"
+      (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000",
+      (string) (len=4) "name": (string) (len=14) "sydney grammar"
      }
     }
     
@@ -64,8 +64,8 @@ weight: 10194
     {
       "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
       }
     }
     
@@ -102,12 +102,12 @@ weight: 10194
     
     current exec runtime vars:
     (*core.Cache)({
+      "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
       },
-      "studentname": "Tom",
-      "school": "sydney grammar"
+      "studentname": "Tom"
     })
     
     [local] dvar expanded result:
@@ -125,15 +125,15 @@ weight: 10194
     }
     
     
-    kickass_curie5: overall final exec vars:
+    cranky_hodgkin2: overall final exec vars:
     
     (*core.Cache)({
-      "school": "sydney grammar",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
       },
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "school": "sydney grammar"
     })
     
     cmd( 1):

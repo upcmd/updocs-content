@@ -1,6 +1,6 @@
 ---
 title: "c0069_vvvvv"
-date: 2020-06-25T01:55:48+66:00
+date: 2020-06-27T03:09:23+66:00
 draft: false
 weight: 10694
 
@@ -17,7 +17,7 @@ weight: 10694
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0069
                  Verbose -> vvvvv
-              ModuleName -> furious_ardinghelli0
+              ModuleName -> hopeful_heisenberg4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10694
     -exec task: task
     loading [Task]:  ./tests/functests/c0069
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eaf60)(<nil>)
+    (*impl.Scopes)(0xc00017cf60)(<nil>)
     
     ---------group vars----------
     
@@ -36,35 +36,35 @@ weight: 10694
     
     
     groups members:[]
-    module: [furious_ardinghelli0] instance id: [dev]
+    module: [hopeful_heisenberg4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "gender": "Male",
         "address": {
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
         },
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
+      (string) (len=4) "name": (string) (len=3) "Tom",
+      (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "suburb": (map[string]interface {}) (len=3) {
+        (string) (len=3) "cbd": (bool) true,
         (string) (len=4) "name": (string) (len=6) "sydney",
-        (string) (len=8) "postcode": (int) 2000,
-        (string) (len=3) "cbd": (bool) true
+        (string) (len=8) "postcode": (int) 2000
        },
        (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
-      },
-      (string) (len=4) "name": (string) (len=3) "Tom",
-      (string) (len=6) "gender": (string) (len=4) "Male"
+      }
      }
     }
     
@@ -78,16 +78,16 @@ weight: 10694
     
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
+            "postcode": 2000,
+            "cbd": true
+          }
+        }
       },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     }
@@ -124,9 +124,9 @@ weight: 10694
       "student": {
         "address": {
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
+            "cbd": true
           },
           "school": "Sydney Grammar"
         },
@@ -145,9 +145,9 @@ weight: 10694
       "student": {
         "address": {
           "suburb": {
-            "postcode": 2000,
             "cbd": true,
-            "name": "sydney"
+            "name": "sydney",
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
         },
@@ -158,7 +158,7 @@ weight: 10694
     }
     
     
-    furious_ardinghelli0: overall final exec vars:
+    hopeful_heisenberg4: overall final exec vars:
     
     (*core.Cache)({
       "student": {

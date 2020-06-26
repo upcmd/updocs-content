@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvvv"
-date: 2020-06-25T01:56:06+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11424
 
@@ -17,7 +17,7 @@ weight: 11424
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0142
                  Verbose -> vvvvv
-              ModuleName -> backstabbing_brown3
+              ModuleName -> adoring_bohr9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11424
     -exec task: task
     loading [Task]:  ./tests/functests/c0142
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000159060)(<nil>)
+    (*impl.Scopes)(0xc0001ed000)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11424
     
     
     groups members:[]
-    module: [backstabbing_brown3] instance id: [dev]
+    module: [adoring_bohr9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -63,12 +63,12 @@ weight: 11424
       Name: "",
       Do: {
         {
-          "name": "colorprint",
           "cmd": {
-            "msg": "hello, world",
             "bg": "blue",
-            "fg": "white"
-          }
+            "fg": "white",
+            "msg": "hello, world"
+          },
+          "name": "colorprint"
         },
         {
           "name": "colorprint",
@@ -85,10 +85,10 @@ weight: 11424
           }
         },
         {
+          "name": "colorprint",
           "cmd": {
             "msg": "hello, world"
-          },
-          "name": "colorprint"
+          }
         },
         {
           "name": "colorprint",
@@ -109,18 +109,18 @@ weight: 11424
         {
           "name": "colorprint",
           "cmd": {
-            "object": "{{.objectname}}",
             "fg": "blue",
-            "bg": "green"
+            "bg": "green",
+            "object": "{{.objectname}}"
           }
         },
         {
           "name": "colorprint",
           "cmd": {
-            "fg": "blue",
-            "bg": "black",
             "object": "person",
-            "msg": "person"
+            "msg": "person",
+            "fg": "blue",
+            "bg": "black"
           }
         }
       },
@@ -160,22 +160,22 @@ weight: 11424
     
     
     scope[local] merged: {
-      "person": {
-        "age": 18,
-        "name": "tom"
-      },
-      "objectname": "person"
-    }
-    
-    
-    backstabbing_brown3: overall final exec vars:
-    
-    (*core.Cache)({
+      "objectname": "person",
       "person": {
         "name": "tom",
         "age": 18
-      },
-      "objectname": "person"
+      }
+    }
+    
+    
+    adoring_bohr9: overall final exec vars:
+    
+    (*core.Cache)({
+      "objectname": "person",
+      "person": {
+        "name": "tom",
+        "age": 18
+      }
     })
     
     map[bg:blue fg:white msg:hello, world]

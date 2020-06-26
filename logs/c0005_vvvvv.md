@@ -1,6 +1,6 @@
 ---
 title: "c0005_vvvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10054
 
@@ -17,7 +17,7 @@ weight: 10054
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0005
                  Verbose -> vvvvv
-              ModuleName -> tender_darwin4
+              ModuleName -> tender_stallman0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 10054
     
     
     groups members:[]
-    module: [tender_darwin4] instance id: [dev]
+    module: [tender_stallman0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +90,7 @@ weight: 10054
     }
     
     
-    tender_darwin4: overall final exec vars:
+    tender_stallman0: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -139,7 +139,7 @@ weight: 10054
     }
     
     
-    tender_darwin4: overall final exec vars:
+    tender_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -194,7 +194,7 @@ weight: 10054
     }
     
     
-    tender_darwin4: overall final exec vars:
+    tender_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -260,7 +260,7 @@ weight: 10054
     }
     
     
-    tender_darwin4: overall final exec vars:
+    tender_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -273,12 +273,12 @@ weight: 10054
     
     caller's vars to task (post_task)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
       located task-> 2 [post_task]: 
@@ -322,16 +322,16 @@ weight: 10054
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     }
     
     
-    tender_darwin4: overall final exec vars:
+    tender_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -406,16 +406,16 @@ weight: 10054
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     }
     
     
-    tender_darwin4: overall final exec vars:
+    tender_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

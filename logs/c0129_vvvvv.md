@@ -1,6 +1,6 @@
 ---
 title: "c0129_vvvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11294
 
@@ -17,7 +17,7 @@ weight: 11294
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0129
                  Verbose -> vvvvv
-              ModuleName -> stoic_brown3
+              ModuleName -> focused_hoover4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 11294
     
     
     groups members:[]
-    module: [stoic_brown3] instance id: [dev]
+    module: [focused_hoover4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": "global_ccc",
@@ -98,12 +98,6 @@ weight: 11294
           }
         },
         {
-          "func": "block",
-          "desc": "test embeded 2nd layer of block",
-          "vars": {
-            "a": "local_block_layer2_aaa",
-            "b": "local_block_layer2_bbb"
-          },
           "dvars": {
             {
               "name": "da",
@@ -116,17 +110,23 @@ weight: 11294
           },
           "do": {
             {
+              "func": "cmd",
+              "vars": {
+                "a": "block_layer2_aaa"
+              },
               "do": {
                 {
                   "name": "print",
                   "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
                 }
-              },
-              "func": "cmd",
-              "vars": {
-                "a": "block_layer2_aaa"
               }
             }
+          },
+          "func": "block",
+          "desc": "test embeded 2nd layer of block",
+          "vars": {
+            "b": "local_block_layer2_bbb",
+            "a": "local_block_layer2_aaa"
           }
         },
         {
@@ -193,28 +193,28 @@ weight: 11294
     
     [local] dvar expanded result:
     {
-      "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "da": "local_da"
     }
     
     
     scope[local] merged: {
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
+      "db": "local_db",
       "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb"
     }
     
     
-    stoic_brown3: overall final exec vars:
+    focused_hoover4: overall final exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "da": "local_da"
+      "db": "local_db",
+      "da": "local_da",
+      "b": "local_bbb"
     })
     
     -Step1:
@@ -254,15 +254,15 @@ weight: 11294
     
     
     scope[local] merged: {
+      "c": "global_ccc",
+      "a": "local_aaa",
       "b": "local_bbb",
       "db": "local_db",
-      "da": "local_da",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      "da": "local_da"
     }
     
     
-    stoic_brown3: overall final exec vars:
+    focused_hoover4: overall final exec vars:
     
     (*core.Cache)({
       "c": "global_ccc",
@@ -325,16 +325,16 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
+      "a": "block_layer1_aaa",
       "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da",
       "db": "local_db",
-      "c": "global_ccc",
-      "a": "block_layer1_aaa"
+      "da": "local_da"
     })
     
     [local] dvar expanded result:
@@ -343,32 +343,32 @@ weight: 11294
     
     
     scope[local] merged: {
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da",
       "db": "local_db",
+      "da": "local_da",
       "c": "global_ccc",
-      "a": "block_layer1_aaa",
-      "b": "local_bbb"
+      "a": "block_layer1_aaa"
     }
     
     
-    stoic_brown3: overall final exec vars:
+    focused_hoover4: overall final exec vars:
     
     (*core.Cache)({
+      "a": "block_layer1_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da",
       "db": "local_db",
-      "c": "global_ccc",
-      "a": "block_layer1_aaa",
-      "b": "local_bbb"
+      "da": "local_da",
+      "c": "global_ccc"
     })
     
     layer 1
@@ -412,16 +412,16 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
+      "db": "local_db",
+      "da": "local_da",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "local_db",
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb"
+      })
     })
     
     [local] dvar expanded result:
@@ -430,6 +430,22 @@ weight: 11294
     
     
     scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "shell step2",
+        ErrMsg: ""
+      }),
+      "db": "local_db",
+      "da": "local_da",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb"
+    }
+    
+    
+    focused_hoover4: overall final exec vars:
+    
+    (*core.Cache)({
       "a": "local_aaa",
       "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
@@ -437,25 +453,9 @@ weight: 11294
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da",
       "db": "local_db",
+      "da": "local_da",
       "c": "global_ccc"
-    }
-    
-    
-    stoic_brown3: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "shell step2",
-        ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "local_db",
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb"
     })
     
     cmd( 1):
@@ -488,15 +488,15 @@ weight: 11294
       Name: "",
       Do: {
         {
+          "func": "cmd",
+          "vars": {
+            "a": "block_layer2_aaa"
+          },
           "do": {
             {
               "name": "print",
               "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          },
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer2_aaa"
           }
         }
       },
@@ -557,19 +557,18 @@ weight: 11294
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "da": "local_da"
     })
     
     [local] dvar expanded result:
     {
-      "da": "local_da_layer2",
-      "db": "local_db_layer2"
+      "db": "local_db_layer2",
+      "da": "local_da_layer2"
     }
     
     
     scope[local] merged: {
-      "db": "local_db_layer2",
       "c": "global_ccc",
       "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
@@ -578,23 +577,24 @@ weight: 11294
         Output: "shell step4",
         ErrMsg: ""
       }),
+      "db": "local_db_layer2",
       "da": "local_da_layer2"
     }
     
     
-    stoic_brown3: overall final exec vars:
+    focused_hoover4: overall final exec vars:
     
     (*core.Cache)({
+      "db": "local_db_layer2",
+      "da": "local_da_layer2",
+      "c": "global_ccc",
       "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      }),
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
-      "c": "global_ccc"
+      })
     })
     
     -Step1:
@@ -625,16 +625,16 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "block_layer2_aaa",
+      "db": "local_db_layer2",
       "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "da": "local_da_layer2",
-      "db": "local_db_layer2"
+      "c": "global_ccc",
+      "a": "block_layer2_aaa",
+      "da": "local_da_layer2"
     })
     
     [local] dvar expanded result:
@@ -643,10 +643,10 @@ weight: 11294
     
     
     scope[local] merged: {
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
       "c": "global_ccc",
       "a": "block_layer2_aaa",
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
       "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
@@ -656,18 +656,18 @@ weight: 11294
     }
     
     
-    stoic_brown3: overall final exec vars:
+    focused_hoover4: overall final exec vars:
     
     (*core.Cache)({
       "a": "block_layer2_aaa",
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
       "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
       "c": "global_ccc"
     })
     
@@ -712,16 +712,16 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
+      "a": "local_aaa",
       "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "local_db",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      })
     })
     
     [local] dvar expanded result:
@@ -733,29 +733,29 @@ weight: 11294
       "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "local_db"
+      })
     }
     
     
-    stoic_brown3: overall final exec vars:
+    focused_hoover4: overall final exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
       "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      }),
-      "da": "local_da"
+      })
     })
     
     cmd( 1):

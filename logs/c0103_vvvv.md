@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11033
 
@@ -17,7 +17,7 @@ weight: 11033
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0103
                  Verbose -> vvvv
-              ModuleName -> ecstatic_noyce5
+              ModuleName -> pensive_brown1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11033
     
     
     groups members:[]
-    module: [ecstatic_noyce5] instance id: [dev]
+    module: [pensive_brown1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "tom:\n  sex: male\n  age: 23\n",
@@ -58,11 +58,11 @@ weight: 11033
         {
           "name": "yml_write",
           "cmd": {
+            "verbose": "v",
+            "reg": "tomyml",
             "ymlstr": "{{.tom}}",
             "path": "tom.sex",
-            "value": "female",
-            "verbose": "v",
-            "reg": "tomyml"
+            "value": "female"
           }
         },
         {
@@ -105,11 +105,11 @@ weight: 11033
       "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
-    ecstatic_noyce5: overall final exec vars:
+    pensive_brown1: overall final exec vars:
     
     (*core.Cache)({
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
     ~SubStep1: [yml_write:  ]

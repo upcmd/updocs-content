@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11314
 
@@ -17,7 +17,7 @@ weight: 11314
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0131
                  Verbose -> vvvvv
-              ModuleName -> distracted_torvalds0
+              ModuleName -> desperate_cori7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11314
     -exec task: task
     loading [Task]:  ./tests/functests/c0131
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001854e0)(<nil>)
+    (*impl.Scopes)(0xc0001cf540)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11314
     
     
     groups members:[]
-    module: [distracted_torvalds0] instance id: [dev]
+    module: [desperate_cori7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 11314
     }
     
     
-    distracted_torvalds0: overall final exec vars:
+    desperate_cori7: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -125,13 +125,13 @@ weight: 11314
       If: "{{.goahead}}",
       Else: {
         {
+          "func": "cmd",
           "do": {
             {
               "name": "print",
               "cmd": "do something else step1 ......."
             }
-          },
-          "func": "cmd"
+          }
         },
         {
           "func": "shell",
@@ -143,8 +143,8 @@ weight: 11314
           "func": "cmd",
           "do": {
             {
-              "name": "print",
-              "cmd": "do something else step3 ......."
+              "cmd": "do something else step3 .......",
+              "name": "print"
             }
           }
         },
@@ -178,7 +178,7 @@ weight: 11314
     }
     
     
-    distracted_torvalds0: overall final exec vars:
+    desperate_cori7: overall final exec vars:
     
     (*core.Cache)({
     })

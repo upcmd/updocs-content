@@ -1,6 +1,6 @@
 ---
 title: "c0128_vvvvv"
-date: 2020-06-25T01:56:02+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11284
 
@@ -17,7 +17,7 @@ weight: 11284
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0128
                  Verbose -> vvvvv
-              ModuleName -> suspicious_poitras6
+              ModuleName -> tender_bohr9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 11284
     
     
     groups members:[]
-    module: [suspicious_poitras6] instance id: [dev]
+    module: [tender_bohr9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -58,9 +58,9 @@ weight: 11284
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -72,18 +72,18 @@ weight: 11284
       Name: "",
       Do: {
         {
+          "func": "shell",
           "do": {
             "echo \"shell step1\"",
             "echo \"shell step2\""
-          },
-          "func": "shell"
+          }
         },
         {
           "func": "cmd",
           "do": {
             {
-              "cmd": "cmd print step\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nda: {{.da}}\ndb: {{.db}}\n",
-              "name": "print"
+              "name": "print",
+              "cmd": "cmd print step\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
           }
         }
@@ -137,9 +137,9 @@ weight: 11284
     
     current exec runtime vars:
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb"
+      "a": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -150,20 +150,20 @@ weight: 11284
     
     
     scope[local] merged: {
+      "db": "local_db",
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "da": "local_da",
-      "db": "local_db"
+      "da": "local_da"
     }
     
     
-    suspicious_poitras6: overall final exec vars:
+    tender_bohr9: overall final exec vars:
     
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db"
     })
@@ -192,9 +192,9 @@ weight: 11284
     
     current exec runtime vars:
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db"
     })
@@ -205,22 +205,22 @@ weight: 11284
     
     
     scope[local] merged: {
-      "da": "local_da",
-      "db": "local_db",
       "c": "global_ccc",
       "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db",
       "b": "local_bbb"
     }
     
     
-    suspicious_poitras6: overall final exec vars:
+    tender_bohr9: overall final exec vars:
     
     (*core.Cache)({
-      "da": "local_da",
-      "db": "local_db",
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     cmd( 1):
@@ -274,16 +274,16 @@ weight: 11284
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
       "a": "local_aaa",
       "b": "local_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da",
+      "db": "local_db"
     })
     
     [local] dvar expanded result:
@@ -292,32 +292,32 @@ weight: 11284
     
     
     scope[local] merged: {
+      "db": "local_db",
+      "a": "local_aaa",
       "b": "local_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa"
+      "da": "local_da"
     }
     
     
-    suspicious_poitras6: overall final exec vars:
+    tender_bohr9: overall final exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "c": "global_ccc",
       "da": "local_da",
       "db": "local_db",
-      "a": "local_aaa"
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     cmd print step

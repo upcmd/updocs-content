@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvvv"
-date: 2020-06-25T01:55:53+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10934
 
@@ -17,7 +17,7 @@ weight: 10934
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0093
                  Verbose -> vvvvv
-              ModuleName -> compassionate_sammet7
+              ModuleName -> jovial_blackwell5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10934
     -exec task: task
     loading [Task]:  ./tests/functests/c0093
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5000)(<nil>)
+    (*impl.Scopes)(0xc0001f3000)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10934
     
     
     groups members:[]
-    module: [compassionate_sammet7] instance id: [dev]
+    module: [jovial_blackwell5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -105,7 +105,7 @@ weight: 10934
     }
     
     
-    compassionate_sammet7: overall final exec vars:
+    jovial_blackwell5: overall final exec vars:
     
     (*core.Cache)({
       "person": {
@@ -165,15 +165,15 @@ weight: 10934
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     }
     
     
-    compassionate_sammet7: overall final exec vars:
+    jovial_blackwell5: overall final exec vars:
     
     (*core.Cache)({
       "person": {

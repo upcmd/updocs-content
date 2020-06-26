@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100303
 
@@ -17,7 +17,7 @@ weight: 100303
               AbsWorkDir -> /up_project/up/tests/modtests/0003
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> thirsty_jones6
+              ModuleName -> sick_brattain5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 100303
     
     
     groups members:[]
-    module: [thirsty_jones6] instance id: [dev]
+    module: [sick_brattain5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "caller-aaa"
@@ -73,7 +73,7 @@ weight: 100303
       "a": "caller-aaa"
     })
     
-    thirsty_jones6: overall final exec vars:
+    sick_brattain5: overall final exec vars:
     
     (*core.Cache)({
       "a": "caller-aaa"
@@ -156,9 +156,9 @@ weight: 100303
     hello-module: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
-      "b": "module-bbb"
+      "b": "module-bbb",
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [print:  ]
@@ -217,19 +217,19 @@ weight: 100303
       "up_runtime_tasker_layer_number": 2
     })
     
-    thirsty_jones6: overall final exec vars:
+    sick_brattain5: overall final exec vars:
     
     (*core.Cache)({
+      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars](*core.Cache)({
+      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
      2: inspect[exec_base_vars]{

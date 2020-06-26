@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:30+66:00
 draft: false
 weight: 11183
 
@@ -17,7 +17,7 @@ weight: 11183
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0118
                  Verbose -> vvvv
-              ModuleName -> stupefied_banach2
+              ModuleName -> agitated_wilson8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,15 +33,15 @@ weight: 11183
     
     
     groups members:[]
-    module: [stupefied_banach2] instance id: [dev]
+    module: [agitated_wilson8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     }
     
     -------runtime global final merged with dvars-------
@@ -100,16 +100,16 @@ weight: 11183
       "person": "tom"
     })
     
-    stupefied_banach2: overall final exec vars:
+    agitated_wilson8: overall final exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
     condition failed, skip executing step step1
@@ -146,24 +146,24 @@ weight: 11183
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
+      "loopkey": "items",
       "person": "tom"
     })
     
-    stupefied_banach2: overall final exec vars:
+    agitated_wilson8: overall final exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
+      "loopkey": "items",
       "person": "tom"
     })
     
@@ -195,15 +195,15 @@ weight: 11183
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
-    stupefied_banach2: overall final exec vars:
+    agitated_wilson8: overall final exec vars:
     
     (*core.Cache)({
       "loopkey": "items",

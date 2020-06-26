@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10503
 
@@ -17,7 +17,7 @@ weight: 10503
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0050
                  Verbose -> vvvv
-              ModuleName -> modest_euclid6
+              ModuleName -> elegant_perlman4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10503
     
     
     groups members:[]
-    module: [modest_euclid6] instance id: [dev]
+    module: [elegant_perlman4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "Sydney Grammar"
@@ -42,14 +42,14 @@ weight: 10503
     -------runtime global final merged with dvars-------
     
     {
+      "z": "i am zzz",
+      "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "o": "o=><no value>",
-      "z": "i am zzz",
-      "yv": "y->i am zzz"
+      "school": "Sydney Grammar"
     }
     
       located task-> 1 [task]: 
@@ -90,22 +90,22 @@ weight: 10503
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "o": "o=><no value>",
+      "school": "Sydney Grammar",
       "z": "i am zzz"
     })
     
-    modest_euclid6: overall final exec vars:
+    elegant_perlman4: overall final exec vars:
     
     (*core.Cache)({
-      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "o": "o=><no value>",
+      "school": "Sydney Grammar",
       "z": "i am zzz",
-      "yv": "y->i am zzz"
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz"
     })
     
     cmd( 1):

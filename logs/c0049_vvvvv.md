@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10494
 
@@ -17,7 +17,7 @@ weight: 10494
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0049
                  Verbose -> vvvvv
-              ModuleName -> fervent_albattani5
+              ModuleName -> elegant_albattani9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10494
     -exec task: task
     loading [Task]:  ./tests/functests/c0049
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5420)((len=1 cap=1) {
+    (*impl.Scopes)(0xc00000e8c0)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -77,36 +77,36 @@ weight: 10494
     
     
     groups members:[]
-    module: [fervent_albattani5] instance id: [dev]
+    module: [elegant_albattani9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules"
+      "envvar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=6) "SCHOOL": (string) (len=11) "James Rules",
-     (string) (len=13) "envvar_SCHOOL": (string) (len=11) "James Rules"
+     (string) (len=13) "envvar_SCHOOL": (string) (len=11) "James Rules",
+     (string) (len=6) "SCHOOL": (string) (len=11) "James Rules"
     }
     
     [runtime global] dvar expanded result:
     {
+      "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
       "envvar_STUDENT_AGE": "18",
-      "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond"
+      "STUDENT_NAME": "James Bond"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
       "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond"
+      "envvar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18",
+      "envvar_STUDENT_AGE": "18"
     }
     
       located task-> 1 [task]: 
@@ -154,40 +154,40 @@ weight: 10494
     
     current exec runtime vars:
     (*core.Cache)({
-      "envvar_STUDENT_AGE": "18",
       "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envvar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18"
+      "STUDENT_AGE": "18",
+      "envvar_STUDENT_AGE": "18"
     })
     
     [local] dvar expanded result:
     {
-      "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks"
+      "envvar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
     scope[local] merged: {
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
-      "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
-    }
-    
-    
-    fervent_albattani5: overall final exec vars:
-    
-    (*core.Cache)({
-      "STUDENT_NAME": "Tom Hanks",
       "envvar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
       "envvar_STUDENT_AGE": "18",
       "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules"
+      "SCHOOL": "James Rules",
+      "STUDENT_NAME": "Tom Hanks"
+    }
+    
+    
+    elegant_albattani9: overall final exec vars:
+    
+    (*core.Cache)({
+      "envvar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_AGE": "18",
+      "envvar_STUDENT_AGE": "18",
+      "envvar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
+      "STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
@@ -242,7 +242,6 @@ weight: 10494
     
     current exec runtime vars:
     (*core.Cache)({
-      "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
       "envvar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
@@ -252,7 +251,8 @@ weight: 10494
       }),
       "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond"
+      "STUDENT_NAME": "James Bond",
+      "envvar_STUDENT_NAME": "James Bond"
     })
     
     [local] dvar expanded result:
@@ -261,21 +261,21 @@ weight: 10494
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "STUDENT_AGE=18",
-        ErrMsg: ""
-      }),
       "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
+      "envvar_STUDENT_AGE": "18",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "STUDENT_AGE=18",
+        ErrMsg: ""
+      })
     }
     
     
-    fervent_albattani5: overall final exec vars:
+    elegant_albattani9: overall final exec vars:
     
     (*core.Cache)({
       "STUDENT_AGE": "18",

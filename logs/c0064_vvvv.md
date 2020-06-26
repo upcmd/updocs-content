@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvv"
-date: 2020-06-25T01:55:47+66:00
+date: 2020-06-27T03:09:22+66:00
 draft: false
 weight: 10643
 
@@ -17,7 +17,7 @@ weight: 10643
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0064
                  Verbose -> vvvv
-              ModuleName -> focused_lumiere2
+              ModuleName -> trusting_tesla6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10643
     
     
     groups members:[]
-    module: [focused_lumiere2] instance id: [dev]
+    module: [trusting_tesla6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -47,9 +47,9 @@ weight: 10643
     
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     }
     
@@ -87,7 +87,7 @@ weight: 10643
       }
     })
     
-    focused_lumiere2: overall final exec vars:
+    trusting_tesla6: overall final exec vars:
     
     (*core.Cache)({
       "student": {
@@ -151,13 +151,13 @@ weight: 10643
       })
     })
     
-    focused_lumiere2: overall final exec vars:
+    trusting_tesla6: overall final exec vars:
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,

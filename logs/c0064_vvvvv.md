@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvvv"
-date: 2020-06-25T01:55:47+66:00
+date: 2020-06-27T03:09:22+66:00
 draft: false
 weight: 10644
 
@@ -17,7 +17,7 @@ weight: 10644
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0064
                  Verbose -> vvvvv
-              ModuleName -> kickass_yonath1
+              ModuleName -> sad_pasteur9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10644
     -exec task: task
     loading [Task]:  ./tests/functests/c0064
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eaf20)(<nil>)
+    (*impl.Scopes)(0xc000182f20)(<nil>)
     
     ---------group vars----------
     
@@ -36,13 +36,13 @@ weight: 10644
     
     
     groups members:[]
-    module: [kickass_yonath1] instance id: [dev]
+    module: [sad_pasteur9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     }
     
@@ -97,9 +97,9 @@ weight: 10644
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     })
     
@@ -110,20 +110,20 @@ weight: 10644
     
     scope[local] merged: {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
     
-    kickass_yonath1: overall final exec vars:
+    sad_pasteur9: overall final exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     })
     
@@ -150,8 +150,8 @@ weight: 10644
           "cmd": "hello, this is print commmand"
         },
         {
-          "cmd": "hello, {{.student.school}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "hello, {{.student.school}}"
         },
         {
           "name": "print",
@@ -176,9 +176,9 @@ weight: 10644
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,
@@ -194,9 +194,9 @@ weight: 10644
     
     scope[local] merged: {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,
@@ -206,13 +206,13 @@ weight: 10644
     }
     
     
-    kickass_yonath1: overall final exec vars:
+    sad_pasteur9: overall final exec vars:
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,

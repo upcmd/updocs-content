@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvv"
-date: 2020-06-25T01:56:25+66:00
+date: 2020-06-27T03:09:46+66:00
 draft: false
 weight: 100203
 
@@ -17,7 +17,7 @@ weight: 100203
               AbsWorkDir -> /up_project/up/tests/modtests/0002
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> adoring_sammet5
+              ModuleName -> boring_hoover3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 100203
     
     
     groups members:[]
-    module: [adoring_sammet5] instance id: [dev]
+    module: [boring_hoover3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 100203
     (*core.Cache)({
     })
     
-    adoring_sammet5: overall final exec vars:
+    boring_hoover3: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -112,7 +112,7 @@ weight: 100203
       })
     })
     
-    adoring_sammet5: overall final exec vars:
+    boring_hoover3: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -160,7 +160,7 @@ weight: 100203
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_sammet5: overall final exec vars:
+    boring_hoover3: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -205,16 +205,16 @@ weight: 100203
       "a": "caller-aaa"
     })
     
-    adoring_sammet5: overall final exec vars:
+    boring_hoover3: overall final exec vars:
     
     (*core.Cache)({
+      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa"
+      "up_runtime_task_layer_number": 1
     })
     
     loading [Config]:  ./upconfig.yml
@@ -281,27 +281,27 @@ weight: 100203
     (*core.Cache)({
       "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_tasker_layer_number": 2
     })
     
     hello-module: overall final exec vars:
     
     (*core.Cache)({
+      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [print:  ]

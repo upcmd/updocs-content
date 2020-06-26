@@ -1,6 +1,6 @@
 ---
 title: "c0136_vvvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11364
 
@@ -17,7 +17,7 @@ weight: 11364
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0136
                  Verbose -> vvvvv
-              ModuleName -> dreamy_leakey0
+              ModuleName -> sad_mclean8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11364
     -exec task: task
     loading [Task]:  ./tests/functests/c0136
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed540)(<nil>)
+    (*impl.Scopes)(0xc0001eb540)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11364
     
     
     groups members:[]
-    module: [dreamy_leakey0] instance id: [dev]
+    module: [sad_mclean8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -129,26 +129,26 @@ weight: 11364
     
     [local] dvar expanded result:
     {
-      "db": "local_db",
-      "da": "local_da"
-    }
-    
-    
-    scope[local] merged: {
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db"
     }
     
     
-    dreamy_leakey0: overall final exec vars:
+    scope[local] merged: {
+      "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc"
+    }
+    
+    
+    sad_mclean8: overall final exec vars:
     
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db"
     })
@@ -156,10 +156,10 @@ weight: 11364
     caller's vars to task (callee_task1)::
     (*core.Cache)({
       "b": "local_bbb",
-      "da": "local_da",
-      "db": "local_db",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db"
     })
     
       located task-> 3 [callee_task1]: 
@@ -175,8 +175,8 @@ weight: 11364
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "b": "local_bbb_callee_task1",
-        "a": "local_aaa_callee_task1"
+        "a": "local_aaa_callee_task1",
+        "b": "local_bbb_callee_task1"
       },
       Dvars: {
         {
@@ -221,12 +221,12 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
-      "a": "local_aaa",
       "da": "local_da",
       "db": "local_db",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 1,
-      "c": "global_ccc"
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -238,32 +238,32 @@ weight: 11364
     
     scope[local] merged: {
       "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
-      "up_runtime_task_layer_number": 1,
       "c": "global_ccc",
-      "b": "local_bbb"
+      "up_runtime_task_layer_number": 1
     }
     
     
-    dreamy_leakey0: overall final exec vars:
+    sad_mclean8: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "c": "global_ccc",
-      "b": "local_bbb",
       "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da_callee_task1",
-      "db": "local_db_callee_task1"
+      "db": "local_db_callee_task1",
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (callee_task2)::
     (*core.Cache)({
-      "c": "global_ccc",
-      "b": "local_bbb",
       "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 1
     })
     
@@ -332,12 +332,12 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
+      "up_runtime_task_layer_number": 2,
+      "b": "local_bbb",
       "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
-      "up_runtime_task_layer_number": 2,
-      "c": "global_ccc",
-      "b": "local_bbb"
+      "a": "local_aaa",
+      "c": "global_ccc"
     })
     
     [local] dvar expanded result:
@@ -347,24 +347,24 @@ weight: 11364
     
     
     scope[local] merged: {
+      "da": "local_da_callee_task1",
       "db": "callee_db_callee_task2",
-      "up_runtime_task_layer_number": 2,
-      "c": "global_ccc",
-      "b": "local_bbb",
       "a": "local_aaa",
-      "da": "local_da_callee_task1"
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 2,
+      "b": "local_bbb"
     }
     
     
-    dreamy_leakey0: overall final exec vars:
+    sad_mclean8: overall final exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "a": "local_aaa",
-      "da": "local_da_callee_task1",
-      "db": "callee_db_callee_task2",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
-      "c": "global_ccc"
+      "b": "local_bbb",
+      "da": "local_da_callee_task1",
+      "db": "callee_db_callee_task2"
     })
     
     ---Step1:
@@ -372,8 +372,8 @@ weight: 11364
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+          "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
+          "name": "print"
         },
         {
           "name": "assert",
@@ -406,12 +406,12 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "b": "local_bbb",
+      "up_runtime_task_layer_number": 2,
       "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da_callee_task1",
       "db": "callee_db_callee_task2",
-      "up_runtime_task_layer_number": 2
+      "c": "global_ccc"
     })
     
     [local] dvar expanded result:
@@ -420,24 +420,24 @@ weight: 11364
     
     
     scope[local] merged: {
-      "b": "local_bbb",
-      "a": "local_aaa",
       "da": "local_da_callee_task1",
       "db": "callee_db_callee_task2",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
-      "c": "global_ccc"
+      "a": "local_aaa",
+      "b": "local_bbb"
     }
     
     
-    dreamy_leakey0: overall final exec vars:
+    sad_mclean8: overall final exec vars:
     
     (*core.Cache)({
       "c": "global_ccc",
-      "b": "local_bbb",
+      "up_runtime_task_layer_number": 2,
       "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da_callee_task1",
-      "db": "callee_db_callee_task2",
-      "up_runtime_task_layer_number": 2
+      "db": "callee_db_callee_task2"
     })
     
     a: {{.a}}

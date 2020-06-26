@@ -1,6 +1,6 @@
 ---
 title: "c0138_vvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11383
 
@@ -17,7 +17,7 @@ weight: 11383
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0138
                  Verbose -> vvvv
-              ModuleName -> determined_franklin7
+              ModuleName -> kickass_almeida9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11383
     
     
     groups members:[]
-    module: [determined_franklin7] instance id: [dev]
+    module: [kickass_almeida9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -52,8 +52,8 @@ weight: 11383
       Name: "",
       Do: {
         {
-          "cmdy": "step1",
-          "name": "print"
+          "name": "print",
+          "cmdy": "step1"
         },
         {
           "name": "print",
@@ -83,7 +83,7 @@ weight: 11383
     (*core.Cache)({
     })
     
-    determined_franklin7: overall final exec vars:
+    kickass_almeida9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -132,7 +132,7 @@ weight: 11383
     (*core.Cache)({
     })
     
-    determined_franklin7: overall final exec vars:
+    kickass_almeida9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -173,7 +173,7 @@ weight: 11383
     (*core.Cache)({
     })
     
-    determined_franklin7: overall final exec vars:
+    kickass_almeida9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -208,7 +208,7 @@ weight: 11383
     (*core.Cache)({
     })
     
-    determined_franklin7: overall final exec vars:
+    kickass_almeida9: overall final exec vars:
     
     (*core.Cache)({
     })

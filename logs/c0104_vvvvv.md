@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11044
 
@@ -17,7 +17,7 @@ weight: 11044
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0104
                  Verbose -> vvvvv
-              ModuleName -> admiring_newton0
+              ModuleName -> jolly_euclid3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11044
     -exec task: task
     loading [Task]:  ./tests/functests/c0104
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f73a0)(<nil>)
+    (*impl.Scopes)(0xc0002653a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11044
     
     
     groups members:[]
-    module: [admiring_newton0] instance id: [dev]
+    module: [jolly_euclid3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "extra_task_name": "post_task"
@@ -97,7 +97,7 @@ weight: 11044
     }
     
     
-    admiring_newton0: overall final exec vars:
+    jolly_euclid3: overall final exec vars:
     
     (*core.Cache)({
       "extra_task_name": "post_task"
@@ -163,7 +163,7 @@ weight: 11044
     }
     
     
-    admiring_newton0: overall final exec vars:
+    jolly_euclid3: overall final exec vars:
     
     (*core.Cache)({
       "extra_task_name": "post_task",
@@ -211,12 +211,12 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "extra_task_name": "post_task",
       "up_runtime_task_layer_number": 1
     })
     
@@ -226,25 +226,25 @@ weight: 11044
     
     
     scope[local] merged: {
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "extra_task_name": "post_task",
       "up_runtime_task_layer_number": 1
     }
     
     
-    admiring_newton0: overall final exec vars:
+    jolly_euclid3: overall final exec vars:
     
     (*core.Cache)({
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "extra_task_name": "post_task",
       "up_runtime_task_layer_number": 1
     })
     
@@ -298,13 +298,13 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "world",
         ErrMsg: ""
       }),
-      "extra_task_name": "post_task"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -313,26 +313,26 @@ weight: 11044
     
     
     scope[local] merged: {
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "world",
         ErrMsg: ""
       }),
-      "extra_task_name": "post_task",
       "up_runtime_task_layer_number": 1
     }
     
     
-    admiring_newton0: overall final exec vars:
+    jolly_euclid3: overall final exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      }),
-      "extra_task_name": "post_task",
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):

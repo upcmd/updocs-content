@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11303
 
@@ -17,7 +17,7 @@ weight: 11303
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0130
                  Verbose -> vvvv
-              ModuleName -> sleepy_kowalevski4
+              ModuleName -> modest_pasteur7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11303
     
     
     groups members:[]
-    module: [sleepy_kowalevski4] instance id: [dev]
+    module: [modest_pasteur7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -58,11 +58,11 @@ weight: 11303
       Name: "",
       Do: {
         {
-          "func": "shell",
           "do": {
             "echo \"shell step1\"",
             "echo \"shell step2\""
-          }
+          },
+          "func": "shell"
         },
         {
           "func": "cmd",
@@ -172,16 +172,16 @@ weight: 11303
           }
         },
         {
+          "func": "cmd",
           "vars": {
             "a": "block_layer1_aaa_else"
           },
           "do": {
             {
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
-              "name": "print"
+              "name": "print",
+              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          },
-          "func": "cmd"
+          }
         }
       },
       Loop: <nil>,
@@ -192,19 +192,19 @@ weight: 11303
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
-    sleepy_kowalevski4: overall final exec vars:
+    modest_pasteur7: overall final exec vars:
     
     (*core.Cache)({
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     condition failed, skip executing step 

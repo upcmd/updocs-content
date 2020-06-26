@@ -1,6 +1,6 @@
 ---
 title: "c0017_vvvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10174
 
@@ -17,7 +17,7 @@ weight: 10174
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0017
                  Verbose -> vvvvv
-              ModuleName -> admiring_brattain1
+              ModuleName -> naughty_bohr6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10174
     -exec task: task
     loading [Task]:  ./tests/functests/c0017
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00026d2c0)(<nil>)
+    (*impl.Scopes)(0xc0001852c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +36,12 @@ weight: 10174
     
     
     groups members:[]
-    module: [admiring_brattain1] instance id: [dev]
+    module: [naughty_bohr6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     }
     
     (core.Cache) (len=3) {
@@ -58,9 +58,9 @@ weight: 10174
     -------runtime global final merged with dvars-------
     
     {
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     }
     
       located task-> 2 [task]: 
@@ -96,8 +96,8 @@ weight: 10174
     (*core.Cache)({
       "e": "runtime-e",
       "k": "runtime-k",
-      "a": "caller-ref-1a",
-      "b": "caller-ref-1b"
+      "b": "caller-ref-1b",
+      "a": "caller-ref-1a"
     })
     
     [local] dvar expanded result:
@@ -106,27 +106,27 @@ weight: 10174
     
     
     scope[local] merged: {
-      "a": "caller-ref-1a",
+      "k": "runtime-k",
       "b": "caller-ref-1b",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "a": "caller-ref-1a",
+      "e": "runtime-e"
     }
     
     
-    admiring_brattain1: overall final exec vars:
+    naughty_bohr6: overall final exec vars:
     
     (*core.Cache)({
-      "a": "caller-ref-1a",
+      "k": "runtime-k",
       "b": "caller-ref-1b",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "a": "caller-ref-1a",
+      "e": "runtime-e"
     })
     
     caller's vars to task (callee_task1)::
     (*core.Cache)({
       "k": "runtime-k",
-      "a": "caller-ref-1a",
       "b": "caller-ref-1b",
+      "a": "caller-ref-1a",
       "e": "runtime-e"
     })
     
@@ -162,12 +162,12 @@ weight: 10174
     
     current exec runtime vars:
     (*core.Cache)({
-      "e": "runtime-e",
+      "c": "callee-c",
       "k": "runtime-k",
+      "e": "runtime-e",
       "up_runtime_task_layer_number": 1,
       "a": "caller-ref-1a",
-      "b": "caller-ref-1b",
-      "c": "callee-c"
+      "b": "caller-ref-1b"
     })
     
     [local] dvar expanded result:
@@ -177,20 +177,20 @@ weight: 10174
     
     scope[local] merged: {
       "k": "runtime-k",
+      "e": "runtime-e",
       "up_runtime_task_layer_number": 1,
       "a": "caller-ref-1a",
       "b": "caller-ref-1b",
-      "c": "callee-c",
-      "e": "runtime-e"
+      "c": "callee-c"
     }
     
     
-    admiring_brattain1: overall final exec vars:
+    naughty_bohr6: overall final exec vars:
     
     (*core.Cache)({
       "c": "callee-c",
-      "e": "runtime-e",
       "k": "runtime-k",
+      "e": "runtime-e",
       "up_runtime_task_layer_number": 1,
       "a": "caller-ref-1a",
       "b": "caller-ref-1b"
@@ -244,15 +244,15 @@ weight: 10174
     . ok
     caller's vars to task (callee_task2)::
     (*core.Cache)({
-      "e": "runtime-e",
       "k": "runtime-k",
+      "b": "caller-ref-1b",
+      "a": "caller-ref-1a",
+      "e": "runtime-e",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
-      }),
-      "a": "caller-ref-1a",
-      "b": "caller-ref-1b"
+      })
     })
     
       located task-> 3 [callee_task2]: 
@@ -287,17 +287,17 @@ weight: 10174
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-1a",
-      "b": "caller-ref-1b",
-      "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
-      "e": "runtime-e",
       "k": "runtime-k",
+      "e": "runtime-e",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-ref-1a",
+      "b": "caller-ref-1b",
+      "c": "callee-c"
     })
     
     [local] dvar expanded result:
@@ -308,32 +308,32 @@ weight: 10174
     scope[local] merged: {
       "b": "caller-ref-1b",
       "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
-      "e": "runtime-e",
       "k": "runtime-k",
+      "e": "runtime-e",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 1,
       "a": "caller-ref-1a"
     }
     
     
-    admiring_brattain1: overall final exec vars:
+    naughty_bohr6: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "e": "runtime-e",
+      "c": "callee-c",
       "k": "runtime-k",
+      "e": "runtime-e",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 1,
       "a": "caller-ref-1a",
-      "b": "caller-ref-1b",
-      "c": "callee-c"
+      "b": "caller-ref-1b"
     })
     
     cmd( 1):
@@ -409,9 +409,9 @@ weight: 10174
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-2a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-2a",
       "up_runtime_task_layer_number": 1,
       "b": "caller-ref-2b"
     })
@@ -424,29 +424,29 @@ weight: 10174
     scope[local] merged: {
       "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-2a",
       "up_runtime_task_layer_number": 1,
-      "b": "caller-ref-2b",
-      "a": "caller-ref-2a"
+      "b": "caller-ref-2b"
     }
     
     
-    admiring_brattain1: overall final exec vars:
+    naughty_bohr6: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "b": "caller-ref-2b",
-      "a": "caller-ref-2a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "caller-ref-2a",
+      "up_runtime_task_layer_number": 1,
+      "b": "caller-ref-2b"
     })
     
     caller's vars to task (callee_task2)::
     (*core.Cache)({
       "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-2a",
       "up_runtime_task_layer_number": 1,
-      "b": "caller-ref-2b",
-      "a": "caller-ref-2a"
+      "b": "caller-ref-2b"
     })
     
       located task-> 3 [callee_task2]: 
@@ -463,9 +463,9 @@ weight: 10174
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "a": "callee-a",
         "b": "callee-b",
-        "c": "callee-c",
-        "a": "callee-a"
+        "c": "callee-c"
       },
       Dvars: <nil>,
       Desc: "",
@@ -481,9 +481,9 @@ weight: 10174
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "callee-c",
       "a": "caller-ref-2a",
       "b": "caller-ref-2b",
+      "c": "callee-c",
       "e": "runtime-e",
       "k": "runtime-k",
       "up_runtime_task_layer_number": 1
@@ -495,24 +495,24 @@ weight: 10174
     
     
     scope[local] merged: {
+      "a": "caller-ref-2a",
+      "b": "caller-ref-2b",
+      "c": "callee-c",
       "e": "runtime-e",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "c": "callee-c",
-      "a": "caller-ref-2a",
-      "b": "caller-ref-2b"
+      "up_runtime_task_layer_number": 1
     }
     
     
-    admiring_brattain1: overall final exec vars:
+    naughty_bohr6: overall final exec vars:
     
     (*core.Cache)({
+      "k": "runtime-k",
       "up_runtime_task_layer_number": 1,
-      "c": "callee-c",
       "a": "caller-ref-2a",
       "b": "caller-ref-2b",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "c": "callee-c",
+      "e": "runtime-e"
     })
     
     cmd( 1):
@@ -564,15 +564,15 @@ weight: 10174
     caller's vars to task (callee_task1)::
     (*core.Cache)({
       "a": "caller-ref-2a",
-      "e": "runtime-e",
-      "k": "runtime-k",
       "up_runtime_task_layer_number": 1,
       "b": "caller-ref-2b",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
-      })
+      }),
+      "e": "runtime-e",
+      "k": "runtime-k"
     })
     
       located task-> 1 [callee_task1]: 
@@ -589,9 +589,9 @@ weight: 10174
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "c": "callee-c",
         "a": "callee-a",
-        "b": "callee-b",
-        "c": "callee-c"
+        "b": "callee-b"
       },
       Dvars: <nil>,
       Desc: "",
@@ -607,6 +607,9 @@ weight: 10174
     
     current exec runtime vars:
     (*core.Cache)({
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c",
       "last_result": (*utils.ExecResult)({
@@ -614,10 +617,7 @@ weight: 10174
         Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-ref-2a"
+      "e": "runtime-e"
     })
     
     [local] dvar expanded result:
@@ -626,23 +626,6 @@ weight: 10174
     
     
     scope[local] merged: {
-      "b": "caller-ref-2b",
-      "c": "callee-c",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
-        ErrMsg: ""
-      }),
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-ref-2a"
-    }
-    
-    
-    admiring_brattain1: overall final exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
@@ -654,6 +637,23 @@ weight: 10174
       "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c"
+    }
+    
+    
+    naughty_bohr6: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-ref-2a",
+      "b": "caller-ref-2b",
+      "c": "callee-c",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
+        ErrMsg: ""
+      }),
+      "e": "runtime-e",
+      "k": "runtime-k"
     })
     
     cmd( 1):

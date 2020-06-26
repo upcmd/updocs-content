@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvvv"
-date: 2020-06-25T01:55:42+66:00
+date: 2020-06-27T03:09:18+66:00
 draft: false
 weight: 10354
 
@@ -17,7 +17,7 @@ weight: 10354
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0035
                  Verbose -> vvvvv
-              ModuleName -> dreamy_ritchie3
+              ModuleName -> romantic_mcclintock3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10354
     -exec task: task
     loading [Task]:  ./tests/functests/c0035
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000156f80)(<nil>)
+    (*impl.Scopes)(0xc0001ecf20)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10354
     
     
     groups members:[]
-    module: [dreamy_ritchie3] instance id: [dev]
+    module: [romantic_mcclintock3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -99,7 +99,7 @@ weight: 10354
     }
     
     
-    dreamy_ritchie3: overall final exec vars:
+    romantic_mcclintock3: overall final exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -163,7 +163,7 @@ weight: 10354
     }
     
     
-    dreamy_ritchie3: overall final exec vars:
+    romantic_mcclintock3: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

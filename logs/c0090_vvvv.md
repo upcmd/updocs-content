@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvv"
-date: 2020-06-25T01:55:52+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10903
 
@@ -17,7 +17,7 @@ weight: 10903
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0090
                  Verbose -> vvvv
-              ModuleName -> romantic_yonath4
+              ModuleName -> jolly_blackwell5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10903
     
     
     groups members:[]
-    module: [romantic_yonath4] instance id: [dev]
+    module: [jolly_blackwell5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -79,7 +79,7 @@ weight: 10903
       "taskvar": "taskvar"
     })
     
-    romantic_yonath4: overall final exec vars:
+    jolly_blackwell5: overall final exec vars:
     
     (*core.Cache)({
       "taskvar": "taskvar"
@@ -99,9 +99,9 @@ weight: 10903
           "cmd": "callee2: {{.person}}"
         },
         {
+          "cmd": "callee2: {{.loopitem}}",
           "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n",
-          "cmd": "callee2: {{.loopitem}}"
+          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n"
         },
         {
           "name": "print",
@@ -162,10 +162,10 @@ weight: 10903
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "taskvar": "taskvar",
       "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
     })
     
@@ -175,16 +175,16 @@ weight: 10903
     dvar> greet:
     "hello"
     
-    romantic_yonath4: overall final exec vars:
+    jolly_blackwell5: overall final exec vars:
     
     (*core.Cache)({
       "loopitem": "tom",
-      "up_runtime_task_layer_number": 1,
+      "person": "tom",
+      "greet": "hello",
       "loopindex": 0,
       "loopindex1": 1,
-      "taskvar": "taskvar",
-      "greet": "hello",
-      "person": "tom"
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -211,9 +211,9 @@ weight: 10903
           "cmd": "callee2: {{.person}}"
         },
         {
+          "cmd": "callee2: {{.loopitem}}",
           "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n",
-          "cmd": "callee2: {{.loopitem}}"
+          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n"
         },
         {
           "name": "print",
@@ -274,11 +274,11 @@ weight: 10903
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "peter",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     dvar> person:
@@ -287,16 +287,16 @@ weight: 10903
     dvar> greet:
     "hello"
     
-    romantic_yonath4: overall final exec vars:
+    jolly_blackwell5: overall final exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "person": "peter",
       "greet": "hello",
       "taskvar": "taskvar",
-      "loopitem": "peter"
+      "loopitem": "peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -318,9 +318,9 @@ weight: 10903
       Name: "",
       Do: {
         {
+          "cmd": "callee2: {{.person}}",
           "name": "print",
-          "desc": "as explained, this should be <no value>",
-          "cmd": "callee2: {{.person}}"
+          "desc": "as explained, this should be <no value>"
         },
         {
           "name": "print",
@@ -386,11 +386,11 @@ weight: 10903
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopindex": 2,
       "loopindex1": 3,
       "taskvar": "taskvar",
-      "loopitem": "james"
+      "loopitem": "james",
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 2
     })
     
     dvar> person:
@@ -399,16 +399,16 @@ weight: 10903
     dvar> greet:
     "hello"
     
-    romantic_yonath4: overall final exec vars:
+    jolly_blackwell5: overall final exec vars:
     
     (*core.Cache)({
-      "taskvar": "taskvar",
-      "person": "james",
-      "greet": "hello",
-      "loopitem": "james",
       "up_runtime_task_layer_number": 1,
+      "greet": "hello",
+      "person": "james",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "taskvar": "taskvar",
+      "loopitem": "james"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]

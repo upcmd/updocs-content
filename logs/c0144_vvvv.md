@@ -1,6 +1,6 @@
 ---
 title: "c0144_vvvv"
-date: 2020-06-25T01:56:06+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11443
 
@@ -17,7 +17,7 @@ weight: 11443
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0144
                  Verbose -> vvvv
-              ModuleName -> kickass_poincare3
+              ModuleName -> sad_perlman8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11443
     
     
     groups members:[]
-    module: [kickass_poincare3] instance id: [dev]
+    module: [sad_perlman8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 11443
     (*core.Cache)({
     })
     
-    kickass_poincare3: overall final exec vars:
+    sad_perlman8: overall final exec vars:
     
     (*core.Cache)({
     })

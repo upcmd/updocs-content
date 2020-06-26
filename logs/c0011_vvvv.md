@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10113
 
@@ -17,7 +17,7 @@ weight: 10113
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0011
                  Verbose -> vvvv
-              ModuleName -> desperate_fermi9
+              ModuleName -> pensive_wozniak7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -28,14 +28,6 @@ weight: 10113
     loading [Task]:  ./tests/functests/c0011
     ---------group vars----------
     
-    global: {
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b",
-      "c": "global-c"
-    }
-    
-    
     prod: {
       "a": "prod-a",
       "c": "prod-c"
@@ -43,31 +35,39 @@ weight: 10113
     
     
     nonprod: {
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
+      "c": "non-prod-c",
+      "a": "non-prod-a"
+    }
+    
+    
+    global: {
+      "b": "global-b",
+      "c": "global-c",
+      "d": "global-d",
+      "a": "global-a"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [desperate_fermi9] instance id: [dev]
+    module: [pensive_wozniak7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
       "a": "runtime-a",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "b": "non-prod-b",
       "c": "dev-c",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "d": "global-d"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "d": "global-d",
-      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
+      "d": "global-d",
+      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k"
     }
@@ -85,8 +85,8 @@ weight: 10113
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "m": "local-m",
-        "e": "local-e"
+        "e": "local-e",
+        "m": "local-m"
       },
       Dvars: <nil>,
       Desc: "",
@@ -104,23 +104,23 @@ weight: 10113
     (*core.Cache)({
       "b": "non-prod-b",
       "c": "dev-c",
-      "m": "local-m",
+      "d": "global-d",
+      "a": "runtime-a",
       "e": "local-e",
       "k": "runtime-k",
-      "d": "global-d",
-      "a": "runtime-a"
+      "m": "local-m"
     })
     
-    desperate_fermi9: overall final exec vars:
+    pensive_wozniak7: overall final exec vars:
     
     (*core.Cache)({
+      "d": "global-d",
       "a": "runtime-a",
-      "b": "non-prod-b",
-      "c": "dev-c",
-      "m": "local-m",
       "e": "local-e",
       "k": "runtime-k",
-      "d": "global-d"
+      "m": "local-m",
+      "b": "non-prod-b",
+      "c": "dev-c"
     })
     
     cmd( 1):

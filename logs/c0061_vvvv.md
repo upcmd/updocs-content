@@ -1,6 +1,6 @@
 ---
 title: "c0061_vvvv"
-date: 2020-06-25T01:55:47+66:00
+date: 2020-06-27T03:09:22+66:00
 draft: false
 weight: 10613
 
@@ -17,7 +17,7 @@ weight: 10613
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0061
                  Verbose -> vvvv
-              ModuleName -> clever_shockley3
+              ModuleName -> cocky_poitras8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,16 +33,16 @@ weight: 10613
     
     
     groups members:[]
-    module: [clever_shockley3] instance id: [dev]
+    module: [cocky_poitras8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     }
     
     -------runtime global final merged with dvars-------
@@ -87,25 +87,25 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
     cmd( 1):
@@ -146,13 +146,13 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 2",
@@ -160,7 +160,7 @@ weight: 10613
       })
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -168,13 +168,13 @@ weight: 10613
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
       located task-> 3 [task_a]: 
@@ -204,22 +204,22 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
+      "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -227,14 +227,14 @@ weight: 10613
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -271,36 +271,36 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task_a_step1",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "task_a_step1",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 1
     })
     
@@ -338,22 +338,22 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "task_c_step1",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task_c_step1",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      "student_name": "tom"
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
       "classes": {
@@ -362,12 +362,12 @@ weight: 10613
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task_c_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -401,30 +401,30 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      }
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
@@ -462,43 +462,43 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "loopitem": "1k",
       "loopindex": 0,
       "loopindex1": 1
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
-      "loopitem": "1k",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "1k"
     })
     
     cmd( 1):
@@ -542,43 +542,43 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "0 -> student nameed tom has been in class [1k]",
         ErrMsg: ""
       }),
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "loopitem": "2b",
       "loopindex": 1,
       "loopindex1": 2
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "loopitem": "2b",
+      "loopindex": 1,
+      "loopindex1": 2,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "0 -> student nameed tom has been in class [1k]",
         ErrMsg: ""
       }),
-      "student_name": "tom",
-      "loopitem": "2b",
-      "loopindex": 1,
-      "loopindex1": 2
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -622,43 +622,43 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "3j",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "1 -> student nameed tom has been in class [2b]",
         ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "loopitem": "3j"
+      })
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "3j",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "1 -> student nameed tom has been in class [2b]",
         ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "loopitem": "3j"
+      })
     })
     
     cmd( 1):
@@ -702,43 +702,43 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "2 -> student nameed tom has been in class [3j]",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
       "loopitem": "4s",
       "loopindex": 3,
       "loopindex1": 4,
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "2 -> student nameed tom has been in class [3j]",
-        ErrMsg: ""
-      })
+      "student_name": "tom"
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "2 -> student nameed tom has been in class [3j]",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "loopitem": "4s",
       "loopindex": 3,
       "loopindex1": 4,
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "2 -> student nameed tom has been in class [3j]",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "4s"
     })
     
     cmd( 1):
@@ -784,31 +784,31 @@ weight: 10613
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -847,13 +847,13 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 4",
@@ -862,22 +862,22 @@ weight: 10613
       "up_runtime_task_layer_number": 1
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
       located task-> 2 [a_very_complicated_task]: 
@@ -909,37 +909,37 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 4",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
-    })
-    
-    clever_shockley3: overall final exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1
+    })
+    
+    cocky_poitras8: overall final exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "task step 4",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom"
     })
     
     cmd( 1):
@@ -985,36 +985,36 @@ weight: 10613
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
-    clever_shockley3: overall final exec vars:
+    cocky_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
       "student_name": "tom"
     })
     

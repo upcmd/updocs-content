@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10493
 
@@ -17,7 +17,7 @@ weight: 10493
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0049
                  Verbose -> vvvv
-              ModuleName -> fervent_kowalevski4
+              ModuleName -> evil_franklin3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -29,13 +29,13 @@ weight: 10493
     ---------group vars----------
     
     global: {
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules"
+      "SCHOOL": "James Rules",
+      "envvar_SCHOOL": "James Rules"
     }
     
     
     groups members:[]
-    module: [fervent_kowalevski4] instance id: [dev]
+    module: [evil_franklin3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "envvar_SCHOOL": "James Rules",
@@ -45,12 +45,12 @@ weight: 10493
     -------runtime global final merged with dvars-------
     
     {
-      "envvar_STUDENT_AGE": "18",
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond",
       "envvar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18"
+      "STUDENT_AGE": "18",
+      "envvar_STUDENT_AGE": "18",
+      "SCHOOL": "James Rules",
+      "envvar_SCHOOL": "James Rules",
+      "STUDENT_NAME": "James Bond"
     }
     
       located task-> 1 [task]: 
@@ -98,23 +98,23 @@ weight: 10493
     
     current exec runtime vars:
     (*core.Cache)({
-      "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
+      "envvar_SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
       "envvar_STUDENT_AGE": "18"
     })
     
-    fervent_kowalevski4: overall final exec vars:
+    evil_franklin3: overall final exec vars:
     
     (*core.Cache)({
-      "envvar_STUDENT_AGE": "18",
-      "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
+      "envvar_SCHOOL": "James Rules",
       "STUDENT_NAME": "Tom Hanks",
       "envvar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_AGE": "18"
+      "STUDENT_AGE": "18",
+      "envvar_STUDENT_AGE": "18"
     })
     
     cmd( 1):
@@ -157,6 +157,23 @@ weight: 10493
     
     current exec runtime vars:
     (*core.Cache)({
+      "envvar_STUDENT_AGE": "18",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "STUDENT_AGE=18",
+        ErrMsg: ""
+      }),
+      "SCHOOL": "James Rules",
+      "envvar_SCHOOL": "James Rules",
+      "STUDENT_NAME": "James Bond",
+      "envvar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18"
+    })
+    
+    evil_franklin3: overall final exec vars:
+    
+    (*core.Cache)({
+      "envvar_SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
@@ -166,24 +183,7 @@ weight: 10493
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
-      "envvar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules"
-    })
-    
-    fervent_kowalevski4: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "STUDENT_AGE=18",
-        ErrMsg: ""
-      }),
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
     })
     
     cmd( 1):

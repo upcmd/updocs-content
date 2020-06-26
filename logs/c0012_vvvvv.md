@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10124
 
@@ -17,7 +17,7 @@ weight: 10124
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0012
                  Verbose -> vvvvv
-              ModuleName -> trusting_hopper7
+              ModuleName -> mad_yalow6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10124
     -exec task: task
     loading [Task]:  ./tests/functests/c0012
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000158ee0)(<nil>)
+    (*impl.Scopes)(0xc0001eee80)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,18 @@ weight: 10124
     
     
     groups members:[]
-    module: [trusting_hopper7] instance id: [dev]
+    module: [mad_yalow6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "e": (string) (len=9) "runtime-e",
      (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=1) "a": (string) (len=9) "runtime-a"
+     (string) (len=1) "a": (string) (len=9) "runtime-a",
+     (string) (len=1) "e": (string) (len=9) "runtime-e"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +58,9 @@ weight: 10124
     -------runtime global final merged with dvars-------
     
     {
+      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "a": "runtime-a"
     }
     
       located task-> 1 [task]: 
@@ -91,9 +91,9 @@ weight: 10124
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     })
     
     [local] dvar expanded result:
@@ -102,18 +102,18 @@ weight: 10124
     
     
     scope[local] merged: {
-      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
     
-    trusting_hopper7: overall final exec vars:
+    mad_yalow6: overall final exec vars:
     
     (*core.Cache)({
+      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "a": "runtime-a"
     })
     
     cmd( 1):

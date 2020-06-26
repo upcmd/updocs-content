@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvvv"
-date: 2020-06-25T01:56:02+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11274
 
@@ -17,7 +17,7 @@ weight: 11274
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0127
                  Verbose -> vvvvv
-              ModuleName -> loving_tesla9
+              ModuleName -> lonely_archimedes8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11274
     -exec task: task
     loading [Task]:  ./tests/functests/c0127
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185620)(<nil>)
+    (*impl.Scopes)(0xc00000ef40)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11274
     
     
     groups members:[]
-    module: [loving_tesla9] instance id: [dev]
+    module: [lonely_archimedes8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -63,8 +63,8 @@ weight: 11274
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n"
+          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -95,7 +95,7 @@ weight: 11274
     }
     
     
-    loving_tesla9: overall final exec vars:
+    lonely_archimedes8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -143,7 +143,7 @@ weight: 11274
     }
     
     
-    loving_tesla9: overall final exec vars:
+    lonely_archimedes8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -189,7 +189,7 @@ weight: 11274
     }
     
     
-    loving_tesla9: overall final exec vars:
+    lonely_archimedes8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -241,7 +241,7 @@ weight: 11274
     }
     
     
-    loving_tesla9: overall final exec vars:
+    lonely_archimedes8: overall final exec vars:
     
     (*core.Cache)({
       "goahead": true
@@ -261,8 +261,8 @@ weight: 11274
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "go ahead ......."
+          "cmd": "go ahead .......",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -282,8 +282,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -297,67 +297,7 @@ weight: 11274
     }
     
     
-    loving_tesla9: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
-    })
-    
-    go ahead .......
-    ~~SubStep1: [print:  ]
-    go ahead .......
-    caller's vars to task (goahead)::
-    (*core.Cache)({
-      "goahead": true
-    })
-    
-      located task-> 2 [goahead]: 
-    =Task2: [task ==> goahead:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "go ahead ......."
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    loving_tesla9: overall final exec vars:
+    lonely_archimedes8: overall final exec vars:
     
     (*core.Cache)({
       "goahead": true,
@@ -417,7 +357,67 @@ weight: 11274
     }
     
     
-    loving_tesla9: overall final exec vars:
+    lonely_archimedes8: overall final exec vars:
+    
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    go ahead .......
+    ~~SubStep1: [print:  ]
+    go ahead .......
+    caller's vars to task (goahead)::
+    (*core.Cache)({
+      "goahead": true
+    })
+    
+      located task-> 2 [goahead]: 
+    =Task2: [task ==> goahead:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "go ahead ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
+    }
+    
+    
+    lonely_archimedes8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,

@@ -1,6 +1,6 @@
 ---
 title: "c0133_vvvv"
-date: 2020-06-25T01:56:04+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11333
 
@@ -17,7 +17,7 @@ weight: 11333
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0133
                  Verbose -> vvvv
-              ModuleName -> sick_banach5
+              ModuleName -> jovial_bartik0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,20 +33,20 @@ weight: 11333
     
     
     groups members:[]
-    module: [sick_banach5] instance id: [dev]
+    module: [jovial_bartik0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -58,13 +58,14 @@ weight: 11333
       Name: "",
       Do: {
         {
-          "func": "shell",
           "do": {
             "echo \"shell step1\"",
             "echo \"shell step2\""
-          }
+          },
+          "func": "shell"
         },
         {
+          "func": "cmd",
           "vars": {
             "a": "block_layer1_aaa"
           },
@@ -92,8 +93,7 @@ weight: 11333
                 "failfast"
               }
             }
-          },
-          "func": "cmd"
+          }
         },
         {
           "do": {
@@ -111,8 +111,8 @@ weight: 11333
           },
           "dvars": {
             {
-              "name": "da",
-              "value": "local_da_layer2"
+              "value": "local_da_layer2",
+              "name": "da"
             },
             {
               "name": "db",
@@ -121,6 +121,7 @@ weight: 11333
           },
           "do": {
             {
+              "func": "cmd",
               "vars": {
                 "a": "block_layer2_aaa"
               },
@@ -142,8 +143,7 @@ weight: 11333
                     "failfast"
                   }
                 }
-              },
-              "func": "cmd"
+              }
             }
           }
         },
@@ -158,8 +158,8 @@ weight: 11333
       Dox: <nil>,
       Func: "block",
       Vars: {
-        "b": "local_bbb",
-        "a": "local_aaa"
+        "a": "local_aaa",
+        "b": "local_bbb"
       },
       Dvars: {
         {
@@ -204,19 +204,19 @@ weight: 11333
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
-    sick_banach5: overall final exec vars:
+    jovial_bartik0: overall final exec vars:
     
     (*core.Cache)({
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc",
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "c": "global_ccc"
     })
     
     -Step1:
@@ -243,21 +243,21 @@ weight: 11333
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da",
       "db": "local_db",
-      "a": "local_aaa"
+      "da": "local_da"
     })
     
-    sick_banach5: overall final exec vars:
+    jovial_bartik0: overall final exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "da": "local_da",
       "db": "local_db",
-      "a": "local_aaa"
+      "da": "local_da",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     cmd( 1):
@@ -329,31 +329,31 @@ weight: 11333
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "block_layer1_aaa",
-      "b": "local_bbb",
-      "da": "local_da",
-      "db": "local_db",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da",
+      "db": "local_db",
+      "a": "block_layer1_aaa",
+      "b": "local_bbb"
     })
     
-    sick_banach5: overall final exec vars:
+    jovial_bartik0: overall final exec vars:
     
     (*core.Cache)({
       "a": "block_layer1_aaa",
       "b": "local_bbb",
-      "da": "local_da",
-      "db": "local_db_layer1",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da",
+      "db": "local_db_layer1"
     })
     
     ~SubStep1: [print:  ]
@@ -395,22 +395,6 @@ weight: 11333
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "shell step2",
-        ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "local_db"
-    })
-    
-    sick_banach5: overall final exec vars:
-    
-    (*core.Cache)({
-      "da": "local_da",
       "db": "local_db",
       "a": "local_aaa",
       "b": "local_bbb",
@@ -419,7 +403,23 @@ weight: 11333
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da"
+    })
+    
+    jovial_bartik0: overall final exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "shell step2",
+        ErrMsg: ""
+      }),
+      "da": "local_da",
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     cmd( 1):
@@ -440,15 +440,16 @@ weight: 11333
       Name: "",
       Do: {
         {
+          "func": "cmd",
+          "vars": {
+            "a": "block_layer2_aaa"
+          },
           "do": {
             {
               "name": "print",
               "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             },
             {
-              "flags": {
-                "failfast"
-              },
               "name": "assert",
               "cmd": {
                 "{{eq .a \"block_layer2_aaa\" }}",
@@ -456,12 +457,11 @@ weight: 11333
                 "{{eq .c \"global_ccc\" }}",
                 "{{eq .da \"local_da_layer2\" }}",
                 "{{eq .db \"local_db_layer2\" }}"
+              },
+              "flags": {
+                "failfast"
               }
             }
-          },
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer2_aaa"
           }
         }
       },
@@ -514,6 +514,7 @@ weight: 11333
     
     current exec runtime vars:
     (*core.Cache)({
+      "b": "local_block_layer2_bbb",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
@@ -522,14 +523,12 @@ weight: 11333
       }),
       "da": "local_da",
       "db": "local_db",
-      "a": "local_block_layer2_aaa",
-      "b": "local_block_layer2_bbb"
+      "a": "local_block_layer2_aaa"
     })
     
-    sick_banach5: overall final exec vars:
+    jovial_bartik0: overall final exec vars:
     
     (*core.Cache)({
-      "da": "local_da_layer2",
       "db": "local_db_layer2",
       "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
@@ -538,7 +537,8 @@ weight: 11333
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da_layer2"
     })
     
     -Step1:
@@ -582,6 +582,21 @@ weight: 11333
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "shell step4",
+        ErrMsg: ""
+      }),
+      "da": "local_da_layer2",
+      "db": "local_db_layer2"
+    })
+    
+    jovial_bartik0: overall final exec vars:
+    
+    (*core.Cache)({
       "da": "local_da_layer2",
       "db": "local_db_layer2",
       "a": "block_layer2_aaa",
@@ -592,21 +607,6 @@ weight: 11333
         Output: "shell step4",
         ErrMsg: ""
       })
-    })
-    
-    sick_banach5: overall final exec vars:
-    
-    (*core.Cache)({
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "shell step4",
-        ErrMsg: ""
-      }),
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
-      "a": "block_layer2_aaa"
     })
     
     ~SubStep1: [print:  ]
@@ -656,11 +656,11 @@ weight: 11333
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     })
     
-    sick_banach5: overall final exec vars:
+    jovial_bartik0: overall final exec vars:
     
     (*core.Cache)({
       "b": "local_bbb",
@@ -670,8 +670,8 @@ weight: 11333
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "db": "local_db",
       "da": "local_da",
+      "db": "local_db",
       "a": "local_aaa"
     })
     

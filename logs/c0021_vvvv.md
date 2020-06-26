@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10213
 
@@ -17,7 +17,7 @@ weight: 10213
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0021
                  Verbose -> vvvv
-              ModuleName -> jovial_mcclintock5
+              ModuleName -> insane_goldstine6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10213
     
     
     groups members:[]
-    module: [jovial_mcclintock5] instance id: [dev]
+    module: [insane_goldstine6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -60,10 +60,10 @@ weight: 10213
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "school": "Sydney Grammar",
         "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
         "student": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       Dvars: <nil>,
       Desc: "",
@@ -81,13 +81,13 @@ weight: 10213
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+      "student": "Tom"
     })
     
-    jovial_mcclintock5: overall final exec vars:
+    insane_goldstine6: overall final exec vars:
     
     (*core.Cache)({
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",

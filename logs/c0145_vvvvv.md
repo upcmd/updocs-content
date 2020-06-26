@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvvv"
-date: 2020-06-25T01:56:07+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11454
 
@@ -17,7 +17,7 @@ weight: 11454
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0145
                  Verbose -> vvvvv
-              ModuleName -> determined_heisenberg7
+              ModuleName -> cocky_nobel2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11454
     -exec task: task
     loading [Task]:  ./tests/functests/c0145
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecfc0)(<nil>)
+    (*impl.Scopes)(0xc0001c8fc0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11454
     
     
     groups members:[]
-    module: [determined_heisenberg7] instance id: [dev]
+    module: [cocky_nobel2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -100,7 +100,7 @@ weight: 11454
     }
     
     
-    determined_heisenberg7: overall final exec vars:
+    cocky_nobel2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -141,7 +141,7 @@ weight: 11454
     }
     
     
-    determined_heisenberg7: overall final exec vars:
+    cocky_nobel2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -151,12 +151,12 @@ weight: 11454
     
      \_ cat /tmp/mockup_doc.md
     title: "HelloWorld example"
-    date: 2020-06-25T00:27:38+66:00
+    date: 2020-06-27T03:07:59+66:00
     draft: false
      .. ok
     (utils.ExecResult) {
      Code: (int) 0,
-     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-06-25T00:27:38+66:00\ndraft: false",
+     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-06-27T03:07:59+66:00\ndraft: false",
      ErrMsg: (string) ""
     }
     

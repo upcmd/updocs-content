@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvv"
-date: 2020-06-25T01:55:40+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10243
 
@@ -17,7 +17,7 @@ weight: 10243
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0024
                  Verbose -> vvvv
-              ModuleName -> evil_lumiere5
+              ModuleName -> sleepy_rosalind6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,13 +33,13 @@ weight: 10243
     
     
     groups members:[]
-    module: [evil_lumiere5] instance id: [dev]
+    module: [sleepy_rosalind6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     }
     
@@ -47,9 +47,9 @@ weight: 10243
     
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -85,25 +85,25 @@ weight: 10243
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "studentname": "Tom",
-      "studentgender": "Male"
-    })
-    
-    evil_lumiere5: overall final exec vars:
-    
-    (*core.Cache)({
       "studentname": "Tom",
       "studentgender": "Male",
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
+    })
+    
+    sleepy_rosalind6: overall final exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0140_vvvvv"
-date: 2020-06-25T01:56:06+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11404
 
@@ -17,7 +17,7 @@ weight: 11404
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0140
                  Verbose -> vvvvv
-              ModuleName -> sleepy_meitner9
+              ModuleName -> boring_fermi5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11404
     -exec task: task
     loading [Task]:  ./tests/functests/c0140
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00024f1e0)(<nil>)
+    (*impl.Scopes)(0xc000185180)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11404
     
     
     groups members:[]
-    module: [sleepy_meitner9] instance id: [dev]
+    module: [boring_fermi5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 11404
     }
     
     
-    sleepy_meitner9: overall final exec vars:
+    boring_fermi5: overall final exec vars:
     
     (*core.Cache)({
     })

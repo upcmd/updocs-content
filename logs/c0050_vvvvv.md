@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10504
 
@@ -17,7 +17,7 @@ weight: 10504
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0050
                  Verbose -> vvvvv
-              ModuleName -> sick_turing6
+              ModuleName -> naughty_rosalind9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10504
     -exec task: task
     loading [Task]:  ./tests/functests/c0050
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c7060)(<nil>)
+    (*impl.Scopes)(0xc000185000)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10504
     
     
     groups members:[]
-    module: [sick_turing6] instance id: [dev]
+    module: [naughty_rosalind9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "Sydney Grammar"
@@ -48,27 +48,27 @@ weight: 10504
     
     [runtime global] dvar expanded result:
     {
-      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz"
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "m": "m=>n=>Sydney Grammar",
       "school": "Sydney Grammar",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar"
+      "x": "x=>y->i am zzz"
     }
     
       located task-> 1 [task]: 
@@ -105,12 +105,12 @@ weight: 10504
     current exec runtime vars:
     (*core.Cache)({
       "m": "m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar"
     })
     
@@ -120,28 +120,28 @@ weight: 10504
     
     
     scope[local] merged: {
+      "z": "i am zzz",
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
       "school": "Sydney Grammar",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>"
+    }
+    
+    
+    naughty_rosalind9: overall final exec vars:
+    
+    (*core.Cache)({
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar"
-    }
-    
-    
-    sick_turing6: overall final exec vars:
-    
-    (*core.Cache)({
-      "o": "o=><no value>",
-      "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar"
     })
     
     cmd( 1):

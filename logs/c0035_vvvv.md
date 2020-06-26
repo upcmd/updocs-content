@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvv"
-date: 2020-06-25T01:55:42+66:00
+date: 2020-06-27T03:09:18+66:00
 draft: false
 weight: 10353
 
@@ -17,7 +17,7 @@ weight: 10353
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0035
                  Verbose -> vvvv
-              ModuleName -> berserk_newton7
+              ModuleName -> thirsty_mclean8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10353
     
     
     groups members:[]
-    module: [berserk_newton7] instance id: [dev]
+    module: [thirsty_mclean8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -56,8 +56,8 @@ weight: 10353
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "a": "aaa",
-        "b": "bbb"
+        "b": "bbb",
+        "a": "aaa"
       },
       Dvars: <nil>,
       Desc: "",
@@ -73,15 +73,15 @@ weight: 10353
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "a": "aaa"
     })
     
-    berserk_newton7: overall final exec vars:
+    thirsty_mclean8: overall final exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "a": "aaa"
     })
     
     cmd( 1):
@@ -121,7 +121,7 @@ weight: 10353
       })
     })
     
-    berserk_newton7: overall final exec vars:
+    thirsty_mclean8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

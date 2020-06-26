@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10214
 
@@ -17,7 +17,7 @@ weight: 10214
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0021
                  Verbose -> vvvvv
-              ModuleName -> clever_sammet6
+              ModuleName -> mad_hawking1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10214
     -exec task: task
     loading [Task]:  ./tests/functests/c0021
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f4f00)(<nil>)
+    (*impl.Scopes)(0xc0001eaf00)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10214
     
     
     groups members:[]
-    module: [clever_sammet6] instance id: [dev]
+    module: [mad_hawking1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,10 +92,10 @@ weight: 10214
     
     current exec runtime vars:
     (*core.Cache)({
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+      "student": "Tom"
     })
     
     [local] dvar expanded result:
@@ -104,14 +104,14 @@ weight: 10214
     
     
     scope[local] merged: {
-      "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom",
-      "gender": "Male"
+      "gender": "Male",
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
     }
     
     
-    clever_sammet6: overall final exec vars:
+    mad_hawking1: overall final exec vars:
     
     (*core.Cache)({
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",

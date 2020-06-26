@@ -1,6 +1,6 @@
 ---
 title: "c0121_vvvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11214
 
@@ -17,7 +17,7 @@ weight: 11214
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0121
                  Verbose -> vvvvv
-              ModuleName -> prickly_newton4
+              ModuleName -> berserk_newton2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11214
     -exec task: task
     loading [Task]:  ./tests/functests/c0121
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed620)(<nil>)
+    (*impl.Scopes)(0xc000183620)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11214
     
     
     groups members:[]
-    module: [prickly_newton4] instance id: [dev]
+    module: [berserk_newton2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -135,7 +135,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -153,8 +153,8 @@ weight: 11214
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "sub task step1"
+          "cmd": "sub task step1",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -187,7 +187,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -234,7 +234,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -305,7 +305,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -348,7 +348,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -402,7 +402,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -438,8 +438,8 @@ weight: 11214
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": "tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "tom"
     })
     
     [local] dvar expanded result:
@@ -453,11 +453,11 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "tom"
+      "person": "tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [break:  ]
@@ -525,7 +525,7 @@ weight: 11214
     }
     
     
-    prickly_newton4: overall final exec vars:
+    berserk_newton2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

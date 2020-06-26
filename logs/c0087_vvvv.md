@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvv"
-date: 2020-06-25T01:55:52+66:00
+date: 2020-06-27T03:09:25+66:00
 draft: false
 weight: 10873
 
@@ -17,7 +17,7 @@ weight: 10873
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0087
                  Verbose -> vvvv
-              ModuleName -> evil_ptolemy8
+              ModuleName -> sharp_payne4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10873
     
     
     groups members:[]
-    module: [evil_ptolemy8] instance id: [dev]
+    module: [sharp_payne4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 10873
     (*core.Cache)({
     })
     
-    evil_ptolemy8: overall final exec vars:
+    sharp_payne4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -117,7 +117,7 @@ weight: 10873
       })
     })
     
-    evil_ptolemy8: overall final exec vars:
+    sharp_payne4: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -163,7 +163,7 @@ weight: 10873
       })
     })
     
-    evil_ptolemy8: overall final exec vars:
+    sharp_payne4: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -208,7 +208,7 @@ weight: 10873
       })
     })
     
-    evil_ptolemy8: overall final exec vars:
+    sharp_payne4: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -248,21 +248,6 @@ weight: 10873
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    evil_ptolemy8: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
@@ -270,7 +255,22 @@ weight: 10873
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl1"
+      "loopitem": "impl1",
+      "loopindex": 0
+    })
+    
+    sharp_payne4: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      }),
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -301,20 +301,6 @@ weight: 10873
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl1"
-    })
-    
-    evil_ptolemy8: overall final exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
@@ -322,7 +308,21 @@ weight: 10873
       }),
       "loopitem": "impl1",
       "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    sharp_payne4: overall final exec vars:
+    
+    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      }),
+      "loopitem": "impl1",
+      "loopindex": 0,
       "loopindex1": 1
     })
     
@@ -359,6 +359,20 @@ weight: 10873
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      }),
+      "loopitem": "impl2",
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+    sharp_payne4: overall final exec vars:
+    
+    (*core.Cache)({
       "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
@@ -368,20 +382,6 @@ weight: 10873
         ErrMsg: ""
       }),
       "loopitem": "impl2"
-    })
-    
-    evil_ptolemy8: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]

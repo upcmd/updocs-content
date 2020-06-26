@@ -1,6 +1,6 @@
 ---
 title: "c0139_vvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11393
 
@@ -17,7 +17,7 @@ weight: 11393
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0139
                  Verbose -> vvvv
-              ModuleName -> tender_meitner1
+              ModuleName -> evil_turing8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11393
     
     
     groups members:[]
-    module: [tender_meitner1] instance id: [dev]
+    module: [evil_turing8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -52,8 +52,8 @@ weight: 11393
       Name: "",
       Do: {
         {
-          "cmd": "step1",
-          "name": "print"
+          "name": "print",
+          "cmd": "step1"
         }
       },
       Dox: <nil>,
@@ -75,7 +75,7 @@ weight: 11393
     (*core.Cache)({
     })
     
-    tender_meitner1: overall final exec vars:
+    evil_turing8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -112,7 +112,7 @@ weight: 11393
       "person": "tom"
     })
     
-    tender_meitner1: overall final exec vars:
+    evil_turing8: overall final exec vars:
     
     (*core.Cache)({
       "person": "tom"
@@ -125,8 +125,8 @@ weight: 11393
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmdy": "step2"
+          "cmdy": "step2",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -148,7 +148,7 @@ weight: 11393
     (*core.Cache)({
     })
     
-    tender_meitner1: overall final exec vars:
+    evil_turing8: overall final exec vars:
     
     (*core.Cache)({
     })

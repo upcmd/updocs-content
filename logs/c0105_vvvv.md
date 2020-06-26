@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11053
 
@@ -17,7 +17,7 @@ weight: 11053
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0105
                  Verbose -> vvvv
-              ModuleName -> modest_brattain2
+              ModuleName -> reverent_fermi8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11053
     
     
     groups members:[]
-    module: [modest_brattain2] instance id: [dev]
+    module: [reverent_fermi8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -54,12 +54,12 @@ weight: 11053
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.tom}}"
+          "cmd": "{{.tom}}",
+          "name": "print"
         },
         {
-          "name": "print",
-          "cmd": "{{.jerry}}"
+          "cmd": "{{.jerry}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -85,11 +85,11 @@ weight: 11053
       "jerry": "this is jerry"
     })
     
-    modest_brattain2: overall final exec vars:
+    reverent_fermi8: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry"
+      "jerry": "this is jerry",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print:  ]
@@ -107,14 +107,14 @@ weight: 11053
         {
           "name": "reg",
           "cmd": {
-            "name": "hitom",
             "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}"
+            "value": "hello, {{.tom}}",
+            "name": "hitom"
           }
         },
         {
-          "name": "print",
-          "cmd": "{{.hitom}}"
+          "cmd": "{{.hitom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -137,7 +137,7 @@ weight: 11053
       "tom": "this is tom"
     })
     
-    modest_brattain2: overall final exec vars:
+    reverent_fermi8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -153,20 +153,20 @@ weight: 11053
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "by default hitom is accessible from global context, that's why it is accessiable cross func",
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "cmd": "{{.hitom}}"
         },
         {
-          "name": "reg",
           "cmd": {
-            "value": "hello, jerry",
             "name": "hijerry",
-            "desc": "hijerry is registered to local scope only"
+            "desc": "hijerry is registered to local scope only",
+            "value": "hello, jerry"
           },
           "flags": {
             "localonly"
-          }
+          },
+          "name": "reg"
         },
         {
           "name": "print",
@@ -195,7 +195,7 @@ weight: 11053
       "hitom": "hello, this is tom"
     })
     
-    modest_brattain2: overall final exec vars:
+    reverent_fermi8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -212,9 +212,9 @@ weight: 11053
       Name: "",
       Do: {
         {
+          "cmd": "{{.hijerry}}",
           "name": "print",
-          "desc": "hijerry is not accessible here and got <no value>",
-          "cmd": "{{.hijerry}}"
+          "desc": "hijerry is not accessible here and got <no value>"
         }
       },
       Dox: <nil>,
@@ -238,7 +238,7 @@ weight: 11053
       "hitom": "hello, this is tom"
     })
     
-    modest_brattain2: overall final exec vars:
+    reverent_fermi8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

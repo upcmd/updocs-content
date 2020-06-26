@@ -1,6 +1,6 @@
 ---
 title: "c0092_vvvvv"
-date: 2020-06-25T01:55:53+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10924
 
@@ -17,7 +17,7 @@ weight: 10924
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0092
                  Verbose -> vvvvv
-              ModuleName -> gloomy_hypatia0
+              ModuleName -> furious_pike5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10924
     -exec task: task
     loading [Task]:  ./tests/functests/c0092
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d9040)(<nil>)
+    (*impl.Scopes)(0xc0001f6fe0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10924
     
     
     groups members:[]
-    module: [gloomy_hypatia0] instance id: [dev]
+    module: [furious_pike5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -87,8 +87,8 @@ weight: 10924
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     
@@ -105,7 +105,7 @@ weight: 10924
     }
     
     
-    gloomy_hypatia0: overall final exec vars:
+    furious_pike5: overall final exec vars:
     
     (*core.Cache)({
       "person": {
@@ -153,8 +153,8 @@ weight: 10924
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       },
       "up_runtime_task_layer_number": 1
     })
@@ -173,14 +173,14 @@ weight: 10924
     }
     
     
-    gloomy_hypatia0: overall final exec vars:
+    furious_pike5: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      }
+      },
+      "up_runtime_task_layer_number": 1
     })
     
     hello {{.person.name}}

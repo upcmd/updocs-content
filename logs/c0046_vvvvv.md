@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10464
 
@@ -17,7 +17,7 @@ weight: 10464
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0046
                  Verbose -> vvvvv
-              ModuleName -> goofy_almeida7
+              ModuleName -> kickass_morse1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10464
     -exec task: task
     loading [Task]:  ./tests/functests/c0046
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef020)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001ed020)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -83,13 +83,13 @@ weight: 10464
     ---------group vars----------
     
     global: {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     
     groups members:[]
-    module: [goofy_almeida7] instance id: [dev]
+    module: [kickass_morse1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_name": "Tom Hanks",
@@ -110,9 +110,9 @@ weight: 10464
     -------runtime global final merged with dvars-------
     
     {
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
       located task-> 1 [task]: 

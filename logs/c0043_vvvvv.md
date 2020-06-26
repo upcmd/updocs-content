@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10434
 
@@ -17,7 +17,7 @@ weight: 10434
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0043
                  Verbose -> vvvvv
-              ModuleName -> fervent_swartz8
+              ModuleName -> sleepy_swartz5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10434
     -exec task: task
     loading [Task]:  ./tests/functests/c0043
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5140)(<nil>)
+    (*impl.Scopes)(0xc0001ed140)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10434
     
     
     groups members:[]
-    module: [fervent_swartz8] instance id: [dev]
+    module: [sleepy_swartz5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -91,7 +91,7 @@ weight: 10434
     }
     
     
-    fervent_swartz8: overall final exec vars:
+    sleepy_swartz5: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -139,7 +139,7 @@ weight: 10434
     }
     
     
-    fervent_swartz8: overall final exec vars:
+    sleepy_swartz5: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -196,13 +196,13 @@ weight: 10434
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aa",
-      "b": "bb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "a": "aa",
+      "b": "bb"
     })
     
     dvar> adebug:
@@ -215,28 +215,28 @@ weight: 10434
     
     
     scope[local] merged: {
+      "a": "aa",
+      "b": "bb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "a": "aa",
-      "b": "bb",
       "adebug": "aa"
     }
     
     
-    fervent_swartz8: overall final exec vars:
+    sleepy_swartz5: overall final exec vars:
     
     (*core.Cache)({
+      "a": "aa",
       "b": "bb",
-      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "a": "aa"
+      "adebug": "aa"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -285,13 +285,13 @@ weight: 10434
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "cc",
-      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "c": "cc",
+      "d": "dd"
     })
     
     dvar> cdebug:
@@ -304,27 +304,27 @@ weight: 10434
     
     
     scope[local] merged: {
+      "c": "cc",
+      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc",
-      "d": "dd",
       "cdebug": "cc"
     }
     
     
-    fervent_swartz8: overall final exec vars:
+    sleepy_swartz5: overall final exec vars:
     
     (*core.Cache)({
+      "c": "cc",
+      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc",
-      "d": "dd",
       "cdebug": "cc"
     })
     

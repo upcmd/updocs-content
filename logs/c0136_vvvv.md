@@ -1,6 +1,6 @@
 ---
 title: "c0136_vvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11363
 
@@ -17,7 +17,7 @@ weight: 11363
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0136
                  Verbose -> vvvv
-              ModuleName -> adoring_yalow7
+              ModuleName -> backstabbing_newton1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11363
     
     
     groups members:[]
-    module: [adoring_yalow7] instance id: [dev]
+    module: [backstabbing_newton1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -44,9 +44,9 @@ weight: 11363
     -------runtime global final merged with dvars-------
     
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
       located task-> 1 [task]: 
@@ -62,8 +62,8 @@ weight: 11363
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "b": "local_bbb",
-        "a": "local_aaa"
+        "a": "local_aaa",
+        "b": "local_bbb"
       },
       Dvars: {
         {
@@ -113,14 +113,14 @@ weight: 11363
       "a": "local_aaa"
     })
     
-    adoring_yalow7: overall final exec vars:
+    backstabbing_newton1: overall final exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
-      "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "b": "local_bbb"
     })
     
       located task-> 3 [callee_task1]: 
@@ -182,23 +182,23 @@ weight: 11363
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
       "da": "local_da",
       "db": "local_db",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 1,
-      "a": "local_aaa"
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
-    adoring_yalow7: overall final exec vars:
+    backstabbing_newton1: overall final exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da_callee_task1",
-      "db": "local_db_callee_task1",
       "up_runtime_task_layer_number": 1,
-      "a": "local_aaa"
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "da": "local_da_callee_task1",
+      "db": "local_db_callee_task1"
     })
     
       located task-> 2 [callee_task2]: 
@@ -266,23 +266,23 @@ weight: 11363
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "da": "local_da_callee_task1",
-      "db": "local_db_callee_task1",
       "up_runtime_task_layer_number": 2,
+      "b": "local_bbb",
+      "da": "local_da_callee_task1",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "db": "local_db_callee_task1",
+      "c": "global_ccc"
     })
     
-    adoring_yalow7: overall final exec vars:
+    backstabbing_newton1: overall final exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
       "da": "local_da_callee_task1",
+      "a": "local_aaa",
       "db": "callee_db_callee_task2",
-      "up_runtime_task_layer_number": 2
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 2,
+      "b": "local_bbb"
     })
     
     ---Step1:
@@ -290,8 +290,8 @@ weight: 11363
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+          "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
+          "name": "print"
         },
         {
           "name": "assert",
@@ -324,23 +324,23 @@ weight: 11363
     
     current exec runtime vars:
     (*core.Cache)({
-      "db": "callee_db_callee_task2",
-      "up_runtime_task_layer_number": 2,
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "da": "local_da_callee_task1"
-    })
-    
-    adoring_yalow7: overall final exec vars:
-    
-    (*core.Cache)({
       "da": "local_da_callee_task1",
       "db": "callee_db_callee_task2",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
       "a": "local_aaa",
+      "b": "local_bbb"
+    })
+    
+    backstabbing_newton1: overall final exec vars:
+    
+    (*core.Cache)({
       "b": "local_bbb",
-      "c": "global_ccc"
+      "da": "local_da_callee_task1",
+      "db": "callee_db_callee_task2",
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 2,
+      "a": "local_aaa"
     })
     
     ~~~SubStep1: [print:  ]

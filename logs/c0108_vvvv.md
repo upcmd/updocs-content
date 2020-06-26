@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvv"
-date: 2020-06-25T01:55:58+66:00
+date: 2020-06-27T03:09:29+66:00
 draft: false
 weight: 11083
 
@@ -17,7 +17,7 @@ weight: 11083
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0108
                  Verbose -> vvvv
-              ModuleName -> furious_brown8
+              ModuleName -> happy_newton7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11083
     
     
     groups members:[]
-    module: [furious_brown8] instance id: [dev]
+    module: [happy_newton7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -85,7 +85,7 @@ weight: 11083
       "jerry": "this is jerry"
     })
     
-    furious_brown8: overall final exec vars:
+    happy_newton7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -101,9 +101,9 @@ weight: 11083
       Name: "",
       Do: {
         {
-          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "jerry is in local scope so there is no value"
+          "desc": "jerry is in local scope so there is no value",
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -126,7 +126,7 @@ weight: 11083
       "tom": "this is tom"
     })
     
-    furious_brown8: overall final exec vars:
+    happy_newton7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -181,7 +181,7 @@ weight: 11083
       "tom": "this is tom"
     })
     
-    furious_brown8: overall final exec vars:
+    happy_newton7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -217,11 +217,11 @@ weight: 11083
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
-    furious_brown8: overall final exec vars:
+    happy_newton7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -263,7 +263,7 @@ weight: 11083
       "jerry": "jerry is overrided in local scope"
     })
     
-    furious_brown8: overall final exec vars:
+    happy_newton7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -303,7 +303,7 @@ weight: 11083
       "jerry": "this is jerry in task scope"
     })
     
-    furious_brown8: overall final exec vars:
+    happy_newton7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

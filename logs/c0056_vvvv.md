@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10563
 
@@ -17,7 +17,7 @@ weight: 10563
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0056
                  Verbose -> vvvv
-              ModuleName -> fervent_elion2
+              ModuleName -> elegant_euclid0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,17 +33,17 @@ weight: 10563
     
     
     groups members:[]
-    module: [fervent_elion2] instance id: [dev]
+    module: [elegant_euclid0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -65,16 +65,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       }
     }
@@ -116,8 +116,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "population": "1.4b",
@@ -130,21 +130,21 @@ weight: 10563
       }
     })
     
-    fervent_elion2: overall final exec vars:
+    elegant_euclid0: overall final exec vars:
     
     (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "population": "2000m",
           "name": "British"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
           "name": "Danmark",
@@ -234,32 +234,32 @@ weight: 10563
       })
     })
     
-    fervent_elion2: overall final exec vars:
+    elegant_euclid0: overall final exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      })
+      }
     })
     
     cmd( 1):
@@ -327,11 +327,34 @@ weight: 10563
     
     current exec runtime vars:
     (*core.Cache)({
+      "countries": {
+        {
+          "population": "20m",
+          "name": "Australia"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "population": "30m",
+          "name": "Danmark"
+        }
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "age 23",
         ErrMsg: ""
-      }),
+      })
+    })
+    
+    elegant_euclid0: overall final exec vars:
+    
+    (*core.Cache)({
       "countries": {
         {
           "name": "Australia",
@@ -349,35 +372,12 @@ weight: 10563
           "name": "Danmark",
           "population": "30m"
         }
-      }
-    })
-    
-    fervent_elion2: overall final exec vars:
-    
-    (*core.Cache)({
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "age 23",
         ErrMsg: ""
-      }),
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "population": "30m",
-          "name": "Danmark"
-        }
-      }
+      })
     })
     
     cmd( 1):
@@ -430,14 +430,19 @@ weight: 10563
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -447,15 +452,10 @@ weight: 10563
           "name": "Danmark",
           "population": "30m"
         }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello Danmark",
-        ErrMsg: ""
-      })
+      }
     })
     
-    fervent_elion2: overall final exec vars:
+    elegant_euclid0: overall final exec vars:
     
     (*core.Cache)({
       "countries": {
@@ -464,8 +464,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -574,6 +574,34 @@ weight: 10563
     
     current exec runtime vars:
     (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello 30m",
+        ErrMsg: ""
+      })
+    })
+    
+    elegant_euclid0: overall final exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello 30m",
@@ -585,46 +613,18 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
-        }
-      }
-    })
-    
-    fervent_elion2: overall final exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "population": "20m",
-          "name": "Australia"
-        },
-        {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      }),
       "listname": "countries"
     })
     

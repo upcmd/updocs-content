@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvvv"
-date: 2020-06-25T01:55:47+66:00
+date: 2020-06-27T03:09:22+66:00
 draft: false
 weight: 10634
 
@@ -17,7 +17,7 @@ weight: 10634
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0063
                  Verbose -> vvvvv
-              ModuleName -> silly_einstein0
+              ModuleName -> drunk_mcclintock0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 10634
     
     
     groups members:[]
-    module: [silly_einstein0] instance id: [dev]
+    module: [drunk_mcclintock0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global-var-a"
@@ -104,7 +104,7 @@ weight: 10634
     }
     
     
-    silly_einstein0: overall final exec vars:
+    drunk_mcclintock0: overall final exec vars:
     
     (*core.Cache)({
       "a": "global-var-a",
@@ -187,26 +187,26 @@ weight: 10634
     
     
     scope[local] merged: {
-      "b": "runtime-var-b",
-      "a": "global-var-a",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello global-var-a",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    silly_einstein0: overall final exec vars:
-    
-    (*core.Cache)({
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "b": "runtime-var-b"
+      "b": "runtime-var-b",
+      "a": "global-var-a"
+    }
+    
+    
+    drunk_mcclintock0: overall final exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello global-var-a",
+        ErrMsg: ""
+      }),
+      "b": "runtime-var-b",
+      "a": "global-var-a"
     })
     
     Enter Value For pause action to continue: 
@@ -255,24 +255,24 @@ weight: 10634
     
     
     scope[local] merged: {
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "a": "global-var-a"
     }
     
     
-    silly_einstein0: overall final exec vars:
+    drunk_mcclintock0: overall final exec vars:
     
     (*core.Cache)({
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "a": "global-var-a"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100904
 
@@ -17,7 +17,7 @@ weight: 100904
               AbsWorkDir -> /up_project/up/tests/modtests/0009
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> jovial_cray6
+              ModuleName -> sharp_engelbart7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100904
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000155860)(<nil>)
+    (*impl.Scopes)(0xc00000f160)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 100904
     
     
     groups members:[]
-    module: [jovial_cray6] instance id: [dev]
+    module: [sharp_engelbart7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }

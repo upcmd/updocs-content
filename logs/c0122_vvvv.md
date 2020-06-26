@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11223
 
@@ -17,7 +17,7 @@ weight: 11223
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0122
                  Verbose -> vvvv
-              ModuleName -> sad_engelbart2
+              ModuleName -> insane_goldstine3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11223
     
     
     groups members:[]
-    module: [sad_engelbart2] instance id: [dev]
+    module: [insane_goldstine3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -91,12 +91,12 @@ weight: 11223
       }
     })
     
-    sad_engelbart2: overall final exec vars:
+    insane_goldstine3: overall final exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -136,12 +136,12 @@ weight: 11223
       }
     })
     
-    sad_engelbart2: overall final exec vars:
+    insane_goldstine3: overall final exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -179,12 +179,12 @@ weight: 11223
       }
     })
     
-    sad_engelbart2: overall final exec vars:
+    insane_goldstine3: overall final exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     })
     

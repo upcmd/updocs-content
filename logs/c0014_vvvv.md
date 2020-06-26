@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10143
 
@@ -17,7 +17,7 @@ weight: 10143
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0014
                  Verbose -> vvvv
-              ModuleName -> elated_hypatia4
+              ModuleName -> gloomy_hypatia4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10143
     
     
     groups members:[]
-    module: [elated_hypatia4] instance id: [dev]
+    module: [gloomy_hypatia4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "e": "runtime-e",
@@ -44,9 +44,9 @@ weight: 10143
     -------runtime global final merged with dvars-------
     
     {
+      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "e": "runtime-e"
     }
     
       located task-> 2 [task]: 
@@ -79,19 +79,19 @@ weight: 10143
     
     current exec runtime vars:
     (*core.Cache)({
+      "b": "caller-ref-b",
       "k": "runtime-k",
       "a": "caller-ref-a",
-      "b": "caller-ref-b",
       "e": "runtime-e"
     })
     
-    elated_hypatia4: overall final exec vars:
+    gloomy_hypatia4: overall final exec vars:
     
     (*core.Cache)({
-      "e": "runtime-e",
+      "b": "caller-ref-b",
       "k": "runtime-k",
       "a": "caller-ref-a",
-      "b": "caller-ref-b"
+      "e": "runtime-e"
     })
     
       located task-> 1 [callee_task]: 
@@ -108,9 +108,9 @@ weight: 10143
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "c": "callee-c",
         "a": "callee-a",
-        "b": "callee-b",
-        "c": "callee-c"
+        "b": "callee-b"
       },
       Dvars: <nil>,
       Desc: "",
@@ -128,21 +128,21 @@ weight: 10143
     (*core.Cache)({
       "b": "caller-ref-b",
       "c": "callee-c",
-      "e": "runtime-e",
+      "a": "caller-ref-a",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-ref-a"
+      "e": "runtime-e",
+      "up_runtime_task_layer_number": 1
     })
     
-    elated_hypatia4: overall final exec vars:
+    gloomy_hypatia4: overall final exec vars:
     
     (*core.Cache)({
+      "b": "caller-ref-b",
       "c": "callee-c",
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
       "a": "caller-ref-a",
-      "b": "caller-ref-b"
+      "k": "runtime-k",
+      "e": "runtime-e",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

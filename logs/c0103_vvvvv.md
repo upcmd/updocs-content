@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11034
 
@@ -17,7 +17,7 @@ weight: 11034
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0103
                  Verbose -> vvvvv
-              ModuleName -> mad_mclean5
+              ModuleName -> hungry_goldstine5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11034
     -exec task: task
     loading [Task]:  ./tests/functests/c0103
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f2f40)(<nil>)
+    (*impl.Scopes)(0xc0001d8fa0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11034
     
     
     groups members:[]
-    module: [mad_mclean5] instance id: [dev]
+    module: [hungry_goldstine5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "emily": "emily:\n  sex: female\n  age: 32\n",
@@ -44,8 +44,8 @@ weight: 11034
     }
     
     (core.Cache) (len=2) {
-     (string) (len=3) "tom": (string) (len=27) "tom:\n  sex: male\n  age: 23\n",
-     (string) (len=5) "emily": (string) (len=31) "emily:\n  sex: female\n  age: 32\n"
+     (string) (len=5) "emily": (string) (len=31) "emily:\n  sex: female\n  age: 32\n",
+     (string) (len=3) "tom": (string) (len=27) "tom:\n  sex: male\n  age: 23\n"
     }
     
     [runtime global] dvar expanded result:
@@ -85,11 +85,11 @@ weight: 11034
         {
           "name": "yml_write",
           "cmd": {
-            "ymlstr": "{{.tomyml}}",
             "path": "tom.wife",
             "nodevalue": "{{.emily}}",
             "verbose": "vvvv",
-            "reg": "tomyml"
+            "reg": "tomyml",
+            "ymlstr": "{{.tomyml}}"
           }
         },
         {
@@ -124,16 +124,16 @@ weight: 11034
     
     
     scope[local] merged: {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
     
-    mad_mclean5: overall final exec vars:
+    hungry_goldstine5: overall final exec vars:
     
     (*core.Cache)({
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:tom.sex reg:tomyml value:female verbose:v ymlstr:{{.tom}}]

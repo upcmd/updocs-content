@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10424
 
@@ -17,7 +17,7 @@ weight: 10424
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0042
                  Verbose -> vvvvv
-              ModuleName -> goofy_rosalind8
+              ModuleName -> modest_darwin9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10424
     -exec task: task
     loading [Task]:  ./tests/functests/c0042
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb400)(<nil>)
+    (*impl.Scopes)(0xc0001f5400)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10424
     
     
     groups members:[]
-    module: [goofy_rosalind8] instance id: [dev]
+    module: [modest_darwin9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +93,7 @@ weight: 10424
     }
     
     
-    goofy_rosalind8: overall final exec vars:
+    modest_darwin9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -187,7 +187,7 @@ weight: 10424
     }
     
     
-    goofy_rosalind8: overall final exec vars:
+    modest_darwin9: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -266,17 +266,17 @@ weight: 10424
     
     
     scope[local] merged: {
-      "reg_hello": "\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "reg_hello": "\n"
     }
     
     
-    goofy_rosalind8: overall final exec vars:
+    modest_darwin9: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -346,7 +346,7 @@ weight: 10424
     }
     
     
-    goofy_rosalind8: overall final exec vars:
+    modest_darwin9: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -433,7 +433,7 @@ weight: 10424
     }
     
     
-    goofy_rosalind8: overall final exec vars:
+    modest_darwin9: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -493,16 +493,16 @@ weight: 10424
     
     
     scope[local] merged: {
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     }
     
     
-    goofy_rosalind8: overall final exec vars:
+    modest_darwin9: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

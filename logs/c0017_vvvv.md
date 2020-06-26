@@ -1,6 +1,6 @@
 ---
 title: "c0017_vvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10173
 
@@ -17,7 +17,7 @@ weight: 10173
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0017
                  Verbose -> vvvv
-              ModuleName -> furious_mayer4
+              ModuleName -> hopeful_poitras8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,12 +33,12 @@ weight: 10173
     
     
     groups members:[]
-    module: [furious_mayer4] instance id: [dev]
+    module: [hopeful_poitras8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
     -------runtime global final merged with dvars-------
@@ -86,7 +86,7 @@ weight: 10173
       "b": "caller-ref-1b"
     })
     
-    furious_mayer4: overall final exec vars:
+    hopeful_poitras8: overall final exec vars:
     
     (*core.Cache)({
       "k": "runtime-k",
@@ -109,9 +109,9 @@ weight: 10173
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "a": "callee-a",
         "b": "callee-b",
-        "c": "callee-c"
+        "c": "callee-c",
+        "a": "callee-a"
       },
       Dvars: <nil>,
       Desc: "",
@@ -127,23 +127,23 @@ weight: 10173
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "e": "runtime-e",
-      "k": "runtime-k",
       "a": "caller-ref-1a",
       "b": "caller-ref-1b",
-      "c": "callee-c"
-    })
-    
-    furious_mayer4: overall final exec vars:
-    
-    (*core.Cache)({
-      "b": "caller-ref-1b",
       "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
       "k": "runtime-k",
-      "a": "caller-ref-1a"
+      "up_runtime_task_layer_number": 1
+    })
+    
+    hopeful_poitras8: overall final exec vars:
+    
+    (*core.Cache)({
+      "c": "callee-c",
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-ref-1a",
+      "b": "caller-ref-1b"
     })
     
     cmd( 1):
@@ -212,33 +212,33 @@ weight: 10173
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-1a",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
+        ErrMsg: ""
+      }),
+      "e": "runtime-e",
       "b": "caller-ref-1b",
       "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
-        ErrMsg: ""
-      }),
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "a": "caller-ref-1a"
     })
     
-    furious_mayer4: overall final exec vars:
+    hopeful_poitras8: overall final exec vars:
     
     (*core.Cache)({
-      "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
       "e": "runtime-e",
-      "k": "runtime-k",
+      "b": "caller-ref-1b",
+      "c": "callee-c",
       "a": "caller-ref-1a",
-      "b": "caller-ref-1b"
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -285,8 +285,8 @@ weight: 10173
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "b": "caller-ref-2b",
-        "a": "caller-ref-2a"
+        "a": "caller-ref-2a",
+        "b": "caller-ref-2b"
       },
       Dvars: <nil>,
       Desc: "call2",
@@ -302,14 +302,14 @@ weight: 10173
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "b": "caller-ref-2b",
       "a": "caller-ref-2a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "b": "caller-ref-2b"
+      "k": "runtime-k"
     })
     
-    furious_mayer4: overall final exec vars:
+    hopeful_poitras8: overall final exec vars:
     
     (*core.Cache)({
       "a": "caller-ref-2a",
@@ -351,23 +351,23 @@ weight: 10173
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "callee-c",
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-ref-2a",
-      "b": "caller-ref-2b"
-    })
-    
-    furious_mayer4: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
+      "e": "runtime-e"
+    })
+    
+    hopeful_poitras8: overall final exec vars:
+    
+    (*core.Cache)({
+      "a": "caller-ref-2a",
+      "b": "caller-ref-2b",
+      "c": "callee-c",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
+      "e": "runtime-e"
     })
     
     cmd( 1):
@@ -418,9 +418,9 @@ weight: 10173
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "b": "callee-b",
         "c": "callee-c",
-        "a": "callee-a",
-        "b": "callee-b"
+        "a": "callee-a"
       },
       Dvars: <nil>,
       Desc: "",
@@ -436,33 +436,33 @@ weight: 10173
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
-        ErrMsg: ""
-      }),
-      "e": "runtime-e",
-      "k": "runtime-k"
-    })
-    
-    furious_mayer4: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
-        ErrMsg: ""
-      }),
+      "a": "caller-ref-2a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "a": "caller-ref-2a",
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
+        ErrMsg: ""
+      })
+    })
+    
+    hopeful_poitras8: overall final exec vars:
+    
+    (*core.Cache)({
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
+        ErrMsg: ""
+      }),
       "b": "caller-ref-2b",
-      "c": "callee-c"
+      "c": "callee-c",
+      "a": "caller-ref-2a"
     })
     
     cmd( 1):

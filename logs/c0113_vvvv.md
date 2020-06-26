@@ -1,6 +1,6 @@
 ---
 title: "c0113_vvvv"
-date: 2020-06-25T01:56:00+66:00
+date: 2020-06-27T03:09:30+66:00
 draft: false
 weight: 11133
 
@@ -17,7 +17,7 @@ weight: 11133
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0113
                  Verbose -> vvvv
-              ModuleName -> hopeful_cori2
+              ModuleName -> jovial_mclean4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,18 +33,18 @@ weight: 11133
     
     
     groups members:[]
-    module: [hopeful_cori2] instance id: [dev]
+    module: [jovial_mclean4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     }
     
       located task-> 1 [task]: 
@@ -72,15 +72,15 @@ weight: 11133
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     })
     
-    hopeful_cori2: overall final exec vars:
+    jovial_mclean4: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     })
     
       located task-> 2 [subtask]: 
@@ -130,17 +130,17 @@ weight: 11133
     current exec runtime vars:
     (*core.Cache)({
       "john": "john in sub_loop func1",
-      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "up_runtime_task_layer_number": 1
     })
     
-    hopeful_cori2: overall final exec vars:
+    jovial_mclean4: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global",
       "john": "john in sub_loop func1",
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -192,18 +192,18 @@ weight: 11133
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func2",
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
-      "up_runtime_task_layer_number": 1
+      "jerry": "this is jerry in global"
     })
     
-    hopeful_cori2: overall final exec vars:
+    jovial_mclean4: overall final exec vars:
     
     (*core.Cache)({
       "john": "john in sub_loop func2",
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -220,8 +220,8 @@ weight: 11133
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "in main task print3: {{.tom}}"
+          "cmd": "in main task print3: {{.tom}}",
+          "name": "print"
         },
         {
           "name": "assert",
@@ -248,16 +248,16 @@ weight: 11133
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
-    hopeful_cori2: overall final exec vars:
+    jovial_mclean4: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     

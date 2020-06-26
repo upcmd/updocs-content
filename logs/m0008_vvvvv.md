@@ -1,6 +1,6 @@
 ---
 title: "0008_vvvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100804
 
@@ -17,7 +17,7 @@ weight: 100804
               AbsWorkDir -> /up_project/up/tests/modtests/0008
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> reverent_lovelace7
+              ModuleName -> high_ardinghelli8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100804
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001570a0)(<nil>)
+    (*impl.Scopes)(0xc000202280)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 100804
     
     
     groups members:[]
-    module: [reverent_lovelace7] instance id: [dev]
+    module: [high_ardinghelli8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -91,7 +91,7 @@ weight: 100804
     }
     
     
-    reverent_lovelace7: overall final exec vars:
+    high_ardinghelli8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -104,7 +104,7 @@ weight: 100804
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002224e0)(<nil>)
+    (*impl.Scopes)(0xc000203000)(<nil>)
     
     ---------group vars----------
     

@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvv"
-date: 2020-06-25T01:55:53+66:00
+date: 2020-06-27T03:09:27+66:00
 draft: false
 weight: 10953
 
@@ -17,7 +17,7 @@ weight: 10953
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0095
                  Verbose -> vvvv
-              ModuleName -> stupefied_stallman9
+              ModuleName -> compassionate_tesla0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10953
     
     
     groups members:[]
-    module: [stupefied_stallman9] instance id: [dev]
+    module: [compassionate_tesla0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -52,12 +52,12 @@ weight: 10953
       Name: "",
       Do: {
         {
-          "cmd": {
-            "reg": "person_object",
-            "fromkey": "person_yml"
-          },
           "name": "to_object",
-          "desc": "the key is pointing to a var name and use its content as yml content\n"
+          "desc": "the key is pointing to a var name and use its content as yml content\n",
+          "cmd": {
+            "fromkey": "person_yml",
+            "reg": "person_object"
+          }
         },
         {
           "name": "printobj",
@@ -70,8 +70,8 @@ weight: 10953
         {
           "name": "to_object",
           "cmd": {
-            "reg": "{{.name_to_reg}}",
-            "fromkey": "{{.name_to_convert}}"
+            "fromkey": "{{.name_to_convert}}",
+            "reg": "{{.name_to_reg}}"
           }
         },
         {
@@ -82,22 +82,22 @@ weight: 10953
           "name": "to_object",
           "desc": "use src content directly",
           "cmd": {
-            "reg": "{{.name_to_reg}}",
-            "src": "person:\n  name: {{.person}}\n  age: 53\n"
+            "src": "person:\n  name: {{.person}}\n  age: 53\n",
+            "reg": "{{.name_to_reg}}"
           }
         },
         {
-          "cmd": "{{.name_to_reg}}",
-          "name": "printobj"
+          "name": "printobj",
+          "cmd": "{{.name_to_reg}}"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "person": "jason",
         "person_yml": "person:\n  name: tom\n  age: 23\n",
         "name_to_convert": "person_yml",
-        "name_to_reg": "person_dyna_object"
+        "name_to_reg": "person_dyna_object",
+        "person": "jason"
       },
       Dvars: <nil>,
       Desc: "",
@@ -119,13 +119,13 @@ weight: 10953
       "name_to_convert": "person_yml"
     })
     
-    stupefied_stallman9: overall final exec vars:
+    compassionate_tesla0: overall final exec vars:
     
     (*core.Cache)({
-      "name_to_reg": "person_dyna_object",
-      "person": "jason",
       "person_yml": "person:\n  name: tom\n  age: 23\n",
-      "name_to_convert": "person_yml"
+      "name_to_convert": "person_yml",
+      "name_to_reg": "person_dyna_object",
+      "person": "jason"
     })
     
     ~SubStep1: [to_object: the key is pointing to a var name and use its content as yml content
@@ -136,8 +136,8 @@ weight: 10953
     object:
      person_object: {
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     }
     

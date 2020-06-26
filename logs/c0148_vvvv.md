@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvv"
-date: 2020-06-25T01:56:07+66:00
+date: 2020-06-27T03:09:35+66:00
 draft: false
 weight: 11483
 
@@ -17,7 +17,7 @@ weight: 11483
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0148
                  Verbose -> vvvv
-              ModuleName -> sharp_fermi9
+              ModuleName -> elegant_noyce8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11483
     
     
     groups members:[]
-    module: [sharp_fermi9] instance id: [dev]
+    module: [elegant_noyce8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -96,7 +96,7 @@ weight: 11483
       "tom": "this is tom"
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -143,11 +143,11 @@ weight: 11483
       "tom": "this is tom"
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -182,7 +182,7 @@ weight: 11483
       "jerry": "this is jerry in task scope"
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
@@ -222,7 +222,7 @@ weight: 11483
       "jerry": "this is jerry in task scope"
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -258,7 +258,7 @@ weight: 11483
       "jerry": "this is jerry in task scope"
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -274,9 +274,9 @@ weight: 11483
       Name: "",
       Do: {
         {
+          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
-          "cmd": "{{.jerry}}"
+          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope"
         },
         {
           "name": "trace",
@@ -300,16 +300,16 @@ weight: 11483
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope",
+      "up_runtime_task_layer_number": 1,
       "tom": "this is tom"
     })
     
@@ -322,9 +322,9 @@ weight: 11483
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "remember that the caller's vars should override callee's vars\nso jerry's value should the one from caller instead this local value\n",
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "cmd": "{{.jerry}}"
         },
         {
           "name": "trace",
@@ -355,12 +355,12 @@ weight: 11483
       "up_runtime_task_layer_number": 1
     })
     
-    sharp_fermi9: overall final exec vars:
+    elegant_noyce8: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope"
     })
     
     ~~SubStep1: [print: remember that the caller's vars should override callee's vars

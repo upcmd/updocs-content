@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:30+66:00
 draft: false
 weight: 11184
 
@@ -17,7 +17,7 @@ weight: 11184
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0118
                  Verbose -> vvvvv
-              ModuleName -> elated_poitras9
+              ModuleName -> jolly_bartik5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11184
     -exec task: task
     loading [Task]:  ./tests/functests/c0118
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000240ba0)(<nil>)
+    (*impl.Scopes)(0xc000352b40)(<nil>)
     
     ---------group vars----------
     
@@ -36,24 +36,24 @@ weight: 11184
     
     
     groups members:[]
-    module: [elated_poitras9] instance id: [dev]
+    module: [jolly_bartik5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     (core.Cache) (len=2) {
+     (string) (len=7) "loopkey": (string) (len=5) "items",
      (string) (len=5) "items": ([]interface {}) (len=3 cap=3) {
       (string) (len=5) "item1",
       (string) (len=5) "item2",
       (string) (len=5) "item3"
-     },
-     (string) (len=7) "loopkey": (string) (len=5) "items"
+     }
     }
     
     [runtime global] dvar expanded result:
@@ -123,17 +123,17 @@ weight: 11184
     
     
     scope[local] merged: {
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
-      "person": "tom"
+      "loopkey": "items"
     }
     
     
-    elated_poitras9: overall final exec vars:
+    jolly_bartik5: overall final exec vars:
     
     (*core.Cache)({
       "loopkey": "items",
@@ -204,16 +204,16 @@ weight: 11184
     }
     
     
-    elated_poitras9: overall final exec vars:
+    jolly_bartik5: overall final exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
-      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "person": "tom"
     })
     
     condition failed, skip executing step step1
@@ -223,8 +223,8 @@ weight: 11184
       Name: "step1",
       Do: {
         {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -267,7 +267,7 @@ weight: 11184
     }
     
     
-    elated_poitras9: overall final exec vars:
+    jolly_bartik5: overall final exec vars:
     
     (*core.Cache)({
       "items": {

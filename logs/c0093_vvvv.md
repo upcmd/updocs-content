@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvv"
-date: 2020-06-25T01:55:53+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10933
 
@@ -17,7 +17,7 @@ weight: 10933
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0093
                  Verbose -> vvvv
-              ModuleName -> lonely_shockley7
+              ModuleName -> backstabbing_jones5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10933
     
     
     groups members:[]
-    module: [lonely_shockley7] instance id: [dev]
+    module: [backstabbing_jones5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -81,7 +81,7 @@ weight: 10933
       }
     })
     
-    lonely_shockley7: overall final exec vars:
+    backstabbing_jones5: overall final exec vars:
     
     (*core.Cache)({
       "person": {
@@ -120,21 +120,21 @@ weight: 10933
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": {
-        "name": "tom",
-        "age": 23
-      }
-    })
-    
-    lonely_shockley7: overall final exec vars:
-    
-    (*core.Cache)({
-      "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       },
       "up_runtime_task_layer_number": 1
+    })
+    
+    backstabbing_jones5: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": {
+        "age": 23,
+        "name": "tom"
+      }
     })
     
     ~~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0094_vvvv"
-date: 2020-06-25T01:55:53+66:00
+date: 2020-06-27T03:09:27+66:00
 draft: false
 weight: 10943
 
@@ -17,7 +17,7 @@ weight: 10943
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0094
                  Verbose -> vvvv
-              ModuleName -> kickass_tesla5
+              ModuleName -> drunk_yalow7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10943
     
     
     groups members:[]
-    module: [kickass_tesla5] instance id: [dev]
+    module: [drunk_yalow7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -56,8 +56,8 @@ weight: 10943
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "layer1_aaa": "layer1_aaa",
-        "layer1_bbb": "layer1_bbb"
+        "layer1_bbb": "layer1_bbb",
+        "layer1_aaa": "layer1_aaa"
       },
       Dvars: <nil>,
       Desc: "",
@@ -81,7 +81,7 @@ weight: 10943
       "layer1_bbb": "layer1_bbb"
     })
     
-    kickass_tesla5: overall final exec vars:
+    drunk_yalow7: overall final exec vars:
     
     (*core.Cache)({
       "layer1_aaa": "layer1_aaa",
@@ -122,23 +122,23 @@ weight: 10943
     
     current exec runtime vars:
     (*core.Cache)({
-      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
       "loopindex1": 1,
-      "layer1_aaa": "layer1_aaa"
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "up_runtime_task_layer_number": 1
     })
     
-    kickass_tesla5: overall final exec vars:
+    drunk_yalow7: overall final exec vars:
     
     (*core.Cache)({
       "loopitem": "layer1-tom",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
       "loopindex1": 1,
       "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "layer1_bbb": "layer1_bbb",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -175,21 +175,21 @@ weight: 10943
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa"
     })
     
-    kickass_tesla5: overall final exec vars:
+    drunk_yalow7: overall final exec vars:
     
     (*core.Cache)({
       "loopitem": "layer1-tom",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb"
     })
@@ -209,6 +209,116 @@ weight: 10943
         {
           "name": "print",
           "cmd": "hello {{.loopitem}}"
+        },
+        {
+          "name": "print",
+          "cmd": "hello layer1_aaa: {{.layer1_aaa}}"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+    drunk_yalow7: overall final exec vars:
+    
+    (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    ~~SubStep1: [print:  ]
+    hello layer1-peter
+    ~~SubStep2: [print:  ]
+    hello layer1_aaa: layer1_aaa
+    --Step2:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "hello {{.loopitem}}"
+        },
+        {
+          "name": "print",
+          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb"
+    })
+    
+    drunk_yalow7: overall final exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "up_runtime_task_layer_number": 1
+    })
+    
+    ~~SubStep1: [print:  ]
+    hello layer1-peter
+    ~~SubStep2: [print:  ]
+    hello layer1_bbb: layer1_bbb
+      located task-> 2 [layer2]: 
+    =Task2: [task ==> layer2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": "hello {{.loopitem}}",
+          "name": "print"
         },
         {
           "cmd": "hello layer1_aaa: {{.layer1_aaa}}",
@@ -232,133 +342,23 @@ weight: 10943
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter"
-    })
-    
-    kickass_tesla5: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
-    })
-    
-    ~~SubStep1: [print:  ]
-    hello layer1-peter
-    ~~SubStep2: [print:  ]
-    hello layer1_aaa: layer1_aaa
-    --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 2,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter"
-    })
-    
-    kickass_tesla5: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 2,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
-    })
-    
-    ~~SubStep1: [print:  ]
-    hello layer1-peter
-    ~~SubStep2: [print:  ]
-    hello layer1_bbb: layer1_bbb
-      located task-> 2 [layer2]: 
-    =Task2: [task ==> layer2:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_aaa: {{.layer1_aaa}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-james",
       "loopindex": 2,
       "loopindex1": 3,
-      "layer1_aaa": "layer1_aaa",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa"
     })
     
-    kickass_tesla5: overall final exec vars:
+    drunk_yalow7: overall final exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
       "layer1_aaa": "layer1_aaa",
-      "up_runtime_task_layer_number": 1,
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-james",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -395,23 +395,23 @@ weight: 10943
     
     current exec runtime vars:
     (*core.Cache)({
+      "layer1_bbb": "layer1_bbb",
       "up_runtime_task_layer_number": 1,
       "loopitem": "layer1-james",
       "loopindex": 2,
       "loopindex1": 3,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "layer1_aaa": "layer1_aaa"
     })
     
-    kickass_tesla5: overall final exec vars:
+    drunk_yalow7: overall final exec vars:
     
     (*core.Cache)({
+      "layer1_bbb": "layer1_bbb",
       "up_runtime_task_layer_number": 1,
       "loopitem": "layer1-james",
       "loopindex": 2,
       "loopindex1": 3,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "layer1_aaa": "layer1_aaa"
     })
     
     ~~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0147_vvvvv"
-date: 2020-06-25T01:56:07+66:00
+date: 2020-06-27T03:09:35+66:00
 draft: false
 weight: 11474
 
@@ -17,7 +17,7 @@ weight: 11474
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0147
                  Verbose -> vvvvv
-              ModuleName -> naughty_carson5
+              ModuleName -> fervent_poincare2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11474
     -exec task: task
     loading [Task]:  ./tests/functests/c0147
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00026f3c0)(<nil>)
+    (*impl.Scopes)(0xc00017d3c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +36,12 @@ weight: 11474
     
     
     groups members:[]
-    module: [naughty_carson5] instance id: [dev]
+    module: [fervent_poincare2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "a": "aaa",
       "b": "bbb",
-      "c": "ccc",
-      "a": "aaa"
+      "c": "ccc"
     }
     
     (core.Cache) (len=3) {
@@ -58,9 +58,9 @@ weight: 11474
     -------runtime global final merged with dvars-------
     
     {
+      "b": "bbb",
       "c": "ccc",
-      "a": "aaa",
-      "b": "bbb"
+      "a": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -124,7 +124,7 @@ weight: 11474
     }
     
     
-    naughty_carson5: overall final exec vars:
+    fervent_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "b": "bbb",
@@ -139,9 +139,9 @@ weight: 11474
     })
     
      2: inspect[exec_base_vars]{
-      "a": "aaa",
       "b": "bbb",
-      "c": "ccc"
+      "c": "ccc",
+      "a": "aaa"
     }
     
     [{{eq .b  "bbb"}} {{eq .d  "ddd"}}]
@@ -189,7 +189,7 @@ weight: 11474
     }
     
     
-    naughty_carson5: overall final exec vars:
+    fervent_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "e": "first_level_eee",
@@ -222,9 +222,9 @@ weight: 11474
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "f": "fff",
         "g": "ggg",
-        "h": "hhh"
+        "h": "hhh",
+        "f": "fff"
       },
       Dvars: <nil>,
       Desc: "",
@@ -240,11 +240,11 @@ weight: 11474
     
     current exec runtime vars:
     (*core.Cache)({
-      "f": "first_level_fff",
+      "e": "first_level_eee",
+      "up_runtime_task_layer_number": 1,
       "g": "ggg",
       "h": "hhh",
-      "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1
+      "f": "first_level_fff"
     })
     
     [local] dvar expanded result:
@@ -253,22 +253,22 @@ weight: 11474
     
     
     scope[local] merged: {
-      "h": "hhh",
-      "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
+      "g": "ggg",
+      "h": "hhh",
       "f": "first_level_fff",
-      "g": "ggg"
+      "e": "first_level_eee"
     }
     
     
-    naughty_carson5: overall final exec vars:
+    fervent_poincare2: overall final exec vars:
     
     (*core.Cache)({
+      "h": "hhh",
+      "f": "first_level_fff",
       "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff",
-      "g": "ggg",
-      "h": "hhh"
+      "g": "ggg"
     })
     
     [exec_vars exec_base_vars]
@@ -276,9 +276,9 @@ weight: 11474
      1: inspect[exec_vars](*core.Cache)({
       "g": "ggg",
       "h": "hhh",
+      "f": "first_level_fff",
       "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff"
+      "up_runtime_task_layer_number": 1
     })
     
      2: inspect[exec_base_vars]{

@@ -1,6 +1,6 @@
 ---
 title: "c0028_vvvv"
-date: 2020-06-25T01:55:41+66:00
+date: 2020-06-27T03:09:17+66:00
 draft: false
 weight: 10283
 
@@ -17,7 +17,7 @@ weight: 10283
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0028
                  Verbose -> vvvv
-              ModuleName -> admiring_elion7
+              ModuleName -> cocky_franklin2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,34 +33,44 @@ weight: 10283
     
     
     groups members:[]
-    module: [admiring_elion7] instance id: [dev]
+    module: [cocky_franklin2] instance id: [dev]
     merged[ dev ] runtime vars:
-    {
-      "student": {
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          }
-        },
-        "name": "Tom"
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
     {
       "student": {
         "name": "Tom",
         "gender": "Male",
         "address": {
           "suburb": {
-            "postcode": 2000,
             "cbd": true,
-            "name": "sydney"
+            "name": "sydney",
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
+        }
+      }
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "school_address_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "cbd": true,
+            "name": "sydney",
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
         }
@@ -71,17 +81,7 @@ weight: 10283
         "gender": "Male",
         "school": "Sydney Grammar"
       },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "school_address_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
-        }
-      }
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     }
     
       located task-> 1 [task]: 
@@ -116,51 +116,40 @@ weight: 10283
     
     current exec runtime vars:
     (*core.Cache)({
+      "a_smart_guy_object": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "school_address_object": {
         "address": {
           "suburb": {
-            "CBD": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "CBD": true
           },
           "school": "Sydney Grammar"
         }
       },
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
-            "postcode": 2000,
             "cbd": true,
-            "name": "sydney"
+            "name": "sydney",
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
-        }
-      },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "school": "Sydney Grammar",
+        },
         "name": "Tom",
         "gender": "Male"
-      }
+      },
+      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n"
     })
     
-    admiring_elion7: overall final exec vars:
+    cocky_franklin2: overall final exec vars:
     
     (*core.Cache)({
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "school_address_object": {
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      },
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -175,9 +164,20 @@ weight: 10283
       },
       "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
       "a_smart_guy_object": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "school_address_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
       }
     })
     

@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvv"
-date: 2020-06-25T01:56:07+66:00
+date: 2020-06-27T03:09:35+66:00
 draft: false
 weight: 11463
 
@@ -17,7 +17,7 @@ weight: 11463
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0146
                  Verbose -> vvvv
-              ModuleName -> angry_jang0
+              ModuleName -> high_tesla1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11463
     
     
     groups members:[]
-    module: [angry_jang0] instance id: [dev]
+    module: [high_tesla1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -79,8 +79,8 @@ weight: 11463
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "school": "james rules",
-        "personname": "Tom Cruise"
+        "personname": "Tom Cruise",
+        "school": "james rules"
       },
       Dvars: <nil>,
       Desc: "",
@@ -97,27 +97,27 @@ weight: 11463
     loading [varsfile]:  ./tests/functests/d0146_data.yml
     current exec runtime vars:
     (*core.Cache)({
+      "folder": "module",
+      "title": "HelloWorld example",
+      "personname": "Tom Cruise",
+      "school": "james rules"
+    })
+    
+    high_tesla1: overall final exec vars:
+    
+    (*core.Cache)({
       "title": "HelloWorld example",
       "personname": "Tom Cruise",
       "school": "james rules",
       "folder": "module"
     })
     
-    angry_jang0: overall final exec vars:
-    
-    (*core.Cache)({
-      "personname": "Tom Cruise",
-      "school": "james rules",
-      "folder": "module",
-      "title": "HelloWorld example"
-    })
-    
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars](*core.Cache)({
-      "school": "james rules",
-      "folder": "module",
       "title": "HelloWorld example",
-      "personname": "Tom Cruise"
+      "personname": "Tom Cruise",
+      "school": "james rules",
+      "folder": "module"
     })
     
      2: inspect[exec_base_vars]{
@@ -153,7 +153,7 @@ weight: 11463
     (*core.Cache)({
     })
     
-    angry_jang0: overall final exec vars:
+    high_tesla1: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -163,7 +163,7 @@ weight: 11463
     
      \_ cat /tmp/mockup_doc.md
     title: "HelloWorld example"
-    date: 2020-06-25T00:27:39+66:00
+    date: 2020-06-27T03:08:00+66:00
     draft: false
      .. ok
     . ok

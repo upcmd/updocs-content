@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvvv"
-date: 2020-06-25T01:55:41+66:00
+date: 2020-06-27T03:09:17+66:00
 draft: false
 weight: 10294
 
@@ -17,7 +17,7 @@ weight: 10294
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0029
                  Verbose -> vvvvv
-              ModuleName -> clever_hodgkin3
+              ModuleName -> grave_pike6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10294
     -exec task: task
     loading [Task]:  ./tests/functests/c0029
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001572e0)((len=3 cap=3) {
+    (*impl.Scopes)(0xc0001eb280)((len=3 cap=3) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -79,10 +79,10 @@ weight: 10294
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "a": (string) (len=10) "non-prod-a",
        (string) (len=1) "b": (string) (len=10) "non-prod-b",
        (string) (len=1) "c": (string) (len=10) "non-prod-c",
-       (string) (len=1) "d": (string) (len=10) "non-prod-d"
+       (string) (len=1) "d": (string) (len=10) "non-prod-d",
+       (string) (len=1) "a": (string) (len=10) "non-prod-a"
       },
       Dvars: (impl.Dvars) (len=2 cap=2) {
        (impl.Dvar) {
@@ -136,12 +136,12 @@ weight: 10294
     
     
     scope[global] merged: {
-      "a": "global-a",
-      "b": "global-b",
-      "c": "global-c",
       "e": "global-e",
       "da": "global-a",
-      "dab": "global-a-and-global-b"
+      "dab": "global-a-and-global-b",
+      "a": "global-a",
+      "b": "global-b",
+      "c": "global-c"
     }
     
     
@@ -153,60 +153,60 @@ weight: 10294
     
     
     scope[nonprod] merged: {
-      "c": "non-prod-c",
+      "dab": "non-prod-a-and-non-prod-b",
       "d": "non-prod-d",
       "a": "non-prod-a",
       "b": "non-prod-b",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b"
+      "c": "non-prod-c",
+      "dvar_np_a": "non-prod-a"
     }
     
     
     ---------group vars----------
     
     nonprod: {
-      "c": "non-prod-c",
-      "d": "non-prod-d",
       "a": "non-prod-a",
       "b": "non-prod-b",
+      "c": "non-prod-c",
       "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b"
+      "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d"
     }
     
     
     global: {
-      "dab": "global-a-and-global-b",
-      "a": "global-a",
       "b": "global-b",
       "c": "global-c",
       "e": "global-e",
-      "da": "global-a"
+      "da": "global-a",
+      "dab": "global-a-and-global-b",
+      "a": "global-a"
     }
     
     
     groups members:[dev staging]
-    module: [clever_hodgkin3] instance id: [dev]
+    module: [grave_pike6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "e": "global-e",
       "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "a": "non-prod-a",
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a"
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e"
     }
     
     (core.Cache) (len=8) {
-     (string) (len=1) "a": (string) (len=10) "non-prod-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b",
-     (string) (len=1) "c": (string) (len=10) "non-prod-c",
      (string) (len=1) "e": (string) (len=8) "global-e",
      (string) (len=2) "da": (string) (len=8) "global-a",
+     (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b",
+     (string) (len=1) "a": (string) (len=10) "non-prod-a",
      (string) (len=1) "d": (string) (len=10) "non-prod-d",
      (string) (len=9) "dvar_np_a": (string) (len=10) "non-prod-a",
-     (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b"
+     (string) (len=1) "b": (string) (len=10) "non-prod-b",
+     (string) (len=1) "c": (string) (len=10) "non-prod-c"
     }
     
     [runtime global] dvar expanded result:
@@ -217,14 +217,14 @@ weight: 10294
     -------runtime global final merged with dvars-------
     
     {
+      "dab": "non-prod-a-and-non-prod-b",
       "a": "non-prod-a",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
       "e": "global-e",
-      "da": "global-a",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b"
+      "da": "global-a"
     }
     
       located task-> 1 [task]: 
@@ -256,14 +256,14 @@ weight: 10294
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "non-prod-a",
+      "dvar_np_a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
       "e": "global-e",
       "da": "global-a",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b"
+      "dab": "non-prod-a-and-non-prod-b",
+      "a": "non-prod-a",
+      "d": "non-prod-d"
     })
     
     [local] dvar expanded result:
@@ -272,28 +272,28 @@ weight: 10294
     
     
     scope[local] merged: {
-      "e": "global-e",
-      "da": "global-a",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
-    }
-    
-    
-    clever_hodgkin3: overall final exec vars:
-    
-    (*core.Cache)({
       "c": "non-prod-c",
       "e": "global-e",
       "da": "global-a",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
       "dab": "non-prod-a-and-non-prod-b",
       "a": "non-prod-a",
-      "b": "non-prod-b"
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a"
+    }
+    
+    
+    grave_pike6: overall final exec vars:
+    
+    (*core.Cache)({
+      "a": "non-prod-a",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b"
     })
     
     cmd( 1):

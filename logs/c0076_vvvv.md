@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvv"
-date: 2020-06-25T01:55:50+66:00
+date: 2020-06-27T03:09:24+66:00
 draft: false
 weight: 10763
 
@@ -17,7 +17,7 @@ weight: 10763
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0076
                  Verbose -> vvvv
-              ModuleName -> prickly_babbage8
+              ModuleName -> goofy_noyce4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10763
     
     
     groups members:[]
-    module: [prickly_babbage8] instance id: [dev]
+    module: [goofy_noyce4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 10763
     (*core.Cache)({
     })
     
-    prickly_babbage8: overall final exec vars:
+    goofy_noyce4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -130,15 +130,15 @@ weight: 10763
       })
     })
     
-    prickly_babbage8: overall final exec vars:
+    goofy_noyce4: overall final exec vars:
     
     (*core.Cache)({
-      "reg_hello": "\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "reg_hello": "\n"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -174,15 +174,15 @@ weight: 10763
       "hellomsg": "hanks"
     })
     
-    prickly_babbage8: overall final exec vars:
+    goofy_noyce4: overall final exec vars:
     
     (*core.Cache)({
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
     cmd( 1):
@@ -258,17 +258,18 @@ weight: 10763
       }),
       "hellomsg": "hanks",
       "person": {
-        "age": 18,
-        "name": "tom"
+        "name": "tom",
+        "age": 18
       }
     })
     
     dvar> local_tom:
     "my name is tom\n"
     
-    prickly_babbage8: overall final exec vars:
+    goofy_noyce4: overall final exec vars:
     
     (*core.Cache)({
+      "local_tom": "my name is tom\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hanks",
@@ -276,10 +277,9 @@ weight: 10763
       }),
       "hellomsg": "hanks",
       "person": {
-        "name": "tom",
-        "age": 18
-      },
-      "local_tom": "my name is tom\n"
+        "age": 18,
+        "name": "tom"
+      }
     })
     
     ~SubStep1: [reg:  ]
@@ -288,14 +288,14 @@ weight: 10763
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "this local_tom should be <no value> as it is in scope of last step",
-          "cmd": "{{.local_tom}}",
-          "name": "print"
+          "cmd": "{{.local_tom}}"
         },
         {
-          "name": "print",
           "desc": "get the object from register global space",
-          "cmd": "{{.tom}}"
+          "cmd": "{{.tom}}",
+          "name": "print"
         },
         {
           "name": "printobj",
@@ -322,35 +322,35 @@ weight: 10763
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
       "hellomsg": "hanks",
       "tom": {
         "name": "tom",
         "age": 18
       },
       "global_tom": "my name is tom\n",
-      "objname": "global_tom"
-    })
-    
-    prickly_babbage8: overall final exec vars:
-    
-    (*core.Cache)({
-      "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
+      "objname": "global_tom"
+    })
+    
+    goofy_noyce4: overall final exec vars:
+    
+    (*core.Cache)({
+      "objname": "global_tom",
       "hellomsg": "hanks",
       "tom": {
         "name": "tom",
         "age": 18
       },
-      "global_tom": "my name is tom\n"
+      "global_tom": "my name is tom\n",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      })
     })
     
     ~SubStep1: [print: this local_tom should be <no value> as it is in scope of last step ]

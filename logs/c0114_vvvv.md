@@ -1,6 +1,6 @@
 ---
 title: "c0114_vvvv"
-date: 2020-06-25T01:56:00+66:00
+date: 2020-06-27T03:09:30+66:00
 draft: false
 weight: 11143
 
@@ -17,7 +17,7 @@ weight: 11143
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0114
                  Verbose -> vvvv
-              ModuleName -> grave_franklin2
+              ModuleName -> serene_colden2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11143
     
     
     groups members:[]
-    module: [grave_franklin2] instance id: [dev]
+    module: [serene_colden2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom in global",
@@ -72,15 +72,15 @@ weight: 11143
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     })
     
-    grave_franklin2: overall final exec vars:
+    serene_colden2: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     })
     
       located task-> 2 [subtask1]: 
@@ -95,8 +95,8 @@ weight: 11143
           "name": "reg",
           "desc": "by default hitom is registered in to global context",
           "cmd": {
-            "name": "tom",
-            "value": "tom created in subtask1"
+            "value": "tom created in subtask1",
+            "name": "tom"
           }
         },
         {
@@ -124,18 +124,18 @@ weight: 11143
     current exec runtime vars:
     (*core.Cache)({
       "jerry": "this is jerry in global",
-      "tom": "this is tom in global",
       "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global",
       "john": "john in sub_loop func1"
     })
     
-    grave_franklin2: overall final exec vars:
+    serene_colden2: overall final exec vars:
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
       "jerry": "this is jerry in global",
-      "tom": "this is tom in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global"
     })
     
     ~~SubStep1: [reg: by default hitom is registered in to global context ]
@@ -175,18 +175,18 @@ weight: 11143
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "tom created in subtask1",
       "john": "john in sub_loop func2",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global"
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     })
     
-    grave_franklin2: overall final exec vars:
+    serene_colden2: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "tom created in subtask1",
       "john": "john in sub_loop func2",
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -214,12 +214,12 @@ weight: 11143
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "tom": "tom created in subtask1",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     })
     
-    grave_franklin2: overall final exec vars:
+    serene_colden2: overall final exec vars:
     
     (*core.Cache)({
       "tom": "tom created in subtask1",
@@ -267,19 +267,19 @@ weight: 11143
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "john": "john in sub_loop func1",
-      "up_runtime_task_layer_number": 2,
-      "tom": "tom created in subtask1"
-    })
-    
-    grave_franklin2: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2,
       "john": "john in sub_loop func1"
+    })
+    
+    serene_colden2: overall final exec vars:
+    
+    (*core.Cache)({
+      "john": "john in sub_loop func1",
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
     })
     
     ~~~SubStep1: [reg: by default hitom is registered in to global context ]
@@ -319,19 +319,19 @@ weight: 11143
     
     current exec runtime vars:
     (*core.Cache)({
-      "john": "john in sub_loop func2",
-      "up_runtime_task_layer_number": 2,
       "tom": "tom2 created in subtask2",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2,
+      "john": "john in sub_loop func2"
     })
     
-    grave_franklin2: overall final exec vars:
+    serene_colden2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 2,
+      "john": "john in sub_loop func2",
       "tom": "tom2 created in subtask2",
-      "jerry": "this is jerry in global",
-      "john": "john in sub_loop func2"
+      "jerry": "this is jerry in global"
     })
     
     ~~~SubStep1: [print:  ]
@@ -366,17 +366,17 @@ weight: 11143
     
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 2,
-      "tom": "tom created in subtask1"
+      "up_runtime_task_layer_number": 2
     })
     
-    grave_franklin2: overall final exec vars:
+    serene_colden2: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2,
-      "tom": "tom created in subtask1"
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global"
     })
     
     ~SubStep1: [print:  ]

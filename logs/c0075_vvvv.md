@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvv"
-date: 2020-06-25T01:55:49+66:00
+date: 2020-06-27T03:09:24+66:00
 draft: false
 weight: 10753
 
@@ -17,7 +17,7 @@ weight: 10753
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0075
                  Verbose -> vvvv
-              ModuleName -> angry_hodgkin6
+              ModuleName -> insane_sinoussi9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10753
     
     
     groups members:[]
-    module: [angry_hodgkin6] instance id: [dev]
+    module: [insane_sinoussi9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -70,18 +70,18 @@ weight: 10753
     -------runtime global final merged with dvars-------
     
     {
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
-      "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice ",
-      "var_with_range_item_simpler": " tom  jason  alice ",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
+      "var_with_range": " x  x  x ",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter"
+      "var_directly_ref_to": "peter",
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
     }
     
       located task-> 1 [task]: 

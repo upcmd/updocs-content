@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvvv"
-date: 2020-06-25T01:55:48+66:00
+date: 2020-06-27T03:09:23+66:00
 draft: false
 weight: 10684
 
@@ -17,7 +17,7 @@ weight: 10684
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0068
                  Verbose -> vvvvv
-              ModuleName -> sharp_kirch2
+              ModuleName -> thirsty_bohr2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10684
     -exec task: task
     loading [Task]:  ./tests/functests/c0068
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecf40)(<nil>)
+    (*impl.Scopes)(0xc0001f4f40)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10684
     
     
     groups members:[]
-    module: [sharp_kirch2] instance id: [dev]
+    module: [thirsty_bohr2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -94,7 +94,7 @@ weight: 10684
     }
     
     
-    sharp_kirch2: overall final exec vars:
+    thirsty_bohr2: overall final exec vars:
     
     (*core.Cache)({
     })

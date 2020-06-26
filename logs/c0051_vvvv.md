@@ -1,6 +1,6 @@
 ---
 title: "c0051_vvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10513
 
@@ -17,7 +17,7 @@ weight: 10513
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0051
                  Verbose -> vvvv
-              ModuleName -> serene_yonath1
+              ModuleName -> gloomy_cray3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -28,11 +28,6 @@ weight: 10513
     loading [Task]:  ./tests/functests/c0051
     ---------group vars----------
     
-    nonprod: {
-      "enc_key": "my_non_enc_key"
-    }
-    
-    
     prod: {
       "enc_key": "my_prod_enc_key"
     }
@@ -42,16 +37,21 @@ weight: 10513
     }
     
     
-    groups members:[dev staging prod]
-    module: [serene_yonath1] instance id: [dev]
-    merged[ dev ] runtime vars:
-    {
-      "bank_acct": "1234-5678",
+    nonprod: {
       "enc_key": "my_non_enc_key"
     }
     
+    
+    groups members:[dev staging prod]
+    module: [gloomy_cray3] instance id: [dev]
+    merged[ dev ] runtime vars:
+    {
+      "enc_key": "my_non_enc_key",
+      "bank_acct": "1234-5678"
+    }
+    
     dvar> bank_password_encrypted:
-    "u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw="
+    "Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI="
     
     dvar> bank_password_decrypted:
     "mybankpassword"
@@ -65,14 +65,14 @@ weight: 10513
     -------runtime global final merged with dvars-------
     
     {
+      "bank_acct": "1234-5678",
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=",
+      "bank_password_encrypted": "Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=",
       "bank_password_decrypted": "mybankpassword",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678",
       "secure_bank_password": "mybankpassword",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
+      "enc_key": "my_non_enc_key"
     }
     
       located task-> 1 [task]: 
@@ -100,27 +100,27 @@ weight: 10513
     
     current exec runtime vars:
     (*core.Cache)({
-      "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=",
-      "bank_password_decrypted": "mybankpassword",
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "secure_bank_password": "mybankpassword",
       "enc_key": "my_non_enc_key",
       "bank_acct": "1234-5678",
-      "secure_bank_password": "mybankpassword",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "bank_password_encrypted": "Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=",
+      "bank_password_decrypted": "mybankpassword",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     })
     
-    serene_yonath1: overall final exec vars:
+    gloomy_cray3: overall final exec vars:
     
     (*core.Cache)({
       "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=",
+      "bank_password_encrypted": "Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=",
       "bank_password_decrypted": "mybankpassword",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "secure_bank_password": "mybankpassword",
       "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678",
-      "secure_bank_password": "mybankpassword"
+      "bank_acct": "1234-5678"
     })
     
       located task-> 2 [task_generate_password]: 
@@ -155,29 +155,29 @@ weight: 10513
     
     current exec runtime vars:
     (*core.Cache)({
-      "bank_password_decrypted": "mybankpassword",
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "secure_bank_password_using_defause_config": "mybankpassword",
       "up_runtime_task_layer_number": 1,
       "secure_bank_password": "mybankpassword",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=",
       "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678"
+      "bank_acct": "1234-5678",
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_password_encrypted": "Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=",
+      "bank_password_decrypted": "mybankpassword",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     })
     
-    serene_yonath1: overall final exec vars:
+    gloomy_cray3: overall final exec vars:
     
     (*core.Cache)({
-      "secure_bank_password_using_defause_config": "mybankpassword",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "up_runtime_task_layer_number": 1,
       "enc_key": "my_non_enc_key",
-      "secure_bank_password": "mybankpassword",
-      "bank_password_encrypted": "u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=",
-      "bank_password_decrypted": "mybankpassword",
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "secure_bank_password_using_defause_config": "mybankpassword",
       "bank_acct": "1234-5678",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_password_encrypted": "Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=",
+      "bank_password_decrypted": "mybankpassword",
+      "secure_bank_password": "mybankpassword"
     })
     
     cmd( 1):
@@ -189,8 +189,8 @@ weight: 10513
     cmd( 2):
     echo "bank password encrypted [{{.bank_password_encrypted}}]"
     
-     \_ echo "bank password encrypted [u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=]"
-    bank password encrypted [u8qufuJugb3N1dLgxrZtLsTnIy0ZQjbJ9SuwtNipPGw=]
+     \_ echo "bank password encrypted [Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=]"
+    bank password encrypted [Gqq34zzXbj/+07mZMtMC/owl4sEkf1nc3KpoOIB5UfI=]
      .. ok
     cmd( 3):
     echo "bank password [{{.bank_password}}]"

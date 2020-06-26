@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvv"
-date: 2020-06-25T01:55:54+66:00
+date: 2020-06-27T03:09:27+66:00
 draft: false
 weight: 10993
 
@@ -17,7 +17,7 @@ weight: 10993
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0099
                  Verbose -> vvvv
-              ModuleName -> evil_brattain4
+              ModuleName -> stoic_fermi5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,35 +33,9 @@ weight: 10993
     
     
     groups members:[]
-    module: [evil_brattain4] instance id: [dev]
+    module: [stoic_fermi5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
-            }
-          }
-        }
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -72,6 +46,32 @@ weight: 10993
             }
           }
         }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "MLC",
+              "name": "Grace",
+              "gender": "Female"
+            }
+          }
+        }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     }
     
@@ -122,11 +122,36 @@ weight: 10993
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Grace",
+              "gender": "Female",
+              "school": "MLC"
+            }
+          }
+        }
       },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
+    })
+    
+    dvar> student_info:
+    "my name is:Grace and I am in MLC"
+    
+    stoic_fermi5: overall final exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "student_info": "my name is:Grace and I am in MLC",
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -138,31 +163,6 @@ weight: 10993
           }
         }
       }
-    })
-    
-    dvar> student_info:
-    "my name is:Grace and I am in MLC"
-    
-    evil_brattain4: overall final exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
-            }
-          }
-        }
-      },
-      "student_info": "my name is:Grace and I am in MLC"
     })
     
     ~SubStep1: [print:  ]
@@ -210,11 +210,6 @@ weight: 10993
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -225,31 +220,36 @@ weight: 10993
             }
           }
         }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     })
     
     dvar> student_info:
     "my name is:Grace and I am in MLC"
     
-    evil_brattain4: overall final exec vars:
+    stoic_fermi5: overall final exec vars:
     
     (*core.Cache)({
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
-            }
-          }
-        }
-      },
-      "student_info": "my name is:Grace and I am in MLC",
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
+      },
+      "student_info": "my name is:Grace and I am in MLC",
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "MLC",
+              "name": "Grace",
+              "gender": "Female"
+            }
+          }
+        }
       }
     })
     

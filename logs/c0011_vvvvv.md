@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10114
 
@@ -17,7 +17,7 @@ weight: 10114
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0011
                  Verbose -> vvvvv
-              ModuleName -> determined_jang7
+              ModuleName -> elegant_wright0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,17 +27,17 @@ weight: 10114
     -exec task: task
     loading [Task]:  ./tests/functests/c0011
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef1e0)((len=5 cap=5) {
+    (*impl.Scopes)(0xc000155240)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "a": (string) (len=8) "global-a",
-       (string) (len=1) "b": (string) (len=8) "global-b",
        (string) (len=1) "c": (string) (len=8) "global-c",
-       (string) (len=1) "d": (string) (len=8) "global-d"
+       (string) (len=1) "d": (string) (len=8) "global-d",
+       (string) (len=1) "a": (string) (len=8) "global-a",
+       (string) (len=1) "b": (string) (len=8) "global-b"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -50,8 +50,8 @@ weight: 10114
        (string) (len=4) "prod"
       },
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "c": (string) (len=6) "prod-c",
-       (string) (len=1) "a": (string) (len=6) "prod-a"
+       (string) (len=1) "a": (string) (len=6) "prod-a",
+       (string) (len=1) "c": (string) (len=6) "prod-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -65,9 +65,9 @@ weight: 10114
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=3) {
-       (string) (len=1) "a": (string) (len=10) "non-prod-a",
        (string) (len=1) "b": (string) (len=10) "non-prod-b",
-       (string) (len=1) "c": (string) (len=10) "non-prod-c"
+       (string) (len=1) "c": (string) (len=10) "non-prod-c",
+       (string) (len=1) "a": (string) (len=10) "non-prod-a"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -77,8 +77,8 @@ weight: 10114
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "b": (string) (len=9) "staging-b",
-       (string) (len=1) "a": (string) (len=9) "staging-a"
+       (string) (len=1) "a": (string) (len=9) "staging-a",
+       (string) (len=1) "b": (string) (len=9) "staging-b"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -101,10 +101,10 @@ weight: 10114
     
     
     scope[global] merged: {
+      "a": "global-a",
       "b": "global-b",
       "c": "global-c",
-      "d": "global-d",
-      "a": "global-a"
+      "d": "global-d"
     }
     
     
@@ -125,19 +125,13 @@ weight: 10114
     
     
     scope[nonprod] merged: {
+      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c",
-      "a": "non-prod-a"
+      "c": "non-prod-c"
     }
     
     
     ---------group vars----------
-    
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
-    
     
     nonprod: {
       "b": "non-prod-b",
@@ -147,15 +141,21 @@ weight: 10114
     
     
     global: {
-      "c": "global-c",
-      "d": "global-d",
       "a": "global-a",
-      "b": "global-b"
+      "b": "global-b",
+      "c": "global-c",
+      "d": "global-d"
+    }
+    
+    
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [determined_jang7] instance id: [dev]
+    module: [elegant_wright0] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
@@ -169,20 +169,20 @@ weight: 10114
     
     merged[ dev ] runtime vars:
     {
-      "c": "dev-c",
-      "d": "global-d",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "a": "runtime-a",
       "b": "non-prod-b",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "c": "dev-c",
+      "d": "global-d"
     }
     
     (core.Cache) (len=6) {
      (string) (len=1) "d": (string) (len=8) "global-d",
-     (string) (len=1) "a": (string) (len=9) "runtime-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b",
      (string) (len=1) "e": (string) (len=9) "runtime-e",
      (string) (len=1) "k": (string) (len=9) "runtime-k",
+     (string) (len=1) "a": (string) (len=9) "runtime-a",
+     (string) (len=1) "b": (string) (len=10) "non-prod-b",
      (string) (len=1) "c": (string) (len=5) "dev-c"
     }
     
@@ -194,12 +194,12 @@ weight: 10114
     -------runtime global final merged with dvars-------
     
     {
-      "c": "dev-c",
-      "d": "global-d",
+      "k": "runtime-k",
       "a": "runtime-a",
       "b": "non-prod-b",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "c": "dev-c",
+      "d": "global-d",
+      "e": "runtime-e"
     }
     
       located task-> 1 [task]: 
@@ -232,12 +232,12 @@ weight: 10114
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "non-prod-b",
       "e": "local-e",
       "k": "runtime-k",
+      "a": "runtime-a",
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "runtime-a",
       "m": "local-m"
     })
     
@@ -247,26 +247,26 @@ weight: 10114
     
     
     scope[local] merged: {
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "runtime-a",
       "m": "local-m",
-      "b": "non-prod-b",
       "e": "local-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     }
     
     
-    determined_jang7: overall final exec vars:
+    elegant_wright0: overall final exec vars:
     
     (*core.Cache)({
       "b": "non-prod-b",
-      "e": "local-e",
-      "k": "runtime-k",
       "c": "dev-c",
       "d": "global-d",
-      "a": "runtime-a",
-      "m": "local-m"
+      "m": "local-m",
+      "e": "local-e",
+      "k": "runtime-k",
+      "a": "runtime-a"
     })
     
     cmd( 1):

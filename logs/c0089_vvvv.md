@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvv"
-date: 2020-06-25T01:55:52+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10893
 
@@ -17,7 +17,7 @@ weight: 10893
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0089
                  Verbose -> vvvv
-              ModuleName -> naughty_shockley2
+              ModuleName -> loving_bell0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10893
     
     
     groups members:[]
-    module: [naughty_shockley2] instance id: [dev]
+    module: [loving_bell0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "dynadir": "./tests/functests"
@@ -77,7 +77,7 @@ weight: 10893
       "dynadir": "./tests/functests"
     })
     
-    naughty_shockley2: overall final exec vars:
+    loving_bell0: overall final exec vars:
     
     (*core.Cache)({
       "dynadir": "./tests/functests"

@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10083
 
@@ -17,7 +17,7 @@ weight: 10083
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0008
                  Verbose -> vvvv
-              ModuleName -> mad_meitner3
+              ModuleName -> lonely_rosalind8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,13 +27,6 @@ weight: 10083
     -exec task: task
     loading [Task]:  ./tests/functests/c0008
     ---------group vars----------
-    
-    nonprod: {
-      "c": "non-prod-c",
-      "a": "non-prod-a",
-      "b": "non-prod-b"
-    }
-    
     
     global: {
       "a": "global-a",
@@ -49,23 +42,30 @@ weight: 10083
     }
     
     
+    nonprod: {
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c"
+    }
+    
+    
     groups members:[dr prod dev st staging]
-    module: [mad_meitner3] instance id: [dev]
+    module: [lonely_rosalind8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c",
-      "d": "global-d"
+      "c": "dev-c"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     }
     
       located task-> 1 [task]: 
@@ -95,19 +95,19 @@ weight: 10083
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "non-prod-b",
-      "c": "dev-c",
-      "d": "global-d",
-      "a": "dev-a"
-    })
-    
-    mad_meitner3: overall final exec vars:
-    
-    (*core.Cache)({
       "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c"
+    })
+    
+    lonely_rosalind8: overall final exec vars:
+    
+    (*core.Cache)({
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d",
+      "a": "dev-a"
     })
     
     cmd( 1):

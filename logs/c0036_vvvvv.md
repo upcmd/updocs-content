@@ -1,6 +1,6 @@
 ---
 title: "c0036_vvvvv"
-date: 2020-06-25T01:55:42+66:00
+date: 2020-06-27T03:09:18+66:00
 draft: false
 weight: 10364
 
@@ -17,7 +17,7 @@ weight: 10364
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0036
                  Verbose -> vvvvv
-              ModuleName -> trusting_perlman0
+              ModuleName -> determined_carson2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,11 +36,9 @@ weight: 10364
     
     
     groups members:[]
-    module: [trusting_perlman0] instance id: [dev]
+    module: [determined_carson2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "pod_name": "web_app",
-      "ha": true,
       "age": 34,
       "old": 54,
       "admins": {
@@ -53,16 +51,12 @@ weight: 10364
         "jason",
         "alice"
       },
-      "ns": "prod"
+      "ns": "prod",
+      "pod_name": "web_app",
+      "ha": true
     }
     
     (core.Cache) (len=7) {
-     (string) (len=3) "old": (int) 54,
-     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
-      (string) (len=3) "tom",
-      (string) (len=5) "jason",
-      (string) (len=5) "alice"
-     },
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
@@ -71,7 +65,13 @@ weight: 10364
      (string) (len=2) "ns": (string) (len=4) "prod",
      (string) (len=8) "pod_name": (string) (len=7) "web_app",
      (string) (len=2) "ha": (bool) true,
-     (string) (len=3) "age": (int) 34
+     (string) (len=3) "age": (int) 34,
+     (string) (len=3) "old": (int) 54,
+     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
+      (string) (len=3) "tom",
+      (string) (len=5) "jason",
+      (string) (len=5) "alice"
+     }
     }
     
     dvar> var_with_range:
@@ -118,79 +118,79 @@ weight: 10364
     
     [runtime global] dvar expanded result:
     {
+      "var_slice": "[jason]",
+      "instance_full_name": "prod-web_app",
       "var_space_not_trimmed": "prod       -            web_app",
-      "var_with_range": " x  x  x ",
+      "var_commented": " prod-web_app",
+      "var_with_if": "prod-web_app-HA",
       "var_with_ifelse": "prod-web_app-HA",
+      "var_length": "12",
+      "var_with_and": "web_app",
+      "var_greater": "false",
+      "template_def": "\n\n\nONE TWO\"\n",
+      "var_with_range_item_simpler": " tom  jason  alice ",
       "var_with_ifelse_multilines": "  prod-web_app-HA ",
       "var_with_not_object": "prod-web_app",
-      "var_slice_index": "jason",
-      "var_greater": "false",
-      "var_space_trimmed": "prod-web_app",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_length": "12",
-      "var_equal": "false",
-      "var_greater_and_equal": "hello",
-      "instance_full_name": "prod-web_app",
-      "var_commented_trimmed": "prod-web_app",
-      "var_with_if": "prod-web_app-HA",
-      "var_with_range_item": " tom  jason  alice ",
-      "var_with_not": "prod-web_app",
-      "var_test_log_auto_print_object": "prodweb_app",
-      "var_with_and": "web_app",
-      "var_commented": " prod-web_app",
       "var_with_or": "prod",
-      "var_with_print": "prodweb_app",
       "var_test_log_auto_print": "prodweb_app",
-      "var_slice": "[jason]",
+      "var_slice_index": "jason",
+      "var_greater_and_equal": "hello",
+      "var_with_not": "prod-web_app",
+      "var_with_print": "prodweb_app",
+      "var_equal": "false",
       "var_not_equal": "true",
-      "template_def": "\n\n\nONE TWO\"\n"
+      "var_space_trimmed": "prod-web_app",
+      "var_commented_trimmed": "prod-web_app",
+      "var_with_range": " x  x  x ",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_test_log_auto_print_object": "prodweb_app"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_test_log_auto_print_object": "prodweb_app",
-      "var_commented_trimmed": "prod-web_app",
-      "var_not_equal": "true",
+      "var_length": "12",
       "var_commented": " prod-web_app",
-      "var_with_or": "prod",
-      "var_with_print": "prodweb_app",
+      "var_test_log_auto_print": "prodweb_app",
       "var_with_not_object": "prod-web_app",
+      "var_equal": "false",
+      "ns": "prod",
+      "pod_name": "web_app",
+      "ha": true,
+      "old": 54,
+      "var_with_if": "prod-web_app-HA",
+      "var_not_equal": "true",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "var_space_trimmed": "prod-web_app",
-      "var_space_not_trimmed": "prod       -            web_app",
-      "var_with_range": " x  x  x ",
-      "ns": "prod",
-      "var_test_log_auto_print": "prodweb_app",
-      "var_with_ifelse": "prod-web_app-HA",
-      "var_greater_and_equal": "hello",
-      "var_length": "12",
-      "var_with_and": "web_app",
-      "template_def": "\n\n\nONE TWO\"\n",
       "var_with_ifelse_multilines": "  prod-web_app-HA ",
+      "var_with_range_item": " tom  jason  alice ",
+      "age": 34,
+      "var_slice_index": "jason",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_with_and": "web_app",
+      "var_space_not_trimmed": "prod       -            web_app",
       "var_greater": "false",
+      "var_with_or": "prod",
+      "var_with_not": "prod-web_app",
+      "var_with_print": "prodweb_app",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_space_trimmed": "prod-web_app",
+      "var_slice": "[jason]",
+      "var_with_ifelse": "prod-web_app-HA",
+      "instance_full_name": "prod-web_app",
+      "var_greater_and_equal": "hello",
+      "var_commented_trimmed": "prod-web_app",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "ha": true,
-      "var_with_range_item": " tom  jason  alice ",
-      "var_slice_index": "jason",
-      "pod_name": "web_app",
-      "age": 34,
-      "old": 54,
-      "var_equal": "false",
-      "var_with_not": "prod-web_app",
-      "instance_full_name": "prod-web_app",
-      "var_with_if": "prod-web_app-HA",
-      "var_slice": "[jason]"
+      "var_with_range": " x  x  x ",
+      "template_def": "\n\n\nONE TWO\"\n"
     }
     
       located task-> 1 [task]: 
@@ -233,47 +233,47 @@ weight: 10364
     
     current exec runtime vars:
     (*core.Cache)({
-      "ns": "prod",
-      "var_length": "12",
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "var_slice_index": "jason",
-      "pod_name": "web_app",
-      "var_with_not": "prod-web_app",
+      "old": 54,
+      "var_with_and": "web_app",
+      "var_with_ifelse": "prod-web_app-HA",
+      "var_equal": "false",
+      "instance_full_name": "prod-web_app",
       "var_with_if": "prod-web_app-HA",
+      "ha": true,
+      "var_with_not": "prod-web_app",
+      "var_slice": "[jason]",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_slice_index": "jason",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_with_or": "prod",
+      "var_with_range": " x  x  x ",
+      "ns": "prod",
+      "var_commented": " prod-web_app",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
       "var_with_print": "prodweb_app",
-      "var_with_not_object": "prod-web_app",
-      "var_slice": "[jason]",
-      "age": 34,
-      "var_space_trimmed": "prod-web_app",
-      "instance_full_name": "prod-web_app",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_test_log_auto_print": "prodweb_app",
-      "old": 54,
-      "var_with_or": "prod",
-      "var_with_ifelse": "prod-web_app-HA",
-      "template_def": "\n\n\nONE TWO\"\n",
       "var_greater": "false",
-      "var_test_log_auto_print_object": "prodweb_app",
-      "var_with_range": " x  x  x ",
+      "template_def": "\n\n\nONE TWO\"\n",
       "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "var_equal": "false",
-      "var_space_not_trimmed": "prod       -            web_app",
-      "var_with_and": "web_app",
-      "ha": true,
-      "var_with_range_item": " tom  jason  alice ",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
       "var_commented_trimmed": "prod-web_app",
+      "var_test_log_auto_print": "prodweb_app",
+      "var_space_not_trimmed": "prod       -            web_app",
+      "var_greater_and_equal": "hello",
+      "var_with_not_object": "prod-web_app",
       "var_not_equal": "true",
-      "var_commented": " prod-web_app",
-      "var_greater_and_equal": "hello"
+      "pod_name": "web_app",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_space_trimmed": "prod-web_app",
+      "age": 34,
+      "var_length": "12"
     })
     
     [local] dvar expanded result:
@@ -282,94 +282,94 @@ weight: 10364
     
     
     scope[local] merged: {
-      "var_with_if": "prod-web_app-HA",
+      "var_commented_trimmed": "prod-web_app",
+      "var_equal": "false",
       "var_slice": "[jason]",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_greater_and_equal": "hello",
-      "ns": "prod",
-      "var_length": "12",
-      "template_def": "\n\n\nONE TWO\"\n",
-      "pod_name": "web_app",
-      "instance_full_name": "prod-web_app",
-      "var_with_ifelse": "prod-web_app-HA",
-      "var_greater": "false",
+      "var_with_ifelse_multilines": "  prod-web_app-HA ",
       "var_space_not_trimmed": "prod       -            web_app",
-      "var_not_equal": "true",
+      "var_greater_and_equal": "hello",
+      "age": 34,
+      "var_with_or": "prod",
+      "ns": "prod",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range": " x  x  x ",
-      "var_with_print": "prodweb_app",
-      "var_space_trimmed": "prod-web_app",
       "var_test_log_auto_print": "prodweb_app",
-      "old": 54,
-      "ha": true,
-      "var_with_range_item": " tom  jason  alice ",
-      "var_slice_index": "jason",
-      "var_with_not": "prod-web_app",
-      "var_with_or": "prod",
-      "var_test_log_auto_print_object": "prodweb_app",
-      "age": 34,
-      "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "var_equal": "false",
-      "var_commented": " prod-web_app",
+      "var_with_not_object": "prod-web_app",
+      "var_not_equal": "true",
+      "pod_name": "web_app",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
+      "ha": true,
+      "instance_full_name": "prod-web_app",
+      "var_with_range_item": " tom  jason  alice ",
+      "template_def": "\n\n\nONE TWO\"\n",
       "var_with_and": "web_app",
-      "var_commented_trimmed": "prod-web_app",
-      "var_with_not_object": "prod-web_app"
+      "var_with_not": "prod-web_app",
+      "var_slice_index": "jason",
+      "var_with_if": "prod-web_app-HA",
+      "var_with_ifelse": "prod-web_app-HA",
+      "var_commented": " prod-web_app",
+      "var_length": "12",
+      "var_greater": "false",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "old": 54,
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_with_range": " x  x  x ",
+      "var_with_print": "prodweb_app",
+      "var_space_trimmed": "prod-web_app"
     }
     
     
-    trusting_perlman0: overall final exec vars:
+    determined_carson2: overall final exec vars:
     
     (*core.Cache)({
-      "ns": "prod",
-      "var_length": "12",
-      "template_def": "\n\n\nONE TWO\"\n",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_with_range": " x  x  x ",
+      "var_with_print": "prodweb_app",
+      "var_space_trimmed": "prod-web_app",
+      "old": 54,
+      "var_equal": "false",
+      "var_slice": "[jason]",
+      "var_with_ifelse_multilines": "  prod-web_app-HA ",
+      "var_commented_trimmed": "prod-web_app",
       "var_greater_and_equal": "hello",
-      "instance_full_name": "prod-web_app",
-      "pod_name": "web_app",
-      "var_with_ifelse": "prod-web_app-HA",
-      "var_not_equal": "true",
+      "age": 34,
+      "var_with_or": "prod",
+      "ns": "prod",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range": " x  x  x ",
-      "var_greater": "false",
-      "var_space_not_trimmed": "prod       -            web_app",
-      "var_with_range_item": " tom  jason  alice ",
-      "var_slice_index": "jason",
-      "var_with_not": "prod-web_app",
-      "var_with_print": "prodweb_app",
-      "var_space_trimmed": "prod-web_app",
       "var_test_log_auto_print": "prodweb_app",
-      "old": 54,
-      "ha": true,
-      "var_test_log_auto_print_object": "prodweb_app",
-      "var_with_or": "prod",
-      "var_equal": "false",
-      "var_commented": " prod-web_app",
+      "var_space_not_trimmed": "prod       -            web_app",
+      "var_not_equal": "true",
+      "pod_name": "web_app",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "age": 34,
-      "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "var_commented_trimmed": "prod-web_app",
       "var_with_not_object": "prod-web_app",
+      "instance_full_name": "prod-web_app",
+      "var_with_range_item": " tom  jason  alice ",
+      "template_def": "\n\n\nONE TWO\"\n",
       "var_with_and": "web_app",
-      "var_slice": "[jason]",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_with_if": "prod-web_app-HA"
+      "ha": true,
+      "var_slice_index": "jason",
+      "var_with_if": "prod-web_app-HA",
+      "var_with_not": "prod-web_app",
+      "var_commented": " prod-web_app",
+      "var_length": "12",
+      "var_with_ifelse": "prod-web_app-HA",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_greater": "false"
     })
     
     cmd( 1):

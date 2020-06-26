@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10473
 
@@ -17,7 +17,7 @@ weight: 10473
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0047
                  Verbose -> vvvv
-              ModuleName -> reverent_mestorf8
+              ModuleName -> distracted_wright3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -35,7 +35,7 @@ weight: 10473
     
     
     groups members:[]
-    module: [reverent_mestorf8] instance id: [dev]
+    module: [distracted_wright3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_name": "Tom Hanks",
@@ -82,12 +82,12 @@ weight: 10473
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
-    reverent_mestorf8: overall final exec vars:
+    distracted_wright3: overall final exec vars:
     
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
     cmd( 1):

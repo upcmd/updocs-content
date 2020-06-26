@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvv"
-date: 2020-06-25T01:55:49+66:00
+date: 2020-06-27T03:09:24+66:00
 draft: false
 weight: 10733
 
@@ -17,7 +17,7 @@ weight: 10733
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0073
                  Verbose -> vvvv
-              ModuleName -> distracted_elion9
+              ModuleName -> sharp_sammet6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,26 +33,26 @@ weight: 10733
     
     
     groups members:[]
-    module: [distracted_elion9] instance id: [dev]
+    module: [sharp_sammet6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world"
+      "my_interesting_story6": "hello\nworld\n\n\n"
     }
     
       located task-> 1 [task]: 
@@ -64,9 +64,9 @@ weight: 10733
       Name: "",
       Do: {
         {
-          "cmd": "[{{.my_interesting_story1}}]",
           "name": "print",
-          "desc": "literal style, there will be a line break"
+          "desc": "literal style, there will be a line break",
+          "cmd": "[{{.my_interesting_story1}}]"
         },
         {
           "name": "print",
@@ -79,9 +79,9 @@ weight: 10733
           "desc": "folded style"
         },
         {
+          "name": "print",
           "desc": "literal style strip, the end line break is removed",
-          "cmd": "[{{.my_interesting_story4}}]",
-          "name": "print"
+          "cmd": "[{{.my_interesting_story4}}]"
         },
         {
           "name": "reg",
@@ -118,23 +118,23 @@ weight: 10733
     
     current exec runtime vars:
     (*core.Cache)({
+      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story3": "hello world\n"
     })
     
-    distracted_elion9: overall final exec vars:
+    sharp_sammet6: overall final exec vars:
     
     (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n"
     })
     
     ~SubStep1: [print: literal style, there will be a line break ]
@@ -178,27 +178,27 @@ weight: 10733
     
     current exec runtime vars:
     (*core.Cache)({
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world"
-    })
-    
-    distracted_elion9: overall final exec vars:
-    
-    (*core.Cache)({
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
       "my_interesting_story6": "hello\nworld\n\n\n"
+    })
+    
+    sharp_sammet6: overall final exec vars:
+    
+    (*core.Cache)({
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n"
     })
     
     cmd( 1):

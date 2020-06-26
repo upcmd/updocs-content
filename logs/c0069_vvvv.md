@@ -1,6 +1,6 @@
 ---
 title: "c0069_vvvv"
-date: 2020-06-25T01:55:48+66:00
+date: 2020-06-27T03:09:23+66:00
 draft: false
 weight: 10693
 
@@ -17,7 +17,7 @@ weight: 10693
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0069
                  Verbose -> vvvv
-              ModuleName -> reverent_fermat7
+              ModuleName -> stoic_mccarthy3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,39 +33,39 @@ weight: 10693
     
     
     groups members:[]
-    module: [reverent_fermat7] instance id: [dev]
+    module: [stoic_mccarthy3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "name": "Tom",
+        "gender": "Male",
         "address": {
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "cbd": true
           },
           "school": "Sydney Grammar"
-        },
-        "name": "Tom",
-        "gender": "Male"
+        }
       }
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
+        "name": "Tom",
         "gender": "Male",
         "address": {
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "cbd": true
           },
           "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
+        }
+      }
     }
     
       located task-> 1 [task]: 
@@ -98,34 +98,34 @@ weight: 10693
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "postcode": 2000,
             "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
+            "name": "sydney"
+          }
         },
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     })
     
-    reverent_fermat7: overall final exec vars:
+    stoic_mccarthy3: overall final exec vars:
     
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "cbd": true
-          },
-          "school": "Sydney Grammar"
+          }
         },
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     })

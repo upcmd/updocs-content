@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvvv"
-date: 2020-06-25T01:55:54+66:00
+date: 2020-06-27T03:09:27+66:00
 draft: false
 weight: 10994
 
@@ -17,7 +17,7 @@ weight: 10994
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0099
                  Verbose -> vvvvv
-              ModuleName -> suspicious_rosalind6
+              ModuleName -> prickly_tesla9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10994
     -exec task: task
     loading [Task]:  ./tests/functests/c0099
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed200)(<nil>)
+    (*impl.Scopes)(0xc0001eb200)(<nil>)
     
     ---------group vars----------
     
@@ -36,24 +36,24 @@ weight: 10994
     
     
     groups members:[]
-    module: [suspicious_rosalind6] instance id: [dev]
+    module: [prickly_tesla9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "name": "Grace",
               "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
+              "school": "MLC"
             }
           }
         }
-      },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
       }
     }
     
@@ -85,9 +85,9 @@ weight: 10994
     
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "nsw": {
         "sydney": {
@@ -149,21 +149,21 @@ weight: 10994
     
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Female",
               "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
+              "name": "Grace"
             }
           }
         }
-      },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
       }
     })
     
@@ -177,46 +177,46 @@ weight: 10994
     
     
     scope[local] merged: {
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
-      },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
       },
       "student_info": "my name is:Grace and I am in MLC"
     }
     
     
-    suspicious_rosalind6: overall final exec vars:
+    prickly_tesla9: overall final exec vars:
     
     (*core.Cache)({
-      "student_info": "my name is:Grace and I am in MLC",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Female",
               "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
+              "name": "Grace"
             }
           }
         }
       },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
+      "student_info": "my name is:Grace and I am in MLC"
     })
     
     {{.student_info}}
@@ -269,17 +269,17 @@ weight: 10994
         "sydney": {
           "sgschool": {
             "student": {
-              "gender": "Female",
               "school": "MLC",
-              "name": "Grace"
+              "name": "Grace",
+              "gender": "Female"
             }
           }
         }
       },
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     })
     
@@ -293,29 +293,12 @@ weight: 10994
     
     
     scope[local] merged: {
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
-            }
-          }
-        }
-      },
+      "student_info": "my name is:Grace and I am in MLC",
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
-      "student_info": "my name is:Grace and I am in MLC"
-    }
-    
-    
-    suspicious_rosalind6: overall final exec vars:
-    
-    (*core.Cache)({
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -326,11 +309,28 @@ weight: 10994
             }
           }
         }
-      },
+      }
+    }
+    
+    
+    prickly_tesla9: overall final exec vars:
+    
+    (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "MLC",
+              "name": "Grace",
+              "gender": "Female"
+            }
+          }
+        }
       },
       "student_info": "my name is:Grace and I am in MLC"
     })

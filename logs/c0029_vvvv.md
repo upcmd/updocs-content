@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvv"
-date: 2020-06-25T01:55:41+66:00
+date: 2020-06-27T03:09:17+66:00
 draft: false
 weight: 10293
 
@@ -17,7 +17,7 @@ weight: 10293
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0029
                  Verbose -> vvvv
-              ModuleName -> dreamy_euclid7
+              ModuleName -> high_hypatia2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -28,51 +28,51 @@ weight: 10293
     loading [Task]:  ./tests/functests/c0029
     ---------group vars----------
     
-    nonprod: {
-      "a": "non-prod-a",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d"
+    global: {
+      "a": "global-a",
+      "b": "global-b",
+      "c": "global-c",
+      "e": "global-e",
+      "da": "global-a",
+      "dab": "global-a-and-global-b"
     }
     
     
-    global: {
-      "c": "global-c",
-      "e": "global-e",
-      "a": "global-a",
-      "da": "global-a",
-      "dab": "global-a-and-global-b",
-      "b": "global-b"
+    nonprod: {
+      "d": "non-prod-d",
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "dab": "non-prod-a-and-non-prod-b",
+      "dvar_np_a": "non-prod-a"
     }
     
     
     groups members:[dev staging]
-    module: [dreamy_euclid7] instance id: [dev]
+    module: [high_hypatia2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "non-prod-a",
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
       "b": "non-prod-b",
       "c": "non-prod-c",
-      "d": "non-prod-d",
+      "e": "global-e",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
       "dvar_np_a": "non-prod-a",
-      "e": "global-e"
+      "d": "non-prod-d"
     }
     
     -------runtime global final merged with dvars-------
     
     {
       "e": "global-e",
-      "a": "non-prod-a",
       "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
-      "b": "non-prod-b",
-      "c": "non-prod-c",
+      "dvar_np_a": "non-prod-a",
       "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a"
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c"
     }
     
       located task-> 1 [task]: 
@@ -104,27 +104,27 @@ weight: 10293
     
     current exec runtime vars:
     (*core.Cache)({
-      "dab": "non-prod-a-and-non-prod-b",
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "e": "global-e",
-      "a": "non-prod-a",
-      "da": "global-a"
-    })
-    
-    dreamy_euclid7: overall final exec vars:
-    
-    (*core.Cache)({
-      "e": "global-e",
-      "a": "non-prod-a",
       "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
+      "dvar_np_a": "non-prod-a",
+      "d": "non-prod-d",
+      "a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a"
+      "e": "global-e"
+    })
+    
+    high_hypatia2: overall final exec vars:
+    
+    (*core.Cache)({
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "dvar_np_a": "non-prod-a",
+      "d": "non-prod-d"
     })
     
     cmd( 1):

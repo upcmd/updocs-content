@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10203
 
@@ -17,7 +17,7 @@ weight: 10203
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0020
                  Verbose -> vvvv
-              ModuleName -> backstabbing_wilson9
+              ModuleName -> cranky_franklin5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10203
     
     
     groups members:[]
-    module: [backstabbing_wilson9] instance id: [dev]
+    module: [cranky_franklin5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar"
@@ -58,9 +58,9 @@ weight: 10203
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "studentname": "Tom",
         "school": "sydney grammar",
-        "gender": "male"
+        "gender": "male",
+        "studentname": "Tom"
       },
       Dvars: <nil>,
       Desc: "call function with different vars",
@@ -81,7 +81,7 @@ weight: 10203
       "studentname": "Tom"
     })
     
-    backstabbing_wilson9: overall final exec vars:
+    cranky_franklin5: overall final exec vars:
     
     (*core.Cache)({
       "gender": "male",
@@ -121,19 +121,19 @@ weight: 10203
     
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
-      "gender": "male",
       "up_runtime_task_layer_number": 1,
-      "school": "sydney grammar"
-    })
-    
-    backstabbing_wilson9: overall final exec vars:
-    
-    (*core.Cache)({
       "school": "sydney grammar",
       "studentname": "Tom",
-      "gender": "male",
-      "up_runtime_task_layer_number": 1
+      "gender": "male"
+    })
+    
+    cranky_franklin5: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "school": "sydney grammar",
+      "studentname": "Tom",
+      "gender": "male"
     })
     
     cmd( 1):

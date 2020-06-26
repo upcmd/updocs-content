@@ -1,6 +1,6 @@
 ---
 title: "c0038_vvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10383
 
@@ -17,7 +17,7 @@ weight: 10383
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0038
                  Verbose -> vvvv
-              ModuleName -> suspicious_wozniak8
+              ModuleName -> fervent_mcclintock9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,9 +33,19 @@ weight: 10383
     
     
     groups members:[]
-    module: [suspicious_wozniak8] instance id: [dev]
+    module: [fervent_mcclintock9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "ns": "prod",
+      "pod_name": "web_app",
+      "ha": true,
+      "age": 34,
+      "old": 54,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
       "managers": {
         "tom",
         "jason",
@@ -50,23 +60,13 @@ weight: 10383
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
+            "cbd": true
+          }
         }
-      },
-      "ns": "prod",
-      "pod_name": "web_app",
-      "ha": true,
-      "age": 34,
-      "old": 54,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
       }
     }
     
@@ -85,25 +85,28 @@ weight: 10383
     -------runtime global final merged with dvars-------
     
     {
+      "ns": "prod",
+      "pod_name": "web_app",
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "cbd": true
-          },
-          "school": "Sydney Grammar"
-        }
+          }
+        },
+        "name": "Tom",
+        "gender": "Male"
       },
-      "var_slice_index": "jason",
       "sprig_trim": "hello",
+      "gtf_ljust": "Hello!              ",
+      "ha": true,
       "age": 34,
       "old": 54,
       "admins": {
@@ -116,11 +119,8 @@ weight: 10383
         "jason",
         "alice"
       },
-      "ns": "prod",
-      "pod_name": "web_app",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "gtf_ljust": "Hello!              ",
-      "ha": true
+      "var_slice_index": "jason",
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd"
     }
     
       located task-> 1 [task]: 
@@ -150,14 +150,12 @@ weight: 10383
     
     current exec runtime vars:
     (*core.Cache)({
-      "age": 34,
-      "var_slice_index": "jason",
-      "ns": "prod",
-      "pod_name": "web_app",
-      "gtf_ljust": "Hello!              ",
-      "old": 54,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
       "student": {
-        "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
@@ -165,68 +163,70 @@ weight: 10383
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "postcode": 2000,
             "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "sprig_trim": "hello",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "ha": true,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
+            "name": "sydney"
+          }
+        },
+        "name": "Tom"
       },
       "managers": {
         "tom",
         "jason",
         "alice"
-      }
+      },
+      "var_slice_index": "jason",
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "age": 34,
+      "old": 54,
+      "gtf_ljust": "Hello!              ",
+      "ns": "prod",
+      "pod_name": "web_app",
+      "sprig_trim": "hello",
+      "ha": true
     })
     
-    suspicious_wozniak8: overall final exec vars:
+    fervent_mcclintock9: overall final exec vars:
     
     (*core.Cache)({
+      "ha": true,
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "var_slice_index": "jason",
+      "age": 34,
+      "gtf_ljust": "Hello!              ",
+      "pod_name": "web_app",
+      "sprig_trim": "hello",
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "ns": "prod",
+      "old": 54,
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "postcode": 2000,
             "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "sprig_trim": "hello",
-      "old": 54,
-      "age": 34,
-      "var_slice_index": "jason",
-      "pod_name": "web_app",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "gtf_ljust": "Hello!              ",
-      "ns": "prod",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "ha": true
+            "name": "sydney"
+          }
+        },
+        "name": "Tom",
+        "gender": "Male"
+      }
     })
     
     cmd( 1):

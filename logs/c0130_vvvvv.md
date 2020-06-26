@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11304
 
@@ -17,7 +17,7 @@ weight: 11304
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0130
                  Verbose -> vvvvv
-              ModuleName -> stupefied_rosalind5
+              ModuleName -> agitated_elion5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11304
     -exec task: task
     loading [Task]:  ./tests/functests/c0130
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed680)(<nil>)
+    (*impl.Scopes)(0xc000185680)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,18 @@ weight: 11304
     
     
     groups members:[]
-    module: [stupefied_rosalind5] instance id: [dev]
+    module: [agitated_elion5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
+      "c": "global_ccc"
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "b": (string) (len=10) "global_bbb",
      (string) (len=1) "c": (string) (len=10) "global_ccc",
-     (string) (len=1) "a": (string) (len=10) "global_aaa"
+     (string) (len=1) "a": (string) (len=10) "global_aaa",
+     (string) (len=1) "b": (string) (len=10) "global_bbb"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +58,9 @@ weight: 11304
     -------runtime global final merged with dvars-------
     
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -98,6 +98,20 @@ weight: 11304
           }
         },
         {
+          "vars": {
+            "a": "local_block_layer2_aaa",
+            "b": "local_block_layer2_bbb"
+          },
+          "dvars": {
+            {
+              "name": "da",
+              "value": "local_da_layer2"
+            },
+            {
+              "name": "db",
+              "value": "local_db_layer2"
+            }
+          },
           "do": {
             {
               "func": "cmd",
@@ -113,21 +127,7 @@ weight: 11304
             }
           },
           "func": "block",
-          "desc": "test embeded 2nd layer of block",
-          "vars": {
-            "a": "local_block_layer2_aaa",
-            "b": "local_block_layer2_bbb"
-          },
-          "dvars": {
-            {
-              "name": "da",
-              "value": "local_da_layer2"
-            },
-            {
-              "name": "db",
-              "value": "local_db_layer2"
-            }
-          }
+          "desc": "test embeded 2nd layer of block"
         },
         {
           "func": "shell",
@@ -206,15 +206,15 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      "c": "global_ccc"
     })
     
     [local] dvar expanded result:
     {
-      "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "da": "local_da"
     }
     
     
@@ -227,14 +227,14 @@ weight: 11304
     }
     
     
-    stupefied_rosalind5: overall final exec vars:
+    agitated_elion5: overall final exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
       "da": "local_da",
       "db": "local_db",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
     condition failed, skip executing step 

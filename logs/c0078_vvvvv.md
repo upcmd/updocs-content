@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvvv"
-date: 2020-06-25T01:55:50+66:00
+date: 2020-06-27T03:09:24+66:00
 draft: false
 weight: 10784
 
@@ -17,7 +17,7 @@ weight: 10784
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0078
                  Verbose -> vvvvv
-              ModuleName -> ecstatic_pike8
+              ModuleName -> sick_nobel0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10784
     -exec task: task
     loading [Task]:  ./tests/functests/c0078
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed040)(<nil>)
+    (*impl.Scopes)(0xc000185040)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10784
     
     
     groups members:[]
-    module: [ecstatic_pike8] instance id: [dev]
+    module: [sick_nobel0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -125,7 +125,7 @@ weight: 10784
     }
     
     
-    ecstatic_pike8: overall final exec vars:
+    sick_nobel0: overall final exec vars:
     
     (*core.Cache)({
       "school_name": "sydney grammar",
@@ -178,7 +178,7 @@ weight: 10784
     }
     
     
-    ecstatic_pike8: overall final exec vars:
+    sick_nobel0: overall final exec vars:
     
     (*core.Cache)({
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"

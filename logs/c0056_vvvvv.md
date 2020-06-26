@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10564
 
@@ -17,7 +17,7 @@ weight: 10564
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0056
                  Verbose -> vvvvv
-              ModuleName -> stoic_hoover4
+              ModuleName -> ecstatic_pike8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10564
     -exec task: task
     loading [Task]:  ./tests/functests/c0056
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c75a0)(<nil>)
+    (*impl.Scopes)(0xc0001eb540)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10564
     
     
     groups members:[]
-    module: [stoic_hoover4] instance id: [dev]
+    module: [ecstatic_pike8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "countries": {
@@ -94,8 +94,8 @@ weight: 10564
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -145,16 +145,16 @@ weight: 10564
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       }
     })
@@ -167,16 +167,16 @@ weight: 10564
     scope[local] merged: {
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
           "population": "2000m",
           "name": "British"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -186,21 +186,21 @@ weight: 10564
     }
     
     
-    stoic_hoover4: overall final exec vars:
+    ecstatic_pike8: overall final exec vars:
     
     (*core.Cache)({
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -285,8 +285,8 @@ weight: 10564
     (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
@@ -314,58 +314,58 @@ weight: 10564
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      })
     }
     
     
-    stoic_hoover4: overall final exec vars:
+    ecstatic_pike8: overall final exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -469,6 +469,37 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      }),
+      "countries": {
+        {
+          "population": "20m",
+          "name": "Australia"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      }
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
       "countries": {
         {
           "name": "Australia",
@@ -492,41 +523,10 @@ weight: 10564
         Output: "age 23",
         ErrMsg: ""
       })
-    })
-    
-    [local] dvar expanded result:
-    {
     }
     
     
-    scope[local] merged: {
-      "countries": {
-        {
-          "population": "20m",
-          "name": "Australia"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    stoic_hoover4: overall final exec vars:
+    ecstatic_pike8: overall final exec vars:
     
     (*core.Cache)({
       "countries": {
@@ -628,11 +628,6 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello Danmark",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "name": "Australia",
@@ -643,34 +638,8 @@ weight: 10564
           "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      }
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "countries": {
-        {
-          "population": "20m",
-          "name": "Australia"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -682,24 +651,55 @@ weight: 10564
         Output: "hello Danmark",
         ErrMsg: ""
       })
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    stoic_hoover4: overall final exec vars:
-    
-    (*core.Cache)({
+    scope[local] merged: {
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
           "name": "British",
           "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "population": "30m",
+          "name": "Danmark"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    ecstatic_pike8: overall final exec vars:
+    
+    (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "population": "30m",
@@ -852,6 +852,11 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello 30m",
+        ErrMsg: ""
+      }),
       "countries": {
         {
           "name": "Australia",
@@ -869,12 +874,7 @@ weight: 10564
           "name": "Danmark",
           "population": "30m"
         }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      })
+      }
     })
     
     [local] dvar expanded result:
@@ -886,8 +886,8 @@ weight: 10564
     scope[local] merged: {
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
@@ -911,13 +911,14 @@ weight: 10564
     }
     
     
-    stoic_hoover4: overall final exec vars:
+    ecstatic_pike8: overall final exec vars:
     
     (*core.Cache)({
+      "listname": "countries",
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
@@ -928,16 +929,15 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
-      }),
-      "listname": "countries"
+      })
     })
     
     cmd( 1):

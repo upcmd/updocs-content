@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10423
 
@@ -17,7 +17,7 @@ weight: 10423
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0042
                  Verbose -> vvvv
-              ModuleName -> drunk_torvalds5
+              ModuleName -> high_payne8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10423
     
     
     groups members:[]
-    module: [drunk_torvalds5] instance id: [dev]
+    module: [high_payne8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -73,7 +73,7 @@ weight: 10423
     (*core.Cache)({
     })
     
-    drunk_torvalds5: overall final exec vars:
+    high_payne8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -139,7 +139,7 @@ weight: 10423
       })
     })
     
-    drunk_torvalds5: overall final exec vars:
+    high_payne8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -205,7 +205,7 @@ weight: 10423
       "hellomsg": "hanks"
     })
     
-    drunk_torvalds5: overall final exec vars:
+    high_payne8: overall final exec vars:
     
     (*core.Cache)({
       "reg_hello": "\n",
@@ -255,7 +255,7 @@ weight: 10423
       })
     })
     
-    drunk_torvalds5: overall final exec vars:
+    high_payne8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -322,7 +322,7 @@ weight: 10423
     dvar> void:
     "hello: "
     
-    drunk_torvalds5: overall final exec vars:
+    high_payne8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -362,15 +362,15 @@ weight: 10423
     
     current exec runtime vars:
     (*core.Cache)({
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     })
     
-    drunk_torvalds5: overall final exec vars:
+    high_payne8: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

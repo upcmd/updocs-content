@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10084
 
@@ -17,7 +17,7 @@ weight: 10084
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0008
                  Verbose -> vvvvv
-              ModuleName -> fervent_bartik8
+              ModuleName -> evil_fermat0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10084
     -exec task: task
     loading [Task]:  ./tests/functests/c0008
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001efba0)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001f7be0)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -101,10 +101,10 @@ weight: 10084
     
     
     scope[global] merged: {
-      "d": "global-d",
-      "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
+      "c": "global-c",
+      "d": "global-d",
+      "a": "global-a"
     }
     
     
@@ -114,8 +114,8 @@ weight: 10084
     
     
     scope[prod] merged: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -125,13 +125,26 @@ weight: 10084
     
     
     scope[nonprod] merged: {
-      "c": "non-prod-c",
       "a": "non-prod-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "non-prod-c"
     }
     
     
     ---------group vars----------
+    
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
+    }
+    
+    
+    nonprod: {
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c"
+    }
+    
     
     global: {
       "b": "global-b",
@@ -141,21 +154,8 @@ weight: 10084
     }
     
     
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
-    
-    
-    nonprod: {
-      "c": "non-prod-c",
-      "a": "non-prod-a",
-      "b": "non-prod-b"
-    }
-    
-    
     groups members:[dr prod dev st staging]
-    module: [fervent_bartik8] instance id: [dev]
+    module: [evil_fermat0] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
@@ -169,10 +169,10 @@ weight: 10084
     
     merged[ dev ] runtime vars:
     {
+      "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
+      "b": "non-prod-b"
     }
     
     (core.Cache) (len=4) {
@@ -190,10 +190,10 @@ weight: 10084
     -------runtime global final merged with dvars-------
     
     {
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -223,10 +223,10 @@ weight: 10084
     
     current exec runtime vars:
     (*core.Cache)({
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d"
     })
     
     [local] dvar expanded result:
@@ -242,13 +242,13 @@ weight: 10084
     }
     
     
-    fervent_bartik8: overall final exec vars:
+    evil_fermat0: overall final exec vars:
     
     (*core.Cache)({
-      "c": "dev-c",
-      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d"
     })
     
     cmd( 1):

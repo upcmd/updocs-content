@@ -1,6 +1,6 @@
 ---
 title: "c0085_vvvv"
-date: 2020-06-25T01:55:51+66:00
+date: 2020-06-27T03:09:25+66:00
 draft: false
 weight: 10853
 
@@ -17,7 +17,7 @@ weight: 10853
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0085
                  Verbose -> vvvv
-              ModuleName -> sick_hawking8
+              ModuleName -> backstabbing_jang7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10853
     
     
     groups members:[]
-    module: [sick_hawking8] instance id: [dev]
+    module: [backstabbing_jang7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "workers": {
@@ -47,12 +47,12 @@ weight: 10853
     -------runtime global final merged with dvars-------
     
     {
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     }
     
       located task-> 1 [task]: 
@@ -111,16 +111,16 @@ weight: 10853
     dvar> linelist:
     "[hello this is a beautiful world]"
     
-    sick_hawking8: overall final exec vars:
+    backstabbing_jang7: overall final exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist": "[hello this is a beautiful world]",
       "workers": {
         "peter",
         "tom",
         "james"
-      }
+      },
+      "linelist": "[hello this is a beautiful world]"
     })
     
     cmd( 1):
@@ -183,12 +183,12 @@ weight: 10853
     
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "[hello this is a beautiful world]",
@@ -206,21 +206,21 @@ weight: 10853
     dvar> linelist:
     "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n"
     
-    sick_hawking8: overall final exec vars:
+    backstabbing_jang7: overall final exec vars:
     
     (*core.Cache)({
-      "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n",
-      "lines": "hello\nthis\nis a\nbeautiful world",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      }
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n"
     })
     
     cmd( 1):
@@ -296,12 +296,12 @@ weight: 10853
     
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
@@ -312,20 +312,20 @@ weight: 10853
     dvar> linelist:
     ""
     
-    sick_hawking8: overall final exec vars:
+    backstabbing_jang7: overall final exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
-        ErrMsg: ""
-      }),
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -382,12 +382,12 @@ weight: 10853
         "is a",
         "beautiful world"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "<no value>",
@@ -395,7 +395,7 @@ weight: 10853
       })
     })
     
-    sick_hawking8: overall final exec vars:
+    backstabbing_jang7: overall final exec vars:
     
     (*core.Cache)({
       "workers": {
@@ -403,7 +403,6 @@ weight: 10853
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "<no value>",
@@ -414,7 +413,8 @@ weight: 10853
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
@@ -464,7 +464,29 @@ weight: 10853
         "tom",
         "james"
       },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "3 -> james",
+        ErrMsg: ""
+      }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
+    })
+    
+    backstabbing_jang7: overall final exec vars:
+    
+    (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "3 -> james",
@@ -476,28 +498,6 @@ weight: 10853
         "is a",
         "beautiful world"
       }
-    })
-    
-    sick_hawking8: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "3 -> james",
-        ErrMsg: ""
-      }),
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):

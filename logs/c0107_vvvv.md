@@ -1,6 +1,6 @@
 ---
 title: "c0107_vvvv"
-date: 2020-06-25T01:55:58+66:00
+date: 2020-06-27T03:09:29+66:00
 draft: false
 weight: 11073
 
@@ -17,7 +17,7 @@ weight: 11073
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0107
                  Verbose -> vvvv
-              ModuleName -> condescending_pasteur6
+              ModuleName -> dreamy_poincare7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,18 +33,18 @@ weight: 11073
     
     
     groups members:[]
-    module: [condescending_pasteur6] instance id: [dev]
+    module: [dreamy_poincare7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     }
     
       located task-> 1 [task]: 
@@ -76,7 +76,7 @@ weight: 11073
       "jerry": "this is jerry in global"
     })
     
-    condescending_pasteur6: overall final exec vars:
+    dreamy_poincare7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom in global",
@@ -100,8 +100,8 @@ weight: 11073
           }
         },
         {
-          "name": "print",
-          "cmd": "in sub print1: {{.tom}}"
+          "cmd": "in sub print1: {{.tom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -123,19 +123,19 @@ weight: 11073
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom in global",
-      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1,
-      "john": "john in sub func1"
+      "tom": "this is tom in global",
+      "john": "john in sub func1",
+      "jerry": "this is jerry in global"
     })
     
-    condescending_pasteur6: overall final exec vars:
+    dreamy_poincare7: overall final exec vars:
     
     (*core.Cache)({
       "john": "john in sub func1",
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global"
     })
     
     ~~SubStep1: [reg:  ]
@@ -167,17 +167,17 @@ weight: 11073
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1,
       "tom": "tom created in sub",
-      "up_runtime_task_layer_number": 1
+      "jerry": "this is jerry in global"
     })
     
-    condescending_pasteur6: overall final exec vars:
+    dreamy_poincare7: overall final exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in global",
-      "tom": "tom created in sub",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in sub"
     })
     
     ~~SubStep1: [trace:  ]
@@ -210,19 +210,19 @@ weight: 11073
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "john": "john in sub func2",
       "tom": "tom created in sub",
       "jerry": "this is jerry in global",
-      "john": "john in sub func2"
+      "up_runtime_task_layer_number": 1
     })
     
-    condescending_pasteur6: overall final exec vars:
+    dreamy_poincare7: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "john": "john in sub func2",
       "up_runtime_task_layer_number": 1,
-      "tom": "tom created in sub"
+      "john": "john in sub func2",
+      "tom": "tom created in sub",
+      "jerry": "this is jerry in global"
     })
     
     ~~SubStep1: [print:  ]
@@ -232,8 +232,8 @@ weight: 11073
       Name: "",
       Do: {
         {
-          "name": "trace",
-          "cmd": "<==debug tom's value"
+          "cmd": "<==debug tom's value",
+          "name": "trace"
         }
       },
       Dox: <nil>,
@@ -253,12 +253,12 @@ weight: 11073
     
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "tom created in sub",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
-      "tom": "tom created in sub"
+      "up_runtime_task_layer_number": 1
     })
     
-    condescending_pasteur6: overall final exec vars:
+    dreamy_poincare7: overall final exec vars:
     
     (*core.Cache)({
       "tom": "tom created in sub",
@@ -294,17 +294,17 @@ weight: 11073
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
-    condescending_pasteur6: overall final exec vars:
+    dreamy_poincare7: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]

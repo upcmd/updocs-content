@@ -1,6 +1,6 @@
 ---
 title: "c0120_vvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11203
 
@@ -17,7 +17,7 @@ weight: 11203
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0120
                  Verbose -> vvvv
-              ModuleName -> angry_nobel5
+              ModuleName -> nostalgic_kirch6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11203
     
     
     groups members:[]
-    module: [angry_nobel5] instance id: [dev]
+    module: [nostalgic_kirch6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -75,7 +75,7 @@ weight: 11203
     (*core.Cache)({
     })
     
-    angry_nobel5: overall final exec vars:
+    nostalgic_kirch6: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -109,7 +109,7 @@ weight: 11203
     (*core.Cache)({
     })
     
-    angry_nobel5: overall final exec vars:
+    nostalgic_kirch6: overall final exec vars:
     
     (*core.Cache)({
     })

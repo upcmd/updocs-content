@@ -1,6 +1,6 @@
 ---
 title: "c0139_vvvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11394
 
@@ -17,7 +17,7 @@ weight: 11394
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0139
                  Verbose -> vvvvv
-              ModuleName -> elated_newton1
+              ModuleName -> hungry_mccarthy6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11394
     -exec task: task
     loading [Task]:  ./tests/functests/c0139
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f6f60)(<nil>)
+    (*impl.Scopes)(0xc00017cf60)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11394
     
     
     groups members:[]
-    module: [elated_newton1] instance id: [dev]
+    module: [hungry_mccarthy6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 11394
     }
     
     
-    elated_newton1: overall final exec vars:
+    hungry_mccarthy6: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -143,7 +143,7 @@ weight: 11394
     }
     
     
-    elated_newton1: overall final exec vars:
+    hungry_mccarthy6: overall final exec vars:
     
     (*core.Cache)({
       "person": "tom"
@@ -188,7 +188,7 @@ weight: 11394
     }
     
     
-    elated_newton1: overall final exec vars:
+    hungry_mccarthy6: overall final exec vars:
     
     (*core.Cache)({
     })

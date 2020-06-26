@@ -1,6 +1,6 @@
 ---
 title: "0007_vvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100703
 
@@ -17,7 +17,7 @@ weight: 100703
               AbsWorkDir -> /up_project/up/tests/modtests/0007
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> compassionate_yonath2
+              ModuleName -> sad_shockley7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 100703
     
     
     groups members:[]
-    module: [compassionate_yonath2] instance id: [dev]
+    module: [sad_shockley7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -71,7 +71,7 @@ weight: 100703
     (*core.Cache)({
     })
     
-    compassionate_yonath2: overall final exec vars:
+    sad_shockley7: overall final exec vars:
     
     (*core.Cache)({
     })

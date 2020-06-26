@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100304
 
@@ -17,7 +17,7 @@ weight: 100304
               AbsWorkDir -> /up_project/up/tests/modtests/0003
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> clever_payne4
+              ModuleName -> prickly_hodgkin3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100304
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef040)(<nil>)
+    (*impl.Scopes)(0xc0001c70a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 100304
     
     
     groups members:[]
-    module: [clever_payne4] instance id: [dev]
+    module: [prickly_hodgkin3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "caller-aaa"
@@ -95,7 +95,7 @@ weight: 100304
     }
     
     
-    clever_payne4: overall final exec vars:
+    prickly_hodgkin3: overall final exec vars:
     
     (*core.Cache)({
       "a": "caller-aaa"
@@ -109,7 +109,7 @@ weight: 100304
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000266140)(<nil>)
+    (*impl.Scopes)(0xc00023e1a0)(<nil>)
     
     ---------group vars----------
     
@@ -159,11 +159,11 @@ weight: 100304
           }
         },
         {
-          "name": "return",
-          "desc": "var b should be return to caler\n",
           "cmd": {
             "b"
-          }
+          },
+          "name": "return",
+          "desc": "var b should be return to caler\n"
         }
       },
       Dox: <nil>,
@@ -186,9 +186,9 @@ weight: 100304
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
-      "b": "module-bbb"
+      "b": "module-bbb",
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -197,18 +197,18 @@ weight: 100304
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
-      "b": "module-bbb"
+      "b": "module-bbb",
+      "up_runtime_tasker_layer_number": 2
     }
     
     
     hello-module: overall final exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     ... module world
@@ -238,23 +238,23 @@ weight: 100304
       Name: "",
       Do: {
         {
+          "name": "inspect",
           "cmd": {
             "exec_vars",
             "exec_base_vars"
-          },
-          "name": "inspect"
+          }
         },
         {
           "name": "print",
           "cmd": "back to main caller\na: {{.a}}\nb: {{.b}}\n"
         },
         {
-          "name": "assert",
           "des": "var b is returned from module\n",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
@@ -274,8 +274,8 @@ weight: 100304
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "module-bbb",
       "a": "caller-aaa",
+      "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -286,24 +286,24 @@ weight: 100304
     
     scope[local] merged: {
       "b": "module-bbb",
-      "a": "caller-aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     }
     
     
-    clever_payne4: overall final exec vars:
+    prickly_hodgkin3: overall final exec vars:
     
     (*core.Cache)({
-      "b": "module-bbb",
       "a": "caller-aaa",
+      "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars](*core.Cache)({
-      "b": "module-bbb",
       "a": "caller-aaa",
+      "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2
     })
     

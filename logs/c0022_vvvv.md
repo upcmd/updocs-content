@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10223
 
@@ -17,7 +17,7 @@ weight: 10223
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0022
                  Verbose -> vvvv
-              ModuleName -> ecstatic_kilby6
+              ModuleName -> adoring_newton1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10223
     
     
     groups members:[]
-    module: [ecstatic_kilby6] instance id: [dev]
+    module: [adoring_newton1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -56,10 +56,10 @@ weight: 10223
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "student": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
+        "student": "Tom"
       },
       Dvars: <nil>,
       Desc: "",
@@ -81,13 +81,13 @@ weight: 10223
       "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     })
     
-    ecstatic_kilby6: overall final exec vars:
+    adoring_newton1: overall final exec vars:
     
     (*core.Cache)({
+      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
-      "student": "Tom"
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     })
     
     cmd( 1):

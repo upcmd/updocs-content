@@ -1,6 +1,6 @@
 ---
 title: "c0128_vvvv"
-date: 2020-06-25T01:56:02+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11283
 
@@ -17,7 +17,7 @@ weight: 11283
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0128
                  Verbose -> vvvv
-              ModuleName -> suspicious_hoover1
+              ModuleName -> distracted_sammet0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11283
     
     
     groups members:[]
-    module: [suspicious_hoover1] instance id: [dev]
+    module: [distracted_sammet0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -77,8 +77,8 @@ weight: 11283
       Dox: <nil>,
       Func: "block",
       Vars: {
-        "b": "local_bbb",
-        "a": "local_aaa"
+        "a": "local_aaa",
+        "b": "local_bbb"
       },
       Dvars: {
         {
@@ -123,19 +123,19 @@ weight: 11283
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
-    suspicious_hoover1: overall final exec vars:
+    distracted_sammet0: overall final exec vars:
     
     (*core.Cache)({
+      "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da",
-      "db": "local_db",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     -Step1:
@@ -162,21 +162,21 @@ weight: 11283
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "db": "local_db",
       "da": "local_da",
-      "a": "local_aaa"
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
-    suspicious_hoover1: overall final exec vars:
+    distracted_sammet0: overall final exec vars:
     
     (*core.Cache)({
-      "da": "local_da",
-      "a": "local_aaa",
-      "b": "local_bbb",
       "c": "global_ccc",
-      "db": "local_db"
+      "da": "local_da",
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     cmd( 1):
@@ -218,31 +218,31 @@ weight: 11283
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "local_aaa",
       "b": "local_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
+      "a": "local_aaa",
       "da": "local_da",
       "db": "local_db"
     })
     
-    suspicious_hoover1: overall final exec vars:
+    distracted_sammet0: overall final exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da"
+      "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db",
+      "b": "local_bbb"
     })
     
     ~SubStep1: [print:  ]

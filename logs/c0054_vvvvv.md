@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10544
 
@@ -17,7 +17,7 @@ weight: 10544
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0054
                  Verbose -> vvvvv
-              ModuleName -> jolly_swartz2
+              ModuleName -> fervent_jang6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10544
     -exec task: task
     loading [Task]:  ./tests/functests/c0054
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000f3c0)(<nil>)
+    (*impl.Scopes)(0xc000231300)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10544
     
     
     groups members:[]
-    module: [jolly_swartz2] instance id: [dev]
+    module: [fervent_jang6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +92,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -154,7 +154,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -202,7 +202,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>)
@@ -258,7 +258,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>)
@@ -348,7 +348,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -440,7 +440,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -555,7 +555,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -639,7 +639,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -661,9 +661,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
-          "age": 23,
           "name": "peter",
-          "sex": "male"
+          "sex": "male",
+          "age": 23
         }
       },
       Dvars: {
@@ -715,24 +715,24 @@ weight: 10544
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)(<nil>),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       },
-      "condition": "true"
+      "condition": "true",
+      "last_result": (*utils.ExecResult)(<nil>)
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
       "student": {
-        "sex": "male",
         "age": 23,
-        "name": "peter"
+        "name": "peter",
+        "sex": "male"
       },
       "condition": "true"
     })
@@ -760,9 +760,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
-          "age": 23,
           "name": "peter",
-          "sex": "male"
+          "sex": "male",
+          "age": 23
         }
       },
       Dvars: {
@@ -818,21 +818,21 @@ weight: 10544
     
     
     scope[local] merged: {
-      "condition": "true",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
-      }
+        "sex": "male",
+        "age": 23
+      },
+      "condition": "true"
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -841,9 +841,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       },
       "condition": "true"
     })
@@ -871,9 +871,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
-          "name": "peter",
           "sex": "male",
-          "age": 23
+          "age": 23,
+          "name": "peter"
         }
       },
       Dvars: {
@@ -907,16 +907,16 @@ weight: 10544
     
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "age": 23,
+        "name": "peter",
+        "sex": "male"
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
-      }),
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      }
+      })
     })
     
     dvar> condition:
@@ -929,34 +929,34 @@ weight: 10544
     
     
     scope[local] merged: {
+      "student": {
+        "age": 23,
+        "name": "peter",
+        "sex": "male"
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
       "condition": "true"
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
+      "condition": "true",
+      "student": {
+        "age": 23,
+        "name": "peter",
+        "sex": "male"
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
-      }),
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
-      "condition": "true"
+      })
     })
     
     cmd( 1):
@@ -1025,14 +1025,14 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       }
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -1041,9 +1041,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       }
     })
     
@@ -1104,16 +1104,16 @@ weight: 10544
     
     
     scope[local] merged: {
+      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      }),
-      "doc": "hello"
+      })
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "doc": "hello",
@@ -1178,7 +1178,7 @@ weight: 10544
     }
     
     
-    jolly_swartz2: overall final exec vars:
+    fervent_jang6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

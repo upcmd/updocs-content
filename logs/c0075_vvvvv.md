@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvvv"
-date: 2020-06-25T01:55:49+66:00
+date: 2020-06-27T03:09:24+66:00
 draft: false
 weight: 10754
 
@@ -17,7 +17,7 @@ weight: 10754
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0075
                  Verbose -> vvvvv
-              ModuleName -> sick_carson9
+              ModuleName -> kickass_ardinghelli1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10754
     -exec task: task
     loading [Task]:  ./tests/functests/c0075
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb1c0)(<nil>)
+    (*impl.Scopes)(0xc00026f1c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10754
     
     
     groups members:[]
-    module: [sick_carson9] instance id: [dev]
+    module: [kickass_ardinghelli1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -81,30 +81,30 @@ weight: 10754
     
     [runtime global] dvar expanded result:
     {
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+      "var_with_range": " x  x  x ",
       "var_with_range_item": " tom  jason  alice ",
       "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
-      "var_with_range": " x  x  x "
+      "var_directly_ref_to": "peter"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice ",
       "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
       "var_directly_ref_to": "peter",
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
+      "var_with_range": " x  x  x ",
+      "var_with_range_item": " tom  jason  alice "
     }
     
       located task-> 1 [task]: 

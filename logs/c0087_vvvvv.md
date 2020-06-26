@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvvv"
-date: 2020-06-25T01:55:52+66:00
+date: 2020-06-27T03:09:25+66:00
 draft: false
 weight: 10874
 
@@ -17,7 +17,7 @@ weight: 10874
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0087
                  Verbose -> vvvvv
-              ModuleName -> sharp_mestorf2
+              ModuleName -> modest_payne6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10874
     -exec task: task
     loading [Task]:  ./tests/functests/c0087
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000226920)(<nil>)
+    (*impl.Scopes)(0xc0001eb500)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10874
     
     
     groups members:[]
-    module: [sharp_mestorf2] instance id: [dev]
+    module: [modest_payne6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +92,7 @@ weight: 10874
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -157,7 +157,7 @@ weight: 10874
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -176,8 +176,8 @@ weight: 10874
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "world"
+          "cmd": "world",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -218,7 +218,7 @@ weight: 10874
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -278,7 +278,7 @@ weight: 10874
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -330,15 +330,15 @@ weight: 10874
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -347,7 +347,6 @@ weight: 10874
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
@@ -355,22 +354,23 @@ weight: 10874
       }),
       "loopitem": "impl1",
       "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
       "loopindex1": 1
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl1",
-      "loopindex": 0
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
+      "loopindex1": 1
     })
     
     hello
@@ -419,19 +419,19 @@ weight: 10874
     
     
     scope[local] merged: {
-      "loopitem": "impl1",
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      })
+      }),
+      "loopitem": "impl1",
+      "loopindex": 0
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
       "loopindex1": 1,
@@ -451,14 +451,14 @@ weight: 10874
     ..........
     caller's vars to task (impl2)::
     (*core.Cache)({
+      "loopitem": "impl2",
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      }),
-      "loopitem": "impl2",
-      "loopindex": 1,
-      "loopindex1": 2
+      })
     })
     
       located task-> 3 [impl2]: 
@@ -470,8 +470,8 @@ weight: 10874
       Name: "",
       Do: {
         {
-          "cmd": "world",
-          "name": "print"
+          "name": "print",
+          "cmd": "world"
         }
       },
       Dox: <nil>,
@@ -491,7 +491,6 @@ weight: 10874
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello",
@@ -499,7 +498,8 @@ weight: 10874
       }),
       "loopitem": "impl2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -508,6 +508,7 @@ weight: 10874
     
     
     scope[local] merged: {
+      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
@@ -515,14 +516,14 @@ weight: 10874
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl2",
-      "loopindex": 1
+      "loopitem": "impl2"
     }
     
     
-    sharp_mestorf2: overall final exec vars:
+    modest_payne6: overall final exec vars:
     
     (*core.Cache)({
+      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
@@ -530,8 +531,7 @@ weight: 10874
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl2",
-      "loopindex": 1
+      "loopitem": "impl2"
     })
     
     world

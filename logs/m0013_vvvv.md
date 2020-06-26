@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:48+66:00
 draft: false
 weight: 101303
 
@@ -17,7 +17,7 @@ weight: 101303
               AbsWorkDir -> /up_project/up/tests/modtests/0013
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> agitated_euclid2
+              ModuleName -> reverent_kowalevski7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 8
@@ -33,7 +33,7 @@ weight: 101303
     
     
     groups members:[]
-    module: [agitated_euclid2] instance id: [dev]
+    module: [reverent_kowalevski7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -70,7 +70,7 @@ weight: 101303
     (*core.Cache)({
     })
     
-    agitated_euclid2: overall final exec vars:
+    reverent_kowalevski7: overall final exec vars:
     
     (*core.Cache)({
     })

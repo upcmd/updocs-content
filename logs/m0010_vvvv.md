@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:48+66:00
 draft: false
 weight: 101003
 
@@ -17,7 +17,7 @@ weight: 101003
               AbsWorkDir -> /up_project/up/tests/modtests/0010
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> agitated_jones8
+              ModuleName -> mad_noyce2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 101003
     
     
     groups members:[]
-    module: [agitated_jones8] instance id: [dev]
+    module: [mad_noyce2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -70,7 +70,7 @@ weight: 101003
     (*core.Cache)({
     })
     
-    agitated_jones8: overall final exec vars:
+    mad_noyce2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -129,8 +129,8 @@ weight: 101003
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     hello-module: overall final exec vars:
@@ -203,8 +203,8 @@ weight: 101003
       Name: "",
       Do: {
         {
-          "cmd": "... hi",
-          "name": "print"
+          "name": "print",
+          "cmd": "... hi"
         }
       },
       Dox: <nil>,

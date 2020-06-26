@@ -1,6 +1,6 @@
 ---
 title: "c0137_vvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11373
 
@@ -17,7 +17,7 @@ weight: 11373
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0137
                  Verbose -> vvvv
-              ModuleName -> goofy_sammet4
+              ModuleName -> fervent_hodgkin6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11373
     
     
     groups members:[]
-    module: [goofy_sammet4] instance id: [dev]
+    module: [fervent_hodgkin6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -75,7 +75,7 @@ weight: 11373
     (*core.Cache)({
     })
     
-    goofy_sammet4: overall final exec vars:
+    fervent_hodgkin6: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -135,7 +135,7 @@ weight: 11373
     (*core.Cache)({
     })
     
-    goofy_sammet4: overall final exec vars:
+    fervent_hodgkin6: overall final exec vars:
     
     (*core.Cache)({
     })

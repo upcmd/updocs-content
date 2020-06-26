@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10074
 
@@ -17,7 +17,7 @@ weight: 10074
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0007
                  Verbose -> vvvvv
-              ModuleName -> cranky_galileo2
+              ModuleName -> trusting_engelbart7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10074
     -exec task: task
     loading [Task]:  ./tests/functests/c0007
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb000)(<nil>)
+    (*impl.Scopes)(0xc0001f3000)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10074
     
     
     groups members:[]
-    module: [cranky_galileo2] instance id: [dev]
+    module: [trusting_engelbart7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +93,7 @@ weight: 10074
     }
     
     
-    cranky_galileo2: overall final exec vars:
+    trusting_engelbart7: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -168,7 +168,7 @@ weight: 10074
     }
     
     
-    cranky_galileo2: overall final exec vars:
+    trusting_engelbart7: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -248,7 +248,7 @@ weight: 10074
     }
     
     
-    cranky_galileo2: overall final exec vars:
+    trusting_engelbart7: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvv"
-date: 2020-06-25T01:55:51+66:00
+date: 2020-06-27T03:09:25+66:00
 draft: false
 weight: 10863
 
@@ -17,7 +17,7 @@ weight: 10863
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0086
                  Verbose -> vvvv
-              ModuleName -> angry_brown9
+              ModuleName -> determined_almeida8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10863
     
     
     groups members:[]
-    module: [angry_brown9] instance id: [dev]
+    module: [determined_almeida8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -97,7 +97,7 @@ weight: 10863
     dvar> linelist:
     ""
     
-    angry_brown9: overall final exec vars:
+    determined_almeida8: overall final exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -170,26 +170,6 @@ weight: 10863
     
     current exec runtime vars:
     (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "<no value>",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
-    })
-    
-    dvar> void:
-    ""
-    
-    angry_brown9: overall final exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "<no value>",
@@ -202,6 +182,26 @@ weight: 10863
         "is a",
         "beautiful world"
       }
+    })
+    
+    dvar> void:
+    ""
+    
+    determined_almeida8: overall final exec vars:
+    
+    (*core.Cache)({
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "<no value>",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
@@ -272,6 +272,7 @@ weight: 10863
     
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
@@ -282,28 +283,27 @@ weight: 10863
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      })
     })
     
     dvar> void:
     ""
     
-    angry_brown9: overall final exec vars:
+    determined_almeida8: overall final exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -370,7 +370,7 @@ weight: 10863
       })
     })
     
-    angry_brown9: overall final exec vars:
+    determined_almeida8: overall final exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
@@ -452,7 +452,6 @@ weight: 10863
     
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
@@ -463,7 +462,8 @@ weight: 10863
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      })
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     dvar> void:
@@ -478,7 +478,7 @@ weight: 10863
       }
     }
     
-    angry_brown9: overall final exec vars:
+    determined_almeida8: overall final exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",

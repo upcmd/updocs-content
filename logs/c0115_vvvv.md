@@ -1,6 +1,6 @@
 ---
 title: "c0115_vvvv"
-date: 2020-06-25T01:56:00+66:00
+date: 2020-06-27T03:09:30+66:00
 draft: false
 weight: 11153
 
@@ -17,7 +17,7 @@ weight: 11153
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0115
                  Verbose -> vvvv
-              ModuleName -> ecstatic_goldstine7
+              ModuleName -> drunk_noyce0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11153
     
     
     groups members:[]
-    module: [ecstatic_goldstine7] instance id: [dev]
+    module: [drunk_noyce0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom in global",
@@ -76,7 +76,7 @@ weight: 11153
       "jerry": "this is jerry in global"
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom in global",
@@ -92,12 +92,12 @@ weight: 11153
       Name: "",
       Do: {
         {
-          "name": "reg",
           "desc": "by default hitom is registered in to global context",
           "cmd": {
             "name": "tom",
             "value": "tom created in subtask1"
-          }
+          },
+          "name": "reg"
         },
         {
           "name": "print",
@@ -123,13 +123,13 @@ weight: 11153
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func1",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
@@ -169,19 +169,19 @@ weight: 11153
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "john": "john in sub_loop func2",
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global"
+    })
+    
+    drunk_noyce0: overall final exec vars:
+    
+    (*core.Cache)({
       "john": "john in sub_loop func2",
       "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
-    })
-    
-    ecstatic_goldstine7: overall final exec vars:
-    
-    (*core.Cache)({
-      "tom": "tom created in subtask1",
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
-      "john": "john in sub_loop func2"
     })
     
     ~~SubStep1: [print:  ]
@@ -215,12 +215,12 @@ weight: 11153
       "up_runtime_task_layer_number": 1
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1,
-      "tom": "tom created in subtask1"
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global"
     })
     
       located task-> 3 [subtask2]: 
@@ -232,12 +232,12 @@ weight: 11153
       Name: "",
       Do: {
         {
-          "name": "reg",
-          "desc": "by default hitom is registered in to global context",
           "cmd": {
-            "value": "tom2 created in subtask2",
-            "name": "tom"
-          }
+            "name": "tom",
+            "value": "tom2 created in subtask2"
+          },
+          "name": "reg",
+          "desc": "by default hitom is registered in to global context"
         },
         {
           "name": "print",
@@ -269,13 +269,13 @@ weight: 11153
       "tom": "tom created in subtask1"
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2,
       "john": "john in sub_loop func1",
-      "tom": "tom created in subtask1",
-      "jerry": "this is jerry in global"
+      "tom": "tom created in subtask1"
     })
     
     ~~~SubStep1: [reg: by default hitom is registered in to global context ]
@@ -316,16 +316,16 @@ weight: 11153
     current exec runtime vars:
     (*core.Cache)({
       "john": "john in sub_loop func2",
+      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 2,
-      "tom": "tom2 created in subtask2"
+      "up_runtime_task_layer_number": 2
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "tom2 created in subtask2",
       "john": "john in sub_loop func2",
+      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2
     })
@@ -342,8 +342,8 @@ weight: 11153
       Name: "",
       Do: {
         {
-          "cmd": "dummy to help build inspect task",
-          "name": "print"
+          "name": "print",
+          "cmd": "dummy to help build inspect task"
         }
       },
       Dox: <nil>,
@@ -363,17 +363,17 @@ weight: 11153
     
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 2,
-      "tom": "tom2 created in subtask2"
+      "up_runtime_task_layer_number": 2
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
+      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 2,
-      "tom": "tom2 created in subtask2"
+      "up_runtime_task_layer_number": 2
     })
     
     ~~~SubStep1: [print:  ]
@@ -383,8 +383,8 @@ weight: 11153
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "in subtask1 print22: {{.tom}}"
+          "cmd": "in subtask1 print22: {{.tom}}",
+          "name": "print"
         },
         {
           "name": "return",
@@ -413,18 +413,18 @@ weight: 11153
     current exec runtime vars:
     (*core.Cache)({
       "john": "john in sub_loop func2",
-      "tom": "tom2 created in subtask2",
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 2
-    })
-    
-    ecstatic_goldstine7: overall final exec vars:
-    
-    (*core.Cache)({
-      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2,
-      "john": "john in sub_loop func2"
+      "tom": "tom2 created in subtask2"
+    })
+    
+    drunk_noyce0: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
+      "tom": "tom2 created in subtask2",
+      "john": "john in sub_loop func2",
+      "jerry": "this is jerry in global"
     })
     
     ~~SubStep1: [print:  ]
@@ -459,17 +459,17 @@ weight: 11153
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2
     })
     
-    ecstatic_goldstine7: overall final exec vars:
+    drunk_noyce0: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
+      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2"
+      "up_runtime_task_layer_number": 2
     })
     
     ~SubStep1: [print:  ]

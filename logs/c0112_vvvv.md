@@ -1,6 +1,6 @@
 ---
 title: "c0112_vvvv"
-date: 2020-06-25T01:55:59+66:00
+date: 2020-06-27T03:09:29+66:00
 draft: false
 weight: 11123
 
@@ -17,7 +17,7 @@ weight: 11123
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0112
                  Verbose -> vvvv
-              ModuleName -> lonely_curie6
+              ModuleName -> clever_cray2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11123
     
     
     groups members:[]
-    module: [lonely_curie6] instance id: [dev]
+    module: [clever_cray2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "global_b": "bbb",
@@ -78,21 +78,21 @@ weight: 11123
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "my name is tom",
+      "global_b": "bbb",
       "global_a": "aaa",
-      "global_b": "bbb",
-      "local_a": "aaa",
-      "local_b": "bbb"
-    })
-    
-    lonely_curie6: overall final exec vars:
-    
-    (*core.Cache)({
-      "global_b": "bbb",
       "local_a": "aaa",
       "local_b": "bbb",
+      "tom": "my name is tom"
+    })
+    
+    clever_cray2: overall final exec vars:
+    
+    (*core.Cache)({
       "tom": "my name is tom",
-      "global_a": "aaa"
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb"
     })
     
       located task-> 2 [subtask1]: 
@@ -104,8 +104,8 @@ weight: 11123
       Name: "",
       Do: {
         {
-          "cmd": "{{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.tom}}"
         },
         {
           "name": "assert",
@@ -132,22 +132,22 @@ weight: 11123
     current exec runtime vars:
     (*core.Cache)({
       "local_a": "aaa",
+      "up_runtime_task_layer_number": 1,
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_a": "aaa",
       "global_b": "bbb",
-      "up_runtime_task_layer_number": 1
+      "global_a": "aaa"
     })
     
-    lonely_curie6: overall final exec vars:
+    clever_cray2: overall final exec vars:
     
     (*core.Cache)({
-      "global_b": "bbb",
-      "up_runtime_task_layer_number": 1,
-      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_a": "aaa"
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -188,22 +188,22 @@ weight: 11123
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "my name is tom",
-      "global_a": "aaa",
       "global_b": "bbb",
+      "tom": "my name is tom",
+      "up_runtime_task_layer_number": 1,
+      "global_a": "aaa",
       "local_a": "aaa",
-      "local_b": "bbb",
-      "up_runtime_task_layer_number": 1
+      "local_b": "bbb"
     })
     
-    lonely_curie6: overall final exec vars:
+    clever_cray2: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "my name is tom",
       "global_a": "aaa",
-      "global_b": "bbb",
       "local_a": "aaa",
       "local_b": "bbb",
+      "global_b": "bbb",
+      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -234,23 +234,23 @@ weight: 11123
     
     current exec runtime vars:
     (*core.Cache)({
+      "global_a": "aaa",
       "local_a": "aaa",
+      "up_runtime_task_layer_number": 1,
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_a": "aaa",
-      "global_b": "bbb",
-      "up_runtime_task_layer_number": 1
+      "global_b": "bbb"
     })
     
-    lonely_curie6: overall final exec vars:
+    clever_cray2: overall final exec vars:
     
     (*core.Cache)({
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_a": "aaa",
       "global_b": "bbb",
-      "up_runtime_task_layer_number": 1,
-      "local_a": "aaa"
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 3 [subtask2]: 
@@ -266,10 +266,10 @@ weight: 11123
           "cmd": "{{.tom}}"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .tom \"my name is tom\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -289,22 +289,22 @@ weight: 11123
     
     current exec runtime vars:
     (*core.Cache)({
-      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_a": "aaa",
       "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
       "up_runtime_task_layer_number": 2
     })
     
-    lonely_curie6: overall final exec vars:
+    clever_cray2: overall final exec vars:
     
     (*core.Cache)({
       "tom": "my name is tom",
-      "global_a": "aaa",
       "global_b": "bbb",
-      "up_runtime_task_layer_number": 2,
+      "global_a": "aaa",
       "local_a": "aaa",
+      "up_runtime_task_layer_number": 2,
       "local_b": "bbb"
     })
     
@@ -346,23 +346,23 @@ weight: 11123
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "tom": "my name is tom",
-      "local_a": "aaa",
       "local_b": "bbb",
+      "global_b": "bbb",
       "global_a": "aaa",
-      "global_b": "bbb"
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 2
     })
     
-    lonely_curie6: overall final exec vars:
+    clever_cray2: overall final exec vars:
     
     (*core.Cache)({
-      "global_b": "bbb",
-      "up_runtime_task_layer_number": 2,
       "tom": "my name is tom",
-      "local_a": "aaa",
       "local_b": "bbb",
-      "global_a": "aaa"
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 2
     })
     
     ~~~SubStep1: [print:  ]

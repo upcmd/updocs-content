@@ -1,6 +1,6 @@
 ---
 title: "c0001_vvvvv"
-date: 2020-06-25T01:55:36+66:00
+date: 2020-06-27T03:09:13+66:00
 draft: false
 weight: 10014
 
@@ -17,7 +17,7 @@ weight: 10014
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0001
                  Verbose -> vvvvv
-              ModuleName -> mad_darwin3
+              ModuleName -> cocky_hodgkin2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10014
     -exec task: task
     loading [Task]:  ./tests/functests/c0001
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eee00)(<nil>)
+    (*impl.Scopes)(0xc0001ece00)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10014
     
     
     groups members:[]
-    module: [mad_darwin3] instance id: [dev]
+    module: [cocky_hodgkin2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +93,7 @@ weight: 10014
     }
     
     
-    mad_darwin3: overall final exec vars:
+    cocky_hodgkin2: overall final exec vars:
     
     (*core.Cache)({
     })

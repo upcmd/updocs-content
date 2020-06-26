@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvv"
-date: 2020-06-25T01:55:45+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10523
 
@@ -17,7 +17,7 @@ weight: 10523
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0052
                  Verbose -> vvvv
-              ModuleName -> clever_kilby2
+              ModuleName -> cranky_stallman0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10523
     
     
     groups members:[]
-    module: [clever_kilby2] instance id: [dev]
+    module: [cranky_stallman0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -76,7 +76,7 @@ weight: 10523
     (*core.Cache)({
     })
     
-    clever_kilby2: overall final exec vars:
+    cranky_stallman0: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -137,7 +137,7 @@ weight: 10523
       })
     })
     
-    clever_kilby2: overall final exec vars:
+    cranky_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -201,7 +201,7 @@ weight: 10523
       })
     })
     
-    clever_kilby2: overall final exec vars:
+    cranky_stallman0: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

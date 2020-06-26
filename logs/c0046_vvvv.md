@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10463
 
@@ -17,7 +17,7 @@ weight: 10463
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0046
                  Verbose -> vvvv
-              ModuleName -> nostalgic_darwin2
+              ModuleName -> fervent_babbage8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -35,7 +35,7 @@ weight: 10463
     
     
     groups members:[]
-    module: [nostalgic_darwin2] instance id: [dev]
+    module: [fervent_babbage8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_name": "Tom Hanks",
@@ -45,9 +45,9 @@ weight: 10463
     -------runtime global final merged with dvars-------
     
     {
+      "student_name": "Tom Hanks",
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks"
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
       located task-> 1 [task]: 

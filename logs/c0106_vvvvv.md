@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11064
 
@@ -17,7 +17,7 @@ weight: 11064
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0106
                  Verbose -> vvvvv
-              ModuleName -> kickass_hopper1
+              ModuleName -> backstabbing_lumiere4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 11064
     
     
     groups members:[]
-    module: [kickass_hopper1] instance id: [dev]
+    module: [backstabbing_lumiere4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -95,7 +95,7 @@ weight: 11064
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -126,8 +126,8 @@ weight: 11064
           }
         },
         {
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.hitom}}"
         }
       },
       Dox: <nil>,
@@ -157,16 +157,16 @@ weight: 11064
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     map[desc:by default hitom is registered in to global context name:hitom value:hello, {{.tom}}]
@@ -180,9 +180,9 @@ weight: 11064
     after reg the var - local:
     
     (*core.Cache)({
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "hitom": "hello, this is tom"
     })
     
     {{.hitom}}
@@ -225,16 +225,16 @@ weight: 11064
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     {{.hitom}}
@@ -247,8 +247,8 @@ weight: 11064
       Name: "",
       Do: {
         {
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.hitom}}"
         }
       },
       Dox: <nil>,
@@ -278,16 +278,16 @@ weight: 11064
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     {{.hitom}}
@@ -314,8 +314,8 @@ weight: 11064
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -329,7 +329,7 @@ weight: 11064
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -359,8 +359,8 @@ weight: 11064
           }
         },
         {
-          "name": "print",
-          "cmd": "{{.hitom}}"
+          "cmd": "{{.hitom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -395,7 +395,7 @@ weight: 11064
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -407,9 +407,9 @@ weight: 11064
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "hitom": "hello, this is tom",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom"
+      "up_runtime_task_layer_number": 1
     })
     
     after reg the var - local:
@@ -450,9 +450,9 @@ weight: 11064
     
     current exec runtime vars:
     (*core.Cache)({
-      "hitom": "hello, this is tom",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "hitom": "hello, this is tom"
     })
     
     [local] dvar expanded result:
@@ -461,13 +461,13 @@ weight: 11064
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "hitom": "hello, this is tom",
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "tom": "this is tom"
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -524,7 +524,7 @@ weight: 11064
     }
     
     
-    kickass_hopper1: overall final exec vars:
+    backstabbing_lumiere4: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

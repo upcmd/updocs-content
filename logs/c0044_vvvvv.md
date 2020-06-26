@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10444
 
@@ -17,7 +17,7 @@ weight: 10444
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0044
                  Verbose -> vvvvv
-              ModuleName -> berserk_goodall1
+              ModuleName -> elated_swartz9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10444
     -exec task: task
     loading [Task]:  ./tests/functests/c0044
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001870e0)(<nil>)
+    (*impl.Scopes)(0xc0001ed0e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10444
     
     
     groups members:[]
-    module: [berserk_goodall1] instance id: [dev]
+    module: [elated_swartz9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -60,8 +60,8 @@ weight: 10444
     -------runtime global final merged with dvars-------
     
     {
-      "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "homedir": "/root"
     }
     
       located task-> 1 [task]: 
@@ -77,8 +77,8 @@ weight: 10444
           "cmd": "{{.homedir}}"
         },
         {
-          "cmd": "{{.yourhome}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.yourhome}}"
         }
       },
       Dox: <nil>,
@@ -98,8 +98,8 @@ weight: 10444
     
     current exec runtime vars:
     (*core.Cache)({
-      "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "homedir": "/root"
     })
     
     [local] dvar expanded result:
@@ -113,7 +113,7 @@ weight: 10444
     }
     
     
-    berserk_goodall1: overall final exec vars:
+    elated_swartz9: overall final exec vars:
     
     (*core.Cache)({
       "homedir": "/root",
@@ -161,12 +161,12 @@ weight: 10444
     
     
     scope[local] merged: {
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     }
     
     
-    berserk_goodall1: overall final exec vars:
+    elated_swartz9: overall final exec vars:
     
     (*core.Cache)({
       "homedir": "/root",

@@ -1,6 +1,6 @@
 ---
 title: "0007_vvvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100704
 
@@ -17,7 +17,7 @@ weight: 100704
               AbsWorkDir -> /up_project/up/tests/modtests/0007
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> nostalgic_banach2
+              ModuleName -> sleepy_mcclintock4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100704
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eedc0)(<nil>)
+    (*impl.Scopes)(0xc000240760)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 100704
     
     
     groups members:[]
-    module: [nostalgic_banach2] instance id: [dev]
+    module: [sleepy_mcclintock4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -91,7 +91,7 @@ weight: 100704
     }
     
     
-    nostalgic_banach2: overall final exec vars:
+    sleepy_mcclintock4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -103,7 +103,7 @@ weight: 100704
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef960)(<nil>)
+    (*impl.Scopes)(0xc000241300)(<nil>)
     
     ---------group vars----------
     
@@ -142,8 +142,8 @@ weight: 100704
       Name: "",
       Do: {
         {
-          "cmd": " .... world from Say_world",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... world from Say_world"
         }
       },
       Dox: <nil>,

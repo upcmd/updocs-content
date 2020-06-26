@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11313
 
@@ -17,7 +17,7 @@ weight: 11313
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0131
                  Verbose -> vvvv
-              ModuleName -> sad_yonath4
+              ModuleName -> adoring_morse3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11313
     
     
     groups members:[]
-    module: [sad_yonath4] instance id: [dev]
+    module: [adoring_morse3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -75,7 +75,7 @@ weight: 11313
     (*core.Cache)({
     })
     
-    sad_yonath4: overall final exec vars:
+    adoring_morse3: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -101,13 +101,13 @@ weight: 11313
       If: "{{.goahead}}",
       Else: {
         {
+          "func": "cmd",
           "do": {
             {
               "name": "print",
               "cmd": "do something else step1 ......."
             }
-          },
-          "func": "cmd"
+          }
         },
         {
           "func": "shell",
@@ -145,7 +145,7 @@ weight: 11313
     (*core.Cache)({
     })
     
-    sad_yonath4: overall final exec vars:
+    adoring_morse3: overall final exec vars:
     
     (*core.Cache)({
     })

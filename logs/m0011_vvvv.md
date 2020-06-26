@@ -1,6 +1,6 @@
 ---
 title: "0011_vvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:48+66:00
 draft: false
 weight: 101103
 
@@ -17,7 +17,7 @@ weight: 101103
               AbsWorkDir -> /up_project/up/tests/modtests/0011
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> compassionate_hopper9
+              ModuleName -> angry_blackwell2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 101103
     
     
     groups members:[]
-    module: [compassionate_hopper9] instance id: [dev]
+    module: [angry_blackwell2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -70,7 +70,7 @@ weight: 101103
     (*core.Cache)({
     })
     
-    compassionate_hopper9: overall final exec vars:
+    angry_blackwell2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -106,8 +106,8 @@ weight: 101103
       Name: "",
       Do: {
         {
-          "cmd": "... hello",
-          "name": "print"
+          "name": "print",
+          "cmd": "... hello"
         }
       },
       Dox: <nil>,
@@ -129,15 +129,15 @@ weight: 101103
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     hello-module: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [print:  ]
@@ -263,7 +263,7 @@ weight: 101103
       "up_runtime_tasker_layer_number": 3
     })
     
-    compassionate_hopper9: overall final exec vars:
+    angry_blackwell2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -356,7 +356,7 @@ weight: 101103
       "up_runtime_tasker_layer_number": 2
     })
     
-    compassionate_hopper9: overall final exec vars:
+    angry_blackwell2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -449,7 +449,7 @@ weight: 101103
       "up_runtime_tasker_layer_number": 2
     })
     
-    compassionate_hopper9: overall final exec vars:
+    angry_blackwell2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -542,7 +542,7 @@ weight: 101103
       "up_runtime_tasker_layer_number": 2
     })
     
-    compassionate_hopper9: overall final exec vars:
+    angry_blackwell2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -579,8 +579,8 @@ weight: 101103
       Name: "",
       Do: {
         {
-          "cmd": " .... hello from Say_hello",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... hello from Say_hello"
         }
       },
       Dox: <nil>,

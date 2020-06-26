@@ -1,6 +1,6 @@
 ---
 title: "c0120_vvvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11204
 
@@ -17,7 +17,7 @@ weight: 11204
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0120
                  Verbose -> vvvvv
-              ModuleName -> hopeful_kirch0
+              ModuleName -> high_curie4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11204
     -exec task: task
     loading [Task]:  ./tests/functests/c0120
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecfe0)(<nil>)
+    (*impl.Scopes)(0xc00000e460)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11204
     
     
     groups members:[]
-    module: [hopeful_kirch0] instance id: [dev]
+    module: [high_curie4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 11204
     }
     
     
-    hopeful_kirch0: overall final exec vars:
+    high_curie4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -139,7 +139,7 @@ weight: 11204
     }
     
     
-    hopeful_kirch0: overall final exec vars:
+    high_curie4: overall final exec vars:
     
     (*core.Cache)({
     })

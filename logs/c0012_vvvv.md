@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10123
 
@@ -17,7 +17,7 @@ weight: 10123
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0012
                  Verbose -> vvvv
-              ModuleName -> reverent_brattain6
+              ModuleName -> insane_brown0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10123
     
     
     groups members:[]
-    module: [reverent_brattain6] instance id: [dev]
+    module: [insane_brown0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "k": "runtime-k",
@@ -44,9 +44,9 @@ weight: 10123
     -------runtime global final merged with dvars-------
     
     {
+      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "e": "runtime-e"
     }
     
       located task-> 1 [task]: 
@@ -77,17 +77,17 @@ weight: 10123
     
     current exec runtime vars:
     (*core.Cache)({
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
-    })
-    
-    reverent_brattain6: overall final exec vars:
-    
-    (*core.Cache)({
       "k": "runtime-k",
       "a": "runtime-a",
       "e": "runtime-e"
+    })
+    
+    insane_brown0: overall final exec vars:
+    
+    (*core.Cache)({
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "a": "runtime-a"
     })
     
     cmd( 1):

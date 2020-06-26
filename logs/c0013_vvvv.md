@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10133
 
@@ -17,7 +17,7 @@ weight: 10133
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0013
                  Verbose -> vvvv
-              ModuleName -> jovial_goldstine7
+              ModuleName -> sad_thompson1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,13 +33,13 @@ weight: 10133
     
     
     groups members:[]
-    module: [jovial_goldstine7] instance id: [dev]
+    module: [sad_thompson1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "studentname": "Jason"
+      "studentname": "Jason",
+      "a": "runtime-a"
     }
     
     -------runtime global final merged with dvars-------
@@ -82,21 +82,21 @@ weight: 10133
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "SG",
-      "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Tom",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "school": "SG"
     })
     
-    jovial_goldstine7: overall final exec vars:
+    sad_thompson1: overall final exec vars:
     
     (*core.Cache)({
-      "school": "SG",
-      "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Tom",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "school": "SG"
     })
     
     cmd( 1):

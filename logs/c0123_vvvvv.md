@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvvv"
-date: 2020-06-25T01:56:02+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11234
 
@@ -17,7 +17,7 @@ weight: 11234
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0123
                  Verbose -> vvvvv
-              ModuleName -> grave_hawking2
+              ModuleName -> drunk_wozniak8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11234
     -exec task: task
     loading [Task]:  ./tests/functests/c0123
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f7220)(<nil>)
+    (*impl.Scopes)(0xc0001d5280)(<nil>)
     
     ---------group vars----------
     
@@ -36,21 +36,21 @@ weight: 11234
     
     
     groups members:[]
-    module: [grave_hawking2] instance id: [dev]
+    module: [drunk_wozniak8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
     (core.Cache) (len=2) {
      (string) (len=6) "ymldoc": (string) (len=33) "student:\n  name: tom\n  sex: male\n",
      (string) (len=7) "student": (map[string]interface {}) (len=2) {
-      (string) (len=3) "sex": (string) (len=4) "male",
-      (string) (len=4) "name": (string) (len=3) "tom"
+      (string) (len=4) "name": (string) (len=3) "tom",
+      (string) (len=3) "sex": (string) (len=4) "male"
      }
     }
     
@@ -62,11 +62,11 @@ weight: 11234
     -------runtime global final merged with dvars-------
     
     {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
       located task-> 1 [task]: 
@@ -82,8 +82,8 @@ weight: 11234
           "cmd": "{{.student.name}}"
         },
         {
-          "name": "print",
-          "cmd": "{{.student.age}}"
+          "cmd": "{{.student.age}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -104,8 +104,8 @@ weight: 11234
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -116,22 +116,22 @@ weight: 11234
     
     
     scope[local] merged: {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     
-    grave_hawking2: overall final exec vars:
+    drunk_wozniak8: overall final exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     {{.student.name}}
@@ -145,8 +145,8 @@ weight: 11234
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "hello tom"
+          "cmd": "hello tom",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -166,11 +166,11 @@ weight: 11234
     
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     [local] dvar expanded result:
@@ -187,7 +187,7 @@ weight: 11234
     }
     
     
-    grave_hawking2: overall final exec vars:
+    drunk_wozniak8: overall final exec vars:
     
     (*core.Cache)({
       "student": {
@@ -228,8 +228,8 @@ weight: 11234
     (*core.Cache)({
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -247,13 +247,13 @@ weight: 11234
     }
     
     
-    grave_hawking2: overall final exec vars:
+    drunk_wozniak8: overall final exec vars:
     
     (*core.Cache)({
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -282,11 +282,11 @@ weight: 11234
     
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     [local] dvar expanded result:
@@ -297,20 +297,20 @@ weight: 11234
     scope[local] merged: {
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
     
-    grave_hawking2: overall final exec vars:
+    drunk_wozniak8: overall final exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "sex": "male",
         "name": "tom"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -340,11 +340,11 @@ weight: 11234
     
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     [local] dvar expanded result:
@@ -353,22 +353,22 @@ weight: 11234
     
     
     scope[local] merged: {
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+        "name": "tom",
+        "sex": "male"
+      }
     }
     
     
-    grave_hawking2: overall final exec vars:
+    drunk_wozniak8: overall final exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+        "name": "tom",
+        "sex": "male"
+      }
     })
     
     condition failed, skip executing step 

@@ -1,6 +1,6 @@
 ---
 title: "c0132_vvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11323
 
@@ -17,7 +17,7 @@ weight: 11323
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0132
                  Verbose -> vvvv
-              ModuleName -> compassionate_bardeen3
+              ModuleName -> thirsty_jones8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,12 +33,12 @@ weight: 11323
     
     
     groups members:[]
-    module: [compassionate_bardeen3] instance id: [dev]
+    module: [thirsty_jones8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
     -------runtime global final merged with dvars-------
@@ -58,6 +58,7 @@ weight: 11323
       Name: "",
       Do: {
         {
+          "func": "cmd",
           "vars": {
             "a": "block_layer2_aaa"
           },
@@ -76,14 +77,13 @@ weight: 11323
               }
             },
             {
+              "name": "inspect",
               "cmd": {
                 "exec_vars",
                 "exec_base_vars"
-              },
-              "name": "inspect"
+              }
             }
-          },
-          "func": "cmd"
+          }
         }
       },
       Dox: <nil>,
@@ -140,14 +140,14 @@ weight: 11323
       "c": "global_ccc"
     })
     
-    compassionate_bardeen3: overall final exec vars:
+    thirsty_jones8: overall final exec vars:
     
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "da": "local_da",
       "db": "local_db",
-      "a": "local_aaa",
-      "b": "local_bbb"
+      "a": "local_aaa"
     })
     
     -Step1:
@@ -155,11 +155,11 @@ weight: 11323
       Name: "",
       Do: {
         {
+          "name": "assert",
           "cmd": {
             "{{eq .a \"aaa\"}}",
             "{{eq .a \"block_layer2_aaa\"}}"
-          },
-          "name": "assert"
+          }
         },
         {
           "name": "assert",
@@ -168,11 +168,11 @@ weight: 11323
           }
         },
         {
-          "name": "inspect",
           "cmd": {
             "exec_vars",
             "exec_base_vars"
-          }
+          },
+          "name": "inspect"
         }
       },
       Dox: <nil>,
@@ -194,21 +194,21 @@ weight: 11323
     
     current exec runtime vars:
     (*core.Cache)({
+      "db": "local_db",
+      "da": "local_da",
+      "a": "block_layer2_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
+    })
+    
+    thirsty_jones8: overall final exec vars:
+    
+    (*core.Cache)({
       "c": "global_ccc",
       "db": "local_db",
       "da": "local_da",
       "a": "block_layer2_aaa",
       "b": "local_bbb"
-    })
-    
-    compassionate_bardeen3: overall final exec vars:
-    
-    (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "db": "local_db",
-      "da": "local_da",
-      "a": "block_layer2_aaa"
     })
     
     ~SubStep1: [assert:  ]
@@ -218,11 +218,11 @@ weight: 11323
      1 ASSERT FAILED: [{{eq .a "aaa"}}]
     ~SubStep3: [inspect:  ]
      1: inspect[exec_vars](*core.Cache)({
+      "da": "local_da",
       "a": "block_layer2_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "db": "local_db",
-      "da": "local_da"
+      "db": "local_db"
     })
     
      2: inspect[exec_base_vars]{

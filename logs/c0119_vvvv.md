@@ -1,6 +1,6 @@
 ---
 title: "c0119_vvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:30+66:00
 draft: false
 weight: 11193
 
@@ -17,7 +17,7 @@ weight: 11193
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0119
                  Verbose -> vvvv
-              ModuleName -> trusting_kowalevski8
+              ModuleName -> adoring_poincare2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11193
     
     
     groups members:[]
-    module: [trusting_kowalevski8] instance id: [dev]
+    module: [adoring_poincare2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -80,7 +80,7 @@ weight: 11193
     (*core.Cache)({
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -119,7 +119,7 @@ weight: 11193
     (*core.Cache)({
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -154,7 +154,7 @@ weight: 11193
     (*core.Cache)({
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -168,8 +168,8 @@ weight: 11193
       Name: "step1",
       Do: {
         {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -195,13 +195,13 @@ weight: 11193
       "up_runtime_task_layer_number": 1
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -242,13 +242,13 @@ weight: 11193
       "up_runtime_task_layer_number": 1
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     ~~SubStep1: [print:  ]
@@ -284,7 +284,7 @@ weight: 11193
       "up_runtime_task_layer_number": 1
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -299,8 +299,8 @@ weight: 11193
       Name: "step1",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -326,7 +326,7 @@ weight: 11193
       "loopindex1": 1
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "loopindex1": 1,
@@ -367,13 +367,13 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -414,19 +414,19 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    trusting_kowalevski8: overall final exec vars:
-    
-    (*core.Cache)({
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 3"
+    })
+    
+    adoring_poincare2: overall final exec vars:
+    
+    (*core.Cache)({
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -467,11 +467,11 @@ weight: 11193
       "person": "jason"
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "person": "jason",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 3 [subtask2]: 
@@ -507,14 +507,14 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 1"
+      "person": "jason"
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "person": "jason",
@@ -552,14 +552,14 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "loopindex": 0,
@@ -581,8 +581,8 @@ weight: 11193
       Do: {
         {
           "cmd": {
-            "value": "tom",
-            "name": "person"
+            "name": "person",
+            "value": "tom"
           },
           "name": "reg"
         }
@@ -611,7 +611,7 @@ weight: 11193
       "loopitem": "proc 2"
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "loopindex1": 2,
@@ -628,8 +628,8 @@ weight: 11193
       Name: "step2",
       Do: {
         {
-          "name": "print",
-          "cmd": "person: {{.person}}"
+          "cmd": "person: {{.person}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -649,21 +649,21 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    trusting_kowalevski8: overall final exec vars:
-    
-    (*core.Cache)({
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
       "loopindex": 1
+    })
+    
+    adoring_poincare2: overall final exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     ~~SubStep1: [print:  ]
@@ -679,8 +679,8 @@ weight: 11193
         {
           "name": "reg",
           "cmd": {
-            "value": "tom",
-            "name": "person"
+            "name": "person",
+            "value": "tom"
           }
         }
       },
@@ -701,14 +701,14 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3"
+      "person": "jason"
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -725,8 +725,8 @@ weight: 11193
       Name: "step2",
       Do: {
         {
-          "name": "print",
-          "cmd": "person: {{.person}}"
+          "cmd": "person: {{.person}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -746,14 +746,14 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "person": "jason",
@@ -798,14 +798,14 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 4"
+      "loopitem": "proc 4",
+      "loopindex": 3
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
       "person": "jason",
@@ -842,21 +842,21 @@ weight: 11193
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": "tom",
       "loopitem": "proc 4",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1
     })
     
-    trusting_kowalevski8: overall final exec vars:
+    adoring_poincare2: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "tom",
       "loopitem": "proc 4",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom"
     })
     
     ~~SubStep1: [print:  ]

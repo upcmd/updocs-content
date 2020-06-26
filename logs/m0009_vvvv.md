@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvv"
-date: 2020-06-25T01:56:27+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100903
 
@@ -17,7 +17,7 @@ weight: 100903
               AbsWorkDir -> /up_project/up/tests/modtests/0009
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> evil_goldstine3
+              ModuleName -> suspicious_pare3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 100903
     
     
     groups members:[]
-    module: [evil_goldstine3] instance id: [dev]
+    module: [suspicious_pare3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }

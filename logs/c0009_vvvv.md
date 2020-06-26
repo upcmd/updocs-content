@@ -1,6 +1,6 @@
 ---
 title: "c0009_vvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10093
 
@@ -17,7 +17,7 @@ weight: 10093
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0009
                  Verbose -> vvvv
-              ModuleName -> happy_darwin9
+              ModuleName -> sharp_goldstine2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -30,10 +30,10 @@ weight: 10093
     loading vars from: d0009-global.yml
     
     {
-      "b": "global-b",
       "c": "global-c",
       "d": "global-d",
-      "a": "global-a"
+      "a": "global-a",
+      "b": "global-b"
     }
     
     loading [ref vars]:  ./tests/functests/d0009-dev.yml
@@ -53,22 +53,22 @@ weight: 10093
     
     
     nonprod: {
+      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c",
-      "a": "non-prod-a"
+      "c": "non-prod-c"
     }
     
     
     global: {
+      "d": "global-d",
       "a": "global-a",
       "b": "global-b",
-      "c": "global-c",
-      "d": "global-d"
+      "c": "global-c"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [happy_darwin9] instance id: [dev]
+    module: [sharp_goldstine2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": "dev-c",
@@ -80,10 +80,10 @@ weight: 10093
     -------runtime global final merged with dvars-------
     
     {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -113,19 +113,19 @@ weight: 10093
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
-    })
-    
-    happy_darwin9: overall final exec vars:
-    
-    (*core.Cache)({
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
+      "b": "non-prod-b"
+    })
+    
+    sharp_goldstine2: overall final exec vars:
+    
+    (*core.Cache)({
+      "c": "dev-c",
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
     cmd( 1):

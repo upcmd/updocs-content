@@ -1,6 +1,6 @@
 ---
 title: "c0004_vvvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:13+66:00
 draft: false
 weight: 10044
 
@@ -17,7 +17,7 @@ weight: 10044
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0004
                  Verbose -> vvvvv
-              ModuleName -> backstabbing_poitras7
+              ModuleName -> jovial_rosalind9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10044
     -exec task: task
     loading [Task]:  ./tests/functests/c0004
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000184e60)(<nil>)
+    (*impl.Scopes)(0xc0001f4e60)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10044
     
     
     groups members:[]
-    module: [backstabbing_poitras7] instance id: [dev]
+    module: [jovial_rosalind9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +93,7 @@ weight: 10044
     }
     
     
-    backstabbing_poitras7: overall final exec vars:
+    jovial_rosalind9: overall final exec vars:
     
     (*core.Cache)({
     })

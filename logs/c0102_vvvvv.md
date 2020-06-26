@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvvv"
-date: 2020-06-25T01:55:56+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11024
 
@@ -17,7 +17,7 @@ weight: 11024
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0102
                  Verbose -> vvvvv
-              ModuleName -> sad_franklin8
+              ModuleName -> furious_bohr1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11024
     -exec task: task
     loading [Task]:  ./tests/functests/c0102
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000159260)(<nil>)
+    (*impl.Scopes)(0xc0001ed200)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11024
     
     
     groups members:[]
-    module: [sad_franklin8] instance id: [dev]
+    module: [furious_bohr1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
@@ -97,7 +97,7 @@ weight: 11024
     }
     
     
-    sad_franklin8: overall final exec vars:
+    furious_bohr1: overall final exec vars:
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
@@ -132,23 +132,23 @@ weight: 11024
         {
           "name": "yml_delete",
           "cmd": {
-            "verbose": "v",
             "ymlfile": "mock_yml.yml",
             "refdir": "/tmp",
-            "path": "jason.sex"
+            "path": "jason.sex",
+            "verbose": "v"
           },
           "flags": {
             "inplace"
           }
         },
         {
-          "name": "readfile",
           "desc": "check new file content",
           "cmd": {
             "filename": "mock_yml.yml",
             "dir": "/tmp",
             "reg": "new_yml"
-          }
+          },
+          "name": "readfile"
         },
         {
           "name": "print",
@@ -187,24 +187,24 @@ weight: 11024
     
     
     scope[local] merged: {
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     }
     
     
-    sad_franklin8: overall final exec vars:
+    furious_bohr1: overall final exec vars:
     
     (*core.Cache)({
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:jason.sex refdir:/tmp verbose:v ymlfile:mock_yml.yml]
@@ -231,12 +231,12 @@ weight: 11024
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      })
     })
     
     {{.new_yml}}
@@ -257,20 +257,20 @@ weight: 11024
         {
           "name": "yml_delete",
           "cmd": {
-            "reg": "modified_yml",
             "ymlfile": "mock_yml.yml",
             "refdir": "/tmp",
             "path": "jason.sex",
-            "verbose": "vvvv"
+            "verbose": "vvvv",
+            "reg": "modified_yml"
           },
           "flags": {
             "localonly"
           }
         },
         {
-          "cmd": "{{.modified_yml}}",
           "name": "print",
-          "desc": "show the modified yml content registered"
+          "desc": "show the modified yml content registered",
+          "cmd": "{{.modified_yml}}"
         }
       },
       Dox: <nil>,
@@ -290,13 +290,13 @@ weight: 11024
     
     current exec runtime vars:
     (*core.Cache)({
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      })
     })
     
     [local] dvar expanded result:
@@ -315,7 +315,7 @@ weight: 11024
     }
     
     
-    sad_franklin8: overall final exec vars:
+    furious_bohr1: overall final exec vars:
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",

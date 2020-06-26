@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100403
 
@@ -17,7 +17,7 @@ weight: 100403
               AbsWorkDir -> /up_project/up/tests/modtests/0004
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> silly_bardeen6
+              ModuleName -> thirsty_mclean9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 100403
     
     
     groups members:[]
-    module: [silly_bardeen6] instance id: [dev]
+    module: [thirsty_mclean9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -70,7 +70,7 @@ weight: 100403
     (*core.Cache)({
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -108,7 +108,7 @@ weight: 100403
       "up_runtime_task_layer_number": 1
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -145,7 +145,7 @@ weight: 100403
       "up_runtime_task_layer_number": 1
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -207,7 +207,7 @@ weight: 100403
       "up_runtime_task_layer_number": 1
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -338,13 +338,13 @@ weight: 100403
     hello-module: overall final exec vars:
     
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
-      "up_runtime_tasker_layer_number": 2
+      })
     })
     
       located task-> 3 [internal_task]: 
@@ -377,25 +377,25 @@ weight: 100403
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     hello-module: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -438,13 +438,13 @@ weight: 100403
     hello-module: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -500,7 +500,7 @@ weight: 100403
       "up_runtime_task_layer_number": 1
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
@@ -541,11 +541,11 @@ weight: 100403
       "up_runtime_task_layer_number": 1
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~~SubStep1: [print:  ]
@@ -580,11 +580,11 @@ weight: 100403
       "up_runtime_tasker_layer_number": 2
     })
     
-    silly_bardeen6: overall final exec vars:
+    thirsty_mclean9: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

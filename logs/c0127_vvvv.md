@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvv"
-date: 2020-06-25T01:56:02+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11273
 
@@ -17,7 +17,7 @@ weight: 11273
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0127
                  Verbose -> vvvv
-              ModuleName -> clever_kilby6
+              ModuleName -> pensive_yalow4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11273
     
     
     groups members:[]
-    module: [clever_kilby6] instance id: [dev]
+    module: [pensive_yalow4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -52,8 +52,8 @@ weight: 11273
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n"
+          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -75,7 +75,7 @@ weight: 11273
     (*core.Cache)({
     })
     
-    clever_kilby6: overall final exec vars:
+    pensive_yalow4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -110,7 +110,7 @@ weight: 11273
     (*core.Cache)({
     })
     
-    clever_kilby6: overall final exec vars:
+    pensive_yalow4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -147,7 +147,7 @@ weight: 11273
     (*core.Cache)({
     })
     
-    clever_kilby6: overall final exec vars:
+    pensive_yalow4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -189,7 +189,7 @@ weight: 11273
       "goahead": true
     })
     
-    clever_kilby6: overall final exec vars:
+    pensive_yalow4: overall final exec vars:
     
     (*core.Cache)({
       "goahead": true
@@ -204,8 +204,8 @@ weight: 11273
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "go ahead ......."
+          "cmd": "go ahead .......",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -229,11 +229,54 @@ weight: 11273
       "up_runtime_task_layer_number": 1
     })
     
-    clever_kilby6: overall final exec vars:
+    pensive_yalow4: overall final exec vars:
     
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    ~~SubStep1: [print:  ]
+    go ahead .......
+      located task-> 2 [goahead]: 
+    =Task2: [task ==> goahead:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": "go ahead .......",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "goahead": true
+    })
+    
+    pensive_yalow4: overall final exec vars:
+    
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -272,54 +315,11 @@ weight: 11273
       "up_runtime_task_layer_number": 1
     })
     
-    clever_kilby6: overall final exec vars:
+    pensive_yalow4: overall final exec vars:
     
     (*core.Cache)({
       "goahead": true,
       "up_runtime_task_layer_number": 1
-    })
-    
-    ~~SubStep1: [print:  ]
-    go ahead .......
-      located task-> 2 [goahead]: 
-    =Task2: [task ==> goahead:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "go ahead ......."
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    clever_kilby6: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
     })
     
     ~~SubStep1: [print:  ]

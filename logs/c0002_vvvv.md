@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvv"
-date: 2020-06-25T01:55:36+66:00
+date: 2020-06-27T03:09:13+66:00
 draft: false
 weight: 10023
 
@@ -17,7 +17,7 @@ weight: 10023
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0002
                  Verbose -> vvvv
-              ModuleName -> modest_sinoussi7
+              ModuleName -> clever_mayer1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10023
     
     
     groups members:[]
-    module: [modest_sinoussi7] instance id: [dev]
+    module: [clever_mayer1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -73,7 +73,7 @@ weight: 10023
     (*core.Cache)({
     })
     
-    modest_sinoussi7: overall final exec vars:
+    clever_mayer1: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -125,7 +125,7 @@ weight: 10023
       })
     })
     
-    modest_sinoussi7: overall final exec vars:
+    clever_mayer1: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

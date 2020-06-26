@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10553
 
@@ -17,7 +17,7 @@ weight: 10553
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0055
                  Verbose -> vvvv
-              ModuleName -> stupefied_wright1
+              ModuleName -> sad_wilson9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10553
     
     
     groups members:[]
-    module: [stupefied_wright1] instance id: [dev]
+    module: [sad_wilson9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 10553
     (*core.Cache)({
     })
     
-    stupefied_wright1: overall final exec vars:
+    sad_wilson9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -122,7 +122,7 @@ weight: 10553
     dvar> greet:
     "hello"
     
-    stupefied_wright1: overall final exec vars:
+    sad_wilson9: overall final exec vars:
     
     (*core.Cache)({
       "greet": "hello"
@@ -154,7 +154,7 @@ weight: 10553
     (*core.Cache)({
     })
     
-    stupefied_wright1: overall final exec vars:
+    sad_wilson9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -190,7 +190,7 @@ weight: 10553
       "up_runtime_task_layer_number": 1
     })
     
-    stupefied_wright1: overall final exec vars:
+    sad_wilson9: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

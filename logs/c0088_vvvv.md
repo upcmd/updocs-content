@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvv"
-date: 2020-06-25T01:55:52+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10883
 
@@ -17,7 +17,7 @@ weight: 10883
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0088
                  Verbose -> vvvv
-              ModuleName -> hungry_lumiere4
+              ModuleName -> nostalgic_cori9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,20 +33,20 @@ weight: 10883
     
     
     groups members:[]
-    module: [hungry_lumiere4] instance id: [dev]
+    module: [nostalgic_cori9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
-          }
-        }
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom"
       }
     }
     
@@ -54,16 +54,16 @@ weight: 10883
     
     {
       "student": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        },
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        }
       }
     }
     
@@ -145,9 +145,20 @@ weight: 10883
       }
     }
     
-    hungry_lumiere4: overall final exec vars:
+    nostalgic_cori9: overall final exec vars:
     
     (*core.Cache)({
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "sgp_address_dyna_dir_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -160,18 +171,7 @@ weight: 10883
           }
         }
       },
-      "dynadir": "./tests/functests",
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "sgp_address_dyna_dir_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
-        }
-      }
+      "dynadir": "./tests/functests"
     })
     
     cmd( 1):

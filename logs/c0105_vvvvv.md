@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11054
 
@@ -17,7 +17,7 @@ weight: 11054
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0105
                  Verbose -> vvvvv
-              ModuleName -> kickass_sammet3
+              ModuleName -> naughty_bohr2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11054
     -exec task: task
     loading [Task]:  ./tests/functests/c0105
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185280)(<nil>)
+    (*impl.Scopes)(0xc00000eba0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11054
     
     
     groups members:[]
-    module: [kickass_sammet3] instance id: [dev]
+    module: [naughty_bohr2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -103,12 +103,12 @@ weight: 11054
     
     
     scope[local] merged: {
-      "jerry": "this is jerry",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry"
     }
     
     
-    kickass_sammet3: overall final exec vars:
+    naughty_bohr2: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -130,12 +130,12 @@ weight: 11054
           "cmd": "{{.jerry}}"
         },
         {
+          "name": "reg",
           "cmd": {
             "name": "hitom",
             "desc": "by default hitom is registered in to global context",
             "value": "hello, {{.tom}}"
-          },
-          "name": "reg"
+          }
         },
         {
           "name": "print",
@@ -172,7 +172,7 @@ weight: 11054
     }
     
     
-    kickass_sammet3: overall final exec vars:
+    naughty_bohr2: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -205,20 +205,20 @@ weight: 11054
       Name: "",
       Do: {
         {
-          "cmd": "{{.hitom}}",
           "name": "print",
-          "desc": "by default hitom is accessible from global context, that's why it is accessiable cross func"
+          "desc": "by default hitom is accessible from global context, that's why it is accessiable cross func",
+          "cmd": "{{.hitom}}"
         },
         {
+          "name": "reg",
           "cmd": {
+            "value": "hello, jerry",
             "name": "hijerry",
-            "desc": "hijerry is registered to local scope only",
-            "value": "hello, jerry"
+            "desc": "hijerry is registered to local scope only"
           },
           "flags": {
             "localonly"
-          },
-          "name": "reg"
+          }
         },
         {
           "name": "print",
@@ -258,7 +258,7 @@ weight: 11054
     }
     
     
-    kickass_sammet3: overall final exec vars:
+    naughty_bohr2: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -280,9 +280,9 @@ weight: 11054
     after reg the var - local:
     
     (*core.Cache)({
+      "hijerry": "hello, jerry",
       "tom": "this is tom",
-      "hitom": "hello, this is tom",
-      "hijerry": "hello, jerry"
+      "hitom": "hello, this is tom"
     })
     
     {{.hijerry}}
@@ -315,8 +315,8 @@ weight: 11054
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -325,12 +325,12 @@ weight: 11054
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     }
     
     
-    kickass_sammet3: overall final exec vars:
+    naughty_bohr2: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

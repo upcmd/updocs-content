@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvvv"
-date: 2020-06-25T01:55:58+66:00
+date: 2020-06-27T03:09:29+66:00
 draft: false
 weight: 11084
 
@@ -17,7 +17,7 @@ weight: 11084
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0108
                  Verbose -> vvvvv
-              ModuleName -> cranky_noyce7
+              ModuleName -> elated_hopper8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11084
     -exec task: task
     loading [Task]:  ./tests/functests/c0108
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f53a0)(<nil>)
+    (*impl.Scopes)(0xc0001ef3a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11084
     
     
     groups members:[]
-    module: [cranky_noyce7] instance id: [dev]
+    module: [elated_hopper8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -93,8 +93,8 @@ weight: 11084
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry"
     })
     
     [local] dvar expanded result:
@@ -108,7 +108,7 @@ weight: 11084
     }
     
     
-    cranky_noyce7: overall final exec vars:
+    elated_hopper8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -161,7 +161,7 @@ weight: 11084
     }
     
     
-    cranky_noyce7: overall final exec vars:
+    elated_hopper8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -175,9 +175,9 @@ weight: 11084
       Name: "",
       Do: {
         {
+          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}"
+          "desc": "this should print out the dvar value of jerry"
         }
       },
       Dox: <nil>,
@@ -229,7 +229,7 @@ weight: 11084
     }
     
     
-    cranky_noyce7: overall final exec vars:
+    elated_hopper8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -244,9 +244,9 @@ weight: 11084
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -281,7 +281,7 @@ weight: 11084
     }
     
     
-    cranky_noyce7: overall final exec vars:
+    elated_hopper8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -296,9 +296,9 @@ weight: 11084
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "var jerry in task scope is overrided by local var jerry",
-          "cmd": "{{.jerry}}"
+          "cmd": "{{.jerry}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -335,7 +335,7 @@ weight: 11084
     }
     
     
-    cranky_noyce7: overall final exec vars:
+    elated_hopper8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -350,9 +350,9 @@ weight: 11084
       Name: "",
       Do: {
         {
-          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "this should print out the jerry defined in task var scope"
+          "desc": "this should print out the jerry defined in task var scope",
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -382,12 +382,12 @@ weight: 11084
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     }
     
     
-    cranky_noyce7: overall final exec vars:
+    elated_hopper8: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

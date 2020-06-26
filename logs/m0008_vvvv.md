@@ -1,6 +1,6 @@
 ---
 title: "0008_vvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100803
 
@@ -17,7 +17,7 @@ weight: 100803
               AbsWorkDir -> /up_project/up/tests/modtests/0008
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> hungry_ptolemy1
+              ModuleName -> romantic_poitras4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 100803
     
     
     groups members:[]
-    module: [hungry_ptolemy1] instance id: [dev]
+    module: [romantic_poitras4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -71,7 +71,7 @@ weight: 100803
     (*core.Cache)({
     })
     
-    hungry_ptolemy1: overall final exec vars:
+    romantic_poitras4: overall final exec vars:
     
     (*core.Cache)({
     })

@@ -1,6 +1,6 @@
 ---
 title: "c0066_vvvv"
-date: 2020-06-25T01:55:48+66:00
+date: 2020-06-27T03:09:23+66:00
 draft: false
 weight: 10663
 
@@ -17,7 +17,7 @@ weight: 10663
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0066
                  Verbose -> vvvv
-              ModuleName -> distracted_bell3
+              ModuleName -> cocky_kirch5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,13 +33,13 @@ weight: 10663
     
     
     groups members:[]
-    module: [distracted_bell3] instance id: [dev]
+    module: [cocky_kirch5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -47,9 +47,9 @@ weight: 10663
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -87,13 +87,13 @@ weight: 10663
       }
     })
     
-    distracted_bell3: overall final exec vars:
+    cocky_kirch5: overall final exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     })
     
@@ -114,12 +114,12 @@ weight: 10663
           "cmd": "hello, {{.student.school}}"
         },
         {
-          "name": "reg",
           "desc": "demo of reg command",
           "cmd": {
             "name": "greet",
             "value": "from local dvars, {{.school}}. registered to global runtime"
-          }
+          },
+          "name": "reg"
         },
         {
           "name": "print",
@@ -130,17 +130,17 @@ weight: 10663
           "name": "reg",
           "desc": "demo greetlocal is registered to local var only\nit is accessible in current func, but not next one\n",
           "cmd": {
-            "name": "greetlocal",
-            "value": "hello, {{.student.school}}. registered to local func only"
+            "value": "hello, {{.student.school}}. registered to local func only",
+            "name": "greetlocal"
           },
           "flags": {
             "localonly"
           }
         },
         {
+          "name": "print",
           "desc": "this show display a correct rendered value\n",
-          "cmd": "hello, {{.greetlocal}}",
-          "name": "print"
+          "cmd": "hello, {{.greetlocal}}"
         }
       },
       Dox: <nil>,
@@ -176,9 +176,9 @@ weight: 10663
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,
@@ -187,13 +187,13 @@ weight: 10663
       })
     })
     
-    distracted_bell3: overall final exec vars:
+    cocky_kirch5: overall final exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Code: 0,
@@ -248,20 +248,20 @@ weight: 10663
     
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
-    distracted_bell3: overall final exec vars:
+    cocky_kirch5: overall final exec vars:
     
     (*core.Cache)({
       "student": {
@@ -310,6 +310,7 @@ weight: 10663
     
     current exec runtime vars:
     (*core.Cache)({
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
@@ -319,11 +320,10 @@ weight: 10663
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      })
     })
     
-    distracted_bell3: overall final exec vars:
+    cocky_kirch5: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -366,19 +366,19 @@ weight: 10663
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      })
     })
     
-    distracted_bell3: overall final exec vars:
+    cocky_kirch5: overall final exec vars:
     
     (*core.Cache)({
       "student": {

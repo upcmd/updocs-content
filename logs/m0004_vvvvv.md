@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvvv"
-date: 2020-06-25T01:56:26+66:00
+date: 2020-06-27T03:09:47+66:00
 draft: false
 weight: 100404
 
@@ -17,7 +17,7 @@ weight: 100404
               AbsWorkDir -> /up_project/up/tests/modtests/0004
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> cocky_leakey6
+              ModuleName -> cranky_sinoussi8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100404
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecfe0)(<nil>)
+    (*impl.Scopes)(0xc0001cf040)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 100404
     
     
     groups members:[]
-    module: [cocky_leakey6] instance id: [dev]
+    module: [cranky_sinoussi8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +90,7 @@ weight: 100404
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -142,7 +142,7 @@ weight: 100404
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -190,7 +190,7 @@ weight: 100404
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -286,7 +286,7 @@ weight: 100404
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -300,7 +300,7 @@ weight: 100404
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000ed00)(<nil>)
+    (*impl.Scopes)(0xc00023b400)(<nil>)
     
     ---------group vars----------
     
@@ -549,13 +549,13 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -600,13 +600,13 @@ weight: 100404
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -725,7 +725,7 @@ weight: 100404
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -778,12 +778,12 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -819,8 +819,8 @@ weight: 100404
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -834,7 +834,7 @@ weight: 100404
     }
     
     
-    cocky_leakey6: overall final exec vars:
+    cranky_sinoussi8: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,

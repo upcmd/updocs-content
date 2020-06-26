@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10403
 
@@ -17,7 +17,7 @@ weight: 10403
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0040
                  Verbose -> vvvv
-              ModuleName -> prickly_pike0
+              ModuleName -> kickass_kilby7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10403
     
     
     groups members:[]
-    module: [prickly_pike0] instance id: [dev]
+    module: [kickass_kilby7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,7 +72,7 @@ weight: 10403
     (*core.Cache)({
     })
     
-    prickly_pike0: overall final exec vars:
+    kickass_kilby7: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -124,27 +124,27 @@ weight: 10403
     
     current exec runtime vars:
     (*core.Cache)({
-      "cases": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
       }),
-      "last_result": (*utils.ExecResult)({
+      "cases": (*utils.ExecResult)({
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
       })
     })
     
-    prickly_pike0: overall final exec vars:
+    kickass_kilby7: overall final exec vars:
     
     (*core.Cache)({
-      "cases": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
       }),
-      "last_result": (*utils.ExecResult)({
+      "cases": (*utils.ExecResult)({
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""

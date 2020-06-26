@@ -1,6 +1,6 @@
 ---
 title: "c0085_vvvvv"
-date: 2020-06-25T01:55:51+66:00
+date: 2020-06-27T03:09:25+66:00
 draft: false
 weight: 10854
 
@@ -17,7 +17,7 @@ weight: 10854
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0085
                  Verbose -> vvvvv
-              ModuleName -> drunk_goodall7
+              ModuleName -> boring_noyce3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 10854
     
     
     groups members:[]
-    module: [drunk_goodall7] instance id: [dev]
+    module: [boring_noyce3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "workers": {
@@ -117,12 +117,12 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     })
     
     dvar> linelist:
@@ -145,16 +145,16 @@ weight: 10854
     }
     
     
-    drunk_goodall7: overall final exec vars:
+    boring_noyce3: overall final exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "linelist": "[hello this is a beautiful world]",
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "linelist": "[hello this is a beautiful world]"
     })
     
     cmd( 1):
@@ -274,7 +274,7 @@ weight: 10854
     }
     
     
-    drunk_goodall7: overall final exec vars:
+    boring_noyce3: overall final exec vars:
     
     (*core.Cache)({
       "workers": {
@@ -376,17 +376,17 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
         ErrMsg: ""
-      }),
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      }
+      })
     })
     
     dvar> linelist:
@@ -413,9 +413,10 @@ weight: 10854
     }
     
     
-    drunk_goodall7: overall final exec vars:
+    boring_noyce3: overall final exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
@@ -425,8 +426,7 @@ weight: 10854
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     })
     
     cmd( 1):
@@ -520,29 +520,6 @@ weight: 10854
     
     
     scope[local] merged: {
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "<no value>",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    drunk_goodall7: overall final exec vars:
-    
-    (*core.Cache)({
       "workers": {
         "peter",
         "tom",
@@ -559,6 +536,29 @@ weight: 10854
         "this",
         "is a",
         "beautiful world"
+      }
+    }
+    
+    
+    boring_noyce3: overall final exec vars:
+    
+    (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "<no value>",
+        ErrMsg: ""
+      }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "workers": {
+        "peter",
+        "tom",
+        "james"
       }
     })
     
@@ -622,12 +622,6 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
       "workers": {
         "peter",
         "tom",
@@ -638,7 +632,13 @@ weight: 10854
         Code: 0,
         Output: "3 -> james",
         ErrMsg: ""
-      })
+      }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     })
     
     [local] dvar expanded result:
@@ -647,6 +647,7 @@ weight: 10854
     
     
     scope[local] merged: {
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "3 -> james",
@@ -662,14 +663,19 @@ weight: 10854
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     }
     
     
-    drunk_goodall7: overall final exec vars:
+    boring_noyce3: overall final exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "3 -> james",
+        ErrMsg: ""
+      }),
       "linelist_object": {
         "hello",
         "this",
@@ -680,13 +686,7 @@ weight: 10854
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "3 -> james",
-        ErrMsg: ""
-      })
+      }
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvv"
-date: 2020-06-25T01:55:57+66:00
+date: 2020-06-27T03:09:28+66:00
 draft: false
 weight: 11063
 
@@ -17,7 +17,7 @@ weight: 11063
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0106
                  Verbose -> vvvv
-              ModuleName -> goofy_darwin8
+              ModuleName -> adoring_bell5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11063
     
     
     groups members:[]
-    module: [goofy_darwin8] instance id: [dev]
+    module: [adoring_bell5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -73,7 +73,7 @@ weight: 11063
       "tom": "this is tom"
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -88,14 +88,14 @@ weight: 11063
       Name: "",
       Do: {
         {
+          "flags": {
+            "localonly"
+          },
           "name": "reg",
           "cmd": {
             "name": "hitom",
             "desc": "by default hitom is registered in to global context",
             "value": "hello, {{.tom}}"
-          },
-          "flags": {
-            "localonly"
           }
         },
         {
@@ -124,11 +124,11 @@ weight: 11063
       "up_runtime_task_layer_number": 1
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [reg:  ]
@@ -139,9 +139,9 @@ weight: 11063
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "should be <no value> since it is marked localonly",
-          "cmd": "{{.hitom}}"
+          "cmd": "{{.hitom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -165,11 +165,11 @@ weight: 11063
       "up_runtime_task_layer_number": 1
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     ~~SubStep1: [print: should be <no value> since it is marked localonly ]
@@ -206,11 +206,11 @@ weight: 11063
       "up_runtime_task_layer_number": 1
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]
@@ -240,7 +240,7 @@ weight: 11063
       "up_runtime_task_layer_number": 1
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -256,16 +256,16 @@ weight: 11063
       Name: "",
       Do: {
         {
-          "name": "reg",
           "cmd": {
             "name": "hitom",
             "desc": "by default hitom is registered in to global context",
             "value": "hello, {{.tom}}"
-          }
+          },
+          "name": "reg"
         },
         {
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.hitom}}"
         }
       },
       Dox: <nil>,
@@ -289,7 +289,7 @@ weight: 11063
       "up_runtime_task_layer_number": 1
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -326,17 +326,17 @@ weight: 11063
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
-    })
-    
-    goofy_darwin8: overall final exec vars:
-    
-    (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
       "hitom": "hello, this is tom"
+    })
+    
+    adoring_bell5: overall final exec vars:
+    
+    (*core.Cache)({
+      "hitom": "hello, this is tom",
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func
@@ -376,11 +376,11 @@ weight: 11063
       "up_runtime_task_layer_number": 1
     })
     
-    goofy_darwin8: overall final exec vars:
+    adoring_bell5: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0098_vvvvv"
-date: 2020-06-25T01:55:54+66:00
+date: 2020-06-27T03:09:27+66:00
 draft: false
 weight: 10984
 
@@ -17,7 +17,7 @@ weight: 10984
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0098
                  Verbose -> vvvvv
-              ModuleName -> sad_fermat2
+              ModuleName -> kickass_kilby6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10984
     -exec task: task
     loading [Task]:  ./tests/functests/c0098
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017b000)(<nil>)
+    (*impl.Scopes)(0xc000157060)(<nil>)
     
     ---------group vars----------
     
@@ -36,14 +36,15 @@ weight: 10984
     
     
     groups members:[]
-    module: [sad_fermat2] instance id: [dev]
+    module: [kickass_kilby6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "aaa": "aaa",
       "datapointer": "student",
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "nsw": {
         "sydney": {
@@ -55,11 +56,11 @@ weight: 10984
             }
           }
         }
-      },
-      "aaa": "aaa"
+      }
     }
     
     (core.Cache) (len=4) {
+     (string) (len=3) "aaa": (string) (len=3) "aaa",
      (string) (len=11) "datapointer": (string) (len=7) "student",
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
       (string) (len=4) "name": (string) (len=3) "Tom",
@@ -70,14 +71,13 @@ weight: 10984
       (string) (len=6) "sydney": (map[string]interface {}) (len=1) {
        (string) (len=8) "sgschool": (map[string]interface {}) (len=1) {
         (string) (len=7) "student": (map[string]interface {}) (len=3) {
+         (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
          (string) (len=4) "name": (string) (len=3) "Tom",
-         (string) (len=6) "gender": (string) (len=4) "Male",
-         (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
+         (string) (len=6) "gender": (string) (len=4) "Male"
         }
        }
       }
-     },
-     (string) (len=3) "aaa": (string) (len=3) "aaa"
+     }
     }
     
     [runtime global] dvar expanded result:
@@ -88,24 +88,24 @@ weight: 10984
     -------runtime global final merged with dvars-------
     
     {
+      "datapointer": "student",
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom"
+              "name": "Tom",
+              "gender": "Male"
             }
           }
         }
       },
-      "aaa": "aaa",
-      "datapointer": "student"
+      "aaa": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -155,10 +155,11 @@ weight: 10984
     
     current exec runtime vars:
     (*core.Cache)({
+      "datapointer": "student",
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "nsw": {
         "sydney": {
@@ -171,8 +172,7 @@ weight: 10984
           }
         }
       },
-      "aaa": "aaa",
-      "datapointer": "student"
+      "aaa": "aaa"
     })
     
     (string) (len=11) "sub yml str"
@@ -189,37 +189,12 @@ weight: 10984
     
     
     scope[local] merged: {
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "name": "Tom",
-              "gender": "Male",
-              "school": "Sydney Grammar"
-            }
-          }
-        }
-      },
-      "student_info": "my name is:<no value> and I am in <no value>",
       "aaa": "aaa",
       "datapointer": "student",
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
-      }
-    }
-    
-    
-    sad_fermat2: overall final exec vars:
-    
-    (*core.Cache)({
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student": {
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "nsw": {
         "sydney": {
@@ -233,6 +208,31 @@ weight: 10984
         }
       },
       "student_info": "my name is:<no value> and I am in <no value>"
+    }
+    
+    
+    kickass_kilby6: overall final exec vars:
+    
+    (*core.Cache)({
+      "student_info": "my name is:<no value> and I am in <no value>",
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "Sydney Grammar",
+              "name": "Tom",
+              "gender": "Male"
+            }
+          }
+        }
+      }
     })
     
     {{.student_info}}

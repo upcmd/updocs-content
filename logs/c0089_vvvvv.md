@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvvv"
-date: 2020-06-25T01:55:52+66:00
+date: 2020-06-27T03:09:26+66:00
 draft: false
 weight: 10894
 
@@ -17,7 +17,7 @@ weight: 10894
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0089
                  Verbose -> vvvvv
-              ModuleName -> naughty_wozniak7
+              ModuleName -> pensive_thompson4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10894
     -exec task: task
     loading [Task]:  ./tests/functests/c0089
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ced80)(<nil>)
+    (*impl.Scopes)(0xc00000e240)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10894
     
     
     groups members:[]
-    module: [naughty_wozniak7] instance id: [dev]
+    module: [pensive_thompson4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "dynadir": "./tests/functests"
@@ -99,7 +99,7 @@ weight: 10894
     }
     
     
-    naughty_wozniak7: overall final exec vars:
+    pensive_thompson4: overall final exec vars:
     
     (*core.Cache)({
       "dynadir": "./tests/functests"

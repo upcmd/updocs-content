@@ -1,6 +1,6 @@
 ---
 title: "c0109_vvvv"
-date: 2020-06-25T01:55:58+66:00
+date: 2020-06-27T03:09:29+66:00
 draft: false
 weight: 11093
 
@@ -17,7 +17,7 @@ weight: 11093
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0109
                  Verbose -> vvvv
-              ModuleName -> boring_hypatia0
+              ModuleName -> berserk_bell1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11093
     
     
     groups members:[]
-    module: [boring_hypatia0] instance id: [dev]
+    module: [berserk_bell1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -54,9 +54,9 @@ weight: 11093
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}"
+          "cmd": "{{.jerry}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -96,7 +96,7 @@ weight: 11093
       "tom": "this is tom"
     })
     
-    boring_hypatia0: overall final exec vars:
+    berserk_bell1: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -132,11 +132,11 @@ weight: 11093
       "jerry": "this is jerry in task scope"
     })
     
-    boring_hypatia0: overall final exec vars:
+    berserk_bell1: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
       located task-> 2 [subtask1]: 
@@ -179,7 +179,7 @@ weight: 11093
       "up_runtime_task_layer_number": 1
     })
     
-    boring_hypatia0: overall final exec vars:
+    berserk_bell1: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -196,9 +196,9 @@ weight: 11093
       Name: "",
       Do: {
         {
+          "desc": "remember that the caller's vars should override callee's vars\nso jerry's value should the one from caller instead this local value\n",
           "cmd": "{{.jerry}}",
-          "name": "print",
-          "desc": "remember that the caller's vars should override callee's vars\nso jerry's value should the one from caller instead this local value\n"
+          "name": "print"
         },
         {
           "name": "trace",
@@ -233,12 +233,12 @@ weight: 11093
       "up_runtime_task_layer_number": 1
     })
     
-    boring_hypatia0: overall final exec vars:
+    berserk_bell1: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope"
     })
     
     ~~SubStep1: [print: remember that the caller's vars should override callee's vars
@@ -254,9 +254,9 @@ weight: 11093
       Name: "",
       Do: {
         {
+          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "this should print out the jerry defined in caller's task var scope",
-          "cmd": "{{.jerry}}"
+          "desc": "this should print out the jerry defined in caller's task var scope"
         },
         {
           "name": "trace",
@@ -280,17 +280,17 @@ weight: 11093
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     
-    boring_hypatia0: overall final exec vars:
+    berserk_bell1: overall final exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in task scope"
+      "tom": "this is tom"
     })
     
     ~~SubStep1: [print: this should print out the jerry defined in caller's task var scope ]

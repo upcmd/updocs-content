@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvvv"
-date: 2020-06-25T01:55:44+66:00
+date: 2020-06-27T03:09:20+66:00
 draft: false
 weight: 10474
 
@@ -17,7 +17,7 @@ weight: 10474
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0047
                  Verbose -> vvvvv
-              ModuleName -> tender_newton9
+              ModuleName -> insane_torvalds9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10474
     -exec task: task
     loading [Task]:  ./tests/functests/c0047
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed160)((len=1 cap=1) {
+    (*impl.Scopes)(0xc000185160)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -89,7 +89,7 @@ weight: 10474
     
     
     groups members:[]
-    module: [tender_newton9] instance id: [dev]
+    module: [insane_torvalds9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_age": "28",
@@ -110,9 +110,9 @@ weight: 10474
     -------runtime global final merged with dvars-------
     
     {
-      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_age": "28"
     }
     
       located task-> 1 [task]: 
@@ -142,8 +142,8 @@ weight: 10474
     
     current exec runtime vars:
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks"
     })
     
@@ -153,18 +153,18 @@ weight: 10474
     
     
     scope[local] merged: {
-      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_age": "28"
     }
     
     
-    tender_newton9: overall final exec vars:
+    insane_torvalds9: overall final exec vars:
     
     (*core.Cache)({
-      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_age": "28"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0004_vvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:13+66:00
 draft: false
 weight: 10043
 
@@ -17,7 +17,7 @@ weight: 10043
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0004
                  Verbose -> vvvv
-              ModuleName -> clever_lumiere1
+              ModuleName -> romantic_fermat8
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10043
     
     
     groups members:[]
-    module: [clever_lumiere1] instance id: [dev]
+    module: [romantic_fermat8] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -73,7 +73,7 @@ weight: 10043
     (*core.Cache)({
     })
     
-    clever_lumiere1: overall final exec vars:
+    romantic_fermat8: overall final exec vars:
     
     (*core.Cache)({
     })

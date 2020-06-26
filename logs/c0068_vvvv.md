@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvv"
-date: 2020-06-25T01:55:48+66:00
+date: 2020-06-27T03:09:23+66:00
 draft: false
 weight: 10683
 
@@ -17,7 +17,7 @@ weight: 10683
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0068
                  Verbose -> vvvv
-              ModuleName -> jolly_bell4
+              ModuleName -> condescending_shockley7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10683
     
     
     groups members:[]
-    module: [jolly_bell4] instance id: [dev]
+    module: [condescending_shockley7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -74,7 +74,7 @@ weight: 10683
     (*core.Cache)({
     })
     
-    jolly_bell4: overall final exec vars:
+    condescending_shockley7: overall final exec vars:
     
     (*core.Cache)({
     })

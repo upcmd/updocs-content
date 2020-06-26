@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvvv"
-date: 2020-06-25T01:56:07+66:00
+date: 2020-06-27T03:09:35+66:00
 draft: false
 weight: 11484
 
@@ -17,7 +17,7 @@ weight: 11484
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0148
                  Verbose -> vvvvv
-              ModuleName -> nostalgic_pike4
+              ModuleName -> insane_bardeen0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -36,7 +36,7 @@ weight: 11484
     
     
     groups members:[]
-    module: [nostalgic_pike4] instance id: [dev]
+    module: [insane_bardeen0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -66,6 +66,7 @@ weight: 11484
       Name: "",
       Do: {
         {
+          "func": "cmd",
           "dvars": {
             {
               "name": "jerry",
@@ -74,18 +75,17 @@ weight: 11484
                 "taskscope"
               }
             }
-          },
-          "func": "cmd"
+          }
         },
         {
-          "func": "cmd",
           "do": {
             {
               "name": "print",
               "desc": "this should print out the dvar value of jerry",
               "cmd": "{{.jerry}}"
             }
-          }
+          },
+          "func": "cmd"
         }
       },
       Dox: <nil>,
@@ -118,7 +118,7 @@ weight: 11484
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -172,12 +172,12 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -190,9 +190,9 @@ weight: 11484
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -227,7 +227,7 @@ weight: 11484
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -274,12 +274,12 @@ weight: 11484
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -322,22 +322,22 @@ weight: 11484
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
     caller's vars to task (subtask1)::
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
       located task-> 2 [subtask1]: 
@@ -354,8 +354,8 @@ weight: 11484
           "cmd": "{{.jerry}}"
         },
         {
-          "cmd": "===>",
-          "name": "trace"
+          "name": "trace",
+          "cmd": "===>"
         }
       },
       Dox: <nil>,
@@ -375,8 +375,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     
@@ -386,18 +386,18 @@ weight: 11484
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "up_runtime_task_layer_number": 1
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     {{.jerry}}
@@ -450,13 +450,13 @@ weight: 11484
     
     
     scope[local] merged: {
+      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "up_runtime_task_layer_number": 1
     }
     
     
-    nostalgic_pike4: overall final exec vars:
+    insane_bardeen0: overall final exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in task scope",

@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvv"
-date: 2020-06-25T01:56:02+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11233
 
@@ -17,7 +17,7 @@ weight: 11233
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0123
                  Verbose -> vvvv
-              ModuleName -> insane_pare8
+              ModuleName -> elated_morse1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11233
     
     
     groups members:[]
-    module: [insane_pare8] instance id: [dev]
+    module: [elated_morse1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -87,21 +87,21 @@ weight: 11233
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "sex": "male",
-        "name": "tom"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
-    })
-    
-    insane_pare8: overall final exec vars:
-    
-    (*core.Cache)({
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
+    })
+    
+    elated_morse1: overall final exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     ~SubStep1: [print:  ]
@@ -135,20 +135,20 @@ weight: 11233
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
-    })
-    
-    insane_pare8: overall final exec vars:
-    
-    (*core.Cache)({
-      "student": {
         "sex": "male",
         "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
+    })
+    
+    elated_morse1: overall final exec vars:
+    
+    (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "student": {
+        "name": "tom",
+        "sex": "male"
+      }
     })
     
     ~SubStep1: [print:  ]
@@ -180,13 +180,13 @@ weight: 11233
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    insane_pare8: overall final exec vars:
+    elated_morse1: overall final exec vars:
     
     (*core.Cache)({
       "student": {
@@ -228,12 +228,12 @@ weight: 11233
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    insane_pare8: overall final exec vars:
+    elated_morse1: overall final exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -244,8 +244,8 @@ weight: 11233
       Name: "",
       Do: {
         {
-          "cmd": "you will not see this message",
-          "name": "print"
+          "name": "print",
+          "cmd": "you will not see this message"
         }
       },
       Dox: <nil>,
@@ -272,14 +272,14 @@ weight: 11233
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    insane_pare8: overall final exec vars:
+    elated_morse1: overall final exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     condition failed, skip executing step 

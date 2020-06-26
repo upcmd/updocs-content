@@ -1,6 +1,6 @@
 ---
 title: "c0138_vvvvv"
-date: 2020-06-25T01:56:05+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11384
 
@@ -17,7 +17,7 @@ weight: 11384
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0138
                  Verbose -> vvvvv
-              ModuleName -> ecstatic_morse9
+              ModuleName -> adoring_hypatia2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11384
     -exec task: task
     loading [Task]:  ./tests/functests/c0138
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001850e0)(<nil>)
+    (*impl.Scopes)(0xc0001eb0e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11384
     
     
     groups members:[]
-    module: [ecstatic_morse9] instance id: [dev]
+    module: [adoring_hypatia2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -103,7 +103,7 @@ weight: 11384
     }
     
     
-    ecstatic_morse9: overall final exec vars:
+    adoring_hypatia2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -162,7 +162,7 @@ weight: 11384
     }
     
     
-    ecstatic_morse9: overall final exec vars:
+    adoring_hypatia2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -180,8 +180,8 @@ weight: 11384
       Name: "",
       Do: {
         {
-          "cmd": "step5",
-          "name": "print"
+          "name": "print",
+          "cmd": "step5"
         }
       },
       Dox: <nil>,
@@ -212,7 +212,7 @@ weight: 11384
     }
     
     
-    ecstatic_morse9: overall final exec vars:
+    adoring_hypatia2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -257,7 +257,7 @@ weight: 11384
     }
     
     
-    ecstatic_morse9: overall final exec vars:
+    adoring_hypatia2: overall final exec vars:
     
     (*core.Cache)({
     })

@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10404
 
@@ -17,7 +17,7 @@ weight: 10404
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0040
                  Verbose -> vvvvv
-              ModuleName -> trusting_ritchie9
+              ModuleName -> fervent_lumiere9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10404
     -exec task: task
     loading [Task]:  ./tests/functests/c0040
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000184f00)(<nil>)
+    (*impl.Scopes)(0xc0001d8f60)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10404
     
     
     groups members:[]
-    module: [trusting_ritchie9] instance id: [dev]
+    module: [fervent_lumiere9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +92,7 @@ weight: 10404
     }
     
     
-    trusting_ritchie9: overall final exec vars:
+    fervent_lumiere9: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -181,7 +181,7 @@ weight: 10404
     }
     
     
-    trusting_ritchie9: overall final exec vars:
+    fervent_lumiere9: overall final exec vars:
     
     (*core.Cache)({
       "cases": (*utils.ExecResult)({

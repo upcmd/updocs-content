@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvv"
-date: 2020-06-25T01:55:37+66:00
+date: 2020-06-27T03:09:14+66:00
 draft: false
 weight: 10063
 
@@ -17,7 +17,7 @@ weight: 10063
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0006
                  Verbose -> vvvv
-              ModuleName -> hopeful_meitner7
+              ModuleName -> boring_curie3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10063
     
     
     groups members:[]
-    module: [hopeful_meitner7] instance id: [dev]
+    module: [boring_curie3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -76,7 +76,7 @@ weight: 10063
     (*core.Cache)({
     })
     
-    hopeful_meitner7: overall final exec vars:
+    boring_curie3: overall final exec vars:
     
     (*core.Cache)({
     })

@@ -1,6 +1,6 @@
 ---
 title: "c0132_vvvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11324
 
@@ -17,7 +17,7 @@ weight: 11324
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0132
                  Verbose -> vvvvv
-              ModuleName -> insane_goldstine6
+              ModuleName -> backstabbing_hawking1
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11324
     -exec task: task
     loading [Task]:  ./tests/functests/c0132
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185260)(<nil>)
+    (*impl.Scopes)(0xc0001ed260)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11324
     
     
     groups members:[]
-    module: [insane_goldstine6] instance id: [dev]
+    module: [backstabbing_hawking1] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": "global_ccc",
@@ -45,9 +45,9 @@ weight: 11324
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "b": (string) (len=10) "global_bbb",
      (string) (len=1) "c": (string) (len=10) "global_ccc",
-     (string) (len=1) "a": (string) (len=10) "global_aaa"
+     (string) (len=1) "a": (string) (len=10) "global_aaa",
+     (string) (len=1) "b": (string) (len=10) "global_bbb"
     }
     
     [runtime global] dvar expanded result:
@@ -85,10 +85,10 @@ weight: 11324
               }
             },
             {
+              "name": "assert",
               "cmd": {
                 "{{eq .a \"aaa\"}}"
-              },
-              "name": "assert"
+              }
             },
             {
               "name": "inspect",
@@ -149,9 +149,9 @@ weight: 11324
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -162,22 +162,22 @@ weight: 11324
     
     
     scope[local] merged: {
+      "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "db": "local_db",
+      "da": "local_da"
     }
     
     
-    insane_goldstine6: overall final exec vars:
+    backstabbing_hawking1: overall final exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db"
+      "a": "local_aaa",
+      "db": "local_db",
+      "da": "local_da"
     })
     
     -Step1:
@@ -192,10 +192,10 @@ weight: 11324
           }
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .a \"aaa\"}}"
-          }
+          },
+          "name": "assert"
         },
         {
           "name": "inspect",
@@ -224,11 +224,11 @@ weight: 11324
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "block_layer2_aaa",
-      "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "da": "local_da",
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -240,18 +240,18 @@ weight: 11324
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "block_layer2_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "da": "local_da"
     }
     
     
-    insane_goldstine6: overall final exec vars:
+    backstabbing_hawking1: overall final exec vars:
     
     (*core.Cache)({
+      "da": "local_da",
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "block_layer2_aaa",
-      "da": "local_da",
       "db": "local_db"
     })
     
@@ -268,8 +268,8 @@ weight: 11324
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "block_layer2_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "da": "local_da"
     })
     
      2: inspect[exec_base_vars]{

@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10224
 
@@ -17,7 +17,7 @@ weight: 10224
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0022
                  Verbose -> vvvvv
-              ModuleName -> romantic_pasteur9
+              ModuleName -> trusting_cori2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10224
     -exec task: task
     loading [Task]:  ./tests/functests/c0022
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eee60)(<nil>)
+    (*impl.Scopes)(0xc0001eae60)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10224
     
     
     groups members:[]
-    module: [romantic_pasteur9] instance id: [dev]
+    module: [trusting_cori2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -67,10 +67,10 @@ weight: 10224
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
         "student": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
       },
       Dvars: <nil>,
       Desc: "",
@@ -86,10 +86,10 @@ weight: 10224
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "student": "Tom",
-      "gender": "Male"
+      "gender": "Male",
+      "school": "Sydney Grammar",
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     })
     
     [local] dvar expanded result:
@@ -98,14 +98,14 @@ weight: 10224
     
     
     scope[local] merged: {
+      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
-      "student": "Tom"
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     }
     
     
-    romantic_pasteur9: overall final exec vars:
+    trusting_cori2: overall final exec vars:
     
     (*core.Cache)({
       "student": "Tom",

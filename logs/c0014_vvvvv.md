@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvvv"
-date: 2020-06-25T01:55:39+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10144
 
@@ -17,7 +17,7 @@ weight: 10144
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0014
                  Verbose -> vvvvv
-              ModuleName -> sleepy_sinoussi1
+              ModuleName -> stupefied_rosalind6
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10144
     -exec task: task
     loading [Task]:  ./tests/functests/c0014
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed040)(<nil>)
+    (*impl.Scopes)(0xc00000e560)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,18 @@ weight: 10144
     
     
     groups members:[]
-    module: [sleepy_sinoussi1] instance id: [dev]
+    module: [stupefied_rosalind6] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "a": (string) (len=9) "runtime-a",
      (string) (len=1) "e": (string) (len=9) "runtime-e",
-     (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=1) "a": (string) (len=9) "runtime-a"
+     (string) (len=1) "k": (string) (len=9) "runtime-k"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +58,9 @@ weight: 10144
     -------runtime global final merged with dvars-------
     
     {
+      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
+      "k": "runtime-k"
     }
     
       located task-> 2 [task]: 
@@ -93,10 +93,10 @@ weight: 10144
     
     current exec runtime vars:
     (*core.Cache)({
+      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "caller-ref-a",
       "b": "caller-ref-b",
-      "e": "runtime-e"
+      "a": "caller-ref-a"
     })
     
     [local] dvar expanded result:
@@ -105,28 +105,28 @@ weight: 10144
     
     
     scope[local] merged: {
-      "b": "caller-ref-b",
       "e": "runtime-e",
       "k": "runtime-k",
+      "b": "caller-ref-b",
       "a": "caller-ref-a"
     }
     
     
-    sleepy_sinoussi1: overall final exec vars:
+    stupefied_rosalind6: overall final exec vars:
     
     (*core.Cache)({
-      "b": "caller-ref-b",
+      "a": "caller-ref-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "a": "caller-ref-a"
+      "b": "caller-ref-b"
     })
     
     caller's vars to task (callee_task)::
     (*core.Cache)({
-      "k": "runtime-k",
       "a": "caller-ref-a",
-      "b": "caller-ref-b",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "b": "caller-ref-b"
     })
     
       located task-> 1 [callee_task]: 
@@ -143,9 +143,9 @@ weight: 10144
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "c": "callee-c",
         "a": "callee-a",
-        "b": "callee-b",
-        "c": "callee-c"
+        "b": "callee-b"
       },
       Dvars: <nil>,
       Desc: "",
@@ -161,12 +161,12 @@ weight: 10144
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "k": "runtime-k",
+      "a": "caller-ref-a",
+      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
-      "up_runtime_task_layer_number": 1
+      "k": "runtime-k"
     })
     
     [local] dvar expanded result:
@@ -175,24 +175,24 @@ weight: 10144
     
     
     scope[local] merged: {
-      "a": "caller-ref-a",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "k": "runtime-k",
-      "e": "runtime-e",
+      "a": "caller-ref-a",
       "up_runtime_task_layer_number": 1
     }
     
     
-    sleepy_sinoussi1: overall final exec vars:
+    stupefied_rosalind6: overall final exec vars:
     
     (*core.Cache)({
-      "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "k": "runtime-k",
+      "a": "caller-ref-a",
+      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
-      "up_runtime_task_layer_number": 1
+      "k": "runtime-k"
     })
     
     cmd( 1):

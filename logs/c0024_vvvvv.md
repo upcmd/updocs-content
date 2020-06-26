@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvvv"
-date: 2020-06-25T01:55:40+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10244
 
@@ -17,7 +17,7 @@ weight: 10244
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0024
                  Verbose -> vvvvv
-              ModuleName -> admiring_galileo1
+              ModuleName -> determined_bohr7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10244
     -exec task: task
     loading [Task]:  ./tests/functests/c0024
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d8fc0)(<nil>)
+    (*impl.Scopes)(0xc00000e480)(<nil>)
     
     ---------group vars----------
     
@@ -36,28 +36,28 @@ weight: 10244
     
     
     groups members:[]
-    module: [admiring_galileo1] instance id: [dev]
+    module: [determined_bohr7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
+      (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-      (string) (len=4) "name": (string) (len=3) "Tom"
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
      }
     }
     
     [runtime global] dvar expanded result:
     {
-      "studentgender": "Male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "studentgender": "Male"
     }
     
     
@@ -103,13 +103,13 @@ weight: 10244
     
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
-      "studentgender": "Male",
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+        "gender": "Male"
+      },
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     [local] dvar expanded result:
@@ -119,16 +119,16 @@ weight: 10244
     
     scope[local] merged: {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "studentname": "Tom",
       "studentgender": "Male"
     }
     
     
-    admiring_galileo1: overall final exec vars:
+    determined_bohr7: overall final exec vars:
     
     (*core.Cache)({
       "studentgender": "Male",

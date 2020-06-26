@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvv"
-date: 2020-06-25T01:55:47+66:00
+date: 2020-06-27T03:09:22+66:00
 draft: false
 weight: 10633
 
@@ -17,7 +17,7 @@ weight: 10633
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0063
                  Verbose -> vvvv
-              ModuleName -> happy_hoover8
+              ModuleName -> elegant_pasteur0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10633
     
     
     groups members:[]
-    module: [happy_hoover8] instance id: [dev]
+    module: [elegant_pasteur0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global-var-a"
@@ -81,7 +81,7 @@ weight: 10633
       "a": "global-var-a"
     })
     
-    happy_hoover8: overall final exec vars:
+    elegant_pasteur0: overall final exec vars:
     
     (*core.Cache)({
       "a": "global-var-a",
@@ -137,25 +137,25 @@ weight: 10633
     
     current exec runtime vars:
     (*core.Cache)({
+      "b": "runtime-var-b",
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "b": "runtime-var-b"
+      })
     })
     
-    happy_hoover8: overall final exec vars:
+    elegant_pasteur0: overall final exec vars:
     
     (*core.Cache)({
+      "b": "runtime-var-b",
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "b": "runtime-var-b"
+      })
     })
     
     Enter Value For pause action to continue: 
@@ -197,15 +197,15 @@ weight: 10633
       })
     })
     
-    happy_hoover8: overall final exec vars:
+    elegant_pasteur0: overall final exec vars:
     
     (*core.Cache)({
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "a": "global-var-a"
     })
     
     cmd( 1):

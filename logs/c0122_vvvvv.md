@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvvv"
-date: 2020-06-25T01:56:01+66:00
+date: 2020-06-27T03:09:31+66:00
 draft: false
 weight: 11224
 
@@ -17,7 +17,7 @@ weight: 11224
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0122
                  Verbose -> vvvvv
-              ModuleName -> focused_jang2
+              ModuleName -> naughty_payne9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11224
     -exec task: task
     loading [Task]:  ./tests/functests/c0122
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e9a0)(<nil>)
+    (*impl.Scopes)(0xc0001ed080)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11224
     
     
     groups members:[]
-    module: [focused_jang2] instance id: [dev]
+    module: [naughty_payne9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -119,7 +119,7 @@ weight: 11224
     }
     
     
-    focused_jang2: overall final exec vars:
+    naughty_payne9: overall final exec vars:
     
     (*core.Cache)({
       "student": {
@@ -179,7 +179,7 @@ weight: 11224
     }
     
     
-    focused_jang2: overall final exec vars:
+    naughty_payne9: overall final exec vars:
     
     (*core.Cache)({
       "student": {
@@ -196,8 +196,8 @@ weight: 11224
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "you will not see this message"
+          "cmd": "you will not see this message",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -230,13 +230,13 @@ weight: 11224
     
     scope[local] merged: {
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
     
-    focused_jang2: overall final exec vars:
+    naughty_payne9: overall final exec vars:
     
     (*core.Cache)({
       "student": {

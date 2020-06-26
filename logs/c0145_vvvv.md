@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvv"
-date: 2020-06-25T01:56:07+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11453
 
@@ -17,7 +17,7 @@ weight: 11453
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0145
                  Verbose -> vvvv
-              ModuleName -> drunk_babbage5
+              ModuleName -> angry_darwin2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11453
     
     
     groups members:[]
-    module: [drunk_babbage5] instance id: [dev]
+    module: [angry_darwin2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -55,9 +55,9 @@ weight: 11453
           "name": "template",
           "desc": "render a template file to a file 1",
           "cmd": {
-            "src": "./tests/functests/d0145.template",
             "dest": "/tmp/mockup_doc.md",
-            "datafile": "d0145_data.yml"
+            "datafile": "d0145_data.yml",
+            "src": "./tests/functests/d0145.template"
           }
         }
       },
@@ -80,7 +80,7 @@ weight: 11453
     (*core.Cache)({
     })
     
-    drunk_babbage5: overall final exec vars:
+    angry_darwin2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -111,7 +111,7 @@ weight: 11453
     (*core.Cache)({
     })
     
-    drunk_babbage5: overall final exec vars:
+    angry_darwin2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -121,7 +121,7 @@ weight: 11453
     
      \_ cat /tmp/mockup_doc.md
     title: "HelloWorld example"
-    date: 2020-06-25T00:27:38+66:00
+    date: 2020-06-27T03:07:59+66:00
     draft: false
      .. ok
     . ok

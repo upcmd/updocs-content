@@ -1,6 +1,6 @@
 ---
 title: "c0144_vvvvv"
-date: 2020-06-25T01:56:06+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11444
 
@@ -17,7 +17,7 @@ weight: 11444
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0144
                  Verbose -> vvvvv
-              ModuleName -> elated_newton1
+              ModuleName -> sharp_torvalds0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11444
     -exec task: task
     loading [Task]:  ./tests/functests/c0144
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecdc0)(<nil>)
+    (*impl.Scopes)(0xc0001f2dc0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 11444
     
     
     groups members:[]
-    module: [elated_newton1] instance id: [dev]
+    module: [sharp_torvalds0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +92,7 @@ weight: 11444
     }
     
     
-    elated_newton1: overall final exec vars:
+    sharp_torvalds0: overall final exec vars:
     
     (*core.Cache)({
     })

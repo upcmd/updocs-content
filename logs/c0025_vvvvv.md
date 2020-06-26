@@ -1,6 +1,6 @@
 ---
 title: "c0025_vvvvv"
-date: 2020-06-25T01:55:40+66:00
+date: 2020-06-27T03:09:16+66:00
 draft: false
 weight: 10254
 
@@ -17,7 +17,7 @@ weight: 10254
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0025
                  Verbose -> vvvvv
-              ModuleName -> nostalgic_goldstine4
+              ModuleName -> angry_jones5
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10254
     -exec task: task
     loading [Task]:  ./tests/functests/c0025
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003108a0)(<nil>)
+    (*impl.Scopes)(0xc000182fc0)(<nil>)
     
     ---------group vars----------
     
@@ -36,21 +36,21 @@ weight: 10254
     
     
     groups members:[]
-    module: [nostalgic_goldstine4] instance id: [dev]
+    module: [angry_jones5] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+      (string) (len=4) "name": (string) (len=3) "Tom"
      }
     }
     
@@ -63,12 +63,12 @@ weight: 10254
     -------runtime global final merged with dvars-------
     
     {
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
         "name": "Tom"
-      },
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
+      }
     }
     
       located task-> 1 [task]: 
@@ -99,9 +99,9 @@ weight: 10254
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
@@ -112,24 +112,24 @@ weight: 10254
     
     
     scope[local] merged: {
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      },
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
+      }
     }
     
     
-    nostalgic_goldstine4: overall final exec vars:
+    angry_jones5: overall final exec vars:
     
     (*core.Cache)({
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
+        "school": "Sydney Grammar"
+      }
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvv"
-date: 2020-06-25T01:55:43+66:00
+date: 2020-06-27T03:09:19+66:00
 draft: false
 weight: 10433
 
@@ -17,7 +17,7 @@ weight: 10433
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0043
                  Verbose -> vvvv
-              ModuleName -> insane_poincare0
+              ModuleName -> cranky_cori3
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 10433
     
     
     groups members:[]
-    module: [insane_poincare0] instance id: [dev]
+    module: [cranky_cori3] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -71,7 +71,7 @@ weight: 10433
     (*core.Cache)({
     })
     
-    insane_poincare0: overall final exec vars:
+    cranky_cori3: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -105,7 +105,7 @@ weight: 10433
       })
     })
     
-    insane_poincare0: overall final exec vars:
+    cranky_cori3: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -162,19 +162,19 @@ weight: 10433
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bb",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "a": "aa"
+      "a": "aa",
+      "b": "bb"
     })
     
     dvar> adebug:
     "aa"
     
-    insane_poincare0: overall final exec vars:
+    cranky_cori3: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -233,19 +233,19 @@ weight: 10433
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "cc",
+      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "c": "cc",
-      "d": "dd"
+      })
     })
     
     dvar> cdebug:
     "cc"
     
-    insane_poincare0: overall final exec vars:
+    cranky_cori3: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

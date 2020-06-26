@@ -1,6 +1,6 @@
 ---
 title: "c0059_vvvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10594
 
@@ -17,7 +17,7 @@ weight: 10594
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0059
                  Verbose -> vvvvv
-              ModuleName -> furious_bartik3
+              ModuleName -> furious_albattani4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10594
     -exec task: task
     loading [Task]:  ./tests/functests/c0059
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000184d20)(<nil>)
+    (*impl.Scopes)(0xc0001eed20)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10594
     
     
     groups members:[]
-    module: [furious_bartik3] instance id: [dev]
+    module: [furious_albattani4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +95,7 @@ weight: 10594
     }
     
     
-    furious_bartik3: overall final exec vars:
+    furious_albattani4: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -183,7 +183,7 @@ weight: 10594
     }
     
     
-    furious_bartik3: overall final exec vars:
+    furious_albattani4: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -276,7 +276,7 @@ weight: 10594
     }
     
     
-    furious_bartik3: overall final exec vars:
+    furious_albattani4: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({

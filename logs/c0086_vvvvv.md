@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvvv"
-date: 2020-06-25T01:55:51+66:00
+date: 2020-06-27T03:09:25+66:00
 draft: false
 weight: 10864
 
@@ -17,7 +17,7 @@ weight: 10864
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0086
                  Verbose -> vvvvv
-              ModuleName -> desperate_engelbart2
+              ModuleName -> fervent_mayer9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10864
     -exec task: task
     loading [Task]:  ./tests/functests/c0086
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017d5a0)(<nil>)
+    (*impl.Scopes)(0xc0001ed5e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10864
     
     
     groups members:[]
-    module: [desperate_engelbart2] instance id: [dev]
+    module: [fervent_mayer9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -120,7 +120,7 @@ weight: 10864
     }
     
     
-    desperate_engelbart2: overall final exec vars:
+    fervent_mayer9: overall final exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -234,36 +234,36 @@ weight: 10864
     
     
     scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "<no value>",
+        ErrMsg: ""
+      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "<no value>",
-        ErrMsg: ""
-      })
+      }
     }
     
     
-    desperate_engelbart2: overall final exec vars:
+    fervent_mayer9: overall final exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "<no value>",
+        ErrMsg: ""
+      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "<no value>",
-        ErrMsg: ""
-      })
+      }
     })
     
     cmd( 1):
@@ -352,47 +352,6 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
-    })
-    
-    dvar> void:
-    ""
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    desperate_engelbart2: overall final exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "[hello this is a beautiful world]",
@@ -405,6 +364,47 @@ weight: 10864
         "is a",
         "beautiful world"
       }
+    })
+    
+    dvar> void:
+    ""
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
+    }
+    
+    
+    fervent_mayer9: overall final exec vars:
+    
+    (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -510,7 +510,7 @@ weight: 10864
     }
     
     
-    desperate_engelbart2: overall final exec vars:
+    fervent_mayer9: overall final exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
@@ -610,18 +610,18 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     dvar> void:
@@ -631,8 +631,8 @@ weight: 10864
     dvar> void_object:
     {
       "person": {
-        "name": "tom",
-        "age": "18"
+        "age": "18",
+        "name": "tom"
       }
     }
     
@@ -657,21 +657,21 @@ weight: 10864
     }
     
     
-    desperate_engelbart2: overall final exec vars:
+    fervent_mayer9: overall final exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
+      }
     })
     
      WARN: [shell] - [Not implemented or void for no action!]

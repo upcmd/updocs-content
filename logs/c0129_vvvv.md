@@ -1,6 +1,6 @@
 ---
 title: "c0129_vvvv"
-date: 2020-06-25T01:56:03+66:00
+date: 2020-06-27T03:09:32+66:00
 draft: false
 weight: 11293
 
@@ -17,7 +17,7 @@ weight: 11293
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0129
                  Verbose -> vvvv
-              ModuleName -> agitated_lalande7
+              ModuleName -> determined_heisenberg2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,20 +33,20 @@ weight: 11293
     
     
     groups members:[]
-    module: [agitated_lalande7] instance id: [dev]
+    module: [determined_heisenberg2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "b": "global_bbb",
       "c": "global_ccc",
-      "a": "global_aaa",
-      "b": "global_bbb"
+      "a": "global_aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -65,15 +65,15 @@ weight: 11293
           }
         },
         {
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer1_aaa"
-          },
           "do": {
             {
               "name": "print",
               "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
+          },
+          "func": "cmd",
+          "vars": {
+            "a": "block_layer1_aaa"
           }
         },
         {
@@ -84,7 +84,6 @@ weight: 11293
           }
         },
         {
-          "desc": "test embeded 2nd layer of block",
           "vars": {
             "a": "local_block_layer2_aaa",
             "b": "local_block_layer2_bbb"
@@ -95,25 +94,26 @@ weight: 11293
               "name": "da"
             },
             {
-              "value": "local_db_layer2",
-              "name": "db"
+              "name": "db",
+              "value": "local_db_layer2"
             }
           },
           "do": {
             {
+              "do": {
+                {
+                  "name": "print",
+                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+                }
+              },
               "func": "cmd",
               "vars": {
                 "a": "block_layer2_aaa"
-              },
-              "do": {
-                {
-                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
-                  "name": "print"
-                }
               }
             }
           },
-          "func": "block"
+          "func": "block",
+          "desc": "test embeded 2nd layer of block"
         },
         {
           "func": "shell",
@@ -126,8 +126,8 @@ weight: 11293
       Dox: <nil>,
       Func: "block",
       Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
+        "b": "local_bbb",
+        "a": "local_aaa"
       },
       Dvars: {
         {
@@ -177,12 +177,12 @@ weight: 11293
       "c": "global_ccc"
     })
     
-    agitated_lalande7: overall final exec vars:
+    determined_heisenberg2: overall final exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc",
       "da": "local_da",
       "db": "local_db"
     })
@@ -211,21 +211,21 @@ weight: 11293
     
     current exec runtime vars:
     (*core.Cache)({
+      "db": "local_db",
+      "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db"
+      "da": "local_da"
     })
     
-    agitated_lalande7: overall final exec vars:
+    determined_heisenberg2: overall final exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db",
-      "a": "local_aaa",
-      "b": "local_bbb"
+      "c": "global_ccc"
     })
     
     cmd( 1):
@@ -274,26 +274,26 @@ weight: 11293
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "a": "block_layer1_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "db": "local_db",
       "da": "local_da",
-      "db": "local_db"
+      "a": "block_layer1_aaa"
     })
     
-    agitated_lalande7: overall final exec vars:
+    determined_heisenberg2: overall final exec vars:
     
     (*core.Cache)({
-      "da": "local_da",
-      "db": "local_db",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "a": "block_layer1_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "db": "local_db",
+      "da": "local_da",
+      "a": "block_layer1_aaa"
     })
     
     ~SubStep1: [print:  ]
@@ -329,9 +329,24 @@ weight: 11293
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "shell step2",
+        ErrMsg: ""
+      }),
+      "da": "local_da",
+      "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa"
+    })
+    
+    determined_heisenberg2: overall final exec vars:
+    
+    (*core.Cache)({
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step2",
@@ -339,21 +354,6 @@ weight: 11293
       }),
       "da": "local_da",
       "db": "local_db"
-    })
-    
-    agitated_lalande7: overall final exec vars:
-    
-    (*core.Cache)({
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "shell step2",
-        ErrMsg: ""
-      })
     })
     
     cmd( 1):
@@ -374,7 +374,6 @@ weight: 11293
       Name: "",
       Do: {
         {
-          "func": "cmd",
           "vars": {
             "a": "block_layer2_aaa"
           },
@@ -383,7 +382,8 @@ weight: 11293
               "name": "print",
               "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          }
+          },
+          "func": "cmd"
         }
       },
       Dox: <nil>,
@@ -435,23 +435,21 @@ weight: 11293
     
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db",
-      "a": "local_block_layer2_aaa",
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "da": "local_da"
-    })
-    
-    agitated_lalande7: overall final exec vars:
-    
-    (*core.Cache)({
+      "da": "local_da",
+      "db": "local_db",
       "b": "local_block_layer2_bbb",
       "c": "global_ccc",
+      "a": "local_block_layer2_aaa"
+    })
+    
+    determined_heisenberg2: overall final exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
@@ -459,6 +457,8 @@ weight: 11293
       }),
       "da": "local_da_layer2",
       "db": "local_db_layer2",
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc",
       "a": "local_block_layer2_aaa"
     })
     
@@ -490,31 +490,31 @@ weight: 11293
     
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db_layer2",
-      "c": "global_ccc",
+      "a": "block_layer2_aaa",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "a": "block_layer2_aaa",
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
       "b": "local_block_layer2_bbb",
-      "da": "local_da_layer2"
+      "c": "global_ccc"
     })
     
-    agitated_lalande7: overall final exec vars:
+    determined_heisenberg2: overall final exec vars:
     
     (*core.Cache)({
       "a": "block_layer2_aaa",
-      "b": "local_block_layer2_bbb",
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
-      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc"
     })
     
     ~SubStep1: [print:  ]
@@ -550,11 +550,11 @@ weight: 11293
     
     current exec runtime vars:
     (*core.Cache)({
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
@@ -562,19 +562,19 @@ weight: 11293
       })
     })
     
-    agitated_lalande7: overall final exec vars:
+    determined_heisenberg2: overall final exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      }),
-      "da": "local_da"
+      })
     })
     
     cmd( 1):

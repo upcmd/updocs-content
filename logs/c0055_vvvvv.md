@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvvv"
-date: 2020-06-25T01:55:46+66:00
+date: 2020-06-27T03:09:21+66:00
 draft: false
 weight: 10554
 
@@ -17,7 +17,7 @@ weight: 10554
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0055
                  Verbose -> vvvvv
-              ModuleName -> stoic_sammet6
+              ModuleName -> stoic_pike0
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10554
     -exec task: task
     loading [Task]:  ./tests/functests/c0055
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c7220)(<nil>)
+    (*impl.Scopes)(0xc0001b2a80)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10554
     
     
     groups members:[]
-    module: [stoic_sammet6] instance id: [dev]
+    module: [stoic_pike0] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +92,7 @@ weight: 10554
     }
     
     
-    stoic_sammet6: overall final exec vars:
+    stoic_pike0: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -153,7 +153,7 @@ weight: 10554
     }
     
     
-    stoic_sammet6: overall final exec vars:
+    stoic_pike0: overall final exec vars:
     
     (*core.Cache)({
       "greet": "hello"
@@ -194,7 +194,7 @@ weight: 10554
     }
     
     
-    stoic_sammet6: overall final exec vars:
+    stoic_pike0: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -244,7 +244,7 @@ weight: 10554
     }
     
     
-    stoic_sammet6: overall final exec vars:
+    stoic_pike0: overall final exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

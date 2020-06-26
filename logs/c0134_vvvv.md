@@ -1,6 +1,6 @@
 ---
 title: "c0134_vvvv"
-date: 2020-06-25T01:56:04+66:00
+date: 2020-06-27T03:09:33+66:00
 draft: false
 weight: 11343
 
@@ -17,7 +17,7 @@ weight: 11343
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0134
                  Verbose -> vvvv
-              ModuleName -> desperate_perlman5
+              ModuleName -> dreamy_franklin4
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11343
     
     
     groups members:[]
-    module: [desperate_perlman5] instance id: [dev]
+    module: [dreamy_franklin4] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": "global_ccc",
@@ -44,9 +44,9 @@ weight: 11343
     -------runtime global final merged with dvars-------
     
     {
-      "b": "global_bbb",
       "c": "global_ccc",
-      "a": "global_aaa"
+      "a": "global_aaa",
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -73,8 +73,8 @@ weight: 11343
       Dox: <nil>,
       Func: "block",
       Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
+        "b": "local_bbb",
+        "a": "local_aaa"
       },
       Dvars: {
         {
@@ -119,19 +119,19 @@ weight: 11343
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
-    desperate_perlman5: overall final exec vars:
+    dreamy_franklin4: overall final exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
       "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     -Step1:
@@ -158,20 +158,20 @@ weight: 11343
     current exec runtime vars:
     (*core.Cache)({
       "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa",
-      "b": "local_bbb"
-    })
-    
-    desperate_perlman5: overall final exec vars:
-    
-    (*core.Cache)({
-      "db": "local_db",
       "a": "local_aaa",
       "b": "local_bbb",
+      "da": "local_da",
+      "db": "local_db"
+    })
+    
+    dreamy_franklin4: overall final exec vars:
+    
+    (*core.Cache)({
       "c": "global_ccc",
-      "da": "local_da"
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "da": "local_da",
+      "db": "local_db"
     })
     
     cmd( 1):
@@ -204,19 +204,19 @@ weight: 11343
     
     current exec runtime vars:
     (*core.Cache)({
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "in block",
         ErrMsg: ""
-      })
+      }),
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da"
     })
     
-    desperate_perlman5: overall final exec vars:
+    dreamy_franklin4: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -224,11 +224,11 @@ weight: 11343
         Output: "in block",
         ErrMsg: ""
       }),
-      "da": "local_da",
-      "db": "local_db",
+      "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "db": "local_db",
+      "da": "local_da"
     })
     
       located task-> 2 [callee_task]: 
@@ -240,8 +240,8 @@ weight: 11343
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
+          "name": "print"
         },
         {
           "name": "assert",
@@ -291,33 +291,33 @@ weight: 11343
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "in block",
         ErrMsg: ""
       }),
-      "da": "local_da",
-      "db": "local_db",
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "up_runtime_task_layer_number": 1,
+      "b": "local_bbb",
+      "a": "local_aaa",
+      "db": "local_db"
     })
     
-    desperate_perlman5: overall final exec vars:
+    dreamy_franklin4: overall final exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 1,
+      "b": "local_bbb",
+      "a": "local_aaa",
+      "db": "callee_db",
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "in block",
         ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "callee_db"
+      })
     })
     
     ~~SubStep1: [print:  ]

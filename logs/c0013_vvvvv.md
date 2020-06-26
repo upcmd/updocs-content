@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvvv"
-date: 2020-06-25T01:55:38+66:00
+date: 2020-06-27T03:09:15+66:00
 draft: false
 weight: 10134
 
@@ -17,7 +17,7 @@ weight: 10134
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0013
                  Verbose -> vvvvv
-              ModuleName -> elegant_pare0
+              ModuleName -> kickass_jang2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10134
     -exec task: task
     loading [Task]:  ./tests/functests/c0013
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000186ea0)(<nil>)
+    (*impl.Scopes)(0xc000182ea0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10134
     
     
     groups members:[]
-    module: [elegant_pare0] instance id: [dev]
+    module: [kickass_jang2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "k": "runtime-k",
@@ -60,10 +60,10 @@ weight: 10134
     -------runtime global final merged with dvars-------
     
     {
+      "studentname": "Jason",
       "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "studentname": "Jason"
+      "k": "runtime-k"
     }
     
       located task-> 1 [task]: 
@@ -97,10 +97,10 @@ weight: 10134
     
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "studentname": "Tom",
       "school": "SG"
     })
     
@@ -110,22 +110,22 @@ weight: 10134
     
     
     scope[local] merged: {
+      "studentname": "Tom",
+      "school": "SG",
       "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "school": "SG",
-      "studentname": "Tom"
+      "k": "runtime-k"
     }
     
     
-    elegant_pare0: overall final exec vars:
+    kickass_jang2: overall final exec vars:
     
     (*core.Cache)({
+      "e": "runtime-e",
       "k": "runtime-k",
-      "school": "SG",
       "studentname": "Tom",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "school": "SG",
+      "a": "runtime-a"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0072_vvvvv"
-date: 2020-06-25T01:55:49+66:00
+date: 2020-06-27T03:09:23+66:00
 draft: false
 weight: 10724
 
@@ -17,7 +17,7 @@ weight: 10724
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0072
                  Verbose -> vvvvv
-              ModuleName -> hungry_bohr5
+              ModuleName -> cocky_meitner7
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10724
     -exec task: task
     loading [Task]:  ./tests/functests/c0072
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed380)(<nil>)
+    (*impl.Scopes)(0xc000185380)(<nil>)
     
     ---------group vars----------
     
@@ -36,26 +36,26 @@ weight: 10724
     
     
     groups members:[]
-    module: [hungry_bohr5] instance id: [dev]
+    module: [cocky_meitner7] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "said": "Boa constrictors swallow their prey whole",
+      "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
       "read_file": "mystory2.txt",
       "name": "little prince",
       "school": "sydney grammar",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt"
+      "age": 12
     }
     
     (core.Cache) (len=7) {
+     (string) (len=4) "said": (string) (len=41) "Boa constrictors swallow their prey whole",
+     (string) (len=7) "save_to": (string) (len=17) "/tmp/mystory2.txt",
      (string) (len=8) "read_dir": (string) (len=4) "/tmp",
      (string) (len=9) "read_file": (string) (len=12) "mystory2.txt",
      (string) (len=4) "name": (string) (len=13) "little prince",
      (string) (len=6) "school": (string) (len=14) "sydney grammar",
-     (string) (len=3) "age": (int) 12,
-     (string) (len=4) "said": (string) (len=41) "Boa constrictors swallow their prey whole",
-     (string) (len=7) "save_to": (string) (len=17) "/tmp/mystory2.txt"
+     (string) (len=3) "age": (int) 12
     }
     
     [runtime global] dvar expanded result:
@@ -68,13 +68,13 @@ weight: 10724
     
     {
       "intest": "false",
+      "read_file": "mystory2.txt",
+      "name": "little prince",
+      "school": "sydney grammar",
       "age": 12,
       "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
-      "read_dir": "/tmp",
-      "read_file": "mystory2.txt",
-      "name": "little prince",
-      "school": "sydney grammar"
+      "read_dir": "/tmp"
     }
     
       located task-> 1 [task]: 
@@ -105,14 +105,14 @@ weight: 10724
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sydney grammar",
-      "intest": "false",
-      "age": 12,
       "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
+      "intest": "false",
       "read_file": "mystory2.txt",
-      "name": "little prince"
+      "name": "little prince",
+      "school": "sydney grammar",
+      "age": 12
     })
     
     [local] dvar expanded result:
@@ -121,28 +121,28 @@ weight: 10724
     
     
     scope[local] merged: {
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
+      "intest": "false",
       "read_file": "mystory2.txt",
       "name": "little prince",
       "school": "sydney grammar",
-      "intest": "false"
+      "age": 12,
+      "said": "Boa constrictors swallow their prey whole"
     }
     
     
-    hungry_bohr5: overall final exec vars:
+    cocky_meitner7: overall final exec vars:
     
     (*core.Cache)({
+      "school": "sydney grammar",
       "age": 12,
       "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
+      "intest": "false",
       "read_file": "mystory2.txt",
-      "name": "little prince",
-      "school": "sydney grammar",
-      "intest": "false"
+      "name": "little prince"
     })
     
     cmd( 1):
@@ -179,12 +179,12 @@ weight: 10724
           "cmd": "intest is: [{{.intest}}]"
         },
         {
-          "name": "reg",
           "cmd": {
+            "name": "correct_working_dir",
             "desc": "the value of .intest is string but not bool so you can not simply use if .intest for condition",
-            "value": "{{if eq .intest \"true\" }}{{.register_task_root.Output}}{{else}}{{.register_task_root.Output}}{{end}}",
-            "name": "correct_working_dir"
-          }
+            "value": "{{if eq .intest \"true\" }}{{.register_task_root.Output}}{{else}}{{.register_task_root.Output}}{{end}}"
+          },
+          "name": "reg"
         }
       },
       Dox: <nil>,
@@ -204,24 +204,24 @@ weight: 10724
     
     current exec runtime vars:
     (*core.Cache)({
+      "save_to": "/tmp/mystory2.txt",
+      "intest": "false",
+      "read_file": "mystory2.txt",
+      "school": "sydney grammar",
+      "said": "Boa constrictors swallow their prey whole",
+      "read_dir": "/tmp",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "school": "sydney grammar",
+      "age": 12,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "age": 12,
-      "intest": "false",
-      "read_dir": "/tmp",
-      "name": "little prince",
-      "read_file": "mystory2.txt",
-      "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt"
+      "name": "little prince"
     })
     
     [local] dvar expanded result:
@@ -230,48 +230,48 @@ weight: 10724
     
     
     scope[local] merged: {
+      "name": "little prince",
+      "said": "Boa constrictors swallow their prey whole",
       "read_dir": "/tmp",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "read_file": "mystory2.txt",
-      "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
       "intest": "false",
-      "name": "little prince",
-      "age": 12,
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "school": "sydney grammar"
+      "age": 12,
+      "school": "sydney grammar",
+      "read_file": "mystory2.txt"
     }
     
     
-    hungry_bohr5: overall final exec vars:
+    cocky_meitner7: overall final exec vars:
     
     (*core.Cache)({
-      "name": "little prince",
-      "age": 12,
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "age": 12,
       "school": "sydney grammar",
       "read_file": "mystory2.txt",
+      "name": "little prince",
       "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt",
-      "intest": "false",
       "read_dir": "/tmp",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      })
+      }),
+      "save_to": "/tmp/mystory2.txt",
+      "intest": "false"
     })
     
     intest is: [{{.intest}}]
@@ -282,19 +282,19 @@ weight: 10724
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "read_dir": "/tmp",
-      "name": "little prince",
-      "school": "sydney grammar",
       "intest": "false",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "age": 12,
+      "name": "little prince",
+      "school": "sydney grammar",
       "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
       "read_file": "mystory2.txt",
+      "age": 12,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
@@ -306,25 +306,25 @@ weight: 10724
     after reg the var - local:
     
     (*core.Cache)({
+      "register_task_root": (*utils.ExecResult)({
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "age": 12,
+      "school": "sydney grammar",
+      "read_file": "mystory2.txt",
+      "name": "little prince",
       "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt",
-      "intest": "false",
       "read_dir": "/tmp",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "correct_working_dir": "/up_project/up",
-      "read_file": "mystory2.txt",
-      "age": 12,
-      "register_task_root": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "school": "sydney grammar",
-      "name": "little prince"
+      "save_to": "/tmp/mystory2.txt",
+      "intest": "false",
+      "correct_working_dir": "/up_project/up"
     })
     
     -Step3:
@@ -348,17 +348,17 @@ weight: 10724
           }
         },
         {
-          "name": "readfile",
           "desc": "read content of a file and register it to a var",
           "cmd": {
-            "filename": "mystory.txt",
             "dir": "/tmp",
-            "reg": "my_interesting_story"
-          }
+            "reg": "my_interesting_story",
+            "filename": "mystory.txt"
+          },
+          "name": "readfile"
         },
         {
-          "cmd": "{{.my_interesting_story}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.my_interesting_story}}"
         }
       },
       Dox: <nil>,
@@ -378,25 +378,25 @@ weight: 10724
     
     current exec runtime vars:
     (*core.Cache)({
-      "read_dir": "/tmp",
-      "school": "sydney grammar",
-      "intest": "false",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt",
-      "name": "little prince",
-      "register_task_root": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "read_file": "mystory2.txt",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "correct_working_dir": "/up_project/up"
+      "correct_working_dir": "/up_project/up",
+      "read_file": "mystory2.txt",
+      "age": 12,
+      "said": "Boa constrictors swallow their prey whole",
+      "name": "little prince",
+      "school": "sydney grammar",
+      "register_task_root": (*utils.ExecResult)({
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
+      "intest": "false"
     })
     
     [local] dvar expanded result:
@@ -405,50 +405,50 @@ weight: 10724
     
     
     scope[local] merged: {
-      "correct_working_dir": "/up_project/up",
-      "intest": "false",
-      "age": 12,
+      "school": "sydney grammar",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "save_to": "/tmp/mystory2.txt",
+      "intest": "false",
+      "said": "Boa constrictors swallow their prey whole",
+      "name": "little prince",
+      "correct_working_dir": "/up_project/up",
+      "read_file": "mystory2.txt",
+      "age": 12,
       "read_dir": "/tmp",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "read_file": "mystory2.txt",
-      "name": "little prince",
-      "school": "sydney grammar",
-      "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt"
+      })
     }
     
     
-    hungry_bohr5: overall final exec vars:
+    cocky_meitner7: overall final exec vars:
     
     (*core.Cache)({
-      "school": "sydney grammar",
-      "said": "Boa constrictors swallow their prey whole",
-      "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "read_file": "mystory2.txt",
+      "said": "Boa constrictors swallow their prey whole",
       "name": "little prince",
-      "intest": "false",
+      "correct_working_dir": "/up_project/up",
+      "read_file": "mystory2.txt",
       "age": 12,
+      "save_to": "/tmp/mystory2.txt",
+      "intest": "false",
+      "school": "sydney grammar",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up"
+      })
     })
     
     root dir is: [{{.register_task_root.Output}}]
@@ -464,51 +464,51 @@ weight: 10724
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "school": "sydney grammar",
-      "intest": "false",
-      "register_task_root": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "read_dir": "/tmp",
-      "name": "little prince",
-      "save_to": "/tmp/mystory2.txt",
       "read_file": "mystory2.txt",
+      "age": 12,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
       "correct_working_dir": "/up_project/up",
-      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole"
+      "name": "little prince",
+      "school": "sydney grammar",
+      "said": "Boa constrictors swallow their prey whole",
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
+      "intest": "false",
+      "register_task_root": (*utils.ExecResult)({
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
       "intest": "false",
-      "age": 12,
+      "school": "sydney grammar",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "correct_working_dir": "/up_project/up",
       "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "school": "sydney grammar",
-      "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
-      "read_dir": "/tmp",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "said": "Boa constrictors swallow their prey whole",
+      "name": "little prince",
+      "correct_working_dir": "/up_project/up",
       "read_file": "mystory2.txt",
-      "name": "little prince"
+      "age": 12,
+      "read_dir": "/tmp"
     })
     
     {{.my_interesting_story}}
@@ -526,8 +526,8 @@ weight: 10724
           "name": "template",
           "desc": "render a template file to a file 2",
           "cmd": {
-            "src": "{{.correct_working_dir}}/tests/functests/d0072.template",
-            "dest": "{{.save_to}}"
+            "dest": "{{.save_to}}",
+            "src": "{{.correct_working_dir}}/tests/functests/d0072.template"
           }
         },
         {
@@ -561,26 +561,26 @@ weight: 10724
     
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "school": "sydney grammar",
-      "intest": "false",
-      "name": "little prince",
-      "read_file": "mystory2.txt",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
       "correct_working_dir": "/up_project/up",
+      "school": "sydney grammar",
+      "said": "Boa constrictors swallow their prey whole",
+      "intest": "false",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "read_dir": "/tmp",
-      "save_to": "/tmp/mystory2.txt",
+      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
       "age": 12,
-      "said": "Boa constrictors swallow their prey whole"
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "name": "little prince",
+      "read_dir": "/tmp",
+      "read_file": "mystory2.txt",
+      "save_to": "/tmp/mystory2.txt"
     })
     
     [local] dvar expanded result:
@@ -589,52 +589,52 @@ weight: 10724
     
     
     scope[local] merged: {
-      "read_dir": "/tmp",
       "read_file": "mystory2.txt",
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "school": "sydney grammar",
-      "name": "little prince",
       "correct_working_dir": "/up_project/up",
-      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "save_to": "/tmp/mystory2.txt",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
+      "school": "sydney grammar",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "name": "little prince",
+      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
+      "age": 12,
+      "said": "Boa constrictors swallow their prey whole",
       "intest": "false"
     }
     
     
-    hungry_bohr5: overall final exec vars:
+    cocky_meitner7: overall final exec vars:
     
     (*core.Cache)({
+      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
+      "age": 12,
+      "said": "Boa constrictors swallow their prey whole",
+      "intest": "false",
+      "name": "little prince",
       "read_dir": "/tmp",
-      "read_file": "mystory2.txt",
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "correct_working_dir": "/up_project/up",
       "school": "sydney grammar",
-      "save_to": "/tmp/mystory2.txt",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "intest": "false",
-      "name": "little prince",
-      "correct_working_dir": "/up_project/up",
-      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n"
+      "read_file": "mystory2.txt",
+      "save_to": "/tmp/mystory2.txt"
     })
     
     map[dest:{{.save_to}} src:{{.correct_working_dir}}/tests/functests/d0072.template]
@@ -644,53 +644,53 @@ weight: 10724
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "read_dir": "/tmp",
-      "name": "little prince",
-      "school": "sydney grammar",
       "intest": "false",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "correct_working_dir": "/up_project/up",
       "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "my_interesting_story2": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "age": 12,
+      "name": "little prince",
+      "school": "sydney grammar",
       "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
       "read_file": "mystory2.txt",
+      "age": 12,
       "last_result": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      })
+      }),
+      "correct_working_dir": "/up_project/up",
+      "my_interesting_story2": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "read_file": "mystory2.txt",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "school": "sydney grammar",
-      "my_interesting_story2": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "read_dir": "/tmp",
       "age": 12,
       "said": "Boa constrictors swallow their prey whole",
+      "intest": "false",
+      "name": "little prince",
+      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
+      "correct_working_dir": "/up_project/up",
+      "school": "sydney grammar",
       "register_task_root": (*utils.ExecResult)({
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "intest": "false",
-      "name": "little prince",
-      "correct_working_dir": "/up_project/up",
-      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "save_to": "/tmp/mystory2.txt"
+      "read_file": "mystory2.txt",
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
+      "my_interesting_story2": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
+      "last_result": (*utils.ExecResult)({
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      })
     })
     
     {{.my_interesting_story2}}

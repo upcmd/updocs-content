@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvv"
-date: 2020-06-25T01:56:06+66:00
+date: 2020-06-27T03:09:34+66:00
 draft: false
 weight: 11423
 
@@ -17,7 +17,7 @@ weight: 11423
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0142
                  Verbose -> vvvv
-              ModuleName -> serene_leakey1
+              ModuleName -> hopeful_turing9
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,7 @@ weight: 11423
     
     
     groups members:[]
-    module: [serene_leakey1] instance id: [dev]
+    module: [hopeful_turing9] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -52,12 +52,12 @@ weight: 11423
       Name: "",
       Do: {
         {
-          "name": "colorprint",
           "cmd": {
             "msg": "hello, world",
             "bg": "blue",
             "fg": "white"
-          }
+          },
+          "name": "colorprint"
         },
         {
           "name": "colorprint",
@@ -67,11 +67,11 @@ weight: 11423
           }
         },
         {
-          "name": "colorprint",
           "cmd": {
             "msg": "hello, world",
             "fg": "white"
-          }
+          },
+          "name": "colorprint"
         },
         {
           "name": "colorprint",
@@ -80,12 +80,12 @@ weight: 11423
           }
         },
         {
+          "name": "colorprint",
           "cmd": {
             "msg": "{{.person.name}}: {{.person.age}}",
             "fg": "blue",
             "bg": "red"
-          },
-          "name": "colorprint"
+          }
         },
         {
           "name": "colorprint",
@@ -98,18 +98,18 @@ weight: 11423
         {
           "name": "colorprint",
           "cmd": {
-            "object": "{{.objectname}}",
             "fg": "blue",
-            "bg": "green"
+            "bg": "green",
+            "object": "{{.objectname}}"
           }
         },
         {
           "name": "colorprint",
           "cmd": {
-            "object": "person",
             "msg": "person",
             "fg": "blue",
-            "bg": "black"
+            "bg": "black",
+            "object": "person"
           }
         }
       },
@@ -136,19 +136,19 @@ weight: 11423
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": {
-        "name": "tom",
-        "age": 18
-      },
-      "objectname": "person"
-    })
-    
-    serene_leakey1: overall final exec vars:
-    
-    (*core.Cache)({
+      "objectname": "person",
       "person": {
         "age": 18,
         "name": "tom"
+      }
+    })
+    
+    hopeful_turing9: overall final exec vars:
+    
+    (*core.Cache)({
+      "person": {
+        "name": "tom",
+        "age": 18
       },
       "objectname": "person"
     })
@@ -172,16 +172,16 @@ weight: 11423
     37 44
     object person:
      {
-      "name": "tom",
-      "age": 18
+      "age": 18,
+      "name": "tom"
     }
     
     ~SubStep7: [colorprint:  ]
     37 44
     object person:
      {
-      "age": 18,
-      "name": "tom"
+      "name": "tom",
+      "age": 18
     }
     
     ~SubStep8: [colorprint:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvvv"
-date: 2020-06-25T01:55:36+66:00
+date: 2020-06-27T03:09:13+66:00
 draft: false
 weight: 10024
 
@@ -17,7 +17,7 @@ weight: 10024
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0002
                  Verbose -> vvvvv
-              ModuleName -> gloomy_almeida8
+              ModuleName -> mad_blackwell2
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10024
     -exec task: task
     loading [Task]:  ./tests/functests/c0002
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d6fa0)(<nil>)
+    (*impl.Scopes)(0xc0001eaf40)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,7 @@ weight: 10024
     
     
     groups members:[]
-    module: [gloomy_almeida8] instance id: [dev]
+    module: [mad_blackwell2] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +93,7 @@ weight: 10024
     }
     
     
-    gloomy_almeida8: overall final exec vars:
+    mad_blackwell2: overall final exec vars:
     
     (*core.Cache)({
     })
@@ -171,7 +171,7 @@ weight: 10024
     }
     
     
-    gloomy_almeida8: overall final exec vars:
+    mad_blackwell2: overall final exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
