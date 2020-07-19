@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10434
 
@@ -17,7 +17,7 @@ weight: 10434
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0043
                  Verbose -> vvvvv
-              ModuleName -> sleepy_swartz5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10434
     -exec task: task
     loading [Task]:  ./tests/functests/c0043
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed140)(<nil>)
+    (*impl.Scopes)(0xc0001bf1c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10434
     
     
     groups members:[]
-    module: [sleepy_swartz5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -91,7 +96,7 @@ weight: 10434
     }
     
     
-    sleepy_swartz5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -119,6 +124,7 @@ weight: 10434
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -132,6 +138,7 @@ weight: 10434
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -139,10 +146,11 @@ weight: 10434
     }
     
     
-    sleepy_swartz5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -197,6 +205,7 @@ weight: 10434
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -217,31 +226,33 @@ weight: 10434
     scope[local] merged: {
       "a": "aa",
       "b": "bb",
+      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "adebug": "aa"
+      })
     }
     
     
-    sleepy_swartz5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "aa",
       "b": "bb",
+      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "adebug": "aa"
+      "a": "aa"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
     . ok
-    -Step4: [: in cmd, you can also do reg/dereg var in dvar evaluation
+    -Step4: [: in cmd, you can also do reg/deReg var in dvar evaluation
     the cmd func name makes more sense then shell func
     if you really want to do var manipulation only
      ]
@@ -272,7 +283,7 @@ weight: 10434
           DataTemplate: ""
         }
       },
-      Desc: "in cmd, you can also do reg/dereg var in dvar evaluation\nthe cmd func name makes more sense then shell func\nif you really want to do var manipulation only\n",
+      Desc: "in cmd, you can also do reg/deReg var in dvar evaluation\nthe cmd func name makes more sense then shell func\nif you really want to do var manipulation only\n",
       Reg: "",
       Flags: <nil>,
       If: "",
@@ -286,6 +297,7 @@ weight: 10434
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -304,28 +316,30 @@ weight: 10434
     
     
     scope[local] merged: {
-      "c": "cc",
       "d": "dd",
+      "cdebug": "cc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "cdebug": "cc"
+      "c": "cc"
     }
     
     
-    sleepy_swartz5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "c": "cc",
       "d": "dd",
+      "cdebug": "cc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "cdebug": "cc"
+      })
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]

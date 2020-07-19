@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvv"
-date: 2020-07-01T15:34:26+77:00
+date: 2020-07-20T02:01:36+77:00
 draft: false
 weight: 10403
 
@@ -17,7 +17,7 @@ weight: 10403
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0040
                  Verbose -> vvvv
-              ModuleName -> kickass_kilby7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10403
     
     
     groups members:[]
-    module: [kickass_kilby7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,31 +53,11 @@ weight: 10403
     Executing task stack layer: 1
     
     -Step1: [getcases:  ]
-    {
-      Name: "getcases",
-      Do: {
-        "cd ./tests/functests; ls f*.yml"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "cases",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    kickass_kilby7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,7 +65,8 @@ weight: 10403
     cmd( 1):
     cd ./tests/functests; ls f*.yml
     
-     \_ cd ./tests/functests; ls f*.yml
+    cmd=>:
+    cd ./tests/functests; ls f*.yml<=
     f0001.yml
     f0002.yml
     f0009.yml
@@ -102,49 +88,33 @@ weight: 10403
      .. ok
     . ok
     -Step2: [: a real showcase of how to loop using template ]
-    {
-      Name: "",
-      Do: {
-        "{{ range $idx, $file := .cases | splitLines -}}\n{{$casename :=  $file | replace \".yml\" \"\"}}\necho \"==========failure case test {{$idx |add1}}===============\"\necho \"processing {{$casename}} ..\"\n{{end}}\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "a real showcase of how to loop using template",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
+      "cases": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
       }),
-      "cases": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
       })
     })
     
-    kickass_kilby7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
+      "cases": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
       }),
-      "cases": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
         Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
         ErrMsg: ""
@@ -169,7 +139,8 @@ weight: 10403
         6:
     
     -----trace for reference-----
-     \_ 
+    cmd=>:
+    <=
     
      .. ok
     . ok

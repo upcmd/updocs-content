@@ -1,6 +1,6 @@
 ---
 title: "c0119_vvvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:50+77:00
 draft: false
 weight: 11194
 
@@ -17,7 +17,7 @@ weight: 11194
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0119
                  Verbose -> vvvvv
-              ModuleName -> kickass_einstein8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11194
     -exec task: task
     loading [Task]:  ./tests/functests/c0119
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001acee0)(<nil>)
+    (*impl.Scopes)(0xc0001bd6e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11194
     
     
     groups members:[]
-    module: [kickass_einstein8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -100,7 +105,7 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -150,7 +155,7 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -195,7 +200,7 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -205,74 +210,6 @@ weight: 11194
       "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1
-    })
-    
-      located task-> 2 [subtask]: 
-    =Task2: [task ==> subtask: subtask to test reg and return ]
-    Executing task stack layer: 2
-    
-    --Step1: [step1: the loopitem here is inherited from caller ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loopitem here is inherited from caller",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    kickass_einstein8: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    {{.loopitem}}
-    ~~SubStep1: [print:  ]
-    proc 1
-    caller's vars to task (subtask)::
-    (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "loopitem": "proc 2"
     })
     
       located task-> 2 [subtask]: 
@@ -305,9 +242,9 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "loopitem": "proc 2",
+      "loopitem": "proc 1",
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
     })
     
@@ -317,20 +254,88 @@ weight: 11194
     
     
     scope[local] merged: {
-      "loopindex1": 2,
-      "loopitem": "proc 2",
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopindex": 1
+      "loopitem": "proc 1",
+      "loopindex": 0
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
-      "loopitem": "proc 2",
       "up_runtime_task_layer_number": 1,
-      "loopindex": 1
+      "loopitem": "proc 1",
+      "loopindex": 0,
+      "loopindex1": 1
+    })
+    
+    {{.loopitem}}
+    ~~SubStep1: [print:  ]
+    proc 1
+    caller's vars to task (subtask)::
+    (*core.Cache)({
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+      located task-> 2 [subtask]: 
+    =Task2: [task ==> subtask: subtask to test reg and return ]
+    Executing task stack layer: 2
+    
+    --Step1: [step1: the loopitem here is inherited from caller ]
+    {
+      Name: "step1",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "{{.loopitem}}"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "the loopitem here is inherited from caller",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -377,7 +382,7 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -385,10 +390,10 @@ weight: 11194
     
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
       located task-> 2 [subtask]: 
@@ -421,10 +426,10 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1"
+      "loopitem": "proc 1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -440,13 +445,13 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1"
+      "loopitem": "proc 1",
+      "loopindex": 0
     })
     
     {{.loopitem}}
@@ -454,10 +459,10 @@ weight: 11194
     proc 1
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
       located task-> 2 [subtask]: 
@@ -490,10 +495,10 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
     [local] dvar expanded result:
@@ -502,20 +507,20 @@ weight: 11194
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
-      "loopindex": 1
+      "loopitem": "proc 2"
     })
     
     {{.loopitem}}
@@ -559,10 +564,10 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -571,20 +576,20 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3
-    }
-    
-    
-    kickass_einstein8: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
     })
     
     {{.loopitem}}
@@ -622,8 +627,8 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "person": "jason",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -637,20 +642,20 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "person": "jason",
+      "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (subtask2)::
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
       located task-> 3 [subtask2]: 
@@ -686,11 +691,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -699,22 +704,22 @@ weight: 11194
     
     
     scope[local] merged: {
-      "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    kickass_einstein8: overall final exec vars:
-    
-    (*core.Cache)({
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 1",
       "loopindex": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "proc 1",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason"
     })
     
     condition failed, skip executing step 
@@ -724,8 +729,8 @@ weight: 11194
       Name: "step2",
       Do: {
         {
-          "name": "print",
-          "cmd": "person: {{.person}}"
+          "cmd": "person: {{.person}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -745,11 +750,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -758,22 +763,22 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0
+      "loopitem": "proc 1"
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "proc 1",
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0
+      "person": "jason"
     })
     
     person: {{.person}}
@@ -797,11 +802,11 @@ weight: 11194
       Name: "",
       Do: {
         {
+          "name": "reg",
           "cmd": {
             "name": "person",
             "value": "tom"
-          },
-          "name": "reg"
+          }
         }
       },
       Dox: <nil>,
@@ -821,11 +826,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex": 1
     })
     
     [local] dvar expanded result:
@@ -834,15 +839,15 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex": 1
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopindex1": 2,
@@ -901,14 +906,14 @@ weight: 11194
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     })
     
     person: {{.person}}
@@ -934,8 +939,8 @@ weight: 11194
         {
           "name": "reg",
           "cmd": {
-            "name": "person",
-            "value": "tom"
+            "value": "tom",
+            "name": "person"
           }
         }
       },
@@ -956,11 +961,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -969,22 +974,22 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex": 2
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     condition failed, skip executing step 
@@ -1015,11 +1020,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
     [local] dvar expanded result:
@@ -1028,22 +1033,22 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2
+      "loopitem": "proc 3"
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     person: {{.person}}
@@ -1067,11 +1072,11 @@ weight: 11194
       Name: "",
       Do: {
         {
-          "name": "reg",
           "cmd": {
             "name": "person",
             "value": "tom"
-          }
+          },
+          "name": "reg"
         }
       },
       Dox: <nil>,
@@ -1091,11 +1096,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 3,
-      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 4"
+      "loopitem": "proc 4",
+      "loopindex": 3,
+      "loopindex1": 4
     })
     
     [local] dvar expanded result:
@@ -1104,15 +1109,15 @@ weight: 11194
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 4",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -1127,21 +1132,21 @@ weight: 11194
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "tom",
       "loopitem": "proc 4",
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopindex": 3
     })
     
     after reg the var - local:
     
     (*core.Cache)({
+      "loopindex": 3,
+      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "tom",
-      "loopitem": "proc 4",
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopitem": "proc 4"
     })
     
     --Step2: [step2:  ]
@@ -1170,11 +1175,11 @@ weight: 11194
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "tom",
       "loopitem": "proc 4",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom"
     })
     
     [local] dvar expanded result:
@@ -1183,15 +1188,15 @@ weight: 11194
     
     
     scope[local] merged: {
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1,
       "person": "tom",
       "loopitem": "proc 4",
-      "loopindex": 3
+      "loopindex": 3,
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    kickass_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "proc 4",

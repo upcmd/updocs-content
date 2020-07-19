@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10133
 
@@ -17,7 +17,7 @@ weight: 10133
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0013
                  Verbose -> vvvv
-              ModuleName -> sad_thompson1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10133
     
     
     groups members:[]
-    module: [sad_thompson1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "e": "runtime-e",
@@ -56,59 +61,37 @@ weight: 10133
     Executing task stack layer: 1
     
     -Step1: [step1: to test display env vars from shell context ]
-    {
-      Name: "step1",
-      Do: {
-        "echo \"hello, world\"",
-        "echo \"hello {{.studentname}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "studentname": "Tom",
-        "school": "SG"
-      },
-      Dvars: <nil>,
-      Desc: "to test display env vars from shell context",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "k": "runtime-k",
-      "studentname": "Tom",
       "a": "runtime-a",
+      "school": "SG",
       "e": "runtime-e",
-      "school": "SG"
+      "k": "runtime-k",
+      "studentname": "Tom"
     })
     
-    sad_thompson1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "k": "runtime-k",
-      "studentname": "Tom",
       "a": "runtime-a",
+      "school": "SG",
       "e": "runtime-e",
-      "school": "SG"
+      "k": "runtime-k",
+      "studentname": "Tom"
     })
     
     cmd( 1):
     echo "hello, world"
     
-     \_ echo "hello, world"
+    cmd=>:
+    echo "hello, world"<=
     hello, world
      .. ok
     cmd( 2):
     echo "hello {{.studentname}}"
     
-     \_ echo "hello Tom"
+    cmd=>:
+    echo "hello Tom"<=
     hello Tom
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "c0061_vvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10613
 
@@ -17,7 +17,7 @@ weight: 10613
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0061
                  Verbose -> vvvv
-              ModuleName -> cocky_poitras8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,28 +33,33 @@ weight: 10613
     
     
     groups members:[]
-    module: [cocky_poitras8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "student_name": "tom"
+      }
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "student_name": "tom"
+      }
     }
     
     loading [flow ref]:  ./tests/functests/c0061-task-main.yml
@@ -64,117 +69,78 @@ weight: 10613
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task step 1\"",
-        "echo \"task step 2\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "student_name": "tom"
+      }
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "student_name": "tom"
+      }
     })
     
     cmd( 1):
     echo "task step 1"
     
-     \_ echo "task step 1"
+    cmd=>:
+    echo "task step 1"<=
     task step 1
      .. ok
     cmd( 2):
     echo "task step 2"
     
-     \_ echo "task step 2"
+    cmd=>:
+    echo "task step 2"<=
     task step 2
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "task_a",
-        "task_c",
-        "task_a"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .student_name \"tom\"}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       })
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom"
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      })
     })
     
       located task-> 3 [task_a]: 
@@ -182,65 +148,48 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_a_step1\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 1
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
+      "up_runtime_task_layer_number": 1,
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
     echo "task_a_step1"
     
-     \_ echo "task_a_step1"
+    cmd=>:
+    echo "task_a_step1"<=
     task_a_step1
      .. ok
     . ok
@@ -249,65 +198,48 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_c_step1\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_a_step1\"",
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
-    })
-    
-    cocky_poitras8: overall final exec vars:
-    
-    (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_a_step1\"",
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
+      "student_name": "tom",
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
       "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "task_c_step1"
     
-     \_ echo "task_c_step1"
+    cmd=>:
+    echo "task_c_step1"<=
     task_c_step1
      .. ok
     . ok
@@ -316,98 +248,62 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_a_step1\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_c_step1\"",
         Code: 0,
         Output: "task_c_step1",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom"
+      "up_runtime_task_layer_number": 1
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_c_step1\"",
         Code: 0,
         Output: "task_c_step1",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
     echo "task_a_step1"
     
-     \_ echo "task_a_step1"
+    cmd=>:
+    echo "task_a_step1"<=
     task_a_step1
      .. ok
     . ok
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "task_b"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .student_name \"tom\"}}",
-      Else: <nil>,
-      Loop: "classes",
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
@@ -416,22 +312,23 @@ weight: 10613
       }
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 5 [task_b]: 
@@ -439,27 +336,6 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_b_step1\"",
-        "echo \"{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "classes": {
@@ -468,49 +344,53 @@ weight: 10613
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "1k",
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "1k",
-      "loopindex": 0,
-      "loopindex1": 1
+      "student_name": "tom"
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "1k",
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "1k"
+      "student_name": "tom"
     })
     
     cmd( 1):
     echo "task_b_step1"
     
-     \_ echo "task_b_step1"
+    cmd=>:
+    echo "task_b_step1"<=
     task_b_step1
      .. ok
     cmd( 2):
     echo "{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]"
     
-     \_ echo "0 -> student nameed tom has been in class [1k]"
+    cmd=>:
+    echo "0 -> student nameed tom has been in class [1k]"<=
     0 -> student nameed tom has been in class [1k]
      .. ok
     . ok
@@ -519,78 +399,61 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_b_step1\"",
-        "echo \"{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
+        Code: 0,
+        Output: "0 -> student nameed tom has been in class [1k]",
+        ErrMsg: ""
+      }),
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "0 -> student nameed tom has been in class [1k]",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 1,
       "loopitem": "2b",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "2b",
       "loopindex": 1,
       "loopindex1": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
+        Code: 0,
+        Output: "0 -> student nameed tom has been in class [1k]",
+        ErrMsg: ""
+      }),
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "0 -> student nameed tom has been in class [1k]",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "task_b_step1"
     
-     \_ echo "task_b_step1"
+    cmd=>:
+    echo "task_b_step1"<=
     task_b_step1
      .. ok
     cmd( 2):
     echo "{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]"
     
-     \_ echo "1 -> student nameed tom has been in class [2b]"
+    cmd=>:
+    echo "1 -> student nameed tom has been in class [2b]"<=
     1 -> student nameed tom has been in class [2b]
      .. ok
     . ok
@@ -599,62 +462,43 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_b_step1\"",
-        "echo \"{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "3j",
-      "loopindex": 2,
-      "loopindex1": 3,
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "3j",
+      "loopindex": 2,
+      "loopindex1": 3,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
         Output: "1 -> student nameed tom has been in class [2b]",
         ErrMsg: ""
       })
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "3j",
-      "loopindex": 2,
-      "loopindex1": 3,
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "3j",
+      "loopindex": 2,
+      "loopindex1": 3,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
         Output: "1 -> student nameed tom has been in class [2b]",
         ErrMsg: ""
@@ -664,13 +508,15 @@ weight: 10613
     cmd( 1):
     echo "task_b_step1"
     
-     \_ echo "task_b_step1"
+    cmd=>:
+    echo "task_b_step1"<=
     task_b_step1
      .. ok
     cmd( 2):
     echo "{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]"
     
-     \_ echo "2 -> student nameed tom has been in class [3j]"
+    cmd=>:
+    echo "2 -> student nameed tom has been in class [3j]"<=
     2 -> student nameed tom has been in class [3j]
      .. ok
     . ok
@@ -679,113 +525,76 @@ weight: 10613
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task_b_step1\"",
-        "echo \"{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "2 -> student nameed tom has been in class [3j]",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
       "loopitem": "4s",
       "loopindex": 3,
       "loopindex1": 4,
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "student_name": "tom"
-    })
-    
-    cocky_poitras8: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 3,
-      "loopindex1": 4,
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
         Code: 0,
         Output: "2 -> student nameed tom has been in class [3j]",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "4s"
+      "student_name": "tom",
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "4s",
+      "loopindex": 3,
+      "loopindex1": 4,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
+        Code: 0,
+        Output: "2 -> student nameed tom has been in class [3j]",
+        ErrMsg: ""
+      }),
+      "student_name": "tom",
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "task_b_step1"
     
-     \_ echo "task_b_step1"
+    cmd=>:
+    echo "task_b_step1"<=
     task_b_step1
      .. ok
     cmd( 2):
     echo "{{.loopindex}} -> student nameed {{.student_name}} has been in class [{{.loopitem}}]"
     
-     \_ echo "3 -> student nameed tom has been in class [4s]"
+    cmd=>:
+    echo "3 -> student nameed tom has been in class [4s]"<=
     3 -> student nameed tom has been in class [4s]
      .. ok
     . ok
     -Step4:
-    {
-      Name: "",
-      Do: {
-        "echo \"task step 3\"",
-        "echo \"task step 4\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
@@ -793,17 +602,18 @@ weight: 10613
       "up_runtime_task_layer_number": 1
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
@@ -814,37 +624,19 @@ weight: 10613
     cmd( 1):
     echo "task step 3"
     
-     \_ echo "task step 3"
+    cmd=>:
+    echo "task step 3"<=
     task step 3
      .. ok
     cmd( 2):
     echo "task step 4"
     
-     \_ echo "task step 4"
+    cmd=>:
+    echo "task step 4"<=
     task step 4
      .. ok
     . ok
     -Step5:
-    {
-      Name: "",
-      Do: {
-        "a_very_complicated_task"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "classes": {
@@ -853,24 +645,68 @@ weight: 10613
         "3j",
         "4s"
       },
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
+      "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
+      "student_name": "tom",
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 2 [a_very_complicated_task]: 
+    =Task2: [task ==> a_very_complicated_task: a_very_complicated_task ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 4\"",
+        Code: 0,
+        Output: "task step 4",
+        ErrMsg: ""
+      }),
+      "student_name": "tom",
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 4\"",
+        Code: 0,
+        Output: "task step 4",
+        ErrMsg: ""
+      }),
+      "student_name": "tom",
       "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
@@ -880,111 +716,32 @@ weight: 10613
       }
     })
     
-      located task-> 2 [a_very_complicated_task]: 
-    =Task2: [task ==> a_very_complicated_task: a_very_complicated_task ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"i am a very complicated flow of step1\"",
-        "echo \"i am a very complicated flow of step2\"",
-        "echo \"i am a very complicated flow of step3\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "student_name": "tom",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 4",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
-    })
-    
-    cocky_poitras8: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "task step 4",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "student_name": "tom"
-    })
-    
     cmd( 1):
     echo "i am a very complicated flow of step1"
     
-     \_ echo "i am a very complicated flow of step1"
+    cmd=>:
+    echo "i am a very complicated flow of step1"<=
     i am a very complicated flow of step1
      .. ok
     cmd( 2):
     echo "i am a very complicated flow of step2"
     
-     \_ echo "i am a very complicated flow of step2"
+    cmd=>:
+    echo "i am a very complicated flow of step2"<=
     i am a very complicated flow of step2
      .. ok
     cmd( 3):
     echo "i am a very complicated flow of step3"
     
-     \_ echo "i am a very complicated flow of step3"
+    cmd=>:
+    echo "i am a very complicated flow of step3"<=
     i am a very complicated flow of step3
      .. ok
     . ok
     --Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"i am a very complicated flow of step4\"",
-        "echo \"{{.student_name}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
       "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
@@ -992,42 +749,45 @@ weight: 10613
         "3j",
         "4s"
       },
-      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"i am a very complicated flow of step3\"",
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
       })
     })
     
-    cocky_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "i am a very complicated flow of step3",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "student_name": "tom"
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"i am a very complicated flow of step3\"",
+        Code: 0,
+        Output: "i am a very complicated flow of step3",
+        ErrMsg: ""
+      }),
+      "student_name": "tom",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "i am a very complicated flow of step4"
     
-     \_ echo "i am a very complicated flow of step4"
+    cmd=>:
+    echo "i am a very complicated flow of step4"<=
     i am a very complicated flow of step4
      .. ok
     cmd( 2):
     echo "{{.student_name}}"
     
-     \_ echo "tom"
+    cmd=>:
+    echo "tom"<=
     tom
      .. ok
     . ok

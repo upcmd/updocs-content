@@ -1,6 +1,6 @@
 ---
 title: "c0096_vvvv"
-date: 2020-07-01T15:34:34+77:00
+date: 2020-07-20T02:01:46+77:00
 draft: false
 weight: 10963
 
@@ -17,7 +17,7 @@ weight: 10963
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0096
                  Verbose -> vvvv
-              ModuleName -> naughty_yonath5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,13 +33,155 @@ weight: 10963
     
     
     groups members:[]
-    module: [naughty_yonath5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "school": {
+              "name": "sydney grammar",
+              "address": "1 fox road, sydney, nsw 2000"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5"
+          }
+        }
+      },
+      "school_details_object": {
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        }
+      }
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "ranking": "No 5",
+            "school": {
+              "name": "sydney grammar",
+              "address": "1 fox road, sydney, nsw 2000"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            }
+          }
+        }
+      },
       "school_details_object": {
         "school": {
           "name": "sydney grammar",
           "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      }
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "school": {
+              "name": "sydney grammar",
+              "address": "1 fox road, sydney, nsw 2000"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5"
+          }
+        }
+      },
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        }
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        }
+      },
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5"
+          }
+        }
+      }
+    })
+    
+    ~SubStep1: [template: render the template file using above dynamic variable from defined var ]
+    -Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "school_details_object": {
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
         },
         "principals": {
           "peter",
@@ -52,6 +194,27 @@ weight: 10963
         "parent": {
           "school_details_object": {
             "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5"
+          }
+        }
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "school": {
               "name": "sydney grammar",
               "address": "1 fox road, sydney, nsw 2000"
             },
@@ -63,14 +226,8 @@ weight: 10963
             "ranking": "No 5"
           }
         }
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
+      },
       "school_details_object": {
-        "ranking": "No 5",
         "school": {
           "name": "sydney grammar",
           "address": "1 fox road, sydney, nsw 2000"
@@ -79,224 +236,12 @@ weight: 10963
           "peter",
           "tom",
           "jane"
-        }
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "ranking": "No 5",
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            }
-          }
-        }
-      }
-    }
-    
-      located task-> 1 [task]: 
-    Task1: [task ==> task:  ]
-    Executing task stack layer: 1
-    
-    -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "template",
-          "desc": "render the template file using above dynamic variable from defined var",
-          "cmd": {
-            "src": "./tests/functests/d0079.template",
-            "dest": "/tmp/myschool.txt",
-            "datakey": "school_details_object"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5",
-            "school": {
-              "name": "sydney grammar",
-              "address": "1 fox road, sydney, nsw 2000"
-            }
-          }
-        }
-      },
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
         },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
+        "ranking": "No 5"
       }
     })
     
-    naughty_yonath5: overall final exec vars:
-    
-    (*core.Cache)({
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5",
-            "school": {
-              "name": "sydney grammar",
-              "address": "1 fox road, sydney, nsw 2000"
-            }
-          }
-        }
-      },
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        }
-      }
-    })
-    
-    ~SubStep1: [template: render the template file using above dynamic variable from defined var ]
-    -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "readfile",
-          "desc": "read content of a file and register it to a var",
-          "cmd": {
-            "dir": "/tmp",
-            "reg": "my_school",
-            "filename": "myschool.txt"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "{{.my_school}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "ranking": "No 5",
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            }
-          }
-        }
-      }
-    })
-    
-    naughty_yonath5: overall final exec vars:
-    
-    (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        }
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "ranking": "No 5",
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            }
-          }
-        }
-      }
-    })
-    
-    ~SubStep1: [readfile: read content of a file and register it to a var ]
+    ~SubStep1: [readFile: read content of a file and register it to a var ]
     ~SubStep2: [print:  ]
     
     
@@ -309,34 +254,6 @@ weight: 10963
     Our school ranking last year is No 5
     
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": {
-            "src": "./tests/functests/d0079.template",
-            "dest": "/tmp/myschool.txt",
-            "datapath": "root.parent.school_details_object"
-          },
-          "name": "template",
-          "desc": "render the template file using above dynamic variable from defined var"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "root": {
@@ -355,36 +272,24 @@ weight: 10963
           }
         }
       },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      }
-    })
-    
-    naughty_yonath5: overall final exec vars:
-    
-    (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
         "school": {
           "name": "sydney grammar",
           "address": "1 fox road, sydney, nsw 2000"
-        }
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
       },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "root": {
         "parent": {
           "school_details_object": {
@@ -400,64 +305,33 @@ weight: 10963
             "ranking": "No 5"
           }
         }
+      },
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
       },
       "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
     })
     
     ~SubStep1: [template: render the template file using above dynamic variable from defined var ]
     -Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "desc": "read content of a file and register it to a var",
-          "cmd": {
-            "filename": "myschool.txt",
-            "dir": "/tmp",
-            "reg": "my_school"
-          },
-          "name": "readfile"
-        },
-        {
-          "name": "print",
-          "cmd": "{{.my_school}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        }
-      },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "root": {
         "parent": {
           "school_details_object": {
             "school": {
-              "name": "sydney grammar",
-              "address": "1 fox road, sydney, nsw 2000"
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
             },
             "principals": {
               "peter",
@@ -468,14 +342,41 @@ weight: 10963
           }
         }
       },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
+      "school_details_object": {
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        }
+      }
     })
     
-    naughty_yonath5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "ranking": "No 5",
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            }
+          }
+        }
+      },
       "school_details_object": {
-        "ranking": "No 5",
         "school": {
           "name": "sydney grammar",
           "address": "1 fox road, sydney, nsw 2000"
@@ -484,28 +385,12 @@ weight: 10963
           "peter",
           "tom",
           "jane"
-        }
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "school": {
-              "name": "sydney grammar",
-              "address": "1 fox road, sydney, nsw 2000"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5"
-          }
-        }
-      },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
+        },
+        "ranking": "No 5"
+      }
     })
     
-    ~SubStep1: [readfile: read content of a file and register it to a var ]
+    ~SubStep1: [readFile: read content of a file and register it to a var ]
     ~SubStep2: [print:  ]
     
     

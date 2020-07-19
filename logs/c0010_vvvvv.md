@@ -1,6 +1,6 @@
 ---
 title: "c0010_vvvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10104
 
@@ -17,7 +17,7 @@ weight: 10104
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0010
                  Verbose -> vvvvv
-              ModuleName -> berserk_ardinghelli3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,15 +27,13 @@ weight: 10104
     -exec task: task
     loading [Task]:  ./tests/functests/c0010
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed220)((len=5 cap=5) {
+    (*impl.Scopes)(0xc000175240)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "a": (string) (len=8) "global-a",
-       (string) (len=1) "b": (string) (len=8) "global-b",
        (string) (len=1) "c": (map[interface {}]interface {}) (len=4) {
         (string) (len=2) "c1": (string) (len=9) "global-c1",
         (string) (len=2) "c2": (string) (len=9) "global-c2",
@@ -46,7 +44,9 @@ weight: 10104
         },
         (string) (len=2) "c4": (string) (len=9) "global-c4"
        },
-       (string) (len=1) "d": (string) (len=8) "global-d"
+       (string) (len=1) "d": (string) (len=8) "global-d",
+       (string) (len=1) "a": (string) (len=8) "global-a",
+       (string) (len=1) "b": (string) (len=8) "global-b"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -59,8 +59,8 @@ weight: 10104
        (string) (len=4) "prod"
       },
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "a": (string) (len=6) "prod-a",
-       (string) (len=1) "c": (string) (len=6) "prod-c"
+       (string) (len=1) "c": (string) (len=6) "prod-c",
+       (string) (len=1) "a": (string) (len=6) "prod-a"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -77,14 +77,14 @@ weight: 10104
        (string) (len=1) "a": (string) (len=10) "non-prod-a",
        (string) (len=1) "b": (string) (len=10) "non-prod-b",
        (string) (len=1) "c": (map[interface {}]interface {}) (len=5) {
-        (string) (len=2) "c1": (string) (len=10) "nonprod-c1",
         (string) (len=2) "c2": (string) (len=10) "nonprod-c2",
         (string) (len=2) "c3": (map[interface {}]interface {}) (len=2) {
          (string) (len=3) "c32": (string) (len=11) "nonprod-c32",
          (string) (len=3) "c33": (string) (len=11) "nonprod-c33"
         },
         (string) (len=2) "c4": (string) (len=10) "nonprod-c4",
-        (string) (len=2) "c5": (string) (len=10) "nonprod-c5"
+        (string) (len=2) "c5": (string) (len=10) "nonprod-c5",
+        (string) (len=2) "c1": (string) (len=10) "nonprod-c1"
        }
       },
       Dvars: (impl.Dvars) <nil>
@@ -95,8 +95,8 @@ weight: 10104
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "a": (string) (len=9) "staging-a",
-       (string) (len=1) "b": (string) (len=9) "staging-b"
+       (string) (len=1) "b": (string) (len=9) "staging-b",
+       (string) (len=1) "a": (string) (len=9) "staging-a"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -127,19 +127,19 @@ weight: 10104
     
     
     scope[global] merged: {
+      "a": "global-a",
       "b": "global-b",
       "c": {
-        "c1": "global-c1",
-        "c2": "global-c2",
         "c3": {
           "c31": "global-c31",
           "c32": "global-c32",
           "c33": "global-c33"
         },
-        "c4": "global-c4"
+        "c4": "global-c4",
+        "c1": "global-c1",
+        "c2": "global-c2"
       },
-      "d": "global-d",
-      "a": "global-a"
+      "d": "global-d"
     }
     
     
@@ -149,8 +149,8 @@ weight: 10104
     
     
     scope[prod] merged: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -177,29 +177,24 @@ weight: 10104
     
     ---------group vars----------
     
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
-    
-    
     nonprod: {
       "a": "non-prod-a",
       "b": "non-prod-b",
       "c": {
-        "c5": "nonprod-c5",
         "c1": "nonprod-c1",
         "c2": "nonprod-c2",
         "c3": {
-          "c32": "nonprod-c32",
-          "c33": "nonprod-c33"
+          "c33": "nonprod-c33",
+          "c32": "nonprod-c32"
         },
-        "c4": "nonprod-c4"
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5"
       }
     }
     
     
     global: {
+      "a": "global-a",
       "b": "global-b",
       "c": {
         "c1": "global-c1",
@@ -211,13 +206,23 @@ weight: 10104
         },
         "c4": "global-c4"
       },
-      "d": "global-d",
-      "a": "global-a"
+      "d": "global-d"
+    }
+    
+    
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [berserk_ardinghelli3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
@@ -226,13 +231,13 @@ weight: 10104
     scope[dev] merged: {
       "a": "dev-a",
       "c": {
-        "c1": "dev-c1",
-        "c2": "dev-c2",
         "c3": {
           "c33": "dev-c33"
         },
         "c6": "dev-c6",
-        "c7": "dev-c7"
+        "c7": "dev-c7",
+        "c1": "dev-c1",
+        "c2": "dev-c2"
       }
     }
     
@@ -242,28 +247,25 @@ weight: 10104
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
-        "c1": "dev-c1",
-        "c2": "dev-c2",
-        "c3": {
-          "c32": "nonprod-c32",
-          "c33": "dev-c33",
-          "c31": "global-c31"
-        },
         "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
+        "c1": "dev-c1",
+        "c2": "dev-c2",
+        "c3": {
+          "c31": "global-c31",
+          "c32": "nonprod-c32",
+          "c33": "dev-c33"
+        },
         "c4": "nonprod-c4"
       },
       "d": "global-d"
     }
     
     (core.Cache) (len=4) {
-     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=5) "dev-a",
      (string) (len=1) "b": (string) (len=10) "non-prod-b",
      (string) (len=1) "c": (map[interface {}]interface {}) (len=7) {
-      (string) (len=2) "c7": (string) (len=6) "dev-c7",
-      (string) (len=2) "c4": (string) (len=10) "nonprod-c4",
       (string) (len=2) "c1": (string) (len=6) "dev-c1",
       (string) (len=2) "c2": (string) (len=6) "dev-c2",
       (string) (len=2) "c3": (map[interface {}]interface {}) (len=3) {
@@ -271,9 +273,12 @@ weight: 10104
        (string) (len=3) "c32": (string) (len=11) "nonprod-c32",
        (string) (len=3) "c33": (string) (len=7) "dev-c33"
       },
+      (string) (len=2) "c4": (string) (len=10) "nonprod-c4",
       (string) (len=2) "c5": (string) (len=10) "nonprod-c5",
-      (string) (len=2) "c6": (string) (len=6) "dev-c6"
-     }
+      (string) (len=2) "c6": (string) (len=6) "dev-c6",
+      (string) (len=2) "c7": (string) (len=6) "dev-c7"
+     },
+     (string) (len=1) "d": (string) (len=8) "global-d"
     }
     
     [runtime global] dvar expanded result:
@@ -284,22 +289,22 @@ weight: 10104
     -------runtime global final merged with dvars-------
     
     {
-      "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": {
-        "c4": "nonprod-c4",
+        "c7": "dev-c7",
         "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
-          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33"
+          "c33": "dev-c33",
+          "c31": "global-c31"
         },
+        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7"
-      }
+        "c6": "dev-c6"
+      },
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -329,22 +334,22 @@ weight: 10104
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "dev-a",
       "b": "non-prod-b",
       "c": {
+        "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
-          "c33": "dev-c33",
           "c31": "global-c31",
-          "c32": "nonprod-c32"
+          "c32": "nonprod-c32",
+          "c33": "dev-c33"
         },
+        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
         "c6": "dev-c6",
-        "c7": "dev-c7",
-        "c4": "nonprod-c4",
-        "c1": "dev-c1"
+        "c7": "dev-c7"
       },
-      "d": "global-d",
-      "a": "dev-a"
+      "d": "global-d"
     })
     
     [local] dvar expanded result:
@@ -353,53 +358,55 @@ weight: 10104
     
     
     scope[local] merged: {
+      "a": "dev-a",
+      "b": "non-prod-b",
       "c": {
+        "c5": "nonprod-c5",
+        "c6": "dev-c6",
         "c7": "dev-c7",
-        "c4": "nonprod-c4",
         "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
-          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33"
+          "c33": "dev-c33",
+          "c31": "global-c31"
         },
-        "c5": "nonprod-c5",
-        "c6": "dev-c6"
+        "c4": "nonprod-c4"
       },
-      "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "d": "global-d"
     }
     
     
-    berserk_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "c": {
-        "c7": "dev-c7",
-        "c4": "nonprod-c4",
-        "c1": "dev-c1",
-        "c2": "dev-c2",
-        "c3": {
-          "c33": "dev-c33",
-          "c31": "global-c31",
-          "c32": "nonprod-c32"
-        },
-        "c5": "nonprod-c5",
-        "c6": "dev-c6"
-      },
-      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": {
+        "c3": {
+          "c32": "nonprod-c32",
+          "c33": "dev-c33",
+          "c31": "global-c31"
+        },
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5",
+        "c6": "dev-c6",
+        "c7": "dev-c7",
+        "c1": "dev-c1",
+        "c2": "dev-c2"
+      },
+      "d": "global-d"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=35) "echo \"test out the var scopes only\"",
      Code: (int) 0,
      Output: (string) (len=28) "test out the var scopes only",
      ErrMsg: (string) ""

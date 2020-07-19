@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvv"
-date: 2020-07-01T15:34:28+77:00
+date: 2020-07-20T02:01:39+77:00
 draft: false
 weight: 10553
 
@@ -17,7 +17,7 @@ weight: 10553
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0055
                  Verbose -> vvvv
-              ModuleName -> sad_wilson9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10553
     
     
     groups members:[]
-    module: [sad_wilson9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,31 +53,11 @@ weight: 10553
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "taska"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "false",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    sad_wilson9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,41 +65,6 @@ weight: 10553
     condition failed, skip executing step 
     
     -Step2:
-    {
-      Name: "",
-      Do: <nil>,
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "greet",
-          Value: "hello",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "true",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
@@ -122,7 +72,7 @@ weight: 10553
     dvar> greet:
     "hello"
     
-    sad_wilson9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "greet": "hello"
@@ -130,31 +80,11 @@ weight: 10553
     
      WARN: [cmd] - [Not implemented or void for no action!]
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "taska"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "true",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    sad_wilson9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -164,33 +94,12 @@ weight: 10553
     Executing task stack layer: 2
     
     --Step1: [: greet var will be no value as it is a local var for cmd step ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello from taska\"",
-        "echo \"{{.greet}} from taska\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "greet var will be no value as it is a local var for cmd step",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    sad_wilson9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -199,13 +108,15 @@ weight: 10553
     cmd( 1):
     echo "hello from taska"
     
-     \_ echo "hello from taska"
+    cmd=>:
+    echo "hello from taska"<=
     hello from taska
      .. ok
     cmd( 2):
     echo "{{.greet}} from taska"
     
-     \_ echo "<no value> from taska"
+    cmd=>:
+    echo "<no value> from taska"<=
     <no value> from taska
      .. ok
     . ok

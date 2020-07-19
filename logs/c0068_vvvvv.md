@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvvv"
-date: 2020-07-01T15:34:30+77:00
+date: 2020-07-20T02:01:41+77:00
 draft: false
 weight: 10684
 
@@ -17,7 +17,7 @@ weight: 10684
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0068
                  Verbose -> vvvvv
-              ModuleName -> thirsty_bohr2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10684
     -exec task: task
     loading [Task]:  ./tests/functests/c0068
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f4f40)(<nil>)
+    (*impl.Scopes)(0xc000176f60)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10684
     
     
     groups members:[]
-    module: [thirsty_bohr2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -94,7 +99,7 @@ weight: 10684
     }
     
     
-    thirsty_bohr2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -102,10 +107,12 @@ weight: 10684
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -114,13 +121,15 @@ weight: 10684
     cmd( 2):
     echo "world"|grep non-exist
     
-     \_ echo "world"|grep non-exist
+    cmd=>:
+    echo "world"|grep non-exist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
           
      .. failed(suppressed if not last step)
     (utils.ExecResult) {
+     Cmd: (string) (len=27) "echo \"world\"|grep non-exist",
      Code: (int) 1,
      Output: (string) "",
      ErrMsg: (string) ""
@@ -129,10 +138,12 @@ weight: 10684
     cmd( 3):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""

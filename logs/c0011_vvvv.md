@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10113
 
@@ -17,7 +17,7 @@ weight: 10113
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0011
                  Verbose -> vvvv
-              ModuleName -> pensive_wozniak7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -35,41 +35,46 @@ weight: 10113
     
     
     nonprod: {
+      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c",
-      "a": "non-prod-a"
+      "c": "non-prod-c"
     }
     
     
     global: {
-      "b": "global-b",
       "c": "global-c",
       "d": "global-d",
-      "a": "global-a"
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [pensive_wozniak7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "runtime-a",
-      "e": "runtime-e",
+      "d": "global-d",
       "k": "runtime-k",
+      "e": "runtime-e",
+      "a": "runtime-a",
       "b": "non-prod-b",
-      "c": "dev-c",
-      "d": "global-d"
+      "c": "dev-c"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "e": "runtime-e"
     }
     
       located task-> 1 [task]: 
@@ -77,48 +82,25 @@ weight: 10113
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"test out the var scopes only\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "e": "local-e",
-        "m": "local-m"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "d": "global-d",
+      "k": "runtime-k",
+      "e": "local-e",
+      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "a": "runtime-a",
-      "e": "local-e",
-      "k": "runtime-k",
       "m": "local-m"
     })
     
-    pensive_wozniak7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "d": "global-d",
-      "a": "runtime-a",
-      "e": "local-e",
-      "k": "runtime-k",
       "m": "local-m",
+      "d": "global-d",
+      "k": "runtime-k",
+      "e": "local-e",
+      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c"
     })
@@ -126,7 +108,8 @@ weight: 10113
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     . ok

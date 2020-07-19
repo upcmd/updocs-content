@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10473
 
@@ -17,7 +17,7 @@ weight: 10473
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0047
                  Verbose -> vvvv
-              ModuleName -> distracted_wright3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -35,7 +35,12 @@ weight: 10473
     
     
     groups members:[]
-    module: [distracted_wright3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_name": "Tom Hanks",
@@ -45,8 +50,8 @@ weight: 10473
     -------runtime global final merged with dvars-------
     
     {
-      "student_name": "Tom Hanks",
       "student_age": "28",
+      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
@@ -55,50 +60,31 @@ weight: 10473
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "{{.cli}}"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "Tom Hanks",
       "student_age": "28",
+      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
-    distracted_wright3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "Tom Hanks",
       "student_age": "28",
+      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
     cmd( 1):
     {{.cli}}
     
-     \_ echo """
+    cmd=>:
+    echo """
     student details:
     name: Tom Hanks
     age: 28
     """
-    
+    <=
     student details:
     name: Tom Hanks
     age: 28

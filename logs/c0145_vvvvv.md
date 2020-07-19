@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11454
 
@@ -17,7 +17,7 @@ weight: 11454
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0145
                  Verbose -> vvvvv
-              ModuleName -> cocky_nobel2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11454
     -exec task: task
     loading [Task]:  ./tests/functests/c0145
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c8fc0)(<nil>)
+    (*impl.Scopes)(0xc000174f80)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11454
     
     
     groups members:[]
-    module: [cocky_nobel2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -66,9 +71,9 @@ weight: 11454
           "name": "template",
           "desc": "render a template file to a file 1",
           "cmd": {
+            "src": "./tests/functests/d0145.template",
             "dest": "/tmp/mockup_doc.md",
-            "datafile": "d0145_data.yml",
-            "src": "./tests/functests/d0145.template"
+            "datafile": "d0145_data.yml"
           }
         }
       },
@@ -100,7 +105,7 @@ weight: 11454
     }
     
     
-    cocky_nobel2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -141,7 +146,7 @@ weight: 11454
     }
     
     
-    cocky_nobel2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -149,14 +154,16 @@ weight: 11454
     cmd( 1):
     cat /tmp/mockup_doc.md
     
-     \_ cat /tmp/mockup_doc.md
+    cmd=>:
+    cat /tmp/mockup_doc.md<=
     title: "HelloWorld example"
-    date: 2020-06-27T03:07:59+66:00
+    date: 2020-07-20T01:35:01+77:00
     draft: false
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "cat /tmp/mockup_doc.md",
      Code: (int) 0,
-     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-06-27T03:07:59+66:00\ndraft: false",
+     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-07-20T01:35:01+77:00\ndraft: false",
      ErrMsg: (string) ""
     }
     

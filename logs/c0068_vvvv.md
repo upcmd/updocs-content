@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvv"
-date: 2020-07-01T15:34:30+77:00
+date: 2020-07-20T02:01:41+77:00
 draft: false
 weight: 10683
 
@@ -17,7 +17,7 @@ weight: 10683
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0068
                  Verbose -> vvvv
-              ModuleName -> condescending_shockley7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10683
     
     
     groups members:[]
-    module: [condescending_shockley7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,33 +53,11 @@ weight: 10683
     Executing task stack layer: 1
     
     -Step1: [: do step1 in shell func ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"world\"|grep non-exist",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "do step1 in shell func",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    condescending_shockley7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -82,13 +65,15 @@ weight: 10683
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "world"|grep non-exist
     
-     \_ echo "world"|grep non-exist
+    cmd=>:
+    echo "world"|grep non-exist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
@@ -97,7 +82,8 @@ weight: 10683
     cmd( 3):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok

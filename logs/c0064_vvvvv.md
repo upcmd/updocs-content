@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10644
 
@@ -17,7 +17,7 @@ weight: 10644
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0064
                  Verbose -> vvvvv
-              ModuleName -> sad_pasteur9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10644
     -exec task: task
     loading [Task]:  ./tests/functests/c0064
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000182f20)(<nil>)
+    (*impl.Scopes)(0xc000174f40)(<nil>)
     
     ---------group vars----------
     
@@ -36,21 +36,26 @@ weight: 10644
     
     
     groups members:[]
-    module: [sad_pasteur9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-      (string) (len=4) "name": (string) (len=3) "Tom"
+      (string) (len=4) "name": (string) (len=3) "Tom",
+      (string) (len=6) "gender": (string) (len=4) "Male"
      }
     }
     
@@ -63,9 +68,9 @@ weight: 10644
     
     {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     }
     
@@ -117,7 +122,7 @@ weight: 10644
     }
     
     
-    sad_pasteur9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
@@ -130,10 +135,12 @@ weight: 10644
     cmd( 1):
     echo "hello 1"
     
-     \_ echo "hello 1"
+    cmd=>:
+    echo "hello 1"<=
     hello 1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=14) "echo \"hello 1\"",
      Code: (int) 0,
      Output: (string) (len=7) "hello 1",
      ErrMsg: (string) ""
@@ -181,6 +188,7 @@ weight: 10644
         "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -199,6 +207,7 @@ weight: 10644
         "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -206,15 +215,16 @@ weight: 10644
     }
     
     
-    sad_pasteur9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""

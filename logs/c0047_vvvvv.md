@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10474
 
@@ -17,7 +17,7 @@ weight: 10474
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0047
                  Verbose -> vvvvv
-              ModuleName -> insane_torvalds9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10474
     -exec task: task
     loading [Task]:  ./tests/functests/c0047
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185160)((len=1 cap=1) {
+    (*impl.Scopes)(0xc000175180)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -89,7 +89,12 @@ weight: 10474
     
     
     groups members:[]
-    module: [insane_torvalds9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_age": "28",
@@ -110,9 +115,9 @@ weight: 10474
     -------runtime global final merged with dvars-------
     
     {
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
       located task-> 1 [task]: 
@@ -142,9 +147,9 @@ weight: 10474
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     })
     
     [local] dvar expanded result:
@@ -159,7 +164,7 @@ weight: 10474
     }
     
     
-    insane_torvalds9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
@@ -170,17 +175,19 @@ weight: 10474
     cmd( 1):
     {{.cli}}
     
-     \_ echo """
+    cmd=>:
+    echo """
     student details:
     name: Tom Hanks
     age: 28
     """
-    
+    <=
     student details:
     name: Tom Hanks
     age: 28
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=54) "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
      Code: (int) 0,
      Output: (string) (len=40) "student details:\nname: Tom Hanks\nage: 28",
      ErrMsg: (string) ""

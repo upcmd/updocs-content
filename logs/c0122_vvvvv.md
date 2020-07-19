@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11224
 
@@ -17,7 +17,7 @@ weight: 11224
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0122
                  Verbose -> vvvvv
-              ModuleName -> naughty_payne9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11224
     -exec task: task
     loading [Task]:  ./tests/functests/c0122
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed080)(<nil>)
+    (*impl.Scopes)(0xc0001c7200)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11224
     
     
     groups members:[]
-    module: [naughty_payne9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -61,8 +66,8 @@ weight: 11224
     
     {
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
@@ -75,8 +80,8 @@ weight: 11224
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.student.name}}"
+          "cmd": "{{.student.name}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -119,7 +124,7 @@ weight: 11224
     }
     
     
-    naughty_payne9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
@@ -133,7 +138,7 @@ weight: 11224
     tom
     {{.student.age}}
     ~SubStep2: [print:  ]
-    <no value>
+    None
     -Step2:
     {
       Name: "",
@@ -161,65 +166,8 @@ weight: 11224
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "student": {
-        "sex": "male",
-        "name": "tom"
-      }
-    }
-    
-    
-    naughty_payne9: overall final exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "sex": "male",
-        "name": "tom"
-      }
-    })
-    
-    hello tom
-    ~SubStep1: [print:  ]
-    hello tom
-    -Step3: [: add support if the element does not exist, then if condition should be false by default ]
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "you will not see this message",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "add support if the element does not exist, then if condition should be false by default",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.student.age}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -236,13 +184,97 @@ weight: 11224
     }
     
     
-    naughty_payne9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
+    })
+    
+    hello tom
+    ~SubStep1: [print:  ]
+    hello tom
+    -Step3: [: add support if the element does not exist, then if condition should be false by default ]
+    {
+      Name: "",
+      Do: {
+        {
+          "desc": "this cmd will not evaluated as it will not reach here\nthe below evaluate will cause issue, as age does not exist\nalways map to a dvar first\n",
+          "cmd": "{{eq .student.age \"None\"}}",
+          "name": "assert"
+        },
+        {
+          "name": "print",
+          "cmd": "{{.student.age}}"
+        },
+        {
+          "cmd": "you will not see this message\n",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: {
+        {
+          Name: "student_age",
+          Value: ".student.age",
+          Desc: "",
+          Expand: 0,
+          Flags: <nil>,
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        }
+      },
+      Desc: "add support if the element does not exist, then if condition should be false by default",
+      Reg: "",
+      Flags: <nil>,
+      If: "{{eq .student_age \"None\"}}",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "student": {
+        "name": "tom",
+        "sex": "male"
+      }
+    })
+    
+    [local] dvar expanded result:
+    {
+      "student_age": ".student.age"
+    }
+    
+    
+    scope[local] merged: {
+      "student": {
+        "name": "tom",
+        "sex": "male"
+      },
+      "student_age": ".student.age"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "tom",
+        "sex": "male"
+      },
+      "student_age": ".student.age"
     })
     
     condition failed, skip executing step 

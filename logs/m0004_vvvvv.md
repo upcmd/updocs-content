@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvvv"
-date: 2020-07-01T15:34:58+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100404
 
@@ -17,7 +17,7 @@ weight: 100404
               AbsWorkDir -> /up_project/up/tests/modtests/0004
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> cranky_sinoussi8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100404
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001cf040)(<nil>)
+    (*impl.Scopes)(0xc000175000)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 100404
     
     
     groups members:[]
-    module: [cranky_sinoussi8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +95,7 @@ weight: 100404
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -142,7 +147,7 @@ weight: 100404
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -190,7 +195,7 @@ weight: 100404
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -199,29 +204,33 @@ weight: 100404
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 12
-    -rw-r--r--  1 root root  253 Jun 11 09:38 upconfig.yml
-    -rw-r--r--  1 root root  521 Jun 11 09:38 up.yml
-    drwxr-xr-x  3 root root   96 Jun 11 09:38 hello-module
-    -rw-r--r--  1 root root 1019 Jun 11 09:38 doc.yml
-    drwxr-xr-x  6 root root  192 Jun 11 09:38 .
-    drwxr-xr-x 18 root root  576 Jun 12 00:35 ..
+    -rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml
+    -rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module
+    -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
+    drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "ls -lart",
      Code: (int) 0,
-     Output: (string) (len=306) "total 12\n-rw-r--r--  1 root root  253 Jun 11 09:38 upconfig.yml\n-rw-r--r--  1 root root  521 Jun 11 09:38 up.yml\ndrwxr-xr-x  3 root root   96 Jun 11 09:38 hello-module\n-rw-r--r--  1 root root 1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x  6 root root  192 Jun 11 09:38 .\ndrwxr-xr-x 18 root root  576 Jun 12 00:35 ..",
+     Output: (string) (len=396) "total 12\n-rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml\n-rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module\n-rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 .\ndrwxr-xr-x   18 root     root           576 Jul 18 17:03 ..",
      ErrMsg: (string) ""
     }
     
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
     upconfig.yml
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=11) "ls |grep up",
      Code: (int) 0,
      Output: (string) (len=19) "up.yml\nupconfig.yml",
      ErrMsg: (string) ""
@@ -230,10 +239,12 @@ weight: 100404
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=3) "pwd",
      Code: (int) 0,
      Output: (string) (len=34) "/up_project/up/tests/modtests/0004",
      ErrMsg: (string) ""
@@ -242,10 +253,12 @@ weight: 100404
     cmd( 4):
     ls ../..|grep modtests
     
-     \_ ls ../..|grep modtests
+    cmd=>:
+    ls ../..|grep modtests<=
     modtests
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "ls ../..|grep modtests",
      Code: (int) 0,
      Output: (string) (len=8) "modtests",
      ErrMsg: (string) ""
@@ -286,7 +299,7 @@ weight: 100404
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -300,7 +313,7 @@ weight: 100404
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00023b400)(<nil>)
+    (*impl.Scopes)(0xc0001e5560)(<nil>)
     
     ---------group vars----------
     
@@ -309,6 +322,11 @@ weight: 100404
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -375,7 +393,7 @@ weight: 100404
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -385,25 +403,29 @@ weight: 100404
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 4
-    -rw-r--r-- 1 root root 796 Jun 11 09:38 up.yml
-    drwxr-xr-x 6 root root 192 Jun 11 09:38 ..
-    drwxr-xr-x 3 root root  96 Jun 11 09:38 .
+    -rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 ..
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 .
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "ls -lart",
      Code: (int) 0,
-     Output: (string) (len=139) "total 4\n-rw-r--r-- 1 root root 796 Jun 11 09:38 up.yml\ndrwxr-xr-x 6 root root 192 Jun 11 09:38 ..\ndrwxr-xr-x 3 root root  96 Jun 11 09:38 .",
+     Output: (string) (len=190) "total 4\n-rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 ..\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 .",
      ErrMsg: (string) ""
     }
     
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=11) "ls |grep up",
      Code: (int) 0,
      Output: (string) (len=6) "up.yml",
      ErrMsg: (string) ""
@@ -412,10 +434,12 @@ weight: 100404
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004/hello-module
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=3) "pwd",
      Code: (int) 0,
      Output: (string) (len=47) "/up_project/up/tests/modtests/0004/hello-module",
      ErrMsg: (string) ""
@@ -424,10 +448,12 @@ weight: 100404
     cmd( 4):
     ls ../../..|grep modtests
     
-     \_ ls ../../..|grep modtests
+    cmd=>:
+    ls ../../..|grep modtests<=
     modtests
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=25) "ls ../../..|grep modtests",
      Code: (int) 0,
      Output: (string) (len=8) "modtests",
      ErrMsg: (string) ""
@@ -458,6 +484,7 @@ weight: 100404
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -473,6 +500,7 @@ weight: 100404
     scope[local] merged: {
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -481,22 +509,24 @@ weight: 100404
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
-      "up_runtime_tasker_layer_number": 2
+      })
     })
     
     caller's vars to task (internal_task)::
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -536,6 +566,7 @@ weight: 100404
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -549,20 +580,22 @@ weight: 100404
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_tasker_layer_number": 2
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -603,6 +636,7 @@ weight: 100404
       "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -615,50 +649,56 @@ weight: 100404
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_tasker_layer_number": 2
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_tasker_layer_number": 2
     })
     
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 4
-    -rw-r--r-- 1 root root 796 Jun 11 09:38 up.yml
-    drwxr-xr-x 6 root root 192 Jun 11 09:38 ..
-    drwxr-xr-x 3 root root  96 Jun 11 09:38 .
+    -rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 ..
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 .
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "ls -lart",
      Code: (int) 0,
-     Output: (string) (len=139) "total 4\n-rw-r--r-- 1 root root 796 Jun 11 09:38 up.yml\ndrwxr-xr-x 6 root root 192 Jun 11 09:38 ..\ndrwxr-xr-x 3 root root  96 Jun 11 09:38 .",
+     Output: (string) (len=190) "total 4\n-rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 ..\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 .",
      ErrMsg: (string) ""
     }
     
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=11) "ls |grep up",
      Code: (int) 0,
      Output: (string) (len=6) "up.yml",
      ErrMsg: (string) ""
@@ -667,10 +707,12 @@ weight: 100404
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004/hello-module
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=3) "pwd",
      Code: (int) 0,
      Output: (string) (len=47) "/up_project/up/tests/modtests/0004/hello-module",
      ErrMsg: (string) ""
@@ -679,10 +721,12 @@ weight: 100404
     cmd( 4):
     ls ../../..|grep modtests
     
-     \_ ls ../../..|grep modtests
+    cmd=>:
+    ls ../../..|grep modtests<=
     modtests
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=25) "ls ../../..|grep modtests",
      Code: (int) 0,
      Output: (string) (len=8) "modtests",
      ErrMsg: (string) ""
@@ -720,12 +764,12 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -734,8 +778,8 @@ weight: 100404
     
     caller's vars to task (internal_task)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 2 [internal_task]: 
@@ -768,8 +812,8 @@ weight: 100404
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -778,12 +822,12 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -834,7 +878,7 @@ weight: 100404
     }
     
     
-    cranky_sinoussi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
@@ -844,29 +888,33 @@ weight: 100404
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 12
-    -rw-r--r--  1 root root  253 Jun 11 09:38 upconfig.yml
-    -rw-r--r--  1 root root  521 Jun 11 09:38 up.yml
-    drwxr-xr-x  3 root root   96 Jun 11 09:38 hello-module
-    -rw-r--r--  1 root root 1019 Jun 11 09:38 doc.yml
-    drwxr-xr-x  6 root root  192 Jun 11 09:38 .
-    drwxr-xr-x 18 root root  576 Jun 12 00:35 ..
+    -rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml
+    -rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module
+    -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
+    drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "ls -lart",
      Code: (int) 0,
-     Output: (string) (len=306) "total 12\n-rw-r--r--  1 root root  253 Jun 11 09:38 upconfig.yml\n-rw-r--r--  1 root root  521 Jun 11 09:38 up.yml\ndrwxr-xr-x  3 root root   96 Jun 11 09:38 hello-module\n-rw-r--r--  1 root root 1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x  6 root root  192 Jun 11 09:38 .\ndrwxr-xr-x 18 root root  576 Jun 12 00:35 ..",
+     Output: (string) (len=396) "total 12\n-rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml\n-rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module\n-rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 .\ndrwxr-xr-x   18 root     root           576 Jul 18 17:03 ..",
      ErrMsg: (string) ""
     }
     
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
     upconfig.yml
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=11) "ls |grep up",
      Code: (int) 0,
      Output: (string) (len=19) "up.yml\nupconfig.yml",
      ErrMsg: (string) ""
@@ -875,10 +923,12 @@ weight: 100404
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=3) "pwd",
      Code: (int) 0,
      Output: (string) (len=34) "/up_project/up/tests/modtests/0004",
      ErrMsg: (string) ""
@@ -887,10 +937,12 @@ weight: 100404
     cmd( 4):
     ls ../..|grep modtests
     
-     \_ ls ../..|grep modtests
+    cmd=>:
+    ls ../..|grep modtests<=
     modtests
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "ls ../..|grep modtests",
      Code: (int) 0,
      Output: (string) (len=8) "modtests",
      ErrMsg: (string) ""

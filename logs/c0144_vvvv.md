@@ -1,6 +1,6 @@
 ---
 title: "c0144_vvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11443
 
@@ -17,7 +17,7 @@ weight: 11443
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0144
                  Verbose -> vvvv
-              ModuleName -> sad_perlman8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11443
     
     
     groups members:[]
-    module: [sad_perlman8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,31 +53,11 @@ weight: 11443
     Executing task stack layer: 1
     
     -Step1: [: main job ]
-    {
-      Name: "",
-      Do: {
-        "pwd"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "main job",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    sad_perlman8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,7 +65,8 @@ weight: 11443
     cmd( 1):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up
      .. ok
     . ok

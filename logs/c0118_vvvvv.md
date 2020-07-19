@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvvv"
-date: 2020-07-01T15:34:37+77:00
+date: 2020-07-20T02:01:50+77:00
 draft: false
 weight: 11184
 
@@ -17,7 +17,7 @@ weight: 11184
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0118
                  Verbose -> vvvvv
-              ModuleName -> jolly_bartik5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11184
     -exec task: task
     loading [Task]:  ./tests/functests/c0118
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000352b40)(<nil>)
+    (*impl.Scopes)(0xc000175260)(<nil>)
     
     ---------group vars----------
     
@@ -36,24 +36,29 @@ weight: 11184
     
     
     groups members:[]
-    module: [jolly_bartik5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=7) "loopkey": (string) (len=5) "items",
      (string) (len=5) "items": ([]interface {}) (len=3 cap=3) {
       (string) (len=5) "item1",
       (string) (len=5) "item2",
       (string) (len=5) "item3"
-     }
+     },
+     (string) (len=7) "loopkey": (string) (len=5) "items"
     }
     
     [runtime global] dvar expanded result:
@@ -108,13 +113,13 @@ weight: 11184
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items",
-      "person": "tom"
+      }
     })
     
     [local] dvar expanded result:
@@ -133,16 +138,16 @@ weight: 11184
     }
     
     
-    jolly_bartik5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
-      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "person": "tom"
     })
     
     condition failed, skip executing step step1
@@ -194,17 +199,17 @@ weight: 11184
     
     
     scope[local] merged: {
-      "loopkey": "items",
-      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "person": "tom"
     }
     
     
-    jolly_bartik5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "items": {
@@ -258,16 +263,16 @@ weight: 11184
     
     
     scope[local] merged: {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     
-    jolly_bartik5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "items": {

@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:45+77:00
 draft: false
 weight: 10904
 
@@ -17,7 +17,7 @@ weight: 10904
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0090
                  Verbose -> vvvvv
-              ModuleName -> compassionate_sammet9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10904
     -exec task: task
     loading [Task]:  ./tests/functests/c0090
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000181480)(<nil>)
+    (*impl.Scopes)(0xc000175640)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10904
     
     
     groups members:[]
-    module: [compassionate_sammet9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -58,9 +63,96 @@ weight: 10904
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1:
+    -Step1: [wrong_usage: note that you can't access loopitem in dvar processing in curent func
+    you can only access loopitem in dvar processing when it is called as callee, as corret_usage shows
+    however you can access loopitem in do action
+     ]
     {
-      Name: "",
+      Name: "wrong_usage",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "loopitme could be accessed here: {{.loopitem}}\n"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: {
+        {
+          Name: "person",
+          Value: "{{.loopitem}}",
+          Desc: "",
+          Expand: 0,
+          Flags: {
+            "v"
+          },
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        }
+      },
+      Desc: "note that you can't access loopitem in dvar processing in curent func\nyou can only access loopitem in dvar processing when it is called as callee, as corret_usage shows\nhowever you can access loopitem in do action\n",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: {
+        "tom",
+        "peter",
+        "james"
+      },
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+    })
+    
+    dvar> person:
+    "None"
+    
+    [local] dvar expanded result:
+    {
+      "person": "None"
+    }
+    
+    
+    scope[local] merged: {
+      "person": "None"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "person": "None"
+    })
+    
+    loopitme could be accessed here: {{.loopitem}}
+    
+    ~SubStep1: [print:  ]
+    loopitme could be accessed here: tom
+    
+    loopitme could be accessed here: {{.loopitem}}
+    
+    ~SubStep1: [print:  ]
+    loopitme could be accessed here: peter
+    
+    loopitme could be accessed here: {{.loopitem}}
+    
+    ~SubStep1: [print:  ]
+    loopitme could be accessed here: james
+    
+    -Step2: [corret_usage:  ]
+    {
+      Name: "corret_usage",
       Do: {
         "task_callee2"
       },
@@ -100,7 +192,7 @@ weight: 10904
     }
     
     
-    compassionate_sammet9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "taskvar": "taskvar"
@@ -108,152 +200,10 @@ weight: 10904
     
     caller's vars to task (task_callee2)::
     (*core.Cache)({
-      "loopindex1": 1,
       "taskvar": "taskvar",
-      "loopitem": "tom",
-      "loopindex": 0
-    })
-    
-      located task-> 3 [task_callee2]: 
-    =Task3: [task ==> task_callee2:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "as explained, this should be <no value>",
-          "cmd": "callee2: {{.person}}"
-        },
-        {
-          "cmd": "callee2: {{.loopitem}}",
-          "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n"
-        },
-        {
-          "name": "print",
-          "cmd": "callee2: {{.greet}}"
-        },
-        {
-          "name": "print",
-          "cmd": "taskvar: {{.taskvar}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "person",
-          Value: "{{.loopitem}}",
-          Desc: "loopitem is not availab yet when dvar is expanded\ndue to the design that caller's var will override\nthe callee's var, the loopitem should not be availabe\nin dvar and this is not a bug\n",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "greet",
-          Value: "hello",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar",
-      "loopitem": "tom"
-    })
-    
-    dvar> person:
-    "tom"
-    
-    dvar> greet:
-    "hello"
-    
-    [local] dvar expanded result:
-    {
-      "person": "tom",
-      "greet": "hello"
-    }
-    
-    
-    scope[local] merged: {
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar",
-      "person": "tom",
-      "greet": "hello"
-    }
-    
-    
-    compassionate_sammet9: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar",
-      "person": "tom",
-      "greet": "hello",
-      "loopitem": "tom",
-      "loopindex": 0
-    })
-    
-    callee2: {{.person}}
-    ~~SubStep1: [print: as explained, this should be <no value> ]
-    callee2: tom
-    callee2: {{.loopitem}}
-    ~~SubStep2: [print: this will be the loopitem from parent caller's
-    var space and this is design
-     ]
-    callee2: tom
-    callee2: {{.greet}}
-    ~~SubStep3: [print:  ]
-    callee2: hello
-    taskvar: {{.taskvar}}
-    ~~SubStep4: [print:  ]
-    taskvar: taskvar
-    caller's vars to task (task_callee2)::
-    (*core.Cache)({
-      "loopindex1": 2,
-      "taskvar": "taskvar",
-      "loopitem": "peter",
-      "loopindex": 1
+      "loopindex1": 1
     })
     
       located task-> 3 [task_callee2]: 
@@ -290,10 +240,10 @@ weight: 10904
         {
           Name: "person",
           Value: "{{.loopitem}}",
-          Desc: "loopitem is not availab yet when dvar is expanded\ndue to the design that caller's var will override\nthe callee's var, the loopitem should not be availabe\nin dvar and this is not a bug\n",
+          Desc: "",
           Expand: 0,
           Flags: {
-            "vvvv"
+            "v"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -302,14 +252,118 @@ weight: 10904
           DataKey: "",
           DataPath: "",
           DataTemplate: ""
+        }
+      },
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar"
+    })
+    
+    dvar> person:
+    "tom"
+    
+    [local] dvar expanded result:
+    {
+      "person": "tom"
+    }
+    
+    
+    scope[local] merged: {
+      "taskvar": "taskvar",
+      "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "taskvar": "taskvar",
+      "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom"
+    })
+    
+    callee2: {{.person}}
+    ~~SubStep1: [print: as explained, this should be <no value> ]
+    callee2: tom
+    callee2: {{.loopitem}}
+    ~~SubStep2: [print: this will be the loopitem from parent caller's
+    var space and this is design
+     ]
+    callee2: tom
+    callee2: {{.greet}}
+    ~~SubStep3: [print:  ]
+    callee2: <no value>
+    taskvar: {{.taskvar}}
+    ~~SubStep4: [print:  ]
+    taskvar: taskvar
+    caller's vars to task (task_callee2)::
+    (*core.Cache)({
+      "taskvar": "taskvar",
+      "loopitem": "peter",
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+      located task-> 3 [task_callee2]: 
+    =Task3: [task ==> task_callee2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": "callee2: {{.person}}",
+          "name": "print",
+          "desc": "as explained, this should be <no value>"
         },
         {
-          Name: "greet",
-          Value: "hello",
+          "name": "print",
+          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n",
+          "cmd": "callee2: {{.loopitem}}"
+        },
+        {
+          "name": "print",
+          "cmd": "callee2: {{.greet}}"
+        },
+        {
+          "cmd": "taskvar: {{.taskvar}}",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: {
+        {
+          Name: "person",
+          Value: "{{.loopitem}}",
           Desc: "",
           Expand: 0,
           Flags: {
-            "vvvv"
+            "v"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -343,37 +397,31 @@ weight: 10904
     dvar> person:
     "peter"
     
-    dvar> greet:
-    "hello"
-    
     [local] dvar expanded result:
     {
-      "person": "peter",
-      "greet": "hello"
+      "person": "peter"
     }
     
     
     scope[local] merged: {
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "person": "peter",
+      "taskvar": "taskvar",
+      "loopitem": "peter",
+      "loopindex": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "person": "peter",
       "taskvar": "taskvar",
       "loopitem": "peter",
       "loopindex": 1,
       "loopindex1": 2,
-      "person": "peter",
-      "greet": "hello",
       "up_runtime_task_layer_number": 1
-    }
-    
-    
-    compassionate_sammet9: overall final exec vars:
-    
-    (*core.Cache)({
-      "person": "peter",
-      "greet": "hello",
-      "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar",
-      "loopitem": "peter",
-      "loopindex": 1,
-      "loopindex1": 2
     })
     
     callee2: {{.person}}
@@ -386,16 +434,16 @@ weight: 10904
     callee2: peter
     callee2: {{.greet}}
     ~~SubStep3: [print:  ]
-    callee2: hello
+    callee2: <no value>
     taskvar: {{.taskvar}}
     ~~SubStep4: [print:  ]
     taskvar: taskvar
     caller's vars to task (task_callee2)::
     (*core.Cache)({
+      "taskvar": "taskvar",
       "loopitem": "james",
       "loopindex": 2,
-      "loopindex1": 3,
-      "taskvar": "taskvar"
+      "loopindex1": 3
     })
     
       located task-> 3 [task_callee2]: 
@@ -432,26 +480,10 @@ weight: 10904
         {
           Name: "person",
           Value: "{{.loopitem}}",
-          Desc: "loopitem is not availab yet when dvar is expanded\ndue to the design that caller's var will override\nthe callee's var, the loopitem should not be availabe\nin dvar and this is not a bug\n",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "greet",
-          Value: "hello",
           Desc: "",
           Expand: 0,
           Flags: {
-            "vvvv"
+            "v"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -475,47 +507,41 @@ weight: 10904
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 3,
       "taskvar": "taskvar",
+      "up_runtime_task_layer_number": 1,
       "loopitem": "james",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     dvar> person:
     "james"
     
-    dvar> greet:
-    "hello"
-    
     [local] dvar expanded result:
     {
-      "person": "james",
-      "greet": "hello"
+      "person": "james"
     }
     
     
     scope[local] merged: {
-      "taskvar": "taskvar",
       "loopitem": "james",
-      "person": "james",
-      "greet": "hello",
       "loopindex": 2,
+      "loopindex1": 3,
+      "taskvar": "taskvar",
       "up_runtime_task_layer_number": 1,
-      "loopindex1": 3
+      "person": "james"
     }
     
     
-    compassionate_sammet9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
       "taskvar": "taskvar",
-      "loopitem": "james",
+      "up_runtime_task_layer_number": 1,
       "person": "james",
-      "greet": "hello",
+      "loopitem": "james",
       "loopindex": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     callee2: {{.person}}
@@ -528,7 +554,7 @@ weight: 10904
     callee2: james
     callee2: {{.greet}}
     ~~SubStep3: [print:  ]
-    callee2: hello
+    callee2: <no value>
     taskvar: {{.taskvar}}
     ~~SubStep4: [print:  ]
     taskvar: taskvar

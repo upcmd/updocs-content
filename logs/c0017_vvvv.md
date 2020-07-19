@@ -1,6 +1,6 @@
 ---
 title: "c0017_vvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10173
 
@@ -17,7 +17,7 @@ weight: 10173
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0017
                  Verbose -> vvvv
-              ModuleName -> hopeful_poitras8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10173
     
     
     groups members:[]
-    module: [hopeful_poitras8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "runtime-a",
@@ -54,45 +59,21 @@ weight: 10173
     Executing task stack layer: 1
     
     -Step1: [: call1 ]
-    {
-      Name: "",
-      Do: {
-        "callee_task1",
-        "callee_task2"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "a": "caller-ref-1a",
-        "b": "caller-ref-1b"
-      },
-      Dvars: <nil>,
-      Desc: "call1",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "b": "caller-ref-1b",
+      "a": "caller-ref-1a",
+      "e": "runtime-e",
+      "k": "runtime-k"
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "a": "caller-ref-1a",
       "e": "runtime-e",
       "k": "runtime-k",
       "b": "caller-ref-1b"
-    })
-    
-    hopeful_poitras8: overall final exec vars:
-    
-    (*core.Cache)({
-      "k": "runtime-k",
-      "b": "caller-ref-1b",
-      "a": "caller-ref-1a",
-      "e": "runtime-e"
     })
     
       located task-> 1 [callee_task1]: 
@@ -100,56 +81,32 @@ weight: 10173
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"exec ref-task1\"",
-        "echo \"\"\"\nvars:\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\ne: {{.e}}\nk: {{.k}}\n\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "b": "callee-b",
-        "c": "callee-c",
-        "a": "callee-a"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "caller-ref-1a",
       "b": "caller-ref-1b",
       "c": "callee-c",
-      "e": "runtime-e",
       "k": "runtime-k",
+      "e": "runtime-e",
       "up_runtime_task_layer_number": 1
     })
     
-    hopeful_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "b": "caller-ref-1b",
       "c": "callee-c",
-      "e": "runtime-e",
       "k": "runtime-k",
+      "e": "runtime-e",
       "up_runtime_task_layer_number": 1,
-      "a": "caller-ref-1a",
-      "b": "caller-ref-1b"
+      "a": "caller-ref-1a"
     })
     
     cmd( 1):
     echo "exec ref-task1"
     
-     \_ echo "exec ref-task1"
+    cmd=>:
+    echo "exec ref-task1"<=
     exec ref-task1
      .. ok
     cmd( 2):
@@ -163,7 +120,8 @@ weight: 10173
     """
     
     
-     \_ echo """
+    cmd=>:
+    echo """
     vars:
     a: caller-ref-1a
     b: caller-ref-1b
@@ -171,7 +129,7 @@ weight: 10173
     e: runtime-e
     k: runtime-k
     """
-    
+    <=
     vars:
     a: caller-ref-1a
     b: caller-ref-1b
@@ -185,66 +143,44 @@ weight: 10173
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"exec ref-task2\"",
-        "echo \"\"\"\nvars:\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\ne: {{.e}}\nk: {{.k}}\n\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "a": "callee-a",
-        "b": "callee-b",
-        "c": "callee-c"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "c": "callee-c",
+      "e": "runtime-e",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nvars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k\n\"\"\"\n",
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
-      "e": "runtime-e",
-      "b": "caller-ref-1b",
-      "c": "callee-c",
-      "a": "caller-ref-1a"
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-ref-1a",
+      "b": "caller-ref-1b"
     })
     
-    hopeful_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "c": "callee-c",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nvars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k\n\"\"\"\n",
         Code: 0,
         Output: "vars:\na: caller-ref-1a\nb: caller-ref-1b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
-      "e": "runtime-e",
-      "b": "caller-ref-1b",
-      "c": "callee-c",
+      "up_runtime_task_layer_number": 1,
       "a": "caller-ref-1a",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1
+      "b": "caller-ref-1b"
     })
     
     cmd( 1):
     echo "exec ref-task2"
     
-     \_ echo "exec ref-task2"
+    cmd=>:
+    echo "exec ref-task2"<=
     exec ref-task2
      .. ok
     cmd( 2):
@@ -258,7 +194,8 @@ weight: 10173
     """
     
     
-     \_ echo """
+    cmd=>:
+    echo """
     vars:
     a: caller-ref-1a
     b: caller-ref-1b
@@ -266,7 +203,7 @@ weight: 10173
     e: runtime-e
     k: runtime-k
     """
-    
+    <=
     vars:
     a: caller-ref-1a
     b: caller-ref-1b
@@ -276,45 +213,21 @@ weight: 10173
      .. ok
     . ok
     -Step2: [: call2 ]
-    {
-      Name: "",
-      Do: {
-        "callee_task2",
-        "callee_task1"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "a": "caller-ref-2a",
-        "b": "caller-ref-2b"
-      },
-      Dvars: <nil>,
-      Desc: "call2",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "b": "caller-ref-2b",
-      "a": "caller-ref-2a",
-      "e": "runtime-e",
-      "k": "runtime-k"
-    })
-    
-    hopeful_poitras8: overall final exec vars:
-    
-    (*core.Cache)({
-      "a": "caller-ref-2a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-2a",
+      "up_runtime_task_layer_number": 1,
+      "b": "caller-ref-2b"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "a": "caller-ref-2a",
       "up_runtime_task_layer_number": 1,
       "b": "caller-ref-2b"
     })
@@ -324,56 +237,32 @@ weight: 10173
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"exec ref-task2\"",
-        "echo \"\"\"\nvars:\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\ne: {{.e}}\nk: {{.k}}\n\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "a": "callee-a",
-        "b": "callee-b",
-        "c": "callee-c"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c",
       "k": "runtime-k",
       "up_runtime_task_layer_number": 1,
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "a": "caller-ref-2a"
     })
     
-    hopeful_poitras8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-ref-2a",
-      "b": "caller-ref-2b",
-      "c": "callee-c",
       "k": "runtime-k",
       "up_runtime_task_layer_number": 1,
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "a": "caller-ref-2a",
+      "b": "caller-ref-2b",
+      "c": "callee-c"
     })
     
     cmd( 1):
     echo "exec ref-task2"
     
-     \_ echo "exec ref-task2"
+    cmd=>:
+    echo "exec ref-task2"<=
     exec ref-task2
      .. ok
     cmd( 2):
@@ -387,7 +276,8 @@ weight: 10173
     """
     
     
-     \_ echo """
+    cmd=>:
+    echo """
     vars:
     a: caller-ref-2a
     b: caller-ref-2b
@@ -395,7 +285,7 @@ weight: 10173
     e: runtime-e
     k: runtime-k
     """
-    
+    <=
     vars:
     a: caller-ref-2a
     b: caller-ref-2b
@@ -409,66 +299,44 @@ weight: 10173
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"exec ref-task1\"",
-        "echo \"\"\"\nvars:\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\ne: {{.e}}\nk: {{.k}}\n\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "b": "callee-b",
-        "c": "callee-c",
-        "a": "callee-a"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c",
-      "a": "caller-ref-2a",
-      "e": "runtime-e",
-      "k": "runtime-k",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
-        ErrMsg: ""
-      })
-    })
-    
-    hopeful_poitras8: overall final exec vars:
-    
-    (*core.Cache)({
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nvars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k\n\"\"\"\n",
         Code: 0,
         Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
         ErrMsg: ""
       }),
+      "e": "runtime-e",
+      "k": "runtime-k"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nvars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k\n\"\"\"\n",
+        Code: 0,
+        Output: "vars:\na: caller-ref-2a\nb: caller-ref-2b\nc: callee-c\ne: runtime-e\nk: runtime-k",
+        ErrMsg: ""
+      }),
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "a": "caller-ref-2a",
       "b": "caller-ref-2b",
       "c": "callee-c",
-      "a": "caller-ref-2a"
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "exec ref-task1"
     
-     \_ echo "exec ref-task1"
+    cmd=>:
+    echo "exec ref-task1"<=
     exec ref-task1
      .. ok
     cmd( 2):
@@ -482,7 +350,8 @@ weight: 10173
     """
     
     
-     \_ echo """
+    cmd=>:
+    echo """
     vars:
     a: caller-ref-2a
     b: caller-ref-2b
@@ -490,7 +359,7 @@ weight: 10173
     e: runtime-e
     k: runtime-k
     """
-    
+    <=
     vars:
     a: caller-ref-2a
     b: caller-ref-2b

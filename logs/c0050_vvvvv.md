@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:38+77:00
 draft: false
 weight: 10504
 
@@ -17,7 +17,7 @@ weight: 10504
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0050
                  Verbose -> vvvvv
-              ModuleName -> naughty_rosalind9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10504
     -exec task: task
     loading [Task]:  ./tests/functests/c0050
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185000)(<nil>)
+    (*impl.Scopes)(0xc000177020)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10504
     
     
     groups members:[]
-    module: [naughty_rosalind9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "Sydney Grammar"
@@ -48,27 +53,27 @@ weight: 10504
     
     [runtime global] dvar expanded result:
     {
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz"
+      "x": "x=>y->i am zzz",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "school": "Sydney Grammar",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz"
+      "x": "x=>y->i am zzz",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "school": "Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar"
     }
     
       located task-> 1 [task]: 
@@ -104,14 +109,14 @@ weight: 10504
     
     current exec runtime vars:
     (*core.Cache)({
-      "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
-      "school": "Sydney Grammar",
-      "nv": "n=>Sydney Grammar"
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "school": "Sydney Grammar"
     })
     
     [local] dvar expanded result:
@@ -120,37 +125,39 @@ weight: 10504
     
     
     scope[local] merged: {
-      "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
       "school": "Sydney Grammar",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>"
-    }
-    
-    
-    naughty_rosalind9: overall final exec vars:
-    
-    (*core.Cache)({
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
-      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "school": "Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>",
+      "z": "i am zzz",
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz"
     })
     
     cmd( 1):
     echo "n->{{.nv}}"
     
-     \_ echo "n->n=>Sydney Grammar"
+    cmd=>:
+    echo "n->n=>Sydney Grammar"<=
     n->n=>Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=27) "echo \"n->n=>Sydney Grammar\"",
      Code: (int) 0,
      Output: (string) (len=20) "n->n=>Sydney Grammar",
      ErrMsg: (string) ""
@@ -159,10 +166,12 @@ weight: 10504
     cmd( 2):
     echo "m->{{.m}}"
     
-     \_ echo "m->m=>n=>Sydney Grammar"
+    cmd=>:
+    echo "m->m=>n=>Sydney Grammar"<=
     m->m=>n=>Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=30) "echo \"m->m=>n=>Sydney Grammar\"",
      Code: (int) 0,
      Output: (string) (len=23) "m->m=>n=>Sydney Grammar",
      ErrMsg: (string) ""
@@ -171,10 +180,12 @@ weight: 10504
     cmd( 3):
     echo "j->{{.j}}"
     
-     \_ echo "j->j=>m=>n=>Sydney Grammar"
+    cmd=>:
+    echo "j->j=>m=>n=>Sydney Grammar"<=
     j->j=>m=>n=>Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=33) "echo \"j->j=>m=>n=>Sydney Grammar\"",
      Code: (int) 0,
      Output: (string) (len=26) "j->j=>m=>n=>Sydney Grammar",
      ErrMsg: (string) ""
@@ -183,10 +194,12 @@ weight: 10504
     cmd( 4):
     echo "o->{{.o}}"
     
-     \_ echo "o->o=><no value>"
+    cmd=>:
+    echo "o->o=><no value>"<=
     o->o=><no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=23) "echo \"o->o=><no value>\"",
      Code: (int) 0,
      Output: (string) (len=16) "o->o=><no value>",
      ErrMsg: (string) ""
@@ -195,10 +208,12 @@ weight: 10504
     cmd( 5):
     echo "z->{{.z}}"
     
-     \_ echo "z->i am zzz"
+    cmd=>:
+    echo "z->i am zzz"<=
     z->i am zzz
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"z->i am zzz\"",
      Code: (int) 0,
      Output: (string) (len=11) "z->i am zzz",
      ErrMsg: (string) ""
@@ -207,10 +222,12 @@ weight: 10504
     cmd( 6):
     echo "y->{{.yv}}"
     
-     \_ echo "y->y->i am zzz"
+    cmd=>:
+    echo "y->y->i am zzz"<=
     y->y->i am zzz
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=21) "echo \"y->y->i am zzz\"",
      Code: (int) 0,
      Output: (string) (len=14) "y->y->i am zzz",
      ErrMsg: (string) ""
@@ -219,10 +236,12 @@ weight: 10504
     cmd( 7):
     echo "x->{{.x}}"
     
-     \_ echo "x->x=>y->i am zzz"
+    cmd=>:
+    echo "x->x=>y->i am zzz"<=
     x->x=>y->i am zzz
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=24) "echo \"x->x=>y->i am zzz\"",
      Code: (int) 0,
      Output: (string) (len=17) "x->x=>y->i am zzz",
      ErrMsg: (string) ""

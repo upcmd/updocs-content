@@ -1,6 +1,6 @@
 ---
 title: "c0032_vvvv"
-date: 2020-07-01T15:34:25+77:00
+date: 2020-07-20T02:01:34+77:00
 draft: false
 weight: 10323
 
@@ -17,7 +17,7 @@ weight: 10323
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0032
                  Verbose -> vvvv
-              ModuleName -> adoring_tesla2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -37,9 +37,9 @@ weight: 10323
       "school_object": {
         "address": {
           "suburb": {
-            "CBD": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "CBD": true
           },
           "school": "Sydney Grammar"
         }
@@ -53,9 +53,9 @@ weight: 10323
         "gender": "Male",
         "address": {
           "suburb": {
-            "CBD": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "CBD": true
           },
           "school": "Sydney Grammar"
         }
@@ -64,27 +64,60 @@ weight: 10323
     
     
     groups members:[dev staging]
-    module: [adoring_tesla2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "dev-a",
-      "b": "dev-b",
       "c": "non-prod-c",
       "d": "non-prod-d",
       "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
+      "school_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "principal": "Mr Peter"
+      },
       "student": {
         "name": "Tom",
         "gender": "Male",
         "address": {
           "suburb": {
+            "postcode": 2000,
             "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
+            "name": "sydney"
           },
           "school": "Sydney Grammar"
         }
       },
+      "a": "dev-a",
+      "b": "dev-b"
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
       "school_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "principal": "Mr Peter"
+      },
+      "student": {
         "address": {
           "suburb": {
             "postcode": 2000,
@@ -93,41 +126,13 @@ weight: 10323
           },
           "school": "Sydney Grammar"
         },
-        "principal": "Mr Peter"
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
+        "name": "Tom",
+        "gender": "Male"
+      },
       "a": "dev-a",
       "b": "dev-b",
       "c": "non-prod-c",
-      "d": "non-prod-d",
-      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "school_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          }
-        },
-        "principal": "Mr Peter"
-      }
+      "d": "non-prod-d"
     }
     
       located task-> 1 [task]: 
@@ -135,50 +140,46 @@ weight: 10323
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"1.school -> {{.school}}\"\"\"",
-        "echo \"\"\"2.school object-> {{.school_object.address.suburb.CBD}}\"\"\"",
-        "echo \"\"\"3.school object-> {{.school_object.address.school}}\"\"\"",
-        "echo \"\"\"4.school object-> {{.school_object.principal}}\"\"\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "d": "non-prod-d",
+      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
       "school_object": {
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
-            "CBD": true,
             "name": "sydney",
-            "postcode": 2000
-          }
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
         },
         "principal": "Mr Peter"
       },
+      "student": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male"
+      },
       "a": "dev-a",
       "b": "dev-b",
+      "c": "non-prod-c"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "c": "non-prod-c",
       "d": "non-prod-d",
       "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
+      "school_object": {
+        "principal": "Mr Peter",
         "address": {
           "suburb": {
             "name": "sydney",
@@ -187,53 +188,35 @@ weight: 10323
           },
           "school": "Sydney Grammar"
         }
-      }
-    })
-    
-    adoring_tesla2: overall final exec vars:
-    
-    (*core.Cache)({
-      "school_object": {
+      },
+      "student": {
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "CBD": true,
-            "name": "sydney"
+            "CBD": true
           }
         },
-        "principal": "Mr Peter"
+        "name": "Tom",
+        "gender": "Male"
       },
       "a": "dev-a",
-      "b": "dev-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d",
-      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      }
+      "b": "dev-b"
     })
     
     cmd( 1):
     echo """1.school -> {{.school}}"""
     
-     \_ echo """1.school -> address:
+    cmd=>:
+    echo """1.school -> address:
       suburb:
         name: sydney
         postcode: 2000
         CBD: no
       school: Sydney Grammar
     principal: Mr Peter
-    """
+    """<=
     1.school -> address:
       suburb:
         name: sydney
@@ -245,19 +228,22 @@ weight: 10323
     cmd( 2):
     echo """2.school object-> {{.school_object.address.suburb.CBD}}"""
     
-     \_ echo """2.school object-> true"""
+    cmd=>:
+    echo """2.school object-> true"""<=
     2.school object-> true
      .. ok
     cmd( 3):
     echo """3.school object-> {{.school_object.address.school}}"""
     
-     \_ echo """3.school object-> Sydney Grammar"""
+    cmd=>:
+    echo """3.school object-> Sydney Grammar"""<=
     3.school object-> Sydney Grammar
      .. ok
     cmd( 4):
     echo """4.school object-> {{.school_object.principal}}"""
     
-     \_ echo """4.school object-> Mr Peter"""
+    cmd=>:
+    echo """4.school object-> Mr Peter"""<=
     4.school object-> Mr Peter
      .. ok
     . ok

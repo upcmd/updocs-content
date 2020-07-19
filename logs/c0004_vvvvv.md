@@ -1,6 +1,6 @@
 ---
 title: "c0004_vvvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10044
 
@@ -17,7 +17,7 @@ weight: 10044
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0004
                  Verbose -> vvvvv
-              ModuleName -> jovial_rosalind9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10044
     -exec task: task
     loading [Task]:  ./tests/functests/c0004
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f4e60)(<nil>)
+    (*impl.Scopes)(0xc0001c0ee0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10044
     
     
     groups members:[]
-    module: [jovial_rosalind9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +98,7 @@ weight: 10044
     }
     
     
-    jovial_rosalind9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -103,13 +108,15 @@ weight: 10044
     echo "world"
     
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"
     echo "world"
-    
+    <=
     hello
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=26) "echo \"hello\"\necho \"world\"\n",
      Code: (int) 0,
      Output: (string) (len=11) "hello\nworld",
      ErrMsg: (string) ""
@@ -118,10 +125,12 @@ weight: 10044
     cmd( 2):
     echo "how are you"
     
-     \_ echo "how are you"
+    cmd=>:
+    echo "how are you"<=
     how are you
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"how are you\"",
      Code: (int) 0,
      Output: (string) (len=11) "how are you",
      ErrMsg: (string) ""

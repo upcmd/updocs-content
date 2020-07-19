@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10214
 
@@ -17,7 +17,7 @@ weight: 10214
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0021
                  Verbose -> vvvvv
-              ModuleName -> mad_hawking1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10214
     -exec task: task
     loading [Task]:  ./tests/functests/c0021
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eaf00)(<nil>)
+    (*impl.Scopes)(0xc00009e3e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10214
     
     
     groups members:[]
-    module: [mad_hawking1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -71,16 +76,16 @@ weight: 10214
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "student": "Tom",
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+        "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+        "student": "Tom",
+        "gender": "Male"
       },
       Dvars: <nil>,
       Desc: "",
       Reg: "",
       Flags: {
-        "ignore_error"
+        "ignoreError"
       },
       If: "",
       Else: <nil>,
@@ -92,10 +97,10 @@ weight: 10214
     
     current exec runtime vars:
     (*core.Cache)({
+      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom"
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
     })
     
     [local] dvar expanded result:
@@ -111,13 +116,13 @@ weight: 10214
     }
     
     
-    mad_hawking1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
     })
     
     cmd( 1):
@@ -126,15 +131,17 @@ weight: 10214
      school's name: {{.school}}"""
     
     
-     \_ echo """my student: Tom
+    cmd=>:
+    echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    
+    <=
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=81) "echo \"\"\"my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar\"\"\"\n",
      Code: (int) 0,
      Output: (string) (len=69) "my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar",
      ErrMsg: (string) ""
@@ -147,16 +154,18 @@ weight: 10214
      school's name: {{$details.school}}"""
     
     
-     \_ 
+    cmd=>:
+    
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    
+    <=
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=82) "\necho \"\"\"my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar\"\"\"\n",
      Code: (int) 0,
      Output: (string) (len=69) "my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar",
      ErrMsg: (string) ""
@@ -171,18 +180,20 @@ weight: 10214
      school's name: {{$c}}"""
     
     
-     \_ 
+    cmd=>:
+    
     
     
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    
+    <=
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=84) "\n\n\necho \"\"\"my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar\"\"\"\n",
      Code: (int) 0,
      Output: (string) (len=69) "my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar",
      ErrMsg: (string) ""
@@ -198,34 +209,37 @@ weight: 10214
         2:
     
     -----trace for reference-----
-     \_ echo """my school: 
-          exec error: -> exit status 1
+    cmd=>:
+    echo """my school: <=
+          exec error: -> exit status 2
     -----trace for reference-----
     
-          /bin/sh: -c: line 0: unexpected EOF while looking for matching `"'
-    /bin/sh: -c: line 1: syntax error: unexpected end of file
+          /bin/sh: syntax error: unterminated quoted string
     
      .. failed(suppressed if not last step)
     (utils.ExecResult) {
-     Code: (int) 1,
+     Cmd: (string) (len=19) "echo \"\"\"my school: ",
+     Code: (int) 2,
      Output: (string) "",
-     ErrMsg: (string) (len=125) "/bin/sh: -c: line 0: unexpected EOF while looking for matching `\"'\n/bin/sh: -c: line 1: syntax error: unexpected end of file\n"
+     ErrMsg: (string) (len=50) "/bin/sh: syntax error: unterminated quoted string\n"
     }
     
     cmd( 5):
     echo """my student: {{.info}}"""
     
     
-     \_ echo """my student: student: Tom
+    cmd=>:
+    echo """my student: student: Tom
      gender: Male
      school: Sydney Grammar
     """
-    
+    <=
     my student: student: Tom
      gender: Male
      school: Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=75) "echo \"\"\"my student: student: Tom\n gender: Male\n school: Sydney Grammar\n\"\"\"\n",
      Code: (int) 0,
      Output: (string) (len=62) "my student: student: Tom\n gender: Male\n school: Sydney Grammar",
      ErrMsg: (string) ""

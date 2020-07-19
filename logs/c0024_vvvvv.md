@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:33+77:00
 draft: false
 weight: 10244
 
@@ -17,7 +17,7 @@ weight: 10244
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0024
                  Verbose -> vvvvv
-              ModuleName -> determined_bohr7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10244
     -exec task: task
     loading [Task]:  ./tests/functests/c0024
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e480)(<nil>)
+    (*impl.Scopes)(0xc0001daf60)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10244
     
     
     groups members:[]
-    module: [determined_bohr7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -65,9 +70,9 @@ weight: 10244
     
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -118,35 +123,37 @@ weight: 10244
     
     
     scope[local] merged: {
+      "studentname": "Tom",
+      "studentgender": "Male",
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
-      },
-      "studentname": "Tom",
-      "studentgender": "Male"
+      }
     }
     
     
-    determined_bohr7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "studentgender": "Male",
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     cmd( 1):
     echo "student=>{{.student}}"
     
-     \_ echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"
+    cmd=>:
+    echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"<=
     student=>map[gender:Male name:Tom school:Sydney Grammar]
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=63) "echo \"student=>map[gender:Male name:Tom school:Sydney Grammar]\"",
      Code: (int) 0,
      Output: (string) (len=56) "student=>map[gender:Male name:Tom school:Sydney Grammar]",
      ErrMsg: (string) ""
@@ -155,10 +162,12 @@ weight: 10244
     cmd( 2):
     echo "name=>{{.studentname}}"
     
-     \_ echo "name=>Tom"
+    cmd=>:
+    echo "name=>Tom"<=
     name=>Tom
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=16) "echo \"name=>Tom\"",
      Code: (int) 0,
      Output: (string) (len=9) "name=>Tom",
      ErrMsg: (string) ""
@@ -167,10 +176,12 @@ weight: 10244
     cmd( 3):
     echo "gender=>{{.studentgender}}"
     
-     \_ echo "gender=>Male"
+    cmd=>:
+    echo "gender=>Male"<=
     gender=>Male
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=19) "echo \"gender=>Male\"",
      Code: (int) 0,
      Output: (string) (len=12) "gender=>Male",
      ErrMsg: (string) ""
@@ -179,10 +190,12 @@ weight: 10244
     cmd( 4):
     echo "school=>{{.student.school}}"
     
-     \_ echo "school=>Sydney Grammar"
+    cmd=>:
+    echo "school=>Sydney Grammar"<=
     school=>Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=29) "echo \"school=>Sydney Grammar\"",
      Code: (int) 0,
      Output: (string) (len=22) "school=>Sydney Grammar",
      ErrMsg: (string) ""

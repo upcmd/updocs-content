@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10893
 
@@ -17,7 +17,7 @@ weight: 10893
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0089
                  Verbose -> vvvv
-              ModuleName -> loving_bell0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10893
     
     
     groups members:[]
-    module: [loving_bell0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "dynadir": "./tests/functests"
@@ -51,33 +56,12 @@ weight: 10893
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"task step 1\"",
-        "echo \"task step 2\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "dynadir": "./tests/functests"
     })
     
-    loving_bell0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "dynadir": "./tests/functests"
@@ -86,13 +70,15 @@ weight: 10893
     cmd( 1):
     echo "task step 1"
     
-     \_ echo "task step 1"
+    cmd=>:
+    echo "task step 1"<=
     task step 1
      .. ok
     cmd( 2):
     echo "task step 2"
     
-     \_ echo "task step 2"
+    cmd=>:
+    echo "task step 2"<=
     task step 2
      .. ok
     . ok

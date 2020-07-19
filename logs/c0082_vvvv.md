@@ -1,6 +1,6 @@
 ---
 title: "c0082_vvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:43+77:00
 draft: false
 weight: 10823
 
@@ -17,7 +17,7 @@ weight: 10823
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0082
                  Verbose -> vvvv
-              ModuleName -> backstabbing_mayer4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,9 +33,143 @@ weight: 10823
     
     
     groups members:[]
-    module: [backstabbing_mayer4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Tom",
+              "gender": "Male",
+              "school": "Sydney Grammar"
+            }
+          }
+        }
+      }
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "datapointer": "student",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Tom",
+              "gender": "Male",
+              "school": "Sydney Grammar"
+            }
+          }
+        }
+      },
+      "aaa": "aaa"
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "Sydney Grammar",
+              "name": "Tom",
+              "gender": "Male"
+            }
+          }
+        }
+      },
+      "aaa": "aaa"
+    })
+    
+    dvar> student_info:
+    "my name is:<no value> and I am in <no value>"
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "Sydney Grammar",
+              "name": "Tom",
+              "gender": "Male"
+            }
+          }
+        }
+      },
+      "aaa": "aaa",
+      "student_info": "my name is:<no value> and I am in <no value>"
+    })
+    
+    ~SubStep1: [print:  ]
+    my name is:<no value> and I am in <no value>
+    -Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "gender": "Male",
+              "school": "Sydney Grammar",
+              "name": "Tom"
+            }
+          }
+        }
+      },
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
+    })
+    
+    dvar> student_info:
+    "my name is:<no value> and I am in <no value>"
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "aaa": "aaa",
       "datapointer": "student",
       "student": {
         "gender": "Male",
@@ -53,215 +187,6 @@ weight: 10823
           }
         }
       },
-      "aaa": "aaa"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
-            }
-          }
-        }
-      }
-    }
-    
-      located task-> 1 [task]: 
-    Task1: [task ==> task:  ]
-    Executing task stack layer: 1
-    
-    -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student_info}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "student_info",
-          Value: "my name is:{{.name}} and I am in {{.school}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "student",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
-            }
-          }
-        }
-      },
-      "aaa": "aaa",
-      "datapointer": "student"
-    })
-    
-    dvar> student_info:
-    "my name is:<no value> and I am in <no value>"
-    
-    backstabbing_mayer4: overall final exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
-            }
-          }
-        }
-      },
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student_info": "my name is:<no value> and I am in <no value>"
-    })
-    
-    ~SubStep1: [print:  ]
-    my name is:<no value> and I am in <no value>
-    -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student_info}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "student_info",
-          Value: "my name is:{{.name}} and I am in {{.school}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "{{.datapointer}}",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
-            }
-          }
-        }
-      },
-      "aaa": "aaa",
-      "datapointer": "student"
-    })
-    
-    dvar> student_info:
-    "my name is:<no value> and I am in <no value>"
-    
-    backstabbing_mayer4: overall final exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
-            }
-          }
-        }
-      },
-      "aaa": "aaa",
-      "datapointer": "student",
       "student_info": "my name is:<no value> and I am in <no value>"
     })
     

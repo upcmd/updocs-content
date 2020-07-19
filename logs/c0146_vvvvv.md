@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11464
 
@@ -17,7 +17,7 @@ weight: 11464
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0146
                  Verbose -> vvvvv
-              ModuleName -> trusting_mccarthy3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11464
     -exec task: task
     loading [Task]:  ./tests/functests/c0146
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000157180)(<nil>)
+    (*impl.Scopes)(0xc0000bca00)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11464
     
     
     groups members:[]
-    module: [trusting_mccarthy3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -107,17 +112,17 @@ weight: 11464
     
     loading [varsfile]:  ./tests/functests/d0146_data.yml
     (core.Cache) (len=3) {
+     (string) (len=6) "folder": (string) (len=6) "module",
      (string) (len=5) "title": (string) (len=18) "HelloWorld example",
-     (string) (len=10) "personname": (string) (len=9) "Tom Hanks",
-     (string) (len=6) "folder": (string) (len=6) "module"
+     (string) (len=10) "personname": (string) (len=9) "Tom Hanks"
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "james rules",
+      "folder": "module",
       "title": "HelloWorld example",
       "personname": "Tom Cruise",
-      "folder": "module"
+      "school": "james rules"
     })
     
     [local] dvar expanded result:
@@ -126,29 +131,29 @@ weight: 11464
     
     
     scope[local] merged: {
-      "school": "james rules",
+      "folder": "module",
       "title": "HelloWorld example",
       "personname": "Tom Cruise",
-      "folder": "module"
+      "school": "james rules"
     }
     
     
-    trusting_mccarthy3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "folder": "module",
-      "school": "james rules",
       "title": "HelloWorld example",
-      "personname": "Tom Cruise"
+      "personname": "Tom Cruise",
+      "school": "james rules"
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars](*core.Cache)({
-      "school": "james rules",
+      "folder": "module",
       "title": "HelloWorld example",
       "personname": "Tom Cruise",
-      "folder": "module"
+      "school": "james rules"
     })
     
      2: inspect[exec_base_vars]{
@@ -195,7 +200,7 @@ weight: 11464
     }
     
     
-    trusting_mccarthy3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -203,14 +208,16 @@ weight: 11464
     cmd( 1):
     cat /tmp/mockup_doc.md
     
-     \_ cat /tmp/mockup_doc.md
+    cmd=>:
+    cat /tmp/mockup_doc.md<=
     title: "HelloWorld example"
-    date: 2020-06-27T03:08:00+66:00
+    date: 2020-07-20T01:35:02+77:00
     draft: false
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "cat /tmp/mockup_doc.md",
      Code: (int) 0,
-     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-06-27T03:08:00+66:00\ndraft: false",
+     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-07-20T01:35:02+77:00\ndraft: false",
      ErrMsg: (string) ""
     }
     

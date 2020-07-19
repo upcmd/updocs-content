@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10444
 
@@ -17,7 +17,7 @@ weight: 10444
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0044
                  Verbose -> vvvvv
-              ModuleName -> elated_swartz9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10444
     -exec task: task
     loading [Task]:  ./tests/functests/c0044
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed0e0)(<nil>)
+    (*impl.Scopes)(0xc000177100)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10444
     
     
     groups members:[]
-    module: [elated_swartz9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -60,8 +65,8 @@ weight: 10444
     -------runtime global final merged with dvars-------
     
     {
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     }
     
       located task-> 1 [task]: 
@@ -73,8 +78,8 @@ weight: 10444
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.homedir}}"
+          "cmd": "{{.homedir}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -98,8 +103,8 @@ weight: 10444
     
     current exec runtime vars:
     (*core.Cache)({
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     })
     
     [local] dvar expanded result:
@@ -113,7 +118,7 @@ weight: 10444
     }
     
     
-    elated_swartz9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "homedir": "/root",
@@ -166,7 +171,7 @@ weight: 10444
     }
     
     
-    elated_swartz9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "homedir": "/root",
@@ -176,10 +181,12 @@ weight: 10444
     cmd( 1):
     echo """my home is at {{.homedir}}"""
     
-     \_ echo """my home is at /root"""
+    cmd=>:
+    echo """my home is at /root"""<=
     my home is at /root
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=30) "echo \"\"\"my home is at /root\"\"\"",
      Code: (int) 0,
      Output: (string) (len=19) "my home is at /root",
      ErrMsg: (string) ""
@@ -188,10 +195,12 @@ weight: 10444
     cmd( 2):
     echo """my home is at $HOME"""
     
-     \_ echo """my home is at $HOME"""
+    cmd=>:
+    echo """my home is at $HOME"""<=
     my home is at /root
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=30) "echo \"\"\"my home is at $HOME\"\"\"",
      Code: (int) 0,
      Output: (string) (len=19) "my home is at /root",
      ErrMsg: (string) ""
@@ -200,10 +209,12 @@ weight: 10444
     cmd( 3):
     echo """{{.yourhome}}"""
     
-     \_ echo """Your path is set to /root """
+    cmd=>:
+    echo """Your path is set to /root """<=
     Your path is set to /root
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=37) "echo \"\"\"Your path is set to /root \"\"\"",
      Code: (int) 0,
      Output: (string) (len=25) "Your path is set to /root",
      ErrMsg: (string) ""

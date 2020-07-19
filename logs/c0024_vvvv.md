@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:33+77:00
 draft: false
 weight: 10243
 
@@ -17,7 +17,7 @@ weight: 10243
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0024
                  Verbose -> vvvv
-              ModuleName -> sleepy_rosalind6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,13 +33,18 @@ weight: 10243
     
     
     groups members:[]
-    module: [sleepy_rosalind6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     }
     
@@ -47,9 +52,9 @@ weight: 10243
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -60,47 +65,24 @@ weight: 10243
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"student=>{{.student}}\"",
-        "echo \"name=>{{.studentname}}\"",
-        "echo \"gender=>{{.studentgender}}\"",
-        "echo \"school=>{{.student.school}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
-      "studentgender": "Male",
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+        "gender": "Male"
+      },
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
-    sleepy_rosalind6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -109,25 +91,29 @@ weight: 10243
     cmd( 1):
     echo "student=>{{.student}}"
     
-     \_ echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"
+    cmd=>:
+    echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"<=
     student=>map[gender:Male name:Tom school:Sydney Grammar]
      .. ok
     cmd( 2):
     echo "name=>{{.studentname}}"
     
-     \_ echo "name=>Tom"
+    cmd=>:
+    echo "name=>Tom"<=
     name=>Tom
      .. ok
     cmd( 3):
     echo "gender=>{{.studentgender}}"
     
-     \_ echo "gender=>Male"
+    cmd=>:
+    echo "gender=>Male"<=
     gender=>Male
      .. ok
     cmd( 4):
     echo "school=>{{.student.school}}"
     
-     \_ echo "school=>Sydney Grammar"
+    cmd=>:
+    echo "school=>Sydney Grammar"<=
     school=>Sydney Grammar
      .. ok
     . ok

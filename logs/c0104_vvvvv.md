@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:48+77:00
 draft: false
 weight: 11044
 
@@ -17,7 +17,7 @@ weight: 11044
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0104
                  Verbose -> vvvvv
-              ModuleName -> jolly_euclid3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11044
     -exec task: task
     loading [Task]:  ./tests/functests/c0104
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002653a0)(<nil>)
+    (*impl.Scopes)(0xc000235400)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11044
     
     
     groups members:[]
-    module: [jolly_euclid3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "extra_task_name": "post_task"
@@ -97,7 +102,7 @@ weight: 11044
     }
     
     
-    jolly_euclid3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "extra_task_name": "post_task"
@@ -106,10 +111,12 @@ weight: 11044
     cmd( 1):
     echo " I love this "
     
-     \_ echo " I love this "
+    cmd=>:
+    echo " I love this "<=
     I love this
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=20) "echo \" I love this \"",
      Code: (int) 0,
      Output: (string) (len=11) "I love this",
      ErrMsg: (string) ""
@@ -142,6 +149,7 @@ weight: 11044
     (*core.Cache)({
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
@@ -154,20 +162,22 @@ weight: 11044
     
     
     scope[local] merged: {
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "extra_task_name": "post_task"
     }
     
     
-    jolly_euclid3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
@@ -178,6 +188,7 @@ weight: 11044
     (*core.Cache)({
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
@@ -211,13 +222,14 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -228,6 +240,7 @@ weight: 11044
     scope[local] merged: {
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
@@ -236,25 +249,28 @@ weight: 11044
     }
     
     
-    jolly_euclid3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""
@@ -265,6 +281,7 @@ weight: 11044
     (*core.Cache)({
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -300,6 +317,7 @@ weight: 11044
     (*core.Cache)({
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -315,6 +333,7 @@ weight: 11044
     scope[local] merged: {
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -323,12 +342,13 @@ weight: 11044
     }
     
     
-    jolly_euclid3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -338,10 +358,12 @@ weight: 11044
     cmd( 1):
     echo "this is 2nd task"
     
-     \_ echo "this is 2nd task"
+    cmd=>:
+    echo "this is 2nd task"<=
     this is 2nd task
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=23) "echo \"this is 2nd task\"",
      Code: (int) 0,
      Output: (string) (len=16) "this is 2nd task",
      ErrMsg: (string) ""

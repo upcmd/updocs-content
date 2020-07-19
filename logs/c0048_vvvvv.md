@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:38+77:00
 draft: false
 weight: 10484
 
@@ -17,7 +17,7 @@ weight: 10484
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0048
                  Verbose -> vvvvv
-              ModuleName -> angry_hopper1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10484
     -exec task: task
     loading [Task]:  ./tests/functests/c0048
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017cfc0)(<nil>)
+    (*impl.Scopes)(0xc0001bf220)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10484
     
     
     groups members:[]
-    module: [angry_hopper1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -58,7 +63,8 @@ weight: 10484
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1:
+    -Step1: [: The envVar flag makes the dvar name STUDENT_NAME is accessible as environment vars
+     ]
     {
       Name: "",
       Do: {
@@ -74,7 +80,7 @@ weight: 10484
           Desc: "",
           Expand: 0,
           Flags: {
-            "envvar"
+            "envVar"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -85,7 +91,7 @@ weight: 10484
           DataTemplate: ""
         }
       },
-      Desc: "",
+      Desc: "The envVar flag makes the dvar name STUDENT_NAME is accessible as environment vars\n",
       Reg: "",
       Flags: <nil>,
       If: "",
@@ -102,33 +108,163 @@ weight: 10484
     
     [local] dvar expanded result:
     {
-      "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
     scope[local] merged: {
       "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks"
     }
     
     
-    angry_hopper1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
-     \_ env |grep STUDENT_NAME
+    cmd=>:
+    env |grep STUDENT_NAME<=
     STUDENT_NAME=Tom Hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "env |grep STUDENT_NAME",
      Code: (int) 0,
      Output: (string) (len=22) "STUDENT_NAME=Tom Hanks",
+     ErrMsg: (string) ""
+    }
+    
+    . ok
+    -Step2: [: STUDENT_NAME is also accessible in dvar processing
+     ]
+    {
+      Name: "",
+      Do: {
+        "env |grep STUDENT_NAME",
+        "echo \"student_name_re_map is [{{.student_name_re_map}}]\""
+      },
+      Dox: <nil>,
+      Func: "shell",
+      Vars: <nil>,
+      Dvars: {
+        {
+          Name: "STUDENT_NAME",
+          Value: "Tom Hanks",
+          Desc: "",
+          Expand: 0,
+          Flags: {
+            "envVar"
+          },
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        },
+        {
+          Name: "student_name_re_map",
+          Value: "{{ env \"STUDENT_NAME\" |default \"student_name_re_map\" }}",
+          Desc: "",
+          Expand: 0,
+          Flags: <nil>,
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        }
+      },
+      Desc: "STUDENT_NAME is also accessible in dvar processing\n",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: ""
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_NAME",
+        Code: 0,
+        Output: "STUDENT_NAME=Tom Hanks",
+        ErrMsg: ""
+      })
+    })
+    
+    [local] dvar expanded result:
+    {
+      "student_name_re_map": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
+    }
+    
+    
+    scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_NAME",
+        Code: 0,
+        Output: "STUDENT_NAME=Tom Hanks",
+        ErrMsg: ""
+      }),
+      "student_name_re_map": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_NAME",
+        Code: 0,
+        Output: "STUDENT_NAME=Tom Hanks",
+        ErrMsg: ""
+      }),
+      "student_name_re_map": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
+    })
+    
+    cmd( 1):
+    env |grep STUDENT_NAME
+    
+    cmd=>:
+    env |grep STUDENT_NAME<=
+    STUDENT_NAME=Tom Hanks
+     .. ok
+    (utils.ExecResult) {
+     Cmd: (string) (len=22) "env |grep STUDENT_NAME",
+     Code: (int) 0,
+     Output: (string) (len=22) "STUDENT_NAME=Tom Hanks",
+     ErrMsg: (string) ""
+    }
+    
+    cmd( 2):
+    echo "student_name_re_map is [{{.student_name_re_map}}]"
+    
+    cmd=>:
+    echo "student_name_re_map is [Tom Hanks]"<=
+    student_name_re_map is [Tom Hanks]
+     .. ok
+    (utils.ExecResult) {
+     Cmd: (string) (len=41) "echo \"student_name_re_map is [Tom Hanks]\"",
+     Code: (int) 0,
+     Output: (string) (len=34) "student_name_re_map is [Tom Hanks]",
      ErrMsg: (string) ""
     }
     

@@ -1,6 +1,6 @@
 ---
 title: "c0113_vvvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11134
 
@@ -17,7 +17,7 @@ weight: 11134
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0113
                  Verbose -> vvvvv
-              ModuleName -> evil_heisenberg8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11134
     -exec task: task
     loading [Task]:  ./tests/functests/c0113
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb480)(<nil>)
+    (*impl.Scopes)(0xc000259480)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11134
     
     
     groups members:[]
-    module: [evil_heisenberg8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom in global",
@@ -85,8 +90,8 @@ weight: 11134
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     })
     
     [local] dvar expanded result:
@@ -100,7 +105,7 @@ weight: 11134
     }
     
     
-    evil_heisenberg8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom in global",
@@ -134,10 +139,10 @@ weight: 11134
           "cmd": "in sub_loop print1: {{.tom}}"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .tom \"tom created in sub_loop\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -171,14 +176,14 @@ weight: 11134
     
     
     scope[local] merged: {
+      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1,
-      "john": "john in sub_loop func1",
-      "tom": "this is tom in global"
+      "john": "john in sub_loop func1"
     }
     
     
-    evil_heisenberg8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
@@ -227,12 +232,12 @@ weight: 11134
           }
         },
         {
-          "name": "return",
-          "desc": "it should return and merge tom to parent's vars scope\nit should report warning as jason does not exist\n",
           "cmd": {
             "tom",
             "jason"
-          }
+          },
+          "name": "return",
+          "desc": "it should return and merge tom to parent's vars scope\nit should report warning as jason does not exist\n"
         }
       },
       Dox: <nil>,
@@ -254,9 +259,9 @@ weight: 11134
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func2",
       "tom": "tom created in sub_loop",
-      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in global"
     })
     
@@ -266,20 +271,20 @@ weight: 11134
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global",
       "john": "john in sub_loop func2",
-      "tom": "tom created in sub_loop"
+      "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     }
     
     
-    evil_heisenberg8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "tom created in sub_loop",
-      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in global",
-      "john": "john in sub_loop func2"
+      "up_runtime_task_layer_number": 1,
+      "john": "john in sub_loop func2",
+      "tom": "tom created in sub_loop"
     })
     
     in sub_loop print2: {{.tom}}
@@ -343,13 +348,13 @@ weight: 11134
     
     
     scope[local] merged: {
-      "tom": "tom created in sub_loop",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in sub_loop"
     }
     
     
-    evil_heisenberg8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "tom created in sub_loop",

@@ -1,6 +1,6 @@
 ---
 title: "0011_vvvv"
-date: 2020-07-01T15:34:59+77:00
+date: 2020-07-20T02:02:16+77:00
 draft: false
 weight: 101103
 
@@ -17,7 +17,7 @@ weight: 101103
               AbsWorkDir -> /up_project/up/tests/modtests/0011
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> angry_blackwell2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 101103
     
     
     groups members:[]
-    module: [angry_blackwell2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,29 +53,11 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: "hello-module.Say_hello",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    angry_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -84,6 +71,11 @@ weight: 101103
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -102,38 +94,13 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "... hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -143,30 +110,12 @@ weight: 101103
     ~SubStep1: [print:  ]
     ... hello
     -Step2:
-    {
-      Name: "",
-      Do: "hi-module.Say_hi",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -181,6 +130,11 @@ weight: 101103
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hi-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -199,38 +153,13 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "... hi"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
       "up_runtime_tasker_layer_number": 3
     })
     
-    hi-module: overall final exec vars:
+    hi-module: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -240,30 +169,12 @@ weight: 101103
     ~SubStep1: [print:  ]
     ... hi
     -Step2:
-    {
-      Name: "",
-      Do: "hello.Say_hello",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
     })
     
-    angry_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -278,6 +189,11 @@ weight: 101103
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -296,35 +212,12 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... hello from Say_hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello: overall final exec vars:
+    hello: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -333,30 +226,12 @@ weight: 101103
     ~SubStep1: [print:  ]
      .... hello from Say_hello
     -Step3:
-    {
-      Name: "",
-      Do: "hello.Say_hello",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    angry_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -371,6 +246,11 @@ weight: 101103
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -389,35 +269,12 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... hello from Say_hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello: overall final exec vars:
+    hello: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -426,30 +283,12 @@ weight: 101103
     ~SubStep1: [print:  ]
      .... hello from Say_hello
     -Step4:
-    {
-      Name: "",
-      Do: "hello-dummy1.Say_world",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    angry_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -464,6 +303,11 @@ weight: 101103
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-dummy1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -482,35 +326,12 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... world from Say_world"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-dummy1: overall final exec vars:
+    hello-dummy1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -519,30 +340,12 @@ weight: 101103
     ~SubStep1: [print:  ]
      .... world from Say_world
     -Step5:
-    {
-      Name: "",
-      Do: "hello-dummy2.Say_hello",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    angry_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -557,6 +360,11 @@ weight: 101103
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-dummy2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -575,35 +383,12 @@ weight: 101103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... hello from Say_hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-dummy2: overall final exec vars:
+    hello-dummy2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2

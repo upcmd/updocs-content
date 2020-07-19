@@ -1,6 +1,6 @@
 ---
 title: "f0045_vvvvv"
-date: 2020-07-01T15:34:43+77:00
+date: 2020-07-20T02:01:58+77:00
 draft: false
 weight: 10454
 
@@ -17,7 +17,7 @@ weight: 10454
               AbsWorkDir -> /up_project/up
                 TaskFile -> f0045
                  Verbose -> vvvvv
-              ModuleName -> focused_blackwell6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10454
     -exec task: task
     loading [Task]:  ./tests/functests/f0045
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c6f40)((len=1 cap=1) {
+    (*impl.Scopes)(0xc000174f00)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",

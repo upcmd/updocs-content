@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10073
 
@@ -17,7 +17,7 @@ weight: 10073
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0007
                  Verbose -> vvvv
-              ModuleName -> hopeful_blackwell5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10073
     
     
     groups members:[]
-    module: [hopeful_blackwell5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,32 +53,11 @@ weight: 10073
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    hopeful_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -81,51 +65,34 @@ weight: 10073
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       })
     })
     
-    hopeful_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -135,51 +102,34 @@ weight: 10073
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       })
     })
     
-    hopeful_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -189,13 +139,15 @@ weight: 10073
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok

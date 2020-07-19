@@ -1,6 +1,6 @@
 ---
 title: "c0025_vvvvv"
-date: 2020-07-01T15:34:24+77:00
+date: 2020-07-20T02:01:33+77:00
 draft: false
 weight: 10254
 
@@ -17,7 +17,7 @@ weight: 10254
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0025
                  Verbose -> vvvvv
-              ModuleName -> angry_jones5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10254
     -exec task: task
     loading [Task]:  ./tests/functests/c0025
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000182fc0)(<nil>)
+    (*impl.Scopes)(0xc000174fe0)(<nil>)
     
     ---------group vars----------
     
@@ -36,21 +36,26 @@ weight: 10254
     
     
     groups members:[]
-    module: [angry_jones5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
+      (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-      (string) (len=4) "name": (string) (len=3) "Tom"
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
      }
     }
     
@@ -63,12 +68,12 @@ weight: 10254
     -------runtime global final merged with dvars-------
     
     {
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
         "name": "Tom"
-      }
+      },
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     }
     
       located task-> 1 [task]: 
@@ -99,9 +104,9 @@ weight: 10254
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
@@ -114,36 +119,38 @@ weight: 10254
     scope[local] merged: {
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
     
-    angry_jones5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      }
+      },
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
     
     cmd( 1):
     echo """a smart guy=>{{.a_smart_guy}}"""
     
-     \_ echo """a smart guy=>name: "Tom"
+    cmd=>:
+    echo """a smart guy=>name: "Tom"
     sex: "Male"
     school: "Sydney Grammar"
-    """
+    """<=
     a smart guy=>name: Tom
     sex: Male
     school: Sydney Grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=73) "echo \"\"\"a smart guy=>name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n\"\"\"",
      Code: (int) 0,
      Output: (string) (len=55) "a smart guy=>name: Tom\nsex: Male\nschool: Sydney Grammar",
      ErrMsg: (string) ""

@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11424
 
@@ -17,7 +17,7 @@ weight: 11424
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0142
                  Verbose -> vvvvv
-              ModuleName -> adoring_bohr9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11424
     -exec task: task
     loading [Task]:  ./tests/functests/c0142
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed000)(<nil>)
+    (*impl.Scopes)(0xc0001c7080)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11424
     
     
     groups members:[]
-    module: [adoring_bohr9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -64,34 +69,34 @@ weight: 11424
       Do: {
         {
           "cmd": {
-            "bg": "blue",
             "fg": "white",
-            "msg": "hello, world"
+            "msg": "hello, world",
+            "bg": "blue"
           },
-          "name": "colorprint"
+          "name": "colorPrint"
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
             "msg": "hello, world",
             "bg": "yellow"
           }
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
             "msg": "hello, world",
             "fg": "white"
           }
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
             "msg": "hello, world"
           }
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
             "msg": "{{.person.name}}: {{.person.age}}",
             "fg": "blue",
@@ -99,23 +104,23 @@ weight: 11424
           }
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
-            "object": "person",
             "fg": "blue",
-            "bg": "black"
+            "bg": "black",
+            "object": "person"
           }
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
+            "object": "{{.objectname}}",
             "fg": "blue",
-            "bg": "green",
-            "object": "{{.objectname}}"
+            "bg": "green"
           }
         },
         {
-          "name": "colorprint",
+          "name": "colorPrint",
           "cmd": {
             "object": "person",
             "msg": "person",
@@ -128,8 +133,8 @@ weight: 11424
       Func: "cmd",
       Vars: {
         "person": {
-          "age": 18,
-          "name": "tom"
+          "name": "tom",
+          "age": 18
         },
         "objectname": "person"
       },
@@ -147,11 +152,11 @@ weight: 11424
     
     current exec runtime vars:
     (*core.Cache)({
+      "objectname": "person",
       "person": {
         "name": "tom",
         "age": 18
-      },
-      "objectname": "person"
+      }
     })
     
     [local] dvar expanded result:
@@ -168,7 +173,7 @@ weight: 11424
     }
     
     
-    adoring_bohr9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "objectname": "person",
@@ -179,36 +184,36 @@ weight: 11424
     })
     
     map[bg:blue fg:white msg:hello, world]
-    ~SubStep1: [colorprint:  ]
+    ~SubStep1: [colorPrint:  ]
     37 44
     hello, world
     map[bg:yellow msg:hello, world]
-    ~SubStep2: [colorprint:  ]
+    ~SubStep2: [colorPrint:  ]
     37 44
     hello, world
     map[fg:white msg:hello, world]
-    ~SubStep3: [colorprint:  ]
+    ~SubStep3: [colorPrint:  ]
     37 44
     hello, world
     map[msg:hello, world]
-    ~SubStep4: [colorprint:  ]
+    ~SubStep4: [colorPrint:  ]
     37 44
     hello, world
     map[bg:red fg:blue msg:{{.person.name}}: {{.person.age}}]
-    ~SubStep5: [colorprint:  ]
+    ~SubStep5: [colorPrint:  ]
     37 44
     tom: 18
     map[bg:black fg:blue object:person]
-    ~SubStep6: [colorprint:  ]
+    ~SubStep6: [colorPrint:  ]
     37 44
     object person:
      {
-      "name": "tom",
-      "age": 18
+      "age": 18,
+      "name": "tom"
     }
     
     map[bg:green fg:blue object:{{.objectname}}]
-    ~SubStep7: [colorprint:  ]
+    ~SubStep7: [colorPrint:  ]
     37 44
     object person:
      {
@@ -217,9 +222,9 @@ weight: 11424
     }
     
     map[bg:black fg:blue msg:person object:person]
-    ~SubStep8: [colorprint:  ]
+    ~SubStep8: [colorPrint:  ]
     37 44
-     WARN: [colorprint] - [msg and object can not coexist]
+     WARN: [colorPrint] - [msg and object can not coexist]
     
 ```
 

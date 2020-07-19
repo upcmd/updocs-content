@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvvv"
-date: 2020-07-01T15:34:43+77:00
+date: 2020-07-20T02:01:56+77:00
 draft: false
 weight: 11504
 
@@ -17,7 +17,7 @@ weight: 11504
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0150
                  Verbose -> vvvvv
-              ModuleName -> tender_shockley0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11504
     -exec task: task
     loading [Task]:  ./tests/functests/c0150
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d55a0)(<nil>)
+    (*impl.Scopes)(0xc0001bf5c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11504
     
     
     groups members:[]
-    module: [tender_shockley0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +98,7 @@ weight: 11504
     }
     
     
-    tender_shockley0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -142,7 +147,7 @@ weight: 11504
     }
     
     
-    tender_shockley0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -151,10 +156,12 @@ weight: 11504
     cmd( 1):
     uname
     
-     \_ uname
+    cmd=>:
+    uname<=
     Linux
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=5) "uname",
      Code: (int) 0,
      Output: (string) (len=5) "Linux",
      ErrMsg: (string) ""
@@ -211,11 +218,13 @@ weight: 11504
     current exec runtime vars:
     (*core.Cache)({
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
@@ -233,30 +242,34 @@ weight: 11504
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "os": "Linux",
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux"
+      })
     }
     
     
-    tender_shockley0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
@@ -279,11 +292,13 @@ weight: 11504
     caller's vars to task (testingWarning)::
     (*core.Cache)({
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
@@ -300,20 +315,20 @@ weight: 11504
       Name: "",
       Do: {
         {
+          "func": "cmd",
           "do": {
             {
               "name": "print",
               "cmd": "in sub task - building OS: {{.os}}"
             },
             {
-              "name": "colorprint",
+              "name": "colorPrint",
               "cmd": {
-                "msg": "?? WARN - This is a build for testing purpose only",
-                "fg": "red"
+                "fg": "red",
+                "msg": "?? WARN - This is a build for testing purpose only"
               }
             }
-          },
-          "func": "cmd"
+          }
         }
       },
       Dox: <nil>,
@@ -333,17 +348,19 @@ weight: 11504
     
     current exec runtime vars:
     (*core.Cache)({
+      "os": "Linux",
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
       "up_runtime_task_layer_number": 1
     })
     
@@ -353,32 +370,36 @@ weight: 11504
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux"
+      "up_runtime_task_layer_number": 1,
+      "os": "Linux",
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      })
     }
     
     
-    tender_shockley0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
       "up_runtime_task_layer_number": 1,
+      "os": "Linux",
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
@@ -428,11 +449,11 @@ weight: 11504
     }
     
     
-    tender_shockley0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux"
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1
     })
     
     in main task - building OS: {{.os}}

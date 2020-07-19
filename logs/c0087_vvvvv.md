@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10874
 
@@ -17,7 +17,7 @@ weight: 10874
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0087
                  Verbose -> vvvvv
-              ModuleName -> modest_payne6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10874
     -exec task: task
     loading [Task]:  ./tests/functests/c0087
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb500)(<nil>)
+    (*impl.Scopes)(0xc000175520)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10874
     
     
     groups members:[]
-    module: [modest_payne6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 10874
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,10 +105,12 @@ weight: 10874
     cmd( 1):
     echo 'hello'
     
-     \_ echo 'hello'
+    cmd=>:
+    echo 'hello'<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo 'hello'",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -137,6 +144,7 @@ weight: 10874
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -150,6 +158,7 @@ weight: 10874
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -157,10 +166,11 @@ weight: 10874
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -176,8 +186,8 @@ weight: 10874
       Name: "",
       Do: {
         {
-          "cmd": "world",
-          "name": "print"
+          "name": "print",
+          "cmd": "world"
         }
       },
       Dox: <nil>,
@@ -198,6 +208,7 @@ weight: 10874
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -211,6 +222,7 @@ weight: 10874
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -218,10 +230,11 @@ weight: 10874
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -258,6 +271,7 @@ weight: 10874
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -271,6 +285,7 @@ weight: 10874
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -278,10 +293,11 @@ weight: 10874
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -290,14 +306,15 @@ weight: 10874
     
     caller's vars to task (impl1)::
     (*core.Cache)({
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
       located task-> 2 [impl1]: 
@@ -330,15 +347,16 @@ weight: 10874
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "impl1",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
       "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "impl1"
     })
     
     [local] dvar expanded result:
@@ -347,30 +365,32 @@ weight: 10874
     
     
     scope[local] merged: {
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "up_runtime_task_layer_number": 1
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "up_runtime_task_layer_number": 1
     })
     
     hello
@@ -381,8 +401,8 @@ weight: 10874
       Name: "",
       Do: {
         {
-          "name": "sleep",
-          "cmd": 1000
+          "cmd": 1000,
+          "name": "sleep"
         }
       },
       Dox: <nil>,
@@ -402,14 +422,15 @@ weight: 10874
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl1",
       "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
     })
     
@@ -420,29 +441,31 @@ weight: 10874
     
     scope[local] merged: {
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl1",
-      "loopindex": 0
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl1",
-      "loopindex": 0
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1
     })
     
     %!s(int=1000)
@@ -451,14 +474,15 @@ weight: 10874
     ..........
     caller's vars to task (impl2)::
     (*core.Cache)({
-      "loopitem": "impl2",
-      "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      })
+      }),
+      "loopitem": "impl2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
       located task-> 3 [impl2]: 
@@ -491,15 +515,16 @@ weight: 10874
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "impl2",
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      }),
-      "loopitem": "impl2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -508,10 +533,11 @@ weight: 10874
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -520,18 +546,19 @@ weight: 10874
     }
     
     
-    modest_payne6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "impl2",
+      "up_runtime_task_layer_number": 1,
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      }),
-      "loopitem": "impl2"
+      })
     })
     
     world

@@ -1,6 +1,6 @@
 ---
 title: "c0038_vvvv"
-date: 2020-07-01T15:34:26+77:00
+date: 2020-07-20T02:01:36+77:00
 draft: false
 weight: 10383
 
@@ -17,7 +17,7 @@ weight: 10383
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0038
                  Verbose -> vvvv
-              ModuleName -> fervent_mcclintock9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,9 +33,31 @@ weight: 10383
     
     
     groups members:[]
-    module: [fervent_mcclintock9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "student": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
+      },
       "ns": "prod",
       "pod_name": "web_app",
       "ha": true,
@@ -50,23 +72,6 @@ weight: 10383
         "tom",
         "jason",
         "alice"
-      },
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
-        }
       }
     }
     
@@ -85,42 +90,42 @@ weight: 10383
     -------runtime global final merged with dvars-------
     
     {
-      "ns": "prod",
-      "pod_name": "web_app",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "gtf_ljust": "Hello!              ",
+      "sprig_trim": "hello",
+      "var_slice_index": "jason",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
       "student": {
+        "name": "Tom",
+        "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
         },
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "cbd": true
-          }
-        },
-        "name": "Tom",
-        "gender": "Male"
+          },
+          "school": "Sydney Grammar"
+        }
       },
-      "sprig_trim": "hello",
-      "gtf_ljust": "Hello!              ",
+      "ns": "prod",
+      "pod_name": "web_app",
       "ha": true,
       "age": 34,
-      "old": 54,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "var_slice_index": "jason",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd"
+      "old": 54
     }
     
       located task-> 1 [task]: 
@@ -128,33 +133,9 @@ weight: 10383
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"check the value of other dvar using vvvv flag print out\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
+      "age": 34,
       "student": {
         "gender": "Male",
         "teachers": {
@@ -163,76 +144,81 @@ weight: 10383
           "alice"
         },
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
             "postcode": 2000,
             "cbd": true,
             "name": "sydney"
-          }
+          },
+          "school": "Sydney Grammar"
         },
         "name": "Tom"
       },
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "var_slice_index": "jason",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "age": 34,
-      "old": 54,
-      "gtf_ljust": "Hello!              ",
-      "ns": "prod",
       "pod_name": "web_app",
       "sprig_trim": "hello",
-      "ha": true
-    })
-    
-    fervent_mcclintock9: overall final exec vars:
-    
-    (*core.Cache)({
-      "ha": true,
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
       "var_slice_index": "jason",
-      "age": 34,
-      "gtf_ljust": "Hello!              ",
-      "pod_name": "web_app",
-      "sprig_trim": "hello",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "ns": "prod",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "gtf_ljust": "Hello!              ",
+      "ha": true,
       "old": 54,
+      "ns": "prod"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "ns": "prod",
+      "ha": true,
+      "old": 54,
+      "pod_name": "web_app",
+      "sprig_trim": "hello",
+      "var_slice_index": "jason",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "age": 34,
       "student": {
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
             "postcode": 2000,
             "cbd": true,
             "name": "sydney"
-          }
+          },
+          "school": "Sydney Grammar"
         },
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
+      },
+      "gtf_ljust": "Hello!              "
     })
     
     cmd( 1):
     echo "check the value of other dvar using vvvv flag print out"
     
-     \_ echo "check the value of other dvar using vvvv flag print out"
+    cmd=>:
+    echo "check the value of other dvar using vvvv flag print out"<=
     check the value of other dvar using vvvv flag print out
      .. ok
     . ok

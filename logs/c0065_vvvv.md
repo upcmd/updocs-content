@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10653
 
@@ -17,7 +17,7 @@ weight: 10653
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0065
                  Verbose -> vvvv
-              ModuleName -> naughty_fermat1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,15 +33,20 @@ weight: 10653
     
     
     groups members:[]
-    module: [naughty_fermat1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      },
-      "person": "peter"
+      }
     }
     
     dvar> var_with_range_v:
@@ -65,18 +70,18 @@ weight: 10653
     -------runtime global final merged with dvars-------
     
     {
+      "var_with_range_vvvv": " x  x  x ",
+      "var_with_range_vvvvv": " x  x  x ",
+      "var_with_range_vvvvvv": " x  x  x ",
       "var_with_range_v": " x  x  x ",
       "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x ",
+      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      },
-      "person": "peter",
-      "var_with_range_vvv": " x  x  x ",
-      "var_with_range_vvvv": " x  x  x ",
-      "var_with_range_vvvvv": " x  x  x ",
-      "var_with_range_vvvvvv": " x  x  x "
+      }
     }
     
       located task-> 1 [task]: 

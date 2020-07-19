@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvv"
-date: 2020-07-01T15:34:59+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100903
 
@@ -17,7 +17,7 @@ weight: 100903
               AbsWorkDir -> /up_project/up/tests/modtests/0009
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> suspicious_pare3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 100903
     
     
     groups members:[]
-    module: [suspicious_pare3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }

@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11313
 
@@ -17,7 +17,7 @@ weight: 11313
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0131
                  Verbose -> vvvv
-              ModuleName -> adoring_morse3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11313
     
     
     groups members:[]
-    module: [adoring_morse3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11313
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    adoring_morse3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -86,66 +68,11 @@ weight: 11313
     true
     
     -Step2: [: show use a flow in else ]
-    {
-      Name: "",
-      Do: {
-        "goahead"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "show use a flow in else",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.goahead}}",
-      Else: {
-        {
-          "func": "cmd",
-          "do": {
-            {
-              "name": "print",
-              "cmd": "do something else step1 ......."
-            }
-          }
-        },
-        {
-          "func": "shell",
-          "do": {
-            "echo do something else step2 ......."
-          }
-        },
-        {
-          "func": "cmd",
-          "do": {
-            {
-              "name": "print",
-              "cmd": "do something else step3 ......."
-            }
-          }
-        },
-        {
-          "func": "call",
-          "desc": "show it is same that you could assemble a list of tasks for if true condition",
-          "vars": {
-            "goahead": true
-          },
-          "do": {
-            "goelse"
-          }
-        }
-      },
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    adoring_morse3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

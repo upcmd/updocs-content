@@ -1,6 +1,6 @@
 ---
 title: "c0126_vvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11263
 
@@ -17,7 +17,7 @@ weight: 11263
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0126
                  Verbose -> vvvv
-              ModuleName -> tender_ritchie9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11263
     
     
     groups members:[]
-    module: [tender_ritchie9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11263
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    tender_ritchie9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -86,31 +68,11 @@ weight: 11263
     true
     
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "goahead"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.goahead}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    tender_ritchie9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -118,31 +80,11 @@ weight: 11263
     condition failed, skip executing step 
     
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "else"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{not .goahead}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    tender_ritchie9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -152,35 +94,12 @@ weight: 11263
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "do something else ......."
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    tender_ritchie9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

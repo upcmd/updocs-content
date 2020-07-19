@@ -1,6 +1,6 @@
 ---
 title: "c0120_vvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11203
 
@@ -17,7 +17,7 @@ weight: 11203
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0120
                  Verbose -> vvvv
-              ModuleName -> nostalgic_kirch6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11203
     
     
     groups members:[]
-    module: [nostalgic_kirch6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    nostalgic_kirch6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -83,62 +65,17 @@ weight: 11203
     ~SubStep1: [print:  ]
     step1
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "break"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    nostalgic_kirch6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
     
     ~SubStep1: [break:  ]
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
      WARN: [break] - [client chose to break]
     
 ```

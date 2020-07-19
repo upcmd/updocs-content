@@ -1,6 +1,6 @@
 ---
 title: "c0117_vvvvv"
-date: 2020-07-01T15:34:37+77:00
+date: 2020-07-20T02:01:50+77:00
 draft: false
 weight: 11174
 
@@ -17,7 +17,7 @@ weight: 11174
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0117
                  Verbose -> vvvvv
-              ModuleName -> dreamy_fermi5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11174
     -exec task: task
     loading [Task]:  ./tests/functests/c0117
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed380)(<nil>)
+    (*impl.Scopes)(0xc0001e53a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11174
     
     
     groups members:[]
-    module: [dreamy_fermi5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -94,16 +99,16 @@ weight: 11174
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
     
     caller's vars to task (subtask)::
     (*core.Cache)({
+      "loopindex1": 1,
       "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
       located task-> 2 [subtask]: 
@@ -136,9 +141,9 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "proc 1",
       "up_runtime_task_layer_number": 1
     })
     
@@ -150,18 +155,18 @@ weight: 11174
     scope[local] merged: {
       "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "proc 1",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1"
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "proc 1"
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -172,8 +177,8 @@ weight: 11174
       Name: "step2",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -209,14 +214,14 @@ weight: 11174
     
     
     scope[local] merged: {
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "proc 1",
@@ -281,10 +286,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 1",
       "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "loopitem": "proc 1"
     })
     
     [local] dvar expanded result:
@@ -294,22 +299,22 @@ weight: 11174
     
     
     scope[local] merged: {
+      "loopitem": "proc 1",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "parentLoopItem": "proc 1",
       "loopindex1": 1,
-      "loopitem": "proc 1"
+      "up_runtime_task_layer_number": 1,
+      "parentLoopItem": "proc 1"
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "proc 1",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "parentLoopItem": "proc 1",
       "loopindex1": 1,
-      "loopitem": "proc 1"
+      "up_runtime_task_layer_number": 1,
+      "parentLoopItem": "proc 1"
     })
     
     parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}
@@ -358,10 +363,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
     [local] dvar expanded result:
@@ -377,7 +382,7 @@ weight: 11174
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "proc 2",
@@ -419,10 +424,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -431,20 +436,20 @@ weight: 11174
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
+      "loopindex1": 2,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "up_runtime_task_layer_number": 1
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
-      "loopindex": 1
+      "loopindex": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -516,15 +521,15 @@ weight: 11174
     
     
     scope[local] merged: {
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "parentLoopItem": "proc 2",
       "loopitem": "proc 2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "proc 2",
@@ -545,9 +550,9 @@ weight: 11174
     parent loop: proc 2, child loop: item3
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "loopitem": "proc 3"
     })
     
       located task-> 2 [subtask]: 
@@ -580,10 +585,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -592,20 +597,20 @@ weight: 11174
     
     
     scope[local] merged: {
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -660,13 +665,13 @@ weight: 11174
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -685,8 +690,8 @@ weight: 11174
       Name: "step3",
       Do: {
         {
-          "cmd": "parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -725,10 +730,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -738,22 +743,22 @@ weight: 11174
     
     
     scope[local] merged: {
-      "loopindex1": 3,
       "parentLoopItem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3",
-      "loopindex": 2
+      "loopitem": "proc 3"
     }
     
     
-    dreamy_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
       "parentLoopItem": "proc 3",
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}

@@ -1,6 +1,6 @@
 ---
 title: "c0140_vvvvv"
-date: 2020-07-01T15:34:41+77:00
+date: 2020-07-20T02:01:54+77:00
 draft: false
 weight: 11404
 
@@ -17,7 +17,7 @@ weight: 11404
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0140
                  Verbose -> vvvvv
-              ModuleName -> boring_fermi5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11404
     -exec task: task
     loading [Task]:  ./tests/functests/c0140
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185180)(<nil>)
+    (*impl.Scopes)(0xc0001731a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11404
     
     
     groups members:[]
-    module: [boring_fermi5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +100,7 @@ weight: 11404
     }
     
     
-    boring_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

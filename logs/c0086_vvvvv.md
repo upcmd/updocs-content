@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10864
 
@@ -17,7 +17,7 @@ weight: 10864
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0086
                  Verbose -> vvvvv
-              ModuleName -> fervent_mayer9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10864
     -exec task: task
     loading [Task]:  ./tests/functests/c0086
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed5e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf660)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10864
     
     
     groups members:[]
-    module: [fervent_mayer9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -107,38 +112,60 @@ weight: 10864
     })
     
     dvar> linelist:
-    ""
+    "- hello\n- this\n- is a\n- beautiful world\n"
     
     [local] dvar expanded result:
     {
-      "linelist": ""
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
     }
     
     
     scope[local] merged: {
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
     }
     
     
-    fervent_mayer9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
     echo '{{.lines}}'
     
-     \_ echo 'hello
+    cmd=>:
+    echo 'hello
     this
     is a
-    beautiful world'
+    beautiful world'<=
     hello
     this
     is a
     beautiful world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=38) "echo 'hello\nthis\nis a\nbeautiful world'",
      Code: (int) 0,
      Output: (string) (len=31) "hello\nthis\nis a\nbeautiful world",
      ErrMsg: (string) ""
@@ -147,24 +174,35 @@ weight: 10864
     cmd( 2):
     echo '{{.linelist}}'
     
-     \_ echo '<no value>'
-    <no value>
+    cmd=>:
+    echo '- hello
+    - this
+    - is a
+    - beautiful world
+    '<=
+    - hello
+    - this
+    - is a
+    - beautiful world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=47) "echo '- hello\n- this\n- is a\n- beautiful world\n'",
      Code: (int) 0,
-     Output: (string) (len=10) "<no value>",
+     Output: (string) (len=39) "- hello\n- this\n- is a\n- beautiful world",
      ErrMsg: (string) ""
     }
     
     cmd( 3):
     echo '{{.linelist_object}}'
     
-     \_ echo '<no value>'
-    <no value>
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
+    [hello this is a beautiful world]
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=40) "echo '[hello this is a beautiful world]'",
      Code: (int) 0,
-     Output: (string) (len=10) "<no value>",
+     Output: (string) (len=33) "[hello this is a beautiful world]",
      ErrMsg: (string) ""
     }
     
@@ -219,24 +257,32 @@ weight: 10864
         "beautiful world"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
-        Output: "<no value>",
+        Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       })
     })
     
     dvar> void:
-    ""
+    "- hello\n- this\n- is a\n- beautiful world\n"
     
     [local] dvar expanded result:
     {
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     }
     
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
-        Output: "<no value>",
+        Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
       "lines": "hello\nthis\nis a\nbeautiful world",
@@ -249,36 +295,39 @@ weight: 10864
     }
     
     
-    fervent_mayer9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "<no value>",
-        ErrMsg: ""
-      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
     echo '{{.lines}}'
     
-     \_ echo 'hello
+    cmd=>:
+    echo 'hello
     this
     is a
-    beautiful world'
+    beautiful world'<=
     hello
     this
     is a
     beautiful world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=38) "echo 'hello\nthis\nis a\nbeautiful world'",
      Code: (int) 0,
      Output: (string) (len=31) "hello\nthis\nis a\nbeautiful world",
      ErrMsg: (string) ""
@@ -287,10 +336,12 @@ weight: 10864
     cmd( 2):
     echo '{{.linelist}}'
     
-     \_ echo '<no value>'
+    cmd=>:
+    echo '<no value>'<=
     <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo '<no value>'",
      Code: (int) 0,
      Output: (string) (len=10) "<no value>",
      ErrMsg: (string) ""
@@ -299,10 +350,12 @@ weight: 10864
     cmd( 3):
     echo '{{.linelist_object}}'
     
-     \_ echo '[hello this is a beautiful world]'
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
     [hello this is a beautiful world]
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=40) "echo '[hello this is a beautiful world]'",
      Code: (int) 0,
      Output: (string) (len=33) "[hello this is a beautiful world]",
      ErrMsg: (string) ""
@@ -353,6 +406,7 @@ weight: 10864
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
@@ -367,30 +421,37 @@ weight: 10864
     })
     
     dvar> void:
-    ""
+    "- hello\n- this\n- is a\n- beautiful world\n"
     
     [local] dvar expanded result:
     {
-    }
-    
-    
-    scope[local] merged: {
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
+      }
+    }
+    
+    
+    scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     }
     
     
-    fervent_mayer9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
@@ -401,6 +462,7 @@ weight: 10864
         "beautiful world"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
@@ -410,16 +472,18 @@ weight: 10864
     cmd( 1):
     echo '{{.lines}}'
     
-     \_ echo 'hello
+    cmd=>:
+    echo 'hello
     this
     is a
-    beautiful world'
+    beautiful world'<=
     hello
     this
     is a
     beautiful world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=38) "echo 'hello\nthis\nis a\nbeautiful world'",
      Code: (int) 0,
      Output: (string) (len=31) "hello\nthis\nis a\nbeautiful world",
      ErrMsg: (string) ""
@@ -428,10 +492,12 @@ weight: 10864
     cmd( 2):
     echo '{{.linelist}}'
     
-     \_ echo '<no value>'
+    cmd=>:
+    echo '<no value>'<=
     <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo '<no value>'",
      Code: (int) 0,
      Output: (string) (len=10) "<no value>",
      ErrMsg: (string) ""
@@ -440,10 +506,12 @@ weight: 10864
     cmd( 3):
     echo '{{.linelist_object}}'
     
-     \_ echo '[hello this is a beautiful world]'
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
     [hello this is a beautiful world]
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=40) "echo '[hello this is a beautiful world]'",
      Code: (int) 0,
      Output: (string) (len=33) "[hello this is a beautiful world]",
      ErrMsg: (string) ""
@@ -475,18 +543,19 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
+      }
     })
     
     [local] dvar expanded result:
@@ -495,6 +564,7 @@ weight: 10864
     
     
     scope[local] merged: {
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
@@ -502,15 +572,15 @@ weight: 10864
         "beautiful world"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      })
     }
     
     
-    fervent_mayer9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
@@ -521,6 +591,7 @@ weight: 10864
         "beautiful world"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
@@ -530,16 +601,18 @@ weight: 10864
     cmd( 1):
     echo '{{.lines}}'
     
-     \_ echo 'hello
+    cmd=>:
+    echo 'hello
     this
     is a
-    beautiful world'
+    beautiful world'<=
     hello
     this
     is a
     beautiful world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=38) "echo 'hello\nthis\nis a\nbeautiful world'",
      Code: (int) 0,
      Output: (string) (len=31) "hello\nthis\nis a\nbeautiful world",
      ErrMsg: (string) ""
@@ -548,10 +621,12 @@ weight: 10864
     cmd( 2):
     echo '{{.linelist}}'
     
-     \_ echo '<no value>'
+    cmd=>:
+    echo '<no value>'<=
     <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo '<no value>'",
      Code: (int) 0,
      Output: (string) (len=10) "<no value>",
      ErrMsg: (string) ""
@@ -560,10 +635,12 @@ weight: 10864
     cmd( 3):
     echo '{{.linelist_object}}'
     
-     \_ echo '[hello this is a beautiful world]'
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
     [hello this is a beautiful world]
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=40) "echo '[hello this is a beautiful world]'",
      Code: (int) 0,
      Output: (string) (len=33) "[hello this is a beautiful world]",
      ErrMsg: (string) ""
@@ -586,7 +663,7 @@ weight: 10864
           Flags: {
             "vvv",
             "reg",
-            "to_object"
+            "toObj"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -610,18 +687,19 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
+      }
     })
     
     dvar> void:
@@ -631,8 +709,8 @@ weight: 10864
     dvar> void_object:
     {
       "person": {
-        "age": "18",
-        "name": "tom"
+        "name": "tom",
+        "age": "18"
       }
     }
     
@@ -642,36 +720,38 @@ weight: 10864
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
     }
     
     
-    fervent_mayer9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]

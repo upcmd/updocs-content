@@ -1,6 +1,6 @@
 ---
 title: "0001_vvvvv"
-date: 2020-07-01T15:34:57+77:00
+date: 2020-07-20T02:02:14+77:00
 draft: false
 weight: 100104
 
@@ -17,7 +17,7 @@ weight: 100104
               AbsWorkDir -> /up_project/up/tests/modtests/0001
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> modest_tesla9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100104
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eaf80)(<nil>)
+    (*impl.Scopes)(0xc00026efa0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 100104
     
     
     groups members:[]
-    module: [modest_tesla9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 100104
     }
     
     
-    modest_tesla9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,10 +105,12 @@ weight: 100104
     cmd( 1):
     echo "hello world"
     
-     \_ echo "hello world"
+    cmd=>:
+    echo "hello world"<=
     hello world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"hello world\"",
      Code: (int) 0,
      Output: (string) (len=11) "hello world",
      ErrMsg: (string) ""
@@ -132,6 +139,7 @@ weight: 100104
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -145,6 +153,7 @@ weight: 100104
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -152,10 +161,11 @@ weight: 100104
     }
     
     
-    modest_tesla9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -165,6 +175,7 @@ weight: 100104
     caller's vars to task (internal_task)::
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -202,6 +213,7 @@ weight: 100104
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -216,6 +228,7 @@ weight: 100104
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -224,10 +237,11 @@ weight: 100104
     }
     
     
-    modest_tesla9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -259,12 +273,13 @@ weight: 100104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -274,6 +289,7 @@ weight: 100104
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -282,20 +298,22 @@ weight: 100104
     }
     
     
-    modest_tesla9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     caller's vars to task (hello-module.Say_world)::
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -306,7 +324,7 @@ weight: 100104
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025efc0)(<nil>)
+    (*impl.Scopes)(0xc0000a0640)(<nil>)
     
     ---------group vars----------
     
@@ -315,6 +333,11 @@ weight: 100104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -368,14 +391,15 @@ weight: 100104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      })
     })
     
     [local] dvar expanded result:
@@ -384,28 +408,30 @@ weight: 100104
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
       "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello world",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    hello-module: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
+    }
+    
+    
+    hello-module: final context exec vars:
+    
+    (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
+        Code: 0,
+        Output: "hello world",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     ... world

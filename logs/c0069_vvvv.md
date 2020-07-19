@@ -1,6 +1,6 @@
 ---
 title: "c0069_vvvv"
-date: 2020-07-01T15:34:30+77:00
+date: 2020-07-20T02:01:41+77:00
 draft: false
 weight: 10693
 
@@ -17,7 +17,7 @@ weight: 10693
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0069
                  Verbose -> vvvv
-              ModuleName -> stoic_mccarthy3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10693
     
     
     groups members:[]
-    module: [stoic_mccarthy3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -53,6 +58,28 @@ weight: 10693
     -------runtime global final merged with dvars-------
     
     {
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
         "name": "Tom",
@@ -66,66 +93,22 @@ weight: 10693
           "school": "Sydney Grammar"
         }
       }
-    }
-    
-      located task-> 1 [task]: 
-    Task1: [task ==> task:  ]
-    Executing task stack layer: 1
-    
-    -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"school address {{.school_address}}\"\"\"",
-        "echo \"\"\"school address {{.school_address}}\"\"\" > /tmp/school.txt",
-        "cat /tmp/school.txt"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          }
-        },
-        "name": "Tom"
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     })
     
-    stoic_mccarthy3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
-        },
-        "name": "Tom"
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
+        }
       },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     })
@@ -133,13 +116,14 @@ weight: 10693
     cmd( 1):
     echo """school address {{.school_address}}"""
     
-     \_ echo """school address address:
+    cmd=>:
+    echo """school address address:
       suburb:
         name: sydney
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
-    """
+    """<=
     school address address:
       suburb:
         name: sydney
@@ -150,19 +134,21 @@ weight: 10693
     cmd( 2):
     echo """school address {{.school_address}}""" > /tmp/school.txt
     
-     \_ echo """school address address:
+    cmd=>:
+    echo """school address address:
       suburb:
         name: sydney
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
-    """ > /tmp/school.txt
+    """ > /tmp/school.txt<=
     
      .. ok
     cmd( 3):
     cat /tmp/school.txt
     
-     \_ cat /tmp/school.txt
+    cmd=>:
+    cat /tmp/school.txt<=
     school address address:
       suburb:
         name: sydney

@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvv"
-date: 2020-07-01T15:34:57+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100303
 
@@ -17,7 +17,7 @@ weight: 100303
               AbsWorkDir -> /up_project/up/tests/modtests/0003
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> sick_brattain5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 100303
     
     
     groups members:[]
-    module: [sick_brattain5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "caller-aaa"
@@ -50,30 +55,12 @@ weight: 100303
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: "hello-module.Say_world",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "caller-aaa"
     })
     
-    sick_brattain5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "caller-aaa"
@@ -88,6 +75,11 @@ weight: 100303
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -106,46 +98,6 @@ weight: 100303
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .a \"caller-aaa\"}}",
-            "{{eq .b \"module-bbb\"}}"
-          }
-        },
-        {
-          "name": "return",
-          "desc": "var b should be return to caler\n",
-          "cmd": {
-            "b"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "module-aaa",
-        "b": "module-bbb"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "caller-aaa",
@@ -153,7 +105,7 @@ weight: 100303
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "a": "caller-aaa",
@@ -172,44 +124,6 @@ weight: 100303
     ~SubStep3: [return: var b should be return to caler
      ]
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "inspect",
-          "cmd": {
-            "exec_vars",
-            "exec_base_vars"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "back to main caller\na: {{.a}}\nb: {{.b}}\n"
-        },
-        {
-          "name": "assert",
-          "des": "var b is returned from module\n",
-          "cmd": {
-            "{{eq .a \"caller-aaa\"}}",
-            "{{eq .b \"module-bbb\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "caller-aaa",
@@ -217,7 +131,7 @@ weight: 100303
       "up_runtime_tasker_layer_number": 2
     })
     
-    sick_brattain5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "caller-aaa",
@@ -227,9 +141,9 @@ weight: 100303
     
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars](*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
      2: inspect[exec_base_vars]{

@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:48+77:00
 draft: false
 weight: 11084
 
@@ -17,7 +17,7 @@ weight: 11084
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0108
                  Verbose -> vvvvv
-              ModuleName -> elated_hopper8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11084
     -exec task: task
     loading [Task]:  ./tests/functests/c0108
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef3a0)(<nil>)
+    (*impl.Scopes)(0xc000235400)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11084
     
     
     groups members:[]
-    module: [elated_hopper8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -108,7 +113,7 @@ weight: 11084
     }
     
     
-    elated_hopper8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -126,9 +131,9 @@ weight: 11084
       Name: "",
       Do: {
         {
-          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "jerry is in local scope so there is no value"
+          "desc": "jerry is in local scope so there is no value",
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -161,7 +166,7 @@ weight: 11084
     }
     
     
-    elated_hopper8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -169,15 +174,15 @@ weight: 11084
     
     {{.jerry}}
     ~SubStep1: [print: jerry is in local scope so there is no value ]
-    <no value>
+    None
     -Step3:
     {
       Name: "",
       Do: {
         {
-          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "this should print out the dvar value of jerry"
+          "desc": "this should print out the dvar value of jerry",
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -190,7 +195,7 @@ weight: 11084
           Desc: "",
           Expand: 0,
           Flags: {
-            "taskscope"
+            "taskScope"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -229,7 +234,7 @@ weight: 11084
     }
     
     
-    elated_hopper8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -245,7 +250,7 @@ weight: 11084
       Do: {
         {
           "name": "print",
-          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
+          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskScope",
           "cmd": "{{.jerry}}"
         }
       },
@@ -266,8 +271,8 @@ weight: 11084
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -281,7 +286,7 @@ weight: 11084
     }
     
     
-    elated_hopper8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -289,16 +294,16 @@ weight: 11084
     })
     
     {{.jerry}}
-    ~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskscope ]
+    ~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
     this is jerry in task scope
     -Step5:
     {
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "var jerry in task scope is overrided by local var jerry",
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -335,11 +340,11 @@ weight: 11084
     }
     
     
-    elated_hopper8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "jerry is overrided in local scope"
+      "jerry": "jerry is overrided in local scope",
+      "tom": "this is tom"
     })
     
     {{.jerry}}
@@ -387,7 +392,7 @@ weight: 11084
     }
     
     
-    elated_hopper8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

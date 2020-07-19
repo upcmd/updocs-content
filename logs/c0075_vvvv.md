@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvv"
-date: 2020-07-01T15:34:31+77:00
+date: 2020-07-20T02:01:42+77:00
 draft: false
 weight: 10753
 
@@ -17,7 +17,7 @@ weight: 10753
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0075
                  Verbose -> vvvv
-              ModuleName -> insane_sinoussi9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10753
     
     
     groups members:[]
-    module: [insane_sinoussi9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -70,18 +75,18 @@ weight: 10753
     -------runtime global final merged with dvars-------
     
     {
-      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range": " x  x  x ",
       "var_with_range_item": " tom  jason  alice ",
       "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
       "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+      "var_with_range": " x  x  x ",
+      "person": "peter"
     }
     
       located task-> 1 [task]: 

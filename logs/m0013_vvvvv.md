@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvvv"
-date: 2020-07-01T15:35:00+77:00
+date: 2020-07-20T02:02:16+77:00
 draft: false
 weight: 101304
 
@@ -17,7 +17,7 @@ weight: 101304
               AbsWorkDir -> /up_project/up/tests/modtests/0013
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> backstabbing_wozniak5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 8
@@ -27,7 +27,7 @@ weight: 101304
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ead80)(<nil>)
+    (*impl.Scopes)(0xc000174d40)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 101304
     
     
     groups members:[]
-    module: [backstabbing_wozniak5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +95,7 @@ weight: 101304
     }
     
     
-    backstabbing_wozniak5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -102,7 +107,7 @@ weight: 101304
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00028e7e0)(<nil>)
+    (*impl.Scopes)(0xc000175d40)(<nil>)
     
     ---------group vars----------
     
@@ -111,6 +116,11 @@ weight: 101304
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -141,8 +151,8 @@ weight: 101304
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "... hello"
+          "cmd": "... hello",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -164,8 +174,8 @@ weight: 101304
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -179,7 +189,7 @@ weight: 101304
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -223,7 +233,7 @@ weight: 101304
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -237,7 +247,7 @@ weight: 101304
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000f520)(<nil>)
+    (*impl.Scopes)(0xc0001ef600)(<nil>)
     
     ---------group vars----------
     
@@ -246,6 +256,11 @@ weight: 101304
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -310,7 +325,7 @@ weight: 101304
     }
     
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3

@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10433
 
@@ -17,7 +17,7 @@ weight: 10433
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0043
                  Verbose -> vvvv
-              ModuleName -> cranky_cori3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10433
     
     
     groups members:[]
-    module: [cranky_cori3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,67 +53,32 @@ weight: 10433
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    cranky_cori3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
     
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: <nil>,
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       })
     })
     
-    cranky_cori3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -122,62 +92,26 @@ weight: 10433
     register a var into global var map, and it will be
     avaiable after the next step
      ]
-    {
-      Name: "",
-      Do: <nil>,
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "a": "aa",
-        "b": "bb"
-      },
-      Dvars: {
-        {
-          Name: "adebug",
-          Value: "{{.a}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "this would be totally fine too without shell commands\nthis step could be served as a intermediate step to\nregister a var into global var map, and it will be\navaiable after the next step\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "b": "bb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "a": "aa",
-      "b": "bb"
+      "a": "aa"
     })
     
     dvar> adebug:
     "aa"
     
-    cranky_cori3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -189,66 +123,30 @@ weight: 10433
     
      WARN: [shell] - [Not implemented or void for no action!]
     . ok
-    -Step4: [: in cmd, you can also do reg/dereg var in dvar evaluation
+    -Step4: [: in cmd, you can also do reg/deReg var in dvar evaluation
     the cmd func name makes more sense then shell func
     if you really want to do var manipulation only
      ]
-    {
-      Name: "",
-      Do: <nil>,
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "c": "cc",
-        "d": "dd"
-      },
-      Dvars: {
-        {
-          Name: "cdebug",
-          Value: "{{.c}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "in cmd, you can also do reg/dereg var in dvar evaluation\nthe cmd func name makes more sense then shell func\nif you really want to do var manipulation only\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "c": "cc",
-      "d": "dd",
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "c": "cc",
+      "d": "dd"
     })
     
     dvar> cdebug:
     "cc"
     
-    cranky_cori3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""

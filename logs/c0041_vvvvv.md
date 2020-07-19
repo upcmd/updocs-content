@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvvv"
-date: 2020-07-01T15:34:26+77:00
+date: 2020-07-20T02:01:36+77:00
 draft: false
 weight: 10414
 
@@ -17,7 +17,7 @@ weight: 10414
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0041
                  Verbose -> vvvvv
-              ModuleName -> mad_swartz6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10414
     -exec task: task
     loading [Task]:  ./tests/functests/c0041
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb0e0)(<nil>)
+    (*impl.Scopes)(0xc0001750c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10414
     
     
     groups members:[]
-    module: [mad_swartz6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +98,7 @@ weight: 10414
     }
     
     
-    mad_swartz6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -101,10 +106,12 @@ weight: 10414
     cmd( 1):
     echo hello
     
-     \_ echo hello
+    cmd=>:
+    echo hello<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=10) "echo hello",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -113,10 +120,12 @@ weight: 10414
     cmd( 2):
     echo world
     
-     \_ echo world
+    cmd=>:
+    echo world<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=10) "echo world",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""
@@ -150,6 +159,7 @@ weight: 10414
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo world",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -163,6 +173,7 @@ weight: 10414
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo world",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -170,10 +181,11 @@ weight: 10414
     }
     
     
-    mad_swartz6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo world",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -183,10 +195,12 @@ weight: 10414
     cmd( 1):
     echo tom
     
-     \_ echo tom
+    cmd=>:
+    echo tom<=
     tom
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "echo tom",
      Code: (int) 0,
      Output: (string) (len=3) "tom",
      ErrMsg: (string) ""
@@ -195,10 +209,12 @@ weight: 10414
     cmd( 2):
     echo "{{.last_result.Code}}"
     
-     \_ echo "0"
+    cmd=>:
+    echo "0"<=
     0
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "echo \"0\"",
      Code: (int) 0,
      Output: (string) (len=1) "0",
      ErrMsg: (string) ""
@@ -207,10 +223,12 @@ weight: 10414
     cmd( 3):
     echo "{{.last_result.Output}}"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""
@@ -219,10 +237,12 @@ weight: 10414
     cmd( 4):
     echo hanks
     
-     \_ echo hanks
+    cmd=>:
+    echo hanks<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=10) "echo hanks",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -271,6 +291,7 @@ weight: 10414
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -285,6 +306,7 @@ weight: 10414
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -293,10 +315,11 @@ weight: 10414
     }
     
     
-    mad_swartz6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -307,10 +330,12 @@ weight: 10414
     cmd( 1):
     echo tom
     
-     \_ echo tom
+    cmd=>:
+    echo tom<=
     tom
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "echo tom",
      Code: (int) 0,
      Output: (string) (len=3) "tom",
      ErrMsg: (string) ""
@@ -319,10 +344,12 @@ weight: 10414
     cmd( 2):
     echo "{{.last_result.Output}}"
     
-     \_ echo "hanks"
+    cmd=>:
+    echo "hanks"<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hanks\"",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -331,10 +358,12 @@ weight: 10414
     cmd( 3):
     echo hanks
     
-     \_ echo hanks
+    cmd=>:
+    echo hanks<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=10) "echo hanks",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -343,11 +372,13 @@ weight: 10414
     cmd( 4):
     echo "{{.greet}}"
     
-     \_ echo "hello: hanks
-    "
+    cmd=>:
+    echo "hello: hanks
+    "<=
     hello: hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=20) "echo \"hello: hanks\n\"",
      Code: (int) 0,
      Output: (string) (len=12) "hello: hanks",
      ErrMsg: (string) ""

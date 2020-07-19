@@ -1,6 +1,6 @@
 ---
 title: "f0125_vvvvv"
-date: 2020-07-01T15:34:44+77:00
+date: 2020-07-20T02:01:58+77:00
 draft: false
 weight: 11254
 
@@ -17,7 +17,7 @@ weight: 11254
               AbsWorkDir -> /up_project/up
                 TaskFile -> f0125
                  Verbose -> vvvvv
-              ModuleName -> stupefied_einstein8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11254
     -exec task: task
     loading [Task]:  ./tests/functests/f0125
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed2a0)(<nil>)
+    (*impl.Scopes)(0xc0001e72c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11254
     
     
     groups members:[]
-    module: [stupefied_einstein8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -144,7 +149,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -189,7 +194,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -242,7 +247,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 2
@@ -286,7 +291,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 2
@@ -340,7 +345,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 3
@@ -385,7 +390,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 3
@@ -438,7 +443,7 @@ weight: 11254
     }
     
     
-    stupefied_einstein8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 4

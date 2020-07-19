@@ -1,6 +1,6 @@
 ---
 title: "c0136_vvvvv"
-date: 2020-07-01T15:34:40+77:00
+date: 2020-07-20T02:01:53+77:00
 draft: false
 weight: 11364
 
@@ -17,7 +17,7 @@ weight: 11364
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0136
                  Verbose -> vvvvv
-              ModuleName -> sad_mclean8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11364
     -exec task: task
     loading [Task]:  ./tests/functests/c0136
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb540)(<nil>)
+    (*impl.Scopes)(0xc0001e5560)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,23 @@ weight: 11364
     
     
     groups members:[]
-    module: [sad_mclean8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "c": (string) (len=10) "global_ccc",
      (string) (len=1) "a": (string) (len=10) "global_aaa",
-     (string) (len=1) "b": (string) (len=10) "global_bbb",
-     (string) (len=1) "c": (string) (len=10) "global_ccc"
+     (string) (len=1) "b": (string) (len=10) "global_bbb"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +63,9 @@ weight: 11364
     -------runtime global final merged with dvars-------
     
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -122,9 +127,9 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -135,31 +140,31 @@ weight: 11364
     
     
     scope[local] merged: {
-      "a": "local_aaa",
-      "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "da": "local_da",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb"
     }
     
     
-    sad_mclean8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da"
     })
     
     caller's vars to task (callee_task1)::
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da"
     })
     
       located task-> 3 [callee_task1]: 
@@ -221,8 +226,8 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
-      "da": "local_da",
       "db": "local_db",
+      "da": "local_da",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 1,
       "a": "local_aaa",
@@ -239,32 +244,32 @@ weight: 11364
     scope[local] merged: {
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
+      "da": "local_da_callee_task1",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 1
     }
     
     
-    sad_mclean8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
+      "da": "local_da_callee_task1",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (callee_task2)::
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
+      "da": "local_da_callee_task1",
       "c": "global_ccc",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "a": "local_aaa"
     })
     
       located task-> 2 [callee_task2]: 
@@ -283,6 +288,9 @@ weight: 11364
               "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             },
             {
+              "flags": {
+                "failFast"
+              },
               "name": "assert",
               "cmd": {
                 "{{eq .a \"local_aaa\" }}",
@@ -290,9 +298,6 @@ weight: 11364
                 "{{eq .c \"global_ccc\" }}",
                 "{{eq .da \"local_da_callee_task1\" }}",
                 "{{eq .db \"callee_db_callee_task2\" }}"
-              },
-              "flags": {
-                "failfast"
               }
             }
           }
@@ -332,12 +337,12 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_aaa",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
       "b": "local_bbb",
-      "da": "local_da_callee_task1",
       "db": "local_db_callee_task1",
-      "a": "local_aaa",
-      "c": "global_ccc"
+      "da": "local_da_callee_task1"
     })
     
     [local] dvar expanded result:
@@ -347,24 +352,24 @@ weight: 11364
     
     
     scope[local] merged: {
-      "da": "local_da_callee_task1",
-      "db": "callee_db_callee_task2",
-      "a": "local_aaa",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "db": "callee_db_callee_task2",
+      "da": "local_da_callee_task1",
+      "a": "local_aaa"
     }
     
     
-    sad_mclean8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "local_aaa",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
       "b": "local_bbb",
-      "da": "local_da_callee_task1",
-      "db": "callee_db_callee_task2"
+      "db": "callee_db_callee_task2",
+      "da": "local_da_callee_task1"
     })
     
     ---Step1:
@@ -372,8 +377,8 @@ weight: 11364
       Name: "",
       Do: {
         {
-          "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
-          "name": "print"
+          "name": "print",
+          "cmd": "a: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
         },
         {
           "name": "assert",
@@ -385,7 +390,7 @@ weight: 11364
             "{{eq .db \"callee_db_callee_task2\" }}"
           },
           "flags": {
-            "failfast"
+            "failFast"
           }
         }
       },
@@ -406,12 +411,12 @@ weight: 11364
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da_callee_task1",
       "db": "callee_db_callee_task2",
-      "c": "global_ccc"
+      "da": "local_da_callee_task1"
     })
     
     [local] dvar expanded result:
@@ -420,24 +425,24 @@ weight: 11364
     
     
     scope[local] merged: {
-      "da": "local_da_callee_task1",
-      "db": "callee_db_callee_task2",
-      "c": "global_ccc",
-      "up_runtime_task_layer_number": 2,
-      "a": "local_aaa",
-      "b": "local_bbb"
-    }
-    
-    
-    sad_mclean8: overall final exec vars:
-    
-    (*core.Cache)({
       "c": "global_ccc",
       "up_runtime_task_layer_number": 2,
       "a": "local_aaa",
       "b": "local_bbb",
+      "db": "callee_db_callee_task2",
+      "da": "local_da_callee_task1"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "db": "callee_db_callee_task2",
       "da": "local_da_callee_task1",
-      "db": "callee_db_callee_task2"
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 2,
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     a: {{.a}}

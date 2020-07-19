@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:38+77:00
 draft: false
 weight: 10503
 
@@ -17,7 +17,7 @@ weight: 10503
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0050
                  Verbose -> vvvv
-              ModuleName -> elegant_perlman4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10503
     
     
     groups members:[]
-    module: [elegant_perlman4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "Sydney Grammar"
@@ -42,14 +47,14 @@ weight: 10503
     -------runtime global final merged with dvars-------
     
     {
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>",
       "z": "i am zzz",
+      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
-      "school": "Sydney Grammar"
+      "m": "m=>n=>Sydney Grammar"
     }
     
       located task-> 1 [task]: 
@@ -57,97 +62,78 @@ weight: 10503
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"n->{{.nv}}\"",
-        "echo \"m->{{.m}}\"",
-        "echo \"j->{{.j}}\"",
-        "echo \"o->{{.o}}\"",
-        "echo \"z->{{.z}}\"",
-        "echo \"y->{{.yv}}\"",
-        "echo \"x->{{.x}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "o": "o=><no value>",
+      "z": "i am zzz",
+      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
-      "school": "Sydney Grammar",
-      "z": "i am zzz"
-    })
-    
-    elegant_perlman4: overall final exec vars:
-    
-    (*core.Cache)({
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
-      "school": "Sydney Grammar",
       "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz"
+      "school": "Sydney Grammar",
+      "yv": "y->i am zzz"
     })
     
     cmd( 1):
     echo "n->{{.nv}}"
     
-     \_ echo "n->n=>Sydney Grammar"
+    cmd=>:
+    echo "n->n=>Sydney Grammar"<=
     n->n=>Sydney Grammar
      .. ok
     cmd( 2):
     echo "m->{{.m}}"
     
-     \_ echo "m->m=>n=>Sydney Grammar"
+    cmd=>:
+    echo "m->m=>n=>Sydney Grammar"<=
     m->m=>n=>Sydney Grammar
      .. ok
     cmd( 3):
     echo "j->{{.j}}"
     
-     \_ echo "j->j=>m=>n=>Sydney Grammar"
+    cmd=>:
+    echo "j->j=>m=>n=>Sydney Grammar"<=
     j->j=>m=>n=>Sydney Grammar
      .. ok
     cmd( 4):
     echo "o->{{.o}}"
     
-     \_ echo "o->o=><no value>"
+    cmd=>:
+    echo "o->o=><no value>"<=
     o->o=><no value>
      .. ok
     cmd( 5):
     echo "z->{{.z}}"
     
-     \_ echo "z->i am zzz"
+    cmd=>:
+    echo "z->i am zzz"<=
     z->i am zzz
      .. ok
     cmd( 6):
     echo "y->{{.yv}}"
     
-     \_ echo "y->y->i am zzz"
+    cmd=>:
+    echo "y->y->i am zzz"<=
     y->y->i am zzz
      .. ok
     cmd( 7):
     echo "x->{{.x}}"
     
-     \_ echo "x->x=>y->i am zzz"
+    cmd=>:
+    echo "x->x=>y->i am zzz"<=
     x->x=>y->i am zzz
      .. ok
     . ok

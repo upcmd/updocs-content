@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:47+77:00
 draft: false
 weight: 11034
 
@@ -17,7 +17,7 @@ weight: 11034
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0103
                  Verbose -> vvvvv
-              ModuleName -> hungry_goldstine5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11034
     -exec task: task
     loading [Task]:  ./tests/functests/c0103
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d8fa0)(<nil>)
+    (*impl.Scopes)(0xc00022c380)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11034
     
     
     groups members:[]
-    module: [hungry_goldstine5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "emily": "emily:\n  sex: female\n  age: 32\n",
@@ -69,7 +74,7 @@ weight: 11034
       Name: "",
       Do: {
         {
-          "name": "yml_write",
+          "name": "ymlWrite",
           "cmd": {
             "ymlstr": "{{.tom}}",
             "path": "tom.sex",
@@ -83,13 +88,13 @@ weight: 11034
           "cmd": "{{.tomyml }}"
         },
         {
-          "name": "yml_write",
+          "name": "ymlWrite",
           "cmd": {
+            "ymlstr": "{{.tomyml}}",
             "path": "tom.wife",
             "nodevalue": "{{.emily}}",
             "verbose": "vvvv",
-            "reg": "tomyml",
-            "ymlstr": "{{.tomyml}}"
+            "reg": "tomyml"
           }
         },
         {
@@ -124,20 +129,20 @@ weight: 11034
     
     
     scope[local] merged: {
-      "tom": "tom:\n  sex: male\n  age: 23\n",
-      "emily": "emily:\n  sex: female\n  age: 32\n"
+      "emily": "emily:\n  sex: female\n  age: 32\n",
+      "tom": "tom:\n  sex: male\n  age: 23\n"
     }
     
     
-    hungry_goldstine5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "tom:\n  sex: male\n  age: 23\n",
-      "emily": "emily:\n  sex: female\n  age: 32\n"
+      "emily": "emily:\n  sex: female\n  age: 32\n",
+      "tom": "tom:\n  sex: male\n  age: 23\n"
     })
     
     map[path:tom.sex reg:tomyml value:female verbose:v ymlstr:{{.tom}}]
-    ~SubStep1: [yml_write:  ]
+    ~SubStep1: [ymlWrite:  ]
     yml modified:
     
     "tom:\n  sex: female\n  age: 23\n"
@@ -149,7 +154,7 @@ weight: 11034
       age: 23
     
     map[nodevalue:{{.emily}} path:tom.wife reg:tomyml verbose:vvvv ymlstr:{{.tomyml}}]
-    ~SubStep3: [yml_write:  ]
+    ~SubStep3: [ymlWrite:  ]
     yml modified:
     
     "tom:\n  sex: female\n  age: 23\n  wife:\n    emily:\n      sex: female\n      age: 32\n"

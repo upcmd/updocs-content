@@ -1,6 +1,6 @@
 ---
 title: "c0001_vvvv"
-date: 2020-07-01T15:34:20+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10013
 
@@ -17,7 +17,7 @@ weight: 10013
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0001
                  Verbose -> vvvv
-              ModuleName -> fervent_brown5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10013
     
     
     groups members:[]
-    module: [fervent_brown5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,32 +53,11 @@ weight: 10013
     Executing task stack layer: 1
     
     -Step1: [: do step1 in shell func ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "do step1 in shell func",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    fervent_brown5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -81,13 +65,15 @@ weight: 10013
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok

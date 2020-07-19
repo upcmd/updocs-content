@@ -1,6 +1,6 @@
 ---
 title: "c0004_vvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10043
 
@@ -17,7 +17,7 @@ weight: 10043
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0004
                  Verbose -> vvvv
-              ModuleName -> romantic_fermat8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10043
     
     
     groups members:[]
-    module: [romantic_fermat8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,32 +53,11 @@ weight: 10043
     Executing task stack layer: 1
     
     -Step1: [: do step1 in shell func ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"\necho \"world\"\n",
-        "echo \"how are you\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "do step1 in shell func",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    romantic_fermat8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -83,16 +67,18 @@ weight: 10043
     echo "world"
     
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"
     echo "world"
-    
+    <=
     hello
     world
      .. ok
     cmd( 2):
     echo "how are you"
     
-     \_ echo "how are you"
+    cmd=>:
+    echo "how are you"<=
     how are you
      .. ok
     . ok

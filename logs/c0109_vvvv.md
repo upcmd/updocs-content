@@ -1,6 +1,6 @@
 ---
 title: "c0109_vvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11093
 
@@ -17,7 +17,7 @@ weight: 11093
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0109
                  Verbose -> vvvv
-              ModuleName -> berserk_bell1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11093
     
     
     groups members:[]
-    module: [berserk_bell1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -50,53 +55,12 @@ weight: 11093
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "jerry",
-          Value: "this is jerry in task scope",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "taskscope"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom"
     })
     
-    berserk_bell1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -106,33 +70,13 @@ weight: 11093
     ~SubStep1: [print: this should print out the dvar value of jerry ]
     this is jerry in task scope
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "subtask1"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "jerry": "this is jerry in task scope"
     })
     
-    berserk_bell1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -144,34 +88,6 @@ weight: 11093
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
-          "cmd": "{{.jerry}}"
-        },
-        {
-          "name": "trace",
-          "cmd": "===>"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
@@ -179,7 +95,7 @@ weight: 11093
       "up_runtime_task_layer_number": 1
     })
     
-    berserk_bell1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -187,45 +103,11 @@ weight: 11093
       "up_runtime_task_layer_number": 1
     })
     
-    ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskscope ]
+    ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
     this is jerry in task scope
     ~~SubStep2: [trace:  ]
     Trace:===>
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "desc": "remember that the caller's vars should override callee's vars\nso jerry's value should the one from caller instead this local value\n",
-          "cmd": "{{.jerry}}",
-          "name": "print"
-        },
-        {
-          "name": "trace",
-          "cmd": "<==="
-        },
-        {
-          "name": "trace",
-          "cmd": "--->"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "jerry": "jerry is overriden in local scope"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
@@ -233,12 +115,12 @@ weight: 11093
       "up_runtime_task_layer_number": 1
     })
     
-    berserk_bell1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print: remember that the caller's vars should override callee's vars
@@ -250,47 +132,19 @@ weight: 11093
     ~~SubStep3: [trace:  ]
     Trace:--->
     --Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "{{.jerry}}",
-          "name": "print",
-          "desc": "this should print out the jerry defined in caller's task var scope"
-        },
-        {
-          "name": "trace",
-          "cmd": "<---"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    berserk_bell1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print: this should print out the jerry defined in caller's task var scope ]

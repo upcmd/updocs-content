@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvvv"
-date: 2020-07-01T15:34:28+77:00
+date: 2020-07-20T02:01:39+77:00
 draft: false
 weight: 10554
 
@@ -17,7 +17,7 @@ weight: 10554
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0055
                  Verbose -> vvvvv
-              ModuleName -> stoic_pike0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10554
     -exec task: task
     loading [Task]:  ./tests/functests/c0055
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001b2a80)(<nil>)
+    (*impl.Scopes)(0xc0001bf240)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10554
     
     
     groups members:[]
-    module: [stoic_pike0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 10554
     }
     
     
-    stoic_pike0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -153,7 +158,7 @@ weight: 10554
     }
     
     
-    stoic_pike0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "greet": "hello"
@@ -194,7 +199,7 @@ weight: 10554
     }
     
     
-    stoic_pike0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -244,7 +249,7 @@ weight: 10554
     }
     
     
-    stoic_pike0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -253,10 +258,12 @@ weight: 10554
     cmd( 1):
     echo "hello from taska"
     
-     \_ echo "hello from taska"
+    cmd=>:
+    echo "hello from taska"<=
     hello from taska
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=23) "echo \"hello from taska\"",
      Code: (int) 0,
      Output: (string) (len=16) "hello from taska",
      ErrMsg: (string) ""
@@ -265,10 +272,12 @@ weight: 10554
     cmd( 2):
     echo "{{.greet}} from taska"
     
-     \_ echo "<no value> from taska"
+    cmd=>:
+    echo "<no value> from taska"<=
     <no value> from taska
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=28) "echo \"<no value> from taska\"",
      Code: (int) 0,
      Output: (string) (len=21) "<no value> from taska",
      ErrMsg: (string) ""

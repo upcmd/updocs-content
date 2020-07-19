@@ -1,6 +1,6 @@
 ---
 title: "c0128_vvvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11284
 
@@ -17,7 +17,7 @@ weight: 11284
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0128
                  Verbose -> vvvvv
-              ModuleName -> tender_bohr9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11284
     -exec task: task
     loading [Task]:  ./tests/functests/c0128
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef100)(<nil>)
+    (*impl.Scopes)(0xc0001c1180)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,23 @@ weight: 11284
     
     
     groups members:[]
-    module: [tender_bohr9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "a": (string) (len=10) "global_aaa",
      (string) (len=1) "b": (string) (len=10) "global_bbb",
-     (string) (len=1) "c": (string) (len=10) "global_ccc"
+     (string) (len=1) "c": (string) (len=10) "global_ccc",
+     (string) (len=1) "a": (string) (len=10) "global_aaa"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +63,9 @@ weight: 11284
     -------runtime global final merged with dvars-------
     
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
       located task-> 1 [task]: 
@@ -150,15 +155,15 @@ weight: 11284
     
     
     scope[local] merged: {
-      "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     }
     
     
-    tender_bohr9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "b": "local_bbb",
@@ -192,11 +197,11 @@ weight: 11284
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da"
     })
     
     [local] dvar expanded result:
@@ -205,31 +210,33 @@ weight: 11284
     
     
     scope[local] merged: {
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "da": "local_da",
+      "b": "local_bbb",
       "db": "local_db",
-      "b": "local_bbb"
+      "da": "local_da",
+      "c": "global_ccc",
+      "a": "local_aaa"
     }
     
     
-    tender_bohr9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da"
     })
     
     cmd( 1):
     echo "shell step1"
     
-     \_ echo "shell step1"
+    cmd=>:
+    echo "shell step1"<=
     shell step1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step1\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step1",
      ErrMsg: (string) ""
@@ -238,10 +245,12 @@ weight: 11284
     cmd( 2):
     echo "shell step2"
     
-     \_ echo "shell step2"
+    cmd=>:
+    echo "shell step2"<=
     shell step2
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step2\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step2",
      ErrMsg: (string) ""
@@ -274,10 +283,11 @@ weight: 11284
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
@@ -292,30 +302,32 @@ weight: 11284
     
     
     scope[local] merged: {
-      "db": "local_db",
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     }
     
     
-    tender_bohr9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
       "da": "local_da",
       "db": "local_db",
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc"
     })

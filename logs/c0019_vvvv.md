@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10193
 
@@ -17,7 +17,7 @@ weight: 10193
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0019
                  Verbose -> vvvv
-              ModuleName -> reverent_noyce8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,12 +33,17 @@ weight: 10193
     
     
     groups members:[]
-    module: [reverent_noyce8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
       },
       "school": "sydney grammar"
     }
@@ -58,32 +63,6 @@ weight: 10193
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"studentname -> {{.studentname}}\"",
-        "echo \"gender -> male\"",
-        "echo \"school -> {{.school}}\"",
-        "echo \"nonexist -> {{.notexist}}\"",
-        "echo \"SG details -> {{.sg.name}}/{{.sg.address}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "studentname": "Tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "sg": {
@@ -94,45 +73,50 @@ weight: 10193
       "studentname": "Tom"
     })
     
-    reverent_noyce8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "school": "sydney grammar",
       "studentname": "Tom",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
-      },
-      "school": "sydney grammar"
+      }
     })
     
     cmd( 1):
     echo "studentname -> {{.studentname}}"
     
-     \_ echo "studentname -> Tom"
+    cmd=>:
+    echo "studentname -> Tom"<=
     studentname -> Tom
      .. ok
     cmd( 2):
     echo "gender -> male"
     
-     \_ echo "gender -> male"
+    cmd=>:
+    echo "gender -> male"<=
     gender -> male
      .. ok
     cmd( 3):
     echo "school -> {{.school}}"
     
-     \_ echo "school -> sydney grammar"
+    cmd=>:
+    echo "school -> sydney grammar"<=
     school -> sydney grammar
      .. ok
     cmd( 4):
     echo "nonexist -> {{.notexist}}"
     
-     \_ echo "nonexist -> <no value>"
+    cmd=>:
+    echo "nonexist -> <no value>"<=
     nonexist -> <no value>
      .. ok
     cmd( 5):
     echo "SG details -> {{.sg.name}}/{{.sg.address}}"
     
-     \_ echo "SG details -> sydney grammar/Sydney, NSW 2000"
+    cmd=>:
+    echo "SG details -> sydney grammar/Sydney, NSW 2000"<=
     SG details -> sydney grammar/Sydney, NSW 2000
      .. ok
     . ok

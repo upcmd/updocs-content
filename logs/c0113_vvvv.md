@@ -1,6 +1,6 @@
 ---
 title: "c0113_vvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11133
 
@@ -17,7 +17,7 @@ weight: 11133
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0113
                  Verbose -> vvvv
-              ModuleName -> jovial_mclean4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11133
     
     
     groups members:[]
-    module: [jovial_mclean4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom in global",
@@ -52,31 +57,13 @@ weight: 11133
     Executing task stack layer: 1
     
     -Step1: [: call subtask and exam the return value in following steps ]
-    {
-      Name: "",
-      Do: "subtask",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "call subtask and exam the return value in following steps",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "tom": "this is tom in global"
     })
     
-    jovial_mclean4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom in global",
@@ -88,60 +75,21 @@ weight: 11133
     Executing task stack layer: 2
     
     --Step1: [: check value of tom after it is registered in current task stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "desc": "by default hitom is registered in to global context",
-          "cmd": {
-            "name": "tom",
-            "value": "tom created in sub_loop"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "in sub_loop print1: {{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"tom created in sub_loop\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func1"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom after it is registered in current task stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "john": "john in sub_loop func1",
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "john": "john in sub_loop func1",
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global"
     })
     
-    jovial_mclean4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "john": "john in sub_loop func1",
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "john": "john in sub_loop func1",
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom in global"
     })
     
     ~~SubStep1: [reg: by default hitom is registered in to global context ]
@@ -150,46 +98,6 @@ weight: 11133
     ~~SubStep3: [assert:  ]
      1 ASSERT OK:     [{{eq .tom "tom created in sub_loop"}}]
     --Step2: [: check value of tom and it should be available in current stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "in sub_loop print2: {{.tom}}"
-        },
-        {
-          "name": "assert",
-          "desc": "since .tom is in callee's global, it should be accessible here",
-          "cmd": {
-            "{{eq .tom \"tom created in sub_loop\"}}"
-          }
-        },
-        {
-          "name": "return",
-          "desc": "it should return and merge tom to parent's vars scope\nit should report warning as jason does not exist\n",
-          "cmd": {
-            "tom",
-            "jason"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func2"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom and it should be available in current stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -198,13 +106,13 @@ weight: 11133
       "jerry": "this is jerry in global"
     })
     
-    jovial_mclean4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "john": "john in sub_loop func2",
-      "tom": "tom created in sub_loop",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "john": "john in sub_loop func2",
+      "tom": "tom created in sub_loop"
     })
     
     ~~SubStep1: [print:  ]
@@ -216,36 +124,6 @@ weight: 11133
      ]
      WARN: [return validation] - [The referencing var name: (jason) not exist]
     -Step2: [: check value of tom ]
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "in main task print3: {{.tom}}",
-          "name": "print"
-        },
-        {
-          "name": "assert",
-          "desc": "since .tom is returned from callee, it should be accessible here",
-          "cmd": {
-            "{{eq .tom \"tom created in sub_loop\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "check value of tom",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "tom created in sub_loop",
@@ -253,7 +131,7 @@ weight: 11133
       "up_runtime_task_layer_number": 1
     })
     
-    jovial_mclean4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "tom created in sub_loop",

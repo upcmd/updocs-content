@@ -1,6 +1,6 @@
 ---
 title: "c0129_vvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11293
 
@@ -17,7 +17,7 @@ weight: 11293
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0129
                  Verbose -> vvvv
-              ModuleName -> determined_heisenberg2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,12 +33,17 @@ weight: 11293
     
     
     groups members:[]
-    module: [determined_heisenberg2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
+      "c": "global_ccc"
     }
     
     -------runtime global final merged with dvars-------
@@ -54,130 +59,14 @@ weight: 11293
     Executing task stack layer: 1
     
     -Step1: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
-    {
-      Name: "",
-      Do: {
-        {
-          "func": "shell",
-          "do": {
-            "echo \"shell step1\"",
-            "echo \"shell step2\""
-          }
-        },
-        {
-          "do": {
-            {
-              "name": "print",
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-            }
-          },
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer1_aaa"
-          }
-        },
-        {
-          "func": "shell",
-          "do": {
-            "echo \"shell step3\"",
-            "echo \"shell step4\""
-          }
-        },
-        {
-          "vars": {
-            "a": "local_block_layer2_aaa",
-            "b": "local_block_layer2_bbb"
-          },
-          "dvars": {
-            {
-              "value": "local_da_layer2",
-              "name": "da"
-            },
-            {
-              "name": "db",
-              "value": "local_db_layer2"
-            }
-          },
-          "do": {
-            {
-              "do": {
-                {
-                  "name": "print",
-                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-                }
-              },
-              "func": "cmd",
-              "vars": {
-                "a": "block_layer2_aaa"
-              }
-            }
-          },
-          "func": "block",
-          "desc": "test embeded 2nd layer of block"
-        },
-        {
-          "func": "shell",
-          "do": {
-            "echo \"shell step5\"",
-            "echo \"shell step6\""
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: {
-        "b": "local_bbb",
-        "a": "local_aaa"
-      },
-      Dvars: {
-        {
-          Name: "da",
-          Value: "local_da",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "db",
-          Value: "local_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "show example the route goes to call goelse for the condition of not if condition succeeds",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "c": "global_ccc",
@@ -188,27 +77,6 @@ weight: 11293
     })
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"shell step1\"",
-        "echo \"shell step2\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "db": "local_db",
@@ -218,82 +86,61 @@ weight: 11293
       "da": "local_da"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
       "da": "local_da",
-      "db": "local_db",
-      "c": "global_ccc"
+      "db": "local_db"
     })
     
     cmd( 1):
     echo "shell step1"
     
-     \_ echo "shell step1"
+    cmd=>:
+    echo "shell step1"<=
     shell step1
      .. ok
     cmd( 2):
     echo "shell step2"
     
-     \_ echo "shell step2"
+    cmd=>:
+    echo "shell step2"<=
     shell step2
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "block_layer1_aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "db": "local_db",
       "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
       "a": "block_layer1_aaa"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
+      "a": "block_layer1_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "db": "local_db",
       "da": "local_da",
-      "a": "block_layer1_aaa"
+      "db": "local_db"
     })
     
     ~SubStep1: [print:  ]
@@ -306,48 +153,29 @@ weight: 11293
     db: local_db
     
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "echo \"shell step3\"",
-        "echo \"shell step4\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "db": "local_db",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da",
-      "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      "da": "local_da"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
@@ -359,162 +187,80 @@ weight: 11293
     cmd( 1):
     echo "shell step3"
     
-     \_ echo "shell step3"
+    cmd=>:
+    echo "shell step3"<=
     shell step3
      .. ok
     cmd( 2):
     echo "shell step4"
     
-     \_ echo "shell step4"
+    cmd=>:
+    echo "shell step4"<=
     shell step4
      .. ok
     . ok
     -Step4: [: test embeded 2nd layer of block ]
-    {
-      Name: "",
-      Do: {
-        {
-          "vars": {
-            "a": "block_layer2_aaa"
-          },
-          "do": {
-            {
-              "name": "print",
-              "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-            }
-          },
-          "func": "cmd"
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: {
-        "a": "local_block_layer2_aaa",
-        "b": "local_block_layer2_bbb"
-      },
-      Dvars: {
-        {
-          Name: "da",
-          Value: "local_da_layer2",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "db",
-          Value: "local_db_layer2",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "test embeded 2nd layer of block",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
       "da": "local_da",
       "db": "local_db",
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
-      "a": "local_block_layer2_aaa"
+      "c": "global_ccc"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
+      "a": "local_block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
       "da": "local_da_layer2",
-      "db": "local_db_layer2",
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
-      "a": "local_block_layer2_aaa"
+      "db": "local_db_layer2"
     })
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "block_layer2_aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "a": "block_layer2_aaa",
+      "db": "local_db_layer2",
+      "da": "local_da_layer2",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "block_layer2_aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "da": "local_da_layer2",
-      "db": "local_db_layer2",
+      "c": "global_ccc",
+      "a": "block_layer2_aaa",
       "b": "local_block_layer2_bbb",
-      "c": "global_ccc"
+      "db": "local_db_layer2",
+      "da": "local_da_layer2"
     })
     
     ~SubStep1: [print:  ]
@@ -527,66 +273,49 @@ weight: 11293
     db: local_db_layer2
     
     -Step5:
-    {
-      Name: "",
-      Do: {
-        "echo \"shell step5\"",
-        "echo \"shell step6\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "db": "local_db",
+      "da": "local_da",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
-    determined_heisenberg2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "db": "local_db",
+      "da": "local_da"
     })
     
     cmd( 1):
     echo "shell step5"
     
-     \_ echo "shell step5"
+    cmd=>:
+    echo "shell step5"<=
     shell step5
      .. ok
     cmd( 2):
     echo "shell step6"
     
-     \_ echo "shell step6"
+    cmd=>:
+    echo "shell step6"<=
     shell step6
      .. ok
     . ok

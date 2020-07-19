@@ -1,6 +1,6 @@
 ---
 title: "c0138_vvvvv"
-date: 2020-07-01T15:34:41+77:00
+date: 2020-07-20T02:01:54+77:00
 draft: false
 weight: 11384
 
@@ -17,7 +17,7 @@ weight: 11384
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0138
                  Verbose -> vvvvv
-              ModuleName -> adoring_hypatia2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11384
     -exec task: task
     loading [Task]:  ./tests/functests/c0138
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb0e0)(<nil>)
+    (*impl.Scopes)(0xc000175100)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11384
     
     
     groups members:[]
-    module: [adoring_hypatia2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -103,7 +108,7 @@ weight: 11384
     }
     
     
-    adoring_hypatia2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -162,7 +167,7 @@ weight: 11384
     }
     
     
-    adoring_hypatia2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -212,7 +217,7 @@ weight: 11384
     }
     
     
-    adoring_hypatia2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -257,7 +262,7 @@ weight: 11384
     }
     
     
-    adoring_hypatia2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

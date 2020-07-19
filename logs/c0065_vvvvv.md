@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10654
 
@@ -17,7 +17,7 @@ weight: 10654
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0065
                  Verbose -> vvvvv
-              ModuleName -> determined_darwin8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10654
     -exec task: task
     loading [Task]:  ./tests/functests/c0065
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001cf220)(<nil>)
+    (*impl.Scopes)(0xc0001bb220)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10654
     
     
     groups members:[]
-    module: [determined_darwin8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -76,30 +81,30 @@ weight: 10654
     
     [runtime global] dvar expanded result:
     {
-      "var_with_range_vvvv": " x  x  x ",
-      "var_with_range_vvvvv": " x  x  x ",
-      "var_with_range_vvvvvv": " x  x  x ",
       "var_with_range_v": " x  x  x ",
       "var_with_range_vv": " x  x  x ",
-      "var_with_range_vvv": " x  x  x "
+      "var_with_range_vvv": " x  x  x ",
+      "var_with_range_vvvv": " x  x  x ",
+      "var_with_range_vvvvv": " x  x  x ",
+      "var_with_range_vvvvvv": " x  x  x "
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range_vvv": " x  x  x ",
-      "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
-      "var_with_range_vvvvvv": " x  x  x ",
+      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "person": "peter",
+      "var_with_range_vvvvvv": " x  x  x ",
       "var_with_range_v": " x  x  x ",
-      "var_with_range_vv": " x  x  x "
+      "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x ",
+      "var_with_range_vvvv": " x  x  x "
     }
     
       located task-> 1 [task]: 

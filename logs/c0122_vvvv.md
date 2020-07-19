@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11223
 
@@ -17,7 +17,7 @@ weight: 11223
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0122
                  Verbose -> vvvv
-              ModuleName -> insane_goldstine3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11223
     
     
     groups members:[]
-    module: [insane_goldstine3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -56,33 +61,6 @@ weight: 11223
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student.name}}"
-        },
-        {
-          "name": "print",
-          "cmd": "{{.student.age}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
@@ -91,7 +69,7 @@ weight: 11223
       }
     })
     
-    insane_goldstine3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
@@ -103,31 +81,8 @@ weight: 11223
     ~SubStep1: [print:  ]
     tom
     ~SubStep2: [print:  ]
-    <no value>
+    None
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello tom"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .student.name \"tom\"}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
@@ -136,7 +91,7 @@ weight: 11223
       }
     })
     
-    insane_goldstine3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
@@ -148,29 +103,6 @@ weight: 11223
     ~SubStep1: [print:  ]
     hello tom
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "you will not see this message"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "add support if the element does not exist, then if condition should be false by default",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.student.age}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
@@ -179,13 +111,14 @@ weight: 11223
       }
     })
     
-    insane_goldstine3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "student_age": ".student.age"
     })
     
     condition failed, skip executing step 

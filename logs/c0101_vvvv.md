@@ -1,6 +1,6 @@
 ---
 title: "c0101_vvvv"
-date: 2020-07-01T15:34:34+77:00
+date: 2020-07-20T02:01:47+77:00
 draft: false
 weight: 11013
 
@@ -17,7 +17,7 @@ weight: 11013
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0101
                  Verbose -> vvvv
-              ModuleName -> reverent_payne3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11013
     
     
     groups members:[]
-    module: [reverent_payne3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11013
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    reverent_payne3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -83,33 +65,11 @@ weight: 11013
     ~SubStep1: [print:  ]
     hello
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "pause"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    reverent_payne3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -122,34 +82,11 @@ weight: 11013
         i: inspect
     
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "world"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    reverent_payne3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

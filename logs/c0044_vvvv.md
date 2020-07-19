@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10443
 
@@ -17,7 +17,7 @@ weight: 10443
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0044
                  Verbose -> vvvv
-              ModuleName -> goofy_hypatia1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10443
     
     
     groups members:[]
-    module: [goofy_hypatia1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -56,44 +61,17 @@ weight: 10443
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.homedir}}"
-        },
-        {
-          "cmd": "{{.yourhome}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "homedir": "/root",
       "yourhome": "Your path is set to /root "
     })
     
-    goofy_hypatia1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "homedir": "/root"
     })
     
     ~SubStep1: [print:  ]
@@ -101,35 +79,13 @@ weight: 10443
     ~SubStep2: [print:  ]
     Your path is set to /root 
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"my home is at {{.homedir}}\"\"\"",
-        "echo \"\"\"my home is at $HOME\"\"\"",
-        "echo \"\"\"{{.yourhome}}\"\"\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "homedir": "/root",
       "yourhome": "Your path is set to /root "
     })
     
-    goofy_hypatia1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "homedir": "/root",
@@ -139,19 +95,22 @@ weight: 10443
     cmd( 1):
     echo """my home is at {{.homedir}}"""
     
-     \_ echo """my home is at /root"""
+    cmd=>:
+    echo """my home is at /root"""<=
     my home is at /root
      .. ok
     cmd( 2):
     echo """my home is at $HOME"""
     
-     \_ echo """my home is at $HOME"""
+    cmd=>:
+    echo """my home is at $HOME"""<=
     my home is at /root
      .. ok
     cmd( 3):
     echo """{{.yourhome}}"""
     
-     \_ echo """Your path is set to /root """
+    cmd=>:
+    echo """Your path is set to /root """<=
     Your path is set to /root
      .. ok
     . ok

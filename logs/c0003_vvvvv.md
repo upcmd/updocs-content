@@ -1,6 +1,6 @@
 ---
 title: "c0003_vvvvv"
-date: 2020-07-01T15:34:20+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10034
 
@@ -17,7 +17,7 @@ weight: 10034
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0003
                  Verbose -> vvvvv
-              ModuleName -> evil_bohr0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10034
     -exec task: task
     loading [Task]:  ./tests/functests/c0003
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c6e20)(<nil>)
+    (*impl.Scopes)(0xc0000a4220)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10034
     
     
     groups members:[]
-    module: [evil_bohr0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +95,7 @@ weight: 10034
     }
     
     
-    evil_bohr0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,13 +105,15 @@ weight: 10034
     echo "world"
     
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"
     echo "world"
-    
+    <=
     hello
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=26) "echo \"hello\"\necho \"world\"\n",
      Code: (int) 0,
      Output: (string) (len=11) "hello\nworld",
      ErrMsg: (string) ""

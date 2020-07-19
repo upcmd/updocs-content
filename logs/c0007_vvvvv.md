@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10074
 
@@ -17,7 +17,7 @@ weight: 10074
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0007
                  Verbose -> vvvvv
-              ModuleName -> trusting_engelbart7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10074
     -exec task: task
     loading [Task]:  ./tests/functests/c0007
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f3000)(<nil>)
+    (*impl.Scopes)(0xc0002164a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10074
     
     
     groups members:[]
-    module: [trusting_engelbart7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +98,7 @@ weight: 10074
     }
     
     
-    trusting_engelbart7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -101,10 +106,12 @@ weight: 10074
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -113,10 +120,12 @@ weight: 10074
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""
@@ -148,6 +157,7 @@ weight: 10074
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -161,6 +171,7 @@ weight: 10074
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -168,10 +179,11 @@ weight: 10074
     }
     
     
-    trusting_engelbart7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -181,10 +193,12 @@ weight: 10074
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -193,10 +207,12 @@ weight: 10074
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""
@@ -228,6 +244,7 @@ weight: 10074
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -241,6 +258,7 @@ weight: 10074
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -248,10 +266,11 @@ weight: 10074
     }
     
     
-    trusting_engelbart7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -261,10 +280,12 @@ weight: 10074
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -273,10 +294,12 @@ weight: 10074
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""

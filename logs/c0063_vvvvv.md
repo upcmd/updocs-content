@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10634
 
@@ -17,7 +17,7 @@ weight: 10634
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0063
                  Verbose -> vvvvv
-              ModuleName -> drunk_mcclintock0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10634
     -exec task: task
     loading [Task]:  ./tests/functests/c0063
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed100)(<nil>)
+    (*impl.Scopes)(0xc00023f180)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10634
     
     
     groups members:[]
-    module: [drunk_mcclintock0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global-var-a"
@@ -104,7 +109,7 @@ weight: 10634
     }
     
     
-    drunk_mcclintock0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "global-var-a",
@@ -120,10 +125,12 @@ weight: 10634
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -132,10 +139,12 @@ weight: 10634
     cmd( 2):
     echo "hello {{.a}}"
     
-     \_ echo "hello global-var-a"
+    cmd=>:
+    echo "hello global-var-a"<=
     hello global-var-a
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=25) "echo \"hello global-var-a\"",
      Code: (int) 0,
      Output: (string) (len=18) "hello global-var-a",
      ErrMsg: (string) ""
@@ -173,6 +182,7 @@ weight: 10634
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
@@ -188,6 +198,7 @@ weight: 10634
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
@@ -197,16 +208,17 @@ weight: 10634
     }
     
     
-    drunk_mcclintock0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "b": "runtime-var-b",
-      "a": "global-var-a"
+      "b": "runtime-var-b"
     })
     
     Enter Value For pause action to continue: 
@@ -243,6 +255,7 @@ weight: 10634
     (*core.Cache)({
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
@@ -255,33 +268,37 @@ weight: 10634
     
     
     scope[local] merged: {
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "a": "global-var-a"
+      })
     }
     
     
-    drunk_mcclintock0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "a": "global-var-a"
+      })
     })
     
     cmd( 1):
     echo "next step"
     
-     \_ echo "next step"
+    cmd=>:
+    echo "next step"<=
     next step
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=16) "echo \"next step\"",
      Code: (int) 0,
      Output: (string) (len=9) "next step",
      ErrMsg: (string) ""

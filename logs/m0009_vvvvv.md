@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvvv"
-date: 2020-07-01T15:34:59+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100904
 
@@ -17,7 +17,7 @@ weight: 100904
               AbsWorkDir -> /up_project/up/tests/modtests/0009
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> sharp_engelbart7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100904
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000f160)(<nil>)
+    (*impl.Scopes)(0xc000175820)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 100904
     
     
     groups members:[]
-    module: [sharp_engelbart7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }

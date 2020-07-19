@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvvv"
-date: 2020-07-01T15:34:20+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10024
 
@@ -17,7 +17,7 @@ weight: 10024
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0002
                  Verbose -> vvvvv
-              ModuleName -> mad_blackwell2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10024
     -exec task: task
     loading [Task]:  ./tests/functests/c0002
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eaf40)(<nil>)
+    (*impl.Scopes)(0xc000204420)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10024
     
     
     groups members:[]
-    module: [mad_blackwell2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +98,7 @@ weight: 10024
     }
     
     
-    mad_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -101,10 +106,12 @@ weight: 10024
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -113,10 +120,12 @@ weight: 10024
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""
@@ -138,7 +147,7 @@ weight: 10024
       Desc: "do step2 in shell func",
       Reg: "",
       Flags: {
-        "ignore_error"
+        "ignoreError"
       },
       If: "",
       Else: <nil>,
@@ -151,6 +160,7 @@ weight: 10024
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -164,6 +174,7 @@ weight: 10024
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -171,10 +182,11 @@ weight: 10024
     }
     
     
-    mad_blackwell2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -184,10 +196,12 @@ weight: 10024
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hello\"",
      Code: (int) 0,
      Output: (string) (len=5) "hello",
      ErrMsg: (string) ""
@@ -196,13 +210,15 @@ weight: 10024
     cmd( 2):
     echo "I got exception"|grep non-exist
     
-     \_ echo "I got exception"|grep non-exist
+    cmd=>:
+    echo "I got exception"|grep non-exist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
           
      .. failed(suppressed if not last step)
     (utils.ExecResult) {
+     Cmd: (string) (len=37) "echo \"I got exception\"|grep non-exist",
      Code: (int) 1,
      Output: (string) "",
      ErrMsg: (string) ""
@@ -211,10 +227,12 @@ weight: 10024
     cmd( 3):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"world\"",
      Code: (int) 0,
      Output: (string) (len=5) "world",
      ErrMsg: (string) ""

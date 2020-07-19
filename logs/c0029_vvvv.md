@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvv"
-date: 2020-07-01T15:34:24+77:00
+date: 2020-07-20T02:01:34+77:00
 draft: false
 weight: 10293
 
@@ -17,7 +17,7 @@ weight: 10293
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0029
                  Verbose -> vvvv
-              ModuleName -> high_hypatia2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -39,17 +39,22 @@ weight: 10293
     
     
     nonprod: {
-      "d": "non-prod-d",
-      "a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
+      "dvar_np_a": "non-prod-a",
       "dab": "non-prod-a-and-non-prod-b",
-      "dvar_np_a": "non-prod-a"
+      "d": "non-prod-d",
+      "a": "non-prod-a"
     }
     
     
     groups members:[dev staging]
-    module: [high_hypatia2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "non-prod-a",
@@ -57,22 +62,22 @@ weight: 10293
       "c": "non-prod-c",
       "e": "global-e",
       "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
       "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d"
+      "d": "non-prod-d",
+      "dab": "non-prod-a-and-non-prod-b"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "e": "global-e",
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d",
       "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
+      "c": "non-prod-c",
+      "e": "global-e",
+      "da": "global-a",
+      "dvar_np_a": "non-prod-a",
+      "d": "non-prod-d",
+      "dab": "non-prod-a-and-non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -80,69 +85,50 @@ weight: 10293
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"cmd1:da -> {{.da}}\"",
-        "echo \"cmd2:dab -> {{.dab}}\"",
-        "echo \"cmd3:{{.dvar_np_a}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
       "dvar_np_a": "non-prod-a",
       "d": "non-prod-d",
-      "a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "e": "global-e"
-    })
-    
-    high_hypatia2: overall final exec vars:
-    
-    (*core.Cache)({
+      "dab": "non-prod-a-and-non-prod-b",
       "a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
       "e": "global-e",
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
+      "da": "global-a"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d"
+      "d": "non-prod-d",
+      "dab": "non-prod-a-and-non-prod-b",
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e",
+      "da": "global-a"
     })
     
     cmd( 1):
     echo "cmd1:da -> {{.da}}"
     
-     \_ echo "cmd1:da -> global-a"
+    cmd=>:
+    echo "cmd1:da -> global-a"<=
     cmd1:da -> global-a
      .. ok
     cmd( 2):
     echo "cmd2:dab -> {{.dab}}"
     
-     \_ echo "cmd2:dab -> non-prod-a-and-non-prod-b"
+    cmd=>:
+    echo "cmd2:dab -> non-prod-a-and-non-prod-b"<=
     cmd2:dab -> non-prod-a-and-non-prod-b
      .. ok
     cmd( 3):
     echo "cmd3:{{.dvar_np_a}}"
     
-     \_ echo "cmd3:non-prod-a"
+    cmd=>:
+    echo "cmd3:non-prod-a"<=
     cmd3:non-prod-a
      .. ok
     . ok

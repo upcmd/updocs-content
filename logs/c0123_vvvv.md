@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11233
 
@@ -17,7 +17,7 @@ weight: 11233
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0123
                  Verbose -> vvvv
-              ModuleName -> elated_morse1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11233
     
     
     groups members:[]
-    module: [elated_morse1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -46,11 +51,11 @@ weight: 11233
     -------runtime global final merged with dvars-------
     
     {
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     }
     
       located task-> 1 [task]: 
@@ -58,43 +63,16 @@ weight: 11233
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student.name}}"
-        },
-        {
-          "name": "print",
-          "cmd": "{{.student.age}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    elated_morse1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
@@ -107,91 +85,45 @@ weight: 11233
     ~SubStep1: [print:  ]
     tom
     ~SubStep2: [print:  ]
-    <no value>
+    None
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello tom"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .student.name \"tom\"}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    elated_morse1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     ~SubStep1: [print:  ]
     hello tom
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "you will not see this message"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "add support if the element does not exist, then if condition should be false by default",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.student.age}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    elated_morse1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -199,26 +131,6 @@ weight: 11233
     condition failed, skip executing step 
     
     -Step4: [query:  ]
-    {
-      Name: "query",
-      Do: <nil>,
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "ymlonly"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
@@ -228,41 +140,18 @@ weight: 11233
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    elated_morse1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
     -Step5:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "you will not see this message"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.studentage}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
@@ -272,7 +161,7 @@ weight: 11233
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
-    elated_morse1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {

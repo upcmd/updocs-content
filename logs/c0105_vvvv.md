@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:48+77:00
 draft: false
 weight: 11053
 
@@ -17,7 +17,7 @@ weight: 11053
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0105
                  Verbose -> vvvv
-              ModuleName -> reverent_fermi8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11053
     
     
     groups members:[]
-    module: [reverent_fermi8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -50,46 +55,17 @@ weight: 11053
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "{{.tom}}",
-          "name": "print"
-        },
-        {
-          "cmd": "{{.jerry}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "jerry": "this is jerry"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "jerry": "this is jerry"
     })
     
-    reverent_fermi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry"
     })
     
     ~SubStep1: [print:  ]
@@ -97,109 +73,34 @@ weight: 11053
     ~SubStep2: [print:  ]
     this is jerry
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.jerry}}"
-        },
-        {
-          "name": "reg",
-          "cmd": {
-            "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}",
-            "name": "hitom"
-          }
-        },
-        {
-          "cmd": "{{.hitom}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom"
     })
     
-    reverent_fermi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
     })
     
     ~SubStep1: [print:  ]
-    <no value>
+    None
     ~SubStep2: [reg:  ]
     ~SubStep3: [print:  ]
     hello, this is tom
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "by default hitom is accessible from global context, that's why it is accessiable cross func",
-          "cmd": "{{.hitom}}"
-        },
-        {
-          "cmd": {
-            "name": "hijerry",
-            "desc": "hijerry is registered to local scope only",
-            "value": "hello, jerry"
-          },
-          "flags": {
-            "localonly"
-          },
-          "name": "reg"
-        },
-        {
-          "name": "print",
-          "desc": "expecting to see its value since it is still in same func scope",
-          "cmd": "{{.hijerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "hitom": "hello, this is tom"
     })
     
-    reverent_fermi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func ]
@@ -208,37 +109,13 @@ weight: 11053
     ~SubStep3: [print: expecting to see its value since it is still in same func scope ]
     hello, jerry
     -Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "{{.hijerry}}",
-          "name": "print",
-          "desc": "hijerry is not accessible here and got <no value>"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
-    reverent_fermi8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -246,7 +123,7 @@ weight: 11053
     })
     
     ~SubStep1: [print: hijerry is not accessible here and got <no value> ]
-    <no value>
+    None
     
 ```
 

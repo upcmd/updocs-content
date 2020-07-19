@@ -1,6 +1,6 @@
 ---
 title: "c0059_vvvvv"
-date: 2020-07-01T15:34:28+77:00
+date: 2020-07-20T02:01:39+77:00
 draft: false
 weight: 10594
 
@@ -17,7 +17,7 @@ weight: 10594
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0059
                  Verbose -> vvvvv
-              ModuleName -> furious_albattani4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10594
     -exec task: task
     loading [Task]:  ./tests/functests/c0059
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eed20)(<nil>)
+    (*impl.Scopes)(0xc000240da0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10594
     
     
     groups members:[]
-    module: [furious_albattani4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +100,7 @@ weight: 10594
     }
     
     
-    furious_albattani4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -103,10 +108,12 @@ weight: 10594
     cmd( 1):
     echo "step1"
     
-     \_ echo "step1"
+    cmd=>:
+    echo "step1"<=
     step1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step1\"",
      Code: (int) 0,
      Output: (string) (len=5) "step1",
      ErrMsg: (string) ""
@@ -115,10 +122,12 @@ weight: 10594
     cmd( 2):
     echo "step2"
     
-     \_ echo "step2"
+    cmd=>:
+    echo "step2"<=
     step2
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step2\"",
      Code: (int) 0,
      Output: (string) (len=5) "step2",
      ErrMsg: (string) ""
@@ -127,10 +136,12 @@ weight: 10594
     cmd( 3):
     echo "step3"
     
-     \_ echo "step3"
+    cmd=>:
+    echo "step3"<=
     step3
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step3\"",
      Code: (int) 0,
      Output: (string) (len=5) "step3",
      ErrMsg: (string) ""
@@ -163,6 +174,7 @@ weight: 10594
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -176,6 +188,7 @@ weight: 10594
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -183,10 +196,11 @@ weight: 10594
     }
     
     
-    furious_albattani4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -196,10 +210,12 @@ weight: 10594
     cmd( 1):
     echo "step4"
     
-     \_ echo "step4"
+    cmd=>:
+    echo "step4"<=
     step4
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step4\"",
      Code: (int) 0,
      Output: (string) (len=5) "step4",
      ErrMsg: (string) ""
@@ -208,10 +224,12 @@ weight: 10594
     cmd( 2):
     echo "step5"
     
-     \_ echo "step5"
+    cmd=>:
+    echo "step5"<=
     step5
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step5\"",
      Code: (int) 0,
      Output: (string) (len=5) "step5",
      ErrMsg: (string) ""
@@ -220,10 +238,12 @@ weight: 10594
     cmd( 3):
     echo "step6"
     
-     \_ echo "step6"
+    cmd=>:
+    echo "step6"<=
     step6
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step6\"",
      Code: (int) 0,
      Output: (string) (len=5) "step6",
      ErrMsg: (string) ""
@@ -256,6 +276,7 @@ weight: 10594
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
@@ -269,6 +290,7 @@ weight: 10594
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
@@ -276,10 +298,11 @@ weight: 10594
     }
     
     
-    furious_albattani4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
@@ -289,10 +312,12 @@ weight: 10594
     cmd( 1):
     echo "step7"
     
-     \_ echo "step7"
+    cmd=>:
+    echo "step7"<=
     step7
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step7\"",
      Code: (int) 0,
      Output: (string) (len=5) "step7",
      ErrMsg: (string) ""
@@ -301,10 +326,12 @@ weight: 10594
     cmd( 2):
     echo "step8"
     
-     \_ echo "step8"
+    cmd=>:
+    echo "step8"<=
     step8
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step8\"",
      Code: (int) 0,
      Output: (string) (len=5) "step8",
      ErrMsg: (string) ""
@@ -313,10 +340,12 @@ weight: 10594
     cmd( 3):
     echo "step9"
     
-     \_ echo "step9"
+    cmd=>:
+    echo "step9"<=
     step9
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step9\"",
      Code: (int) 0,
      Output: (string) (len=5) "step9",
      ErrMsg: (string) ""

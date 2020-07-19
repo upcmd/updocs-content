@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11423
 
@@ -17,7 +17,7 @@ weight: 11423
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0142
                  Verbose -> vvvv
-              ModuleName -> hopeful_turing9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11423
     
     
     groups members:[]
-    module: [hopeful_turing9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,102 +53,16 @@ weight: 11423
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": {
-            "msg": "hello, world",
-            "bg": "blue",
-            "fg": "white"
-          },
-          "name": "colorprint"
-        },
-        {
-          "name": "colorprint",
-          "cmd": {
-            "msg": "hello, world",
-            "bg": "yellow"
-          }
-        },
-        {
-          "cmd": {
-            "msg": "hello, world",
-            "fg": "white"
-          },
-          "name": "colorprint"
-        },
-        {
-          "name": "colorprint",
-          "cmd": {
-            "msg": "hello, world"
-          }
-        },
-        {
-          "name": "colorprint",
-          "cmd": {
-            "msg": "{{.person.name}}: {{.person.age}}",
-            "fg": "blue",
-            "bg": "red"
-          }
-        },
-        {
-          "name": "colorprint",
-          "cmd": {
-            "object": "person",
-            "fg": "blue",
-            "bg": "black"
-          }
-        },
-        {
-          "name": "colorprint",
-          "cmd": {
-            "fg": "blue",
-            "bg": "green",
-            "object": "{{.objectname}}"
-          }
-        },
-        {
-          "name": "colorprint",
-          "cmd": {
-            "msg": "person",
-            "fg": "blue",
-            "bg": "black",
-            "object": "person"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": {
-          "name": "tom",
-          "age": 18
-        },
-        "objectname": "person"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "objectname": "person",
       "person": {
-        "age": 18,
-        "name": "tom"
-      }
+        "name": "tom",
+        "age": 18
+      },
+      "objectname": "person"
     })
     
-    hopeful_turing9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": {
@@ -153,30 +72,22 @@ weight: 11423
       "objectname": "person"
     })
     
-    ~SubStep1: [colorprint:  ]
+    ~SubStep1: [colorPrint:  ]
     37 44
     hello, world
-    ~SubStep2: [colorprint:  ]
+    ~SubStep2: [colorPrint:  ]
     37 44
     hello, world
-    ~SubStep3: [colorprint:  ]
+    ~SubStep3: [colorPrint:  ]
     37 44
     hello, world
-    ~SubStep4: [colorprint:  ]
+    ~SubStep4: [colorPrint:  ]
     37 44
     hello, world
-    ~SubStep5: [colorprint:  ]
+    ~SubStep5: [colorPrint:  ]
     37 44
     tom: 18
-    ~SubStep6: [colorprint:  ]
-    37 44
-    object person:
-     {
-      "age": 18,
-      "name": "tom"
-    }
-    
-    ~SubStep7: [colorprint:  ]
+    ~SubStep6: [colorPrint:  ]
     37 44
     object person:
      {
@@ -184,9 +95,17 @@ weight: 11423
       "age": 18
     }
     
-    ~SubStep8: [colorprint:  ]
+    ~SubStep7: [colorPrint:  ]
     37 44
-     WARN: [colorprint] - [msg and object can not coexist]
+    object person:
+     {
+      "age": 18,
+      "name": "tom"
+    }
+    
+    ~SubStep8: [colorPrint:  ]
+    37 44
+     WARN: [colorPrint] - [msg and object can not coexist]
     
 ```
 

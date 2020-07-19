@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvvv"
-date: 2020-07-01T15:34:28+77:00
+date: 2020-07-20T02:01:39+77:00
 draft: false
 weight: 10544
 
@@ -17,7 +17,7 @@ weight: 10544
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0054
                  Verbose -> vvvvv
-              ModuleName -> fervent_jang6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10544
     -exec task: task
     loading [Task]:  ./tests/functests/c0054
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000231300)(<nil>)
+    (*impl.Scopes)(0xc000177f00)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10544
     
     
     groups members:[]
-    module: [fervent_jang6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,10 +105,12 @@ weight: 10544
     cmd( 1):
     echo "hello, world"
     
-     \_ echo "hello, world"
+    cmd=>:
+    echo "hello, world"<=
     hello, world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=19) "echo \"hello, world\"",
      Code: (int) 0,
      Output: (string) (len=12) "hello, world",
      ErrMsg: (string) ""
@@ -134,6 +141,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
@@ -147,6 +155,7 @@ weight: 10544
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
@@ -154,10 +163,11 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
@@ -202,7 +212,7 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>)
@@ -233,7 +243,7 @@ weight: 10544
       Desc: "note that for one step, there will be only one\nreturn, which will be the last do cmd\nin this case, since the step3 exit code is 0\nthe whole step will have the return code of 0\nif you need to use the exit code of the step\nyou need to consider to reduce the number of do cmds\nor put it to last step, this is not a bug\nthis is a feature\n",
       Reg: "",
       Flags: {
-        "ignore_error"
+        "ignoreError"
       },
       If: "",
       Else: <nil>,
@@ -258,7 +268,7 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>)
@@ -267,10 +277,12 @@ weight: 10544
     cmd( 1):
     echo "step1"
     
-     \_ echo "step1"
+    cmd=>:
+    echo "step1"<=
     step1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step1\"",
      Code: (int) 0,
      Output: (string) (len=5) "step1",
      ErrMsg: (string) ""
@@ -279,13 +291,15 @@ weight: 10544
     cmd( 2):
     echo "step2" |grep notexist
     
-     \_ echo "step2" |grep notexist
+    cmd=>:
+    echo "step2" |grep notexist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
           
      .. failed(suppressed if not last step)
     (utils.ExecResult) {
+     Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
      Code: (int) 1,
      Output: (string) "",
      ErrMsg: (string) ""
@@ -294,10 +308,12 @@ weight: 10544
     cmd( 3):
     echo "step3"
     
-     \_ echo "step3"
+    cmd=>:
+    echo "step3"<=
     step3
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step3\"",
      Code: (int) 0,
      Output: (string) (len=5) "step3",
      ErrMsg: (string) ""
@@ -328,6 +344,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -341,6 +358,7 @@ weight: 10544
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -348,10 +366,11 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -361,10 +380,12 @@ weight: 10544
     cmd( 1):
     echo "hello, world"
     
-     \_ echo "hello, world"
+    cmd=>:
+    echo "hello, world"<=
     hello, world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=19) "echo \"hello, world\"",
      Code: (int) 0,
      Output: (string) (len=12) "hello, world",
      ErrMsg: (string) ""
@@ -415,6 +436,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
@@ -432,6 +454,7 @@ weight: 10544
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
@@ -440,10 +463,11 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
@@ -454,10 +478,12 @@ weight: 10544
     cmd( 1):
     echo "check last step"
     
-     \_ echo "check last step"
+    cmd=>:
+    echo "check last step"<=
     check last step
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "echo \"check last step\"",
      Code: (int) 0,
      Output: (string) (len=15) "check last step",
      ErrMsg: (string) ""
@@ -466,42 +492,50 @@ weight: 10544
     cmd( 2):
     echo "{{.last_result|toJson}}"
     
-     \_ echo "{"Code":0,"Output":"hello, world","ErrMsg":""}"
-    {Code:0,Output:hello, world,ErrMsg:}
+    cmd=>:
+    echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"<=
+    {Cmd:echo "hello, world",Code:0,Output:hello, world,ErrMsg:}
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=83) "echo \"{\"Cmd\":\"echo \\\"hello, world\\\"\",\"Code\":0,\"Output\":\"hello, world\",\"ErrMsg\":\"\"}\"",
      Code: (int) 0,
-     Output: (string) (len=36) "{Code:0,Output:hello, world,ErrMsg:}",
+     Output: (string) (len=60) "{Cmd:echo \"hello, world\",Code:0,Output:hello, world,ErrMsg:}",
      ErrMsg: (string) ""
     }
     
     cmd( 3):
     echo "{{.last_result|toPrettyJson}}"
     
-     \_ echo "{
+    cmd=>:
+    echo "{
+      "Cmd": "echo \"hello, world\"",
       "Code": 0,
       "Output": "hello, world",
       "ErrMsg": ""
-    }"
+    }"<=
     {
+      Cmd: echo "hello, world",
       Code: 0,
       Output: hello, world,
       ErrMsg: 
     }
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=100) "echo \"{\n  \"Cmd\": \"echo \\\"hello, world\\\"\",\n  \"Code\": 0,\n  \"Output\": \"hello, world\",\n  \"ErrMsg\": \"\"\n}\"",
      Code: (int) 0,
-     Output: (string) (len=49) "{\n  Code: 0,\n  Output: hello, world,\n  ErrMsg: \n}",
+     Output: (string) (len=77) "{\n  Cmd: echo \"hello, world\",\n  Code: 0,\n  Output: hello, world,\n  ErrMsg: \n}",
      ErrMsg: (string) ""
     }
     
     cmd( 4):
     echo "{{eq .last_result.Code 0}}"
     
-     \_ echo "true"
+    cmd=>:
+    echo "true"<=
     true
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=11) "echo \"true\"",
      Code: (int) 0,
      Output: (string) (len=4) "true",
      ErrMsg: (string) ""
@@ -522,7 +556,7 @@ weight: 10544
       Desc: "",
       Reg: "",
       Flags: {
-        "ignore_error"
+        "ignoreError"
       },
       If: "",
       Else: <nil>,
@@ -535,6 +569,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"true\"",
         Code: 0,
         Output: "true",
         ErrMsg: ""
@@ -548,6 +583,7 @@ weight: 10544
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"true\"",
         Code: 0,
         Output: "true",
         ErrMsg: ""
@@ -555,10 +591,11 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"true\"",
         Code: 0,
         Output: "true",
         ErrMsg: ""
@@ -568,10 +605,12 @@ weight: 10544
     cmd( 1):
     echo "step1"
     
-     \_ echo "step1"
+    cmd=>:
+    echo "step1"<=
     step1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"step1\"",
      Code: (int) 0,
      Output: (string) (len=5) "step1",
      ErrMsg: (string) ""
@@ -580,13 +619,15 @@ weight: 10544
     cmd( 2):
     echo "step2" |grep notexist
     
-     \_ echo "step2" |grep notexist
+    cmd=>:
+    echo "step2" |grep notexist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
           
      .. failed(suppressed if not last step)
     (utils.ExecResult) {
+     Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
      Code: (int) 1,
      Output: (string) "",
      ErrMsg: (string) ""
@@ -619,6 +660,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
         ErrMsg: ""
@@ -632,6 +674,7 @@ weight: 10544
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
         ErrMsg: ""
@@ -639,10 +682,11 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
         ErrMsg: ""
@@ -699,9 +743,9 @@ weight: 10544
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       }
     })
     
@@ -715,19 +759,6 @@ weight: 10544
     
     
     scope[local] merged: {
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
-      "condition": "true",
-      "last_result": (*utils.ExecResult)(<nil>)
-    }
-    
-    
-    fervent_jang6: overall final exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
       "student": {
         "age": 23,
@@ -735,15 +766,30 @@ weight: 10544
         "sex": "male"
       },
       "condition": "true"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)(<nil>),
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
+      "condition": "true"
     })
     
     cmd( 1):
     echo "simple dvar as condition"
     
-     \_ echo "simple dvar as condition"
+    cmd=>:
+    echo "simple dvar as condition"<=
     simple dvar as condition
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=31) "echo \"simple dvar as condition\"",
      Code: (int) 0,
      Output: (string) (len=24) "simple dvar as condition",
      ErrMsg: (string) ""
@@ -797,6 +843,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"simple dvar as condition\"",
         Code: 0,
         Output: "simple dvar as condition",
         ErrMsg: ""
@@ -818,43 +865,47 @@ weight: 10544
     
     
     scope[local] merged: {
+      "condition": "true",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"simple dvar as condition\"",
         Code: 0,
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
-      "condition": "true"
+        "sex": "male"
+      }
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "simple dvar as condition",
-        ErrMsg: ""
-      }),
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
       },
-      "condition": "true"
+      "condition": "true",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"simple dvar as condition\"",
+        Code: 0,
+        Output: "simple dvar as condition",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
     echo "complicated dvar evaluation as condition"
     
-     \_ echo "complicated dvar evaluation as condition"
+    cmd=>:
+    echo "complicated dvar evaluation as condition"<=
     complicated dvar evaluation as condition
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=47) "echo \"complicated dvar evaluation as condition\"",
      Code: (int) 0,
      Output: (string) (len=40) "complicated dvar evaluation as condition",
      ErrMsg: (string) ""
@@ -871,9 +922,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
+          "name": "peter",
           "sex": "male",
-          "age": 23,
-          "name": "peter"
+          "age": 23
         }
       },
       Dvars: {
@@ -908,11 +959,12 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"complicated dvar evaluation as condition\"",
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
@@ -929,43 +981,47 @@ weight: 10544
     
     
     scope[local] merged: {
-      "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"complicated dvar evaluation as condition\"",
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
       "condition": "true"
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "condition": "true",
-      "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"complicated dvar evaluation as condition\"",
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "sex": "male",
+        "age": 23,
+        "name": "peter"
+      },
+      "condition": "true"
     })
     
     cmd( 1):
     echo "a even more complicated condition but more readable"
     
-     \_ echo "a even more complicated condition but more readable"
+    cmd=>:
+    echo "a even more complicated condition but more readable"<=
     a even more complicated condition but more readable
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=58) "echo \"a even more complicated condition but more readable\"",
      Code: (int) 0,
      Output: (string) (len=51) "a even more complicated condition but more readable",
      ErrMsg: (string) ""
@@ -1002,6 +1058,43 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a even more complicated condition but more readable\"",
+        Code: 0,
+        Output: "a even more complicated condition but more readable",
+        ErrMsg: ""
+      }),
+      "student": {
+        "age": 23,
+        "name": "peter",
+        "sex": "male"
+      }
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a even more complicated condition but more readable\"",
+        Code: 0,
+        Output: "a even more complicated condition but more readable",
+        ErrMsg: ""
+      }),
+      "student": {
+        "sex": "male",
+        "age": 23,
+        "name": "peter"
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a even more complicated condition but more readable\"",
         Code: 0,
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
@@ -1013,47 +1106,15 @@ weight: 10544
       }
     })
     
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "a even more complicated condition but more readable",
-        ErrMsg: ""
-      }),
-      "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      }
-    }
-    
-    
-    fervent_jang6: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "a even more complicated condition but more readable",
-        ErrMsg: ""
-      }),
-      "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      }
-    })
-    
     cmd( 1):
     echo "a complicated condition without dvar"
     
-     \_ echo "a complicated condition without dvar"
+    cmd=>:
+    echo "a complicated condition without dvar"<=
     a complicated condition without dvar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=43) "echo \"a complicated condition without dvar\"",
      Code: (int) 0,
      Output: (string) (len=36) "a complicated condition without dvar",
      ErrMsg: (string) ""
@@ -1091,6 +1152,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
@@ -1106,6 +1168,7 @@ weight: 10544
     scope[local] merged: {
       "doc": "hello",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
@@ -1113,15 +1176,16 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "doc": "hello",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      })
+      }),
+      "doc": "hello"
     })
     
     {{ gt (.doc|len) 1 }}
@@ -1156,6 +1220,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
@@ -1170,6 +1235,7 @@ weight: 10544
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
@@ -1178,15 +1244,16 @@ weight: 10544
     }
     
     
-    fervent_jang6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "doc": "hello",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      }),
-      "doc": "hello"
+      })
     })
     
     {{ gt (.doc|len) 1 }}

@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10083
 
@@ -17,7 +17,7 @@ weight: 10083
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0008
                  Verbose -> vvvv
-              ModuleName -> lonely_rosalind8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -28,44 +28,49 @@ weight: 10083
     loading [Task]:  ./tests/functests/c0008
     ---------group vars----------
     
-    global: {
-      "a": "global-a",
-      "b": "global-b",
-      "c": "global-c",
-      "d": "global-d"
-    }
-    
-    
     prod: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
     nonprod: {
+      "c": "non-prod-c",
       "a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c"
+      "b": "non-prod-b"
+    }
+    
+    
+    global: {
+      "b": "global-b",
+      "c": "global-c",
+      "d": "global-d",
+      "a": "global-a"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [lonely_rosalind8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "a": "dev-a"
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -73,36 +78,7 @@ weight: 10083
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"test out the var scopes only\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
-    })
-    
-    lonely_rosalind8: overall final exec vars:
-    
     (*core.Cache)({
       "b": "non-prod-b",
       "c": "dev-c",
@@ -110,10 +86,20 @@ weight: 10083
       "a": "dev-a"
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "a": "dev-a",
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d"
+    })
+    
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     . ok

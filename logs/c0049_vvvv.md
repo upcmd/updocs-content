@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:38+77:00
 draft: false
 weight: 10493
 
@@ -17,7 +17,7 @@ weight: 10493
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0049
                  Verbose -> vvvv
-              ModuleName -> evil_franklin3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -29,28 +29,33 @@ weight: 10493
     ---------group vars----------
     
     global: {
-      "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules"
     }
     
     
     groups members:[]
-    module: [evil_franklin3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "envvar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond"
+      "STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18"
     }
     
       located task-> 1 [task]: 
@@ -58,150 +63,97 @@ weight: 10493
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "env |grep STUDENT_NAME",
-        "env |grep STUDENT_AGE"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "STUDENT_NAME",
-          Value: "Tom Hanks",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "envvar"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
+      "envVar_STUDENT_AGE": "18",
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
+      "STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond"
     })
     
-    evil_franklin3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules",
       "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
+      "envVar_STUDENT_AGE": "18",
+      "envVar_SCHOOL": "James Rules"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
-     \_ env |grep STUDENT_NAME
+    cmd=>:
+    env |grep STUDENT_NAME<=
     STUDENT_NAME=Tom Hanks
      .. ok
     cmd( 2):
     env |grep STUDENT_AGE
     
-     \_ env |grep STUDENT_AGE
+    cmd=>:
+    env |grep STUDENT_AGE<=
     STUDENT_AGE=18
      .. ok
     . ok
-    -Step2: [: since there is no local envvar for STUDENT_NAME
-    it should use global envvar value 'james bond'
+    -Step2: [: since there is no local envVar for STUDENT_NAME
+    it should use global envVar value 'james bond'
      ]
-    {
-      Name: "",
-      Do: {
-        "env |grep STUDENT_NAME",
-        "env |grep STUDENT_AGE",
-        "env |grep SCHOOL"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "since there is no local envvar for STUDENT_NAME\nit should use global envvar value 'james bond'\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "envvar_STUDENT_AGE": "18",
+      "STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_AGE",
         Code: 0,
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18"
+      "envVar_STUDENT_NAME": "James Bond"
     })
     
-    evil_franklin3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_AGE",
         Code: 0,
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
-      }),
-      "SCHOOL": "James Rules"
+      })
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
-     \_ env |grep STUDENT_NAME
+    cmd=>:
+    env |grep STUDENT_NAME<=
     STUDENT_NAME=James Bond
      .. ok
     cmd( 2):
     env |grep STUDENT_AGE
     
-     \_ env |grep STUDENT_AGE
+    cmd=>:
+    env |grep STUDENT_AGE<=
     STUDENT_AGE=18
      .. ok
     cmd( 3):
     env |grep SCHOOL
     
-     \_ env |grep SCHOOL
+    cmd=>:
+    env |grep SCHOOL<=
     SCHOOL=James Rules
      .. ok
     . ok

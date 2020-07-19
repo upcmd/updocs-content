@@ -1,6 +1,6 @@
 ---
 title: "c0003_vvvv"
-date: 2020-07-01T15:34:20+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10033
 
@@ -17,7 +17,7 @@ weight: 10033
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0003
                  Verbose -> vvvv
-              ModuleName -> adoring_bohr5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10033
     
     
     groups members:[]
-    module: [adoring_bohr5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,29 +53,11 @@ weight: 10033
     Executing task stack layer: 1
     
     -Step1: [: do step1 in shell func ]
-    {
-      Name: "",
-      Do: "echo \"hello\"\necho \"world\"\n",
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "do step1 in shell func",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    adoring_bohr5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,9 +67,10 @@ weight: 10033
     echo "world"
     
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"
     echo "world"
-    
+    <=
     hello
     world
      .. ok

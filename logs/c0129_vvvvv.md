@@ -1,6 +1,6 @@
 ---
 title: "c0129_vvvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11294
 
@@ -17,7 +17,7 @@ weight: 11294
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0129
                  Verbose -> vvvvv
-              ModuleName -> focused_hoover4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11294
     -exec task: task
     loading [Task]:  ./tests/functests/c0129
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed4e0)(<nil>)
+    (*impl.Scopes)(0xc00000ce20)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,23 @@ weight: 11294
     
     
     groups members:[]
-    module: [focused_hoover4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "b": (string) (len=10) "global_bbb",
      (string) (len=1) "c": (string) (len=10) "global_ccc",
-     (string) (len=1) "a": (string) (len=10) "global_aaa",
-     (string) (len=1) "b": (string) (len=10) "global_bbb"
+     (string) (len=1) "a": (string) (len=10) "global_aaa"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +63,9 @@ weight: 11294
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -79,6 +84,7 @@ weight: 11294
           }
         },
         {
+          "func": "cmd",
           "vars": {
             "a": "block_layer1_aaa"
           },
@@ -87,8 +93,7 @@ weight: 11294
               "name": "print",
               "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          },
-          "func": "cmd"
+          }
         },
         {
           "func": "shell",
@@ -98,10 +103,14 @@ weight: 11294
           }
         },
         {
+          "vars": {
+            "a": "local_block_layer2_aaa",
+            "b": "local_block_layer2_bbb"
+          },
           "dvars": {
             {
-              "name": "da",
-              "value": "local_da_layer2"
+              "value": "local_da_layer2",
+              "name": "da"
             },
             {
               "name": "db",
@@ -123,11 +132,7 @@ weight: 11294
             }
           },
           "func": "block",
-          "desc": "test embeded 2nd layer of block",
-          "vars": {
-            "b": "local_block_layer2_bbb",
-            "a": "local_block_layer2_aaa"
-          }
+          "desc": "test embeded 2nd layer of block"
         },
         {
           "func": "shell",
@@ -193,28 +198,28 @@ weight: 11294
     
     [local] dvar expanded result:
     {
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     }
     
     
     scope[local] merged: {
-      "c": "global_ccc",
-      "a": "local_aaa",
       "db": "local_db",
-      "da": "local_da",
-      "b": "local_bbb"
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "da": "local_da"
     }
     
     
-    focused_hoover4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "db": "local_db",
       "da": "local_da",
-      "b": "local_bbb"
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     -Step1:
@@ -241,11 +246,11 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -254,31 +259,33 @@ weight: 11294
     
     
     scope[local] merged: {
-      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "b": "local_bbb",
+      "c": "global_ccc"
     }
     
     
-    focused_hoover4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "db": "local_db",
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "db": "local_db",
       "da": "local_da"
     })
     
     cmd( 1):
     echo "shell step1"
     
-     \_ echo "shell step1"
+    cmd=>:
+    echo "shell step1"<=
     shell step1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step1\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step1",
      ErrMsg: (string) ""
@@ -287,10 +294,12 @@ weight: 11294
     cmd( 2):
     echo "shell step2"
     
-     \_ echo "shell step2"
+    cmd=>:
+    echo "shell step2"<=
     shell step2
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step2\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step2",
      ErrMsg: (string) ""
@@ -302,8 +311,8 @@ weight: 11294
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -325,16 +334,17 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "block_layer1_aaa",
       "b": "local_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "db": "local_db",
-      "da": "local_da"
+      "a": "block_layer1_aaa",
+      "da": "local_da",
+      "db": "local_db"
     })
     
     [local] dvar expanded result:
@@ -344,31 +354,33 @@ weight: 11294
     
     scope[local] merged: {
       "b": "local_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "db": "local_db",
+      "a": "block_layer1_aaa",
       "da": "local_da",
-      "c": "global_ccc",
-      "a": "block_layer1_aaa"
+      "db": "local_db"
     }
     
     
-    focused_hoover4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "block_layer1_aaa",
-      "b": "local_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "db": "local_db",
+      "a": "block_layer1_aaa",
       "da": "local_da",
-      "c": "global_ccc"
+      "db": "local_db",
+      "b": "local_bbb"
     })
     
     layer 1
@@ -412,16 +424,17 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db",
-      "da": "local_da",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
+      "da": "local_da",
+      "db": "local_db",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -430,41 +443,45 @@ weight: 11294
     
     
     scope[local] merged: {
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "da": "local_da",
+      "db": "local_db",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "db": "local_db",
-      "da": "local_da",
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb"
+      "a": "local_aaa"
     }
     
     
-    focused_hoover4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
-      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc",
       "da": "local_da",
-      "c": "global_ccc"
+      "db": "local_db"
     })
     
     cmd( 1):
     echo "shell step3"
     
-     \_ echo "shell step3"
+    cmd=>:
+    echo "shell step3"<=
     shell step3
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step3\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step3",
      ErrMsg: (string) ""
@@ -473,10 +490,12 @@ weight: 11294
     cmd( 2):
     echo "shell step4"
     
-     \_ echo "shell step4"
+    cmd=>:
+    echo "shell step4"<=
     shell step4
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step4\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step4",
      ErrMsg: (string) ""
@@ -549,52 +568,55 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "db": "local_db",
-      "da": "local_da"
+      "a": "local_block_layer2_aaa"
     })
     
     [local] dvar expanded result:
     {
-      "db": "local_db_layer2",
-      "da": "local_da_layer2"
+      "da": "local_da_layer2",
+      "db": "local_db_layer2"
     }
     
     
     scope[local] merged: {
-      "c": "global_ccc",
-      "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "db": "local_db_layer2",
-      "da": "local_da_layer2"
+      "a": "local_block_layer2_aaa"
     }
     
     
-    focused_hoover4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db_layer2",
-      "da": "local_da_layer2",
-      "c": "global_ccc",
-      "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "a": "local_block_layer2_aaa"
     })
     
     -Step1:
@@ -625,15 +647,16 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db_layer2",
-      "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "c": "global_ccc",
       "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc",
+      "db": "local_db_layer2",
       "da": "local_da_layer2"
     })
     
@@ -644,31 +667,33 @@ weight: 11294
     
     scope[local] merged: {
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
-      "da": "local_da_layer2",
       "db": "local_db_layer2",
-      "b": "local_block_layer2_bbb",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "shell step4",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    focused_hoover4: overall final exec vars:
-    
-    (*core.Cache)({
-      "a": "block_layer2_aaa",
       "da": "local_da_layer2",
-      "db": "local_db_layer2",
-      "b": "local_block_layer2_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "c": "global_ccc"
+      "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc",
+      "db": "local_db_layer2",
+      "da": "local_da_layer2",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
+        Code: 0,
+        Output: "shell step4",
+        ErrMsg: ""
+      }),
+      "a": "block_layer2_aaa"
     })
     
     layer 2
@@ -712,16 +737,17 @@ weight: 11294
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "db": "local_db",
       "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -730,41 +756,45 @@ weight: 11294
     
     
     scope[local] merged: {
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
       "db": "local_db",
-      "da": "local_da",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "da": "local_da"
     }
     
     
-    focused_hoover4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "db": "local_db",
-      "da": "local_da",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      })
+      }),
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "da": "local_da",
+      "db": "local_db"
     })
     
     cmd( 1):
     echo "shell step5"
     
-     \_ echo "shell step5"
+    cmd=>:
+    echo "shell step5"<=
     shell step5
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step5\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step5",
      ErrMsg: (string) ""
@@ -773,10 +803,12 @@ weight: 11294
     cmd( 2):
     echo "shell step6"
     
-     \_ echo "shell step6"
+    cmd=>:
+    echo "shell step6"<=
     shell step6
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"shell step6\"",
      Code: (int) 0,
      Output: (string) (len=11) "shell step6",
      ErrMsg: (string) ""

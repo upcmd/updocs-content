@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10863
 
@@ -17,7 +17,7 @@ weight: 10863
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0086
                  Verbose -> vvvv
-              ModuleName -> determined_almeida8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10863
     
     
     groups members:[]
-    module: [determined_almeida8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -50,66 +55,35 @@ weight: 10863
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo '{{.lines}}'",
-        "echo '{{.linelist}}'",
-        "echo '{{.linelist_object}}'"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "linelist",
-          Value: "{{ .lines | splitLines | reg \"linelist_object\" }}",
-          Desc: "it does not make sense that the result in local of linelist is empty\nso we do not need this var to be registered either in local or global\n",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     dvar> linelist:
-    ""
+    "- hello\n- this\n- is a\n- beautiful world\n"
     
-    determined_almeida8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
     echo '{{.lines}}'
     
-     \_ echo 'hello
+    cmd=>:
+    echo 'hello
     this
     is a
-    beautiful world'
+    beautiful world'<=
     hello
     this
     is a
@@ -118,61 +92,32 @@ weight: 10863
     cmd( 2):
     echo '{{.linelist}}'
     
-     \_ echo '<no value>'
-    <no value>
+    cmd=>:
+    echo '- hello
+    - this
+    - is a
+    - beautiful world
+    '<=
+    - hello
+    - this
+    - is a
+    - beautiful world
      .. ok
     cmd( 3):
     echo '{{.linelist_object}}'
     
-     \_ echo '<no value>'
-    <no value>
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
+    [hello this is a beautiful world]
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "echo '{{.lines}}'",
-        "echo '{{.linelist}}'",
-        "echo '{{.linelist_object}}'"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "void",
-          Value: "{{ .lines | splitLines | reg \"linelist_object\" }}",
-          Desc: "now this var name will not be shown in local automatically\nor in global if you register it\n",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
-        Output: "<no value>",
+        Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
       "lines": "hello\nthis\nis a\nbeautiful world",
@@ -185,32 +130,34 @@ weight: 10863
     })
     
     dvar> void:
-    ""
+    "- hello\n- this\n- is a\n- beautiful world\n"
     
-    determined_almeida8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "<no value>",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     })
     
     cmd( 1):
     echo '{{.lines}}'
     
-     \_ echo 'hello
+    cmd=>:
+    echo 'hello
     this
     is a
-    beautiful world'
+    beautiful world'<=
     hello
     this
     is a
@@ -219,251 +166,165 @@ weight: 10863
     cmd( 2):
     echo '{{.linelist}}'
     
-     \_ echo '<no value>'
+    cmd=>:
+    echo '<no value>'<=
     <no value>
      .. ok
     cmd( 3):
     echo '{{.linelist_object}}'
     
-     \_ echo '[hello this is a beautiful world]'
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
     [hello this is a beautiful world]
      .. ok
     . ok
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "echo '{{.lines}}'",
-        "echo '{{.linelist}}'",
-        "echo '{{.linelist_object}}'"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "void",
-          Value: "{{ .lines | splitLines | reg \"linelist_object\" }}",
-          Desc: "now this var name will not be shown in local automatically\nor in global if you register it\n",
-          Expand: 0,
-          Flags: {
-            "vvv",
-            "reg"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
       "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
-    })
-    
-    dvar> void:
-    ""
-    
-    determined_almeida8: overall final exec vars:
-    
-    (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
-    })
-    
-    cmd( 1):
-    echo '{{.lines}}'
-    
-     \_ echo 'hello
-    this
-    is a
-    beautiful world'
-    hello
-    this
-    is a
-    beautiful world
-     .. ok
-    cmd( 2):
-    echo '{{.linelist}}'
-    
-     \_ echo '<no value>'
-    <no value>
-     .. ok
-    cmd( 3):
-    echo '{{.linelist_object}}'
-    
-     \_ echo '[hello this is a beautiful world]'
-    [hello this is a beautiful world]
-     .. ok
-    . ok
-    -Step4:
-    {
-      Name: "",
-      Do: {
-        "echo '{{.lines}}'",
-        "echo '{{.linelist}}'",
-        "echo '{{.linelist_object}}'"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
-    })
-    
-    determined_almeida8: overall final exec vars:
-    
-    (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
-    })
-    
-    cmd( 1):
-    echo '{{.lines}}'
-    
-     \_ echo 'hello
-    this
-    is a
-    beautiful world'
-    hello
-    this
-    is a
-    beautiful world
-     .. ok
-    cmd( 2):
-    echo '{{.linelist}}'
-    
-     \_ echo '<no value>'
-    <no value>
-     .. ok
-    cmd( 3):
-    echo '{{.linelist_object}}'
-    
-     \_ echo '[hello this is a beautiful world]'
-    [hello this is a beautiful world]
-     .. ok
-    . ok
-    -Step5:
-    {
-      Name: "",
-      Do: <nil>,
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "void",
-          Value: "person:\n  name: tom\n  age: \"18\"",
-          Desc: "now this var name will not be shown in local automatically\nor in global if you register it\n",
-          Expand: 0,
-          Flags: {
-            "vvv",
-            "reg",
-            "to_object"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
+    })
+    
+    dvar> void:
+    "- hello\n- this\n- is a\n- beautiful world\n"
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
+    })
+    
+    cmd( 1):
+    echo '{{.lines}}'
+    
+    cmd=>:
+    echo 'hello
+    this
+    is a
+    beautiful world'<=
+    hello
+    this
+    is a
+    beautiful world
+     .. ok
+    cmd( 2):
+    echo '{{.linelist}}'
+    
+    cmd=>:
+    echo '<no value>'<=
+    <no value>
+     .. ok
+    cmd( 3):
+    echo '{{.linelist_object}}'
+    
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
+    [hello this is a beautiful world]
+     .. ok
+    . ok
+    -Step4:
+    current exec runtime vars:
+    (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
+    })
+    
+    cmd( 1):
+    echo '{{.lines}}'
+    
+    cmd=>:
+    echo 'hello
+    this
+    is a
+    beautiful world'<=
+    hello
+    this
+    is a
+    beautiful world
+     .. ok
+    cmd( 2):
+    echo '{{.linelist}}'
+    
+    cmd=>:
+    echo '<no value>'<=
+    <no value>
+     .. ok
+    cmd( 3):
+    echo '{{.linelist_object}}'
+    
+    cmd=>:
+    echo '[hello this is a beautiful world]'<=
+    [hello this is a beautiful world]
+     .. ok
+    . ok
+    -Step5:
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     })
     
     dvar> void:
@@ -478,10 +339,9 @@ weight: 10863
       }
     }
     
-    determined_almeida8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
@@ -489,10 +349,12 @@ weight: 10863
         "beautiful world"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      })
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]

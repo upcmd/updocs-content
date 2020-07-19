@@ -1,6 +1,6 @@
 ---
 title: "c0134_vvvv"
-date: 2020-07-01T15:34:40+77:00
+date: 2020-07-20T02:01:53+77:00
 draft: false
 weight: 11343
 
@@ -17,7 +17,7 @@ weight: 11343
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0134
                  Verbose -> vvvv
-              ModuleName -> dreamy_franklin4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11343
     
     
     groups members:[]
-    module: [dreamy_franklin4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": "global_ccc",
@@ -54,69 +59,6 @@ weight: 11343
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "func": "shell",
-          "do": {
-            "echo \"in block\""
-          }
-        },
-        {
-          "func": "call",
-          "do": {
-            "callee_task"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: {
-        "b": "local_bbb",
-        "a": "local_aaa"
-      },
-      Dvars: {
-        {
-          Name: "da",
-          Value: "local_da",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "db",
-          Value: "local_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "c": "global_ccc",
@@ -124,52 +66,32 @@ weight: 11343
       "b": "local_bbb"
     })
     
-    dreamy_franklin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db"
     })
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"in block\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
+      "db": "local_db",
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da",
-      "db": "local_db"
+      "c": "global_ccc",
+      "da": "local_da"
     })
     
-    dreamy_franklin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
+      "c": "global_ccc",
       "da": "local_da",
       "db": "local_db"
     })
@@ -177,58 +99,41 @@ weight: 11343
     cmd( 1):
     echo "in block"
     
-     \_ echo "in block"
+    cmd=>:
+    echo "in block"<=
     in block
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "callee_task"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "db": "local_db",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"in block\"",
         Code: 0,
         Output: "in block",
         ErrMsg: ""
       }),
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "db": "local_db",
       "da": "local_da"
     })
     
-    dreamy_franklin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"in block\"",
         Code: 0,
         Output: "in block",
         ErrMsg: ""
       }),
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     })
     
       located task-> 2 [callee_task]: 
@@ -236,88 +141,37 @@ weight: 11343
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
-          "name": "print"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .a \"local_aaa\" }}",
-            "{{eq .b \"local_bbb\" }}",
-            "{{eq .c \"global_ccc\" }}",
-            "{{eq .da \"local_da\" }}",
-            "{{eq .db \"callee_db\" }}"
-          },
-          "flags": {
-            "failfast"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "callee_aaa"
-      },
-      Dvars: {
-        {
-          Name: "db",
-          Value: "callee_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "da": "local_da",
+      "up_runtime_task_layer_number": 1,
+      "a": "local_aaa",
+      "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"in block\"",
         Code: 0,
         Output: "in block",
         ErrMsg: ""
       }),
-      "c": "global_ccc",
-      "up_runtime_task_layer_number": 1,
-      "b": "local_bbb",
-      "a": "local_aaa",
-      "db": "local_db"
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc"
     })
     
-    dreamy_franklin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
-      "up_runtime_task_layer_number": 1,
-      "b": "local_bbb",
-      "a": "local_aaa",
-      "db": "callee_db",
-      "da": "local_da",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"in block\"",
         Code: 0,
         Output: "in block",
         ErrMsg: ""
-      })
+      }),
+      "da": "local_da",
+      "db": "callee_db",
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 1,
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     ~~SubStep1: [print:  ]

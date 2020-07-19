@@ -1,6 +1,6 @@
 ---
 title: "0007_vvvvv"
-date: 2020-07-01T15:34:58+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100704
 
@@ -17,7 +17,7 @@ weight: 100704
               AbsWorkDir -> /up_project/up/tests/modtests/0007
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> sleepy_mcclintock4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100704
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000240760)(<nil>)
+    (*impl.Scopes)(0xc000174de0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 100704
     
     
     groups members:[]
-    module: [sleepy_mcclintock4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -91,7 +96,7 @@ weight: 100704
     }
     
     
-    sleepy_mcclintock4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -103,7 +108,7 @@ weight: 100704
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000241300)(<nil>)
+    (*impl.Scopes)(0xc000175a00)(<nil>)
     
     ---------group vars----------
     
@@ -112,6 +117,11 @@ weight: 100704
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -176,7 +186,7 @@ weight: 100704
     }
     
     
-    hello: overall final exec vars:
+    hello: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2

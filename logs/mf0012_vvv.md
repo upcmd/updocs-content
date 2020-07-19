@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvv"
-date: 2020-07-01T15:35:00+77:00
+date: 2020-07-20T02:02:16+77:00
 draft: false
 weight: 101202
 
@@ -17,28 +17,38 @@ weight: 101202
               AbsWorkDir -> /up_project/up/tests/modtests/f0012
                 TaskFile -> up.yml
                  Verbose -> vvv
-              ModuleName -> berserk_bohr1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 8
     work dir: /up_project/up/tests/modtests/f0012
     -exec task: Main
     loading [Task]:  ./up.yml
-    module: [berserk_bohr1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     Task1: [Main ==> Main: main entry ]
     -Step1:
-    berserk_bohr1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     =>call module: [hello-module] task: [Say_hello]
     Task2: [TODO: Main Caller Taskname ==> Say_hello:  ]
     -Step1:
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -48,7 +58,7 @@ weight: 101202
     ~SubStep1: [print:  ]
     ... hello
     -Step2:
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -56,11 +66,16 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
     Task3: [TODO: Main Caller Taskname ==> Cross_call1:  ]
     -Step1:
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -69,7 +84,7 @@ weight: 101202
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2:
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -77,11 +92,16 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk2] instance id: [nonamed]
     =>call module: [crosstalk2] task: [Cross_call2]
     Task3: [TODO: Main Caller Taskname ==> Cross_call2:  ]
     -Step1:
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 4
@@ -90,7 +110,7 @@ weight: 101202
     ~SubStep1: [print:  ]
      .... cross call 2
     -Step2:
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 4
@@ -98,11 +118,16 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
     Task3: [TODO: Main Caller Taskname ==> Cross_call1:  ]
     -Step1:
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 5
@@ -111,7 +136,7 @@ weight: 101202
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2:
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 5
@@ -119,11 +144,16 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk2] instance id: [nonamed]
     =>call module: [crosstalk2] task: [Cross_call2]
     Task3: [TODO: Main Caller Taskname ==> Cross_call2:  ]
     -Step1:
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 6
@@ -132,7 +162,7 @@ weight: 101202
     ~SubStep1: [print:  ]
      .... cross call 2
     -Step2:
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 6
@@ -140,11 +170,16 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
     Task3: [TODO: Main Caller Taskname ==> Cross_call1:  ]
     -Step1:
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 7
@@ -153,7 +188,7 @@ weight: 101202
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2:
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 7
@@ -161,11 +196,16 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk2] instance id: [nonamed]
     =>call module: [crosstalk2] task: [Cross_call2]
     Task3: [TODO: Main Caller Taskname ==> Cross_call2:  ]
     -Step1:
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 8
@@ -174,7 +214,7 @@ weight: 101202
     ~SubStep1: [print:  ]
      .... cross call 2
     -Step2:
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 8
@@ -182,10 +222,14 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
-          Module call layer check: -> Too many layers of recursive module executions, max allowed(8), please fix your recursive call
-    -----trace for reference-----
+      ERROR: Module call layer check: [Too many layers of recursive module executions, max allowed(8), please fix your recursive call]
     
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvvv"
-date: 2020-07-01T15:34:24+77:00
+date: 2020-07-20T02:01:34+77:00
 draft: false
 weight: 10294
 
@@ -17,7 +17,7 @@ weight: 10294
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0029
                  Verbose -> vvvvv
-              ModuleName -> grave_pike6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,17 +27,17 @@ weight: 10294
     -exec task: task
     loading [Task]:  ./tests/functests/c0029
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb280)((len=3 cap=3) {
+    (*impl.Scopes)(0xc0001bb2e0)((len=3 cap=3) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "a": (string) (len=8) "global-a",
        (string) (len=1) "b": (string) (len=8) "global-b",
        (string) (len=1) "c": (string) (len=8) "global-c",
-       (string) (len=1) "e": (string) (len=8) "global-e"
+       (string) (len=1) "e": (string) (len=8) "global-e",
+       (string) (len=1) "a": (string) (len=8) "global-a"
       },
       Dvars: (impl.Dvars) (len=2 cap=2) {
        (impl.Dvar) {
@@ -79,10 +79,10 @@ weight: 10294
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "b": (string) (len=10) "non-prod-b",
        (string) (len=1) "c": (string) (len=10) "non-prod-c",
        (string) (len=1) "d": (string) (len=10) "non-prod-d",
-       (string) (len=1) "a": (string) (len=10) "non-prod-a"
+       (string) (len=1) "a": (string) (len=10) "non-prod-a",
+       (string) (len=1) "b": (string) (len=10) "non-prod-b"
       },
       Dvars: (impl.Dvars) (len=2 cap=2) {
        (impl.Dvar) {
@@ -136,12 +136,12 @@ weight: 10294
     
     
     scope[global] merged: {
-      "e": "global-e",
-      "da": "global-a",
-      "dab": "global-a-and-global-b",
-      "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
+      "c": "global-c",
+      "e": "global-e",
+      "a": "global-a",
+      "da": "global-a",
+      "dab": "global-a-and-global-b"
     }
     
     
@@ -153,11 +153,11 @@ weight: 10294
     
     
     scope[nonprod] merged: {
-      "dab": "non-prod-a-and-non-prod-b",
-      "d": "non-prod-d",
       "a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
+      "d": "non-prod-d",
+      "dab": "non-prod-a-and-non-prod-b",
       "dvar_np_a": "non-prod-a"
     }
     
@@ -165,12 +165,12 @@ weight: 10294
     ---------group vars----------
     
     nonprod: {
+      "d": "non-prod-d",
+      "dab": "non-prod-a-and-non-prod-b",
+      "dvar_np_a": "non-prod-a",
       "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "d": "non-prod-d"
+      "c": "non-prod-c"
     }
     
     
@@ -178,35 +178,40 @@ weight: 10294
       "b": "global-b",
       "c": "global-c",
       "e": "global-e",
+      "a": "global-a",
       "da": "global-a",
-      "dab": "global-a-and-global-b",
-      "a": "global-a"
+      "dab": "global-a-and-global-b"
     }
     
     
     groups members:[dev staging]
-    module: [grave_pike6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e",
       "a": "non-prod-a",
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "e": "global-e"
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b"
     }
     
     (core.Cache) (len=8) {
-     (string) (len=1) "e": (string) (len=8) "global-e",
-     (string) (len=2) "da": (string) (len=8) "global-a",
      (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b",
+     (string) (len=1) "b": (string) (len=10) "non-prod-b",
+     (string) (len=1) "c": (string) (len=10) "non-prod-c",
+     (string) (len=1) "e": (string) (len=8) "global-e",
      (string) (len=1) "a": (string) (len=10) "non-prod-a",
      (string) (len=1) "d": (string) (len=10) "non-prod-d",
      (string) (len=9) "dvar_np_a": (string) (len=10) "non-prod-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b",
-     (string) (len=1) "c": (string) (len=10) "non-prod-c"
+     (string) (len=2) "da": (string) (len=8) "global-a"
     }
     
     [runtime global] dvar expanded result:
@@ -217,14 +222,14 @@ weight: 10294
     -------runtime global final merged with dvars-------
     
     {
-      "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
       "e": "global-e",
-      "da": "global-a"
+      "a": "non-prod-a",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -256,14 +261,14 @@ weight: 10294
     
     current exec runtime vars:
     (*core.Cache)({
-      "dvar_np_a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
       "e": "global-e",
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
       "a": "non-prod-a",
-      "d": "non-prod-d"
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b"
     })
     
     [local] dvar expanded result:
@@ -272,37 +277,39 @@ weight: 10294
     
     
     scope[local] merged: {
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "e": "global-e",
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
       "a": "non-prod-a",
       "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a"
+      "dvar_np_a": "non-prod-a",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e"
     }
     
     
-    grave_pike6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "non-prod-a",
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
       "b": "non-prod-b",
       "c": "non-prod-c",
-      "e": "global-e",
-      "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b"
+      "e": "global-e"
     })
     
     cmd( 1):
     echo "cmd1:da -> {{.da}}"
     
-     \_ echo "cmd1:da -> global-a"
+    cmd=>:
+    echo "cmd1:da -> global-a"<=
     cmd1:da -> global-a
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=26) "echo \"cmd1:da -> global-a\"",
      Code: (int) 0,
      Output: (string) (len=19) "cmd1:da -> global-a",
      ErrMsg: (string) ""
@@ -311,10 +318,12 @@ weight: 10294
     cmd( 2):
     echo "cmd2:dab -> {{.dab}}"
     
-     \_ echo "cmd2:dab -> non-prod-a-and-non-prod-b"
+    cmd=>:
+    echo "cmd2:dab -> non-prod-a-and-non-prod-b"<=
     cmd2:dab -> non-prod-a-and-non-prod-b
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=44) "echo \"cmd2:dab -> non-prod-a-and-non-prod-b\"",
      Code: (int) 0,
      Output: (string) (len=37) "cmd2:dab -> non-prod-a-and-non-prod-b",
      ErrMsg: (string) ""
@@ -323,10 +332,12 @@ weight: 10294
     cmd( 3):
     echo "cmd3:{{.dvar_np_a}}"
     
-     \_ echo "cmd3:non-prod-a"
+    cmd=>:
+    echo "cmd3:non-prod-a"<=
     cmd3:non-prod-a
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "echo \"cmd3:non-prod-a\"",
      Code: (int) 0,
      Output: (string) (len=15) "cmd3:non-prod-a",
      ErrMsg: (string) ""

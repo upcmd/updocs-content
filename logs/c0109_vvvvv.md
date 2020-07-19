@@ -1,6 +1,6 @@
 ---
 title: "c0109_vvvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11094
 
@@ -17,7 +17,7 @@ weight: 11094
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0109
                  Verbose -> vvvvv
-              ModuleName -> reverent_darwin4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11094
     -exec task: task
     loading [Task]:  ./tests/functests/c0109
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed440)(<nil>)
+    (*impl.Scopes)(0xc0001c14c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11094
     
     
     groups members:[]
-    module: [reverent_darwin4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -81,7 +86,7 @@ weight: 11094
           Desc: "",
           Expand: 0,
           Flags: {
-            "taskscope"
+            "taskScope"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -120,7 +125,7 @@ weight: 11094
     }
     
     
-    reverent_darwin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -153,8 +158,8 @@ weight: 11094
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
     [local] dvar expanded result:
@@ -168,17 +173,17 @@ weight: 11094
     }
     
     
-    reverent_darwin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
     caller's vars to task (subtask1)::
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
       located task-> 2 [subtask1]: 
@@ -190,9 +195,9 @@ weight: 11094
       Name: "",
       Do: {
         {
-          "name": "print",
-          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
-          "cmd": "{{.jerry}}"
+          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskScope",
+          "cmd": "{{.jerry}}",
+          "name": "print"
         },
         {
           "name": "trace",
@@ -216,8 +221,8 @@ weight: 11094
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     
@@ -227,22 +232,22 @@ weight: 11094
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     }
     
     
-    reverent_darwin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     
     {{.jerry}}
-    ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskscope ]
+    ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
     this is jerry in task scope
     ===>
     ~~SubStep2: [trace:  ]
@@ -295,13 +300,13 @@ weight: 11094
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
-    reverent_darwin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
@@ -351,9 +356,9 @@ weight: 11094
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -363,16 +368,16 @@ weight: 11094
     
     scope[local] merged: {
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "up_runtime_task_layer_number": 1
     }
     
     
-    reverent_darwin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     

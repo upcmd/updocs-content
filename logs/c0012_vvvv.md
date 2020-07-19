@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10123
 
@@ -17,7 +17,7 @@ weight: 10123
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0012
                  Verbose -> vvvv
-              ModuleName -> insane_brown0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10123
     
     
     groups members:[]
-    module: [insane_brown0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "k": "runtime-k",
@@ -54,52 +59,33 @@ weight: 10123
     Executing task stack layer: 1
     
     -Step1: [: to test display env vars from shell context ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello, world\"",
-        "echo 'hello {{.a}}'"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "to test display env vars from shell context",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "k": "runtime-k"
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "k": "runtime-k",
       "a": "runtime-a",
       "e": "runtime-e"
     })
     
-    insane_brown0: overall final exec vars:
-    
-    (*core.Cache)({
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
-    })
-    
     cmd( 1):
     echo "hello, world"
     
-     \_ echo "hello, world"
+    cmd=>:
+    echo "hello, world"<=
     hello, world
      .. ok
     cmd( 2):
     echo 'hello {{.a}}'
     
-     \_ echo 'hello runtime-a'
+    cmd=>:
+    echo 'hello runtime-a'<=
     hello runtime-a
      .. ok
     . ok

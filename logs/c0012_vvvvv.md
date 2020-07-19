@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10124
 
@@ -17,7 +17,7 @@ weight: 10124
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0012
                  Verbose -> vvvvv
-              ModuleName -> mad_yalow6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10124
     -exec task: task
     loading [Task]:  ./tests/functests/c0012
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eee80)(<nil>)
+    (*impl.Scopes)(0xc000176ea0)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +36,23 @@ weight: 10124
     
     
     groups members:[]
-    module: [mad_yalow6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
+      "k": "runtime-k"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "e": (string) (len=9) "runtime-e",
      (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=1) "a": (string) (len=9) "runtime-a",
-     (string) (len=1) "e": (string) (len=9) "runtime-e"
+     (string) (len=1) "a": (string) (len=9) "runtime-a"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +63,9 @@ weight: 10124
     -------runtime global final merged with dvars-------
     
     {
+      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
+      "k": "runtime-k"
     }
     
       located task-> 1 [task]: 
@@ -102,13 +107,13 @@ weight: 10124
     
     
     scope[local] merged: {
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     }
     
     
-    mad_yalow6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "e": "runtime-e",
@@ -119,10 +124,12 @@ weight: 10124
     cmd( 1):
     echo "hello, world"
     
-     \_ echo "hello, world"
+    cmd=>:
+    echo "hello, world"<=
     hello, world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=19) "echo \"hello, world\"",
      Code: (int) 0,
      Output: (string) (len=12) "hello, world",
      ErrMsg: (string) ""
@@ -131,10 +138,12 @@ weight: 10124
     cmd( 2):
     echo 'hello {{.a}}'
     
-     \_ echo 'hello runtime-a'
+    cmd=>:
+    echo 'hello runtime-a'<=
     hello runtime-a
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "echo 'hello runtime-a'",
      Code: (int) 0,
      Output: (string) (len=15) "hello runtime-a",
      ErrMsg: (string) ""

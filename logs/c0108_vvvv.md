@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:48+77:00
 draft: false
 weight: 11083
 
@@ -17,7 +17,7 @@ weight: 11083
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0108
                  Verbose -> vvvv
-              ModuleName -> happy_newton7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11083
     
     
     groups members:[]
-    module: [happy_newton7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -50,42 +55,13 @@ weight: 11083
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "print",
-          "cmd": "{{.jerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "jerry": "this is jerry"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "jerry": "this is jerry"
     })
     
-    happy_newton7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -97,213 +73,74 @@ weight: 11083
     ~SubStep2: [print:  ]
     this is jerry
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "jerry is in local scope so there is no value",
-          "cmd": "{{.jerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom"
     })
     
-    happy_newton7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
     })
     
     ~SubStep1: [print: jerry is in local scope so there is no value ]
-    <no value>
+    None
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "jerry",
-          Value: "this is jerry in task scope",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "taskscope"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom"
     })
     
-    happy_newton7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print: this should print out the dvar value of jerry ]
     this is jerry in task scope
     -Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
-          "cmd": "{{.jerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
       "tom": "this is tom"
     })
     
-    happy_newton7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
       "jerry": "this is jerry in task scope"
     })
     
-    ~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskscope ]
+    ~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
     this is jerry in task scope
     -Step5:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "var jerry in task scope is overrided by local var jerry",
-          "cmd": "{{.jerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "jerry": "jerry is overrided in local scope"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "jerry": "jerry is overrided in local scope"
     })
     
-    happy_newton7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "jerry is overrided in local scope"
+      "jerry": "jerry is overrided in local scope",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print: var jerry in task scope is overrided by local var jerry ]
     jerry is overrided in local scope
     -Step6:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "this should print out the jerry defined in task var scope",
-          "cmd": "{{.jerry}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "jerry": "this is jerry in task scope"
     })
     
-    happy_newton7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",

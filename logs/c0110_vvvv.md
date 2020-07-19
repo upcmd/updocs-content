@@ -1,6 +1,6 @@
 ---
 title: "c0110_vvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11103
 
@@ -17,7 +17,7 @@ weight: 11103
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0110
                  Verbose -> vvvv
-              ModuleName -> furious_brattain6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11103
     
     
     groups members:[]
-    module: [furious_brattain6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,35 +53,11 @@ weight: 11103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "subtask1"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "tom",
-        "jerry",
-        "emily"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -86,29 +67,6 @@ weight: 11103
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopindex1}}:{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "tom",
@@ -117,43 +75,18 @@ weight: 11103
       "up_runtime_task_layer_number": 1
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "tom"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
     1:tom
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .loopitem \"tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .loopindex1 1}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "tom",
@@ -162,8 +95,39 @@ weight: 11103
       "up_runtime_task_layer_number": 1
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
+    (*core.Cache)({
+      "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    ~~SubStep1: [assert:  ]
+     1 ASSERT OK:     [{{eq .loopitem "tom"}}]
+    --Step3:
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "tom",
+      "up_runtime_task_layer_number": 1,
+      "person": "{{.loopitem}}",
+      "loopindex1": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "person": "{{.loopitem}}",
+      "loopindex1": 1,
+      "loopitem": "tom",
+      "up_runtime_task_layer_number": 1
+    })
+    
+    ~~SubStep1: [print:  ]
+    {{.loopitem}}
+    --Step4:
+    current exec runtime vars:
     (*core.Cache)({
       "loopindex": 0,
       "loopindex1": 1,
@@ -171,108 +135,14 @@ weight: 11103
       "loopitem": "tom"
     })
     
-    ~~SubStep1: [assert:  ]
-     1 ASSERT OK:     [{{eq .loopitem "tom"}}]
-    --Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.person}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "{{.loopitem}}"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "person": "{{.loopitem}}",
-      "loopitem": "tom",
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "{{.loopitem}}",
-      "loopitem": "tom",
-      "loopindex1": 1
-    })
-    
-    ~~SubStep1: [print:  ]
-    {{.loopitem}}
-    --Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.theone}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "theone",
-          Value: "{{.loopitem}}",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "tom",
-      "loopindex": 0
-    })
-    
-    furious_brattain6: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "tom",
       "loopindex": 0,
-      "theone": "tom"
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "theone": "tom",
+      "loopitem": "tom"
     })
     
     ~~SubStep1: [print:  ]
@@ -282,195 +152,84 @@ weight: 11103
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopindex1}}:{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "loopitem": "jerry",
       "up_runtime_task_layer_number": 1
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "loopitem": "jerry",
       "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
     2:jerry
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .loopitem \"tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .loopindex1 1}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1,
-      "loopindex": 1,
-      "loopindex1": 2
-    })
-    
-    furious_brattain6: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopindex": 1,
       "loopindex1": 2,
-      "loopitem": "jerry"
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "jerry",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     condition failed, skip executing step 
     
     --Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "{{.person}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "{{.loopitem}}"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "person": "{{.loopitem}}",
       "up_runtime_task_layer_number": 1,
+      "person": "{{.loopitem}}",
       "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "person": "{{.loopitem}}",
       "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "person": "{{.loopitem}}"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
     {{.loopitem}}
     --Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.theone}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "theone",
-          Value: "{{.loopitem}}",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "jerry",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "jerry"
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "theone": "jerry",
       "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "theone": "jerry"
     })
     
     ~~SubStep1: [print:  ]
@@ -480,29 +239,26 @@ weight: 11103
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopindex1}}:{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "emily",
+      "loopindex": 2
+    })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "emily",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    ~~SubStep1: [print:  ]
+    3:emily
+    --Step2:
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "emily",
@@ -511,88 +267,18 @@ weight: 11103
       "up_runtime_task_layer_number": 1
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "emily",
-      "loopindex": 2
-    })
-    
-    ~~SubStep1: [print:  ]
-    3:emily
-    --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .loopitem \"tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .loopindex1 1}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    furious_brattain6: overall final exec vars:
-    
-    (*core.Cache)({
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "emily",
-      "loopindex": 2
+      "up_runtime_task_layer_number": 1
     })
     
     condition failed, skip executing step 
     
     --Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.person}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "{{.loopitem}}"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "loopindex1": 3,
@@ -602,73 +288,35 @@ weight: 11103
       "loopindex": 2
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "person": "{{.loopitem}}",
       "loopitem": "emily",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "{{.loopitem}}"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
     {{.loopitem}}
     --Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.theone}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "theone",
-          Value: "{{.loopitem}}",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "emily",
       "loopindex": 2,
       "loopindex1": 3,
+      "loopitem": "emily",
       "up_runtime_task_layer_number": 1
     })
     
-    furious_brattain6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "theone": "emily",
       "loopitem": "emily",
+      "up_runtime_task_layer_number": 1,
+      "theone": "emily",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     ~~SubStep1: [print:  ]

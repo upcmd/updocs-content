@@ -1,6 +1,6 @@
 ---
 title: "c0010_vvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10103
 
@@ -17,7 +17,7 @@ weight: 10103
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0010
                  Verbose -> vvvv
-              ModuleName -> hungry_engelbart6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -32,32 +32,32 @@ weight: 10103
       "a": "non-prod-a",
       "b": "non-prod-b",
       "c": {
+        "c5": "nonprod-c5",
+        "c1": "nonprod-c1",
+        "c2": "nonprod-c2",
         "c3": {
           "c32": "nonprod-c32",
           "c33": "nonprod-c33"
         },
-        "c4": "nonprod-c4",
-        "c5": "nonprod-c5",
-        "c1": "nonprod-c1",
-        "c2": "nonprod-c2"
+        "c4": "nonprod-c4"
       }
     }
     
     
     global: {
+      "a": "global-a",
+      "b": "global-b",
       "c": {
-        "c2": "global-c2",
         "c3": {
-          "c31": "global-c31",
           "c32": "global-c32",
-          "c33": "global-c33"
+          "c33": "global-c33",
+          "c31": "global-c31"
         },
         "c4": "global-c4",
-        "c1": "global-c1"
+        "c1": "global-c1",
+        "c2": "global-c2"
       },
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b"
+      "d": "global-d"
     }
     
     
@@ -68,21 +68,26 @@ weight: 10103
     
     
     groups members:[dr prod dev st staging]
-    module: [hungry_engelbart6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": {
-        "c4": "nonprod-c4",
-        "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
-          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33"
-        }
+          "c33": "dev-c33",
+          "c31": "global-c31"
+        },
+        "c4": "nonprod-c4",
+        "c1": "dev-c1",
+        "c5": "nonprod-c5"
       },
       "d": "global-d",
       "a": "dev-a",
@@ -92,22 +97,22 @@ weight: 10103
     -------runtime global final merged with dvars-------
     
     {
+      "b": "non-prod-b",
       "c": {
+        "c1": "dev-c1",
         "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
-          "c32": "nonprod-c32",
           "c33": "dev-c33",
-          "c31": "global-c31"
+          "c31": "global-c31",
+          "c32": "nonprod-c32"
         },
         "c4": "nonprod-c4"
       },
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     }
     
       located task-> 1 [task]: 
@@ -115,71 +120,52 @@ weight: 10103
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"test out the var scopes only\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": {
         "c3": {
-          "c32": "nonprod-c32",
           "c33": "dev-c33",
-          "c31": "global-c31"
+          "c31": "global-c31",
+          "c32": "nonprod-c32"
         },
         "c4": "nonprod-c4",
+        "c1": "dev-c1",
         "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c1": "dev-c1",
         "c2": "dev-c2"
-      }
+      },
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
-    hungry_engelbart6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "d": "global-d",
-      "a": "dev-a",
       "b": "non-prod-b",
       "c": {
-        "c2": "dev-c2",
-        "c3": {
-          "c32": "nonprod-c32",
-          "c33": "dev-c33",
-          "c31": "global-c31"
-        },
-        "c4": "nonprod-c4",
-        "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c1": "dev-c1"
-      }
+        "c2": "dev-c2",
+        "c3": {
+          "c33": "dev-c33",
+          "c31": "global-c31",
+          "c32": "nonprod-c32"
+        },
+        "c4": "nonprod-c4",
+        "c1": "dev-c1",
+        "c5": "nonprod-c5"
+      },
+      "d": "global-d",
+      "a": "dev-a"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     . ok

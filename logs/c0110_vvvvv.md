@@ -1,6 +1,6 @@
 ---
 title: "c0110_vvvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11104
 
@@ -17,7 +17,7 @@ weight: 11104
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0110
                  Verbose -> vvvvv
-              ModuleName -> high_ardinghelli3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11104
     -exec task: task
     loading [Task]:  ./tests/functests/c0110
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001853e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf460)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11104
     
     
     groups members:[]
-    module: [high_ardinghelli3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -96,7 +101,7 @@ weight: 11104
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -138,10 +143,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -157,13 +162,13 @@ weight: 11104
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1
     })
     
     {{.loopindex1}}:{{.loopitem}}
@@ -197,10 +202,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -209,20 +214,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [{{eq .loopitem "tom"}}]
@@ -256,10 +261,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": "{{.loopitem}}",
       "loopitem": "tom",
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -268,20 +273,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "{{.loopitem}}",
-      "loopitem": "tom"
+      "loopitem": "tom",
+      "loopindex1": 1
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": "{{.loopitem}}",
       "loopitem": "tom",
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1
     })
     
     {{.person}}
@@ -292,8 +297,8 @@ weight: 11104
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.theone}}"
+          "cmd": "{{.theone}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -328,9 +333,9 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "tom",
       "loopindex": 0,
       "loopindex1": 1,
+      "loopitem": "tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -341,21 +346,21 @@ weight: 11104
     
     
     scope[local] merged: {
-      "theone": "tom",
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
-      "loopindex": 0
+      "theone": "tom",
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 0,
+      "loopindex1": 1
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "tom",
       "loopindex": 0,
+      "loopindex1": 1,
+      "loopitem": "tom",
+      "up_runtime_task_layer_number": 1,
       "theone": "tom"
     })
     
@@ -364,9 +369,9 @@ weight: 11104
     tom
     caller's vars to task (subtask1)::
     (*core.Cache)({
-      "loopitem": "jerry",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "loopitem": "jerry"
     })
     
       located task-> 2 [subtask1]: 
@@ -378,8 +383,8 @@ weight: 11104
       Name: "",
       Do: {
         {
-          "cmd": "{{.loopindex1}}:{{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.loopindex1}}:{{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -399,10 +404,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "loopitem": "jerry",
       "up_runtime_task_layer_number": 1,
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "loopitem": "jerry"
     })
     
     [local] dvar expanded result:
@@ -411,20 +416,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex": 1,
       "loopindex1": 2,
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 1
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     {{.loopindex1}}:{{.loopitem}}
@@ -435,10 +440,10 @@ weight: 11104
       Name: "",
       Do: {
         {
+          "name": "assert",
           "cmd": {
             "{{eq .loopitem \"tom\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -470,14 +475,14 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex": 1,
-      "loopindex1": 2,
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopindex": 1,
@@ -516,11 +521,11 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
       "person": "{{.loopitem}}",
       "up_runtime_task_layer_number": 1,
-      "loopindex": 1,
-      "loopindex1": 2,
-      "loopitem": "jerry"
+      "loopitem": "jerry",
+      "loopindex": 1
     })
     
     [local] dvar expanded result:
@@ -529,22 +534,22 @@ weight: 11104
     
     
     scope[local] merged: {
+      "person": "{{.loopitem}}",
       "up_runtime_task_layer_number": 1,
-      "loopindex": 1,
-      "loopindex1": 2,
       "loopitem": "jerry",
-      "person": "{{.loopitem}}"
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopindex": 1,
       "loopindex1": 2,
-      "loopitem": "jerry",
-      "person": "{{.loopitem}}"
+      "person": "{{.loopitem}}",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "jerry"
     })
     
     {{.person}}
@@ -591,10 +596,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "jerry"
     })
     
     [local] dvar expanded result:
@@ -604,15 +609,15 @@ weight: 11104
     
     
     scope[local] merged: {
+      "theone": "jerry",
+      "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "theone": "jerry",
-      "loopitem": "jerry"
+      "up_runtime_task_layer_number": 1
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "jerry",
@@ -662,10 +667,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -674,14 +679,14 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "emily"
+      "loopitem": "emily",
+      "loopindex": 2
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "emily",
@@ -721,10 +726,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "emily"
     })
     
     [local] dvar expanded result:
@@ -733,20 +738,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     condition failed, skip executing step 
@@ -756,8 +761,8 @@ weight: 11104
       Name: "",
       Do: {
         {
-          "cmd": "{{.person}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.person}}"
         }
       },
       Dox: <nil>,
@@ -779,11 +784,11 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "emily",
-      "up_runtime_task_layer_number": 1,
       "person": "{{.loopitem}}",
+      "loopindex1": 3,
+      "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -792,22 +797,22 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex1": 3,
-      "loopitem": "emily",
       "up_runtime_task_layer_number": 1,
       "person": "{{.loopitem}}",
+      "loopindex1": 3,
+      "loopitem": "emily",
       "loopindex": 2
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
-      "loopitem": "emily",
+      "loopindex": 2,
       "up_runtime_task_layer_number": 1,
       "person": "{{.loopitem}}",
-      "loopindex": 2
+      "loopindex1": 3,
+      "loopitem": "emily"
     })
     
     {{.person}}
@@ -854,10 +859,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "emily",
-      "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "emily",
+      "loopindex": 2
     })
     
     [local] dvar expanded result:
@@ -875,13 +880,13 @@ weight: 11104
     }
     
     
-    high_ardinghelli3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "emily",
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "emily",
       "theone": "emily"
     })
     

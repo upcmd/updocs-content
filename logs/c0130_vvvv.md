@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11303
 
@@ -17,7 +17,7 @@ weight: 11303
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0130
                  Verbose -> vvvv
-              ModuleName -> modest_pasteur7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11303
     
     
     groups members:[]
-    module: [modest_pasteur7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -44,9 +49,9 @@ weight: 11303
     -------runtime global final merged with dvars-------
     
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -54,157 +59,21 @@ weight: 11303
     Executing task stack layer: 1
     
     -Step1: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
-    {
-      Name: "",
-      Do: {
-        {
-          "do": {
-            "echo \"shell step1\"",
-            "echo \"shell step2\""
-          },
-          "func": "shell"
-        },
-        {
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer1_aaa"
-          },
-          "do": {
-            {
-              "name": "print",
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-            }
-          }
-        },
-        {
-          "func": "shell",
-          "do": {
-            "echo \"shell step3\"",
-            "echo \"shell step4\""
-          }
-        },
-        {
-          "func": "block",
-          "desc": "test embeded 2nd layer of block",
-          "vars": {
-            "a": "local_block_layer2_aaa",
-            "b": "local_block_layer2_bbb"
-          },
-          "dvars": {
-            {
-              "name": "da",
-              "value": "local_da_layer2"
-            },
-            {
-              "name": "db",
-              "value": "local_db_layer2"
-            }
-          },
-          "do": {
-            {
-              "func": "cmd",
-              "vars": {
-                "a": "block_layer2_aaa"
-              },
-              "do": {
-                {
-                  "name": "print",
-                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-                }
-              }
-            }
-          }
-        },
-        {
-          "func": "shell",
-          "do": {
-            "echo \"shell step5\"",
-            "echo \"shell step6\""
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
-      },
-      Dvars: {
-        {
-          Name: "da",
-          Value: "local_da",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "db",
-          Value: "local_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "show example the route goes to call goelse for the condition of not if condition succeeds",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{.goahead}}",
-      Else: {
-        {
-          "func": "shell",
-          "do": {
-            "echo \"else step1\"",
-            "echo \"else step2\""
-          }
-        },
-        {
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer1_aaa_else"
-          },
-          "do": {
-            {
-              "name": "print",
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-            }
-          }
-        }
-      },
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa"
-    })
-    
-    modest_pasteur7: overall final exec vars:
-    
-    (*core.Cache)({
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "b": "local_bbb",
+      "db": "local_db",
+      "da": "local_da",
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
     condition failed, skip executing step 

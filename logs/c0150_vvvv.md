@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvv"
-date: 2020-07-01T15:34:43+77:00
+date: 2020-07-20T02:01:56+77:00
 draft: false
 weight: 11503
 
@@ -17,7 +17,7 @@ weight: 11503
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0150
                  Verbose -> vvvv
-              ModuleName -> ecstatic_bohr7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11503
     
     
     groups members:[]
-    module: [ecstatic_bohr7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,32 +53,11 @@ weight: 11503
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "facts",
-        "testingWarning"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    ecstatic_bohr7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -83,32 +67,12 @@ weight: 11503
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "uname"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "result",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    ecstatic_bohr7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -117,89 +81,48 @@ weight: 11503
     cmd( 1):
     uname
     
-     \_ uname
+    cmd=>:
+    uname<=
     Linux
      .. ok
     . ok
     --Step2: [: get os  - [Darwin | Linux] ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "facts OS: {{.os}}"
-        },
-        {
-          "name": "return",
-          "cmd": {
-            "os"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "os",
-          Value: "{{ .result.Output }}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "v"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "get os  - [Darwin | Linux]",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     dvar> os:
     "Linux"
     
-    ecstatic_bohr7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
       "os": "Linux"
     })
     
@@ -211,107 +134,53 @@ weight: 11503
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "func": "cmd",
-          "do": {
-            {
-              "name": "print",
-              "cmd": "in sub task - building OS: {{.os}}"
-            },
-            {
-              "name": "colorprint",
-              "cmd": {
-                "msg": "?? WARN - This is a build for testing purpose only",
-                "fg": "red"
-              }
-            }
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .os \"Darwin\" }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "os": "Linux"
     })
     
-    ecstatic_bohr7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "os": "Linux"
     })
     
     condition failed, skip executing step 
     
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "in main task - building OS: {{.os}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "os": "Linux",
       "up_runtime_task_layer_number": 1
     })
     
-    ecstatic_bohr7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "os": "Linux",

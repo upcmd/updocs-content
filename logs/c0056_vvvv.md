@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvv"
-date: 2020-07-01T15:34:28+77:00
+date: 2020-07-20T02:01:39+77:00
 draft: false
 weight: 10563
 
@@ -17,7 +17,7 @@ weight: 10563
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0056
                  Verbose -> vvvv
-              ModuleName -> elegant_euclid0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10563
     
     
     groups members:[]
-    module: [elegant_euclid0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "countries": {
@@ -42,8 +47,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -61,8 +66,8 @@ weight: 10563
     {
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
@@ -73,8 +78,8 @@ weight: 10563
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
     }
@@ -84,44 +89,20 @@ weight: 10563
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello {{.loopitem}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "tom",
-        "peter",
-        "james"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
           "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -130,7 +111,7 @@ weight: 10563
       }
     })
     
-    elegant_euclid0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "countries": {
@@ -156,57 +137,26 @@ weight: 10563
     cmd( 1):
     echo "hello {{.loopitem}}"
     
-     \_ echo "hello tom"
+    cmd=>:
+    echo "hello tom"<=
     hello tom
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
-     \_ echo "hello peter"
+    cmd=>:
+    echo "hello peter"<=
     hello peter
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
-     \_ echo "hello james"
+    cmd=>:
+    echo "hello james"<=
     hello james
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"name {{.loopitem.name}}\"",
-        "echo \"age {{.loopitem.age}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        {
-          "name": "tom",
-          "age": 11
-        },
-        {
-          "name": "peter",
-          "age": 45
-        },
-        {
-          "name": "james",
-          "age": 23
-        }
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "countries": {
@@ -215,8 +165,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "population": "1.4b",
@@ -228,18 +178,92 @@ weight: 10563
         }
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
         Code: 0,
         Output: "hello james",
         ErrMsg: ""
       })
     })
     
-    elegant_euclid0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "population": "1.4b",
+          "name": "China"
+        },
+        {
+          "population": "30m",
+          "name": "Danmark"
+        }
+      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
         Code: 0,
         Output: "hello james",
+        ErrMsg: ""
+      })
+    })
+    
+    cmd( 1):
+    echo "name {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "name tom"<=
+    name tom
+     .. ok
+    cmd( 2):
+    echo "age {{.loopitem.age}}"
+    
+    cmd=>:
+    echo "age 11"<=
+    age 11
+     .. ok
+    cmd( 1):
+    echo "name {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "name peter"<=
+    name peter
+     .. ok
+    cmd( 2):
+    echo "age {{.loopitem.age}}"
+    
+    cmd=>:
+    echo "age 45"<=
+    age 45
+     .. ok
+    cmd( 1):
+    echo "name {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "name james"<=
+    name james
+     .. ok
+    cmd( 2):
+    echo "age {{.loopitem.age}}"
+    
+    cmd=>:
+    echo "age 23"<=
+    age 23
+     .. ok
+    . ok
+    -Step3:
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
         ErrMsg: ""
       }),
       "countries": {
@@ -262,70 +286,96 @@ weight: 10563
       }
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      })
+    })
+    
     cmd( 1):
-    echo "name {{.loopitem.name}}"
+    echo "hello {{.loopitem}}"
     
-     \_ echo "name tom"
-    name tom
-     .. ok
-    cmd( 2):
-    echo "age {{.loopitem.age}}"
-    
-     \_ echo "age 11"
-    age 11
+    cmd=>:
+    echo "hello Australia"<=
+    hello Australia
      .. ok
     cmd( 1):
-    echo "name {{.loopitem.name}}"
+    echo "hello {{.loopitem}}"
     
-     \_ echo "name peter"
-    name peter
-     .. ok
-    cmd( 2):
-    echo "age {{.loopitem.age}}"
-    
-     \_ echo "age 45"
-    age 45
+    cmd=>:
+    echo "hello British"<=
+    hello British
      .. ok
     cmd( 1):
-    echo "name {{.loopitem.name}}"
+    echo "hello {{.loopitem}}"
     
-     \_ echo "name james"
-    name james
+    cmd=>:
+    echo "hello China"<=
+    hello China
      .. ok
-    cmd( 2):
-    echo "age {{.loopitem.age}}"
+    cmd( 1):
+    echo "hello {{.loopitem}}"
     
-     \_ echo "age 23"
-    age 23
+    cmd=>:
+    echo "hello Danmark"<=
+    hello Danmark
      .. ok
     . ok
-    -Step3:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello {{.loopitem}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "Australia",
-        "British",
-        "China",
-        "Danmark"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
+    -Step4: [: the loop point to a iteratable var countries
+     ]
     current exec runtime vars:
+    (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello Danmark\"",
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "countries": {
         {
@@ -346,93 +396,78 @@ weight: 10563
         }
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello Danmark\"",
         Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      })
-    })
-    
-    elegant_euclid0: overall final exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "age 23",
+        Output: "hello Danmark",
         ErrMsg: ""
       })
     })
     
     cmd( 1):
-    echo "hello {{.loopitem}}"
+    echo "hello {{.loopitem.name}}"
     
-     \_ echo "hello Australia"
+    cmd=>:
+    echo "hello Australia"<=
     hello Australia
      .. ok
-    cmd( 1):
-    echo "hello {{.loopitem}}"
+    cmd( 2):
+    echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello British"
+    cmd=>:
+    echo "hello 20m"<=
+    hello 20m
+     .. ok
+    cmd( 1):
+    echo "hello {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "hello British"<=
     hello British
      .. ok
-    cmd( 1):
-    echo "hello {{.loopitem}}"
+    cmd( 2):
+    echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello China"
+    cmd=>:
+    echo "hello 2000m"<=
+    hello 2000m
+     .. ok
+    cmd( 1):
+    echo "hello {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "hello China"<=
     hello China
      .. ok
-    cmd( 1):
-    echo "hello {{.loopitem}}"
+    cmd( 2):
+    echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello Danmark"
+    cmd=>:
+    echo "hello 1.4b"<=
+    hello 1.4b
+     .. ok
+    cmd( 1):
+    echo "hello {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "hello Danmark"<=
     hello Danmark
      .. ok
-    . ok
-    -Step4: [: the loop point to a iteratable var countries
-     ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello {{.loopitem.name}}\"",
-        "echo \"hello {{.loopitem.population}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loop point to a iteratable var countries\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: "countries",
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
+    cmd( 2):
+    echo "hello {{.loopitem.population}}"
     
+    cmd=>:
+    echo "hello 30m"<=
+    hello 30m
+     .. ok
+    . ok
+    -Step5: [: the templated value will be eventually a var/dvar name
+     ]
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 30m\"",
         Code: 0,
-        Output: "hello Danmark",
+        Output: "hello 30m",
         ErrMsg: ""
       }),
       "countries": {
@@ -441,8 +476,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -455,7 +490,7 @@ weight: 10563
       }
     })
     
-    elegant_euclid0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "countries": {
@@ -464,157 +499,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello Danmark",
-        ErrMsg: ""
-      })
-    })
-    
-    cmd( 1):
-    echo "hello {{.loopitem.name}}"
-    
-     \_ echo "hello Australia"
-    hello Australia
-     .. ok
-    cmd( 2):
-    echo "hello {{.loopitem.population}}"
-    
-     \_ echo "hello 20m"
-    hello 20m
-     .. ok
-    cmd( 1):
-    echo "hello {{.loopitem.name}}"
-    
-     \_ echo "hello British"
-    hello British
-     .. ok
-    cmd( 2):
-    echo "hello {{.loopitem.population}}"
-    
-     \_ echo "hello 2000m"
-    hello 2000m
-     .. ok
-    cmd( 1):
-    echo "hello {{.loopitem.name}}"
-    
-     \_ echo "hello China"
-    hello China
-     .. ok
-    cmd( 2):
-    echo "hello {{.loopitem.population}}"
-    
-     \_ echo "hello 1.4b"
-    hello 1.4b
-     .. ok
-    cmd( 1):
-    echo "hello {{.loopitem.name}}"
-    
-     \_ echo "hello Danmark"
-    hello Danmark
-     .. ok
-    cmd( 2):
-    echo "hello {{.loopitem.population}}"
-    
-     \_ echo "hello 30m"
-    hello 30m
-     .. ok
-    . ok
-    -Step5: [: the templated value will be eventually a var/dvar name
-     ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello {{.loopindex}}\"",
-        "echo \"hello {{.loopindex1}}\"",
-        "echo \"hello {{.loopitem.name}}\"",
-        "echo \"hello {{.loopitem.population}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "listname",
-          Value: "countries",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "the templated value will be eventually a var/dvar name\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: "{{.listname}}",
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      })
-    })
-    
-    elegant_euclid0: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      }),
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "population": "1.4b",
@@ -625,103 +511,125 @@ weight: 10563
           "population": "30m"
         }
       },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 30m\"",
+        Code: 0,
+        Output: "hello 30m",
+        ErrMsg: ""
+      }),
       "listname": "countries"
     })
     
     cmd( 1):
     echo "hello {{.loopindex}}"
     
-     \_ echo "hello 0"
+    cmd=>:
+    echo "hello 0"<=
     hello 0
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
-     \_ echo "hello 1"
+    cmd=>:
+    echo "hello 1"<=
     hello 1
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
-     \_ echo "hello Australia"
+    cmd=>:
+    echo "hello Australia"<=
     hello Australia
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello 20m"
+    cmd=>:
+    echo "hello 20m"<=
     hello 20m
      .. ok
     cmd( 1):
     echo "hello {{.loopindex}}"
     
-     \_ echo "hello 1"
+    cmd=>:
+    echo "hello 1"<=
     hello 1
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
-     \_ echo "hello 2"
+    cmd=>:
+    echo "hello 2"<=
     hello 2
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
-     \_ echo "hello British"
+    cmd=>:
+    echo "hello British"<=
     hello British
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello 2000m"
+    cmd=>:
+    echo "hello 2000m"<=
     hello 2000m
      .. ok
     cmd( 1):
     echo "hello {{.loopindex}}"
     
-     \_ echo "hello 2"
+    cmd=>:
+    echo "hello 2"<=
     hello 2
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
-     \_ echo "hello 3"
+    cmd=>:
+    echo "hello 3"<=
     hello 3
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
-     \_ echo "hello China"
+    cmd=>:
+    echo "hello China"<=
     hello China
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello 1.4b"
+    cmd=>:
+    echo "hello 1.4b"<=
     hello 1.4b
      .. ok
     cmd( 1):
     echo "hello {{.loopindex}}"
     
-     \_ echo "hello 3"
+    cmd=>:
+    echo "hello 3"<=
     hello 3
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
-     \_ echo "hello 4"
+    cmd=>:
+    echo "hello 4"<=
     hello 4
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
-     \_ echo "hello Danmark"
+    cmd=>:
+    echo "hello Danmark"<=
     hello Danmark
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
-     \_ echo "hello 30m"
+    cmd=>:
+    echo "hello 30m"<=
     hello 30m
      .. ok
     . ok

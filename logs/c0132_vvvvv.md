@@ -1,6 +1,6 @@
 ---
 title: "c0132_vvvvv"
-date: 2020-07-01T15:34:40+77:00
+date: 2020-07-20T02:01:53+77:00
 draft: false
 weight: 11324
 
@@ -17,7 +17,7 @@ weight: 11324
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0132
                  Verbose -> vvvvv
-              ModuleName -> backstabbing_hawking1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11324
     -exec task: task
     loading [Task]:  ./tests/functests/c0132
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed260)(<nil>)
+    (*impl.Scopes)(0xc0000bcb40)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +36,17 @@ weight: 11324
     
     
     groups members:[]
-    module: [backstabbing_hawking1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
     (core.Cache) (len=3) {
@@ -58,9 +63,9 @@ weight: 11324
     -------runtime global final merged with dvars-------
     
     {
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -162,22 +167,22 @@ weight: 11324
     
     
     scope[local] merged: {
-      "b": "local_bbb",
-      "c": "global_ccc",
       "a": "local_aaa",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "b": "local_bbb",
+      "c": "global_ccc"
     }
     
     
-    backstabbing_hawking1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     -Step1:
@@ -192,10 +197,10 @@ weight: 11324
           }
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .a \"aaa\"}}"
-          },
-          "name": "assert"
+          }
         },
         {
           "name": "inspect",
@@ -224,11 +229,11 @@ weight: 11324
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "block_layer2_aaa",
-      "db": "local_db",
       "da": "local_da",
-      "b": "local_bbb"
+      "db": "local_db",
+      "a": "block_layer2_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     [local] dvar expanded result:
@@ -239,19 +244,19 @@ weight: 11324
     scope[local] merged: {
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "a": "block_layer2_aaa"
     }
     
     
-    backstabbing_hawking1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "da": "local_da",
+      "a": "block_layer2_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
+      "da": "local_da",
       "db": "local_db"
     })
     
@@ -265,17 +270,17 @@ weight: 11324
     [exec_vars exec_base_vars]
     ~SubStep3: [inspect:  ]
      1: inspect[exec_vars](*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "a": "block_layer2_aaa",
+      "b": "local_bbb"
     })
     
      2: inspect[exec_base_vars]{
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
+      "c": "global_ccc"
     }
     
     

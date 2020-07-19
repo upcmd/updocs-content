@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10084
 
@@ -17,7 +17,7 @@ weight: 10084
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0008
                  Verbose -> vvvvv
-              ModuleName -> evil_fermat0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,17 +27,17 @@ weight: 10084
     -exec task: task
     loading [Task]:  ./tests/functests/c0008
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f7be0)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001f5bc0)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
+       (string) (len=1) "d": (string) (len=8) "global-d",
        (string) (len=1) "a": (string) (len=8) "global-a",
        (string) (len=1) "b": (string) (len=8) "global-b",
-       (string) (len=1) "c": (string) (len=8) "global-c",
-       (string) (len=1) "d": (string) (len=8) "global-d"
+       (string) (len=1) "c": (string) (len=8) "global-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -65,9 +65,9 @@ weight: 10084
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=3) {
-       (string) (len=1) "a": (string) (len=10) "non-prod-a",
        (string) (len=1) "b": (string) (len=10) "non-prod-b",
-       (string) (len=1) "c": (string) (len=10) "non-prod-c"
+       (string) (len=1) "c": (string) (len=10) "non-prod-c",
+       (string) (len=1) "a": (string) (len=10) "non-prod-a"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -101,10 +101,10 @@ weight: 10084
     
     
     scope[global] merged: {
-      "b": "global-b",
       "c": "global-c",
       "d": "global-d",
-      "a": "global-a"
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
@@ -114,8 +114,8 @@ weight: 10084
     
     
     scope[prod] merged: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
@@ -147,23 +147,28 @@ weight: 10084
     
     
     global: {
-      "b": "global-b",
-      "c": "global-c",
       "d": "global-d",
-      "a": "global-a"
+      "a": "global-a",
+      "b": "global-b",
+      "c": "global-c"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [evil_fermat0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
     
     
     scope[dev] merged: {
-      "c": "dev-c",
-      "a": "dev-a"
+      "a": "dev-a",
+      "c": "dev-c"
     }
     
     
@@ -176,10 +181,10 @@ weight: 10084
     }
     
     (core.Cache) (len=4) {
+     (string) (len=1) "c": (string) (len=5) "dev-c",
      (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=5) "dev-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b",
-     (string) (len=1) "c": (string) (len=5) "dev-c"
+     (string) (len=1) "b": (string) (len=10) "non-prod-b"
     }
     
     [runtime global] dvar expanded result:
@@ -223,10 +228,10 @@ weight: 10084
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
     [local] dvar expanded result:
@@ -235,29 +240,31 @@ weight: 10084
     
     
     scope[local] merged: {
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
     
-    evil_fermat0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=35) "echo \"test out the var scopes only\"",
      Code: (int) 0,
      Output: (string) (len=28) "test out the var scopes only",
      ErrMsg: (string) ""

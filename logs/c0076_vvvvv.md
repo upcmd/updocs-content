@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvvv"
-date: 2020-07-01T15:34:31+77:00
+date: 2020-07-20T02:01:42+77:00
 draft: false
 weight: 10764
 
@@ -17,7 +17,7 @@ weight: 10764
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0076
                  Verbose -> vvvvv
-              ModuleName -> stupefied_curie7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10764
     -exec task: task
     loading [Task]:  ./tests/functests/c0076
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb2a0)(<nil>)
+    (*impl.Scopes)(0xc0001bf320)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10764
     
     
     groups members:[]
-    module: [stupefied_curie7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 10764
     }
     
     
-    stupefied_curie7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,10 +105,12 @@ weight: 10764
     cmd( 1):
     echo hanks
     
-     \_ echo hanks
+    cmd=>:
+    echo hanks<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=10) "echo hanks",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -150,6 +157,7 @@ weight: 10764
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -158,29 +166,34 @@ weight: 10764
     
     [local] dvar expanded result:
     {
-      "reg_hello": "\n"
+      "hellomsg": "hanks",
+      "reg_hello": "hanks\n\n"
     }
     
     
     scope[local] merged: {
+      "reg_hello": "hanks\n\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "reg_hello": "\n"
+      "hellomsg": "hanks"
     }
     
     
-    stupefied_curie7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "reg_hello": "\n"
+      "hellomsg": "hanks",
+      "reg_hello": "hanks\n\n"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -209,6 +222,7 @@ weight: 10764
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -222,33 +236,37 @@ weight: 10764
     
     
     scope[local] merged: {
-      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks"
     }
     
     
-    stupefied_curie7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks"
     })
     
     cmd( 1):
     echo "{{.reg_hello}}"
     
-     \_ echo "<no value>"
+    cmd=>:
+    echo "<no value>"<=
     <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"<no value>\"",
      Code: (int) 0,
      Output: (string) (len=10) "<no value>",
      ErrMsg: (string) ""
@@ -257,10 +275,12 @@ weight: 10764
     cmd( 2):
     echo "{{.hellomsg}}"
     
-     \_ echo "hanks"
+    cmd=>:
+    echo "hanks"<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hanks\"",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -320,29 +340,36 @@ weight: 10764
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
       "hellomsg": "hanks",
       "person": {
         "name": "tom",
         "age": 18
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      })
     })
     
     dvar> local_tom:
-    "my name is tom\n"
+    "my name is tom\nage: 18\nname: tom\n"
     
     [local] dvar expanded result:
     {
-      "local_tom": "my name is tom\n"
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
+      "tom": {
+        "name": "tom",
+        "age": 18
+      }
     }
     
     
     scope[local] merged: {
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -352,24 +379,32 @@ weight: 10764
         "name": "tom",
         "age": 18
       },
-      "local_tom": "my name is tom\n"
+      "tom": {
+        "name": "tom",
+        "age": 18
+      }
     }
     
     
-    stupefied_curie7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
       "person": {
         "name": "tom",
         "age": 18
       },
-      "local_tom": "my name is tom\n"
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "hellomsg": "hanks"
     })
     
     map[name:global_tom value:{{.local_tom}}]
@@ -379,11 +414,12 @@ weight: 10764
     (*core.Cache)({
       "hellomsg": "hanks",
       "tom": {
-        "age": 18,
-        "name": "tom"
+        "name": "tom",
+        "age": 18
       },
-      "global_tom": "my name is tom\n",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -394,6 +430,7 @@ weight: 10764
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -403,8 +440,12 @@ weight: 10764
         "age": 18,
         "name": "tom"
       },
-      "local_tom": "my name is tom\n",
-      "global_tom": "my name is tom\n"
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n"
     })
     
     -Step5: [: debug the results ]
@@ -417,12 +458,12 @@ weight: 10764
           "name": "print"
         },
         {
-          "cmd": "{{.tom}}",
           "name": "print",
-          "desc": "get the object from register global space"
+          "desc": "get the object from register global space",
+          "cmd": "{{.tom}}"
         },
         {
-          "name": "printobj",
+          "name": "printObj",
           "desc": "dynamically reference to global_tom object registered",
           "cmd": "{{.objname}}"
         }
@@ -447,12 +488,13 @@ weight: 10764
     current exec runtime vars:
     (*core.Cache)({
       "tom": {
-        "age": 18,
-        "name": "tom"
+        "name": "tom",
+        "age": 18
       },
-      "global_tom": "my name is tom\n",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -466,50 +508,52 @@ weight: 10764
     
     
     scope[local] merged: {
-      "tom": {
-        "age": 18,
-        "name": "tom"
-      },
-      "global_tom": "my name is tom\n",
-      "objname": "global_tom",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
-    }
-    
-    
-    stupefied_curie7: overall final exec vars:
-    
-    (*core.Cache)({
       "hellomsg": "hanks",
       "tom": {
-        "age": 18,
-        "name": "tom"
+        "name": "tom",
+        "age": 18
       },
-      "global_tom": "my name is tom\n",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "hellomsg": "hanks",
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "objname": "global_tom"
     })
     
     {{.local_tom}}
     ~SubStep1: [print: this local_tom should be <no value> as it is in scope of last step ]
-    <no value>
+    None
     {{.tom}}
     ~SubStep2: [print: get the object from register global space ]
     map[age:18 name:tom]
     {{.objname}}
-    ~SubStep3: [printobj: dynamically reference to global_tom object registered ]
+    ~SubStep3: [printObj: dynamically reference to global_tom object registered ]
     (string) (len=12) "{{.objname}}"
     
     object:
-     global_tom: "my name is tom\n"
+     global_tom: "my name is tom\nage: 18\nname: tom\n"
     
     
 ```

@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvvv"
-date: 2020-07-01T15:34:26+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10424
 
@@ -17,7 +17,7 @@ weight: 10424
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0042
                  Verbose -> vvvvv
-              ModuleName -> modest_darwin9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10424
     -exec task: task
     loading [Task]:  ./tests/functests/c0042
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5400)(<nil>)
+    (*impl.Scopes)(0xc000241520)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10424
     
     
     groups members:[]
-    module: [modest_darwin9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -93,7 +98,7 @@ weight: 10424
     }
     
     
-    modest_darwin9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -101,10 +106,12 @@ weight: 10424
     cmd( 1):
     echo tom
     
-     \_ echo tom
+    cmd=>:
+    echo tom<=
     tom
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=8) "echo tom",
      Code: (int) 0,
      Output: (string) (len=3) "tom",
      ErrMsg: (string) ""
@@ -113,10 +120,12 @@ weight: 10424
     cmd( 2):
     echo hanks
     
-     \_ echo hanks
+    cmd=>:
+    echo hanks<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=10) "echo hanks",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -124,13 +133,12 @@ weight: 10424
     
     . ok
     -Step2: [: the last result of hanks will be registered as varname: hellomsg
-    however this will be availabe at the next step
-    as when it enters this step, it has already got a copied immutable var stack
      ]
     {
       Name: "",
       Do: {
-        "echo \"{{.hellomsg}}\""
+        "echo \"hellomsg  - {{.hellomsg}}\"",
+        "echo \"reg_hello - {{.reg_hello}}\""
       },
       Dox: <nil>,
       Func: "shell",
@@ -138,10 +146,12 @@ weight: 10424
       Dvars: {
         {
           Name: "reg_hello",
-          Value: "hello: {{.last_result.Output |reg \"hellomsg\" }}\n",
+          Value: "hello: {{.last_result.Output|reg \"hellomsg\" }}\n",
           Desc: "",
           Expand: 0,
-          Flags: <nil>,
+          Flags: {
+            "v"
+          },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
           Ref: "",
@@ -151,7 +161,7 @@ weight: 10424
           DataTemplate: ""
         }
       },
-      Desc: "the last result of hanks will be registered as varname: hellomsg\nhowever this will be availabe at the next step\nas when it enters this step, it has already got a copied immutable var stack\n",
+      Desc: "the last result of hanks will be registered as varname: hellomsg\n",
       Reg: "",
       Flags: <nil>,
       If: "",
@@ -165,48 +175,75 @@ weight: 10424
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       })
     })
     
+    dvar> reg_hello:
+    "hello: hanks\n\n"
+    
     [local] dvar expanded result:
     {
-      "reg_hello": "hello: \n"
+      "hellomsg": "hanks",
+      "reg_hello": "hello: hanks\n\n"
     }
     
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "reg_hello": "hello: \n"
+      "hellomsg": "hanks",
+      "reg_hello": "hello: hanks\n\n"
     }
     
     
-    modest_darwin9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "reg_hello": "hello: \n"
+      "reg_hello": "hello: hanks\n\n",
+      "hellomsg": "hanks"
     })
     
     cmd( 1):
-    echo "{{.hellomsg}}"
+    echo "hellomsg  - {{.hellomsg}}"
     
-     \_ echo "<no value>"
-    <no value>
+    cmd=>:
+    echo "hellomsg  - hanks"<=
+    hellomsg  - hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=24) "echo \"hellomsg  - hanks\"",
      Code: (int) 0,
-     Output: (string) (len=10) "<no value>",
+     Output: (string) (len=17) "hellomsg  - hanks",
+     ErrMsg: (string) ""
+    }
+    
+    cmd( 2):
+    echo "reg_hello - {{.reg_hello}}"
+    
+    cmd=>:
+    echo "reg_hello - hello: hanks
+    
+    "<=
+    reg_hello - hello: hanks
+     .. ok
+    (utils.ExecResult) {
+     Cmd: (string) (len=33) "echo \"reg_hello - hello: hanks\n\n\"",
+     Code: (int) 0,
+     Output: (string) (len=24) "reg_hello - hello: hanks",
      ErrMsg: (string) ""
     }
     
@@ -225,7 +262,7 @@ weight: 10424
       Dvars: {
         {
           Name: "reg_hello",
-          Value: "{{dereg \"hellomsg\" }}\n",
+          Value: "{{deReg \"hellomsg\" }}\n",
           Desc: "",
           Expand: 0,
           Flags: <nil>,
@@ -251,12 +288,13 @@ weight: 10424
     
     current exec runtime vars:
     (*core.Cache)({
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
-        Output: "<no value>",
+        Output: "reg_hello - hello: hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
     [local] dvar expanded result:
@@ -266,22 +304,24 @@ weight: 10424
     
     
     scope[local] merged: {
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
-        Output: "<no value>",
+        Output: "reg_hello - hello: hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
       "reg_hello": "\n"
     }
     
     
-    modest_darwin9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
-        Output: "<no value>",
+        Output: "reg_hello - hello: hanks",
         ErrMsg: ""
       }),
       "hellomsg": "hanks",
@@ -291,10 +331,12 @@ weight: 10424
     cmd( 1):
     echo "{{.hellomsg}}"
     
-     \_ echo "hanks"
+    cmd=>:
+    echo "hanks"<=
     hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=12) "echo \"hanks\"",
      Code: (int) 0,
      Output: (string) (len=5) "hanks",
      ErrMsg: (string) ""
@@ -326,6 +368,7 @@ weight: 10424
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -339,6 +382,7 @@ weight: 10424
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -346,10 +390,11 @@ weight: 10424
     }
     
     
-    modest_darwin9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
@@ -359,10 +404,12 @@ weight: 10424
     cmd( 1):
     echo "{{.hellomsg}}"
     
-     \_ echo "<no value>"
+    cmd=>:
+    echo "<no value>"<=
     <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"<no value>\"",
      Code: (int) 0,
      Output: (string) (len=10) "<no value>",
      ErrMsg: (string) ""
@@ -410,6 +457,7 @@ weight: 10424
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
@@ -417,26 +465,31 @@ weight: 10424
     })
     
     dvar> void:
-    "hello: "
+    "hello: something\n"
     
     [local] dvar expanded result:
     {
+      "iamvoid": "something"
     }
     
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     }
     
     
-    modest_darwin9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
@@ -446,12 +499,14 @@ weight: 10424
     cmd( 1):
     echo '{{.iamvoid}}'
     
-     \_ echo '<no value>'
-    <no value>
+    cmd=>:
+    echo 'something'<=
+    something
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=16) "echo 'something'",
      Code: (int) 0,
-     Output: (string) (len=10) "<no value>",
+     Output: (string) (len=9) "something",
      ErrMsg: (string) ""
     }
     
@@ -480,8 +535,9 @@ weight: 10424
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'something'",
         Code: 0,
-        Output: "<no value>",
+        Output: "something",
         ErrMsg: ""
       }),
       "iamvoid": "something"
@@ -493,21 +549,23 @@ weight: 10424
     
     
     scope[local] merged: {
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'something'",
         Code: 0,
-        Output: "<no value>",
+        Output: "something",
         ErrMsg: ""
-      }),
-      "iamvoid": "something"
+      })
     }
     
     
-    modest_darwin9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'something'",
         Code: 0,
-        Output: "<no value>",
+        Output: "something",
         ErrMsg: ""
       }),
       "iamvoid": "something"
@@ -516,10 +574,12 @@ weight: 10424
     cmd( 1):
     echo '{{.iamvoid}}'
     
-     \_ echo 'something'
+    cmd=>:
+    echo 'something'<=
     something
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=16) "echo 'something'",
      Code: (int) 0,
      Output: (string) (len=9) "something",
      ErrMsg: (string) ""
@@ -537,4 +597,4 @@ weight: 10424
 * [c0042 log - verbose level vvvvv](../../logs/c0042_vvvvv)
 
 ##### References
-* [Related Chapter](../../template/c0042)
+* [Related Chapter](../../object-oriented/c0042)

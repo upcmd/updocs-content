@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10633
 
@@ -17,7 +17,7 @@ weight: 10633
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0063
                  Verbose -> vvvv
-              ModuleName -> elegant_pasteur0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10633
     
     
     groups members:[]
-    module: [elegant_pasteur0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global-var-a"
@@ -50,38 +55,13 @@ weight: 10633
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"hello {{.a}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "b": "runtime-var-b"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "pause"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "runtime-var-b",
-      "a": "global-var-a"
+      "a": "global-var-a",
+      "b": "runtime-var-b"
     })
     
-    elegant_pasteur0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "global-var-a",
@@ -97,65 +77,42 @@ weight: 10633
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "hello {{.a}}"
     
-     \_ echo "hello global-var-a"
+    cmd=>:
+    echo "hello global-var-a"<=
     hello global-var-a
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.a}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "b": "runtime-var-b"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "pause"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "runtime-var-b",
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "b": "runtime-var-b"
     })
     
-    elegant_pasteur0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "runtime-var-b",
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "b": "runtime-var-b"
     })
     
     Enter Value For pause action to continue: 
@@ -167,51 +124,34 @@ weight: 10633
     ~SubStep1: [print:  ]
     hello global-var-a
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "echo \"next step\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       })
     })
     
-    elegant_pasteur0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "a": "global-var-a"
+      })
     })
     
     cmd( 1):
     echo "next step"
     
-     \_ echo "next step"
+    cmd=>:
+    echo "next step"<=
     next step
      .. ok
     . ok

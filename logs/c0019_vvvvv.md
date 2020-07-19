@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10194
 
@@ -17,7 +17,7 @@ weight: 10194
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0019
                  Verbose -> vvvvv
-              ModuleName -> cranky_hodgkin2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10194
     -exec task: task
     loading [Task]:  ./tests/functests/c0019
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecea0)(<nil>)
+    (*impl.Scopes)(0xc0001e4ec0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10194
     
     
     groups members:[]
-    module: [cranky_hodgkin2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar",
@@ -49,8 +54,8 @@ weight: 10194
     (core.Cache) (len=2) {
      (string) (len=6) "school": (string) (len=14) "sydney grammar",
      (string) (len=2) "sg": (map[string]interface {}) (len=2) {
-      (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000",
-      (string) (len=4) "name": (string) (len=14) "sydney grammar"
+      (string) (len=4) "name": (string) (len=14) "sydney grammar",
+      (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000"
      }
     }
     
@@ -102,12 +107,12 @@ weight: 10194
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
       },
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "school": "sydney grammar"
     })
     
     [local] dvar expanded result:
@@ -116,33 +121,35 @@ weight: 10194
     
     
     scope[local] merged: {
+      "studentname": "Tom",
       "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
-      },
-      "studentname": "Tom"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
+      }
     }
     
     
-    cranky_hodgkin2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
       },
-      "studentname": "Tom",
-      "school": "sydney grammar"
+      "studentname": "Tom"
     })
     
     cmd( 1):
     echo "studentname -> {{.studentname}}"
     
-     \_ echo "studentname -> Tom"
+    cmd=>:
+    echo "studentname -> Tom"<=
     studentname -> Tom
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=25) "echo \"studentname -> Tom\"",
      Code: (int) 0,
      Output: (string) (len=18) "studentname -> Tom",
      ErrMsg: (string) ""
@@ -151,10 +158,12 @@ weight: 10194
     cmd( 2):
     echo "gender -> male"
     
-     \_ echo "gender -> male"
+    cmd=>:
+    echo "gender -> male"<=
     gender -> male
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=21) "echo \"gender -> male\"",
      Code: (int) 0,
      Output: (string) (len=14) "gender -> male",
      ErrMsg: (string) ""
@@ -163,10 +172,12 @@ weight: 10194
     cmd( 3):
     echo "school -> {{.school}}"
     
-     \_ echo "school -> sydney grammar"
+    cmd=>:
+    echo "school -> sydney grammar"<=
     school -> sydney grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=31) "echo \"school -> sydney grammar\"",
      Code: (int) 0,
      Output: (string) (len=24) "school -> sydney grammar",
      ErrMsg: (string) ""
@@ -175,10 +186,12 @@ weight: 10194
     cmd( 4):
     echo "nonexist -> {{.notexist}}"
     
-     \_ echo "nonexist -> <no value>"
+    cmd=>:
+    echo "nonexist -> <no value>"<=
     nonexist -> <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=29) "echo \"nonexist -> <no value>\"",
      Code: (int) 0,
      Output: (string) (len=22) "nonexist -> <no value>",
      ErrMsg: (string) ""
@@ -187,10 +200,12 @@ weight: 10194
     cmd( 5):
     echo "SG details -> {{.sg.name}}/{{.sg.address}}"
     
-     \_ echo "SG details -> sydney grammar/Sydney, NSW 2000"
+    cmd=>:
+    echo "SG details -> sydney grammar/Sydney, NSW 2000"<=
     SG details -> sydney grammar/Sydney, NSW 2000
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=52) "echo \"SG details -> sydney grammar/Sydney, NSW 2000\"",
      Code: (int) 0,
      Output: (string) (len=45) "SG details -> sydney grammar/Sydney, NSW 2000",
      ErrMsg: (string) ""

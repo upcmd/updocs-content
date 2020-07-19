@@ -1,6 +1,6 @@
 ---
 title: "c0121_vvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11213
 
@@ -17,7 +17,7 @@ weight: 11213
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0121
                  Verbose -> vvvv
-              ModuleName -> drunk_rosalind8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11213
     
     
     groups members:[]
-    module: [drunk_rosalind8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11213
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -83,29 +65,11 @@ weight: 11213
     ~SubStep1: [print:  ]
     step1
     -Step2:
-    {
-      Name: "",
-      Do: "subtask",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -115,35 +79,12 @@ weight: 11213
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "sub task step1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -152,34 +93,12 @@ weight: 11213
     ~~SubStep1: [print:  ]
     sub task step1
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "break"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -187,60 +106,14 @@ weight: 11213
     
     ~~SubStep1: [break:  ]
     --Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "sub task step2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
      WARN: [break] - [client chose to break]
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -249,30 +122,12 @@ weight: 11213
     ~SubStep1: [print:  ]
     step2
     -Step4:
-    {
-      Name: "",
-      Do: "subtask2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -283,35 +138,12 @@ weight: 11213
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "sub task step1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -320,37 +152,13 @@ weight: 11213
     ~~SubStep1: [print:  ]
     sub task step1
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "break"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .person \"tom\"}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "person": "tom",
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": "tom",
@@ -359,60 +167,14 @@ weight: 11213
     
     ~~SubStep1: [break:  ]
     --Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "sub task step2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
      WARN: [break] - [client chose to break]
     -Step5:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step3"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_rosalind8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

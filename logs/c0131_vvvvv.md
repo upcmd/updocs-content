@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11314
 
@@ -17,7 +17,7 @@ weight: 11314
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0131
                  Verbose -> vvvvv
-              ModuleName -> desperate_cori7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11314
     -exec task: task
     loading [Task]:  ./tests/functests/c0131
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001cf540)(<nil>)
+    (*impl.Scopes)(0xc000175500)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11314
     
     
     groups members:[]
-    module: [desperate_cori7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +100,7 @@ weight: 11314
     }
     
     
-    desperate_cori7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -143,8 +148,8 @@ weight: 11314
           "func": "cmd",
           "do": {
             {
-              "cmd": "do something else step3 .......",
-              "name": "print"
+              "name": "print",
+              "cmd": "do something else step3 ......."
             }
           }
         },
@@ -178,7 +183,7 @@ weight: 11314
     }
     
     
-    desperate_cori7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvv"
-date: 2020-07-01T15:34:34+77:00
+date: 2020-07-20T02:01:46+77:00
 draft: false
 weight: 10993
 
@@ -17,7 +17,7 @@ weight: 10993
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0099
                  Verbose -> vvvv
-              ModuleName -> stoic_fermi5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,16 +33,21 @@ weight: 10993
     
     
     groups members:[]
-    module: [stoic_fermi5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
@@ -61,17 +66,17 @@ weight: 10993
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
       },
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
@@ -80,46 +85,6 @@ weight: 10993
     Executing task stack layer: 1
     
     -Step1: [: use datatemplate as datasource ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student_info}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "student_info",
-          Value: "my name is:{{.name}} and I am in {{.school}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: "name: {{.nsw.sydney.sgschool.student.name}}\ngender: {{.nsw.sydney.sgschool.student.gender}}\nschool: {{.nsw.sydney.sgschool.student.school}}\n"
-        }
-      },
-      Desc: "use datatemplate as datasource",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "nsw": {
@@ -143,7 +108,7 @@ weight: 10993
     dvar> student_info:
     "my name is:Grace and I am in MLC"
     
-    stoic_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
@@ -156,9 +121,9 @@ weight: 10993
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
@@ -168,89 +133,49 @@ weight: 10993
     ~SubStep1: [print:  ]
     my name is:Grace and I am in MLC
     -Step2: [: use datatemplate as datasource ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student_info}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "student_info",
-          Value: "my name is:{{.student.name}} and I am in {{.school.name}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: "student:\n  name: {{.nsw.sydney.sgschool.student.name}}\n  gender: {{.nsw.sydney.sgschool.student.gender}}\nschool:\n  name: {{.nsw.sydney.sgschool.student.school}}\n"
-        }
-      },
-      Desc: "use datatemplate as datasource",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
       },
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     })
     
     dvar> student_info:
     "my name is:Grace and I am in MLC"
     
-    stoic_fermi5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "student_info": "my name is:Grace and I am in MLC",
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
-      }
+      },
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": "my name is:Grace and I am in MLC"
     })
     
     ~SubStep1: [print:  ]

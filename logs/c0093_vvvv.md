@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:45+77:00
 draft: false
 weight: 10933
 
@@ -17,7 +17,7 @@ weight: 10933
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0093
                  Verbose -> vvvv
-              ModuleName -> backstabbing_jones5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10933
     
     
     groups members:[]
-    module: [backstabbing_jones5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,40 +53,15 @@ weight: 10933
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "{{.person.name}}_action"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "person": {
-          "name": "tom",
-          "age": 23
-        }
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{gt .person.age 20}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     
-    backstabbing_jones5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": {
@@ -95,46 +75,23 @@ weight: 10933
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.person.name}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "person": {
+        "name": "tom",
+        "age": 23
+      },
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "person": {
         "age": 23,
         "name": "tom"
       },
       "up_runtime_task_layer_number": 1
-    })
-    
-    backstabbing_jones5: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": {
-        "age": 23,
-        "name": "tom"
-      }
     })
     
     ~~SubStep1: [print:  ]

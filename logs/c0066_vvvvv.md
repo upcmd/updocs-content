@@ -1,6 +1,6 @@
 ---
 title: "c0066_vvvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:41+77:00
 draft: false
 weight: 10664
 
@@ -17,7 +17,7 @@ weight: 10664
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0066
                  Verbose -> vvvvv
-              ModuleName -> pensive_blackwell3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10664
     -exec task: task
     loading [Task]:  ./tests/functests/c0066
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed320)(<nil>)
+    (*impl.Scopes)(0xc00000c820)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10664
     
     
     groups members:[]
-    module: [pensive_blackwell3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -63,9 +68,9 @@ weight: 10664
     
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     }
     
@@ -97,9 +102,9 @@ weight: 10664
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     })
     
@@ -110,30 +115,32 @@ weight: 10664
     
     scope[local] merged: {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     }
     
     
-    pensive_blackwell3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     })
     
     cmd( 1):
     echo "hello 1"
     
-     \_ echo "hello 1"
+    cmd=>:
+    echo "hello 1"<=
     hello 1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=14) "echo \"hello 1\"",
      Code: (int) 0,
      Output: (string) (len=7) "hello 1",
      ErrMsg: (string) ""
@@ -145,9 +152,9 @@ weight: 10664
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "demo of print command",
-          "cmd": "hello, {{.student.school}}",
-          "name": "print"
+          "cmd": "hello, {{.student.school}}"
         },
         {
           "name": "reg",
@@ -170,13 +177,13 @@ weight: 10664
             "value": "hello, {{.student.school}}. registered to local func only"
           },
           "flags": {
-            "localonly"
+            "localOnly"
           }
         },
         {
+          "cmd": "hello, {{.greetlocal}}",
           "name": "print",
-          "desc": "this show display a correct rendered value\n",
-          "cmd": "hello, {{.greetlocal}}"
+          "desc": "this show display a correct rendered value\n"
         }
       },
       Dox: <nil>,
@@ -211,16 +218,17 @@ weight: 10664
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
-      },
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      })
+      }
     })
     
     [local] dvar expanded result:
@@ -230,7 +238,26 @@ weight: 10664
     
     
     scope[local] merged: {
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "school": "Sydney Grammar",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -239,23 +266,6 @@ weight: 10664
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
-      },
-      "school": "Sydney Grammar"
-    }
-    
-    
-    pensive_blackwell3: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
       },
       "school": "Sydney Grammar"
     })
@@ -268,34 +278,36 @@ weight: 10664
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      })
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "school": "Sydney Grammar",
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "school": "Sydney Grammar",
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
     hello, {{.greet}}
@@ -310,23 +322,25 @@ weight: 10664
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -350,14 +364,14 @@ weight: 10664
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "this will show the registered global runtime var\n",
-          "cmd": "hello, {{.greetlocal}}",
-          "name": "print"
+          "cmd": "hello, {{.greetlocal}}"
         },
         {
-          "name": "print",
           "desc": "this will show <no value> for greetlocal, as it is not registered to global\n",
-          "cmd": "hello, {{.greet}}"
+          "cmd": "hello, {{.greet}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -383,6 +397,7 @@ weight: 10664
         "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -397,11 +412,12 @@ weight: 10664
     
     scope[local] merged: {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -410,20 +426,21 @@ weight: 10664
     }
     
     
-    pensive_blackwell3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
     hello, {{.greetlocal}}
@@ -439,8 +456,8 @@ weight: 10664
       Name: "",
       Do: {
         {
-          "name": "dereg",
-          "desc": "demo of dereg command",
+          "name": "deReg",
+          "desc": "demo of deReg command",
           "cmd": "greet"
         }
       },
@@ -461,17 +478,18 @@ weight: 10664
     
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
     [local] dvar expanded result:
@@ -482,11 +500,12 @@ weight: 10664
     scope[local] merged: {
       "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -494,34 +513,36 @@ weight: 10664
     }
     
     
-    pensive_blackwell3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
     })
     
     greet
-    ~SubStep1: [dereg: demo of dereg command ]
-    deregister var: greet
+    ~SubStep1: [deReg: demo of deReg command ]
+    deRegister var: greet
     after reg the var - contextual global:
     
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -531,16 +552,17 @@ weight: 10664
     after reg the var - local:
     
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
     })
     
     -Step5: [: you will see that greet var is removed from global var map
@@ -569,11 +591,12 @@ weight: 10664
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -587,11 +610,12 @@ weight: 10664
     
     scope[local] merged: {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -599,15 +623,16 @@ weight: 10664
     }
     
     
-    pensive_blackwell3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
@@ -617,10 +642,12 @@ weight: 10664
     cmd( 1):
     echo "hello {{.greet}}"
     
-     \_ echo "hello <no value>"
+    cmd=>:
+    echo "hello <no value>"<=
     hello <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=23) "echo \"hello <no value>\"",
      Code: (int) 0,
      Output: (string) (len=16) "hello <no value>",
      ErrMsg: (string) ""

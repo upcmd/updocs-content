@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvvv"
-date: 2020-07-01T15:34:25+77:00
+date: 2020-07-20T02:01:35+77:00
 draft: false
 weight: 10354
 
@@ -17,7 +17,7 @@ weight: 10354
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0035
                  Verbose -> vvvvv
-              ModuleName -> romantic_mcclintock3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10354
     -exec task: task
     loading [Task]:  ./tests/functests/c0035
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecf20)(<nil>)
+    (*impl.Scopes)(0xc0001c0fa0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10354
     
     
     groups members:[]
-    module: [romantic_mcclintock3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -99,7 +104,7 @@ weight: 10354
     }
     
     
-    romantic_mcclintock3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -109,10 +114,12 @@ weight: 10354
     cmd( 1):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=3) "pwd",
      Code: (int) 0,
      Output: (string) (len=14) "/up_project/up",
      ErrMsg: (string) ""
@@ -143,6 +150,7 @@ weight: 10354
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
@@ -156,6 +164,7 @@ weight: 10354
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
@@ -163,10 +172,11 @@ weight: 10354
     }
     
     
-    romantic_mcclintock3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
@@ -176,10 +186,12 @@ weight: 10354
     cmd( 1):
     echo "{{.a}}"
     
-     \_ echo "<no value>"
+    cmd=>:
+    echo "<no value>"<=
     <no value>
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"<no value>\"",
      Code: (int) 0,
      Output: (string) (len=10) "<no value>",
      ErrMsg: (string) ""

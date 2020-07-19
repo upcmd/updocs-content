@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10063
 
@@ -17,7 +17,7 @@ weight: 10063
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0006
                  Verbose -> vvvv
-              ModuleName -> boring_curie3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10063
     
     
     groups members:[]
-    module: [boring_curie3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,35 +53,11 @@ weight: 10063
     Executing task stack layer: 1
     
     -Step1: [: to test display env vars from shell context ]
-    {
-      Name: "",
-      Do: {
-        "echo \"aaa: $aaa\"\n",
-        "echo \"bbb: $bbb\"\n",
-        "echo \"aaa':' $aaa\"",
-        "echo \"aaa\":\" $aaa\"",
-        "echo \"aaa -> $aaa\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "to test display env vars from shell context",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    boring_curie3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -85,34 +66,39 @@ weight: 10063
     echo "aaa: $aaa"
     
     
-     \_ echo "aaa: $aaa"
-    
+    cmd=>:
+    echo "aaa: $aaa"
+    <=
     aaa:
      .. ok
     cmd( 2):
     echo "bbb: $bbb"
     
     
-     \_ echo "bbb: $bbb"
-    
+    cmd=>:
+    echo "bbb: $bbb"
+    <=
     bbb:
      .. ok
     cmd( 3):
     echo "aaa':' $aaa"
     
-     \_ echo "aaa':' $aaa"
+    cmd=>:
+    echo "aaa':' $aaa"<=
     aaa':'
      .. ok
     cmd( 4):
     echo "aaa":" $aaa"
     
-     \_ echo "aaa":" $aaa"
+    cmd=>:
+    echo "aaa":" $aaa"<=
     aaa:
      .. ok
     cmd( 5):
     echo "aaa -> $aaa"
     
-     \_ echo "aaa -> $aaa"
+    cmd=>:
+    echo "aaa -> $aaa"<=
     aaa ->
      .. ok
     . ok

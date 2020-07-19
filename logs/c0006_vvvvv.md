@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10064
 
@@ -17,7 +17,7 @@ weight: 10064
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0006
                  Verbose -> vvvvv
-              ModuleName -> insane_darwin0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10064
     -exec task: task
     loading [Task]:  ./tests/functests/c0006
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000182f20)(<nil>)
+    (*impl.Scopes)(0xc000174f40)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10064
     
     
     groups members:[]
-    module: [insane_darwin0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -96,7 +101,7 @@ weight: 10064
     }
     
     
-    insane_darwin0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -105,11 +110,13 @@ weight: 10064
     echo "aaa: $aaa"
     
     
-     \_ echo "aaa: $aaa"
-    
+    cmd=>:
+    echo "aaa: $aaa"
+    <=
     aaa:
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"aaa: $aaa\"\n",
      Code: (int) 0,
      Output: (string) (len=4) "aaa:",
      ErrMsg: (string) ""
@@ -119,11 +126,13 @@ weight: 10064
     echo "bbb: $bbb"
     
     
-     \_ echo "bbb: $bbb"
-    
+    cmd=>:
+    echo "bbb: $bbb"
+    <=
     bbb:
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"bbb: $bbb\"\n",
      Code: (int) 0,
      Output: (string) (len=4) "bbb:",
      ErrMsg: (string) ""
@@ -132,10 +141,12 @@ weight: 10064
     cmd( 3):
     echo "aaa':' $aaa"
     
-     \_ echo "aaa':' $aaa"
+    cmd=>:
+    echo "aaa':' $aaa"<=
     aaa':'
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"aaa':' $aaa\"",
      Code: (int) 0,
      Output: (string) (len=6) "aaa':'",
      ErrMsg: (string) ""
@@ -144,10 +155,12 @@ weight: 10064
     cmd( 4):
     echo "aaa":" $aaa"
     
-     \_ echo "aaa":" $aaa"
+    cmd=>:
+    echo "aaa":" $aaa"<=
     aaa:
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"aaa\":\" $aaa\"",
      Code: (int) 0,
      Output: (string) (len=4) "aaa:",
      ErrMsg: (string) ""
@@ -156,10 +169,12 @@ weight: 10064
     cmd( 5):
     echo "aaa -> $aaa"
     
-     \_ echo "aaa -> $aaa"
+    cmd=>:
+    echo "aaa -> $aaa"<=
     aaa ->
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"aaa -> $aaa\"",
      Code: (int) 0,
      Output: (string) (len=6) "aaa ->",
      ErrMsg: (string) ""

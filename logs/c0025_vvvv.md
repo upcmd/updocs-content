@@ -1,6 +1,6 @@
 ---
 title: "c0025_vvvv"
-date: 2020-07-01T15:34:24+77:00
+date: 2020-07-20T02:01:33+77:00
 draft: false
 weight: 10253
 
@@ -17,7 +17,7 @@ weight: 10253
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0025
                  Verbose -> vvvv
-              ModuleName -> dreamy_tesla5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10253
     
     
     groups members:[]
-    module: [dreamy_tesla5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -47,9 +52,9 @@ weight: 10253
     
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     }
@@ -59,27 +64,18 @@ weight: 10253
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"a smart guy=>{{.a_smart_guy}}\"\"\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "student": {
         "name": "Tom",
@@ -89,24 +85,14 @@ weight: 10253
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
     
-    dreamy_tesla5: overall final exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
-    })
-    
     cmd( 1):
     echo """a smart guy=>{{.a_smart_guy}}"""
     
-     \_ echo """a smart guy=>name: "Tom"
+    cmd=>:
+    echo """a smart guy=>name: "Tom"
     sex: "Male"
     school: "Sydney Grammar"
-    """
+    """<=
     a smart guy=>name: Tom
     sex: Male
     school: Sydney Grammar

@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvv"
-date: 2020-07-01T15:34:20+77:00
+date: 2020-07-20T02:01:29+77:00
 draft: false
 weight: 10023
 
@@ -17,7 +17,7 @@ weight: 10023
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0002
                  Verbose -> vvvv
-              ModuleName -> clever_mayer1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10023
     
     
     groups members:[]
-    module: [clever_mayer1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,32 +53,11 @@ weight: 10023
     Executing task stack layer: 1
     
     -Step1: [: do step1 in shell func ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "do step1 in shell func",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    clever_mayer1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -81,54 +65,34 @@ weight: 10023
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok
     -Step2: [: do step2 in shell func ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello\"",
-        "echo \"I got exception\"|grep non-exist",
-        "echo \"world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "do step2 in shell func",
-      Reg: "",
-      Flags: {
-        "ignore_error"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       })
     })
     
-    clever_mayer1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
@@ -138,13 +102,15 @@ weight: 10023
     cmd( 1):
     echo "hello"
     
-     \_ echo "hello"
+    cmd=>:
+    echo "hello"<=
     hello
      .. ok
     cmd( 2):
     echo "I got exception"|grep non-exist
     
-     \_ echo "I got exception"|grep non-exist
+    cmd=>:
+    echo "I got exception"|grep non-exist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
@@ -153,7 +119,8 @@ weight: 10023
     cmd( 3):
     echo "world"
     
-     \_ echo "world"
+    cmd=>:
+    echo "world"<=
     world
      .. ok
     . ok

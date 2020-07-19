@@ -1,6 +1,6 @@
 ---
 title: "c0138_vvvv"
-date: 2020-07-01T15:34:41+77:00
+date: 2020-07-20T02:01:54+77:00
 draft: false
 weight: 11383
 
@@ -17,7 +17,7 @@ weight: 11383
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0138
                  Verbose -> vvvv
-              ModuleName -> kickass_almeida9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11383
     
     
     groups members:[]
-    module: [kickass_almeida9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,42 +53,11 @@ weight: 11383
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmdy": "step1"
-        },
-        {
-          "name": "print",
-          "cmdx": "step2"
-        },
-        {
-          "name": "print",
-          "cmd": "step3"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    kickass_almeida9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -95,44 +69,11 @@ weight: 11383
     ~SubStep3: [print:  ]
     step3
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmdy": "step4"
-        },
-        {
-          "namex": "exit"
-        },
-        {
-          "namex": "break"
-        },
-        {
-          "name": "print",
-          "cmdy": "step4"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    kickass_almeida9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -146,34 +87,11 @@ weight: 11383
     ~SubStep4: [print:  ]
      WARN: [cmd] - [lacking detailed implementation yet]
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step5"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    kickass_almeida9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -181,34 +99,11 @@ weight: 11383
     ~SubStep1: [print:  ]
     step5
     -Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmdx": "step6"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    kickass_almeida9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

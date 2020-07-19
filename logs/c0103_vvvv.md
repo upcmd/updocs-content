@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:47+77:00
 draft: false
 weight: 11033
 
@@ -17,7 +17,7 @@ weight: 11033
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0103
                  Verbose -> vvvv
-              ModuleName -> pensive_brown1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,11 +33,16 @@ weight: 11033
     
     
     groups members:[]
-    module: [pensive_brown1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "tom": "tom:\n  sex: male\n  age: 23\n",
-      "emily": "emily:\n  sex: female\n  age: 32\n"
+      "emily": "emily:\n  sex: female\n  age: 32\n",
+      "tom": "tom:\n  sex: male\n  age: 23\n"
     }
     
     -------runtime global final merged with dvars-------
@@ -52,73 +57,26 @@ weight: 11033
     Executing task stack layer: 1
     
     -Step1: [: inplace modification ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "yml_write",
-          "cmd": {
-            "verbose": "v",
-            "reg": "tomyml",
-            "ymlstr": "{{.tom}}",
-            "path": "tom.sex",
-            "value": "female"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "{{.tomyml }}"
-        },
-        {
-          "name": "yml_write",
-          "cmd": {
-            "ymlstr": "{{.tomyml}}",
-            "path": "tom.wife",
-            "nodevalue": "{{.emily}}",
-            "verbose": "vvvv",
-            "reg": "tomyml"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "{{.tomyml }}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "inplace modification",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "tom:\n  sex: male\n  age: 23\n",
       "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
-    pensive_brown1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "tom:\n  sex: male\n  age: 23\n",
       "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
-    ~SubStep1: [yml_write:  ]
+    ~SubStep1: [ymlWrite:  ]
     ~SubStep2: [print:  ]
     tom:
       sex: female
       age: 23
     
-    ~SubStep3: [yml_write:  ]
+    ~SubStep3: [ymlWrite:  ]
     ~SubStep4: [print:  ]
     tom:
       sex: female

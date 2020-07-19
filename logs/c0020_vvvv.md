@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10203
 
@@ -17,7 +17,7 @@ weight: 10203
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0020
                  Verbose -> vvvv
-              ModuleName -> cranky_franklin5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10203
     
     
     groups members:[]
-    module: [cranky_franklin5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar"
@@ -50,43 +55,19 @@ weight: 10203
     Executing task stack layer: 1
     
     -Step1: [: call function with different vars ]
-    {
-      Name: "",
-      Do: {
-        "function"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "school": "sydney grammar",
-        "gender": "male",
-        "studentname": "Tom"
-      },
-      Dvars: <nil>,
-      Desc: "call function with different vars",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "gender": "male",
       "school": "sydney grammar",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male"
     })
     
-    cranky_franklin5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "gender": "male",
       "school": "sydney grammar",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male"
     })
     
       located task-> 2 [function]: 
@@ -98,54 +79,35 @@ weight: 10203
     Executing task stack layer: 2
     
     --Step1: [: show school and student info ]
-    {
-      Name: "",
-      Do: {
-        "echo \"studentname -> {{.studentname}} | gender -> {{.gender}}\"",
-        "echo \"school -> {{.school}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "show school and student info",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "gender": "male",
       "up_runtime_task_layer_number": 1,
       "school": "sydney grammar",
-      "studentname": "Tom",
-      "gender": "male"
+      "studentname": "Tom"
     })
     
-    cranky_franklin5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "school": "sydney grammar",
       "studentname": "Tom",
-      "gender": "male"
+      "gender": "male",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "studentname -> {{.studentname}} | gender -> {{.gender}}"
     
-     \_ echo "studentname -> Tom | gender -> male"
+    cmd=>:
+    echo "studentname -> Tom | gender -> male"<=
     studentname -> Tom | gender -> male
      .. ok
     cmd( 2):
     echo "school -> {{.school}}"
     
-     \_ echo "school -> sydney grammar"
+    cmd=>:
+    echo "school -> sydney grammar"<=
     school -> sydney grammar
      .. ok
     . ok

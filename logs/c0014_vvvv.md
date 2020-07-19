@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10143
 
@@ -17,7 +17,7 @@ weight: 10143
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0014
                  Verbose -> vvvv
-              ModuleName -> gloomy_hypatia4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10143
     
     
     groups members:[]
-    module: [gloomy_hypatia4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "e": "runtime-e",
@@ -44,9 +49,9 @@ weight: 10143
     -------runtime global final merged with dvars-------
     
     {
+      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "a": "runtime-a"
     }
     
       located task-> 2 [task]: 
@@ -54,44 +59,21 @@ weight: 10143
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "callee_task"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "a": "caller-ref-a",
-        "b": "caller-ref-b"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "caller-ref-b",
+      "e": "runtime-e",
       "k": "runtime-k",
       "a": "caller-ref-a",
-      "e": "runtime-e"
+      "b": "caller-ref-b"
     })
     
-    gloomy_hypatia4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "caller-ref-b",
+      "e": "runtime-e",
       "k": "runtime-k",
       "a": "caller-ref-a",
-      "e": "runtime-e"
+      "b": "caller-ref-b"
     })
     
       located task-> 1 [callee_task]: 
@@ -99,56 +81,32 @@ weight: 10143
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"exec ref-task\"",
-        "echo \"\"\"\nvars:\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\ne: {{.e}}\nk: {{.k}}\n\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "c": "callee-c",
-        "a": "callee-a",
-        "b": "callee-b"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "caller-ref-b",
       "c": "callee-c",
-      "a": "caller-ref-a",
       "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
-      "up_runtime_task_layer_number": 1
+      "a": "caller-ref-a",
+      "b": "caller-ref-b"
     })
     
-    gloomy_hypatia4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "e": "runtime-e",
+      "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "a": "caller-ref-a",
       "k": "runtime-k",
-      "e": "runtime-e",
       "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "exec ref-task"
     
-     \_ echo "exec ref-task"
+    cmd=>:
+    echo "exec ref-task"<=
     exec ref-task
      .. ok
     cmd( 2):
@@ -162,7 +120,8 @@ weight: 10143
     """
     
     
-     \_ echo """
+    cmd=>:
+    echo """
     vars:
     a: caller-ref-a
     b: caller-ref-b
@@ -170,7 +129,7 @@ weight: 10143
     e: runtime-e
     k: runtime-k
     """
-    
+    <=
     vars:
     a: caller-ref-a
     b: caller-ref-b

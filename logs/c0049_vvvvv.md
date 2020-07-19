@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:38+77:00
 draft: false
 weight: 10494
 
@@ -17,7 +17,7 @@ weight: 10494
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0049
                  Verbose -> vvvvv
-              ModuleName -> elegant_albattani9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10494
     -exec task: task
     loading [Task]:  ./tests/functests/c0049
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e8c0)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001eb420)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -41,7 +41,7 @@ weight: 10494
         Desc: (string) "",
         Expand: (int) 0,
         Flags: ([]string) (len=1 cap=1) {
-         (string) (len=6) "envvar"
+         (string) (len=6) "envVar"
         },
         Rendered: (string) "",
         Secure: (*utils.SecureSetting)(<nil>),
@@ -58,13 +58,13 @@ weight: 10494
     [global] dvar expanded result:
     {
       "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules"
     }
     
     
     scope[global] merged: {
       "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules"
     }
     
     
@@ -72,41 +72,46 @@ weight: 10494
     
     global: {
       "SCHOOL": "James Rules",
-      "envvar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules"
     }
     
     
     groups members:[]
-    module: [elegant_albattani9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=13) "envvar_SCHOOL": (string) (len=11) "James Rules",
-     (string) (len=6) "SCHOOL": (string) (len=11) "James Rules"
+     (string) (len=6) "SCHOOL": (string) (len=11) "James Rules",
+     (string) (len=13) "envVar_SCHOOL": (string) (len=11) "James Rules"
     }
     
     [runtime global] dvar expanded result:
     {
-      "envvar_STUDENT_NAME": "James Bond",
+      "STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
-      "STUDENT_NAME": "James Bond"
+      "envVar_STUDENT_AGE": "18"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
+      "STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond"
     }
     
       located task-> 1 [task]: 
@@ -130,7 +135,7 @@ weight: 10494
           Desc: "",
           Expand: 0,
           Flags: {
-            "envvar"
+            "envVar"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -154,49 +159,51 @@ weight: 10494
     
     current exec runtime vars:
     (*core.Cache)({
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18"
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules"
     })
     
     [local] dvar expanded result:
     {
-      "envvar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     }
     
     
     scope[local] merged: {
-      "envvar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
-      "STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_AGE": "18",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     }
     
     
-    elegant_albattani9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "envvar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
-      "STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_AGE": "18"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
-     \_ env |grep STUDENT_NAME
+    cmd=>:
+    env |grep STUDENT_NAME<=
     STUDENT_NAME=Tom Hanks
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "env |grep STUDENT_NAME",
      Code: (int) 0,
      Output: (string) (len=22) "STUDENT_NAME=Tom Hanks",
      ErrMsg: (string) ""
@@ -205,18 +212,20 @@ weight: 10494
     cmd( 2):
     env |grep STUDENT_AGE
     
-     \_ env |grep STUDENT_AGE
+    cmd=>:
+    env |grep STUDENT_AGE<=
     STUDENT_AGE=18
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=21) "env |grep STUDENT_AGE",
      Code: (int) 0,
      Output: (string) (len=14) "STUDENT_AGE=18",
      ErrMsg: (string) ""
     }
     
     . ok
-    -Step2: [: since there is no local envvar for STUDENT_NAME
-    it should use global envvar value 'james bond'
+    -Step2: [: since there is no local envVar for STUDENT_NAME
+    it should use global envVar value 'james bond'
      ]
     {
       Name: "",
@@ -229,7 +238,7 @@ weight: 10494
       Func: "shell",
       Vars: <nil>,
       Dvars: <nil>,
-      Desc: "since there is no local envvar for STUDENT_NAME\nit should use global envvar value 'james bond'\n",
+      Desc: "since there is no local envVar for STUDENT_NAME\nit should use global envVar value 'james bond'\n",
       Reg: "",
       Flags: <nil>,
       If: "",
@@ -242,17 +251,18 @@ weight: 10494
     
     current exec runtime vars:
     (*core.Cache)({
-      "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_AGE",
         Code: 0,
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond"
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18"
     })
     
     [local] dvar expanded result:
@@ -261,43 +271,47 @@ weight: 10494
     
     
     scope[local] merged: {
-      "envvar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "STUDENT_AGE=18",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    elegant_albattani9: overall final exec vars:
-    
-    (*core.Cache)({
-      "STUDENT_AGE": "18",
-      "envvar_STUDENT_AGE": "18",
-      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_AGE",
         Code: 0,
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
-      "envvar_SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
-      "envvar_STUDENT_NAME": "James Bond"
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_AGE",
+        Code: 0,
+        Output: "STUDENT_AGE=18",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
-     \_ env |grep STUDENT_NAME
+    cmd=>:
+    env |grep STUDENT_NAME<=
     STUDENT_NAME=James Bond
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=22) "env |grep STUDENT_NAME",
      Code: (int) 0,
      Output: (string) (len=23) "STUDENT_NAME=James Bond",
      ErrMsg: (string) ""
@@ -306,10 +320,12 @@ weight: 10494
     cmd( 2):
     env |grep STUDENT_AGE
     
-     \_ env |grep STUDENT_AGE
+    cmd=>:
+    env |grep STUDENT_AGE<=
     STUDENT_AGE=18
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=21) "env |grep STUDENT_AGE",
      Code: (int) 0,
      Output: (string) (len=14) "STUDENT_AGE=18",
      ErrMsg: (string) ""
@@ -318,10 +334,12 @@ weight: 10494
     cmd( 3):
     env |grep SCHOOL
     
-     \_ env |grep SCHOOL
+    cmd=>:
+    env |grep SCHOOL<=
     SCHOOL=James Rules
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=16) "env |grep SCHOOL",
      Code: (int) 0,
      Output: (string) (len=18) "SCHOOL=James Rules",
      ErrMsg: (string) ""

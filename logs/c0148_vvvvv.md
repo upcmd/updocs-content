@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvvv"
-date: 2020-07-01T15:34:43+77:00
+date: 2020-07-20T02:01:56+77:00
 draft: false
 weight: 11484
 
@@ -17,7 +17,7 @@ weight: 11484
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0148
                  Verbose -> vvvvv
-              ModuleName -> insane_bardeen0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11484
     -exec task: task
     loading [Task]:  ./tests/functests/c0148
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef440)(<nil>)
+    (*impl.Scopes)(0xc0001bb4a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11484
     
     
     groups members:[]
-    module: [insane_bardeen0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -69,11 +74,11 @@ weight: 11484
           "func": "cmd",
           "dvars": {
             {
-              "name": "jerry",
               "value": "this is jerry in task scope",
               "flags": {
-                "taskscope"
-              }
+                "taskScope"
+              },
+              "name": "jerry"
             }
           }
         },
@@ -118,7 +123,7 @@ weight: 11484
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -138,7 +143,7 @@ weight: 11484
           Desc: "",
           Expand: 0,
           Flags: {
-            "taskscope"
+            "taskScope"
           },
           Rendered: "",
           Secure: (*utils.SecureSetting)(<nil>),
@@ -172,12 +177,12 @@ weight: 11484
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -212,8 +217,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -227,7 +232,7 @@ weight: 11484
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -242,9 +247,9 @@ weight: 11484
       Name: "",
       Do: {
         {
+          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}"
+          "desc": "this should print out the dvar value of jerry"
         }
       },
       Dox: <nil>,
@@ -264,8 +269,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -279,7 +284,7 @@ weight: 11484
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -322,12 +327,12 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -350,7 +355,7 @@ weight: 11484
       Do: {
         {
           "name": "print",
-          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskscope",
+          "desc": "this should print out the dvar value of jerry as it is declared jerry is in taskScope",
           "cmd": "{{.jerry}}"
         },
         {
@@ -375,9 +380,9 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -392,16 +397,16 @@ weight: 11484
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "up_runtime_task_layer_number": 1
     })
     
     {{.jerry}}
-    ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskscope ]
+    ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
     this is jerry in task scope
     ===>
     ~~SubStep2: [trace:  ]
@@ -439,8 +444,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom"
     })
     
@@ -450,18 +455,18 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     }
     
     
-    insane_bardeen0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     {{.jerry}}

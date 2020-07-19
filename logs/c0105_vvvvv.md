@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:48+77:00
 draft: false
 weight: 11054
 
@@ -17,7 +17,7 @@ weight: 11054
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0105
                  Verbose -> vvvvv
-              ModuleName -> naughty_bohr2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11054
     -exec task: task
     loading [Task]:  ./tests/functests/c0105
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000eba0)(<nil>)
+    (*impl.Scopes)(0xc0001752a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11054
     
     
     groups members:[]
-    module: [naughty_bohr2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -108,7 +113,7 @@ weight: 11054
     }
     
     
-    naughty_bohr2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -132,9 +137,9 @@ weight: 11054
         {
           "name": "reg",
           "cmd": {
-            "name": "hitom",
             "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}"
+            "value": "hello, {{.tom}}",
+            "name": "hitom"
           }
         },
         {
@@ -172,7 +177,7 @@ weight: 11054
     }
     
     
-    naughty_bohr2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -180,7 +185,7 @@ weight: 11054
     
     {{.jerry}}
     ~SubStep1: [print:  ]
-    <no value>
+    None
     map[desc:by default hitom is registered in to global context name:hitom value:hello, {{.tom}}]
     ~SubStep2: [reg:  ]
     after reg the var - contextual global:
@@ -193,8 +198,8 @@ weight: 11054
     after reg the var - local:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     {{.hitom}}
@@ -212,18 +217,18 @@ weight: 11054
         {
           "name": "reg",
           "cmd": {
-            "value": "hello, jerry",
             "name": "hijerry",
-            "desc": "hijerry is registered to local scope only"
+            "desc": "hijerry is registered to local scope only",
+            "value": "hello, jerry"
           },
           "flags": {
-            "localonly"
+            "localOnly"
           }
         },
         {
+          "cmd": "{{.hijerry}}",
           "name": "print",
-          "desc": "expecting to see its value since it is still in same func scope",
-          "cmd": "{{.hijerry}}"
+          "desc": "expecting to see its value since it is still in same func scope"
         }
       },
       Dox: <nil>,
@@ -258,7 +263,7 @@ weight: 11054
     }
     
     
-    naughty_bohr2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -280,9 +285,9 @@ weight: 11054
     after reg the var - local:
     
     (*core.Cache)({
-      "hijerry": "hello, jerry",
       "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "hijerry": "hello, jerry"
     })
     
     {{.hijerry}}
@@ -315,8 +320,8 @@ weight: 11054
     
     current exec runtime vars:
     (*core.Cache)({
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "hitom": "hello, this is tom"
     })
     
     [local] dvar expanded result:
@@ -325,12 +330,12 @@ weight: 11054
     
     
     scope[local] merged: {
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "hitom": "hello, this is tom"
     }
     
     
-    naughty_bohr2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -339,7 +344,7 @@ weight: 11054
     
     {{.hijerry}}
     ~SubStep1: [print: hijerry is not accessible here and got <no value> ]
-    <no value>
+    None
     
 ```
 

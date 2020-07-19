@@ -1,6 +1,6 @@
 ---
 title: "c0119_vvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:50+77:00
 draft: false
 weight: 11193
 
@@ -17,7 +17,7 @@ weight: 11193
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0119
                  Verbose -> vvvv
-              ModuleName -> adoring_poincare2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11193
     
     
     groups members:[]
-    module: [adoring_poincare2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,39 +53,11 @@ weight: 11193
     Executing task stack layer: 1
     
     -Step1: [step1: demo it will loop until loopitem = item3 ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "demo it will loop until loopitem = item3",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "item1",
-        "item2",
-        "item3",
-        "item4"
-      },
-      Until: "{{ eq .loopitem \"item3\" }}",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -92,34 +69,11 @@ weight: 11193
     loop util conditional break
     
     -Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -127,34 +81,11 @@ weight: 11193
     ~SubStep1: [print:  ]
     hello
     -Step3: [step3:  ]
-    {
-      Name: "step3",
-      Do: "subtask",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "proc 1",
-        "proc 2",
-        "proc 3",
-        "proc 4"
-      },
-      Until: "{{ eq .loopitem \"proc 3\" }}",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -164,44 +95,21 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1: [step1: the loopitem here is inherited from caller ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loopitem here is inherited from caller",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1",
+      "loopindex": 0
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -211,29 +119,6 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1: [step1: the loopitem here is inherited from caller ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loopitem here is inherited from caller",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "proc 2",
@@ -242,13 +127,13 @@ weight: 11193
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
     ~~SubStep1: [print:  ]
@@ -256,35 +141,12 @@ weight: 11193
     loop util conditional break
     
     -Step4: [step4:  ]
-    {
-      Name: "step4",
-      Do: "subtask",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "proc 1",
-        "proc 2",
-        "proc 3",
-        "proc 4"
-      },
-      Until: "{{ eq .loopindex 3 }}",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -295,44 +157,21 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1: [step1: the loopitem here is inherited from caller ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loopitem here is inherited from caller",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
     (*core.Cache)({
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
       "loopindex": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -342,44 +181,21 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1: [step1: the loopitem here is inherited from caller ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loopitem here is inherited from caller",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -389,44 +205,21 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1: [step1: the loopitem here is inherited from caller ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "the loopitem here is inherited from caller",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
+      "loopitem": "proc 3",
+      "loopindex": 2
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     ~~SubStep1: [print:  ]
@@ -434,44 +227,17 @@ weight: 11193
     loop util conditional break
     
     -Step5: [step5: it will stop loop at proc 4 ]
-    {
-      Name: "step5",
-      Do: "subtask2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "person": "jason"
-      },
-      Dvars: <nil>,
-      Desc: "it will stop loop at proc 4",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "proc 1",
-        "proc 2",
-        "proc 3",
-        "proc 4",
-        "proc 5",
-        "proc 6"
-      },
-      Until: "{{ eq .person \"tom\" }}",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "person": "jason"
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "person": "jason",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "jason"
     })
     
       located task-> 3 [subtask2]: 
@@ -479,88 +245,29 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "person",
-            "value": "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .loopindex 3 }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason"
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
-    (*core.Cache)({
       "person": "jason",
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     condition failed, skip executing step 
     
     --Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "person: {{.person}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
     (*core.Cache)({
       "loopindex": 0,
       "loopindex1": 1,
@@ -569,6 +276,16 @@ weight: 11193
       "loopitem": "proc 1"
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 1",
+      "loopindex": 0
+    })
+    
     ~~SubStep1: [print:  ]
     person: jason
       located task-> 3 [subtask2]: 
@@ -576,42 +293,16 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": {
-            "name": "person",
-            "value": "tom"
-          },
-          "name": "reg"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .loopindex 3 }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2"
+      "person": "jason"
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "loopindex1": 2,
@@ -624,46 +315,23 @@ weight: 11193
     condition failed, skip executing step 
     
     --Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "cmd": "person: {{.person}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 2"
     })
     
     ~~SubStep1: [print:  ]
@@ -673,32 +341,6 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "person",
-            "value": "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .loopindex 3 }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "proc 3",
@@ -708,7 +350,29 @@ weight: 11193
       "person": "jason"
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3",
+      "loopindex": 2
+    })
+    
+    condition failed, skip executing step 
+    
+    --Step2: [step2:  ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3
+    })
+    
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -718,51 +382,6 @@ weight: 11193
       "loopindex1": 3
     })
     
-    condition failed, skip executing step 
-    
-    --Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "cmd": "person: {{.person}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
-    (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
-    })
-    
     ~~SubStep1: [print:  ]
     person: jason
       located task-> 3 [subtask2]: 
@@ -770,93 +389,44 @@ weight: 11193
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "person",
-            "value": "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .loopindex 3 }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 4",
-      "loopindex": 3
+      "loopitem": "proc 4"
     })
     
-    adoring_poincare2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 4",
       "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 4
     })
     
     ~~SubStep1: [reg:  ]
     --Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "person: {{.person}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "person": "tom",
-      "loopitem": "proc 4",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    adoring_poincare2: overall final exec vars:
-    
     (*core.Cache)({
       "loopitem": "proc 4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "tom"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom",
+      "loopitem": "proc 4",
+      "loopindex": 3
     })
     
     ~~SubStep1: [print:  ]

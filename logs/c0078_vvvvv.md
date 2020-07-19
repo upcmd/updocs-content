@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvvv"
-date: 2020-07-01T15:34:31+77:00
+date: 2020-07-20T02:01:43+77:00
 draft: false
 weight: 10784
 
@@ -17,7 +17,7 @@ weight: 10784
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0078
                  Verbose -> vvvvv
-              ModuleName -> sick_nobel0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10784
     -exec task: task
     loading [Task]:  ./tests/functests/c0078
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185040)(<nil>)
+    (*impl.Scopes)(0xc0001c10c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10784
     
     
     groups members:[]
-    module: [sick_nobel0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -125,12 +130,12 @@ weight: 10784
     }
     
     
-    sick_nobel0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
       "school_name": "sydney grammar",
-      "school_address": "1 fox road, sydney, nsw 2000",
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_address": "1 fox road, sydney, nsw 2000"
     })
     
     {{.school_name}}
@@ -178,7 +183,7 @@ weight: 10784
     }
     
     
-    sick_nobel0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
@@ -186,7 +191,7 @@ weight: 10784
     
     {{.school_address}}
     ~SubStep1: [print:  ]
-    <no value>
+    None
     
 ```
 

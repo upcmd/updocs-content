@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvv"
-date: 2020-07-01T15:34:58+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100403
 
@@ -17,7 +17,7 @@ weight: 100403
               AbsWorkDir -> /up_project/up/tests/modtests/0004
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> thirsty_mclean9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 100403
     
     
     groups members:[]
-    module: [thirsty_mclean9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,29 +53,11 @@ weight: 100403
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: "internal_task",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    thirsty_mclean9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,35 +67,12 @@ weight: 100403
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "this is a internal task in caller"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    thirsty_mclean9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -117,35 +81,12 @@ weight: 100403
     ~~SubStep1: [print:  ]
     this is a internal task in caller
     --Step2:
-    {
-      Name: "",
-      Do: {
-        "ls -lart",
-        "ls |grep up",
-        "pwd",
-        "ls ../..|grep modtests"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    thirsty_mclean9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -154,60 +95,46 @@ weight: 100403
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 12
-    -rw-r--r--  1 root root  253 Jun 11 09:38 upconfig.yml
-    -rw-r--r--  1 root root  521 Jun 11 09:38 up.yml
-    drwxr-xr-x  3 root root   96 Jun 11 09:38 hello-module
-    -rw-r--r--  1 root root 1019 Jun 11 09:38 doc.yml
-    drwxr-xr-x  6 root root  192 Jun 11 09:38 .
-    drwxr-xr-x 18 root root  576 Jun 12 00:35 ..
+    -rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml
+    -rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module
+    -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
+    drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
      .. ok
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
     upconfig.yml
      .. ok
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004
      .. ok
     cmd( 4):
     ls ../..|grep modtests
     
-     \_ ls ../..|grep modtests
+    cmd=>:
+    ls ../..|grep modtests<=
     modtests
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: "hello-module.Say_world",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
     })
     
-    thirsty_mclean9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -222,6 +149,11 @@ weight: 100403
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -240,36 +172,13 @@ weight: 100403
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "ls -lart",
-        "ls |grep up",
-        "pwd",
-        "ls ../../..|grep modtests"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -279,55 +188,42 @@ weight: 100403
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 4
-    -rw-r--r-- 1 root root 796 Jun 11 09:38 up.yml
-    drwxr-xr-x 6 root root 192 Jun 11 09:38 ..
-    drwxr-xr-x 3 root root  96 Jun 11 09:38 .
+    -rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 ..
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 .
      .. ok
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
      .. ok
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004/hello-module
      .. ok
     cmd( 4):
     ls ../../..|grep modtests
     
-     \_ ls ../../..|grep modtests
+    cmd=>:
+    ls ../../..|grep modtests<=
     modtests
      .. ok
     . ok
     -Step2: [: this should call its own internal task
      ]
-    {
-      Name: "",
-      Do: "internal_task",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "this should call its own internal task\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -335,12 +231,13 @@ weight: 100403
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -352,44 +249,23 @@ weight: 100403
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "this is a internal task in module"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -401,44 +277,23 @@ weight: 100403
     ~~SubStep1: [print:  ]
     this is a internal task in module
     --Step2:
-    {
-      Name: "",
-      Do: {
-        "ls -lart",
-        "ls |grep up",
-        "pwd",
-        "ls ../../..|grep modtests"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
@@ -450,61 +305,47 @@ weight: 100403
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 4
-    -rw-r--r-- 1 root root 796 Jun 11 09:38 up.yml
-    drwxr-xr-x 6 root root 192 Jun 11 09:38 ..
-    drwxr-xr-x 3 root root  96 Jun 11 09:38 .
+    -rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 ..
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 .
      .. ok
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
      .. ok
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004/hello-module
      .. ok
     cmd( 4):
     ls ../../..|grep modtests
     
-     \_ ls ../../..|grep modtests
+    cmd=>:
+    ls ../../..|grep modtests<=
     modtests
      .. ok
     . ok
     -Step3:
-    {
-      Name: "",
-      Do: "internal_task",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
-    thirsty_mclean9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
       located task-> 2 [internal_task]: 
@@ -512,36 +353,13 @@ weight: 100403
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "this is a internal task in caller"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
-    thirsty_mclean9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -551,71 +369,52 @@ weight: 100403
     ~~SubStep1: [print:  ]
     this is a internal task in caller
     --Step2:
-    {
-      Name: "",
-      Do: {
-        "ls -lart",
-        "ls |grep up",
-        "pwd",
-        "ls ../..|grep modtests"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
-    })
-    
-    thirsty_mclean9: overall final exec vars:
-    
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 1
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
+    })
+    
     cmd( 1):
     ls -lart
     
-     \_ ls -lart
+    cmd=>:
+    ls -lart<=
     total 12
-    -rw-r--r--  1 root root  253 Jun 11 09:38 upconfig.yml
-    -rw-r--r--  1 root root  521 Jun 11 09:38 up.yml
-    drwxr-xr-x  3 root root   96 Jun 11 09:38 hello-module
-    -rw-r--r--  1 root root 1019 Jun 11 09:38 doc.yml
-    drwxr-xr-x  6 root root  192 Jun 11 09:38 .
-    drwxr-xr-x 18 root root  576 Jun 12 00:35 ..
+    -rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml
+    -rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml
+    drwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module
+    -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
+    drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
+    drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
      .. ok
     cmd( 2):
     ls |grep up
     
-     \_ ls |grep up
+    cmd=>:
+    ls |grep up<=
     up.yml
     upconfig.yml
      .. ok
     cmd( 3):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up/tests/modtests/0004
      .. ok
     cmd( 4):
     ls ../..|grep modtests
     
-     \_ ls ../..|grep modtests
+    cmd=>:
+    ls ../..|grep modtests<=
     modtests
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:37+77:00
 draft: false
 weight: 10463
 
@@ -17,7 +17,7 @@ weight: 10463
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0046
                  Verbose -> vvvv
-              ModuleName -> fervent_babbage8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -29,13 +29,18 @@ weight: 10463
     ---------group vars----------
     
     global: {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     
     groups members:[]
-    module: [fervent_babbage8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student_name": "Tom Hanks",

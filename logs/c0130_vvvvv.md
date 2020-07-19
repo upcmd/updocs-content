@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11304
 
@@ -17,7 +17,7 @@ weight: 11304
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0130
                  Verbose -> vvvvv
-              ModuleName -> agitated_elion5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11304
     -exec task: task
     loading [Task]:  ./tests/functests/c0130
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000185680)(<nil>)
+    (*impl.Scopes)(0xc0001756a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11304
     
     
     groups members:[]
-    module: [agitated_elion5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -45,9 +50,9 @@ weight: 11304
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "c": (string) (len=10) "global_ccc",
      (string) (len=1) "a": (string) (len=10) "global_aaa",
-     (string) (len=1) "b": (string) (len=10) "global_bbb"
+     (string) (len=1) "b": (string) (len=10) "global_bbb",
+     (string) (len=1) "c": (string) (len=10) "global_ccc"
     }
     
     [runtime global] dvar expanded result:
@@ -58,9 +63,9 @@ weight: 11304
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -98,10 +103,6 @@ weight: 11304
           }
         },
         {
-          "vars": {
-            "a": "local_block_layer2_aaa",
-            "b": "local_block_layer2_bbb"
-          },
           "dvars": {
             {
               "name": "da",
@@ -120,14 +121,18 @@ weight: 11304
               },
               "do": {
                 {
-                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
-                  "name": "print"
+                  "name": "print",
+                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
                 }
               }
             }
           },
           "func": "block",
-          "desc": "test embeded 2nd layer of block"
+          "desc": "test embeded 2nd layer of block",
+          "vars": {
+            "a": "local_block_layer2_aaa",
+            "b": "local_block_layer2_bbb"
+          }
         },
         {
           "func": "shell",
@@ -140,8 +145,8 @@ weight: 11304
       Dox: <nil>,
       Func: "block",
       Vars: {
-        "b": "local_bbb",
-        "a": "local_aaa"
+        "a": "local_aaa",
+        "b": "local_bbb"
       },
       Dvars: {
         {
@@ -206,35 +211,35 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
     {
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     }
     
     
     scope[local] merged: {
-      "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa"
+      "db": "local_db"
     }
     
     
-    agitated_elion5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     condition failed, skip executing step 

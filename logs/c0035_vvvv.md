@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvv"
-date: 2020-07-01T15:34:25+77:00
+date: 2020-07-20T02:01:35+77:00
 draft: false
 weight: 10353
 
@@ -17,7 +17,7 @@ weight: 10353
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0035
                  Verbose -> vvvv
-              ModuleName -> thirsty_mclean8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10353
     
     
     groups members:[]
-    module: [thirsty_mclean8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,83 +53,43 @@ weight: 10353
     Executing task stack layer: 1
     
     -Step1: [step1:  ]
-    {
-      Name: "step1",
-      Do: {
-        "pwd"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "b": "bbb",
-        "a": "aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     })
     
-    thirsty_mclean8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "b": "bbb",
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     })
     
     cmd( 1):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up
      .. ok
     . ok
     -Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        "echo \"{{.a}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       })
     })
     
-    thirsty_mclean8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
@@ -134,7 +99,8 @@ weight: 10353
     cmd( 1):
     echo "{{.a}}"
     
-     \_ echo "<no value>"
+    cmd=>:
+    echo "<no value>"<=
     <no value>
      .. ok
     . ok

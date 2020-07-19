@@ -1,6 +1,6 @@
 ---
 title: "c0072_vvvv"
-date: 2020-07-01T15:34:30+77:00
+date: 2020-07-20T02:01:42+77:00
 draft: false
 weight: 10723
 
@@ -17,7 +17,7 @@ weight: 10723
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0072
                  Verbose -> vvvv
-              ModuleName -> elegant_bell8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,29 +33,34 @@ weight: 10723
     
     
     groups members:[]
-    module: [elegant_bell8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "save_to": "/tmp/mystory2.txt",
-      "read_dir": "/tmp",
-      "read_file": "mystory2.txt",
       "name": "little prince",
       "school": "sydney grammar",
       "age": 12,
-      "said": "Boa constrictors swallow their prey whole"
+      "said": "Boa constrictors swallow their prey whole",
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
+      "read_file": "mystory2.txt"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "said": "Boa constrictors swallow their prey whole",
+      "school": "sydney grammar",
       "intest": "false",
+      "age": 12,
+      "said": "Boa constrictors swallow their prey whole",
       "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
       "read_file": "mystory2.txt",
-      "name": "little prince",
-      "school": "sydney grammar",
-      "age": 12
+      "name": "little prince"
     }
     
       located task-> 1 [task]: 
@@ -63,45 +68,24 @@ weight: 10723
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"?intest ->  {{.intest}}\"",
-        "pwd"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "register_task_root",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
       "read_file": "mystory2.txt",
       "name": "little prince",
       "school": "sydney grammar",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
       "intest": "false",
-      "save_to": "/tmp/mystory2.txt",
-      "read_dir": "/tmp"
+      "age": 12,
+      "said": "Boa constrictors swallow their prey whole"
     })
     
-    elegant_bell8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "intest": "false",
       "age": 12,
       "said": "Boa constrictors swallow their prey whole",
-      "intest": "false",
       "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
       "read_file": "mystory2.txt",
@@ -112,190 +96,121 @@ weight: 10723
     cmd( 1):
     echo "?intest ->  {{.intest}}"
     
-     \_ echo "?intest ->  false"
+    cmd=>:
+    echo "?intest ->  false"<=
     ?intest ->  false
      .. ok
     cmd( 2):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "intest is: [{{.intest}}]"
-        },
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "correct_working_dir",
-            "desc": "the value of .intest is string but not bool so you can not simply use if .intest for condition",
-            "value": "{{if eq .intest \"true\" }}{{.register_task_root.Output}}{{else}}{{.register_task_root.Output}}{{end}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "intest": "false",
-      "register_task_root": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "school": "sydney grammar",
       "age": 12,
-      "read_file": "mystory2.txt",
-      "name": "little prince",
       "said": "Boa constrictors swallow their prey whole",
+      "name": "little prince",
+      "read_dir": "/tmp",
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
       "save_to": "/tmp/mystory2.txt",
-      "read_dir": "/tmp"
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "read_file": "mystory2.txt",
+      "school": "sydney grammar",
+      "intest": "false"
     })
     
-    elegant_bell8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "read_dir": "/tmp",
-      "register_task_root": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
       "age": 12,
       "said": "Boa constrictors swallow their prey whole",
-      "last_result": (*utils.ExecResult)({
+      "name": "little prince",
+      "read_dir": "/tmp",
+      "intest": "false",
+      "save_to": "/tmp/mystory2.txt",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "save_to": "/tmp/mystory2.txt",
-      "school": "sydney grammar",
       "read_file": "mystory2.txt",
-      "name": "little prince",
-      "intest": "false"
+      "school": "sydney grammar"
     })
     
     ~SubStep1: [print:  ]
     intest is: [false]
     ~SubStep2: [reg:  ]
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "root dir is: [{{.register_task_root.Output}}]",
-          "name": "print"
-        },
-        {
-          "name": "print",
-          "cmd": "correct working dir is: [{{.correct_working_dir}}]"
-        },
-        {
-          "name": "template",
-          "desc": "render a template file to a file 1",
-          "cmd": {
-            "src": "{{.correct_working_dir}}/tests/functests/d0072.template",
-            "dest": "/tmp/mystory.txt"
-          }
-        },
-        {
-          "name": "readfile",
-          "desc": "read content of a file and register it to a var",
-          "cmd": {
-            "filename": "mystory.txt",
-            "dir": "/tmp",
-            "reg": "my_interesting_story"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "{{.my_interesting_story}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "read_dir": "/tmp",
-      "school": "sydney grammar",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "intest": "false",
-      "correct_working_dir": "/up_project/up",
-      "save_to": "/tmp/mystory2.txt",
-      "read_file": "mystory2.txt",
       "name": "little prince",
       "register_task_root": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      })
-    })
-    
-    elegant_bell8: overall final exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "age": 12,
+      "read_dir": "/tmp",
+      "read_file": "mystory2.txt",
       "intest": "false",
-      "register_task_root": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
+      "said": "Boa constrictors swallow their prey whole",
       "correct_working_dir": "/up_project/up",
       "save_to": "/tmp/mystory2.txt",
-      "school": "sydney grammar",
-      "age": 12,
-      "said": "Boa constrictors swallow their prey whole",
+      "school": "sydney grammar"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "read_file": "mystory2.txt",
+      "intest": "false",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "name": "little prince",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "age": 12,
       "read_dir": "/tmp",
-      "name": "little prince"
+      "said": "Boa constrictors swallow their prey whole",
+      "correct_working_dir": "/up_project/up",
+      "save_to": "/tmp/mystory2.txt",
+      "school": "sydney grammar"
     })
     
     ~SubStep1: [print:  ]
@@ -303,7 +218,7 @@ weight: 10723
     ~SubStep2: [print:  ]
     correct working dir is: [/up_project/up]
     ~SubStep3: [template: render a template file to a file 1 ]
-    ~SubStep4: [readfile: read content of a file and register it to a var ]
+    ~SubStep4: [readFile: read content of a file and register it to a var ]
     ~SubStep5: [print:  ]
       My name is little prince, my school is sydney grammar
       Once when I was 12 years old
@@ -311,97 +226,61 @@ weight: 10723
       I pondered deeply, then, over the adventures of the jungle.
     
     -Step4:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "template",
-          "desc": "render a template file to a file 2",
-          "cmd": {
-            "src": "{{.correct_working_dir}}/tests/functests/d0072.template",
-            "dest": "{{.save_to}}"
-          }
-        },
-        {
-          "name": "readfile",
-          "desc": "read content of a file and register it to a var",
-          "cmd": {
-            "filename": "{{.read_file}}",
-            "dir": "{{.read_dir}}",
-            "reg": "my_interesting_story2"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "{{.my_interesting_story2}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "save_to": "/tmp/mystory2.txt",
       "read_dir": "/tmp",
-      "age": 12,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up",
       "read_file": "mystory2.txt",
-      "name": "little prince",
       "school": "sydney grammar",
-      "said": "Boa constrictors swallow their prey whole",
       "intest": "false",
+      "name": "little prince",
       "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n"
-    })
-    
-    elegant_bell8: overall final exec vars:
-    
-    (*core.Cache)({
       "said": "Boa constrictors swallow their prey whole",
-      "register_task_root": (*utils.ExecResult)({
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "school": "sydney grammar",
-      "correct_working_dir": "/up_project/up",
       "save_to": "/tmp/mystory2.txt",
       "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "read_file": "mystory2.txt",
-      "name": "little prince",
-      "intest": "false",
       "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
-      "read_dir": "/tmp",
+      "correct_working_dir": "/up_project/up",
       "age": 12
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "age": 12,
+      "my_interesting_story": "  My name is little prince, my school is sydney grammar\n  Once when I was 12 years old\n  In the book it said: Boa constrictors swallow their prey whole\n  I pondered deeply, then, over the adventures of the jungle.\n",
+      "correct_working_dir": "/up_project/up",
+      "said": "Boa constrictors swallow their prey whole",
+      "save_to": "/tmp/mystory2.txt",
+      "read_dir": "/tmp",
+      "read_file": "mystory2.txt",
+      "school": "sydney grammar",
+      "intest": "false",
+      "name": "little prince",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      })
+    })
+    
     ~SubStep1: [template: render a template file to a file 2 ]
-    ~SubStep2: [readfile: read content of a file and register it to a var ]
+    ~SubStep2: [readFile: read content of a file and register it to a var ]
     ~SubStep3: [print:  ]
       My name is little prince, my school is sydney grammar
       Once when I was 12 years old

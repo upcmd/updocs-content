@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10894
 
@@ -17,7 +17,7 @@ weight: 10894
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0089
                  Verbose -> vvvvv
-              ModuleName -> pensive_thompson4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10894
     -exec task: task
     loading [Task]:  ./tests/functests/c0089
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e240)(<nil>)
+    (*impl.Scopes)(0xc000256d20)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10894
     
     
     groups members:[]
-    module: [pensive_thompson4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "dynadir": "./tests/functests"
@@ -99,7 +104,7 @@ weight: 10894
     }
     
     
-    pensive_thompson4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "dynadir": "./tests/functests"
@@ -108,10 +113,12 @@ weight: 10894
     cmd( 1):
     echo "task step 1"
     
-     \_ echo "task step 1"
+    cmd=>:
+    echo "task step 1"<=
     task step 1
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"task step 1\"",
      Code: (int) 0,
      Output: (string) (len=11) "task step 1",
      ErrMsg: (string) ""
@@ -120,10 +127,12 @@ weight: 10894
     cmd( 2):
     echo "task step 2"
     
-     \_ echo "task step 2"
+    cmd=>:
+    echo "task step 2"<=
     task step 2
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"task step 2\"",
      Code: (int) 0,
      Output: (string) (len=11) "task step 2",
      ErrMsg: (string) ""

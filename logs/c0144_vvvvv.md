@@ -1,6 +1,6 @@
 ---
 title: "c0144_vvvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11444
 
@@ -17,7 +17,7 @@ weight: 11444
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0144
                  Verbose -> vvvvv
-              ModuleName -> sharp_torvalds0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11444
     -exec task: task
     loading [Task]:  ./tests/functests/c0144
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f2dc0)(<nil>)
+    (*impl.Scopes)(0xc000174de0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11444
     
     
     groups members:[]
-    module: [sharp_torvalds0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 11444
     }
     
     
-    sharp_torvalds0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,10 +105,12 @@ weight: 11444
     cmd( 1):
     pwd
     
-     \_ pwd
+    cmd=>:
+    pwd<=
     /up_project/up
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=3) "pwd",
      Code: (int) 0,
      Output: (string) (len=14) "/up_project/up",
      ErrMsg: (string) ""

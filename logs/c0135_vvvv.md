@@ -1,6 +1,6 @@
 ---
 title: "c0135_vvvv"
-date: 2020-07-01T15:34:40+77:00
+date: 2020-07-20T02:01:53+77:00
 draft: false
 weight: 11353
 
@@ -17,7 +17,7 @@ weight: 11353
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0135
                  Verbose -> vvvv
-              ModuleName -> gloomy_davinci1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11353
     
     
     groups members:[]
-    module: [gloomy_davinci1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "b": "global_bbb",
@@ -54,73 +59,21 @@ weight: 11353
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "callee_task"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
-      },
-      Dvars: {
-        {
-          Name: "da",
-          Value: "local_da",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "db",
-          Value: "local_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
-    })
-    
-    gloomy_davinci1: overall final exec vars:
-    
-    (*core.Cache)({
-      "db": "local_db",
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da"
+      "a": "local_aaa"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "da": "local_da",
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "db": "local_db"
     })
     
       located task-> 1 [callee_task]: 
@@ -128,141 +81,47 @@ weight: 11353
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "func": "cmd",
-          "do": {
-            {
-              "name": "print",
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-            },
-            {
-              "flags": {
-                "failfast"
-              },
-              "name": "assert",
-              "cmd": {
-                "{{eq .a \"local_aaa\" }}",
-                "{{eq .b \"local_bbb\" }}",
-                "{{eq .c \"global_ccc\" }}",
-                "{{eq .da \"local_da\" }}",
-                "{{eq .db \"callee_db\" }}"
-              }
-            }
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: {
-        "a": "callee_aaa"
-      },
-      Dvars: {
-        {
-          Name: "db",
-          Value: "callee_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
-      "c": "global_ccc",
       "da": "local_da",
-      "db": "local_db",
+      "a": "local_aaa",
+      "up_runtime_task_layer_number": 1,
       "b": "local_bbb",
-      "up_runtime_task_layer_number": 1
+      "c": "global_ccc",
+      "db": "local_db"
     })
     
-    gloomy_davinci1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "db": "callee_db",
-      "b": "local_bbb",
-      "up_runtime_task_layer_number": 1,
       "a": "local_aaa",
+      "up_runtime_task_layer_number": 1,
+      "b": "local_bbb",
       "c": "global_ccc",
+      "db": "callee_db",
       "da": "local_da"
     })
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .a \"local_aaa\" }}",
-            "{{eq .b \"local_bbb\" }}",
-            "{{eq .c \"global_ccc\" }}",
-            "{{eq .da \"local_da\" }}",
-            "{{eq .db \"callee_db\" }}"
-          },
-          "flags": {
-            "failfast"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "up_runtime_task_layer_number": 1,
       "c": "global_ccc",
+      "a": "local_aaa",
+      "db": "callee_db",
       "da": "local_da",
-      "db": "callee_db"
+      "up_runtime_task_layer_number": 1
     })
     
-    gloomy_davinci1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "up_runtime_task_layer_number": 1,
       "c": "global_ccc",
+      "a": "local_aaa",
+      "db": "callee_db",
       "da": "local_da",
-      "db": "callee_db"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]

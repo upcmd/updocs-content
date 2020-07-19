@@ -1,6 +1,6 @@
 ---
 title: "c0140_vvvv"
-date: 2020-07-01T15:34:41+77:00
+date: 2020-07-20T02:01:54+77:00
 draft: false
 weight: 11403
 
@@ -17,7 +17,7 @@ weight: 11403
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0140
                  Verbose -> vvvv
-              ModuleName -> angry_leakey5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11403
     
     
     groups members:[]
-    module: [angry_leakey5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11403
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "I am the main entry"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    angry_leakey5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

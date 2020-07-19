@@ -1,6 +1,6 @@
 ---
 title: "c0139_vvvv"
-date: 2020-07-01T15:34:41+77:00
+date: 2020-07-20T02:01:54+77:00
 draft: false
 weight: 11393
 
@@ -17,7 +17,7 @@ weight: 11393
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0139
                  Verbose -> vvvv
-              ModuleName -> evil_turing8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11393
     
     
     groups members:[]
-    module: [evil_turing8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,34 +53,11 @@ weight: 11393
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "step1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    evil_turing8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -83,36 +65,12 @@ weight: 11393
     ~SubStep1: [print:  ]
     step1
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "fail"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .person \"tom-s-name\"}}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "person": "tom"
     })
     
-    evil_turing8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": "tom"
@@ -121,34 +79,11 @@ weight: 11393
     condition failed, skip executing step 
     
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmdy": "step2",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    evil_turing8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })

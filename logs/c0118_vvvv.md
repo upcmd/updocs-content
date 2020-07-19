@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvv"
-date: 2020-07-01T15:34:37+77:00
+date: 2020-07-20T02:01:50+77:00
 draft: false
 weight: 11183
 
@@ -17,7 +17,7 @@ weight: 11183
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0118
                  Verbose -> vvvv
-              ModuleName -> agitated_wilson8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11183
     
     
     groups members:[]
-    module: [agitated_wilson8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "items": {
@@ -60,35 +65,6 @@ weight: 11183
     Executing task stack layer: 1
     
     -Step1: [step1: demo loop will not be executed if false ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "tom"
-      },
-      Dvars: <nil>,
-      Desc: "demo loop will not be executed if false",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .person \"tom hanks\"}}",
-      Else: <nil>,
-      Loop: {
-        "item1",
-        "item2",
-        "item3"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "items": {
@@ -100,7 +76,7 @@ weight: 11183
       "person": "tom"
     })
     
-    agitated_wilson8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": "tom",
@@ -115,35 +91,6 @@ weight: 11183
     condition failed, skip executing step step1
     
     -Step2: [step1: demo use if condition is true ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person": "tom"
-      },
-      Dvars: <nil>,
-      Desc: "demo use if condition is true",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{eq .person \"tom  \"}}",
-      Else: <nil>,
-      Loop: {
-        "item1",
-        "item2",
-        "item3"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "items": {
@@ -155,63 +102,40 @@ weight: 11183
       "person": "tom"
     })
     
-    agitated_wilson8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
-      "person": "tom"
+      "loopkey": "items"
     })
     
     condition failed, skip executing step step1
     
     -Step3: [step1: demo use dynamic key to ref to a loop item from var ]
-    {
-      Name: "step1",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "demo use dynamic key to ref to a loop item from var",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: "{{.loopkey}}",
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
-    agitated_wilson8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
     ~SubStep1: [print:  ]

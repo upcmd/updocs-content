@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvvv"
-date: 2020-07-01T15:34:57+77:00
+date: 2020-07-20T02:02:15+77:00
 draft: false
 weight: 100304
 
@@ -17,7 +17,7 @@ weight: 100304
               AbsWorkDir -> /up_project/up/tests/modtests/0003
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> prickly_hodgkin3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100304
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c70a0)(<nil>)
+    (*impl.Scopes)(0xc000177060)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 100304
     
     
     groups members:[]
-    module: [prickly_hodgkin3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "caller-aaa"
@@ -95,7 +100,7 @@ weight: 100304
     }
     
     
-    prickly_hodgkin3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "caller-aaa"
@@ -109,7 +114,7 @@ weight: 100304
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00023e1a0)(<nil>)
+    (*impl.Scopes)(0xc0001f0200)(<nil>)
     
     ---------group vars----------
     
@@ -118,6 +123,11 @@ weight: 100304
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -152,18 +162,18 @@ weight: 100304
           "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          }
+          },
+          "name": "assert"
         },
         {
+          "name": "return",
+          "desc": "var b should be return to caler\n",
           "cmd": {
             "b"
-          },
-          "name": "return",
-          "desc": "var b should be return to caler\n"
+          }
         }
       },
       Dox: <nil>,
@@ -186,9 +196,9 @@ weight: 100304
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     [local] dvar expanded result:
@@ -203,12 +213,12 @@ weight: 100304
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
+      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
     ... module world
@@ -249,12 +259,12 @@ weight: 100304
           "cmd": "back to main caller\na: {{.a}}\nb: {{.b}}\n"
         },
         {
+          "name": "assert",
           "des": "var b is returned from module\n",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -285,18 +295,18 @@ weight: 100304
     
     
     scope[local] merged: {
-      "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
-    }
-    
-    
-    prickly_hodgkin3: overall final exec vars:
-    
-    (*core.Cache)({
       "a": "caller-aaa",
       "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa",
+      "b": "module-bbb"
     })
     
     [exec_vars exec_base_vars]

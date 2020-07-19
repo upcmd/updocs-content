@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11234
 
@@ -17,7 +17,7 @@ weight: 11234
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0123
                  Verbose -> vvvvv
-              ModuleName -> drunk_wozniak8
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11234
     -exec task: task
     loading [Task]:  ./tests/functests/c0123
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d5280)(<nil>)
+    (*impl.Scopes)(0xc000175240)(<nil>)
     
     ---------group vars----------
     
@@ -36,22 +36,27 @@ weight: 11234
     
     
     groups members:[]
-    module: [drunk_wozniak8] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=6) "ymldoc": (string) (len=33) "student:\n  name: tom\n  sex: male\n",
      (string) (len=7) "student": (map[string]interface {}) (len=2) {
       (string) (len=4) "name": (string) (len=3) "tom",
       (string) (len=3) "sex": (string) (len=4) "male"
-     }
+     },
+     (string) (len=6) "ymldoc": (string) (len=33) "student:\n  name: tom\n  sex: male\n"
     }
     
     [runtime global] dvar expanded result:
@@ -82,8 +87,8 @@ weight: 11234
           "cmd": "{{.student.name}}"
         },
         {
-          "cmd": "{{.student.age}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.student.age}}"
         }
       },
       Dox: <nil>,
@@ -104,8 +109,8 @@ weight: 11234
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -124,12 +129,12 @@ weight: 11234
     }
     
     
-    drunk_wozniak8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -139,14 +144,14 @@ weight: 11234
     tom
     {{.student.age}}
     ~SubStep2: [print:  ]
-    <no value>
+    None
     -Step2:
     {
       Name: "",
       Do: {
         {
-          "cmd": "hello tom",
-          "name": "print"
+          "name": "print",
+          "cmd": "hello tom"
         }
       },
       Dox: <nil>,
@@ -180,19 +185,19 @@ weight: 11234
     
     scope[local] merged: {
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     
-    drunk_wozniak8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -226,11 +231,11 @@ weight: 11234
     
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     [local] dvar expanded result:
@@ -241,20 +246,20 @@ weight: 11234
     scope[local] merged: {
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
     
-    drunk_wozniak8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     condition failed, skip executing step 
@@ -270,7 +275,7 @@ weight: 11234
       Desc: "",
       Reg: "",
       Flags: {
-        "ymlonly"
+        "ymlOnly"
       },
       If: "",
       Else: <nil>,
@@ -295,20 +300,20 @@ weight: 11234
     
     
     scope[local] merged: {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     
-    drunk_wozniak8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -353,22 +358,22 @@ weight: 11234
     
     
     scope[local] merged: {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     
-    drunk_wozniak8: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     condition failed, skip executing step 

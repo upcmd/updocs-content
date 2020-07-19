@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvv"
-date: 2020-07-01T15:34:30+77:00
+date: 2020-07-20T02:01:42+77:00
 draft: false
 weight: 10733
 
@@ -17,7 +17,7 @@ weight: 10733
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0073
                  Verbose -> vvvv
-              ModuleName -> sharp_sammet6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,26 +33,31 @@ weight: 10733
     
     
     groups members:[]
-    module: [sharp_sammet6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story5": "hello world"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n"
     }
     
       located task-> 1 [task]: 
@@ -60,62 +65,6 @@ weight: 10733
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "literal style, there will be a line break",
-          "cmd": "[{{.my_interesting_story1}}]"
-        },
-        {
-          "name": "print",
-          "desc": "there will be no a line break",
-          "cmd": "[{{.my_interesting_story2}}]"
-        },
-        {
-          "cmd": "[{{.my_interesting_story3}}]",
-          "name": "print",
-          "desc": "folded style"
-        },
-        {
-          "name": "print",
-          "desc": "literal style strip, the end line break is removed",
-          "cmd": "[{{.my_interesting_story4}}]"
-        },
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "newstory_with_blank_space_front_and_tail",
-            "desc": "you can't remove the empty space because it is from the folded feature of yaml",
-            "value": "{{if .isnew }} this is a new story {{else}} same old story {{end}}"
-          }
-        },
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "newstory_clean",
-            "value": "{{if .isnew}}this is a new story{{else}}same old story{{end}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "isnew": false
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "my_interesting_story4": "hello\nworld",
@@ -126,15 +75,15 @@ weight: 10733
       "my_interesting_story3": "hello world\n"
     })
     
-    sharp_sammet6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world"
     })
     
     ~SubStep1: [print: literal style, there will be a line break ]
@@ -152,77 +101,56 @@ weight: 10733
     ~SubStep5: [reg:  ]
     ~SubStep6: [reg:  ]
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"[{{.my_interesting_story3}}]\"",
-        "echo [{{.my_interesting_story5}}]",
-        "echo \"[{{.my_interesting_story6}}]\"",
-        "echo \"[{{.newstory_with_blank_space_front_and_tail}}]\"",
-        "echo \"[{{.newstory_clean}}]\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "newstory_with_blank_space_front_and_tail": " same old story "
     })
     
-    sharp_sammet6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n"
+      "newstory_with_blank_space_front_and_tail": " same old story "
     })
     
     cmd( 1):
     echo "[{{.my_interesting_story3}}]"
     
-     \_ echo "[hello world
-    ]"
+    cmd=>:
+    echo "[hello world
+    ]"<=
     [hello world
     ]
      .. ok
     cmd( 2):
     echo [{{.my_interesting_story5}}]
     
-     \_ echo [hello world]
+    cmd=>:
+    echo [hello world]<=
     [hello world]
      .. ok
     cmd( 3):
     echo "[{{.my_interesting_story6}}]"
     
-     \_ echo "[hello
+    cmd=>:
+    echo "[hello
     world
     
     
-    ]"
+    ]"<=
     [hello
     world
     
@@ -232,13 +160,15 @@ weight: 10733
     cmd( 4):
     echo "[{{.newstory_with_blank_space_front_and_tail}}]"
     
-     \_ echo "[ same old story ]"
+    cmd=>:
+    echo "[ same old story ]"<=
     [ same old story ]
      .. ok
     cmd( 5):
     echo "[{{.newstory_clean}}]"
     
-     \_ echo "[same old story]"
+    cmd=>:
+    echo "[same old story]"<=
     [same old story]
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvvv"
-date: 2020-07-01T15:34:57+77:00
+date: 2020-07-20T02:02:14+77:00
 draft: false
 weight: 100204
 
@@ -17,7 +17,7 @@ weight: 100204
               AbsWorkDir -> /up_project/up/tests/modtests/0002
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> determined_poitras3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 100204
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e9a0)(<nil>)
+    (*impl.Scopes)(0xc000177040)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 100204
     
     
     groups members:[]
-    module: [determined_poitras3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,7 +97,7 @@ weight: 100204
     }
     
     
-    determined_poitras3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -100,10 +105,12 @@ weight: 100204
     cmd( 1):
     echo "hello world"
     
-     \_ echo "hello world"
+    cmd=>:
+    echo "hello world"<=
     hello world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=18) "echo \"hello world\"",
      Code: (int) 0,
      Output: (string) (len=11) "hello world",
      ErrMsg: (string) ""
@@ -132,6 +139,7 @@ weight: 100204
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -145,6 +153,7 @@ weight: 100204
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -152,10 +161,11 @@ weight: 100204
     }
     
     
-    determined_poitras3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -165,6 +175,7 @@ weight: 100204
     caller's vars to task (internal_task)::
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -180,8 +191,8 @@ weight: 100204
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "this is a internal task"
+          "cmd": "this is a internal task",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -202,6 +213,7 @@ weight: 100204
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -216,6 +228,7 @@ weight: 100204
     
     scope[local] merged: {
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -224,10 +237,11 @@ weight: 100204
     }
     
     
-    determined_poitras3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -262,6 +276,7 @@ weight: 100204
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -276,43 +291,46 @@ weight: 100204
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     }
     
     
-    determined_poitras3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-aaa"
     })
     
     caller's vars to task (hello-module.Say_world)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-aaa"
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002a0ba0)(<nil>)
+    (*impl.Scopes)(0xc000207780)(<nil>)
     
     ---------group vars----------
     
@@ -321,6 +339,11 @@ weight: 100204
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [dev]
     merged[ dev ] runtime vars:
     {
@@ -355,11 +378,11 @@ weight: 100204
           "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -383,14 +406,15 @@ weight: 100204
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
+      "a": "caller-aaa",
+      "b": "module-bbb",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa",
-      "b": "module-bbb"
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -399,30 +423,32 @@ weight: 100204
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello world",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    hello-module: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
       "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    hello-module: final context exec vars:
+    
+    (*core.Cache)({
       "a": "caller-aaa",
-      "b": "module-bbb"
+      "b": "module-bbb",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
+        Code: 0,
+        Output: "hello world",
+        ErrMsg: ""
+      }),
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     ... module world

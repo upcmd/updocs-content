@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:46+77:00
 draft: false
 weight: 10953
 
@@ -17,7 +17,7 @@ weight: 10953
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0095
                  Verbose -> vvvv
-              ModuleName -> compassionate_tesla0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10953
     
     
     groups members:[]
-    module: [compassionate_tesla0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,89 +53,26 @@ weight: 10953
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "to_object",
-          "desc": "the key is pointing to a var name and use its content as yml content\n",
-          "cmd": {
-            "fromkey": "person_yml",
-            "reg": "person_object"
-          }
-        },
-        {
-          "name": "printobj",
-          "cmd": "person_object"
-        },
-        {
-          "name": "print",
-          "cmd": "my name is: {{.person_object.person.name}}"
-        },
-        {
-          "name": "to_object",
-          "cmd": {
-            "fromkey": "{{.name_to_convert}}",
-            "reg": "{{.name_to_reg}}"
-          }
-        },
-        {
-          "name": "printobj",
-          "cmd": "{{.name_to_reg}}"
-        },
-        {
-          "name": "to_object",
-          "desc": "use src content directly",
-          "cmd": {
-            "src": "person:\n  name: {{.person}}\n  age: 53\n",
-            "reg": "{{.name_to_reg}}"
-          }
-        },
-        {
-          "name": "printobj",
-          "cmd": "{{.name_to_reg}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "person_yml": "person:\n  name: tom\n  age: 23\n",
-        "name_to_convert": "person_yml",
-        "name_to_reg": "person_dyna_object",
-        "person": "jason"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "name_to_reg": "person_dyna_object",
-      "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
-      "name_to_convert": "person_yml"
-    })
-    
-    compassionate_tesla0: overall final exec vars:
-    
-    (*core.Cache)({
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason"
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
     })
     
-    ~SubStep1: [to_object: the key is pointing to a var name and use its content as yml content
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "name_to_convert": "person_yml",
+      "name_to_reg": "person_dyna_object",
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
+    })
+    
+    ~SubStep1: [toObj: the key is pointing to a var name and use its content as yml content
      ]
-    ~SubStep2: [printobj:  ]
+    ~SubStep2: [printObj:  ]
     (string) (len=13) "person_object"
     
     object:
@@ -143,8 +85,8 @@ weight: 10953
     
     ~SubStep3: [print:  ]
     my name is: tom
-    ~SubStep4: [to_object:  ]
-    ~SubStep5: [printobj:  ]
+    ~SubStep4: [toObj:  ]
+    ~SubStep5: [printObj:  ]
     (string) (len=16) "{{.name_to_reg}}"
     
     object:
@@ -155,8 +97,8 @@ weight: 10953
       }
     }
     
-    ~SubStep6: [to_object: use src content directly ]
-    ~SubStep7: [printobj:  ]
+    ~SubStep6: [toObj: use src content directly ]
+    ~SubStep7: [printObj:  ]
     (string) (len=16) "{{.name_to_reg}}"
     
     object:

@@ -1,6 +1,6 @@
 ---
 title: "c0121_vvvvv"
-date: 2020-07-01T15:34:38+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11214
 
@@ -17,7 +17,7 @@ weight: 11214
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0121
                  Verbose -> vvvvv
-              ModuleName -> berserk_newton2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11214
     -exec task: task
     loading [Task]:  ./tests/functests/c0121
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000183620)(<nil>)
+    (*impl.Scopes)(0xc0001c16a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11214
     
     
     groups members:[]
-    module: [berserk_newton2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +100,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -135,7 +140,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -153,8 +158,8 @@ weight: 11214
       Name: "",
       Do: {
         {
-          "cmd": "sub task step1",
-          "name": "print"
+          "name": "print",
+          "cmd": "sub task step1"
         }
       },
       Dox: <nil>,
@@ -187,7 +192,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -234,7 +239,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -305,7 +310,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -348,7 +353,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -402,7 +407,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -453,7 +458,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": "tom",
@@ -491,8 +496,8 @@ weight: 11214
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "step3"
+          "cmd": "step3",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -525,7 +530,7 @@ weight: 11214
     }
     
     
-    berserk_newton2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

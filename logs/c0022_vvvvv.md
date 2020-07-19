@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10224
 
@@ -17,7 +17,7 @@ weight: 10224
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0022
                  Verbose -> vvvvv
-              ModuleName -> trusting_cori2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10224
     -exec task: task
     loading [Task]:  ./tests/functests/c0022
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eae60)(<nil>)
+    (*impl.Scopes)(0xc0000a42c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10224
     
     
     groups members:[]
-    module: [trusting_cori2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -67,10 +72,10 @@ weight: 10224
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "student": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
+        "student": "Tom"
       },
       Dvars: <nil>,
       Desc: "",
@@ -98,14 +103,14 @@ weight: 10224
     
     
     scope[local] merged: {
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+      "school": "Sydney Grammar"
     }
     
     
-    trusting_cori2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": "Tom",
@@ -118,16 +123,18 @@ weight: 10224
     echo """{{.info}}"""
     
     
-     \_ echo """my student: {{.student}}
+    cmd=>:
+    echo """my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
     """
-    
+    <=
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=94) "echo \"\"\"my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n\"\"\"\n",
      Code: (int) 0,
      Output: (string) (len=81) "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}",
      ErrMsg: (string) ""

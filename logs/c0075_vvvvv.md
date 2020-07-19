@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvvv"
-date: 2020-07-01T15:34:31+77:00
+date: 2020-07-20T02:01:42+77:00
 draft: false
 weight: 10754
 
@@ -17,7 +17,7 @@ weight: 10754
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0075
                  Verbose -> vvvvv
-              ModuleName -> kickass_ardinghelli1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10754
     -exec task: task
     loading [Task]:  ./tests/functests/c0075
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00026f1c0)(<nil>)
+    (*impl.Scopes)(0xc00025b1c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10754
     
     
     groups members:[]
-    module: [kickass_ardinghelli1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -81,22 +86,18 @@ weight: 10754
     
     [runtime global] dvar expanded result:
     {
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
       "var_with_range": " x  x  x ",
       "var_with_range_item": " tom  jason  alice ",
       "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter"
+      "var_directly_ref_to": "peter",
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
       "person": "peter",
       "managers": {
         "tom",
@@ -104,7 +105,11 @@ weight: 10754
         "alice"
       },
       "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice "
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_to_ref_to_outside_of_range_from_within_range": " ",
+      "var_directly_ref_to": "peter",
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
     }
     
       located task-> 1 [task]: 

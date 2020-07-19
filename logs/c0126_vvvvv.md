@@ -1,6 +1,6 @@
 ---
 title: "c0126_vvvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:51+77:00
 draft: false
 weight: 11264
 
@@ -17,7 +17,7 @@ weight: 11264
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0126
                  Verbose -> vvvvv
-              ModuleName -> reverent_mestorf0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 11264
     -exec task: task
     loading [Task]:  ./tests/functests/c0126
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef2c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf340)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 11264
     
     
     groups members:[]
-    module: [reverent_mestorf0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -95,7 +100,7 @@ weight: 11264
     }
     
     
-    reverent_mestorf0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -143,7 +148,7 @@ weight: 11264
     }
     
     
-    reverent_mestorf0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -184,7 +189,7 @@ weight: 11264
     }
     
     
-    reverent_mestorf0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -236,7 +241,7 @@ weight: 11264
     }
     
     
-    reverent_mestorf0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1

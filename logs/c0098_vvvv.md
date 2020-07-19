@@ -1,6 +1,6 @@
 ---
 title: "c0098_vvvv"
-date: 2020-07-01T15:34:34+77:00
+date: 2020-07-20T02:01:46+77:00
 draft: false
 weight: 10983
 
@@ -17,7 +17,7 @@ weight: 10983
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0098
                  Verbose -> vvvv
-              ModuleName -> hungry_morse9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,26 +33,31 @@ weight: 10983
     
     
     groups members:[]
-    module: [hungry_morse9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
+              "name": "Tom"
             }
           }
         }
-      },
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
       }
     }
     
@@ -63,9 +68,9 @@ weight: 10983
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "Sydney Grammar",
               "name": "Tom",
-              "gender": "Male"
+              "gender": "Male",
+              "school": "Sydney Grammar"
             }
           }
         }
@@ -84,77 +89,34 @@ weight: 10983
     Executing task stack layer: 1
     
     -Step1: [: use sub element of an var as context to render values ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.student_info}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "student_info",
-          Value: "my name is:{{.name}} and I am in {{.school}}",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "nsw.sydney.sgschool.student",
-          DataTemplate: ""
-        }
-      },
-      Desc: "use sub element of an var as context to render values",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
+              "name": "Tom"
             }
           }
         }
       },
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+      "aaa": "aaa"
     })
     
     dvar> student_info:
     "my name is:<no value> and I am in <no value>"
     
-    hungry_morse9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "student_info": "my name is:<no value> and I am in <no value>",
-      "aaa": "aaa",
-      "datapointer": "student",
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -164,13 +126,16 @@ weight: 10983
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
+              "name": "Tom"
             }
           }
         }
-      }
+      },
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student_info": "my name is:<no value> and I am in <no value>"
     })
     
     ~SubStep1: [print:  ]

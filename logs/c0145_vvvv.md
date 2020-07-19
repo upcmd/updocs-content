@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11453
 
@@ -17,7 +17,7 @@ weight: 11453
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0145
                  Verbose -> vvvv
-              ModuleName -> angry_darwin2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11453
     
     
     groups members:[]
-    module: [angry_darwin2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,70 +53,22 @@ weight: 11453
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "template",
-          "desc": "render a template file to a file 1",
-          "cmd": {
-            "dest": "/tmp/mockup_doc.md",
-            "datafile": "d0145_data.yml",
-            "src": "./tests/functests/d0145.template"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    angry_darwin2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
     
     ~SubStep1: [template: render a template file to a file 1 ]
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "cat /tmp/mockup_doc.md"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    angry_darwin2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -119,9 +76,10 @@ weight: 11453
     cmd( 1):
     cat /tmp/mockup_doc.md
     
-     \_ cat /tmp/mockup_doc.md
+    cmd=>:
+    cat /tmp/mockup_doc.md<=
     title: "HelloWorld example"
-    date: 2020-06-27T03:07:59+66:00
+    date: 2020-07-20T01:35:01+77:00
     draft: false
      .. ok
     . ok

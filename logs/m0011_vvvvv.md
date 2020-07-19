@@ -1,6 +1,6 @@
 ---
 title: "0011_vvvvv"
-date: 2020-07-01T15:34:59+77:00
+date: 2020-07-20T02:02:16+77:00
 draft: false
 weight: 101104
 
@@ -17,7 +17,7 @@ weight: 101104
               AbsWorkDir -> /up_project/up/tests/modtests/0011
                 TaskFile -> up.yml
                  Verbose -> vvvvv
-              ModuleName -> stoic_goodall4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 101104
     -exec task: Main
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000e260)(<nil>)
+    (*impl.Scopes)(0xc0001c91c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 101104
     
     
     groups members:[]
-    module: [stoic_goodall4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -90,7 +95,7 @@ weight: 101104
     }
     
     
-    stoic_goodall4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -102,7 +107,7 @@ weight: 101104
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000f960)(<nil>)
+    (*impl.Scopes)(0xc000228940)(<nil>)
     
     ---------group vars----------
     
@@ -111,6 +116,11 @@ weight: 101104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -164,8 +174,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -179,11 +189,11 @@ weight: 101104
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     ... hello
@@ -223,7 +233,7 @@ weight: 101104
     }
     
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -237,7 +247,7 @@ weight: 101104
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000280b40)(<nil>)
+    (*impl.Scopes)(0xc0000aa6a0)(<nil>)
     
     ---------group vars----------
     
@@ -246,6 +256,11 @@ weight: 101104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hi-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -314,11 +329,11 @@ weight: 101104
     }
     
     
-    hi-module: overall final exec vars:
+    hi-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 3,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 3
     })
     
     ... hi
@@ -358,7 +373,7 @@ weight: 101104
     }
     
     
-    stoic_goodall4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -372,7 +387,7 @@ weight: 101104
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000281ce0)(<nil>)
+    (*impl.Scopes)(0xc0000ab920)(<nil>)
     
     ---------group vars----------
     
@@ -381,6 +396,11 @@ weight: 101104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -445,7 +465,7 @@ weight: 101104
     }
     
     
-    hello: overall final exec vars:
+    hello: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -488,7 +508,7 @@ weight: 101104
     }
     
     
-    stoic_goodall4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -502,7 +522,7 @@ weight: 101104
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002f2f00)(<nil>)
+    (*impl.Scopes)(0xc0002d0c40)(<nil>)
     
     ---------group vars----------
     
@@ -511,6 +531,11 @@ weight: 101104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -541,8 +566,8 @@ weight: 101104
       Name: "",
       Do: {
         {
-          "cmd": " .... hello from Say_hello",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... hello from Say_hello"
         }
       },
       Dox: <nil>,
@@ -575,7 +600,7 @@ weight: 101104
     }
     
     
-    hello: overall final exec vars:
+    hello: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -618,7 +643,7 @@ weight: 101104
     }
     
     
-    stoic_goodall4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -632,7 +657,7 @@ weight: 101104
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00036a000)(<nil>)
+    (*impl.Scopes)(0xc0002d1e40)(<nil>)
     
     ---------group vars----------
     
@@ -641,6 +666,11 @@ weight: 101104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-dummy1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -705,7 +735,7 @@ weight: 101104
     }
     
     
-    hello-dummy1: overall final exec vars:
+    hello-dummy1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -748,7 +778,7 @@ weight: 101104
     }
     
     
-    stoic_goodall4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -762,7 +792,7 @@ weight: 101104
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00036b200)(<nil>)
+    (*impl.Scopes)(0xc000359140)(<nil>)
     
     ---------group vars----------
     
@@ -771,6 +801,11 @@ weight: 101104
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-dummy2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -835,7 +870,7 @@ weight: 101104
     }
     
     
-    hello-dummy2: overall final exec vars:
+    hello-dummy2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2

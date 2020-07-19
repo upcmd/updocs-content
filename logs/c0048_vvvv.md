@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvv"
-date: 2020-07-01T15:34:27+77:00
+date: 2020-07-20T02:01:38+77:00
 draft: false
 weight: 10483
 
@@ -17,7 +17,7 @@ weight: 10483
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0048
                  Verbose -> vvvv
-              ModuleName -> trusting_newton3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10483
     
     
     groups members:[]
-    module: [trusting_newton3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -47,60 +52,66 @@ weight: 10483
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1:
-    {
-      Name: "",
-      Do: {
-        "env |grep STUDENT_NAME"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "STUDENT_NAME",
-          Value: "Tom Hanks",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "envvar"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
+    -Step1: [: The envVar flag makes the dvar name STUDENT_NAME is accessible as environment vars
+     ]
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    trusting_newton3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "STUDENT_NAME": "Tom Hanks",
-      "envvar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
-     \_ env |grep STUDENT_NAME
+    cmd=>:
+    env |grep STUDENT_NAME<=
     STUDENT_NAME=Tom Hanks
+     .. ok
+    . ok
+    -Step2: [: STUDENT_NAME is also accessible in dvar processing
+     ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_NAME",
+        Code: 0,
+        Output: "STUDENT_NAME=Tom Hanks",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_NAME",
+        Code: 0,
+        Output: "STUDENT_NAME=Tom Hanks",
+        ErrMsg: ""
+      }),
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks"
+    })
+    
+    cmd( 1):
+    env |grep STUDENT_NAME
+    
+    cmd=>:
+    env |grep STUDENT_NAME<=
+    STUDENT_NAME=Tom Hanks
+     .. ok
+    cmd( 2):
+    echo "student_name_re_map is [{{.student_name_re_map}}]"
+    
+    cmd=>:
+    echo "student_name_re_map is [Tom Hanks]"<=
+    student_name_re_map is [Tom Hanks]
      .. ok
     . ok
     

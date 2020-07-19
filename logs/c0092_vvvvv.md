@@ -1,6 +1,6 @@
 ---
 title: "c0092_vvvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:45+77:00
 draft: false
 weight: 10924
 
@@ -17,7 +17,7 @@ weight: 10924
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0092
                  Verbose -> vvvvv
-              ModuleName -> furious_pike5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10924
     -exec task: task
     loading [Task]:  ./tests/functests/c0092
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f6fe0)(<nil>)
+    (*impl.Scopes)(0xc0001c7060)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10924
     
     
     groups members:[]
-    module: [furious_pike5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -68,8 +73,8 @@ weight: 10924
       Func: "call",
       Vars: {
         "person": {
-          "age": 23,
-          "name": "tom"
+          "name": "tom",
+          "age": 23
         }
       },
       Dvars: <nil>,
@@ -87,8 +92,8 @@ weight: 10924
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     })
     
@@ -105,7 +110,7 @@ weight: 10924
     }
     
     
-    furious_pike5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": {
@@ -173,14 +178,14 @@ weight: 10924
     }
     
     
-    furious_pike5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": {
-        "name": "tom",
-        "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+        "age": 23,
+        "name": "tom"
+      }
     })
     
     hello {{.person.name}}

@@ -1,6 +1,6 @@
 ---
 title: "c0114_vvvv"
-date: 2020-07-01T15:34:37+77:00
+date: 2020-07-20T02:01:50+77:00
 draft: false
 weight: 11143
 
@@ -17,7 +17,7 @@ weight: 11143
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0114
                  Verbose -> vvvv
-              ModuleName -> serene_colden2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11143
     
     
     groups members:[]
-    module: [serene_colden2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom in global",
@@ -52,31 +57,13 @@ weight: 11143
     Executing task stack layer: 1
     
     -Step1: [: call subtask and exam the return value in following steps ]
-    {
-      Name: "",
-      Do: "subtask1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "call subtask and exam the return value in following steps",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom in global",
       "jerry": "this is jerry in global"
     })
     
-    serene_colden2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom in global",
@@ -88,53 +75,20 @@ weight: 11143
     Executing task stack layer: 2
     
     --Step1: [: check value of tom after it is registered in current task stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "desc": "by default hitom is registered in to global context",
-          "cmd": {
-            "value": "tom created in subtask1",
-            "name": "tom"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "in sub_loop print1: {{.tom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func1"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom after it is registered in current task stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
       "tom": "this is tom in global",
-      "john": "john in sub_loop func1"
+      "up_runtime_task_layer_number": 1,
+      "john": "john in sub_loop func1",
+      "jerry": "this is jerry in global"
     })
     
-    serene_colden2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func1",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
       "tom": "this is tom in global"
     })
     
@@ -142,76 +96,27 @@ weight: 11143
     ~~SubStep2: [print:  ]
     in sub_loop print1: tom created in subtask1
     --Step2: [: check value of tom and it should be available in current stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "in sub_loop print2: {{.tom}}"
-        },
-        {
-          "name": "return",
-          "cmd": {
-            "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func2"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom and it should be available in current stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "john": "john in sub_loop func2",
-      "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in subtask1"
     })
     
-    serene_colden2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "john": "john in sub_loop func2",
-      "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in subtask1"
     })
     
     ~~SubStep1: [print:  ]
     in sub_loop print2: tom created in subtask1
     ~~SubStep2: [return:  ]
     --Step3: [: call subtask and exam the return value in following steps ]
-    {
-      Name: "",
-      Do: "subtask2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "call subtask and exam the return value in following steps",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "tom created in subtask1",
@@ -219,7 +124,7 @@ weight: 11143
       "up_runtime_task_layer_number": 1
     })
     
-    serene_colden2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "tom created in subtask1",
@@ -232,48 +137,15 @@ weight: 11143
     Executing task stack layer: 3
     
     ---Step1: [: check value of tom after it is registered in current task stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "desc": "by default hitom is registered in to global context",
-          "cmd": {
-            "name": "tom",
-            "value": "tom2 created in subtask2"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "in sub_loop print1: {{.tom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func1"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom after it is registered in current task stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "john": "john in sub_loop func1",
       "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 2,
-      "john": "john in sub_loop func1"
+      "up_runtime_task_layer_number": 2
     })
     
-    serene_colden2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
@@ -286,52 +158,21 @@ weight: 11143
     ~~~SubStep2: [print:  ]
     in sub_loop print1: tom2 created in subtask2
     ---Step2: [: check value of tom and it should be available in current stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "in sub_loop print2: {{.tom}}",
-          "name": "print"
-        },
-        {
-          "name": "return",
-          "cmd": {
-            "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func2"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom and it should be available in current stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "john": "john in sub_loop func2",
+      "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2,
       "john": "john in sub_loop func2"
-    })
-    
-    serene_colden2: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
-      "john": "john in sub_loop func2",
-      "tom": "tom2 created in subtask2",
-      "jerry": "this is jerry in global"
     })
     
     ~~~SubStep1: [print:  ]
@@ -341,29 +182,6 @@ weight: 11143
     in this case tom's value should come from subtask1
     tom's expected value:  tom created in subtask1
      ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "in main task print3: {{.tom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "check value of tom\nin this case tom's value should come from subtask1\ntom's expected value:  tom created in subtask1\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "tom created in subtask1",
@@ -371,12 +189,12 @@ weight: 11143
       "up_runtime_task_layer_number": 2
     })
     
-    serene_colden2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "tom": "tom created in subtask1",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
     })
     
     ~SubStep1: [print:  ]

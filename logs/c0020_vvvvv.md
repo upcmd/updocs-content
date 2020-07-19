@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10204
 
@@ -17,7 +17,7 @@ weight: 10204
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0020
                  Verbose -> vvvvv
-              ModuleName -> grave_franklin4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10204
     -exec task: task
     loading [Task]:  ./tests/functests/c0020
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002948e0)(<nil>)
+    (*impl.Scopes)(0xc0002144a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10204
     
     
     groups members:[]
-    module: [grave_franklin4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar"
@@ -70,9 +75,9 @@ weight: 10204
       Dox: <nil>,
       Func: "call",
       Vars: {
+        "studentname": "Tom",
         "school": "sydney grammar",
-        "gender": "male",
-        "studentname": "Tom"
+        "gender": "male"
       },
       Dvars: <nil>,
       Desc: "call function with different vars",
@@ -99,13 +104,13 @@ weight: 10204
     
     
     scope[local] merged: {
+      "gender": "male",
       "school": "sydney grammar",
-      "studentname": "Tom",
-      "gender": "male"
+      "studentname": "Tom"
     }
     
     
-    grave_franklin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "school": "sydney grammar",
@@ -152,9 +157,9 @@ weight: 10204
     
     current exec runtime vars:
     (*core.Cache)({
+      "gender": "male",
       "school": "sydney grammar",
       "studentname": "Tom",
-      "gender": "male",
       "up_runtime_task_layer_number": 1
     })
     
@@ -164,29 +169,31 @@ weight: 10204
     
     
     scope[local] merged: {
+      "gender": "male",
       "school": "sydney grammar",
       "studentname": "Tom",
-      "gender": "male",
       "up_runtime_task_layer_number": 1
     }
     
     
-    grave_franklin4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "gender": "male",
       "school": "sydney grammar",
       "studentname": "Tom",
-      "gender": "male",
       "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "studentname -> {{.studentname}} | gender -> {{.gender}}"
     
-     \_ echo "studentname -> Tom | gender -> male"
+    cmd=>:
+    echo "studentname -> Tom | gender -> male"<=
     studentname -> Tom | gender -> male
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=42) "echo \"studentname -> Tom | gender -> male\"",
      Code: (int) 0,
      Output: (string) (len=35) "studentname -> Tom | gender -> male",
      ErrMsg: (string) ""
@@ -195,10 +202,12 @@ weight: 10204
     cmd( 2):
     echo "school -> {{.school}}"
     
-     \_ echo "school -> sydney grammar"
+    cmd=>:
+    echo "school -> sydney grammar"<=
     school -> sydney grammar
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=31) "echo \"school -> sydney grammar\"",
      Code: (int) 0,
      Output: (string) (len=24) "school -> sydney grammar",
      ErrMsg: (string) ""

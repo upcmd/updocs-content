@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvv"
-date: 2020-07-01T15:34:29+77:00
+date: 2020-07-20T02:01:40+77:00
 draft: false
 weight: 10643
 
@@ -17,7 +17,7 @@ weight: 10643
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0064
                  Verbose -> vvvv
-              ModuleName -> trusting_tesla6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,13 +33,18 @@ weight: 10643
     
     
     groups members:[]
-    module: [trusting_tesla6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
@@ -47,9 +52,9 @@ weight: 10643
     
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
@@ -58,108 +63,59 @@ weight: 10643
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"hello 1\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     })
     
-    trusting_tesla6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     })
     
     cmd( 1):
     echo "hello 1"
     
-     \_ echo "hello 1"
+    cmd=>:
+    echo "hello 1"<=
     hello 1
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "print some info",
-          "cmd": "hello, this is print commmand"
-        },
-        {
-          "name": "print",
-          "cmd": "hello, {{.student.school}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello, {{.student.school}}\nhello, {{.student.school}}\n"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       })
     })
     
-    trusting_tesla6: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""

@@ -1,6 +1,6 @@
 ---
 title: "c0147_vvvv"
-date: 2020-07-01T15:34:42+77:00
+date: 2020-07-20T02:01:55+77:00
 draft: false
 weight: 11473
 
@@ -17,7 +17,7 @@ weight: 11473
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0147
                  Verbose -> vvvv
-              ModuleName -> insane_brattain5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11473
     
     
     groups members:[]
-    module: [insane_brattain5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "aaa",
@@ -54,52 +59,13 @@ weight: 11473
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "inspect",
-          "desc": "the vars in caller after invoking module task",
-          "cmd": {
-            "exec_vars",
-            "exec_base_vars"
-          }
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .b  \"bbb\"}}",
-            "{{eq .d  \"ddd\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "b": "bbb",
-        "d": "ddd"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "pure"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "b": "bbb",
       "d": "ddd"
     })
     
-    insane_brattain5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "b": "bbb",
@@ -113,49 +79,26 @@ weight: 11473
     })
     
      2: inspect[exec_base_vars]{
-      "c": "ccc",
       "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "c": "ccc"
     }
     
     ~SubStep2: [assert:  ]
      1 ASSERT OK:     [{{eq .b  "bbb"}}]
      2 ASSERT OK:     [{{eq .d  "ddd"}}]
     -Step2:
-    {
-      Name: "",
-      Do: "substack",
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "e": "first_level_eee",
-        "f": "first_level_fff"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "pure"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "e": "first_level_eee",
       "f": "first_level_fff"
     })
     
-    insane_brattain5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     })
     
       located task-> 2 [substack]: 
@@ -163,63 +106,32 @@ weight: 11473
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": {
-            "exec_vars",
-            "exec_base_vars"
-          },
-          "name": "inspect",
-          "desc": "the vars in caller after invoking module task"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "g": "ggg",
-        "h": "hhh",
-        "f": "fff"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "g": "ggg",
       "h": "hhh",
       "f": "first_level_fff",
-      "up_runtime_task_layer_number": 1,
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "up_runtime_task_layer_number": 1
     })
     
-    insane_brattain5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "g": "ggg",
       "h": "hhh",
       "f": "first_level_fff",
+      "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
-      "e": "first_level_eee"
+      "g": "ggg"
     })
     
     ~~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars](*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "e": "first_level_eee",
       "g": "ggg",
       "h": "hhh",
-      "f": "first_level_fff"
+      "f": "first_level_fff",
+      "e": "first_level_eee",
+      "up_runtime_task_layer_number": 1
     })
     
      2: inspect[exec_base_vars]{

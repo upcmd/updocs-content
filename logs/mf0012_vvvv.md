@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvvv"
-date: 2020-07-01T15:35:00+77:00
+date: 2020-07-20T02:02:16+77:00
 draft: false
 weight: 101203
 
@@ -17,7 +17,7 @@ weight: 101203
               AbsWorkDir -> /up_project/up/tests/modtests/f0012
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> berserk_franklin2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 8
@@ -33,7 +33,12 @@ weight: 101203
     
     
     groups members:[]
-    module: [berserk_franklin2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,29 +53,11 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: "hello-module.Say_hello",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    berserk_franklin2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -84,6 +71,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -102,38 +94,13 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "... hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -143,30 +110,12 @@ weight: 101203
     ~SubStep1: [print:  ]
     ... hello
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk1.Cross_call1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -181,6 +130,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -199,35 +153,12 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -236,30 +167,12 @@ weight: 101203
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk2.Cross_call2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -274,6 +187,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -292,35 +210,12 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 4
     })
     
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 4
@@ -329,30 +224,12 @@ weight: 101203
     ~SubStep1: [print:  ]
      .... cross call 2
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk1.Cross_call1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 4
     })
     
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 4
@@ -367,6 +244,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -385,35 +267,12 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 5
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 5
@@ -422,30 +281,12 @@ weight: 101203
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk2.Cross_call2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 5
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 5
@@ -460,6 +301,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -478,35 +324,12 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 6
     })
     
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 6
@@ -515,30 +338,12 @@ weight: 101203
     ~SubStep1: [print:  ]
      .... cross call 2
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk1.Cross_call1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 6
     })
     
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 6
@@ -553,6 +358,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -571,35 +381,12 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 7
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 7
@@ -608,30 +395,12 @@ weight: 101203
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk2.Cross_call2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 7
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 7
@@ -646,6 +415,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -664,35 +438,12 @@ weight: 101203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 2"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 8
     })
     
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 8
@@ -701,30 +452,12 @@ weight: 101203
     ~SubStep1: [print:  ]
      .... cross call 2
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk1.Cross_call1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 8
     })
     
-    crosstalk2: overall final exec vars:
+    crosstalk2: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 8
@@ -739,6 +472,11 @@ weight: 101203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -752,8 +490,7 @@ weight: 101203
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 9
     
-          Module call layer check: -> Too many layers of recursive module executions, max allowed(8), please fix your recursive call
-    -----trace for reference-----
+      ERROR: Module call layer check: [Too many layers of recursive module executions, max allowed(8), please fix your recursive call]
     
 ```
 

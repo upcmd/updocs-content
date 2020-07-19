@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10134
 
@@ -17,7 +17,7 @@ weight: 10134
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0013
                  Verbose -> vvvvv
-              ModuleName -> kickass_jang2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10134
     -exec task: task
     loading [Task]:  ./tests/functests/c0013
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000182ea0)(<nil>)
+    (*impl.Scopes)(0xc000172ec0)(<nil>)
     
     ---------group vars----------
     
@@ -36,20 +36,25 @@ weight: 10134
     
     
     groups members:[]
-    module: [kickass_jang2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "k": "runtime-k",
       "studentname": "Jason",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
     (core.Cache) (len=4) {
-     (string) (len=1) "k": (string) (len=9) "runtime-k",
      (string) (len=11) "studentname": (string) (len=5) "Jason",
      (string) (len=1) "a": (string) (len=9) "runtime-a",
-     (string) (len=1) "e": (string) (len=9) "runtime-e"
+     (string) (len=1) "e": (string) (len=9) "runtime-e",
+     (string) (len=1) "k": (string) (len=9) "runtime-k"
     }
     
     [runtime global] dvar expanded result:
@@ -80,8 +85,8 @@ weight: 10134
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "studentname": "Tom",
-        "school": "SG"
+        "school": "SG",
+        "studentname": "Tom"
       },
       Dvars: <nil>,
       Desc: "to test display env vars from shell context",
@@ -97,10 +102,10 @@ weight: 10134
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "runtime-a",
-      "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Tom",
+      "a": "runtime-a",
+      "e": "runtime-e",
       "school": "SG"
     })
     
@@ -110,31 +115,33 @@ weight: 10134
     
     
     scope[local] merged: {
-      "studentname": "Tom",
-      "school": "SG",
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "school": "SG",
+      "k": "runtime-k",
+      "studentname": "Tom",
+      "a": "runtime-a"
     }
     
     
-    kickass_jang2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Tom",
-      "school": "SG",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "school": "SG"
     })
     
     cmd( 1):
     echo "hello, world"
     
-     \_ echo "hello, world"
+    cmd=>:
+    echo "hello, world"<=
     hello, world
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=19) "echo \"hello, world\"",
      Code: (int) 0,
      Output: (string) (len=12) "hello, world",
      ErrMsg: (string) ""
@@ -143,10 +150,12 @@ weight: 10134
     cmd( 2):
     echo "hello {{.studentname}}"
     
-     \_ echo "hello Tom"
+    cmd=>:
+    echo "hello Tom"<=
     hello Tom
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=16) "echo \"hello Tom\"",
      Code: (int) 0,
      Output: (string) (len=9) "hello Tom",
      ErrMsg: (string) ""

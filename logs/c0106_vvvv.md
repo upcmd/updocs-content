@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvv"
-date: 2020-07-01T15:34:35+77:00
+date: 2020-07-20T02:01:48+77:00
 draft: false
 weight: 11063
 
@@ -17,7 +17,7 @@ weight: 11063
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0106
                  Verbose -> vvvv
-              ModuleName -> adoring_bell5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11063
     
     
     groups members:[]
-    module: [adoring_bell5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -50,30 +55,12 @@ weight: 11063
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: "sub1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom"
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom"
@@ -84,47 +71,13 @@ weight: 11063
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "flags": {
-            "localonly"
-          },
-          "name": "reg",
-          "cmd": {
-            "name": "hitom",
-            "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}"
-          }
-        },
-        {
-          "name": "print",
-          "cmd": "{{.hitom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -135,78 +88,31 @@ weight: 11063
     ~~SubStep2: [print:  ]
     hello, this is tom
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "desc": "should be <no value> since it is marked localonly",
-          "cmd": "{{.hitom}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
-    ~~SubStep1: [print: should be <no value> since it is marked localonly ]
-    <no value>
+    ~~SubStep1: [print: should be <no value> since it is marked localOnly ]
+    None
     -Step2: [: check if hitom is available in global context
-    it should be <no value> as hitom in sub1 is marked localonly
+    it should be <no value> as hitom in sub1 is marked localOnly
      ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.hitom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "check if hitom is available in global context\nit should be <no value> as hitom in sub1 is marked localonly\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -214,33 +120,15 @@ weight: 11063
     })
     
     ~SubStep1: [print:  ]
-    <no value>
+    None
     -Step3:
-    {
-      Name: "",
-      Do: "sub2",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
@@ -252,78 +140,23 @@ weight: 11063
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": {
-            "name": "hitom",
-            "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}"
-          },
-          "name": "reg"
-        },
-        {
-          "name": "print",
-          "cmd": "{{.hitom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     ~~SubStep1: [reg:  ]
     ~~SubStep2: [print:  ]
     hello, this is tom
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "by default hitom is accessible from global context, that's why it is accessiable cross func\nhowever this is only available in its own call stack global but not return and available to its parent var scope\n",
-          "cmd": "{{.hitom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
@@ -331,12 +164,12 @@ weight: 11063
       "hitom": "hello, this is tom"
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "hitom": "hello, this is tom",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "hitom": "hello, this is tom"
     })
     
     ~~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func
@@ -347,44 +180,21 @@ weight: 11063
     though hitom was regiser as global var, but it was registered to its own call stack
     however this is only available in its own call stack global but not return and available to its parent var scope
      ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.hitom}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "check if hitom is available in global context\nthough hitom was regiser as global var, but it was registered to its own call stack\nhowever this is only available in its own call stack global but not return and available to its parent var scope\n",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
-    adoring_bell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]
-    <no value>
+    None
     
 ```
 

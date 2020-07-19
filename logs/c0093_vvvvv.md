@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:45+77:00
 draft: false
 weight: 10934
 
@@ -17,7 +17,7 @@ weight: 10934
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0093
                  Verbose -> vvvvv
-              ModuleName -> jovial_blackwell5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,7 +27,7 @@ weight: 10934
     -exec task: task
     loading [Task]:  ./tests/functests/c0093
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f3000)(<nil>)
+    (*impl.Scopes)(0xc000175020)(<nil>)
     
     ---------group vars----------
     
@@ -36,7 +36,12 @@ weight: 10934
     
     
     groups members:[]
-    module: [jovial_blackwell5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -99,13 +104,13 @@ weight: 10934
     
     scope[local] merged: {
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     }
     
     
-    jovial_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": {
@@ -153,8 +158,8 @@ weight: 10934
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       },
       "up_runtime_task_layer_number": 1
     })
@@ -173,7 +178,7 @@ weight: 10934
     }
     
     
-    jovial_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "person": {

@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10883
 
@@ -17,7 +17,7 @@ weight: 10883
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0088
                  Verbose -> vvvv
-              ModuleName -> nostalgic_cori9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,20 +33,25 @@ weight: 10883
     
     
     groups members:[]
-    module: [nostalgic_cori9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
         "address": {
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
-        },
-        "name": "Tom"
+        }
       }
     }
     
@@ -57,12 +62,12 @@ weight: 10883
         "name": "Tom",
         "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
+            "postcode": 2000
+          }
         }
       }
     }
@@ -72,59 +77,18 @@ weight: 10883
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"1.address -> \\n{{.sgp_address_dyna_dir}}\"\"\"",
-        "echo \"\"\"1.address object-> \\n{{.sgp_address_dyna_dir_object}}\"\"\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "dynadir": "./tests/functests"
-      },
-      Dvars: {
-        {
-          Name: "sgp_address_dyna_dir",
-          Value: "",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "to_object",
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "d0030_school.yml",
-          RefDir: "{{.dynadir}}",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "student": {
         "name": "Tom",
         "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
+            "cbd": true,
+            "name": "sydney"
+          }
         }
       },
       "dynadir": "./tests/functests"
@@ -145,29 +109,29 @@ weight: 10883
       }
     }
     
-    nostalgic_cori9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "sgp_address_dyna_dir_object": {
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "CBD": true
-          },
-          "school": "Sydney Grammar"
+          }
         }
       },
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
         "name": "Tom",
         "gender": "Male",
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "cbd": true
+            "cbd": true,
+            "name": "sydney"
           }
         }
       },
@@ -177,13 +141,14 @@ weight: 10883
     cmd( 1):
     echo """1.address -> \n{{.sgp_address_dyna_dir}}"""
     
-     \_ echo """1.address -> \naddress:
+    cmd=>:
+    echo """1.address -> \naddress:
       suburb:
         name: sydney
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
-    """
+    """<=
     1.address -> \naddress:
       suburb:
         name: sydney
@@ -194,7 +159,8 @@ weight: 10883
     cmd( 2):
     echo """1.address object-> \n{{.sgp_address_dyna_dir_object}}"""
     
-     \_ echo """1.address object-> \nmap[address:map[school:Sydney Grammar suburb:map[CBD:true name:sydney postcode:2000]]]"""
+    cmd=>:
+    echo """1.address object-> \nmap[address:map[school:Sydney Grammar suburb:map[CBD:true name:sydney postcode:2000]]]"""<=
     1.address object-> \nmap[address:map[school:Sydney Grammar suburb:map[CBD:true name:sydney postcode:2000]]]
      .. ok
     . ok

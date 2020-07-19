@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvvv"
-date: 2020-07-01T15:34:22+77:00
+date: 2020-07-20T02:01:31+77:00
 draft: false
 weight: 10114
 
@@ -17,7 +17,7 @@ weight: 10114
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0011
                  Verbose -> vvvvv
-              ModuleName -> elegant_wright0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -27,17 +27,17 @@ weight: 10114
     -exec task: task
     loading [Task]:  ./tests/functests/c0011
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000155240)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001bf260)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "c": (string) (len=8) "global-c",
        (string) (len=1) "d": (string) (len=8) "global-d",
        (string) (len=1) "a": (string) (len=8) "global-a",
-       (string) (len=1) "b": (string) (len=8) "global-b"
+       (string) (len=1) "b": (string) (len=8) "global-b",
+       (string) (len=1) "c": (string) (len=8) "global-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -114,8 +114,8 @@ weight: 10114
     
     
     scope[prod] merged: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
@@ -125,18 +125,24 @@ weight: 10114
     
     
     scope[nonprod] merged: {
+      "c": "non-prod-c",
       "a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c"
+      "b": "non-prod-b"
     }
     
     
     ---------group vars----------
     
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
+    }
+    
+    
     nonprod: {
-      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a"
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     }
     
     
@@ -148,14 +154,13 @@ weight: 10114
     }
     
     
-    prod: {
-      "a": "prod-a",
-      "c": "prod-c"
-    }
-    
-    
     groups members:[dr prod dev st staging]
-    module: [elegant_wright0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
@@ -169,18 +174,18 @@ weight: 10114
     
     merged[ dev ] runtime vars:
     {
-      "e": "runtime-e",
-      "k": "runtime-k",
+      "d": "global-d",
       "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
     (core.Cache) (len=6) {
-     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "e": (string) (len=9) "runtime-e",
      (string) (len=1) "k": (string) (len=9) "runtime-k",
+     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=9) "runtime-a",
      (string) (len=1) "b": (string) (len=10) "non-prod-b",
      (string) (len=1) "c": (string) (len=5) "dev-c"
@@ -194,12 +199,12 @@ weight: 10114
     -------runtime global final merged with dvars-------
     
     {
-      "k": "runtime-k",
-      "a": "runtime-a",
-      "b": "non-prod-b",
       "c": "dev-c",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "d": "global-d",
-      "e": "runtime-e"
+      "a": "runtime-a",
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -215,8 +220,8 @@ weight: 10114
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "e": "local-e",
-        "m": "local-m"
+        "m": "local-m",
+        "e": "local-e"
       },
       Dvars: <nil>,
       Desc: "",
@@ -232,13 +237,13 @@ weight: 10114
     
     current exec runtime vars:
     (*core.Cache)({
-      "e": "local-e",
-      "k": "runtime-k",
       "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "m": "local-m"
+      "m": "local-m",
+      "e": "local-e",
+      "k": "runtime-k",
+      "d": "global-d"
     })
     
     [local] dvar expanded result:
@@ -247,35 +252,37 @@ weight: 10114
     
     
     scope[local] merged: {
-      "b": "non-prod-b",
-      "c": "dev-c",
-      "d": "global-d",
       "m": "local-m",
       "e": "local-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "d": "global-d",
+      "a": "runtime-a",
+      "b": "non-prod-b",
+      "c": "dev-c"
     }
     
     
-    elegant_wright0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "d": "global-d",
+      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
       "m": "local-m",
       "e": "local-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
+      "k": "runtime-k"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=35) "echo \"test out the var scopes only\"",
      Code: (int) 0,
      Output: (string) (len=28) "test out the var scopes only",
      ErrMsg: (string) ""

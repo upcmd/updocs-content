@@ -1,6 +1,6 @@
 ---
 title: "c0128_vvvv"
-date: 2020-07-01T15:34:39+77:00
+date: 2020-07-20T02:01:52+77:00
 draft: false
 weight: 11283
 
@@ -17,7 +17,7 @@ weight: 11283
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0128
                  Verbose -> vvvv
-              ModuleName -> distracted_sammet0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11283
     
     
     groups members:[]
-    module: [distracted_sammet0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -44,9 +49,9 @@ weight: 11283
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -54,73 +59,6 @@ weight: 11283
     Executing task stack layer: 1
     
     -Step1: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
-    {
-      Name: "",
-      Do: {
-        {
-          "func": "shell",
-          "do": {
-            "echo \"shell step1\"",
-            "echo \"shell step2\""
-          }
-        },
-        {
-          "func": "cmd",
-          "do": {
-            {
-              "name": "print",
-              "cmd": "cmd print step\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nda: {{.da}}\ndb: {{.db}}\n"
-            }
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "block",
-      Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
-      },
-      Dvars: {
-        {
-          Name: "da",
-          Value: "local_da",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "db",
-          Value: "local_db",
-          Desc: "",
-          Expand: 0,
-          Flags: <nil>,
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "show example the route goes to call goelse for the condition of not if condition succeeds",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "local_aaa",
@@ -128,113 +66,73 @@ weight: 11283
       "c": "global_ccc"
     })
     
-    distracted_sammet0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "da": "local_da"
     })
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"shell step1\"",
-        "echo \"shell step2\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "db": "local_db",
+      "da": "local_da"
     })
     
-    distracted_sammet0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
-      "da": "local_da",
-      "db": "local_db",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "db": "local_db",
+      "da": "local_da"
     })
     
     cmd( 1):
     echo "shell step1"
     
-     \_ echo "shell step1"
+    cmd=>:
+    echo "shell step1"<=
     shell step1
      .. ok
     cmd( 2):
     echo "shell step2"
     
-     \_ echo "shell step2"
+    cmd=>:
+    echo "shell step2"<=
     shell step2
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "cmd print step\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nda: {{.da}}\ndb: {{.db}}\n",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
       "a": "local_aaa",
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "b": "local_bbb"
     })
     
-    distracted_sammet0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""

@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvv"
-date: 2020-07-01T15:34:32+77:00
+date: 2020-07-20T02:01:44+77:00
 draft: false
 weight: 10873
 
@@ -17,7 +17,7 @@ weight: 10873
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0087
                  Verbose -> vvvv
-              ModuleName -> sharp_payne4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10873
     
     
     groups members:[]
-    module: [sharp_payne4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,31 +53,11 @@ weight: 10873
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo 'hello'"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    sharp_payne4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,47 +65,27 @@ weight: 10873
     cmd( 1):
     echo 'hello'
     
-     \_ echo 'hello'
+    cmd=>:
+    echo 'hello'<=
     hello
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "sleep",
-          "cmd": 2000
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       })
     })
     
-    sharp_payne4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -131,42 +96,21 @@ weight: 10873
     sleeping 2000 milli seconds
     ....................
     -Step3:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "world"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       })
     })
     
-    sharp_payne4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -176,42 +120,21 @@ weight: 10873
     ~SubStep1: [print:  ]
     world
     -Step4:
-    {
-      Name: "",
-      Do: {
-        "{{.loopitem}}"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "impl1",
-        "impl2"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       })
     })
     
-    sharp_payne4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -223,85 +146,57 @@ weight: 10873
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl1",
-      "loopindex": 0
+      "loopitem": "impl1"
     })
     
-    sharp_payne4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
     hello
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "sleep",
-          "cmd": 1000
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
@@ -312,20 +207,6 @@ weight: 10873
       "up_runtime_task_layer_number": 1
     })
     
-    sharp_payne4: overall final exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1
-    })
-    
     ~~SubStep1: [sleep:  ]
     sleeping 1000 milli seconds
     ..........
@@ -334,54 +215,33 @@ weight: 10873
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "world"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "impl2",
+      "loopindex": 1,
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
       "loopitem": "impl2",
       "loopindex": 1,
-      "loopindex1": 2
-    })
-    
-    sharp_payne4: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl2"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]

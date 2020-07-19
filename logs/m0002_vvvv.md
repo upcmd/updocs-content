@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvv"
-date: 2020-07-01T15:34:57+77:00
+date: 2020-07-20T02:02:14+77:00
 draft: false
 weight: 100203
 
@@ -17,7 +17,7 @@ weight: 100203
               AbsWorkDir -> /up_project/up/tests/modtests/0002
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> boring_hoover3
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 100203
     
     
     groups members:[]
-    module: [boring_hoover3] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,31 +53,11 @@ weight: 100203
     Executing task stack layer: 1
     
     -Step1: [: main job ]
-    {
-      Name: "",
-      Do: {
-        "echo \"hello world\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "main job",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    boring_hoover3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -80,42 +65,27 @@ weight: 100203
     cmd( 1):
     echo "hello world"
     
-     \_ echo "hello world"
+    cmd=>:
+    echo "hello world"<=
     hello world
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: "internal_task",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       })
     })
     
-    boring_hoover3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -127,32 +97,10 @@ weight: 100203
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "this is a internal task"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -160,43 +108,25 @@ weight: 100203
       "up_runtime_task_layer_number": 1
     })
     
-    boring_hoover3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     ~~SubStep1: [print:  ]
     this is a internal task
     -Step3:
-    {
-      Name: "",
-      Do: "hello-module.Say_world",
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "a": "caller-aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -205,16 +135,17 @@ weight: 100203
       "a": "caller-aaa"
     })
     
-    boring_hoover3: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-aaa"
     })
     
     loading [Config]:  ./upconfig.yml
@@ -226,6 +157,11 @@ weight: 100203
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [dev]
     merged[ dev ] runtime vars:
     {
@@ -244,45 +180,13 @@ weight: 100203
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .a \"caller-aaa\"}}",
-            "{{eq .b \"module-bbb\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "module-aaa",
-        "b": "module-bbb"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "caller-aaa",
       "b": "module-bbb",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
@@ -290,18 +194,19 @@ weight: 100203
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
-      "b": "module-bbb",
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa",
+      "b": "module-bbb",
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]

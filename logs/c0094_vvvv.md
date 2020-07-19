@@ -1,6 +1,6 @@
 ---
 title: "c0094_vvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:45+77:00
 draft: false
 weight: 10943
 
@@ -17,7 +17,7 @@ weight: 10943
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0094
                  Verbose -> vvvv
-              ModuleName -> drunk_yalow7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10943
     
     
     groups members:[]
-    module: [drunk_yalow7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,40 +53,13 @@ weight: 10943
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "layer2"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "layer1_bbb": "layer1_bbb",
-        "layer1_aaa": "layer1_aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "layer1-tom",
-        "layer1-peter",
-        "layer1-james"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb"
     })
     
-    drunk_yalow7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "layer1_aaa": "layer1_aaa",
@@ -93,51 +71,24 @@ weight: 10943
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_aaa: {{.layer1_aaa}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
       "up_runtime_task_layer_number": 1
     })
     
-    drunk_yalow7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
       "up_runtime_task_layer_number": 1
     })
     
@@ -146,52 +97,25 @@ weight: 10943
     ~~SubStep2: [print:  ]
     hello layer1_aaa: layer1_aaa
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa"
+      "up_runtime_task_layer_number": 1
     })
     
-    drunk_yalow7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -203,51 +127,24 @@ weight: 10943
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_aaa: {{.layer1_aaa}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-peter",
       "loopindex": 1,
+      "up_runtime_task_layer_number": 1,
       "loopindex1": 2
     })
     
-    drunk_yalow7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 2,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-peter",
       "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1
     })
     
@@ -256,51 +153,24 @@ weight: 10943
     ~~SubStep2: [print:  ]
     hello layer1_aaa: layer1_aaa
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
-    })
-    
-    drunk_yalow7: overall final exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1
     })
     
@@ -313,45 +183,7 @@ weight: 10943
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "hello {{.loopitem}}",
-          "name": "print"
-        },
-        {
-          "cmd": "hello layer1_aaa: {{.layer1_aaa}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa"
-    })
-    
-    drunk_yalow7: overall final exec vars:
-    
     (*core.Cache)({
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
@@ -359,6 +191,17 @@ weight: 10943
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "layer1-james",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb"
     })
     
     ~~SubStep1: [print:  ]
@@ -366,52 +209,25 @@ weight: 10943
     ~~SubStep2: [print:  ]
     hello layer1_aaa: layer1_aaa
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "hello {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "layer1_bbb": "layer1_bbb",
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "layer1-james",
-      "loopindex": 2,
       "loopindex1": 3,
-      "layer1_aaa": "layer1_aaa"
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-james",
+      "loopindex": 2
     })
     
-    drunk_yalow7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "layer1_bbb": "layer1_bbb",
       "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-james",
       "loopindex": 2,
-      "loopindex1": 3,
-      "layer1_aaa": "layer1_aaa"
+      "loopindex1": 3
     })
     
     ~~SubStep1: [print:  ]

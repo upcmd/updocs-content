@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvv"
-date: 2020-07-01T15:34:34+77:00
+date: 2020-07-20T02:01:47+77:00
 draft: false
 weight: 11023
 
@@ -17,7 +17,7 @@ weight: 11023
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0102
                  Verbose -> vvvv
-              ModuleName -> silly_pike4
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11023
     
     
     groups members:[]
-    module: [silly_pike4] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
@@ -50,32 +55,12 @@ weight: 11023
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"{{.mock_yml}}\" > /tmp/mock_yml.yml"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
-    silly_pike4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
@@ -84,7 +69,8 @@ weight: 11023
     cmd( 1):
     echo "{{.mock_yml}}" > /tmp/mock_yml.yml
     
-     \_ echo "tom:
+    cmd=>:
+    echo "tom:
       sex: male
       age: 23
     jason:
@@ -93,79 +79,36 @@ weight: 11023
     emily:
       sex: female
       age: 32
-    " > /tmp/mock_yml.yml
+    " > /tmp/mock_yml.yml<=
     
      .. ok
     . ok
     -Step2: [: inplace modification ]
-    {
-      Name: "",
-      Do: {
-        {
-          "flags": {
-            "inplace"
-          },
-          "name": "yml_delete",
-          "cmd": {
-            "ymlfile": "mock_yml.yml",
-            "refdir": "/tmp",
-            "path": "jason.sex",
-            "verbose": "v"
-          }
-        },
-        {
-          "name": "readfile",
-          "desc": "check new file content",
-          "cmd": {
-            "filename": "mock_yml.yml",
-            "dir": "/tmp",
-            "reg": "new_yml"
-          }
-        },
-        {
-          "name": "print",
-          "desc": "show the modified yml content read from file",
-          "cmd": "{{.new_yml}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "inplace modification",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       })
     })
     
-    silly_pike4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
-    ~SubStep1: [yml_delete:  ]
-    ~SubStep2: [readfile: check new file content ]
+    ~SubStep1: [ymlDelete:  ]
+    ~SubStep2: [readFile: check new file content ]
     ~SubStep3: [print: show the modified yml content read from file ]
     tom:
       sex: male
@@ -177,47 +120,11 @@ weight: 11023
       age: 32
     
     -Step3: [: modify in memory and register to cache ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "yml_delete",
-          "cmd": {
-            "path": "jason.sex",
-            "verbose": "vvvv",
-            "reg": "modified_yml",
-            "ymlfile": "mock_yml.yml",
-            "refdir": "/tmp"
-          },
-          "flags": {
-            "localonly"
-          }
-        },
-        {
-          "desc": "show the modified yml content registered",
-          "cmd": "{{.modified_yml}}",
-          "name": "print"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "modify in memory and register to cache",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -225,11 +132,12 @@ weight: 11023
       "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
-    silly_pike4: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
@@ -237,7 +145,7 @@ weight: 11023
       "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
-    ~SubStep1: [yml_delete:  ]
+    ~SubStep1: [ymlDelete:  ]
     ~SubStep2: [print: show the modified yml content registered ]
     tom:
       sex: male

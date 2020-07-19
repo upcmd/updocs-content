@@ -1,6 +1,6 @@
 ---
 title: "c0112_vvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11123
 
@@ -17,7 +17,7 @@ weight: 11123
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0112
                  Verbose -> vvvv
-              ModuleName -> clever_cray2
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 11123
     
     
     groups members:[]
-    module: [clever_cray2] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "global_b": "bbb",
@@ -43,8 +48,8 @@ weight: 11123
     -------runtime global final merged with dvars-------
     
     {
-      "global_a": "aaa",
-      "global_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -52,40 +57,16 @@ weight: 11123
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "subtask1"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "local_a": "aaa",
-        "local_b": "bbb",
-        "tom": "my name is tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "my name is tom",
       "global_b": "bbb",
       "global_a": "aaa",
       "local_a": "aaa",
-      "local_b": "bbb",
-      "tom": "my name is tom"
+      "local_b": "bbb"
     })
     
-    clever_cray2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "tom": "my name is tom",
@@ -100,54 +81,25 @@ weight: 11123
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"my name is tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 1,
-      "local_b": "bbb",
-      "tom": "my name is tom",
-      "global_b": "bbb",
-      "global_a": "aaa"
-    })
-    
-    clever_cray2: overall final exec vars:
-    
-    (*core.Cache)({
-      "local_b": "bbb",
-      "tom": "my name is tom",
       "global_b": "bbb",
       "global_a": "aaa",
       "local_a": "aaa",
+      "local_b": "bbb",
+      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "local_a": "aaa",
+      "local_b": "bbb",
+      "tom": "my name is tom",
+      "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
+      "global_a": "aaa"
     })
     
     ~~SubStep1: [print:  ]
@@ -155,56 +107,25 @@ weight: 11123
     ~~SubStep2: [assert:  ]
      1 ASSERT OK:     [{{eq .tom "my name is tom"}}]
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"my name is tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "tom": "hi i am tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "global_b": "bbb",
       "tom": "my name is tom",
       "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
       "global_a": "aaa",
       "local_a": "aaa",
       "local_b": "bbb"
     })
     
-    clever_cray2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
       "global_a": "aaa",
       "local_a": "aaa",
       "local_b": "bbb",
-      "global_b": "bbb",
-      "tom": "my name is tom",
-      "up_runtime_task_layer_number": 1
+      "tom": "my name is tom"
     })
     
     ~~SubStep1: [print:  ]
@@ -212,27 +133,18 @@ weight: 11123
     ~~SubStep2: [assert:  ]
      1 ASSERT OK:     [{{eq .tom "my name is tom"}}]
     --Step3:
-    {
-      Name: "",
-      Do: {
-        "subtask2"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "local_b": "bbb",
+      "tom": "my name is tom",
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "global_a": "aaa",
       "local_a": "aaa",
@@ -242,63 +154,12 @@ weight: 11123
       "global_b": "bbb"
     })
     
-    clever_cray2: overall final exec vars:
-    
-    (*core.Cache)({
-      "local_b": "bbb",
-      "tom": "my name is tom",
-      "global_b": "bbb",
-      "global_a": "aaa",
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 1
-    })
-    
       located task-> 3 [subtask2]: 
     ==Task3: [task/subtask1 ==> subtask2:  ]
     Executing task stack layer: 3
     
     ---Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"my name is tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
-    (*core.Cache)({
-      "local_b": "bbb",
-      "tom": "my name is tom",
-      "global_b": "bbb",
-      "global_a": "aaa",
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 2
-    })
-    
-    clever_cray2: overall final exec vars:
-    
     (*core.Cache)({
       "tom": "my name is tom",
       "global_b": "bbb",
@@ -308,61 +169,41 @@ weight: 11123
       "local_b": "bbb"
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 2,
+      "local_b": "bbb",
+      "tom": "my name is tom",
+      "global_b": "bbb",
+      "global_a": "aaa"
+    })
+    
     ~~~SubStep1: [print:  ]
     my name is tom
     ~~~SubStep2: [assert:  ]
      1 ASSERT OK:     [{{eq .tom "my name is tom"}}]
     ---Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"my name is tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "tom": "hi i am tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "my name is tom",
+      "local_a": "aaa",
+      "up_runtime_task_layer_number": 2,
       "local_b": "bbb",
       "global_b": "bbb",
-      "global_a": "aaa",
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 2
+      "global_a": "aaa"
     })
     
-    clever_cray2: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "my name is tom",
-      "local_b": "bbb",
       "global_b": "bbb",
       "global_a": "aaa",
+      "tom": "my name is tom",
       "local_a": "aaa",
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "local_b": "bbb"
     })
     
     ~~~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvv"
-date: 2020-07-01T15:34:59+77:00
+date: 2020-07-20T02:02:16+77:00
 draft: false
 weight: 101303
 
@@ -17,7 +17,7 @@ weight: 101303
               AbsWorkDir -> /up_project/up/tests/modtests/0013
                 TaskFile -> up.yml
                  Verbose -> vvvv
-              ModuleName -> reverent_kowalevski7
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 8
@@ -33,7 +33,12 @@ weight: 101303
     
     
     groups members:[]
-    module: [reverent_kowalevski7] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,29 +53,11 @@ weight: 101303
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: "hello-module.Say_hello",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    reverent_kowalevski7: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -84,6 +71,11 @@ weight: 101303
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -102,38 +94,13 @@ weight: 101303
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "... hello"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "a": "aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "a": "aaa",
@@ -143,30 +110,12 @@ weight: 101303
     ~SubStep1: [print:  ]
     ... hello
     -Step2:
-    {
-      Name: "",
-      Do: "crosstalk1.Cross_call1",
-      Dox: <nil>,
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: overall final exec vars:
+    hello-module: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 2
@@ -181,6 +130,11 @@ weight: 101303
     
     
     groups members:[]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
@@ -199,35 +153,12 @@ weight: 101303
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": " .... cross call 1"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
     })
     
-    crosstalk1: overall final exec vars:
+    crosstalk1: final context exec vars:
     
     (*core.Cache)({
       "up_runtime_tasker_layer_number": 3
@@ -236,24 +167,6 @@ weight: 101303
     ~SubStep1: [print:  ]
      .... cross call 1
     -Step2: [: deactivated ]
-    {
-      Name: "",
-      Do: <nil>,
-      Dox: "crosstalk2.Cross_call2",
-      Func: "call",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "deactivated",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
      WARN: [*] - [Step is deactivated!]
     
 ```

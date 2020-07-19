@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10213
 
@@ -17,7 +17,7 @@ weight: 10213
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0021
                  Verbose -> vvvv
-              ModuleName -> insane_goldstine6
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10213
     
     
     groups members:[]
-    module: [insane_goldstine6] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,52 +53,21 @@ weight: 10213
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"my student: {{.student}}\nstudent's gender: {{.gender}}\n school's name: {{.school}}\"\"\"\n",
-        "{{$details := .}}\necho \"\"\"my student: {{$details.student}}\nstudent's gender: {{$details.gender}}\n school's name: {{$details.school}}\"\"\"\n",
-        "{{$a := .student}}\n{{$b := .gender}}\n{{$c := .school}}\necho \"\"\"my student: {{$a}}\nstudent's gender: {{$b}}\n school's name: {{$c}}\"\"\"\n",
-        "echo \"\"\"my school: {{.info.school}}\"\"\"\n",
-        "echo \"\"\"my student: {{.info}}\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "school": "Sydney Grammar",
-        "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-        "student": "Tom",
-        "gender": "Male"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "ignore_error"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
+    (*core.Cache)({
+      "student": "Tom",
+      "gender": "Male",
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "gender": "Male",
       "school": "Sydney Grammar",
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom"
-    })
-    
-    insane_goldstine6: overall final exec vars:
-    
-    (*core.Cache)({
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom",
-      "gender": "Male",
-      "school": "Sydney Grammar"
     })
     
     cmd( 1):
@@ -102,10 +76,11 @@ weight: 10213
      school's name: {{.school}}"""
     
     
-     \_ echo """my student: Tom
+    cmd=>:
+    echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    
+    <=
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
@@ -117,11 +92,12 @@ weight: 10213
      school's name: {{$details.school}}"""
     
     
-     \_ 
+    cmd=>:
+    
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    
+    <=
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
@@ -135,13 +111,14 @@ weight: 10213
      school's name: {{$c}}"""
     
     
-     \_ 
+    cmd=>:
+    
     
     
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    
+    <=
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
@@ -156,23 +133,24 @@ weight: 10213
         2:
     
     -----trace for reference-----
-     \_ echo """my school: 
-          exec error: -> exit status 1
+    cmd=>:
+    echo """my school: <=
+          exec error: -> exit status 2
     -----trace for reference-----
     
-          /bin/sh: -c: line 0: unexpected EOF while looking for matching `"'
-    /bin/sh: -c: line 1: syntax error: unexpected end of file
+          /bin/sh: syntax error: unterminated quoted string
     
      .. failed(suppressed if not last step)
     cmd( 5):
     echo """my student: {{.info}}"""
     
     
-     \_ echo """my student: student: Tom
+    cmd=>:
+    echo """my student: student: Tom
      gender: Male
      school: Sydney Grammar
     """
-    
+    <=
     my student: student: Tom
      gender: Male
      school: Sydney Grammar

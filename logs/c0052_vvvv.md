@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvv"
-date: 2020-07-01T15:34:28+77:00
+date: 2020-07-20T02:01:39+77:00
 draft: false
 weight: 10523
 
@@ -17,7 +17,7 @@ weight: 10523
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0052
                  Verbose -> vvvv
-              ModuleName -> cranky_stallman0
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10523
     
     
     groups members:[]
-    module: [cranky_stallman0] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,35 +53,11 @@ weight: 10523
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"step1\"",
-        "echo \"step2\" |grep notexist",
-        "echo \"step3\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "ignore_error"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
     })
     
-    cranky_stallman0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
     })
@@ -84,13 +65,15 @@ weight: 10523
     cmd( 1):
     echo "step1"
     
-     \_ echo "step1"
+    cmd=>:
+    echo "step1"<=
     step1
      .. ok
     cmd( 2):
     echo "step2" |grep notexist
     
-     \_ echo "step2" |grep notexist
+    cmd=>:
+    echo "step2" |grep notexist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
@@ -99,48 +82,27 @@ weight: 10523
     cmd( 3):
     echo "step3"
     
-     \_ echo "step3"
+    cmd=>:
+    echo "step3"<=
     step3
      .. ok
     . ok
     -Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"step4\"",
-        "echo \"step5\" |grep notexist",
-        "echo \"step6\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: {
-        "ignore_error"
-      },
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
       })
     })
     
-    cranky_stallman0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
@@ -150,13 +112,15 @@ weight: 10523
     cmd( 1):
     echo "step4"
     
-     \_ echo "step4"
+    cmd=>:
+    echo "step4"<=
     step4
      .. ok
     cmd( 2):
     echo "step5" |grep notexist
     
-     \_ echo "step5" |grep notexist
+    cmd=>:
+    echo "step5" |grep notexist<=
           exec error: -> exit status 1
     -----trace for reference-----
     
@@ -165,46 +129,27 @@ weight: 10523
     cmd( 3):
     echo "step6"
     
-     \_ echo "step6"
+    cmd=>:
+    echo "step6"<=
     step6
      .. ok
     . ok
     -Step3:
-    {
-      Name: "",
-      Do: {
-        "echo \"step7\"",
-        "echo \"step8\"",
-        "echo \"step9\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
       })
     })
     
-    cranky_stallman0: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
@@ -214,19 +159,22 @@ weight: 10523
     cmd( 1):
     echo "step7"
     
-     \_ echo "step7"
+    cmd=>:
+    echo "step7"<=
     step7
      .. ok
     cmd( 2):
     echo "step8"
     
-     \_ echo "step8"
+    cmd=>:
+    echo "step8"<=
     step8
      .. ok
     cmd( 3):
     echo "step9"
     
-     \_ echo "step9"
+    cmd=>:
+    echo "step9"<=
     step9
      .. ok
     . ok

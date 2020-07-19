@@ -1,6 +1,6 @@
 ---
 title: "c0111_vvvv"
-date: 2020-07-01T15:34:36+77:00
+date: 2020-07-20T02:01:49+77:00
 draft: false
 weight: 11113
 
@@ -17,7 +17,7 @@ weight: 11113
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0111
                  Verbose -> vvvv
-              ModuleName -> tender_yalow5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,18 +33,23 @@ weight: 11113
     
     
     groups members:[]
-    module: [tender_yalow5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "global_a": "aaa",
-      "global_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "global_a": "aaa",
-      "global_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -52,46 +57,22 @@ weight: 11113
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "subtask1"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "local_b": "bbb",
-        "tom": "my name is tom",
-        "local_a": "aaa"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "global_a": "aaa",
       "global_b": "bbb",
-      "local_b": "bbb",
-      "tom": "my name is tom",
-      "local_a": "aaa"
-    })
-    
-    tender_yalow5: overall final exec vars:
-    
-    (*core.Cache)({
       "tom": "my name is tom",
       "local_a": "aaa",
+      "local_b": "bbb",
+      "global_a": "aaa"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "global_a": "aaa",
       "global_b": "bbb",
+      "tom": "my name is tom",
+      "local_a": "aaa",
       "local_b": "bbb"
     })
     
@@ -100,54 +81,25 @@ weight: 11113
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"my name is tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "global_b": "bbb",
       "local_b": "bbb",
+      "up_runtime_task_layer_number": 1,
+      "global_a": "aaa",
+      "global_b": "bbb",
       "tom": "my name is tom",
-      "local_a": "aaa",
-      "global_a": "aaa"
+      "local_a": "aaa"
     })
     
-    tender_yalow5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "local_b": "bbb",
+      "global_a": "aaa",
+      "global_b": "bbb",
       "tom": "my name is tom",
       "local_a": "aaa",
-      "global_a": "aaa",
-      "up_runtime_task_layer_number": 1,
-      "global_b": "bbb"
+      "local_b": "bbb",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -155,56 +107,25 @@ weight: 11113
     ~~SubStep2: [assert:  ]
      1 ASSERT OK:     [{{eq .tom "my name is tom"}}]
     --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "{{.tom}}"
-        },
-        {
-          "name": "assert",
-          "cmd": {
-            "{{eq .tom \"my name is tom\"}}"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "tom": "hi i am tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "tom": "my name is tom",
       "global_a": "aaa",
       "global_b": "bbb",
-      "local_b": "bbb",
       "local_a": "aaa",
+      "local_b": "bbb",
       "up_runtime_task_layer_number": 1
     })
     
-    tender_yalow5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "global_b": "bbb",
-      "local_b": "bbb",
-      "local_a": "aaa",
       "up_runtime_task_layer_number": 1,
       "tom": "my name is tom",
-      "global_a": "aaa"
+      "global_a": "aaa",
+      "global_b": "bbb",
+      "local_a": "aaa",
+      "local_b": "bbb"
     })
     
     ~~SubStep1: [print:  ]

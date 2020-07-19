@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvv"
-date: 2020-07-01T15:34:33+77:00
+date: 2020-07-20T02:01:45+77:00
 draft: false
 weight: 10903
 
@@ -17,7 +17,7 @@ weight: 10903
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0090
                  Verbose -> vvvv
-              ModuleName -> jolly_blackwell5
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10903
     
     
     groups members:[]
-    module: [jolly_blackwell5] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -47,39 +52,39 @@ weight: 10903
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1:
-    {
-      Name: "",
-      Do: {
-        "task_callee2"
-      },
-      Dox: <nil>,
-      Func: "call",
-      Vars: {
-        "taskvar": "taskvar"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: {
-        "tom",
-        "peter",
-        "james"
-      },
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
+    -Step1: [wrong_usage: note that you can't access loopitem in dvar processing in curent func
+    you can only access loopitem in dvar processing when it is called as callee, as corret_usage shows
+    however you can access loopitem in do action
+     ]
+    current exec runtime vars:
+    (*core.Cache)({
+    })
     
+    dvar> person:
+    "None"
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "person": "None"
+    })
+    
+    ~SubStep1: [print:  ]
+    loopitme could be accessed here: tom
+    
+    ~SubStep1: [print:  ]
+    loopitme could be accessed here: peter
+    
+    ~SubStep1: [print:  ]
+    loopitme could be accessed here: james
+    
+    -Step2: [corret_usage:  ]
     current exec runtime vars:
     (*core.Cache)({
       "taskvar": "taskvar"
     })
     
-    jolly_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "taskvar": "taskvar"
@@ -90,101 +95,27 @@ weight: 10903
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "as explained, this should be <no value>",
-          "cmd": "callee2: {{.person}}"
-        },
-        {
-          "cmd": "callee2: {{.loopitem}}",
-          "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n"
-        },
-        {
-          "name": "print",
-          "cmd": "callee2: {{.greet}}"
-        },
-        {
-          "name": "print",
-          "cmd": "taskvar: {{.taskvar}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "person",
-          Value: "{{.loopitem}}",
-          Desc: "loopitem is not availab yet when dvar is expanded\ndue to the design that caller's var will override\nthe callee's var, the loopitem should not be availabe\nin dvar and this is not a bug\n",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "greet",
-          Value: "hello",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
-      "taskvar": "taskvar",
       "loopitem": "tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar"
     })
     
     dvar> person:
     "tom"
     
-    dvar> greet:
-    "hello"
-    
-    jolly_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "taskvar": "taskvar",
       "loopitem": "tom",
-      "person": "tom",
-      "greet": "hello",
       "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar"
+      "person": "tom"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -194,7 +125,7 @@ weight: 10903
      ]
     callee2: tom
     ~~SubStep3: [print:  ]
-    callee2: hello
+    callee2: <no value>
     ~~SubStep4: [print:  ]
     taskvar: taskvar
       located task-> 3 [task_callee2]: 
@@ -202,76 +133,6 @@ weight: 10903
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "desc": "as explained, this should be <no value>",
-          "cmd": "callee2: {{.person}}"
-        },
-        {
-          "cmd": "callee2: {{.loopitem}}",
-          "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n"
-        },
-        {
-          "name": "print",
-          "cmd": "callee2: {{.greet}}"
-        },
-        {
-          "name": "print",
-          "cmd": "taskvar: {{.taskvar}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "person",
-          Value: "{{.loopitem}}",
-          Desc: "loopitem is not availab yet when dvar is expanded\ndue to the design that caller's var will override\nthe callee's var, the loopitem should not be availabe\nin dvar and this is not a bug\n",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "greet",
-          Value: "hello",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
       "taskvar": "taskvar",
@@ -284,19 +145,15 @@ weight: 10903
     dvar> person:
     "peter"
     
-    dvar> greet:
-    "hello"
-    
-    jolly_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "person": "peter",
-      "greet": "hello",
       "taskvar": "taskvar",
       "loopitem": "peter",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "peter"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -306,7 +163,7 @@ weight: 10903
      ]
     callee2: peter
     ~~SubStep3: [print:  ]
-    callee2: hello
+    callee2: <no value>
     ~~SubStep4: [print:  ]
     taskvar: taskvar
       located task-> 3 [task_callee2]: 
@@ -314,101 +171,27 @@ weight: 10903
     Executing task stack layer: 2
     
     --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "callee2: {{.person}}",
-          "name": "print",
-          "desc": "as explained, this should be <no value>"
-        },
-        {
-          "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n",
-          "cmd": "callee2: {{.loopitem}}"
-        },
-        {
-          "name": "print",
-          "cmd": "callee2: {{.greet}}"
-        },
-        {
-          "name": "print",
-          "cmd": "taskvar: {{.taskvar}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: {
-        {
-          Name: "person",
-          Value: "{{.loopitem}}",
-          Desc: "loopitem is not availab yet when dvar is expanded\ndue to the design that caller's var will override\nthe callee's var, the loopitem should not be availabe\nin dvar and this is not a bug\n",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        },
-        {
-          Name: "greet",
-          Value: "hello",
-          Desc: "",
-          Expand: 0,
-          Flags: {
-            "vvvv"
-          },
-          Rendered: "",
-          Secure: (*utils.SecureSetting)(<nil>),
-          Ref: "",
-          RefDir: "",
-          DataKey: "",
-          DataPath: "",
-          DataTemplate: ""
-        }
-      },
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "james",
+      "loopindex": 2,
       "loopindex1": 3,
       "taskvar": "taskvar",
-      "loopitem": "james",
-      "up_runtime_task_layer_number": 1,
-      "loopindex": 2
+      "up_runtime_task_layer_number": 1
     })
     
     dvar> person:
     "james"
     
-    dvar> greet:
-    "hello"
-    
-    jolly_blackwell5: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "greet": "hello",
-      "person": "james",
+      "loopitem": "james",
       "loopindex": 2,
       "loopindex1": 3,
       "taskvar": "taskvar",
-      "loopitem": "james"
+      "up_runtime_task_layer_number": 1,
+      "person": "james"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -418,7 +201,7 @@ weight: 10903
      ]
     callee2: james
     ~~SubStep3: [print:  ]
-    callee2: hello
+    callee2: <no value>
     ~~SubStep4: [print:  ]
     taskvar: taskvar
     

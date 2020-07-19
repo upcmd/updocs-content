@@ -1,6 +1,6 @@
 ---
 title: "c0009_vvvvv"
-date: 2020-07-01T15:34:21+77:00
+date: 2020-07-20T02:01:30+77:00
 draft: false
 weight: 10094
 
@@ -17,7 +17,7 @@ weight: 10094
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0009
                  Verbose -> vvvvv
-              ModuleName -> happy_fermat9
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -28,19 +28,19 @@ weight: 10094
     loading [Task]:  ./tests/functests/c0009
     loading [ref vars]:  ./tests/functests/d0009-global.yml
     (core.Cache) (len=4) {
+     (string) (len=1) "b": (string) (len=8) "global-b",
      (string) (len=1) "c": (string) (len=8) "global-c",
      (string) (len=1) "d": (string) (len=8) "global-d",
-     (string) (len=1) "a": (string) (len=8) "global-a",
-     (string) (len=1) "b": (string) (len=8) "global-b"
+     (string) (len=1) "a": (string) (len=8) "global-a"
     }
     
     loading vars from: d0009-global.yml
     
     {
-      "d": "global-d",
       "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
+      "c": "global-c",
+      "d": "global-d"
     }
     
     loading [ref vars]:  ./tests/functests/d0009-dev.yml
@@ -52,22 +52,22 @@ weight: 10094
     loading vars from: d0009-dev.yml
     
     {
-      "a": "dev-a",
-      "c": "dev-c"
+      "c": "dev-c",
+      "a": "dev-a"
     }
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d71a0)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001db140)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) (len=16) "d0009-global.yml",
       RefDir: (string) (len=17) "./tests/functests",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "c": (string) (len=8) "global-c",
-       (string) (len=1) "d": (string) (len=8) "global-d",
        (string) (len=1) "a": (string) (len=8) "global-a",
-       (string) (len=1) "b": (string) (len=8) "global-b"
+       (string) (len=1) "b": (string) (len=8) "global-b",
+       (string) (len=1) "c": (string) (len=8) "global-c",
+       (string) (len=1) "d": (string) (len=8) "global-d"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -95,9 +95,9 @@ weight: 10094
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=3) {
+       (string) (len=1) "a": (string) (len=10) "non-prod-a",
        (string) (len=1) "b": (string) (len=10) "non-prod-b",
-       (string) (len=1) "c": (string) (len=10) "non-prod-c",
-       (string) (len=1) "a": (string) (len=10) "non-prod-a"
+       (string) (len=1) "c": (string) (len=10) "non-prod-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -131,10 +131,10 @@ weight: 10094
     
     
     scope[global] merged: {
-      "b": "global-b",
       "c": "global-c",
       "d": "global-d",
-      "a": "global-a"
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
@@ -144,8 +144,8 @@ weight: 10094
     
     
     scope[prod] merged: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -164,8 +164,8 @@ weight: 10094
     ---------group vars----------
     
     prod: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -177,39 +177,44 @@ weight: 10094
     
     
     global: {
-      "d": "global-d",
       "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
+      "c": "global-c",
+      "d": "global-d"
     }
     
     
     groups members:[dr prod dev st staging]
-    module: [happy_fermat9] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
     
     
     scope[dev] merged: {
-      "a": "dev-a",
-      "c": "dev-c"
+      "c": "dev-c",
+      "a": "dev-a"
     }
     
     
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d"
     }
     
     (core.Cache) (len=4) {
+     (string) (len=1) "c": (string) (len=5) "dev-c",
      (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=5) "dev-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b",
-     (string) (len=1) "c": (string) (len=5) "dev-c"
+     (string) (len=1) "b": (string) (len=10) "non-prod-b"
     }
     
     [runtime global] dvar expanded result:
@@ -220,10 +225,10 @@ weight: 10094
     -------runtime global final merged with dvars-------
     
     {
-      "d": "global-d",
-      "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d",
+      "a": "dev-a"
     }
     
       located task-> 1 [task]: 
@@ -265,29 +270,31 @@ weight: 10094
     
     
     scope[local] merged: {
+      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "a": "dev-a"
+      "d": "global-d"
     }
     
     
-    happy_fermat9: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
+      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "a": "dev-a"
+      "d": "global-d"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
-     \_ echo "test out the var scopes only"
+    cmd=>:
+    echo "test out the var scopes only"<=
     test out the var scopes only
      .. ok
     (utils.ExecResult) {
+     Cmd: (string) (len=35) "echo \"test out the var scopes only\"",
      Code: (int) 0,
      Output: (string) (len=28) "test out the var scopes only",
      ErrMsg: (string) ""

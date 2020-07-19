@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvv"
-date: 2020-07-01T15:34:23+77:00
+date: 2020-07-20T02:01:32+77:00
 draft: false
 weight: 10223
 
@@ -17,7 +17,7 @@ weight: 10223
               AbsWorkDir -> /up_project/up
                 TaskFile -> c0022
                  Verbose -> vvvv
-              ModuleName -> adoring_newton1
+              ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
      MaxModuelCallLayers -> 256
@@ -33,7 +33,12 @@ weight: 10223
     
     
     groups members:[]
-    module: [adoring_newton1] instance id: [dev]
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
+    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,40 +53,15 @@ weight: 10223
     Executing task stack layer: 1
     
     -Step1:
-    {
-      Name: "",
-      Do: {
-        "echo \"\"\"{{.info}}\"\"\"\n"
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
-        "student": "Tom"
-      },
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
     current exec runtime vars:
     (*core.Cache)({
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+      "school": "Sydney Grammar"
     })
     
-    adoring_newton1: overall final exec vars:
+    self: final context exec vars:
     
     (*core.Cache)({
       "student": "Tom",
@@ -94,11 +74,12 @@ weight: 10223
     echo """{{.info}}"""
     
     
-     \_ echo """my student: {{.student}}
+    cmd=>:
+    echo """my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
     """
-    
+    <=
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
