@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvv"
-date: 2020-07-20T02:01:37+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10433
 
@@ -20,12 +20,19 @@ weight: 10433
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0043
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10433
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -94,22 +95,25 @@ weight: 10433
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aa",
       "b": "bb",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "a": "aa"
+      })
     })
     
     dvar> adebug:
     "aa"
     
+    -
+    aa
     self: final context exec vars:
     
     (*core.Cache)({
+      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
@@ -117,8 +121,7 @@ weight: 10433
         ErrMsg: ""
       }),
       "a": "aa",
-      "b": "bb",
-      "adebug": "aa"
+      "b": "bb"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -135,13 +138,15 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc",
-      "d": "dd"
+      "d": "dd",
+      "c": "cc"
     })
     
     dvar> cdebug:
     "cc"
     
+    -
+    cc
     self: final context exec vars:
     
     (*core.Cache)({
@@ -151,8 +156,8 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc",
       "d": "dd",
+      "c": "cc",
       "cdebug": "cc"
     })
     

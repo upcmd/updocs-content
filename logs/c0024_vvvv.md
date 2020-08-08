@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvv"
-date: 2020-07-20T02:01:33+77:00
+date: 2020-08-09T01:36:02+88:00
 draft: false
 weight: 10243
 
@@ -20,12 +20,19 @@ weight: 10243
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0024
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,18 +40,12 @@ weight: 10243
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
@@ -52,9 +53,9 @@ weight: 10243
     
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -67,25 +68,25 @@ weight: 10243
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
       "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "studentname": "Tom",
+      "studentgender": "Male",
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
-      },
-      "studentname": "Tom",
-      "studentgender": "Male"
+      }
     })
     
     cmd( 1):

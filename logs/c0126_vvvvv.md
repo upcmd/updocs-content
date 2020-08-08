@@ -1,6 +1,6 @@
 ---
 title: "c0126_vvvvv"
-date: 2020-07-20T02:01:51+77:00
+date: 2020-08-09T01:36:18+88:00
 draft: false
 weight: 11264
 
@@ -20,14 +20,21 @@ weight: 11264
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0126
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf340)(<nil>)
+    (*impl.Scopes)(0xc0000a2740)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11264
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -68,8 +69,8 @@ weight: 11264
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n"
+          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -84,7 +85,10 @@ weight: 11264
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -132,7 +136,10 @@ weight: 11264
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -173,7 +180,10 @@ weight: 11264
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -207,8 +217,8 @@ weight: 11264
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "do something else ......."
+          "cmd": "do something else .......",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -223,7 +233,10 @@ weight: 11264
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:

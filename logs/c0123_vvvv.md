@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvv"
-date: 2020-07-20T02:01:51+77:00
+date: 2020-08-09T01:36:17+88:00
 draft: false
 weight: 11233
 
@@ -20,12 +20,19 @@ weight: 11233
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0123
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11233
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -65,21 +66,21 @@ weight: 11233
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     ~SubStep1: [print:  ]
@@ -89,21 +90,21 @@ weight: 11233
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     ~SubStep1: [print:  ]
@@ -111,21 +112,21 @@ weight: 11233
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     condition failed, skip executing step 
@@ -133,19 +134,19 @@ weight: 11233
     -Step4: [query:  ]
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+        "sex": "male",
+        "name": "tom"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -154,21 +155,21 @@ weight: 11233
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     condition failed, skip executing step 

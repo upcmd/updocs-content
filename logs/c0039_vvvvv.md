@@ -1,6 +1,6 @@
 ---
 title: "c0039_vvvvv"
-date: 2020-07-20T02:01:36+77:00
+date: 2020-08-09T01:36:04+88:00
 draft: false
 weight: 10394
 
@@ -20,14 +20,21 @@ weight: 10394
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0039
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002baa20)(<nil>)
+    (*impl.Scopes)(0xc0001f5680)(<nil>)
     
     ---------group vars----------
     
@@ -36,27 +43,18 @@ weight: 10394
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "age": 34,
       "ns": "prod",
-      "pod_name": "web_app",
-      "ha": true,
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
       "old": 54,
-      "managers": {
+      "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "age": 34,
       "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
       "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
       "student": {
         "gender": "Male",
@@ -75,35 +73,42 @@ weight: 10394
         },
         "name": "Tom"
       },
-      "admins": {
+      "nobody": <nil>,
+      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+      "ha": true,
+      "pod_name": "web_app",
+      "managers": {
         "tom",
         "jason",
         "alice"
-      },
-      "nobody": <nil>
+      }
     }
     
     (core.Cache) (len=13) {
-     (string) (len=2) "ns": (string) (len=4) "prod",
-     (string) (len=8) "pod_name": (string) (len=7) "web_app",
-     (string) (len=2) "ha": (bool) true,
+     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
+      (string) (len=3) "tom",
+      (string) (len=5) "jason",
+      (string) (len=5) "alice"
+     },
+     (string) (len=33) "template_def_consume_dynamic_main": (string) (len=138) "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
      (string) (len=31) "template_def_consume_dynamic_t3": (string) (len=126) "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-     (string) (len=31) "template_def_consume_dynamic_t1": (string) (len=33) "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+     (string) (len=3) "age": (int) 34,
+     (string) (len=2) "ns": (string) (len=4) "prod",
      (string) (len=3) "old": (int) 54,
+     (string) (len=2) "ha": (bool) true,
+     (string) (len=8) "pod_name": (string) (len=7) "web_app",
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
      },
-     (string) (len=3) "age": (int) 34,
-     (string) (len=33) "template_def_consume_dynamic_main": (string) (len=138) "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
      (string) (len=31) "template_def_consume_dynamic_t2": (string) (len=32) "{{define \"T2\"}}TWO: {{.}}{{end}}",
      (string) (len=7) "student": (map[string]interface {}) (len=4) {
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "suburb": (map[string]interface {}) (len=3) {
+        (string) (len=4) "name": (string) (len=6) "sydney",
         (string) (len=8) "postcode": (int) 2000,
-        (string) (len=3) "cbd": (bool) true,
-        (string) (len=4) "name": (string) (len=6) "sydney"
+        (string) (len=3) "cbd": (bool) true
        },
        (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
       },
@@ -115,27 +120,48 @@ weight: 10394
        (string) (len=5) "alice"
       }
      },
-     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
-      (string) (len=3) "tom",
-      (string) (len=5) "jason",
-      (string) (len=5) "alice"
-     },
-     (string) (len=6) "nobody": (interface {}) <nil>
+     (string) (len=6) "nobody": (interface {}) <nil>,
+     (string) (len=31) "template_def_consume_dynamic_t1": (string) (len=33) "{{define \"T1\"}}ONE: {{.}}{{end}}\n"
     }
     
     dvar> usage_of_with:
     "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  "
     
+    -
+      student name: Tom
+      school name: Sydney Grammar
+      Male
+      
     dvar> usage_of_with_else:
     "  i am somebody  "
     
+    -
+      i am somebody  
     dvar> template_def_plain:
     "\n\n\nONE TWO\"\n"
+    
+    -
+    
+    
+    
+    ONE TWO"
     
     dvar> template_def_consume:
     "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n"
     
-          template rendering problem -> template: .:4:11: executing "." at <{{template "T3" .student}}>: template "T3" not defined
+    -
+    
+    show example of how you can define reusable template
+    and how you can pass in the parameters
+    
+    
+    
+    
+    student:
+      name: ONE: Tom
+      gender: TWO: Male
+    
+          template rendering -> template: .:4:11: executing "." at <{{template "T3" .student}}>: template "T3" not defined
     WARN:
         1:{{.template_def_consume_dynamic_t1}}
         2:{{.template_def_consume_dynamic_t2}}
@@ -144,70 +170,91 @@ weight: 10394
         5:
         6:
     
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
     -----trace for reference-----
     dvar> template_def_consume_dynamic:
     "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n"
     
+    -
+    
+    
+    
+    
+    student:
+      name: ONE: Tom
+      gender: TWO: Male
+    
+    
     dvar> template_use_block:
     "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n"
     
+    -
+    
+    
+    student:
+      name: ONE: Tom
+    gender: TWO: Male
+    
+    
     [runtime global] dvar expanded result:
     {
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
       "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
       "usage_of_with_else": "  i am somebody  ",
       "template_def_plain": "\n\n\nONE TWO\"\n",
       "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n"
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
       "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
-      "ns": "prod",
-      "pod_name": "web_app",
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
-      "usage_of_with_else": "  i am somebody  ",
       "old": 54,
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
-      "ha": true,
-      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
-      "template_def_plain": "\n\n\nONE TWO\"\n",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
-      "age": 34,
       "student": {
-        "address": {
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
-        },
         "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
+        },
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          }
         }
       },
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
       "nobody": <nil>,
+      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
+      "ns": "prod",
+      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "pod_name": "web_app",
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "usage_of_with_else": "  i am somebody  ",
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
+      "age": 34,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
       "managers": {
         "tom",
         "jason",
         "alice"
-      }
+      },
+      "ha": true,
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n"
     }
     
       located task-> 1 [task]: 
@@ -239,123 +286,35 @@ weight: 10394
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
-      "pod_name": "web_app",
-      "nobody": <nil>,
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
+      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
+      "old": 54,
+      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
       "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "usage_of_with_else": "  i am somebody  ",
+      "age": 34,
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "ns": "prod",
-      "usage_of_with_else": "  i am somebody  ",
-      "ha": true,
-      "template_def_plain": "\n\n\nONE TWO\"\n",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "age": 34,
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
-      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
-      "old": 54,
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
-      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n"
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "nobody": <nil>,
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
-      "ha": true,
-      "ns": "prod",
-      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "student": {
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom",
-        "gender": "Male"
-      },
       "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "template_def_plain": "\n\n\nONE TWO\"\n",
-      "pod_name": "web_app",
-      "usage_of_with_else": "  i am somebody  ",
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
-      "old": 54,
-      "age": 34,
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
-      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
-      "old": 54,
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
-      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "age": 34,
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
       "student": {
         "gender": "Male",
         "teachers": {
@@ -373,20 +332,111 @@ weight: 10394
         },
         "name": "Tom"
       },
+      "ha": true,
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
+      "ns": "prod",
       "pod_name": "web_app",
-      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "usage_of_with_else": "  i am somebody  ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "nobody": <nil>,
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
       "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "ha": true,
-      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
+      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+      "nobody": <nil>,
       "ns": "prod",
-      "usage_of_with_else": "  i am somebody  "
+      "age": 34,
+      "old": 54,
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        },
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "cbd": true,
+            "name": "sydney",
+            "postcode": 2000
+          }
+        }
+      },
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "pod_name": "web_app",
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "ha": true,
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
+      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
+      "old": 54,
+      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "usage_of_with_else": "  i am somebody  ",
+      "age": 34,
+      "nobody": <nil>,
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        },
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "cbd": true,
+            "name": "sydney",
+            "postcode": 2000
+          }
+        }
+      },
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "ha": true,
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
+      "ns": "prod",
+      "pod_name": "web_app"
     })
     
     cmd( 1):
@@ -400,6 +450,7 @@ weight: 10394
     value\n   student name: Tom
       school name: Sydney Grammar
       Male
+      
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=74) "echo \"value\\n   student name: Tom\n  school name: Sydney Grammar\n  Male\n  \"",
@@ -437,6 +488,7 @@ weight: 10394
       name: ONE: Tom
       gender: TWO: Male
     "<=
+    
     show example of how you can define reusable template
     and how you can pass in the parameters
     
@@ -446,6 +498,7 @@ weight: 10394
     student:
       name: ONE: Tom
       gender: TWO: Male
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=150) "echo \"\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\"",
@@ -461,6 +514,7 @@ weight: 10394
     echo "{{define "T1"}}ONE: {{.}}{{end}}
     "<=
     {{define T1}}ONE: {{.}}{{end}}
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=40) "echo \"{{define \"T1\"}}ONE: {{.}}{{end}}\n\"",
@@ -496,6 +550,7 @@ weight: 10394
       name: {{template T1 .name}}
       gender: {{template T2 .gender}}{{end}}
     {{template T3 .student}}
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=133) "echo \"{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n\"",
@@ -517,9 +572,15 @@ weight: 10394
       gender: TWO: Male
     
     "<=
+    
+    
+    
+    
     student:
       name: ONE: Tom
       gender: TWO: Male
+    
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=58) "echo \"\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n\"",
@@ -539,9 +600,13 @@ weight: 10394
     gender: TWO: Male
     
     "<=
+    
+    
     student:
       name: ONE: Tom
     gender: TWO: Male
+    
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=54) "echo \"\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n\"",

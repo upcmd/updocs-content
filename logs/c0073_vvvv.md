@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvv"
-date: 2020-07-20T02:01:42+77:00
+date: 2020-08-09T01:36:09+88:00
 draft: false
 weight: 10733
 
@@ -20,12 +20,19 @@ weight: 10733
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0073
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10733
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "my_interesting_story6": "hello\nworld\n\n\n",
@@ -52,12 +53,12 @@ weight: 10733
     -------runtime global final merged with dvars-------
     
     {
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story1": "hello\nworld\n"
     }
     
       located task-> 1 [task]: 
@@ -67,23 +68,23 @@ weight: 10733
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n"
     })
     
     ~SubStep1: [print: literal style, there will be a line break ]
@@ -103,27 +104,27 @@ weight: 10733
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "newstory_clean": "same old story",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "newstory_with_blank_space_front_and_tail": " same old story "
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "newstory_clean": "same old story",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "newstory_with_blank_space_front_and_tail": " same old story "
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
+      "my_interesting_story2": "hello world"
     })
     
     cmd( 1):

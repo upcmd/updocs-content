@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvv"
-date: 2020-07-20T02:01:48+77:00
+date: 2020-08-09T01:36:14+88:00
 draft: false
 weight: 11053
 
@@ -20,12 +20,19 @@ weight: 11053
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0105
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11053
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -99,8 +100,8 @@ weight: 11053
     self: final context exec vars:
     
     (*core.Cache)({
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "hitom": "hello, this is tom"
     })
     
     ~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func ]
@@ -111,15 +112,15 @@ weight: 11053
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "hitom": "hello, this is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print: hijerry is not accessible here and got <no value> ]

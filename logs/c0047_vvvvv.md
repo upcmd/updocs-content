@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvvv"
-date: 2020-07-20T02:01:37+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10474
 
@@ -20,14 +20,21 @@ weight: 10474
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0047
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175180)((len=1 cap=1) {
+    (*impl.Scopes)(0xc00016d1c0)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -89,21 +96,15 @@ weight: 10474
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=11) "student_age": (string) (len=2) "28",
-     (string) (len=12) "student_name": (string) (len=9) "Tom Hanks"
+     (string) (len=12) "student_name": (string) (len=9) "Tom Hanks",
+     (string) (len=11) "student_age": (string) (len=2) "28"
     }
     
     [runtime global] dvar expanded result:
@@ -142,14 +143,17 @@ weight: 10474
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_name": "Tom Hanks"
     })
     
     [local] dvar expanded result:
@@ -158,18 +162,18 @@ weight: 10474
     
     
     scope[local] merged: {
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_name": "Tom Hanks"
     })
     
     cmd( 1):
@@ -182,9 +186,11 @@ weight: 10474
     age: 28
     """
     <=
+    
     student details:
     name: Tom Hanks
     age: 28
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=54) "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",

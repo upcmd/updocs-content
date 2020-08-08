@@ -1,6 +1,6 @@
 ---
 title: "f0045_vvvvv"
-date: 2020-07-20T02:01:58+77:00
+date: 2020-08-09T01:36:28+88:00
 draft: false
 weight: 10454
 
@@ -20,14 +20,21 @@ weight: 10454
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/f0045
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f00)((len=1 cap=1) {
+    (*impl.Scopes)(0xc000174f40)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -53,7 +60,58 @@ weight: 10454
      }
     })
     
-      ERROR: validateMandatoryFailIfNone [Required var:(student_name) must not be empty, please fix it]
+          template rendering -> template: .:1:23: executing "." at <validateMandatoryFailIfNone "student_name">: error calling validateMandatoryFailIfNone:   ERROR: validateMandatoryFailIfNone [Required var:(student_name) must not be empty, please fix it]
+    
+    WARN:
+        1:{{ env "STUDENT_NAME" |validateMandatoryFailIfNone "student_name" }}
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
+    -----trace for reference-----
+    [global] dvar expanded result:
+    {
+      "student_name": "None"
+    }
+    
+    
+    scope[global] merged: {
+      "student_name": "None"
+    }
+    
+    
+    ---------group vars----------
+    
+    global: {
+      "student_name": "None"
+    }
+    
+    
+    groups members:[]
+    merged[ dev ] runtime vars:
+    {
+      "student_name": "None"
+    }
+    
+    (core.Cache) (len=1) {
+     (string) (len=12) "student_name": (string) (len=4) "None"
+    }
+    
+    [runtime global] dvar expanded result:
+    {
+    }
+    
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "student_name": "None"
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
     
 ```
 

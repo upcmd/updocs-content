@@ -1,6 +1,6 @@
 ---
 title: "c0098_vvvv"
-date: 2020-07-20T02:01:46+77:00
+date: 2020-08-09T01:36:13+88:00
 draft: false
 weight: 10983
 
@@ -20,12 +20,19 @@ weight: 10983
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0098
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,20 +40,14 @@ weight: 10983
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "aaa": "aaa",
       "datapointer": "student",
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "nsw": {
         "sydney": {
@@ -64,6 +65,12 @@ weight: 10983
     -------runtime global final merged with dvars-------
     
     {
+      "datapointer": "student",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -75,13 +82,7 @@ weight: 10983
           }
         }
       },
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+      "aaa": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -91,37 +92,6 @@ weight: 10983
     -Step1: [: use sub element of an var as context to render values ]
     current exec runtime vars:
     (*core.Cache)({
-      "datapointer": "student",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
-            }
-          }
-        }
-      },
-      "aaa": "aaa"
-    })
-    
-    dvar> student_info:
-    "my name is:<no value> and I am in <no value>"
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -135,7 +105,40 @@ weight: 10983
       },
       "aaa": "aaa",
       "datapointer": "student",
-      "student_info": "my name is:<no value> and I am in <no value>"
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
+    })
+    
+    dvar> student_info:
+    "my name is:<no value> and I am in <no value>"
+    
+    -
+    my name is:<no value> and I am in <no value>
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "student_info": "my name is:<no value> and I am in <no value>",
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "gender": "Male",
+              "school": "Sydney Grammar",
+              "name": "Tom"
+            }
+          }
+        }
+      },
+      "aaa": "aaa",
+      "datapointer": "student"
     })
     
     ~SubStep1: [print:  ]

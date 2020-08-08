@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:12+88:00
 draft: false
 weight: 10883
 
@@ -20,12 +20,19 @@ weight: 10883
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0088
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,17 +40,9 @@ weight: 10883
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
             "cbd": true,
@@ -51,7 +50,9 @@ weight: 10883
             "postcode": 2000
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
     }
     
@@ -59,7 +60,6 @@ weight: 10883
     
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
         "address": {
           "school": "Sydney Grammar",
@@ -68,7 +68,8 @@ weight: 10883
             "name": "sydney",
             "postcode": 2000
           }
-        }
+        },
+        "name": "Tom"
       }
     }
     
@@ -80,16 +81,16 @@ weight: 10883
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
+            "cbd": true
           }
-        }
+        },
+        "name": "Tom"
       },
       "dynadir": "./tests/functests"
     })
@@ -97,7 +98,15 @@ weight: 10883
     dvar> sgp_address_dyna_dir:
     "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     
-    dvar> sgp_address_dyna_dir_object:
+    -
+    address:
+      suburb:
+        name: sydney
+        postcode: 2000
+        CBD: yes
+      school: Sydney Grammar
+    
+    dvar[object]> sgp_address_dyna_dir_object:
     {
       "address": {
         "suburb": {
@@ -112,30 +121,30 @@ weight: 10883
     self: final context exec vars:
     
     (*core.Cache)({
-      "sgp_address_dyna_dir_object": {
+      "student": {
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
-            "CBD": true
+            "cbd": true
           }
-        }
-      },
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "student": {
+        },
         "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          }
-        }
+        "gender": "Male"
       },
-      "dynadir": "./tests/functests"
+      "dynadir": "./tests/functests",
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "sgp_address_dyna_dir_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      }
     })
     
     cmd( 1):
@@ -155,6 +164,7 @@ weight: 10883
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
+    
      .. ok
     cmd( 2):
     echo """1.address object-> \n{{.sgp_address_dyna_dir_object}}"""

@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvvv"
-date: 2020-07-20T02:01:50+77:00
+date: 2020-08-09T01:36:17+88:00
 draft: false
 weight: 11184
 
@@ -20,14 +20,21 @@ weight: 11184
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0118
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175260)(<nil>)
+    (*impl.Scopes)(0xc000226660)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11184
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "items": {
@@ -108,38 +109,13 @@ weight: 11184
       },
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
-    (*core.Cache)({
-      "loopkey": "items",
-      "person": "tom",
-      "items": {
-        "item1",
-        "item2",
-        "item3"
-      }
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "person": "tom",
-      "items": {
-        "item1",
-        "item2",
-        "item3"
-      },
-      "loopkey": "items"
-    }
-    
-    
-    self: final context exec vars:
-    
     (*core.Cache)({
       "items": {
         "item1",
@@ -150,6 +126,34 @@ weight: 11184
       "person": "tom"
     })
     
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "items": {
+        "item1",
+        "item2",
+        "item3"
+      },
+      "loopkey": "items",
+      "person": "tom"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopkey": "items",
+      "person": "tom",
+      "items": {
+        "item1",
+        "item2",
+        "item3"
+      }
+    })
+    
     condition failed, skip executing step step1
     
     -Step2: [step1: demo use if condition is true ]
@@ -157,8 +161,8 @@ weight: 11184
       Name: "step1",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -179,18 +183,21 @@ weight: 11184
       },
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
-      "person": "tom"
+      "loopkey": "items"
     })
     
     [local] dvar expanded result:
@@ -244,7 +251,10 @@ weight: 11184
       Loop: "{{.loopkey}}",
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -263,12 +273,12 @@ weight: 11184
     
     
     scope[local] merged: {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     }
     
     

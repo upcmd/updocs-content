@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvv"
-date: 2020-07-20T02:01:37+77:00
+date: 2020-08-09T01:36:04+88:00
 draft: false
 weight: 10423
 
@@ -20,12 +20,19 @@ weight: 10423
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0042
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10423
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -92,17 +93,21 @@ weight: 10423
     dvar> reg_hello:
     "hello: hanks\n\n"
     
+    -
+    hello: hanks
+    
+    
     self: final context exec vars:
     
     (*core.Cache)({
+      "hellomsg": "hanks",
+      "reg_hello": "hello: hanks\n\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "reg_hello": "hello: hanks\n\n"
+      })
     })
     
     cmd( 1):
@@ -120,6 +125,8 @@ weight: 10423
     
     "<=
     reg_hello - hello: hanks
+    
+    
      .. ok
     . ok
     -Step3: [: the hellomsg will be still availabe in this step
@@ -202,16 +209,19 @@ weight: 10423
     dvar> void:
     "hello: something\n"
     
+    -
+    hello: something
+    
     self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      }),
-      "iamvoid": "something"
+      })
     })
     
     cmd( 1):
@@ -237,13 +247,13 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     })
     
     cmd( 1):

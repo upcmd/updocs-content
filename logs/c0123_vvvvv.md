@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvvv"
-date: 2020-07-20T02:01:51+77:00
+date: 2020-08-09T01:36:17+88:00
 draft: false
 weight: 11234
 
@@ -20,14 +20,21 @@ weight: 11234
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0123
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175240)(<nil>)
+    (*impl.Scopes)(0xc0001b52a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11234
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
@@ -52,11 +53,11 @@ weight: 11234
     }
     
     (core.Cache) (len=2) {
+     (string) (len=6) "ymldoc": (string) (len=33) "student:\n  name: tom\n  sex: male\n",
      (string) (len=7) "student": (map[string]interface {}) (len=2) {
       (string) (len=4) "name": (string) (len=3) "tom",
       (string) (len=3) "sex": (string) (len=4) "male"
-     },
-     (string) (len=6) "ymldoc": (string) (len=33) "student:\n  name: tom\n  sex: male\n"
+     }
     }
     
     [runtime global] dvar expanded result:
@@ -103,14 +104,17 @@ weight: 11234
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -122,8 +126,8 @@ weight: 11234
     
     scope[local] merged: {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
@@ -133,8 +137,8 @@ weight: 11234
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -166,7 +170,10 @@ weight: 11234
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -185,8 +192,8 @@ weight: 11234
     
     scope[local] merged: {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
@@ -196,8 +203,8 @@ weight: 11234
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -226,14 +233,17 @@ weight: 11234
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -244,11 +254,11 @@ weight: 11234
     
     
     scope[local] merged: {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "name": "tom"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     
@@ -282,14 +292,17 @@ weight: 11234
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -312,8 +325,8 @@ weight: 11234
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
@@ -340,16 +353,19 @@ weight: 11234
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     [local] dvar expanded result:
@@ -358,22 +374,22 @@ weight: 11234
     
     
     scope[local] merged: {
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     condition failed, skip executing step 

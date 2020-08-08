@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvv"
-date: 2020-07-20T02:01:32+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10193
 
@@ -20,12 +20,19 @@ weight: 10193
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0019
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,19 +40,13 @@ weight: 10193
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
-      },
-      "school": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
+      }
     }
     
     -------runtime global final merged with dvars-------
@@ -65,23 +66,23 @@ weight: 10193
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "studentname": "Tom",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
       },
-      "school": "sydney grammar",
-      "studentname": "Tom"
+      "school": "sydney grammar"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sydney grammar",
       "studentname": "Tom",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
-      }
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
+      },
+      "school": "sydney grammar"
     })
     
     cmd( 1):

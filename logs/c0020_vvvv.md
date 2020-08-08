@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvv"
-date: 2020-07-20T02:01:32+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10203
 
@@ -20,12 +20,19 @@ weight: 10203
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0020
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10203
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sydney grammar"
@@ -81,18 +82,18 @@ weight: 10203
     --Step1: [: show school and student info ]
     current exec runtime vars:
     (*core.Cache)({
-      "gender": "male",
       "up_runtime_task_layer_number": 1,
-      "school": "sydney grammar",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "gender": "male",
+      "school": "sydney grammar"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sydney grammar",
       "studentname": "Tom",
       "gender": "male",
+      "school": "sydney grammar",
       "up_runtime_task_layer_number": 1
     })
     

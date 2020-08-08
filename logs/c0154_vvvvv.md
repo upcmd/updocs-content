@@ -1,6 +1,6 @@
 ---
 title: "c0154_vvvvv"
-date: 2020-07-20T02:01:56+77:00
+date: 2020-08-09T01:36:22+88:00
 draft: false
 weight: 11544
 
@@ -20,14 +20,21 @@ weight: 11544
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0154
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf4c0)(<nil>)
+    (*impl.Scopes)(0xc0001e54a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,27 +43,21 @@ weight: 11544
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "a": "aaa"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "b": (string) (len=3) "bbb",
      (string) (len=14) "sydney_grammar": (map[string]interface {}) (len=1) {
       (string) (len=7) "address": (string) (len=6) "sydney"
      },
-     (string) (len=1) "a": (string) (len=3) "aaa",
-     (string) (len=1) "b": (string) (len=3) "bbb"
+     (string) (len=1) "a": (string) (len=3) "aaa"
     }
     
     [runtime global] dvar expanded result:
@@ -100,7 +101,10 @@ weight: 11544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -129,11 +133,11 @@ weight: 11544
     self: final context exec vars:
     
     (*core.Cache)({
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "a": "aaa"
     })
     
     {{.c}}
@@ -145,8 +149,8 @@ weight: 11544
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.b.not_exist}}"
+          "cmd": "{{.b.not_exist}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -161,7 +165,10 @@ weight: 11544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -199,9 +206,12 @@ weight: 11544
     
     {{.b.not_exist}}
     ~SubStep1: [print:  ]
-          template rendering problem -> template: .:1:4: executing "." at <.b.not_exist>: can't evaluate field not_exist in type interface {}
+          template rendering -> template: .:1:4: executing "." at <.b.not_exist>: can't evaluate field not_exist in type interface {}
     WARN:
         1:{{.b.not_exist}}
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
     
     -----trace for reference-----
     
@@ -225,11 +235,11 @@ weight: 11544
           }
         },
         {
-          "name": "pathExisted",
           "cmd": {
-            "reg": "address_existed",
-            "path": "sydney_grammar.address"
-          }
+            "path": "sydney_grammar.address",
+            "reg": "address_existed"
+          },
+          "name": "pathExisted"
         },
         {
           "name": "pathExisted",
@@ -240,15 +250,15 @@ weight: 11544
           }
         },
         {
-          "name": "pathExisted",
           "cmd": {
             "path": "b.not_exist",
             "reg": "varb_sub_element_existed"
-          }
+          },
+          "name": "pathExisted"
         },
         {
-          "name": "print",
-          "cmd": "sydney_grammar.address exist: {{.address_existed}}\nsydney_grammar.state exist: {{.state_existed}}\nvarb_sub_element_existed exist: {{.varb_sub_element_existed}}\n"
+          "cmd": "sydney_grammar.address exist: {{.address_existed}}\nsydney_grammar.state exist: {{.state_existed}}\nvarb_sub_element_existed exist: {{.varb_sub_element_existed}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -263,7 +273,10 @@ weight: 11544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -281,22 +294,22 @@ weight: 11544
     
     
     scope[local] merged: {
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "a": "aaa",
+      "b": "bbb"
     })
     
     map[path:a.school_name reg:myschool]
@@ -354,21 +367,24 @@ weight: 11544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
+      "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa")
+      }
     })
     
     [local] dvar expanded result:
@@ -377,23 +393,6 @@ weight: 11544
     
     
     scope[local] merged: {
-      "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney"),
-      "address_existed": true,
-      "state_existed": false,
-      "varb_sub_element_existed": false,
-      "sydney_grammar": {
-        "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "state_existed": false,
       "varb_sub_element_existed": false,
       "sydney_grammar": {
         "address": "sydney"
@@ -402,7 +401,24 @@ weight: 11544
       "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
-      "address_existed": true
+      "address_existed": true,
+      "state_existed": false
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "address_existed": true,
+      "state_existed": false,
+      "varb_sub_element_existed": false,
+      "sydney_grammar": {
+        "address": "sydney"
+      },
+      "a": "aaa",
+      "b": "bbb",
+      "myschool": (*string)("aaa"),
+      "school_address": (*string)("sydney")
     })
     
     sydney_grammar.address exist: {{ pathExisted "sydney_grammar.address" }}
@@ -461,13 +477,14 @@ weight: 11544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
@@ -475,7 +492,9 @@ weight: 11544
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb",
+      "myschool": (*string)("aaa")
     })
     
     [local] dvar expanded result:
@@ -500,22 +519,22 @@ weight: 11544
     self: final context exec vars:
     
     (*core.Cache)({
+      "b": "bbb",
+      "myschool": (*string)("aaa"),
+      "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney")
+      "a": "aaa"
     })
     
     [exec_vars]
     ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars](*core.Cache)({
-      "varb_sub_element_existed": false,
+     1: inspect[exec_vars]
+    (*core.Cache)({
       "sydney_grammar": {
         "address": "sydney"
       },
@@ -524,7 +543,8 @@ weight: 11544
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
-      "state_existed": false
+      "state_existed": false,
+      "varb_sub_element_existed": false
     })
     
     [{{pathExisted "sydney_grammar.address" }}]

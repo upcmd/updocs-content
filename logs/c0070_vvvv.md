@@ -1,6 +1,6 @@
 ---
 title: "c0070_vvvv"
-date: 2020-07-20T02:01:41+77:00
+date: 2020-08-09T01:36:09+88:00
 draft: false
 weight: 10703
 
@@ -20,12 +20,19 @@ weight: 10703
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0070
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10703
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -82,7 +83,6 @@ weight: 10703
       But they answered: "Frighten? Why should any one be frightened by a hat?"
     
       My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grown-ups were not able to understand it, I made another drawing: I drew the inside of a boa constrictor, so that the grown-ups could see it clearly. They always need to have things explained. My Drawing Number Two looked like this:w""" > /tmp/mystory.txt<=
-    
      .. ok
     cmd( 2):
     cat /tmp/mystory.txt

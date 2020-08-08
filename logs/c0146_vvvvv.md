@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvvv"
-date: 2020-07-20T02:01:55+77:00
+date: 2020-08-09T01:36:21+88:00
 draft: false
 weight: 11464
 
@@ -20,14 +20,21 @@ weight: 11464
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0146
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000bca00)(<nil>)
+    (*impl.Scopes)(0xc000175180)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11464
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -84,19 +85,19 @@ weight: 11464
           }
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .personname \"Tom Cruise\"}}",
             "{{eq .school \"james rules\"}}",
             "{{eq .title \"HelloWorld example\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "personname": "Tom Cruise",
-        "school": "james rules"
+        "school": "james rules",
+        "personname": "Tom Cruise"
       },
       Dvars: <nil>,
       Desc: "",
@@ -107,7 +108,10 @@ weight: 11464
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: "d0146_data.yml"
+      VarsFile: "d0146_data.yml",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     loading [varsfile]:  ./tests/functests/d0146_data.yml
@@ -121,8 +125,8 @@ weight: 11464
     (*core.Cache)({
       "folder": "module",
       "title": "HelloWorld example",
-      "personname": "Tom Cruise",
-      "school": "james rules"
+      "school": "james rules",
+      "personname": "Tom Cruise"
     })
     
     [local] dvar expanded result:
@@ -131,32 +135,34 @@ weight: 11464
     
     
     scope[local] merged: {
-      "folder": "module",
       "title": "HelloWorld example",
+      "school": "james rules",
       "personname": "Tom Cruise",
-      "school": "james rules"
+      "folder": "module"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "folder": "module",
-      "title": "HelloWorld example",
+      "school": "james rules",
       "personname": "Tom Cruise",
-      "school": "james rules"
+      "folder": "module",
+      "title": "HelloWorld example"
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
-     1: inspect[exec_vars](*core.Cache)({
-      "folder": "module",
+     1: inspect[exec_vars]
+    (*core.Cache)({
       "title": "HelloWorld example",
+      "school": "james rules",
       "personname": "Tom Cruise",
-      "school": "james rules"
+      "folder": "module"
     })
     
-     2: inspect[exec_base_vars]{
+     2: inspect[exec_base_vars]
+    {
     }
     
     map[dest:/tmp/mockup_doc.md src:./tests/functests/d0145.template]
@@ -184,7 +190,10 @@ weight: 11464
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -211,13 +220,12 @@ weight: 11464
     cmd=>:
     cat /tmp/mockup_doc.md<=
     title: "HelloWorld example"
-    date: 2020-07-20T01:35:02+77:00
-    draft: false
-     .. ok
+    date: 2020-08-09T01:29:43+88:00
+    draft: false .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "cat /tmp/mockup_doc.md",
      Code: (int) 0,
-     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-07-20T01:35:02+77:00\ndraft: false",
+     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-08-09T01:29:43+88:00\ndraft: false",
      ErrMsg: (string) ""
     }
     

@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvv"
-date: 2020-07-20T02:01:42+77:00
+date: 2020-08-09T01:36:10+88:00
 draft: false
 weight: 10753
 
@@ -20,12 +20,19 @@ weight: 10753
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0075
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10753
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -52,41 +53,55 @@ weight: 10753
     dvar> var_with_range:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_item:
     " tom  jason  alice "
     
+    -
+     tom  jason  alice 
     dvar> var_with_range_item_simpler:
     " tom  jason  alice "
     
-          template rendering problem -> template: .:1:26: executing "." at <.person>: can't evaluate field person in type interface {}
+    -
+     tom  jason  alice 
+          template rendering -> template: .:1:26: executing "." at <.person>: can't evaluate field person in type interface {}
     WARN:
         1:{{range $x:=.managers}} {{.person}} {{end}}
     
-    -----trace for reference-----
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
     dvar> var_to_ref_to_outside_of_range_from_within_range:
     " "
     
+    -
+     
     dvar> var_directly_ref_to:
     "peter"
     
+    -
+    peter
     dvar> var_to_ref_to_outside_of_range_from_within_range_fixed:
     " peter  peter  peter "
     
+    -
+     peter  peter  peter 
     -------runtime global final merged with dvars-------
     
     {
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+      "var_with_range": " x  x  x ",
       "var_with_range_item": " tom  jason  alice ",
       "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
       "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
-      "var_with_range": " x  x  x ",
-      "person": "peter"
+      "person": "peter",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      }
     }
     
       located task-> 1 [task]: 

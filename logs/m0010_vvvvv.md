@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvvv"
-date: 2020-07-20T02:02:16+77:00
+date: 2020-08-09T01:36:44+88:00
 draft: false
 weight: 101004
 
@@ -20,14 +20,21 @@ weight: 101004
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0010
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e2d40)(<nil>)
+    (*impl.Scopes)(0xc0001bede0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 101004
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -79,7 +80,10 @@ weight: 101004
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -106,8 +110,14 @@ weight: 101004
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e3d40)(<nil>)
+    (*impl.Scopes)(0xc0001bfe60)(<nil>)
     
     ---------group vars----------
     
@@ -116,12 +126,6 @@ weight: 101004
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -169,7 +173,10 @@ weight: 101004
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -184,8 +191,8 @@ weight: 101004
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     }
     
     
@@ -215,7 +222,10 @@ weight: 101004
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -246,8 +256,14 @@ weight: 101004
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hi-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c700)(<nil>)
+    (*impl.Scopes)(0xc000237240)(<nil>)
     
     ---------group vars----------
     
@@ -256,12 +272,6 @@ weight: 101004
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hi-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -309,7 +319,10 @@ weight: 101004
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:

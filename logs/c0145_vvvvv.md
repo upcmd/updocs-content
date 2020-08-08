@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvvv"
-date: 2020-07-20T02:01:55+77:00
+date: 2020-08-09T01:36:21+88:00
 draft: false
 weight: 11454
 
@@ -20,14 +20,21 @@ weight: 11454
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0145
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f80)(<nil>)
+    (*impl.Scopes)(0xc0001c1020)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11454
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -68,13 +69,13 @@ weight: 11454
       Name: "",
       Do: {
         {
-          "name": "template",
-          "desc": "render a template file to a file 1",
           "cmd": {
             "src": "./tests/functests/d0145.template",
             "dest": "/tmp/mockup_doc.md",
             "datafile": "d0145_data.yml"
-          }
+          },
+          "name": "template",
+          "desc": "render a template file to a file 1"
         }
       },
       Dox: <nil>,
@@ -89,7 +90,10 @@ weight: 11454
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -130,7 +134,10 @@ weight: 11454
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -157,13 +164,12 @@ weight: 11454
     cmd=>:
     cat /tmp/mockup_doc.md<=
     title: "HelloWorld example"
-    date: 2020-07-20T01:35:01+77:00
-    draft: false
-     .. ok
+    date: 2020-08-09T01:29:43+88:00
+    draft: false .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "cat /tmp/mockup_doc.md",
      Code: (int) 0,
-     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-07-20T01:35:01+77:00\ndraft: false",
+     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-08-09T01:29:43+88:00\ndraft: false",
      ErrMsg: (string) ""
     }
     

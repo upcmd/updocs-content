@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvvv"
-date: 2020-07-20T02:01:33+77:00
+date: 2020-08-09T01:36:02+88:00
 draft: false
 weight: 10244
 
@@ -20,14 +20,21 @@ weight: 10244
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0024
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001daf60)(<nil>)
+    (*impl.Scopes)(0xc000176fc0)(<nil>)
     
     ---------group vars----------
     
@@ -36,18 +43,12 @@ weight: 10244
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -70,12 +71,12 @@ weight: 10244
     
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
-      "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "studentname": "Tom"
     }
     
       located task-> 1 [task]: 
@@ -103,18 +104,21 @@ weight: 10244
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
-      "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "studentname": "Tom"
     })
     
     [local] dvar expanded result:
@@ -123,13 +127,13 @@ weight: 10244
     
     
     scope[local] merged: {
-      "studentname": "Tom",
-      "studentgender": "Male",
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
+        "name": "Tom"
+      },
+      "studentgender": "Male",
+      "studentname": "Tom"
     }
     
     
@@ -137,12 +141,12 @@ weight: 10244
     
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
-      "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "studentname": "Tom"
     })
     
     cmd( 1):

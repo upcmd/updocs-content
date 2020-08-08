@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvv"
-date: 2020-07-20T02:01:39+77:00
+date: 2020-08-09T01:36:07+88:00
 draft: false
 weight: 10563
 
@@ -20,12 +20,19 @@ weight: 10563
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0056
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10563
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "countries": {
@@ -66,20 +67,20 @@ weight: 10563
     {
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       }
     }
@@ -93,16 +94,16 @@ weight: 10563
     (*core.Cache)({
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
           "name": "Danmark",
@@ -116,16 +117,16 @@ weight: 10563
     (*core.Cache)({
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
           "population": "2000m",
           "name": "British"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -194,16 +195,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "population": "1.4b",
           "name": "China"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -260,6 +261,35 @@ weight: 10563
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "population": "30m",
+          "name": "Danmark"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"age 23\"",
         Code: 0,
@@ -276,43 +306,14 @@ weight: 10563
           "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
           "name": "Danmark",
           "population": "30m"
         }
       }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"age 23\"",
-        Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      })
     })
     
     cmd( 1):
@@ -354,16 +355,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -379,12 +380,12 @@ weight: 10563
     (*core.Cache)({
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -464,12 +465,42 @@ weight: 10563
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 30m\"",
+        Code: 0,
+        Output: "hello 30m",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 30m\"",
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
       }),
+      "listname": "countries",
       "countries": {
         {
           "name": "Australia",
@@ -488,36 +519,6 @@ weight: 10563
           "population": "30m"
         }
       }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "population": "1.4b",
-          "name": "China"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 30m\"",
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      }),
-      "listname": "countries"
     })
     
     cmd( 1):

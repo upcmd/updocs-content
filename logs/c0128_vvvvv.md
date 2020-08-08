@@ -1,6 +1,6 @@
 ---
 title: "c0128_vvvvv"
-date: 2020-07-20T02:01:52+77:00
+date: 2020-08-09T01:36:18+88:00
 draft: false
 weight: 11284
 
@@ -20,14 +20,21 @@ weight: 11284
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0128
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1180)(<nil>)
+    (*impl.Scopes)(0xc0001eb160)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11284
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "b": "global_bbb",
@@ -84,13 +85,13 @@ weight: 11284
           }
         },
         {
-          "func": "cmd",
           "do": {
             {
               "name": "print",
               "cmd": "cmd print step\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          }
+          },
+          "func": "cmd"
         }
       },
       Dox: <nil>,
@@ -137,7 +138,10 @@ weight: 11284
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -155,11 +159,11 @@ weight: 11284
     
     
     scope[local] merged: {
-      "b": "local_bbb",
+      "db": "local_db",
       "c": "global_ccc",
       "a": "local_aaa",
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb",
+      "da": "local_da"
     }
     
     
@@ -192,16 +196,19 @@ weight: 11284
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -210,21 +217,21 @@ weight: 11284
     
     
     scope[local] merged: {
-      "b": "local_bbb",
-      "db": "local_db",
+      "a": "local_aaa",
       "da": "local_da",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "db": "local_db",
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "db": "local_db",
       "da": "local_da"
     })
     
@@ -278,14 +285,14 @@ weight: 11284
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
@@ -293,7 +300,10 @@ weight: 11284
         ErrMsg: ""
       }),
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -302,23 +312,6 @@ weight: 11284
     
     
     scope[local] merged: {
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"shell step2\"",
-        Code: 0,
-        Output: "shell step2",
-        ErrMsg: ""
-      }),
-      "da": "local_da",
-      "db": "local_db"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
@@ -330,6 +323,23 @@ weight: 11284
       "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "da": "local_da",
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
+        Code: 0,
+        Output: "shell step2",
+        ErrMsg: ""
+      })
     })
     
     cmd print step

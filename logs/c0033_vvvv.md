@@ -1,6 +1,6 @@
 ---
 title: "c0033_vvvv"
-date: 2020-07-20T02:01:35+77:00
+date: 2020-08-09T01:36:03+88:00
 draft: false
 weight: 10333
 
@@ -20,17 +20,24 @@ weight: 10333
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0033
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     nonprod: {
-      "d": "non-prod-d",
-      "a": "non-prod-a",
+      "c": "non-prod-c",
+      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "school_object": {
         "address": {
           "suburb": {
@@ -41,9 +48,9 @@ weight: 10333
           "school": "Sydney Grammar"
         }
       },
-      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "b": "non-prod-b",
-      "c": "non-prod-c"
+      "d": "non-prod-d",
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     }
     
     
@@ -64,18 +71,22 @@ weight: 10333
     
     
     groups members:[dev staging]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "b": "dev-b",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
       "c": "non-prod-c",
-      "d": "non-prod-d",
-      "a": "dev-a",
+      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
       "school_object": {
         "address": {
           "suburb": {
@@ -87,7 +98,66 @@ weight: 10333
         },
         "principal": "Mr Peter"
       },
+      "d": "non-prod-d",
+      "a": "dev-a",
+      "b": "dev-b"
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "c": "non-prod-c",
       "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
+      "school_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "principal": "Mr Peter"
+      },
+      "d": "non-prod-d",
+      "a": "dev-a",
+      "b": "dev-b",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      }
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
+      "school_object": {
+        "principal": "Mr Peter",
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          }
+        }
+      },
+      "d": "non-prod-d",
+      "a": "local-a",
+      "b": "local-b",
       "student": {
         "gender": "Male",
         "address": {
@@ -99,13 +169,16 @@ weight: 10333
           "school": "Sydney Grammar"
         },
         "name": "Tom"
-      }
-    }
+      },
+      "c": "non-prod-c"
+    })
     
-    -------runtime global final merged with dvars-------
+    self: final context exec vars:
     
-    {
+    (*core.Cache)({
+      "school": "address:\n  state: NSW\n  city: sydney\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: LOCAL\n  school: Sydney Grammar\nprincipal: Mr Right\n",
       "school_object": {
+        "principal": "Mr Peter",
         "address": {
           "suburb": {
             "name": "sydney",
@@ -113,10 +186,11 @@ weight: 10333
             "CBD": true
           },
           "school": "Sydney Grammar"
-        },
-        "principal": "Mr Peter"
+        }
       },
-      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
+      "d": "non-prod-d",
+      "a": "local-a",
+      "b": "local-b",
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -129,82 +203,7 @@ weight: 10333
           "school": "Sydney Grammar"
         }
       },
-      "b": "dev-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d",
-      "a": "dev-a"
-    }
-    
-      located task-> 1 [task]: 
-    Task1: [task ==> task:  ]
-    Executing task stack layer: 1
-    
-    -Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "school": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: no\n  school: Sydney Grammar\nprincipal: Mr Peter\n",
-      "student": {
-        "gender": "Male",
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
-      "b": "local-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d",
-      "a": "local-a",
-      "school_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          }
-        },
-        "principal": "Mr Peter"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "school_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar",
-          "state": "NSW",
-          "city": "sydney"
-        },
-        "principal": "Mr Right"
-      },
-      "school": "address:\n  state: NSW\n  city: sydney\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: LOCAL\n  school: Sydney Grammar\nprincipal: Mr Right\n",
-      "student": {
-        "gender": "Male",
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
-      "b": "local-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d",
-      "a": "local-a"
+      "c": "non-prod-c"
     })
     
     cmd( 1):
@@ -230,6 +229,7 @@ weight: 10333
         CBD: LOCAL
       school: Sydney Grammar
     principal: Mr Right
+    
      .. ok
     cmd( 2):
     echo """2.school object CBD -> {{.school_object.address.suburb.CBD}}"""
@@ -249,8 +249,8 @@ weight: 10333
     echo """4.school object-> {{.school_object.principal}}"""
     
     cmd=>:
-    echo """4.school object-> Mr Right"""<=
-    4.school object-> Mr Right
+    echo """4.school object-> Mr Peter"""<=
+    4.school object-> Mr Peter
      .. ok
     . ok
     

@@ -1,6 +1,6 @@
 ---
 title: "c0157_vvvvv"
-date: 2020-07-20T02:01:57+77:00
+date: 2020-08-09T01:36:23+88:00
 draft: false
 weight: 11574
 
@@ -20,14 +20,21 @@ weight: 11574
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0157
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001770c0)(<nil>)
+    (*impl.Scopes)(0xc0001c1160)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11574
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": {
@@ -94,7 +95,10 @@ weight: 11574
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -163,20 +167,23 @@ weight: 11574
       If: "{{eq .school \"None\"}}",
       Else: {
         {
-          "func": "cmd",
-          "desc": "now it is safe to access school from person object",
           "do": {
             {
               "name": "print",
               "cmd": "hello: {{.person.name}} from {{.person.school}}"
             }
-          }
+          },
+          "func": "cmd",
+          "desc": "now it is safe to access school from person object"
         }
       },
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:

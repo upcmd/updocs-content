@@ -1,6 +1,6 @@
 ---
 title: "c0074_vvvv"
-date: 2020-07-20T02:01:42+77:00
+date: 2020-08-09T01:36:09+88:00
 draft: false
 weight: 10743
 
@@ -20,12 +20,19 @@ weight: 10743
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0074
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10743
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -48,32 +49,31 @@ weight: 10743
     {
       "usecase": "doc_meta: |\n  folder: object-oriented\n  title: parse yml to object\n  head: |\n    Showcase you can load a yml file and parse the content to object\n\n  sections:\n    - title: How to use\n      content: |\n        Simply use dvar ref to load the content and also flag it to be converted toObj\n\n        The print cmd shows how to use the object and reference in golang template to iterate through the elements\n\n    - title: Relavant\n      content: toObj cmd\n      refs:\n        - title: toObj cmd\n          link: ../../cmd-func/c0095\n\n    - title: Demo\n      log: yes\n\ndocs:\n  goal:\n    - to test that I can parse this file to an object and use it in templating\n    - use the format like this to automate the docs generation\n\n  usecase:\n    - used to generate auto document for up project\n\n  usage:\n    - use docs as root element to document a functest or a test case\n    - two layers structure\n\ndvars:\n  - name: usecase\n    ref: c0074.yml\n    flags: [toObj,]\n\ntasks:\n  -\n    name: task\n    desc:\n    task:\n      -\n        func: cmd\n        do:\n          -\n            name: print\n            cmd: \"<no value>\"\n\n          -\n            name: print\n            cmd: \"<no value>\"\n\n          -\n            name: print\n            cmd: |-\n              \n\n          -\n            name: print\n            cmd: |-\n              \n",
       "usecase_object": {
+        "doc_meta": "folder: object-oriented\ntitle: parse yml to object\nhead: |\n  Showcase you can load a yml file and parse the content to object\n\nsections:\n  - title: How to use\n    content: |\n      Simply use dvar ref to load the content and also flag it to be converted toObj\n\n      The print cmd shows how to use the object and reference in golang template to iterate through the elements\n\n  - title: Relavant\n    content: toObj cmd\n    refs:\n      - title: toObj cmd\n        link: ../../cmd-func/c0095\n\n  - title: Demo\n    log: yes\n",
         "docs": {
+          "usage": {
+            "use docs as root element to document a functest or a test case",
+            "two layers structure"
+          },
           "goal": {
             "to test that I can parse this file to an object and use it in templating",
             "use the format like this to automate the docs generation"
           },
           "usecase": {
             "used to generate auto document for up project"
-          },
-          "usage": {
-            "use docs as root element to document a functest or a test case",
-            "two layers structure"
           }
         },
         "dvars": {
           {
-            "name": "usecase",
-            "ref": "c0074.yml",
             "flags": {
               "toObj"
-            }
+            },
+            "name": "usecase",
+            "ref": "c0074.yml"
           }
         },
         "tasks": {
           {
-            "name": "task",
-            "desc": <nil>,
             "task": {
               {
                 "func": "cmd",
@@ -96,10 +96,11 @@ weight: 10743
                   }
                 }
               }
-            }
+            },
+            "name": "task",
+            "desc": <nil>
           }
-        },
-        "doc_meta": "folder: object-oriented\ntitle: parse yml to object\nhead: |\n  Showcase you can load a yml file and parse the content to object\n\nsections:\n  - title: How to use\n    content: |\n      Simply use dvar ref to load the content and also flag it to be converted toObj\n\n      The print cmd shows how to use the object and reference in golang template to iterate through the elements\n\n  - title: Relavant\n    content: toObj cmd\n    refs:\n      - title: toObj cmd\n        link: ../../cmd-func/c0095\n\n  - title: Demo\n    log: yes\n"
+        }
       }
     }
     
@@ -140,6 +141,7 @@ weight: 10743
             "desc": <nil>,
             "task": {
               {
+                "func": "cmd",
                 "do": {
                   {
                     "name": "print",
@@ -150,15 +152,14 @@ weight: 10743
                     "cmd": "<no value>"
                   },
                   {
-                    "name": "print",
-                    "cmd": ""
+                    "cmd": "",
+                    "name": "print"
                   },
                   {
                     "name": "print",
                     "cmd": ""
                   }
-                },
-                "func": "cmd"
+                }
               }
             }
           }
@@ -173,16 +174,16 @@ weight: 10743
       "usecase_object": {
         "doc_meta": "folder: object-oriented\ntitle: parse yml to object\nhead: |\n  Showcase you can load a yml file and parse the content to object\n\nsections:\n  - title: How to use\n    content: |\n      Simply use dvar ref to load the content and also flag it to be converted toObj\n\n      The print cmd shows how to use the object and reference in golang template to iterate through the elements\n\n  - title: Relavant\n    content: toObj cmd\n    refs:\n      - title: toObj cmd\n        link: ../../cmd-func/c0095\n\n  - title: Demo\n    log: yes\n",
         "docs": {
+          "goal": {
+            "to test that I can parse this file to an object and use it in templating",
+            "use the format like this to automate the docs generation"
+          },
           "usecase": {
             "used to generate auto document for up project"
           },
           "usage": {
             "use docs as root element to document a functest or a test case",
             "two layers structure"
-          },
-          "goal": {
-            "to test that I can parse this file to an object and use it in templating",
-            "use the format like this to automate the docs generation"
           }
         },
         "dvars": {
@@ -196,6 +197,7 @@ weight: 10743
         },
         "tasks": {
           {
+            "desc": <nil>,
             "task": {
               {
                 "func": "cmd",
@@ -205,8 +207,8 @@ weight: 10743
                     "cmd": "<no value>"
                   },
                   {
-                    "name": "print",
-                    "cmd": "<no value>"
+                    "cmd": "<no value>",
+                    "name": "print"
                   },
                   {
                     "name": "print",
@@ -219,8 +221,7 @@ weight: 10743
                 }
               }
             },
-            "name": "task",
-            "desc": <nil>
+            "name": "task"
           }
         }
       },

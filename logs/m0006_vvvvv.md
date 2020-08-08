@@ -1,6 +1,6 @@
 ---
 title: "0006_vvvvv"
-date: 2020-07-20T02:02:15+77:00
+date: 2020-08-09T01:36:43+88:00
 draft: false
 weight: 100604
 
@@ -20,14 +20,21 @@ weight: 100604
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0006
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1220)(<nil>)
+    (*impl.Scopes)(0xc000175200)(<nil>)
     
     ---------group vars----------
     
@@ -36,23 +43,17 @@ weight: 100604
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "b": "caller-global-bbb"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "a": (string) (len=17) "caller-global-aaa",
      (string) (len=1) "b": (string) (len=17) "caller-global-bbb",
-     (string) (len=1) "e": (string) (len=17) "caller-global-eee",
-     (string) (len=1) "a": (string) (len=17) "caller-global-aaa"
+     (string) (len=1) "e": (string) (len=17) "caller-global-eee"
     }
     
     [runtime global] dvar expanded result:
@@ -63,9 +64,9 @@ weight: 100604
     -------runtime global final merged with dvars-------
     
     {
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "e": "caller-global-eee"
     }
     
       located task-> 1 [Main]: 
@@ -77,12 +78,12 @@ weight: 100604
       Name: "",
       Do: {
         {
-          "name": "inspect",
-          "desc": "the vars in caller before invoking module task",
           "cmd": {
             "exec_vars",
             "exec_base_vars"
-          }
+          },
+          "name": "inspect",
+          "desc": "the vars in caller before invoking module task"
         }
       },
       Dox: <nil>,
@@ -97,14 +98,17 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb"
     })
     
     [local] dvar expanded result:
@@ -122,23 +126,25 @@ weight: 100604
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb"
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect: the vars in caller before invoking module task ]
-     1: inspect[exec_vars](*core.Cache)({
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "e": "caller-global-eee"
     })
     
-     2: inspect[exec_base_vars]{
+     2: inspect[exec_base_vars]
+    {
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "e": "caller-global-eee"
     }
     
     -Step2:
@@ -157,14 +163,17 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "b": "caller-global-bbb"
     })
     
     [local] dvar expanded result:
@@ -182,22 +191,28 @@ weight: 100604
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "e": "caller-global-eee",
+      "a": "caller-global-aaa"
     })
     
     caller's vars to task (hello-module.Say_world)::
     (*core.Cache)({
-      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "e": "caller-global-eee",
+      "a": "caller-global-aaa"
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022ade0)(<nil>)
+    (*impl.Scopes)(0xc0001e2ee0)(<nil>)
     
     ---------group vars----------
     
@@ -206,16 +221,10 @@ weight: 100604
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
-      "c": "module-global-ccc",
-      "a": "module-global-aaa"
+      "a": "module-global-aaa",
+      "c": "module-global-ccc"
     }
     
     (core.Cache) (len=2) {
@@ -231,8 +240,8 @@ weight: 100604
     -------runtime global final merged with dvars-------
     
     {
-      "c": "module-global-ccc",
-      "a": "module-global-aaa"
+      "a": "module-global-aaa",
+      "c": "module-global-ccc"
     }
     
     =>call module: [hello-module] task: [Say_world]
@@ -247,12 +256,12 @@ weight: 100604
       Name: "",
       Do: {
         {
+          "desc": "the result would be:\na: caller-global-aaa\nb: caller-global-bbb\nc: module-global-ccc\nd: module-local-ddd\ne: caller-global-eee\n",
           "cmd": {
             "exec_vars",
             "exec_base_vars"
           },
-          "name": "inspect",
-          "desc": "the result would be:\na: caller-global-aaa\nb: caller-global-bbb\nc: module-global-ccc\nd: module-local-ddd\ne: caller-global-eee\n"
+          "name": "inspect"
         },
         {
           "name": "assert",
@@ -287,16 +296,19 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "module-global-ccc",
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
       "e": "caller-global-eee",
-      "c": "module-global-ccc",
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -306,12 +318,12 @@ weight: 100604
     
     
     scope[local] merged: {
+      "c": "module-global-ccc",
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
       "e": "caller-global-eee",
-      "c": "module-global-ccc",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-global-aaa"
+      "up_runtime_tasker_layer_number": 2
     }
     
     
@@ -322,8 +334,8 @@ weight: 100604
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
       "e": "caller-global-eee",
-      "c": "module-global-ccc",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "c": "module-global-ccc"
     })
     
     [exec_vars exec_base_vars]
@@ -334,20 +346,22 @@ weight: 100604
     d: module-local-ddd
     e: caller-global-eee
      ]
-     1: inspect[exec_vars](*core.Cache)({
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "c": "module-global-ccc",
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
       "e": "caller-global-eee",
-      "c": "module-global-ccc",
       "up_runtime_tasker_layer_number": 2
     })
     
-     2: inspect[exec_base_vars]{
+     2: inspect[exec_base_vars]
+    {
       "c": "module-global-ccc",
-      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "e": "caller-global-eee",
+      "a": "caller-global-aaa"
     }
     
     [{{eq .a "caller-global-aaa"}} {{eq .b "caller-global-bbb"}} {{eq .c "module-global-ccc"}} {{eq .d "module-local-ddd"}} {{eq .e "caller-global-eee"}}]
@@ -372,11 +386,11 @@ weight: 100604
       Dox: <nil>,
       Func: "call",
       Vars: {
+        "d": "module-local-call-ddd",
+        "h": "module-local-call-hhh",
         "i": "module-local-call-iii",
         "a": "module-local-call-aaa",
-        "b": "module-local-call-bbb",
-        "d": "module-local-call-ddd",
-        "h": "module-local-call-hhh"
+        "b": "module-local-call-bbb"
       },
       Dvars: <nil>,
       Desc: "",
@@ -387,19 +401,22 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
-      "i": "module-local-call-iii",
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-call-ddd",
       "h": "module-local-call-hhh",
-      "e": "caller-global-eee"
+      "i": "module-local-call-iii",
+      "c": "module-global-ccc",
+      "e": "caller-global-eee",
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -408,40 +425,40 @@ weight: 100604
     
     
     scope[local] merged: {
+      "up_runtime_tasker_layer_number": 2,
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-call-ddd",
       "h": "module-local-call-hhh",
-      "e": "caller-global-eee",
-      "up_runtime_tasker_layer_number": 2,
+      "i": "module-local-call-iii",
       "c": "module-global-ccc",
-      "i": "module-local-call-iii"
+      "e": "caller-global-eee"
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "d": "module-local-call-ddd",
       "h": "module-local-call-hhh",
+      "i": "module-local-call-iii",
+      "c": "module-global-ccc",
       "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
-      "i": "module-local-call-iii",
       "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "d": "module-local-call-ddd"
+      "b": "caller-global-bbb"
     })
     
     caller's vars to task (second_layer_internal_call)::
     (*core.Cache)({
-      "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "d": "module-local-call-ddd",
       "h": "module-local-call-hhh",
+      "i": "module-local-call-iii",
+      "c": "module-global-ccc",
       "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
-      "i": "module-local-call-iii"
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb",
+      "d": "module-local-call-ddd"
     })
     
       located task-> 3 [second_layer_internal_call]: 
@@ -461,6 +478,7 @@ weight: 100604
           }
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .a \"caller-global-aaa\"}}",
             "{{eq .b \"caller-global-bbb\"}}",
@@ -470,8 +488,7 @@ weight: 100604
             "{{eq .i \"module-local-call-iii\"}}",
             "{{eq .h \"module-local-call-hhh\"}}",
             "{{eq .k \"module-second_layer_local-kkk\"}}"
-          },
-          "name": "assert"
+          }
         },
         {
           "name": "return",
@@ -483,11 +500,11 @@ weight: 100604
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "b": "module-second_layer_local-bbb",
-        "d": "module-second_layer_local-ddd",
         "i": "module-second_layer_local-iii",
         "k": "module-second_layer_local-kkk",
-        "a": "module-second_layer_local-aaa"
+        "a": "module-second_layer_local-aaa",
+        "b": "module-second_layer_local-bbb",
+        "d": "module-second_layer_local-ddd"
       },
       Dvars: <nil>,
       Desc: "",
@@ -498,21 +515,24 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "i": "module-local-call-iii",
-      "k": "module-second_layer_local-kkk",
+      "up_runtime_task_layer_number": 1,
       "c": "module-global-ccc",
       "d": "module-local-call-ddd",
+      "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
       "h": "module-local-call-hhh",
-      "e": "caller-global-eee"
+      "i": "module-local-call-iii",
+      "k": "module-second_layer_local-kkk",
+      "a": "caller-global-aaa"
     })
     
     [local] dvar expanded result:
@@ -521,15 +541,15 @@ weight: 100604
     
     
     scope[local] merged: {
+      "d": "module-local-call-ddd",
+      "up_runtime_task_layer_number": 1,
+      "e": "caller-global-eee",
+      "h": "module-local-call-hhh",
+      "k": "module-second_layer_local-kkk",
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee",
       "c": "module-global-ccc",
       "up_runtime_tasker_layer_number": 2,
-      "k": "module-second_layer_local-kkk",
-      "up_runtime_task_layer_number": 1,
-      "h": "module-local-call-hhh",
-      "d": "module-local-call-ddd",
       "i": "module-local-call-iii"
     }
     
@@ -537,16 +557,16 @@ weight: 100604
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "c": "module-global-ccc",
-      "d": "module-local-call-ddd",
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
-      "h": "module-local-call-hhh",
-      "e": "caller-global-eee",
-      "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
       "i": "module-local-call-iii",
-      "k": "module-second_layer_local-kkk"
+      "k": "module-second_layer_local-kkk",
+      "a": "caller-global-aaa",
+      "d": "module-local-call-ddd",
+      "e": "caller-global-eee",
+      "up_runtime_tasker_layer_number": 2,
+      "h": "module-local-call-hhh",
+      "b": "caller-global-bbb",
+      "up_runtime_task_layer_number": 1,
+      "c": "module-global-ccc"
     })
     
     [exec_vars exec_base_vars]
@@ -555,28 +575,30 @@ weight: 100604
     b: module-local-call-bbb
     d: module-local-call-ddd
      ]
-     1: inspect[exec_vars](*core.Cache)({
-      "a": "caller-global-aaa",
+     1: inspect[exec_vars]
+    (*core.Cache)({
       "b": "caller-global-bbb",
+      "up_runtime_task_layer_number": 1,
+      "c": "module-global-ccc",
+      "d": "module-local-call-ddd",
+      "e": "caller-global-eee",
+      "up_runtime_tasker_layer_number": 2,
+      "h": "module-local-call-hhh",
       "i": "module-local-call-iii",
       "k": "module-second_layer_local-kkk",
-      "e": "caller-global-eee",
-      "c": "module-global-ccc",
-      "d": "module-local-call-ddd",
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
-      "h": "module-local-call-hhh"
+      "a": "caller-global-aaa"
     })
     
-     2: inspect[exec_base_vars]{
-      "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "d": "module-local-call-ddd",
+     2: inspect[exec_base_vars]
+    {
       "h": "module-local-call-hhh",
+      "i": "module-local-call-iii",
+      "c": "module-global-ccc",
       "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
-      "i": "module-local-call-iii"
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb",
+      "d": "module-local-call-ddd"
     }
     
     [{{eq .a "caller-global-aaa"}} {{eq .b "caller-global-bbb"}} {{eq .c "module-global-ccc"}} {{eq .d "module-local-call-ddd"}} {{eq .e "caller-global-eee"}} {{eq .i "module-local-call-iii"}} {{eq .h "module-local-call-hhh"}} {{eq .k "module-second_layer_local-kkk"}}]
@@ -621,18 +643,21 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "k": "module-second_layer_local-kkk",
-      "up_runtime_task_layer_number": 1,
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
       "a": "caller-global-aaa",
+      "c": "module-global-ccc",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "e": "caller-global-eee",
+      "k": "module-second_layer_local-kkk",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -641,26 +666,26 @@ weight: 100604
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
       "c": "module-global-ccc",
-      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
       "k": "module-second_layer_local-kkk",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-global-aaa"
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "k": "module-second_layer_local-kkk",
       "up_runtime_task_layer_number": 1,
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
       "a": "caller-global-aaa",
+      "c": "module-global-ccc",
       "b": "caller-global-bbb",
-      "e": "caller-global-eee",
-      "k": "module-second_layer_local-kkk"
+      "e": "caller-global-eee"
     })
     
     [k]
@@ -685,6 +710,7 @@ weight: 100604
           }
         },
         {
+          "name": "assert",
           "desc": "note the k is the result from the 2nd layer call\n",
           "cmd": {
             "{{eq .a \"caller-global-aaa\"}}",
@@ -692,8 +718,7 @@ weight: 100604
             "{{eq .c \"module-global-ccc\"}}",
             "{{eq .e \"caller-global-eee\"}}",
             "{{eq .k \"module-second_layer_local-kkk\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -708,18 +733,21 @@ weight: 100604
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "a": "caller-global-aaa",
-      "c": "module-global-ccc",
-      "k": "module-second_layer_local-kkk",
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "k": "module-second_layer_local-kkk",
+      "c": "module-global-ccc"
     })
     
     [local] dvar expanded result:
@@ -728,46 +756,48 @@ weight: 100604
     
     
     scope[local] merged: {
+      "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-global-aaa",
-      "c": "module-global-ccc",
       "k": "module-second_layer_local-kkk",
-      "b": "caller-global-bbb"
+      "c": "module-global-ccc",
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-global-aaa"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "c": "module-global-ccc",
-      "k": "module-second_layer_local-kkk",
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-global-aaa"
+      "k": "module-second_layer_local-kkk",
+      "c": "module-global-ccc",
+      "up_runtime_tasker_layer_number": 2
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
-     1: inspect[exec_vars](*core.Cache)({
+     1: inspect[exec_vars]
+    (*core.Cache)({
       "c": "module-global-ccc",
-      "k": "module-second_layer_local-kkk",
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-global-aaa"
+      "k": "module-second_layer_local-kkk"
     })
     
-     2: inspect[exec_base_vars]{
-      "e": "caller-global-eee",
+     2: inspect[exec_base_vars]
+    {
       "a": "caller-global-aaa",
-      "c": "module-global-ccc",
+      "b": "caller-global-bbb",
+      "e": "caller-global-eee",
       "k": "module-second_layer_local-kkk",
-      "b": "caller-global-bbb"
+      "c": "module-global-ccc"
     }
     
     [{{eq .a "caller-global-aaa"}} {{eq .b "caller-global-bbb"}} {{eq .c "module-global-ccc"}} {{eq .e "caller-global-eee"}} {{eq .k "module-second_layer_local-kkk"}}]

@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvv"
-date: 2020-07-20T02:01:32+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10213
 
@@ -20,12 +20,19 @@ weight: 10213
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0021
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10213
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -55,19 +56,19 @@ weight: 10213
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+      "student": "Tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "gender": "Male",
-      "school": "Sydney Grammar",
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom"
+      "student": "Tom",
+      "gender": "Male",
+      "school": "Sydney Grammar"
     })
     
     cmd( 1):
@@ -127,20 +128,19 @@ weight: 10213
     echo """my school: {{.info.school}}"""
     
     
-          template rendering problem -> template: .:1:26: executing "." at <.info.school>: can't evaluate field school in type interface {}
+          template rendering -> template: .:1:26: executing "." at <.info.school>: can't evaluate field school in type interface {}
     WARN:
         1:echo """my school: {{.info.school}}"""
         2:
     
-    -----trace for reference-----
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
     cmd=>:
     echo """my school: <=
-          exec error: -> exit status 2
-    -----trace for reference-----
-    
-          /bin/sh: syntax error: unterminated quoted string
-    
-     .. failed(suppressed if not last step)
+          exec wait -> exit status 2
+          exit status 2
+     .. failed(suppressed if it is not the last step)
     cmd( 5):
     echo """my student: {{.info}}"""
     
@@ -154,6 +154,7 @@ weight: 10213
     my student: student: Tom
      gender: Male
      school: Sydney Grammar
+    
      .. ok
     . ok
     

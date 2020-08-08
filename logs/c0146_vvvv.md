@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvv"
-date: 2020-07-20T02:01:55+77:00
+date: 2020-08-09T01:36:21+88:00
 draft: false
 weight: 11463
 
@@ -20,12 +20,19 @@ weight: 11463
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0146
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11463
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -56,14 +57,23 @@ weight: 11463
     loading [varsfile]:  ./tests/functests/d0146_data.yml
     current exec runtime vars:
     (*core.Cache)({
+      "folder": "module",
+      "title": "HelloWorld example",
+      "personname": "Tom Cruise",
+      "school": "james rules"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "school": "james rules",
       "folder": "module",
       "title": "HelloWorld example",
       "personname": "Tom Cruise"
     })
     
-    self: final context exec vars:
-    
+    ~SubStep1: [inspect: the vars in caller after invoking module task ]
+     1: inspect[exec_vars]
     (*core.Cache)({
       "folder": "module",
       "title": "HelloWorld example",
@@ -71,15 +81,8 @@ weight: 11463
       "school": "james rules"
     })
     
-    ~SubStep1: [inspect: the vars in caller after invoking module task ]
-     1: inspect[exec_vars](*core.Cache)({
-      "folder": "module",
-      "title": "HelloWorld example",
-      "personname": "Tom Cruise",
-      "school": "james rules"
-    })
-    
-     2: inspect[exec_base_vars]{
+     2: inspect[exec_base_vars]
+    {
     }
     
     ~SubStep2: [template: render a template file to a file 1 ]
@@ -103,9 +106,8 @@ weight: 11463
     cmd=>:
     cat /tmp/mockup_doc.md<=
     title: "HelloWorld example"
-    date: 2020-07-20T01:35:01+77:00
-    draft: false
-     .. ok
+    date: 2020-08-09T01:29:43+88:00
+    draft: false .. ok
     . ok
     
 ```

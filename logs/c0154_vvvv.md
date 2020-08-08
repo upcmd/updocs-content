@@ -1,6 +1,6 @@
 ---
 title: "c0154_vvvv"
-date: 2020-07-20T02:01:56+77:00
+date: 2020-08-09T01:36:22+88:00
 draft: false
 weight: 11543
 
@@ -20,12 +20,19 @@ weight: 11543
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0154
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,29 +40,23 @@ weight: 11543
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "a": "aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb"
+      }
     }
     
       located task-> 1 [task]: 
@@ -66,11 +67,11 @@ weight: 11543
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb"
+      }
     })
     
     self: final context exec vars:
@@ -89,33 +90,6 @@ weight: 11543
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "sydney_grammar": {
-        "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "b": "bbb",
-      "sydney_grammar": {
-        "address": "sydney"
-      },
-      "a": "aaa"
-    })
-    
-    ~SubStep1: [print:  ]
-          template rendering problem -> template: .:1:4: executing "." at <.b.not_exist>: can't evaluate field not_exist in type interface {}
-    WARN:
-        1:{{.b.not_exist}}
-    
-    -----trace for reference-----
-    
-    -Step3:
-    current exec runtime vars:
-    (*core.Cache)({
       "a": "aaa",
       "b": "bbb",
       "sydney_grammar": {
@@ -126,11 +100,40 @@ weight: 11543
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
+      "sydney_grammar": {
+        "address": "sydney"
+      }
+    })
+    
+    ~SubStep1: [print:  ]
+          template rendering -> template: .:1:4: executing "." at <.b.not_exist>: can't evaluate field not_exist in type interface {}
+    WARN:
+        1:{{.b.not_exist}}
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
+    
+    -Step3:
+    current exec runtime vars:
+    (*core.Cache)({
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "a": "aaa"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "b": "bbb",
+      "sydney_grammar": {
+        "address": "sydney"
+      },
+      "a": "aaa"
     })
     
     ~SubStep1: [query: if the sub element does not exist, eg school_name does not exit, then the query result will give the result of the closest element result, in this caes the parent value "aaa" will be return
@@ -144,7 +147,6 @@ weight: 11543
     WARN:
         1:{{.b.not_exist}}
     
-    -----trace for reference-----
     ~SubStep6: [print:  ]
     sydney_grammar.address exist: true
     sydney_grammar.state exist: false
@@ -153,31 +155,31 @@ weight: 11543
     -Step4: [: test pathExisted in templating ]
     current exec runtime vars:
     (*core.Cache)({
-      "school_address": (*string)("sydney"),
-      "address_existed": true,
-      "state_existed": false,
-      "varb_sub_element_existed": false,
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa")
+      "myschool": (*string)("aaa"),
+      "school_address": (*string)("sydney"),
+      "address_existed": true,
+      "state_existed": false,
+      "varb_sub_element_existed": false
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "address_existed": true,
-      "state_existed": false,
-      "varb_sub_element_existed": false,
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
       "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney")
+      "school_address": (*string)("sydney"),
+      "address_existed": true,
+      "state_existed": false,
+      "varb_sub_element_existed": false,
+      "a": "aaa",
+      "b": "bbb"
     })
     
     ~SubStep1: [print:  ]
@@ -185,12 +187,10 @@ weight: 11543
     WARN:
         1:{{.b.not_exist}}
     
-    -----trace for reference-----
           element validating problem -> template: validator:1:4: executing "validator" at <.b.not_exist>: can't evaluate field not_exist in type interface {}
     WARN:
         1:{{.b.not_exist}}
     
-    -----trace for reference-----
     sydney_grammar.address exist: true
     sydney_grammar.state exist: false
     varb_sub_element_existed exist: false
@@ -201,45 +201,46 @@ weight: 11543
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "sydney_grammar": {
+        "address": "sydney"
+      },
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
-      "sydney_grammar": {
-        "address": "sydney"
-      },
       "a": "aaa",
       "b": "bbb"
     })
     
     ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars](*core.Cache)({
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "state_existed": false,
       "varb_sub_element_existed": false,
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
-      "address_existed": true,
-      "state_existed": false
+      "address_existed": true
     })
     
     ~SubStep2: [assert:  ]

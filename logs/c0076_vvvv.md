@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvv"
-date: 2020-07-20T02:01:42+77:00
+date: 2020-08-09T01:36:10+88:00
 draft: false
 weight: 10763
 
@@ -20,12 +20,19 @@ weight: 10763
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0076
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10763
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -87,14 +88,14 @@ weight: 10763
     self: final context exec vars:
     
     (*core.Cache)({
+      "hellomsg": "hanks",
       "reg_hello": "hanks\n\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -142,21 +143,26 @@ weight: 10763
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "person": {
-        "name": "tom",
-        "age": 18
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "person": {
+        "name": "tom",
+        "age": 18
+      }
     })
     
     dvar> local_tom:
     "my name is tom\nage: 18\nname: tom\n"
+    
+    -
+    my name is tom
+    age: 18
+    name: tom
     
     self: final context exec vars:
     
@@ -169,12 +175,12 @@ weight: 10763
       }),
       "hellomsg": "hanks",
       "person": {
-        "name": "tom",
-        "age": 18
-      },
-      "tom": {
         "age": 18,
         "name": "tom"
+      },
+      "tom": {
+        "name": "tom",
+        "age": 18
       },
       "local_tom": "my name is tom\nage: 18\nname: tom\n"
     })
@@ -183,25 +189,24 @@ weight: 10763
     -Step5: [: debug the results ]
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
       "hellomsg": "hanks",
       "tom": {
         "name": "tom",
         "age": 18
       },
       "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "objname": "global_tom",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hanks\"",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      })
+      "objname": "global_tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
@@ -213,7 +218,8 @@ weight: 10763
       "tom": {
         "name": "tom",
         "age": 18
-      }
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n"
     })
     
     ~SubStep1: [print: this local_tom should be <no value> as it is in scope of last step ]

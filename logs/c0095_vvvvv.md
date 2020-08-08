@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvvv"
-date: 2020-07-20T02:01:46+77:00
+date: 2020-08-09T01:36:13+88:00
 draft: false
 weight: 10954
 
@@ -20,14 +20,21 @@ weight: 10954
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0095
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175000)(<nil>)
+    (*impl.Scopes)(0xc0000aa4a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10954
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -68,16 +69,16 @@ weight: 10954
       Name: "",
       Do: {
         {
+          "name": "toObj",
+          "desc": "the key is pointing to a var name and use its content as yml content\n",
           "cmd": {
             "fromkey": "person_yml",
             "reg": "person_object"
-          },
-          "name": "toObj",
-          "desc": "the key is pointing to a var name and use its content as yml content\n"
+          }
         },
         {
-          "name": "printObj",
-          "cmd": "person_object"
+          "cmd": "person_object",
+          "name": "printObj"
         },
         {
           "name": "print",
@@ -86,13 +87,13 @@ weight: 10954
         {
           "name": "toObj",
           "cmd": {
-            "fromkey": "{{.name_to_convert}}",
-            "reg": "{{.name_to_reg}}"
+            "reg": "{{.name_to_reg}}",
+            "fromkey": "{{.name_to_convert}}"
           }
         },
         {
-          "name": "printObj",
-          "cmd": "{{.name_to_reg}}"
+          "cmd": "{{.name_to_reg}}",
+          "name": "printObj"
         },
         {
           "name": "toObj",
@@ -124,15 +125,18 @@ weight: 10954
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": "jason",
       "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object"
+      "name_to_reg": "person_dyna_object",
+      "person": "jason"
     })
     
     [local] dvar expanded result:
@@ -141,20 +145,20 @@ weight: 10954
     
     
     scope[local] merged: {
-      "person": "jason",
       "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object"
+      "name_to_reg": "person_dyna_object",
+      "person": "jason"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "jason",
       "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object"
+      "name_to_reg": "person_dyna_object",
+      "person": "jason"
     })
     
     map[fromkey:person_yml reg:person_object]
@@ -169,16 +173,16 @@ weight: 10954
     after reg the var - local:
     
     (*core.Cache)({
-      "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
+      "person": "jason",
       "person_object": {
         "person": {
           "name": "tom",
           "age": 23
         }
-      }
+      },
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
     })
     
     person_object
@@ -207,10 +211,6 @@ weight: 10954
     after reg the var - local:
     
     (*core.Cache)({
-      "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
-      "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object",
       "person_object": {
         "person": {
           "name": "tom",
@@ -222,7 +222,11 @@ weight: 10954
           "name": "tom",
           "age": 23
         }
-      }
+      },
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
+      "name_to_convert": "person_yml",
+      "name_to_reg": "person_dyna_object",
+      "person": "jason"
     })
     
     {{.name_to_reg}}
@@ -232,8 +236,8 @@ weight: 10954
     object:
      person_dyna_object: {
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     }
     
@@ -245,15 +249,13 @@ weight: 10954
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "": "person_dyna_object",
-      "person:\n  name: jason\n  age: 53\n": "person_dyna_object"
+      "person:\n  name: jason\n  age: 53\n": "person_dyna_object",
+      "": "person_dyna_object"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object",
       "person_object": {
         "person": {
           "name": "tom",
@@ -266,8 +268,10 @@ weight: 10954
           "age": 53
         }
       },
-      "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n"
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
+      "name_to_convert": "person_yml",
+      "name_to_reg": "person_dyna_object",
+      "person": "jason"
     })
     
     {{.name_to_reg}}

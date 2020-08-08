@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvvv"
-date: 2020-07-20T02:01:39+77:00
+date: 2020-08-09T01:36:06+88:00
 draft: false
 weight: 10554
 
@@ -20,14 +20,21 @@ weight: 10554
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0055
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf240)(<nil>)
+    (*impl.Scopes)(0xc0001e7220)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10554
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -81,7 +82,10 @@ weight: 10554
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -137,7 +141,10 @@ weight: 10554
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -147,6 +154,8 @@ weight: 10554
     dvar> greet:
     "hello"
     
+    -
+    hello
     [local] dvar expanded result:
     {
       "greet": "hello"
@@ -183,7 +192,10 @@ weight: 10554
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -231,7 +243,10 @@ weight: 10554
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:

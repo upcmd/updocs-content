@@ -1,6 +1,6 @@
 ---
 title: "c0100_vvvv"
-date: 2020-07-20T02:01:47+77:00
+date: 2020-08-09T01:36:14+88:00
 draft: false
 weight: 11003
 
@@ -20,12 +20,19 @@ weight: 11003
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0100
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,15 +40,26 @@ weight: 11003
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "query_name": "jason",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        },
         "sydney": {
           {
             "sg": {
@@ -61,47 +79,36 @@ weight: 11003
               }
             }
           }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
         }
-      },
-      "query_name": "jason",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
       }
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           {
             "sg": {
               "student": {
-                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC"
+                "school": "MLC",
+                "name": "Grace"
               }
             }
           },
           {
             "kings": {
               "student": {
+                "gender": "Female",
                 "school": "KINGS",
-                "name": "Emily",
-                "gender": "Female"
+                "name": "Emily"
               }
             }
           }
@@ -110,19 +117,13 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
               }
             }
           }
         }
-      },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
       }
     }
     
@@ -134,24 +135,13 @@ weight: 11003
     current exec runtime vars:
     (*core.Cache)({
       "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
         "sydney": {
           {
             "sg": {
               "student": {
+                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
+                "school": "MLC"
               }
             }
           },
@@ -164,27 +154,36 @@ weight: 11003
               }
             }
           }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
         }
       },
+      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n",
       "query_name": "jason",
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n"
+        "name": "Tom"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "query_name": "jason",
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
       },
-      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n",
       "nsw": {
         "sydney": {
           {
@@ -199,9 +198,9 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "school": "KINGS",
                 "name": "Emily",
-                "gender": "Female"
+                "gender": "Female",
+                "school": "KINGS"
               }
             }
           }
@@ -210,20 +209,27 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
               }
             }
           }
         }
-      }
+      },
+      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n",
+      "query_name": "jason"
     })
     
     ~SubStep1: [query: query using ref var ymlstr and query a registered var by default in global ]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           {
@@ -249,21 +255,16 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
               }
             }
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "school_name": (*string)("The Kings")
+      "school_name": (*string)("The Kings"),
+      "query_name": "jason"
     })
     
     self: final context exec vars:
@@ -294,21 +295,21 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
               }
             }
           }
         }
       },
+      "school_name": (*string)("The Kings"),
       "query_name": "jason",
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
-      },
-      "school_name": (*string)("The Kings")
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
     })
     
     ~SubStep1: [print:  ]
@@ -316,52 +317,13 @@ weight: 11003
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "ymlstr": "student: |\n  name: jason\n  gender: Male\n  school: The Kings\n",
       "query_name": "jason",
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
-      "ymlstr": "student: |\n  name: jason\n  gender: Male\n  school: The Kings\n",
-      "school_name": (*string)("The Kings"),
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "nsw": {
         "chatswood": {
           {
@@ -378,42 +340,35 @@ weight: 11003
           {
             "sg": {
               "student": {
+                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
+                "school": "MLC"
               }
             }
           },
           {
             "kings": {
               "student": {
+                "school": "KINGS",
                 "name": "Emily",
-                "gender": "Female",
-                "school": "KINGS"
+                "gender": "Female"
               }
             }
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "ymlstr": "student: |\n  name: jason\n  gender: Male\n  school: The Kings\n",
       "school_name": (*string)("The Kings")
     })
     
-    ~SubStep1: [query: query using ref var ymlstr and query a registered var by default in global ]
-    -Step4:
-    current exec runtime vars:
+    self: final context exec vars:
+    
     (*core.Cache)({
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           {
@@ -439,34 +394,36 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
               }
             }
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "school_name": (*string)("The Kings")
+      "school_name": (*string)("The Kings"),
+      "ymlstr": "student: |\n  name: jason\n  gender: Male\n  school: The Kings\n"
     })
     
-    self: final context exec vars:
-    
+    ~SubStep1: [query: query using ref var ymlstr and query a registered var by default in global ]
+    -Step4:
+    current exec runtime vars:
     (*core.Cache)({
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           {
             "sg": {
               "student": {
-                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC"
+                "school": "MLC",
+                "name": "Grace"
               }
             }
           },
@@ -492,71 +449,12 @@ weight: 11003
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
       "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
         "name": "jason",
         "gender": "Male",
         "school": "The Kings"
       })
-    })
-    
-    ~SubStep1: [print:  ]
-    map[gender:Male name:jason school:The Kings]
-    -Step5:
-    current exec runtime vars:
-    (*core.Cache)({
-      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n",
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
     })
     
     self: final context exec vars:
@@ -567,32 +465,14 @@ weight: 11003
         "gender": "Male",
         "school": "Sydney Grammar"
       },
-      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n",
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
       "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
         "sydney": {
           {
             "sg": {
               "student": {
+                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
+                "school": "MLC"
               }
             }
           },
@@ -605,16 +485,112 @@ weight: 11003
               }
             }
           }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
         }
       },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
       "query_name": "jason"
     })
     
-    ~SubStep1: [query: query and query a registered var in local ]
-    -Step6:
+    ~SubStep1: [print:  ]
+    map[gender:Male name:jason school:The Kings]
+    -Step5:
     current exec runtime vars:
     (*core.Cache)({
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
+      }),
+      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "ymlstr": "student:\n  name: jason\n  gender: Male\n  school: The Kings\n",
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
         "chatswood": {
           {
             "chatswood_high": {
@@ -625,63 +601,27 @@ weight: 11003
               }
             }
           }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
         }
-      },
-      "query_name": "jason",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
       },
       "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
         "gender": "Male",
-        "school": "The Kings"
+        "school": "The Kings",
+        "name": "jason"
       })
     })
     
-    self: final context exec vars:
-    
+    ~SubStep1: [query: query and query a registered var in local ]
+    -Step6:
+    current exec runtime vars:
     (*core.Cache)({
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
+      "query_name": "jason",
+      "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "The Kings"
-      }),
+        "school": "Sydney Grammar"
+      },
       "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
         "sydney": {
           {
             "sg": {
@@ -701,13 +641,74 @@ weight: 11003
               }
             }
           }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
         }
       },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        },
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "gender": "Female",
+                "school": "KINGS",
+                "name": "Emily"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
       "query_name": "jason",
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       }
     })
     
@@ -716,262 +717,62 @@ weight: 11003
     -Step7:
     current exec runtime vars:
     (*core.Cache)({
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "name": "Emily",
-                "gender": "Female"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      })
-    })
-    
-    ~SubStep1: [query: query from cached vars only ]
-    -Step8:
-    current exec runtime vars:
-    (*core.Cache)({
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "data_school_name": "",
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "name": "Emily",
-                "gender": "Female"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "gender": "Mail",
-                "school": "Public High School",
-                "name": "Jason"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "data_school_name": "",
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "name": "Emily",
-                "gender": "Female",
-                "school": "KINGS"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "gender": "Mail",
-                "school": "Public High School",
-                "name": "Jason"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      })
-    })
-    
-    ~SubStep1: [print:  ]
-    
-    -Step9:
-    current exec runtime vars:
-    (*core.Cache)({
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "gender": "Mail",
-                "school": "Public High School",
-                "name": "Jason"
-              }
-            }
-          }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "name": "Emily",
-                "gender": "Female",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
         "name": "jason",
         "gender": "Male",
         "school": "The Kings"
       }),
-      "data_school_name": ""
+      "query_name": "jason",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings")
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "chatswood": {
           {
@@ -997,27 +798,227 @@ weight: 11003
           {
             "kings": {
               "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      })
+    })
+    
+    ~SubStep1: [query: query from cached vars only ]
+    -Step8:
+    current exec runtime vars:
+    (*core.Cache)({
+      "query_name": "jason",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "data_school_name": ""
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "data_school_name": "",
+      "query_name": "jason",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        }
+      }
+    })
+    
+    ~SubStep1: [print:  ]
+    
+    -Step9:
+    current exec runtime vars:
+    (*core.Cache)({
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
                 "school": "KINGS",
                 "name": "Emily",
                 "gender": "Female"
               }
             }
           }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "name": "Tom",
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
         "gender": "Male",
-        "school": "Sydney Grammar"
-      },
+        "school": "The Kings"
+      }),
+      "data_school_name": ""
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
         "school": "The Kings",
         "name": "jason",
         "gender": "Male"
       }),
-      "data_school_name": ""
+      "data_school_name": "",
+      "query_name": "jason",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        }
+      }
     })
     
     ~SubStep1: [query: query from cached vars and put result into a list/array ]
@@ -1037,6 +1038,61 @@ weight: 11003
         "MLC",
         "KINGS"
       }),
+      "query_name": "jason",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings"),
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           {
@@ -1070,73 +1126,18 @@ weight: 11003
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
         "name": "jason",
         "gender": "Male",
         "school": "The Kings"
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
       }),
       "data_school_name": "",
       "school_name_list": (*[]interface {})({
         "MLC",
         "KINGS"
       }),
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "school": "Public High School",
-                "name": "Jason",
-                "gender": "Mail"
-              }
-            }
-          }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "name": "Emily",
-                "gender": "Female",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "school_name": (*string)("The Kings")
+      "query_name": "jason"
     })
     
     ~SubStep1: [query: query a sub node ]
@@ -1151,78 +1152,78 @@ weight: 11003
     -Step11:
     current exec runtime vars:
     (*core.Cache)({
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
       "city": (*[]interface {})({
         {
           {
             "sg": {
               "student": {
-                "name": "Grace",
                 "school": "MLC",
-                "gender": "Female"
+                "gender": "Female",
+                "name": "Grace"
               }
             }
           },
           {
             "kings": {
               "student": {
-                "school": "KINGS",
                 "gender": "Female",
-                "name": "Emily"
+                "name": "Emily",
+                "school": "KINGS"
               }
             }
           }
         }
       }),
+      "query_name": "jason",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
         "chatswood": {
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
+              }
+            }
+          }
+        },
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
               }
             }
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
+        "school": "The Kings",
         "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
+        "gender": "Male"
       }),
-      "data_school_name": "",
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      })
+      "data_school_name": ""
     })
     
     self: final context exec vars:
@@ -1233,9 +1234,9 @@ weight: 11003
           {
             "sg": {
               "student": {
-                "gender": "Female",
                 "name": "Grace",
-                "school": "MLC"
+                "school": "MLC",
+                "gender": "Female"
               }
             }
           },
@@ -1250,14 +1251,20 @@ weight: 11003
           }
         }
       }),
+      "query_name": "jason",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
       "nsw": {
         "sydney": {
           {
             "sg": {
               "student": {
-                "school": "MLC",
                 "name": "Grace",
-                "gender": "Female"
+                "gender": "Female",
+                "school": "MLC"
               }
             }
           },
@@ -1275,25 +1282,19 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "school": "Public High School",
                 "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
+                "gender": "Mail"
               }
             }
           }
         }
       },
-      "query_name": "jason",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
       "school_name": (*string)("The Kings"),
       "student_info": (*map[interface {}]interface {})({
+        "school": "The Kings",
         "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
+        "gender": "Male"
       }),
       "data_school_name": "",
       "school_name_list": (*[]interface {})({
@@ -1314,23 +1315,12 @@ weight: 11003
     -Step12:
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "query_name": "jason",
       "student_info": (*map[interface {}]interface {})({
         "name": "jason",
         "gender": "Male",
         "school": "The Kings"
       }),
-      "data_school_name": "",
+      "school_name": (*string)("The Kings"),
       "city": (*[]interface {})({
         {
           {
@@ -1345,47 +1335,16 @@ weight: 11003
           {
             "kings": {
               "student": {
+                "gender": "Female",
                 "name": "Emily",
-                "school": "KINGS",
-                "gender": "Female"
+                "school": "KINGS"
               }
             }
           }
         }
       }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
+      "query_name": "jason",
+      "data_school_name": "",
       "city1": (*map[interface {}]interface {})({
         "kings": {
           "student": {
@@ -1394,36 +1353,14 @@ weight: 11003
             "name": "Emily"
           }
         }
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
       }),
-      "query_name": "jason",
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "data_school_name": "",
-      "city": (*[]interface {})({
-        {
+      "nsw": {
+        "sydney": {
           {
             "sg": {
               "student": {
-                "gender": "Female",
                 "name": "Grace",
+                "gender": "Female",
                 "school": "MLC"
               }
             }
@@ -1431,31 +1368,9 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "school": "KINGS",
+                "name": "Emily",
                 "gender": "Female",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
+                "school": "KINGS"
               }
             }
           }
@@ -1464,14 +1379,71 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
+                "gender": "Mail",
                 "school": "Public High School",
-                "name": "Jason",
-                "gender": "Mail"
+                "name": "Jason"
               }
             }
           }
         }
       },
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "gender": "Mail",
+                "school": "Public High School",
+                "name": "Jason"
+              }
+            }
+          }
+        }
+      },
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "data_school_name": "",
       "city1": (*map[interface {}]interface {})({
         "kings": {
           "student": {
@@ -1480,6 +1452,35 @@ weight: 11003
             "gender": "Female"
           }
         }
+      }),
+      "school_name": (*string)("The Kings"),
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "school": "MLC",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "gender": "Female",
+                "name": "Emily",
+                "school": "KINGS"
+              }
+            }
+          }
+        }
+      }),
+      "query_name": "jason",
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
       })
     })
     
@@ -1498,31 +1499,20 @@ weight: 11003
       "city1": (*map[interface {}]interface {})({
         "kings": {
           "student": {
-            "gender": "Female",
             "name": "Emily",
-            "school": "KINGS"
+            "school": "KINGS",
+            "gender": "Female"
           }
         }
       }),
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
-      "data_school_name": "",
-      "city": (*[]interface {})({
-        {
+      "nsw": {
+        "sydney": {
           {
             "sg": {
               "student": {
-                "name": "Grace",
+                "gender": "Female",
                 "school": "MLC",
-                "gender": "Female"
+                "name": "Grace"
               }
             }
           },
@@ -1530,298 +1520,67 @@ weight: 11003
             "kings": {
               "student": {
                 "name": "Emily",
-                "school": "KINGS",
-                "gender": "Female"
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "gender": "Mail",
+                "school": "Public High School",
+                "name": "Jason"
               }
             }
           }
         }
-      }),
+      },
+      "school_name": (*string)("The Kings"),
+      "query_name": "jason",
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
         "name": "Tom"
       },
-      "query_name": "jason",
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        },
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
-          }
-        }
-      }),
-      "nsw": {
-        "sydney": {
+      "data_school_name": "",
+      "city": (*[]interface {})({
+        {
           {
             "sg": {
               "student": {
-                "school": "MLC",
+                "gender": "Female",
                 "name": "Grace",
-                "gender": "Female"
+                "school": "MLC"
               }
             }
           },
           {
             "kings": {
               "student": {
-                "name": "Emily",
                 "gender": "Female",
+                "name": "Emily",
                 "school": "KINGS"
               }
             }
           }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
         }
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
+      }),
       "student_info": (*map[interface {}]interface {})({
         "school": "The Kings",
         "name": "jason",
         "gender": "Male"
       }),
-      "data_school_name": "",
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "gender": "Female",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "name": "Emily",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      }),
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "query_name": "jason",
       "cityall": (*map[interface {}]interface {})({
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
-          }
-        },
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "name": "Emily",
-                "gender": "Female"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
-    })
-    
-    ~SubStep1: [query: query result matching the criteria ]
-    ~SubStep2: [printObj:  ]
-    (string) (len=13) "{{.studentx}}"
-    
-    object:
-     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
-    
-    ~SubStep3: [print:  ]
-    map[gender:Female name:Emily school:KINGS]
-    -Step14:
-    current exec runtime vars:
-    (*core.Cache)({
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "studentx": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "data_school_name": "",
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student_info": (*map[interface {}]interface {})({
-        "gender": "Male",
-        "school": "The Kings",
-        "name": "jason"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "name": "Grace",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "gender": "Female",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        },
         "sg": {
           "student": {
             "gender": "Female",
             "name": "Grace",
             "school": "MLC"
           }
-        }
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "studentx": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "data_school_name": "",
-      "city1": (*map[interface {}]interface {})({
+        },
         "kings": {
           "student": {
             "gender": "Female",
@@ -1830,15 +1589,41 @@ weight: 11003
           }
         }
       }),
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "school_name": (*string)("The Kings"),
       "school_name_list": (*[]interface {})({
         "MLC",
         "KINGS"
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "name": "Grace",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "gender": "Female",
+                "name": "Emily"
+              }
+            }
+          }
+        }
+      }),
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
       }),
       "cityall": (*map[interface {}]interface {})({
         "sg": {
@@ -1850,6 +1635,19 @@ weight: 11003
         },
         "kings": {
           "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      }),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
             "name": "Emily",
             "school": "KINGS",
             "gender": "Female"
@@ -1861,476 +1659,9 @@ weight: 11003
           {
             "sg": {
               "student": {
-                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "school": "Public High School",
-                "name": "Jason",
-                "gender": "Mail"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
                 "school": "MLC",
-                "gender": "Female",
                 "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "gender": "Female",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      })
-    })
-    
-    ~SubStep1: [query: query result matching the criteria ]
-    ~SubStep2: [printObj:  ]
-    (string) (len=13) "{{.studenty}}"
-    
-    object:
-     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
-    
-    -Step15:
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "studentx": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "name": "Grace",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "name": "Emily",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "school": "KINGS",
-            "gender": "Female",
-            "name": "Emily"
-          }
-        }
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "school": "Public High School",
-                "name": "Jason",
-                "gender": "Mail"
-              }
-            }
-          }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "name": "Emily",
-                "gender": "Female",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      },
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        },
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
-          }
-        }
-      }),
-      "query_name": "jason",
-      "data_school_name": "",
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "studentx": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "school": "MLC",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "name": "Emily",
-                "school": "KINGS",
-                "gender": "Female"
-              }
-            }
-          }
-        }
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "school": "KINGS",
-            "gender": "Female",
-            "name": "Emily"
-          }
-        }
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      },
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        },
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        }
-      }),
-      "query_name": "jason",
-      "data_school_name": "",
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      })
-    })
-    
-    ~SubStep1: [query: query result matching the criteria ]
-    ~SubStep2: [printObj:  ]
-    (string) (len=13) "{{.studentz}}"
-    
-    object:
-     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
-    
-    -Step16:
-    current exec runtime vars:
-    (*core.Cache)({
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "data_school_name": "",
-      "studentz": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "studentx": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
-          }
-        },
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "school": "Public High School",
-                "name": "Jason",
-                "gender": "Mail"
-              }
-            }
-          }
-        }
-      },
-      "query_name": "jason",
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "name": "Grace",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "gender": "Female",
-                "name": "Emily"
-              }
-            }
-          }
-        }
-      }),
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "school": "KINGS",
-            "gender": "Female",
-            "name": "Emily"
-          }
-        },
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
-          }
-        }
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "data_school_name": "",
-      "studentz": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "studentx": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "gender": "Female",
-                "school": "MLC"
               }
             }
           },
@@ -2356,7 +1687,171 @@ weight: 11003
           }
         }
       },
+      "school_name": (*string)("The Kings"),
       "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "data_school_name": ""
+    })
+    
+    ~SubStep1: [query: query result matching the criteria ]
+    ~SubStep2: [printObj:  ]
+    (string) (len=13) "{{.studentx}}"
+    
+    object:
+     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
+    
+    ~SubStep3: [print:  ]
+    map[gender:Female name:Emily school:KINGS]
+    -Step14:
+    current exec runtime vars:
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
+      }),
+      "data_school_name": "",
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "name": "Grace",
+            "school": "MLC",
+            "gender": "Female"
+          }
+        },
+        "kings": {
+          "student": {
+            "name": "Emily",
+            "school": "KINGS",
+            "gender": "Female"
+          }
+        }
+      }),
+      "school_name": (*string)("The Kings"),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "query_name": "jason",
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "school": "MLC",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "school": "KINGS",
+                "gender": "Female"
+              }
+            }
+          }
+        }
+      }),
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        }
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "data_school_name": "",
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "gender": "Female",
+            "name": "Grace",
+            "school": "MLC"
+          }
+        },
+        "kings": {
+          "student": {
+            "name": "Emily",
+            "school": "KINGS",
+            "gender": "Female"
+          }
+        }
+      }),
+      "school_name": (*string)("The Kings"),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "student_info": (*map[interface {}]interface {})({
         "school": "The Kings",
         "name": "jason",
@@ -2376,49 +1871,148 @@ weight: 11003
           {
             "kings": {
               "student": {
+                "name": "Emily",
                 "school": "KINGS",
-                "gender": "Female",
-                "name": "Emily"
+                "gender": "Female"
               }
             }
           }
         }
       }),
-      "school_name": (*string)("The Kings"),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      })
-    })
-    
-    ~SubStep1: [query: query result matching the criteria ]
-    ~SubStep2: [printObj:  ]
-    (string) (len=13) "{{.studentm}}"
-    
-    object:
-     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
-    
-    -Step17:
-    current exec runtime vars:
-    (*core.Cache)({
+      "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "gender": "Mail",
+                "school": "Public High School",
+                "name": "Jason"
+              }
+            }
+          }
+        },
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "school": "MLC",
+                "name": "Grace",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        }
+      },
       "studentx": (*map[interface {}]interface {})({
         "name": "Emily",
         "school": "KINGS",
         "gender": "Female"
       }),
-      "studentm": (*map[interface {}]interface {})({
+      "query_name": "jason"
+    })
+    
+    ~SubStep1: [query: query result matching the criteria ]
+    ~SubStep2: [printObj:  ]
+    (string) (len=13) "{{.studenty}}"
+    
+    object:
+     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
+    
+    -Step15:
+    current exec runtime vars:
+    (*core.Cache)({
+      "studentx": (*map[interface {}]interface {})({
         "gender": "Female",
         "name": "Emily",
         "school": "KINGS"
       }),
-      "cityall": (*map[interface {}]interface {})({
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "school_name": (*string)("The Kings"),
+      "query_name": "jason",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
           }
         },
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "school": "MLC",
+                "name": "Grace"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        }
+      },
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "school": "MLC",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "gender": "Female",
+                "name": "Emily",
+                "school": "KINGS"
+              }
+            }
+          }
+        }
+      }),
+      "data_school_name": "",
+      "city1": (*map[interface {}]interface {})({
         "kings": {
           "student": {
             "gender": "Female",
@@ -2427,13 +2021,63 @@ weight: 11003
           }
         }
       }),
-      "query_name": "jason",
-      "school_name": (*string)("The Kings"),
-      "data_school_name": "",
-      "student_info": (*map[interface {}]interface {})({
-        "gender": "Male",
-        "school": "The Kings",
-        "name": "jason"
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
+        },
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        },
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "school": "MLC",
+                "name": "Grace"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        }
+      },
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
       }),
       "city": (*[]interface {})({
         {
@@ -2457,19 +2101,283 @@ weight: 11003
           }
         }
       }),
-      "studentz": (*map[interface {}]interface {})({
+      "data_school_name": "",
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
+        },
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studenty": (*map[interface {}]interface {})({
         "name": "Emily",
         "school": "KINGS",
         "gender": "Female"
       }),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
+      "school_name": (*string)("The Kings"),
+      "query_name": "jason",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      })
+    })
+    
+    ~SubStep1: [query: query result matching the criteria ]
+    ~SubStep2: [printObj:  ]
+    (string) (len=13) "{{.studentz}}"
+    
+    object:
+     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
+    
+    -Step16:
+    current exec runtime vars:
+    (*core.Cache)({
+      "query_name": "jason",
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "school_name": (*string)("The Kings"),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "data_school_name": "",
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "gender": "Female",
+            "name": "Grace",
+            "school": "MLC"
+          }
+        },
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
       }),
       "studenty": (*map[interface {}]interface {})({
         "gender": "Female",
         "name": "Emily",
         "school": "KINGS"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "school": "MLC",
+                "name": "Grace",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "gender": "Female",
+                "school": "KINGS",
+                "name": "Emily"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "gender": "Mail",
+                "school": "Public High School",
+                "name": "Jason"
+              }
+            }
+          }
+        }
+      },
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "name": "Grace",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "gender": "Female",
+                "name": "Emily"
+              }
+            }
+          }
+        }
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student_info": (*map[interface {}]interface {})({
+        "school": "The Kings",
+        "name": "jason",
+        "gender": "Male"
+      }),
+      "data_school_name": "",
+      "cityall": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        },
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
+        }
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "school": "MLC",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "school": "KINGS",
+                "gender": "Female"
+              }
+            }
+          }
+        }
+      }),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
       }),
       "city1": (*map[interface {}]interface {})({
         "kings": {
@@ -2479,6 +2387,55 @@ weight: 11003
             "school": "KINGS"
           }
         }
+      }),
+      "school_name": (*string)("The Kings"),
+      "query_name": "jason"
+    })
+    
+    ~SubStep1: [query: query result matching the criteria ]
+    ~SubStep2: [printObj:  ]
+    (string) (len=13) "{{.studentm}}"
+    
+    object:
+     map[gender:Female name:Emily school:KINGS]: (interface {}) <nil>
+    
+    -Step17:
+    current exec runtime vars:
+    (*core.Cache)({
+      "student_info": (*map[interface {}]interface {})({
+        "school": "The Kings",
+        "name": "jason",
+        "gender": "Male"
+      }),
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      }),
+      "studentm": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "data_school_name": "",
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
       }),
       "nsw": {
         "chatswood": {
@@ -2505,42 +2462,32 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "school": "KINGS",
                 "name": "Emily",
-                "gender": "Female"
+                "gender": "Female",
+                "school": "KINGS"
               }
             }
           }
         }
       },
+      "query_name": "jason",
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "nsw": {
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        },
-        "sydney": {
+        "name": "Tom"
+      },
+      "school_name": (*string)("The Kings"),
+      "city": (*[]interface {})({
+        {
           {
             "sg": {
               "student": {
-                "school": "MLC",
                 "name": "Grace",
+                "school": "MLC",
                 "gender": "Female"
               }
             }
@@ -2548,30 +2495,11 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "school": "KINGS",
+                "gender": "Female",
                 "name": "Emily",
-                "gender": "Female"
+                "school": "KINGS"
               }
             }
-          }
-        }
-      },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "studenty": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
           }
         }
       }),
@@ -2585,30 +2513,333 @@ weight: 11003
         },
         "kings": {
           "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student_info": (*map[interface {}]interface {})({
+        "school": "The Kings",
+        "name": "jason",
+        "gender": "Male"
+      }),
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
             "school": "KINGS",
             "gender": "Female",
             "name": "Emily"
           }
         }
       }),
-      "query_name": "jason",
-      "school_name": (*string)("The Kings"),
+      "studentm": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
       "data_school_name": "",
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
+      "studentx": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "gender": "Mail",
+                "school": "Public High School",
+                "name": "Jason"
+              }
+            }
+          }
+        },
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        }
+      },
+      "query_name": "jason",
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "school_name": (*string)("The Kings"),
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "school": "MLC",
+                "gender": "Female"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "school": "KINGS",
+                "gender": "Female"
+              }
+            }
+          }
+        }
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "gender": "Female",
+            "name": "Grace",
+            "school": "MLC"
+          }
+        },
+        "kings": {
+          "student": {
+            "name": "Emily",
+            "school": "KINGS",
+            "gender": "Female"
+          }
+        }
+      })
+    })
+    
+    ~SubStep1: [query: query result matching the criteria ]
+    ~SubStep2: [printObj:  ]
+    (string) (len=13) "{{.studentn}}"
+    
+    object:
+     map[gender:Female name:Grace school:MLC]: (interface {}) <nil>
+    
+    -Step18:
+    current exec runtime vars:
+    (*core.Cache)({
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
       }),
       "studentx": (*map[interface {}]interface {})({
         "gender": "Female",
         "name": "Emily",
         "school": "KINGS"
       }),
+      "studenty": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        },
+        "sg": {
+          "student": {
+            "gender": "Female",
+            "name": "Grace",
+            "school": "MLC"
+          }
+        }
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "school_name": (*string)("The Kings"),
+      "studentn": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Grace",
+        "school": "MLC"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "name": "Grace",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "gender": "Female",
+                "name": "Emily",
+                "school": "KINGS"
+              }
+            }
+          }
+        }
+      }),
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        }
+      },
       "studentm": (*map[interface {}]interface {})({
         "gender": "Female",
         "name": "Emily",
         "school": "KINGS"
       }),
+      "query_name": "jason",
+      "data_school_name": ""
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        },
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
+        }
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "school_name": (*string)("The Kings"),
+      "studentn": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Grace",
+        "school": "MLC"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "city": (*[]interface {})({
         {
           {
@@ -2631,53 +2862,71 @@ weight: 11003
           }
         }
       }),
-      "studentz": (*map[interface {}]interface {})({
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "name": "Jason",
+                "gender": "Mail",
+                "school": "Public High School"
+              }
+            }
+          }
+        }
+      },
+      "studentm": (*map[interface {}]interface {})({
+        "school": "KINGS",
         "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
+        "name": "Emily"
       }),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      })
+      "query_name": "jason",
+      "data_school_name": ""
     })
     
     ~SubStep1: [query: query result matching the criteria ]
     ~SubStep2: [printObj:  ]
-    (string) (len=13) "{{.studentn}}"
+    (string) (len=13) "{{.studento}}"
     
     object:
-     map[gender:Female name:Grace school:MLC]: (interface {}) <nil>
+     map[chatswood_high:map[student:map[gender:Mail name:Jason school:Public High School]]]: (interface {}) <nil>
     
-    -Step18:
+    -Step19:
     current exec runtime vars:
     (*core.Cache)({
-      "studentn": (*map[interface {}]interface {})({
-        "name": "Grace",
-        "school": "MLC",
-        "gender": "Female"
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
       "school_name": (*string)("The Kings"),
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
       "query_name": "jason",
+      "data_school_name": "",
+      "studentm": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "studentn": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Grace",
+        "school": "MLC"
+      }),
       "nsw": {
         "chatswood": {
           {
@@ -2703,398 +2952,46 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "school": "KINGS",
                 "name": "Emily",
-                "gender": "Female"
-              }
-            }
-          }
-        }
-      },
-      "studentm": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        },
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        }
-      }),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "data_school_name": "",
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
                 "gender": "Female",
-                "name": "Grace",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "name": "Emily",
                 "school": "KINGS"
               }
             }
           }
         }
-      }),
-      "studentx": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "studenty": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "studentn": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Grace",
-        "school": "MLC"
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "query_name": "jason",
-      "school_name": (*string)("The Kings"),
+      },
       "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        },
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        }
-      }),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "studentm": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "name": "Grace",
-                "school": "MLC"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "name": "Emily",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      }),
-      "studentx": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "data_school_name": ""
-    })
-    
-    ~SubStep1: [query: query result matching the criteria ]
-    ~SubStep2: [printObj:  ]
-    (string) (len=13) "{{.studento}}"
-    
-    object:
-     map[chatswood_high:map[student:map[gender:Mail name:Jason school:Public High School]]]: (interface {}) <nil>
-    
-    -Step19:
-    current exec runtime vars:
-    (*core.Cache)({
-      "studentn": (*map[interface {}]interface {})({
-        "school": "MLC",
-        "gender": "Female",
-        "name": "Grace"
-      }),
-      "school_name": (*string)("The Kings"),
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "school": "KINGS",
-                "name": "Emily"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "student_info": (*map[interface {}]interface {})({
-        "school": "The Kings",
-        "name": "jason",
-        "gender": "Male"
-      }),
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "gender": "Female",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "gender": "Female",
-                "name": "Emily",
-                "school": "KINGS"
-              }
-            }
-          }
-        }
-      }),
-      "studentx": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "query_name": "jason",
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        },
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        }
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      }),
-      "data_school_name": "",
-      "studento": (*map[interface {}]interface {})({
-        "chatswood_high": {
-          "student": {
-            "name": "Jason",
-            "school": "Public High School",
-            "gender": "Mail"
-          }
-        }
-      }),
-      "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "studentm": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "gender": "Female",
-                "school": "MLC",
-                "name": "Grace"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "name": "Emily",
-                "gender": "Female"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "student_info": (*map[interface {}]interface {})({
         "name": "jason",
         "gender": "Male",
         "school": "The Kings"
       }),
+      "studento": (*map[interface {}]interface {})({
+        "chatswood_high": {
+          "student": {
+            "gender": "Mail",
+            "name": "Jason",
+            "school": "Public High School"
+          }
+        }
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
       "city": (*[]interface {})({
         {
           {
             "sg": {
               "student": {
-                "school": "MLC",
                 "gender": "Female",
-                "name": "Grace"
+                "name": "Grace",
+                "school": "MLC"
               }
             }
           },
@@ -3109,32 +3006,100 @@ weight: 11003
           }
         }
       }),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "gender": "Female",
+            "name": "Grace",
+            "school": "MLC"
+          }
+        },
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      }),
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": (*map[interface {}]interface {})({
+        "name": "jason",
+        "gender": "Male",
+        "school": "The Kings"
+      }),
+      "studento": (*map[interface {}]interface {})({
+        "chatswood_high": {
+          "student": {
+            "school": "Public High School",
+            "gender": "Mail",
+            "name": "Jason"
+          }
+        }
+      }),
       "studentx": (*map[interface {}]interface {})({
         "name": "Emily",
         "school": "KINGS",
         "gender": "Female"
       }),
-      "studentn": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Grace",
-        "school": "MLC"
-      }),
-      "school_name": (*string)("The Kings"),
-      "studenty": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "name": "Grace",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "school": "KINGS",
+                "gender": "Female"
+              }
+            }
+          }
+        }
       }),
       "school_name_list": (*[]interface {})({
         "MLC",
         "KINGS"
       }),
-      "query_name": "jason",
       "cityall": (*map[interface {}]interface {})({
         "kings": {
           "student": {
@@ -3145,31 +3110,11 @@ weight: 11003
         },
         "sg": {
           "student": {
+            "school": "MLC",
             "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
+            "name": "Grace"
           }
         }
-      }),
-      "data_school_name": "",
-      "studento": (*map[interface {}]interface {})({
-        "chatswood_high": {
-          "student": {
-            "name": "Jason",
-            "school": "Public High School",
-            "gender": "Mail"
-          }
-        }
-      }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "studentm": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
       }),
       "city1": (*map[interface {}]interface {})({
         "kings": {
@@ -3179,7 +3124,63 @@ weight: 11003
             "school": "KINGS"
           }
         }
-      })
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "school_name": (*string)("The Kings"),
+      "query_name": "jason",
+      "data_school_name": "",
+      "studentm": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "studentn": (*map[interface {}]interface {})({
+        "name": "Grace",
+        "school": "MLC",
+        "gender": "Female"
+      }),
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "gender": "Female",
+                "school": "KINGS"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        }
+      }
     })
     
     ~SubStep1: [query: query and register result as a yml string instead of object ]
@@ -3234,6 +3235,38 @@ weight: 11003
     -Step20:
     current exec runtime vars:
     (*core.Cache)({
+      "studenty": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "query_name": "jason",
+      "cityall": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        },
+        "sg": {
+          "student": {
+            "gender": "Female",
+            "name": "Grace",
+            "school": "MLC"
+          }
+        }
+      }),
+      "student_info": (*map[interface {}]interface {})({
+        "school": "The Kings",
+        "name": "jason",
+        "gender": "Male"
+      }),
       "nsw": {
         "sydney": {
           {
@@ -3248,9 +3281,9 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "gender": "Female",
                 "school": "KINGS",
-                "name": "Emily"
+                "name": "Emily",
+                "gender": "Female"
               }
             }
           }
@@ -3259,71 +3292,37 @@ weight: 11003
           {
             "chatswood_high": {
               "student": {
-                "name": "Jason",
                 "gender": "Mail",
-                "school": "Public High School"
+                "school": "Public High School",
+                "name": "Jason"
               }
             }
           }
         }
       },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
+      "school_name": (*string)("The Kings"),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
       "studentn": (*map[interface {}]interface {})({
-        "school": "MLC",
         "gender": "Female",
-        "name": "Grace"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        },
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "studento": (*map[interface {}]interface {})({
-        "chatswood_high": {
-          "student": {
-            "gender": "Mail",
-            "name": "Jason",
-            "school": "Public High School"
-          }
-        }
+        "name": "Grace",
+        "school": "MLC"
       }),
       "city": (*[]interface {})({
         {
           {
             "sg": {
               "student": {
-                "school": "MLC",
                 "gender": "Female",
-                "name": "Grace"
+                "name": "Grace",
+                "school": "MLC"
               }
             }
           },
@@ -3339,129 +3338,7 @@ weight: 11003
         }
       }),
       "city2": "chatswood:\n- chatswood_high:\n    student:\n      gender: Mail\n      name: Jason\n      school: Public High School\nsydney:\n- sg:\n    student:\n      gender: Female\n      name: Grace\n      school: MLC\n- kings:\n    student:\n      gender: Female\n      name: Emily\n      school: KINGS\n",
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
       "data_school_name": "",
-      "studentx": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "studentm": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "query_name": "jason"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "school_name": (*string)("The Kings"),
-      "student_info": (*map[interface {}]interface {})({
-        "gender": "Male",
-        "school": "The Kings",
-        "name": "jason"
-      }),
-      "data_school_name": "",
-      "studentx": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "studentm": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "query_name": "jason",
-      "nsw": {
-        "sydney": {
-          {
-            "sg": {
-              "student": {
-                "school": "MLC",
-                "name": "Grace",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "school": "KINGS",
-                "name": "Emily",
-                "gender": "Female"
-              }
-            }
-          }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "name": "Jason",
-                "gender": "Mail",
-                "school": "Public High School"
-              }
-            }
-          }
-        }
-      },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "studentn": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Grace",
-        "school": "MLC"
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        },
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
       "studento": (*map[interface {}]interface {})({
         "chatswood_high": {
           "student": {
@@ -3471,6 +3348,129 @@ weight: 11003
           }
         }
       }),
+      "studentm": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "school": "KINGS",
+            "gender": "Female",
+            "name": "Emily"
+          }
+        }
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "studentm": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "query_name": "jason",
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
+        },
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
+      }),
+      "nsw": {
+        "sydney": {
+          {
+            "sg": {
+              "student": {
+                "name": "Grace",
+                "gender": "Female",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "school": "KINGS",
+                "name": "Emily",
+                "gender": "Female"
+              }
+            }
+          }
+        },
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "gender": "Mail",
+                "school": "Public High School",
+                "name": "Jason"
+              }
+            }
+          }
+        }
+      },
+      "school_name": (*string)("The Kings"),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
+      }),
+      "studentn": (*map[interface {}]interface {})({
+        "school": "MLC",
+        "gender": "Female",
+        "name": "Grace"
+      }),
       "city": (*[]interface {})({
         {
           {
@@ -3485,23 +3485,24 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "gender": "Female",
                 "name": "Emily",
-                "school": "KINGS"
+                "school": "KINGS",
+                "gender": "Female"
               }
             }
           }
         }
       }),
       "city2": "chatswood:\n- chatswood_high:\n    student:\n      gender: Mail\n      name: Jason\n      school: Public High School\nsydney:\n- sg:\n    student:\n      gender: Female\n      name: Grace\n      school: MLC\n- kings:\n    student:\n      gender: Female\n      name: Emily\n      school: KINGS\n",
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "studenty": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
+      "data_school_name": "",
+      "studento": (*map[interface {}]interface {})({
+        "chatswood_high": {
+          "student": {
+            "name": "Jason",
+            "school": "Public High School",
+            "gender": "Mail"
+          }
+        }
       })
     })
     
@@ -3528,16 +3529,6 @@ weight: 11003
     -Step21:
     current exec runtime vars:
     (*core.Cache)({
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
       "studento": (*map[interface {}]interface {})({
         "chatswood_high": {
           "student": {
@@ -3547,89 +3538,30 @@ weight: 11003
           }
         }
       }),
-      "city2": "sydney:\n- sg:\n    student:\n      name: Grace\n      gender: Female\n      school: MLC\n- kings:\n    student:\n      name: Emily\n      gender: Female\n      school: KINGS\nchatswood:\n- chatswood_high:\n    student:\n      name: Jason\n      gender: Mail\n      school: Public High School\n",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "cityall": (*map[interface {}]interface {})({
-        "sg": {
-          "student": {
-            "gender": "Female",
-            "name": "Grace",
-            "school": "MLC"
-          }
-        },
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        }
-      }),
-      "city1": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "gender": "Female",
-            "name": "Emily",
-            "school": "KINGS"
-          }
-        }
-      }),
-      "school_name": (*string)("The Kings"),
-      "data_school_name": "",
-      "city": (*[]interface {})({
-        {
-          {
-            "sg": {
-              "student": {
-                "name": "Grace",
-                "school": "MLC",
-                "gender": "Female"
-              }
-            }
-          },
-          {
-            "kings": {
-              "student": {
-                "name": "Emily",
-                "school": "KINGS",
-                "gender": "Female"
-              }
-            }
-          }
-        }
-      }),
-      "studentm": (*map[interface {}]interface {})({
+      "studenty": (*map[interface {}]interface {})({
         "gender": "Female",
         "name": "Emily",
         "school": "KINGS"
       }),
-      "student_info": (*map[interface {}]interface {})({
-        "name": "jason",
-        "gender": "Male",
-        "school": "The Kings"
-      }),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
-      }),
-      "studentn": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Grace",
-        "school": "MLC"
-      }),
-      "query_name": "jason",
       "nsw": {
+        "chatswood": {
+          {
+            "chatswood_high": {
+              "student": {
+                "school": "Public High School",
+                "name": "Jason",
+                "gender": "Mail"
+              }
+            }
+          }
+        },
         "sydney": {
           {
             "sg": {
               "student": {
-                "name": "Grace",
                 "gender": "Female",
-                "school": "MLC"
+                "school": "MLC",
+                "name": "Grace"
               }
             }
           },
@@ -3642,45 +3574,77 @@ weight: 11003
               }
             }
           }
-        },
-        "chatswood": {
-          {
-            "chatswood_high": {
-              "student": {
-                "school": "Public High School",
-                "name": "Jason",
-                "gender": "Mail"
-              }
-            }
-          }
         }
       },
+      "query_name": "jason",
+      "studentn": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Grace",
+        "school": "MLC"
+      }),
+      "city1": (*map[interface {}]interface {})({
+        "kings": {
+          "student": {
+            "name": "Emily",
+            "school": "KINGS",
+            "gender": "Female"
+          }
+        }
+      }),
       "studentx": (*map[interface {}]interface {})({
+        "gender": "Female",
         "name": "Emily",
+        "school": "KINGS"
+      }),
+      "school_name": (*string)("The Kings"),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
+        },
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "city2": "sydney:\n- sg:\n    student:\n      name: Grace\n      gender: Female\n      school: MLC\n- kings:\n    student:\n      name: Emily\n      gender: Female\n      school: KINGS\nchatswood:\n- chatswood_high:\n    student:\n      name: Jason\n      gender: Mail\n      school: Public High School\n",
+      "studentm": (*map[interface {}]interface {})({
         "school": "KINGS",
-        "gender": "Female"
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "student_info": (*map[interface {}]interface {})({
         "gender": "Male",
         "school": "The Kings",
         "name": "jason"
       }),
-      "school_name_list": (*[]interface {})({
-        "MLC",
-        "KINGS"
+      "studentz": (*map[interface {}]interface {})({
+        "gender": "Female",
+        "name": "Emily",
+        "school": "KINGS"
       }),
-      "nsw": {
-        "sydney": {
+      "city": (*[]interface {})({
+        {
           {
             "sg": {
               "student": {
-                "name": "Grace",
                 "gender": "Female",
+                "name": "Grace",
                 "school": "MLC"
               }
             }
@@ -3688,13 +3652,105 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "school": "KINGS",
                 "name": "Emily",
+                "school": "KINGS",
                 "gender": "Female"
               }
             }
           }
+        }
+      }),
+      "data_school_name": ""
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "studentx": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "school_name": (*string)("The Kings"),
+      "school_name_list": (*[]interface {})({
+        "MLC",
+        "KINGS"
+      }),
+      "cityall": (*map[interface {}]interface {})({
+        "sg": {
+          "student": {
+            "school": "MLC",
+            "gender": "Female",
+            "name": "Grace"
+          }
         },
+        "kings": {
+          "student": {
+            "gender": "Female",
+            "name": "Emily",
+            "school": "KINGS"
+          }
+        }
+      }),
+      "data_school_name": "",
+      "city2": "sydney:\n- sg:\n    student:\n      name: Grace\n      gender: Female\n      school: MLC\n- kings:\n    student:\n      name: Emily\n      gender: Female\n      school: KINGS\nchatswood:\n- chatswood_high:\n    student:\n      name: Jason\n      gender: Mail\n      school: Public High School\n",
+      "studentm": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": (*map[interface {}]interface {})({
+        "gender": "Male",
+        "school": "The Kings",
+        "name": "jason"
+      }),
+      "studentz": (*map[interface {}]interface {})({
+        "school": "KINGS",
+        "gender": "Female",
+        "name": "Emily"
+      }),
+      "city": (*[]interface {})({
+        {
+          {
+            "sg": {
+              "student": {
+                "gender": "Female",
+                "name": "Grace",
+                "school": "MLC"
+              }
+            }
+          },
+          {
+            "kings": {
+              "student": {
+                "name": "Emily",
+                "school": "KINGS",
+                "gender": "Female"
+              }
+            }
+          }
+        }
+      }),
+      "studento": (*map[interface {}]interface {})({
+        "chatswood_high": {
+          "student": {
+            "school": "Public High School",
+            "gender": "Mail",
+            "name": "Jason"
+          }
+        }
+      }),
+      "studenty": (*map[interface {}]interface {})({
+        "name": "Emily",
+        "school": "KINGS",
+        "gender": "Female"
+      }),
+      "nsw": {
         "chatswood": {
           {
             "chatswood_high": {
@@ -3705,53 +3761,13 @@ weight: 11003
               }
             }
           }
-        }
-      },
-      "studentx": (*map[interface {}]interface {})({
-        "name": "Emily",
-        "school": "KINGS",
-        "gender": "Female"
-      }),
-      "studentn": (*map[interface {}]interface {})({
-        "name": "Grace",
-        "school": "MLC",
-        "gender": "Female"
-      }),
-      "query_name": "jason",
-      "studento": (*map[interface {}]interface {})({
-        "chatswood_high": {
-          "student": {
-            "gender": "Mail",
-            "name": "Jason",
-            "school": "Public High School"
-          }
-        }
-      }),
-      "city2": "sydney:\n- sg:\n    student:\n      name: Grace\n      gender: Female\n      school: MLC\n- kings:\n    student:\n      name: Emily\n      gender: Female\n      school: KINGS\nchatswood:\n- chatswood_high:\n    student:\n      name: Jason\n      gender: Mail\n      school: Public High School\n",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "studenty": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "studentz": (*map[interface {}]interface {})({
-        "school": "KINGS",
-        "gender": "Female",
-        "name": "Emily"
-      }),
-      "school_name": (*string)("The Kings"),
-      "data_school_name": "",
-      "city": (*[]interface {})({
-        {
+        },
+        "sydney": {
           {
             "sg": {
               "student": {
-                "school": "MLC",
                 "gender": "Female",
+                "school": "MLC",
                 "name": "Grace"
               }
             }
@@ -3759,41 +3775,26 @@ weight: 11003
           {
             "kings": {
               "student": {
-                "name": "Emily",
+                "gender": "Female",
                 "school": "KINGS",
-                "gender": "Female"
+                "name": "Emily"
               }
             }
           }
         }
-      }),
-      "studentm": (*map[interface {}]interface {})({
-        "gender": "Female",
-        "name": "Emily",
-        "school": "KINGS"
-      }),
-      "cityall": (*map[interface {}]interface {})({
-        "kings": {
-          "student": {
-            "name": "Emily",
-            "school": "KINGS",
-            "gender": "Female"
-          }
-        },
-        "sg": {
-          "student": {
-            "name": "Grace",
-            "school": "MLC",
-            "gender": "Female"
-          }
-        }
+      },
+      "query_name": "jason",
+      "studentn": (*map[interface {}]interface {})({
+        "name": "Grace",
+        "school": "MLC",
+        "gender": "Female"
       }),
       "city1": (*map[interface {}]interface {})({
         "kings": {
           "student": {
-            "name": "Emily",
             "school": "KINGS",
-            "gender": "Female"
+            "gender": "Female",
+            "name": "Emily"
           }
         }
       })

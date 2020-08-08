@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvv"
-date: 2020-07-20T02:01:41+77:00
+date: 2020-08-09T01:36:08+88:00
 draft: false
 weight: 10683
 
@@ -20,12 +20,19 @@ weight: 10683
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0068
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10683
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -74,11 +75,9 @@ weight: 10683
     
     cmd=>:
     echo "world"|grep non-exist<=
-          exec error: -> exit status 1
-    -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exec wait -> exit status 1
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "world"
     

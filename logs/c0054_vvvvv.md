@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvvv"
-date: 2020-07-20T02:01:39+77:00
+date: 2020-08-09T01:36:06+88:00
 draft: false
 weight: 10544
 
@@ -20,14 +20,21 @@ weight: 10544
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0054
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177f00)(<nil>)
+    (*impl.Scopes)(0xc0001e7f00)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10544
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -81,7 +82,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -135,7 +139,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -194,7 +201,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -250,7 +260,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -293,16 +306,15 @@ weight: 10544
     
     cmd=>:
     echo "step2" |grep notexist<=
-          exec error: -> exit status 1
+          exec wait -> exit status 1
     -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
      Code: (int) 1,
      Output: (string) "",
-     ErrMsg: (string) ""
+     ErrMsg: (string) (len=13) "exit status 1"
     }
     
     cmd( 3):
@@ -338,7 +350,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -430,7 +445,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -446,6 +464,8 @@ weight: 10544
     dvar> last_task_succeeded:
     "true"
     
+    -
+    true
     [local] dvar expanded result:
     {
       "last_task_succeeded": "true"
@@ -563,7 +583,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -621,16 +644,15 @@ weight: 10544
     
     cmd=>:
     echo "step2" |grep notexist<=
-          exec error: -> exit status 1
+          exec wait -> exit status 1
     -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
      Code: (int) 1,
      Output: (string) "",
-     ErrMsg: (string) ""
+     ErrMsg: (string) (len=13) "exit status 1"
     }
     
      WARN: [HightLight:] - [Error ignored!!!]
@@ -654,7 +676,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -663,7 +688,7 @@ weight: 10544
         Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
-        ErrMsg: ""
+        ErrMsg: "exit status 1"
       })
     })
     
@@ -677,7 +702,7 @@ weight: 10544
         Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
-        ErrMsg: ""
+        ErrMsg: "exit status 1"
       })
     }
     
@@ -689,7 +714,7 @@ weight: 10544
         Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
-        ErrMsg: ""
+        ErrMsg: "exit status 1"
       })
     })
     
@@ -736,22 +761,27 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
       "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
+        "age": 23,
+        "name": "peter"
       }
     })
     
     dvar> condition:
     "true"
     
+    -
+    true
     [local] dvar expanded result:
     {
       "condition": "true"
@@ -759,13 +789,13 @@ weight: 10544
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)(<nil>),
+      "condition": "true",
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       },
-      "condition": "true"
+      "last_result": (*utils.ExecResult)(<nil>)
     }
     
     
@@ -837,7 +867,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -858,6 +891,8 @@ weight: 10544
     dvar> condition:
     "true"
     
+    -
+    true
     [local] dvar expanded result:
     {
       "condition": "true"
@@ -865,6 +900,24 @@ weight: 10544
     
     
     scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"simple dvar as condition\"",
+        Code: 0,
+        Output: "simple dvar as condition",
+        ErrMsg: ""
+      }),
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
+      "condition": "true"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "condition": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"simple dvar as condition\"",
@@ -873,28 +926,10 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
-      },
-      "condition": "true",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"simple dvar as condition\"",
-        Code: 0,
-        Output: "simple dvar as condition",
-        ErrMsg: ""
-      })
+        "age": 23,
+        "name": "peter"
+      }
     })
     
     cmd( 1):
@@ -922,9 +957,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
+          "age": 23,
           "name": "peter",
-          "sex": "male",
-          "age": 23
+          "sex": "male"
         }
       },
       Dvars: {
@@ -953,27 +988,32 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"complicated dvar evaluation as condition\"",
         Code: 0,
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "sex": "male",
+        "age": 23,
+        "name": "peter"
+      }
     })
     
     dvar> condition:
     "true"
     
+    -
+    true
     [local] dvar expanded result:
     {
       "condition": "true"
@@ -988,9 +1028,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
+        "age": 23,
+        "name": "peter"
       },
       "condition": "true"
     }
@@ -1006,9 +1046,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       },
       "condition": "true"
     })
@@ -1038,9 +1078,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
-          "name": "peter",
           "sex": "male",
-          "age": 23
+          "age": 23,
+          "name": "peter"
         }
       },
       Dvars: <nil>,
@@ -1052,7 +1092,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1064,9 +1107,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       }
     })
     
@@ -1083,9 +1126,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       }
     }
     
@@ -1146,7 +1189,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1166,13 +1212,13 @@ weight: 10544
     
     
     scope[local] merged: {
-      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      })
+      }),
+      "doc": "hello"
     }
     
     
@@ -1214,7 +1260,10 @@ weight: 10544
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1247,13 +1296,13 @@ weight: 10544
     self: final context exec vars:
     
     (*core.Cache)({
-      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      })
+      }),
+      "doc": "hello"
     })
     
     {{ gt (.doc|len) 1 }}

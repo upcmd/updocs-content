@@ -1,6 +1,6 @@
 ---
 title: "c0147_vvvvv"
-date: 2020-07-20T02:01:55+77:00
+date: 2020-08-09T01:36:21+88:00
 draft: false
 weight: 11474
 
@@ -20,14 +20,21 @@ weight: 11474
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0147
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025b3c0)(<nil>)
+    (*impl.Scopes)(0xc00013f480)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11474
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "c": "ccc",
@@ -50,9 +51,9 @@ weight: 11474
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "c": (string) (len=3) "ccc",
      (string) (len=1) "a": (string) (len=3) "aaa",
-     (string) (len=1) "b": (string) (len=3) "bbb"
+     (string) (len=1) "b": (string) (len=3) "bbb",
+     (string) (len=1) "c": (string) (len=3) "ccc"
     }
     
     [runtime global] dvar expanded result:
@@ -95,8 +96,8 @@ weight: 11474
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "b": "bbb",
-        "d": "ddd"
+        "d": "ddd",
+        "b": "bbb"
       },
       Dvars: <nil>,
       Desc: "",
@@ -109,13 +110,16 @@ weight: 11474
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
-      "d": "ddd"
+      "d": "ddd",
+      "b": "bbb"
     })
     
     [local] dvar expanded result:
@@ -124,26 +128,28 @@ weight: 11474
     
     
     scope[local] merged: {
-      "b": "bbb",
-      "d": "ddd"
+      "d": "ddd",
+      "b": "bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "bbb",
-      "d": "ddd"
+      "d": "ddd",
+      "b": "bbb"
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
-     1: inspect[exec_vars](*core.Cache)({
-      "b": "bbb",
-      "d": "ddd"
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "d": "ddd",
+      "b": "bbb"
     })
     
-     2: inspect[exec_base_vars]{
+     2: inspect[exec_base_vars]
+    {
       "c": "ccc",
       "a": "aaa",
       "b": "bbb"
@@ -174,7 +180,10 @@ weight: 11474
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -189,22 +198,22 @@ weight: 11474
     
     
     scope[local] merged: {
-      "e": "first_level_eee",
-      "f": "first_level_fff"
+      "f": "first_level_fff",
+      "e": "first_level_eee"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     })
     
     caller's vars to task (substack)::
     (*core.Cache)({
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     })
     
       located task-> 2 [substack]: 
@@ -216,20 +225,20 @@ weight: 11474
       Name: "",
       Do: {
         {
+          "name": "inspect",
           "desc": "the vars in caller after invoking module task",
           "cmd": {
             "exec_vars",
             "exec_base_vars"
-          },
-          "name": "inspect"
+          }
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "f": "fff",
         "g": "ggg",
-        "h": "hhh"
+        "h": "hhh",
+        "f": "fff"
       },
       Dvars: <nil>,
       Desc: "",
@@ -240,16 +249,19 @@ weight: 11474
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
       "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "f": "first_level_fff"
     })
     
     [local] dvar expanded result:
@@ -258,35 +270,37 @@ weight: 11474
     
     
     scope[local] merged: {
+      "g": "ggg",
+      "h": "hhh",
       "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff",
-      "g": "ggg",
-      "h": "hhh"
+      "f": "first_level_fff"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "h": "hhh",
       "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
       "f": "first_level_fff",
-      "g": "ggg"
+      "g": "ggg",
+      "h": "hhh"
     })
     
     [exec_vars exec_base_vars]
     ~~SubStep1: [inspect: the vars in caller after invoking module task ]
-     1: inspect[exec_vars](*core.Cache)({
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "f": "first_level_fff",
+      "g": "ggg",
       "h": "hhh",
       "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff",
-      "g": "ggg"
+      "up_runtime_task_layer_number": 1
     })
     
-     2: inspect[exec_base_vars]{
+     2: inspect[exec_base_vars]
+    {
       "e": "first_level_eee",
       "f": "first_level_fff"
     }

@@ -1,6 +1,6 @@
 ---
 title: "c0119_vvvvv"
-date: 2020-07-20T02:01:50+77:00
+date: 2020-08-09T01:36:17+88:00
 draft: false
 weight: 11194
 
@@ -20,14 +20,21 @@ weight: 11194
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0119
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bd6e0)(<nil>)
+    (*impl.Scopes)(0xc0001c16e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11194
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -89,7 +90,10 @@ weight: 11194
       },
       Until: "{{ eq .loopitem \"item3\" }}",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -139,7 +143,10 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -184,7 +191,10 @@ weight: 11194
       },
       Until: "{{ eq .loopitem \"proc 3\" }}",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -207,9 +217,9 @@ weight: 11194
     
     caller's vars to task (subtask)::
     (*core.Cache)({
+      "loopindex1": 1,
       "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
       located task-> 2 [subtask]: 
@@ -237,15 +247,18 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1"
     })
     
     [local] dvar expanded result:
@@ -289,8 +302,8 @@ weight: 11194
       Name: "step1",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -305,15 +318,18 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
     [local] dvar expanded result:
@@ -322,10 +338,10 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -364,7 +380,10 @@ weight: 11194
       },
       Until: "{{ eq .loopindex 3 }}",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -390,10 +409,10 @@ weight: 11194
     
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1"
     })
     
       located task-> 2 [subtask]: 
@@ -405,8 +424,8 @@ weight: 11194
       Name: "step1",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -421,7 +440,10 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -448,10 +470,10 @@ weight: 11194
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     {{.loopitem}}
@@ -459,10 +481,10 @@ weight: 11194
     proc 1
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
       located task-> 2 [subtask]: 
@@ -490,15 +512,18 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -507,20 +532,20 @@ weight: 11194
     
     
     scope[local] merged: {
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -528,10 +553,10 @@ weight: 11194
     proc 2
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
       located task-> 2 [subtask]: 
@@ -559,7 +584,10 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -576,10 +604,10 @@ weight: 11194
     
     
     scope[local] merged: {
-      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 3"
     }
     
     
@@ -622,13 +650,16 @@ weight: 11194
       },
       Until: "{{ eq .person \"tom\" }}",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": "jason",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "jason"
     })
     
     [local] dvar expanded result:
@@ -637,25 +668,25 @@ weight: 11194
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "person": "jason",
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "jason",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "jason"
     })
     
     caller's vars to task (subtask2)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 3 [subtask2]: 
@@ -686,16 +717,19 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopitem": "proc 1"
     })
     
     [local] dvar expanded result:
@@ -704,22 +738,22 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopitem": "proc 1",
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0
+      "person": "jason"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "person": "jason",
+      "loopitem": "proc 1"
     })
     
     condition failed, skip executing step 
@@ -745,16 +779,19 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -774,11 +811,11 @@ weight: 11194
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "proc 1",
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason"
+      "person": "jason",
+      "loopitem": "proc 1",
+      "loopindex": 0
     })
     
     person: {{.person}}
@@ -786,281 +823,11 @@ weight: 11194
     person: jason
     caller's vars to task (subtask2)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2
-    })
-    
-      located task-> 3 [subtask2]: 
-    =Task3: [task ==> subtask2:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "cmd": {
-            "name": "person",
-            "value": "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .loopindex 3 }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1
-    })
-    
-    condition failed, skip executing step 
-    
-    --Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "person: {{.person}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1
-    })
-    
-    person: {{.person}}
-    ~~SubStep1: [print:  ]
-    person: jason
-    caller's vars to task (subtask2)::
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-      located task-> 3 [subtask2]: 
-    =Task3: [task ==> subtask2:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "reg",
-          "cmd": {
-            "value": "tom",
-            "name": "person"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "{{ eq .loopindex 3 }}",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    condition failed, skip executing step 
-    
-    --Step2: [step2:  ]
-    {
-      Name: "step2",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "person: {{.person}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: ""
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    person: {{.person}}
-    ~~SubStep1: [print:  ]
-    person: jason
-    caller's vars to task (subtask2)::
-    (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 4",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1
+      "loopitem": "proc 2"
     })
     
       located task-> 3 [subtask2]: 
@@ -1091,16 +858,19 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 4",
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopitem": "proc 2",
+      "loopindex": 1
     })
     
     [local] dvar expanded result:
@@ -1109,11 +879,293 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 2"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 2",
+      "loopindex": 1
+    })
+    
+    condition failed, skip executing step 
+    
+    --Step2: [step2:  ]
+    {
+      Name: "step2",
+      Do: {
+        {
+          "cmd": "person: {{.person}}",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 2",
+      "loopindex": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason"
+    })
+    
+    person: {{.person}}
+    ~~SubStep1: [print:  ]
+    person: jason
+    caller's vars to task (subtask2)::
+    (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3",
+      "loopindex": 2
+    })
+    
+      located task-> 3 [subtask2]: 
+    =Task3: [task ==> subtask2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "reg",
+          "cmd": {
+            "name": "person",
+            "value": "tom"
+          }
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "{{ eq .loopindex 3 }}",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3"
+    })
+    
+    condition failed, skip executing step 
+    
+    --Step2: [step2:  ]
+    {
+      Name: "step2",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "person: {{.person}}"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 3",
+      "loopindex": 2
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "person": "jason",
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    person: {{.person}}
+    ~~SubStep1: [print:  ]
+    person: jason
+    caller's vars to task (subtask2)::
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 4",
+      "loopindex": 3,
+      "loopindex1": 4
+    })
+    
+      located task-> 3 [subtask2]: 
+    =Task3: [task ==> subtask2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "reg",
+          "cmd": {
+            "name": "person",
+            "value": "tom"
+          }
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "{{ eq .loopindex 3 }}",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
       "person": "jason",
       "loopitem": "proc 4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 4",
+      "loopindex": 3,
+      "loopindex1": 4
     }
     
     
@@ -1132,21 +1184,21 @@ weight: 11194
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "tom",
       "loopitem": "proc 4",
-      "loopindex": 3
+      "loopindex": 3,
+      "loopindex1": 4
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "loopindex": 3,
-      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "tom",
-      "loopitem": "proc 4"
+      "loopitem": "proc 4",
+      "loopindex": 3,
+      "loopindex1": 4
     })
     
     --Step2: [step2:  ]
@@ -1170,16 +1222,19 @@ weight: 11194
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "tom",
       "loopitem": "proc 4",
       "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1,
-      "person": "tom"
+      "loopindex1": 4
     })
     
     [local] dvar expanded result:
@@ -1188,22 +1243,22 @@ weight: 11194
     
     
     scope[local] merged: {
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
       "person": "tom",
       "loopitem": "proc 4",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1
+      "loopindex": 3
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "proc 4",
-      "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
-      "person": "tom"
+      "person": "tom",
+      "loopitem": "proc 4",
+      "loopindex": 3
     })
     
     person: {{.person}}

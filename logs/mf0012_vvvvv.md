@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvvvv"
-date: 2020-07-20T02:02:16+77:00
+date: 2020-08-09T01:36:44+88:00
 draft: false
 weight: 101204
 
@@ -20,14 +20,21 @@ weight: 101204
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 8
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/f0012
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f4fa0)(<nil>)
+    (*impl.Scopes)(0xc0001b5020)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -79,7 +80,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -106,8 +110,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5fa0)(<nil>)
+    (*impl.Scopes)(0xc00022e0a0)(<nil>)
     
     ---------group vars----------
     
@@ -116,12 +126,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -169,7 +173,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -215,7 +222,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -246,8 +256,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c9c0)(<nil>)
+    (*impl.Scopes)(0xc00022faa0)(<nil>)
     
     ---------group vars----------
     
@@ -256,12 +272,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -307,7 +317,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -350,7 +363,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -381,8 +397,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk2], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003a22e0)(<nil>)
+    (*impl.Scopes)(0xc000281540)(<nil>)
     
     ---------group vars----------
     
@@ -391,12 +413,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -442,7 +458,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -485,7 +504,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -516,8 +538,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003a3c00)(<nil>)
+    (*impl.Scopes)(0xc0002d6fe0)(<nil>)
     
     ---------group vars----------
     
@@ -526,12 +554,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -561,8 +583,8 @@ weight: 101204
       Name: "",
       Do: {
         {
-          "cmd": " .... cross call 1",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... cross call 1"
         }
       },
       Dox: <nil>,
@@ -577,7 +599,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -620,7 +645,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -651,8 +679,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk2], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003e9520)(<nil>)
+    (*impl.Scopes)(0xc00038b920)(<nil>)
     
     ---------group vars----------
     
@@ -661,12 +695,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -696,8 +724,8 @@ weight: 101204
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": " .... cross call 2"
+          "cmd": " .... cross call 2",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -712,7 +740,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -755,7 +786,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -786,8 +820,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000434e40)(<nil>)
+    (*impl.Scopes)(0xc0004353c0)(<nil>)
     
     ---------group vars----------
     
@@ -796,12 +836,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -847,7 +881,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -890,7 +927,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -921,8 +961,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk2], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0004c2760)(<nil>)
+    (*impl.Scopes)(0xc000486e60)(<nil>)
     
     ---------group vars----------
     
@@ -931,12 +977,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk2] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -982,7 +1022,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1025,7 +1068,10 @@ weight: 101204
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1056,8 +1102,14 @@ weight: 101204
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00050a080)(<nil>)
+    (*impl.Scopes)(0xc000502900)(<nil>)
     
     ---------group vars----------
     
@@ -1066,12 +1118,6 @@ weight: 101204
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [crosstalk1] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -1092,7 +1138,10 @@ weight: 101204
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 9
     
-      ERROR: Module call layer check: [Too many layers of recursive module executions, max allowed(8), please fix your recursive call]
+    Recovered from: runtime error: invalid memory address or nil pointer dereference
+     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+    task finally -> runtime error: invalid memory address or nil pointer dereference
+    -----trace for reference-----
     
 ```
 

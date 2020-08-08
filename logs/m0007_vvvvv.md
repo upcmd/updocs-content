@@ -1,6 +1,6 @@
 ---
 title: "0007_vvvvv"
-date: 2020-07-20T02:02:15+77:00
+date: 2020-08-09T01:36:43+88:00
 draft: false
 weight: 100704
 
@@ -20,14 +20,21 @@ weight: 100704
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0007
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174de0)(<nil>)
+    (*impl.Scopes)(0xc0001bee80)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 100704
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -80,7 +81,10 @@ weight: 100704
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -107,8 +111,14 @@ weight: 100704
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hello], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175a00)(<nil>)
+    (*impl.Scopes)(0xc0001bfb00)(<nil>)
     
     ---------group vars----------
     
@@ -117,12 +127,6 @@ weight: 100704
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -152,8 +156,8 @@ weight: 100704
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": " .... world from Say_world"
+          "cmd": " .... world from Say_world",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -168,7 +172,10 @@ weight: 100704
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:

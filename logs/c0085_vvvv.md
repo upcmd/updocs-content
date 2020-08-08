@@ -1,6 +1,6 @@
 ---
 title: "c0085_vvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:11+88:00
 draft: false
 weight: 10853
 
@@ -20,12 +20,19 @@ weight: 10853
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0085
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10853
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "workers": {
@@ -67,27 +68,29 @@ weight: 10853
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      }
-    })
-    
-    dvar> linelist:
-    "[hello this is a beautiful world]"
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "linelist": "[hello this is a beautiful world]"
+      "lines": "hello\nthis\nis a\nbeautiful world"
+    })
+    
+    dvar> linelist:
+    "[hello this is a beautiful world]"
+    
+    -
+    [hello this is a beautiful world]
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "linelist": "[hello this is a beautiful world]",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
@@ -138,22 +141,31 @@ weight: 10853
     dvar> linelist:
     "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n"
     
+    -
+    {
+      "hello",
+      "this",
+      "is a",
+      "beautiful world"
+    }
+    
+    
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -187,6 +199,8 @@ weight: 10853
       "is a",
       "beautiful world"
     }
+    
+    
      .. ok
     . ok
     -Step3: [regtest:  ]
@@ -209,22 +223,28 @@ weight: 10853
     dvar> linelist:
     "- hello\n- this\n- is a\n- beautiful world\n"
     
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
+    
     self: final context exec vars:
     
     (*core.Cache)({
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
         ErrMsg: ""
       }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "workers": {
         "peter",
         "tom",
@@ -259,6 +279,7 @@ weight: 10853
     - this
     - is a
     - beautiful world
+    
      .. ok
     cmd( 3):
     echo '{{.linelist_object}}'
@@ -271,6 +292,13 @@ weight: 10853
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "linelist_object": {
         "hello",
         "this",
@@ -281,19 +309,19 @@ weight: 10853
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "linelist_object": {
         "hello",
         "this",
@@ -304,14 +332,7 @@ weight: 10853
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
+      }
     })
     
     cmd( 1):
@@ -339,35 +360,6 @@ weight: 10853
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"3 -> james\"",
-        Code: 0,
-        Output: "3 -> james",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"3 -> james\"",
         Code: 0,
@@ -379,7 +371,36 @@ weight: 10853
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"3 -> james\"",
+        Code: 0,
+        Output: "3 -> james",
+        ErrMsg: ""
+      }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):

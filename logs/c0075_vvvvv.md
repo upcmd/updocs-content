@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvvv"
-date: 2020-07-20T02:01:42+77:00
+date: 2020-08-09T01:36:10+88:00
 draft: false
 weight: 10754
 
@@ -20,14 +20,21 @@ weight: 10754
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0075
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025b1c0)(<nil>)
+    (*impl.Scopes)(0xc00023b260)(<nil>)
     
     ---------group vars----------
     
@@ -36,54 +43,63 @@ weight: 10754
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      }
+      },
+      "person": "peter"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=6) "person": (string) (len=5) "peter",
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
-     }
+     },
+     (string) (len=6) "person": (string) (len=5) "peter"
     }
     
     dvar> var_with_range:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_item:
     " tom  jason  alice "
     
+    -
+     tom  jason  alice 
     dvar> var_with_range_item_simpler:
     " tom  jason  alice "
     
-          template rendering problem -> template: .:1:26: executing "." at <.person>: can't evaluate field person in type interface {}
+    -
+     tom  jason  alice 
+          template rendering -> template: .:1:26: executing "." at <.person>: can't evaluate field person in type interface {}
     WARN:
         1:{{range $x:=.managers}} {{.person}} {{end}}
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
     
     -----trace for reference-----
     dvar> var_to_ref_to_outside_of_range_from_within_range:
     " "
     
+    -
+     
     dvar> var_directly_ref_to:
     "peter"
     
+    -
+    peter
     dvar> var_to_ref_to_outside_of_range_from_within_range_fixed:
     " peter  peter  peter "
     
+    -
+     peter  peter  peter 
     [runtime global] dvar expanded result:
     {
       "var_with_range": " x  x  x ",
@@ -98,16 +114,16 @@ weight: 10754
     -------runtime global final merged with dvars-------
     
     {
-      "person": "peter",
+      "var_with_range": " x  x  x ",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_to_ref_to_outside_of_range_from_within_range": " ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice ",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_to_ref_to_outside_of_range_from_within_range": " ",
+      "person": "peter",
       "var_directly_ref_to": "peter",
       "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
     }

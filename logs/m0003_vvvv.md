@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvv"
-date: 2020-07-20T02:02:15+77:00
+date: 2020-08-09T01:36:43+88:00
 draft: false
 weight: 100303
 
@@ -20,12 +20,19 @@ weight: 100303
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0003
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 100303
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "caller-aaa"
@@ -68,6 +69,12 @@ weight: 100303
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -75,12 +82,6 @@ weight: 100303
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -100,16 +101,16 @@ weight: 100303
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
+      "a": "caller-aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
+      "a": "caller-aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -134,19 +135,21 @@ weight: 100303
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
-      "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
-    })
-    
-    ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars](*core.Cache)({
       "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa"
     })
     
-     2: inspect[exec_base_vars]{
+    ~SubStep1: [inspect:  ]
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "b": "module-bbb",
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
+    })
+    
+     2: inspect[exec_base_vars]
+    {
       "a": "caller-aaa",
       "b": "module-bbb"
     }

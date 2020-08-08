@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvvv"
-date: 2020-07-20T02:01:37+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10464
 
@@ -20,14 +20,21 @@ weight: 10464
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0046
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000257020)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001773c0)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -75,8 +82,8 @@ weight: 10464
     
     
     scope[global] merged: {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     
@@ -89,16 +96,10 @@ weight: 10464
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     }
     
     (core.Cache) (len=2) {
@@ -123,6 +124,235 @@ weight: 10464
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
+    
+    -Step1: [: this show an example of the empty value is mapped to None ]
+    {
+      Name: "",
+      Do: "echo \"{{.someone}}\"\necho \"{{.i_am_empty}}\"\necho \"{{.empty_env_var}}\"\n",
+      Dox: <nil>,
+      Func: "shell",
+      Vars: {
+        "person": ""
+      },
+      Dvars: {
+        {
+          Name: "someone",
+          Value: "{{ .person }}",
+          Desc: "",
+          Expand: 0,
+          Flags: <nil>,
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        },
+        {
+          Name: "i_am_empty",
+          Value: "{{ \"\" }}",
+          Desc: "",
+          Expand: 0,
+          Flags: <nil>,
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        },
+        {
+          Name: "empty_env_var",
+          Value: "{{ env \"EMPTY_VAR\" }}",
+          Desc: "",
+          Expand: 0,
+          Flags: <nil>,
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        }
+      },
+      Desc: "this show an example of the empty value is mapped to None",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "student_name": "Tom Hanks",
+      "student_age": "28"
+    })
+    
+    [local] dvar expanded result:
+    {
+      "someone": "None",
+      "i_am_empty": "None",
+      "empty_env_var": "None"
+    }
+    
+    
+    scope[local] merged: {
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "someone": "None",
+      "i_am_empty": "None",
+      "empty_env_var": "None"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "someone": "None",
+      "i_am_empty": "None",
+      "empty_env_var": "None"
+    })
+    
+    cmd( 1):
+    echo "{{.someone}}"
+    echo "{{.i_am_empty}}"
+    echo "{{.empty_env_var}}"
+    
+    
+    cmd=>:
+    echo "None"
+    echo "None"
+    echo "None"
+    <=
+    None
+    None
+    None
+     .. ok
+    (utils.ExecResult) {
+     Cmd: (string) (len=36) "echo \"None\"\necho \"None\"\necho \"None\"\n",
+     Code: (int) 0,
+     Output: (string) (len=14) "None\nNone\nNone",
+     ErrMsg: (string) ""
+    }
+    
+    . ok
+    -Step2:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "inspect",
+          "cmd": {
+            "exec_vars",
+            "exec_base_vars"
+          }
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      })
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      }),
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      }),
+      "student_name": "Tom Hanks"
+    })
+    
+    [exec_vars exec_base_vars]
+    ~SubStep1: [inspect:  ]
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      })
+    })
+    
+     2: inspect[exec_base_vars]
+    {
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      })
+    }
     
     
 ```

@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvv"
-date: 2020-07-20T02:01:31+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10143
 
@@ -20,12 +20,19 @@ weight: 10143
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0014
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10143
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "e": "runtime-e",
@@ -61,18 +62,18 @@ weight: 10143
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "e": "runtime-e",
-      "k": "runtime-k",
       "a": "caller-ref-a",
-      "b": "caller-ref-b"
+      "e": "runtime-e",
+      "b": "caller-ref-b",
+      "k": "runtime-k"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "e": "runtime-e",
       "k": "runtime-k",
       "a": "caller-ref-a",
+      "e": "runtime-e",
       "b": "caller-ref-b"
     })
     
@@ -83,22 +84,22 @@ weight: 10143
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "caller-ref-a",
+      "b": "caller-ref-b",
       "c": "callee-c",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
-      "a": "caller-ref-a",
-      "b": "caller-ref-b"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "e": "runtime-e",
       "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
       "k": "runtime-k",
+      "e": "runtime-e",
       "up_runtime_task_layer_number": 1
     })
     
@@ -130,12 +131,14 @@ weight: 10143
     k: runtime-k
     """
     <=
+    
     vars:
     a: caller-ref-a
     b: caller-ref-b
     c: callee-c
     e: runtime-e
     k: runtime-k
+    
      .. ok
     . ok
     

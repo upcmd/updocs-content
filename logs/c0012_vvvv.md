@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvv"
-date: 2020-07-20T02:01:31+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10123
 
@@ -20,12 +20,19 @@ weight: 10123
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0012
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,25 +40,19 @@ weight: 10123
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
       located task-> 1 [task]: 
@@ -61,17 +62,17 @@ weight: 10123
     -Step1: [: to test display env vars from shell context ]
     current exec runtime vars:
     (*core.Cache)({
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "a": "runtime-a"
     })
     
     cmd( 1):

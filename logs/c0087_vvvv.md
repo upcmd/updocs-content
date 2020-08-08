@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:12+88:00
 draft: false
 weight: 10873
 
@@ -20,12 +20,19 @@ weight: 10873
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0087
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10873
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -148,23 +149,6 @@ weight: 10873
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopindex": 0,
-      "loopindex1": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo 'hello'",
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl1"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
@@ -172,7 +156,24 @@ weight: 10873
         ErrMsg: ""
       }),
       "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      }),
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -180,21 +181,6 @@ weight: 10873
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo 'hello'",
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
@@ -203,8 +189,23 @@ weight: 10873
       }),
       "loopitem": "impl1",
       "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
+      "loopindex1": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      })
     })
     
     ~~SubStep1: [sleep:  ]
@@ -217,16 +218,16 @@ weight: 10873
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "impl2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      })
+      }),
+      "loopitem": "impl2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:

@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvvv"
-date: 2020-07-20T02:01:51+77:00
+date: 2020-08-09T01:36:17+88:00
 draft: false
 weight: 11224
 
@@ -20,14 +20,21 @@ weight: 11224
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0122
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c7200)(<nil>)
+    (*impl.Scopes)(0xc0001c1240)(<nil>)
     
     ---------group vars----------
     
@@ -36,17 +43,11 @@ weight: 11224
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     }
     
@@ -80,8 +81,8 @@ weight: 11224
       Name: "",
       Do: {
         {
-          "cmd": "{{.student.name}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.student.name}}"
         },
         {
           "name": "print",
@@ -100,14 +101,17 @@ weight: 11224
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -118,8 +122,8 @@ weight: 11224
     
     scope[local] merged: {
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
@@ -160,7 +164,10 @@ weight: 11224
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -201,17 +208,17 @@ weight: 11224
       Name: "",
       Do: {
         {
+          "name": "assert",
           "desc": "this cmd will not evaluated as it will not reach here\nthe below evaluate will cause issue, as age does not exist\nalways map to a dvar first\n",
-          "cmd": "{{eq .student.age \"None\"}}",
-          "name": "assert"
+          "cmd": "{{eq .student.age \"None\"}}"
         },
         {
           "name": "print",
           "cmd": "{{.student.age}}"
         },
         {
-          "cmd": "you will not see this message\n",
-          "name": "print"
+          "name": "print",
+          "cmd": "you will not see this message\n"
         }
       },
       Dox: <nil>,
@@ -241,14 +248,17 @@ weight: 11224
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     })
     
@@ -260,8 +270,8 @@ weight: 11224
     
     scope[local] merged: {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "student_age": ".student.age"
     }
@@ -271,8 +281,8 @@ weight: 11224
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "student_age": ".student.age"
     })

@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvvv"
-date: 2020-07-20T02:01:55+77:00
+date: 2020-08-09T01:36:20+88:00
 draft: false
 weight: 11424
 
@@ -20,14 +20,21 @@ weight: 11424
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0142
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c7080)(<nil>)
+    (*impl.Scopes)(0xc0001e7060)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11424
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -68,12 +69,12 @@ weight: 11424
       Name: "",
       Do: {
         {
+          "name": "colorPrint",
           "cmd": {
-            "fg": "white",
             "msg": "hello, world",
-            "bg": "blue"
-          },
-          "name": "colorPrint"
+            "bg": "blue",
+            "fg": "white"
+          }
         },
         {
           "name": "colorPrint",
@@ -85,8 +86,8 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
-            "msg": "hello, world",
-            "fg": "white"
+            "fg": "white",
+            "msg": "hello, world"
           }
         },
         {
@@ -98,9 +99,9 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
+            "bg": "red",
             "msg": "{{.person.name}}: {{.person.age}}",
-            "fg": "blue",
-            "bg": "red"
+            "fg": "blue"
           }
         },
         {
@@ -147,16 +148,19 @@ weight: 11424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "objectname": "person",
       "person": {
         "name": "tom",
         "age": 18
-      }
+      },
+      "objectname": "person"
     })
     
     [local] dvar expanded result:
@@ -167,8 +171,8 @@ weight: 11424
     scope[local] merged: {
       "objectname": "person",
       "person": {
-        "name": "tom",
-        "age": 18
+        "age": 18,
+        "name": "tom"
       }
     }
     
@@ -176,11 +180,11 @@ weight: 11424
     self: final context exec vars:
     
     (*core.Cache)({
-      "objectname": "person",
       "person": {
         "name": "tom",
         "age": 18
-      }
+      },
+      "objectname": "person"
     })
     
     map[bg:blue fg:white msg:hello, world]
@@ -208,8 +212,8 @@ weight: 11424
     37 44
     object person:
      {
-      "age": 18,
-      "name": "tom"
+      "name": "tom",
+      "age": 18
     }
     
     map[bg:green fg:blue object:{{.objectname}}]

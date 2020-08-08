@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvvv"
-date: 2020-07-20T02:01:31+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10124
 
@@ -20,14 +20,21 @@ weight: 10124
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0012
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000176ea0)(<nil>)
+    (*impl.Scopes)(0xc0000ac340)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10124
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "runtime-a",
@@ -91,7 +92,10 @@ weight: 10124
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -107,9 +111,9 @@ weight: 10124
     
     
     scope[local] merged: {
-      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     }
     
     

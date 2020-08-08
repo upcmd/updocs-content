@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvv"
-date: 2020-07-20T02:01:46+77:00
+date: 2020-08-09T01:36:13+88:00
 draft: false
 weight: 10953
 
@@ -20,12 +20,19 @@ weight: 10953
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0095
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10953
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -55,19 +56,19 @@ weight: 10953
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n"
+      "person": "jason"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
       "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n"
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
+      "name_to_convert": "person_yml"
     })
     
     ~SubStep1: [toObj: the key is pointing to a var name and use its content as yml content

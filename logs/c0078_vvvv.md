@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvv"
-date: 2020-07-20T02:01:43+77:00
+date: 2020-08-09T01:36:10+88:00
 draft: false
 weight: 10783
 
@@ -20,12 +20,19 @@ weight: 10783
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0078
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10783
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -55,16 +56,16 @@ weight: 10783
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "school_name": "sydney grammar",
-      "school_address": "1 fox road, sydney, nsw 2000"
+      "school_address": "1 fox road, sydney, nsw 2000",
+      "school_name": "sydney grammar"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "school_address": "1 fox road, sydney, nsw 2000",
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
-      "school_name": "sydney grammar"
+      "school_name": "sydney grammar",
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     
     ~SubStep1: [print:  ]

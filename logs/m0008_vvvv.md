@@ -1,6 +1,6 @@
 ---
 title: "0008_vvvv"
-date: 2020-07-20T02:02:15+77:00
+date: 2020-08-09T01:36:43+88:00
 draft: false
 weight: 100803
 
@@ -20,12 +20,19 @@ weight: 100803
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0008
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 100803
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -66,6 +67,12 @@ weight: 100803
      WARN: [Locked version differs, use locked version] - [locked: 25456bbcd17db524d1148e42bdcc3bb36ce90042, configured: v2]
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hello], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -73,12 +80,6 @@ weight: 100803
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }

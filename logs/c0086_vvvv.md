@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:11+88:00
 draft: false
 weight: 10863
 
@@ -20,12 +20,19 @@ weight: 10863
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0086
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10863
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -63,17 +64,23 @@ weight: 10863
     dvar> linelist:
     "- hello\n- this\n- is a\n- beautiful world\n"
     
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
+    
     self: final context exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     })
     
     cmd( 1):
@@ -102,6 +109,7 @@ weight: 10863
     - this
     - is a
     - beautiful world
+    
      .. ok
     cmd( 3):
     echo '{{.linelist_object}}'
@@ -131,6 +139,12 @@ weight: 10863
     
     dvar> void:
     "- hello\n- this\n- is a\n- beautiful world\n"
+    
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
     
     self: final context exec vars:
     
@@ -181,40 +195,46 @@ weight: 10863
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      }
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     dvar> void:
     "- hello\n- this\n- is a\n- beautiful world\n"
     
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
+    
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -312,6 +332,40 @@ weight: 10863
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
+    })
+    
+    dvar> void:
+    "person:\n  name: tom\n  age: \"18\""
+    
+    -
+    person:
+      name: tom
+      age: "18"
+     WARN: [?reg a void] - [you can't register a object with void name, use a proper name instead or split to multiple steps]
+    dvar[object]> void_object:
+    {
+      "person": {
+        "age": "18",
+        "name": "tom"
+      }
+    }
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
@@ -325,36 +379,6 @@ weight: 10863
         "is a",
         "beautiful world"
       }
-    })
-    
-    dvar> void:
-    "person:\n  name: tom\n  age: \"18\""
-    
-     WARN: [?reg a void] - [you can't register a object with void name, use a proper name instead or split to multiple steps]
-    dvar> void_object:
-    {
-      "person": {
-        "name": "tom",
-        "age": "18"
-      }
-    }
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]

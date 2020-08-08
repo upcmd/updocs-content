@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvvv"
-date: 2020-07-20T02:01:38+77:00
+date: 2020-08-09T01:36:06+88:00
 draft: false
 weight: 10504
 
@@ -20,14 +20,21 @@ weight: 10504
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0050
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177020)(<nil>)
+    (*impl.Scopes)(0xc0001e5060)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10504
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "Sydney Grammar"
@@ -53,27 +54,27 @@ weight: 10504
     
     [runtime global] dvar expanded result:
     {
-      "o": "o=><no value>",
-      "z": "i am zzz",
-      "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar"
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>",
+      "z": "i am zzz",
+      "yv": "y->i am zzz"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "o": "o=><no value>",
-      "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar"
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>",
+      "z": "i am zzz",
+      "school": "Sydney Grammar"
     }
     
       located task-> 1 [task]: 
@@ -104,7 +105,10 @@ weight: 10504
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -112,11 +116,11 @@ weight: 10504
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
+      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar"
+      "m": "m=>n=>Sydney Grammar"
     })
     
     [local] dvar expanded result:
@@ -125,28 +129,28 @@ weight: 10504
     
     
     scope[local] merged: {
-      "school": "Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
+      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar"
+      "nv": "n=>Sydney Grammar"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz"
+      "school": "Sydney Grammar"
     })
     
     cmd( 1):

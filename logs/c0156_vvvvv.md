@@ -1,6 +1,6 @@
 ---
 title: "c0156_vvvvv"
-date: 2020-07-20T02:01:57+77:00
+date: 2020-08-09T01:36:23+88:00
 draft: false
 weight: 11564
 
@@ -20,14 +20,21 @@ weight: 11564
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0156
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000173300)(<nil>)
+    (*impl.Scopes)(0xc00023b380)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11564
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
@@ -72,14 +73,14 @@ weight: 11564
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "Use a actual cmd to register a variable does not make sense, but it is doable.\nIt is not advised to do it this way\n",
-          "cmd": "{{.school |reg \"myschool\"}}",
-          "name": "print"
+          "cmd": "{{.school |reg \"myschool\"}}"
         },
         {
-          "name": "print",
           "desc": "please note that myschool is only a string, but not an object\n",
-          "cmd": "{{.myschool}}"
+          "cmd": "{{.myschool}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -87,14 +88,14 @@ weight: 11564
           "cmd": "{{.myschool | ymlToObj |objToYml}}"
         },
         {
+          "name": "print",
           "desc": "now register the object to a named var myschool_object\n",
-          "cmd": "{{.myschool | ymlToObj |reg \"myschool_object\"}}",
-          "name": "print"
+          "cmd": "{{.myschool | ymlToObj |reg \"myschool_object\"}}"
         },
         {
+          "cmd": "{{.myschool_object}}",
           "name": "print",
-          "desc": "same as above, this will only print the string reprentation of the object\n",
-          "cmd": "{{.myschool_object}}"
+          "desc": "same as above, this will only print the string reprentation of the object\n"
         },
         {
           "name": "printObj",
@@ -119,7 +120,10 @@ weight: 11564
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -157,37 +161,65 @@ weight: 11564
     {{.myschool}}
     ~SubStep2: [print: please note that myschool is only a string, but not an object
      ]
-    None
+    sg:
+      name: sydney grammar
+      state: nsw
+      address: sydney
+      postcode: 2000
+    
     {{.myschool | ymlToObj |objToYml}}
     ~SubStep3: [print: please note that below result is only a string representation of the object
     any golang template result can only be string, but not a object
      ]
-          template rendering problem -> template: .:1:14: executing "." at <ymlToObj>: invalid value; expected string
-    WARN:
-        1:{{.myschool | ymlToObj |objToYml}}
+    ymlToObj:
+    (*map[interface {}]interface {})({
+      "sg": {
+        "postcode": 2000,
+        "name": "sydney grammar",
+        "state": "nsw",
+        "address": "sydney"
+      }
+    })
     
-    -----trace for reference-----
+    objToYml:
+    "sg:\n  address: sydney\n  name: sydney grammar\n  postcode: 2000\n  state: nsw\n"
+    
+    sg:
+      address: sydney
+      name: sydney grammar
+      postcode: 2000
+      state: nsw
     
     {{.myschool | ymlToObj |reg "myschool_object"}}
     ~SubStep4: [print: now register the object to a named var myschool_object
      ]
-          template rendering problem -> template: .:1:14: executing "." at <ymlToObj>: invalid value; expected string
-    WARN:
-        1:{{.myschool | ymlToObj |reg "myschool_object"}}
+    ymlToObj:
+    (*map[interface {}]interface {})({
+      "sg": {
+        "name": "sydney grammar",
+        "state": "nsw",
+        "address": "sydney",
+        "postcode": 2000
+      }
+    })
     
-    -----trace for reference-----
+    sg:
+      address: sydney
+      name: sydney grammar
+      postcode: 2000
+      state: nsw
     
     {{.myschool_object}}
     ~SubStep5: [print: same as above, this will only print the string reprentation of the object
      ]
-    None
+    map[sg:map[address:sydney name:sydney grammar postcode:2000 state:nsw]]
     {{.myschool_object}}
     ~SubStep6: [printObj: same as above, this will only print the string reprentation of the object
      ]
     (string) (len=20) "{{.myschool_object}}"
     
     object:
-     None: (interface {}) <nil>
+     map[sg:map[address:sydney name:sydney grammar postcode:2000 state:nsw]]: (interface {}) <nil>
     
     myschool_object
     ~SubStep7: [printObj: * IMPORTANT
@@ -196,7 +228,14 @@ weight: 11564
     (string) (len=15) "myschool_object"
     
     object:
-     myschool_object: (interface {}) <nil>
+     myschool_object: (*map[interface {}]interface {})({
+      "sg": {
+        "address": "sydney",
+        "postcode": 2000,
+        "name": "sydney grammar",
+        "state": "nsw"
+      }
+    })
     
     -Step2: [: 2nd solution:
     use dvar auto coversion
@@ -209,8 +248,8 @@ weight: 11564
           "cmd": "{{.myschool2}}\n{{.myschool2_object}}\n"
         },
         {
-          "cmd": "myschool2_object",
-          "name": "printObj"
+          "name": "printObj",
+          "cmd": "myschool2_object"
         }
       },
       Dox: <nil>,
@@ -243,25 +282,43 @@ weight: 11564
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney",
+          "postcode": 2000
+        }
+      })
     })
     
     dvar> myschool2:
     "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     
-    dvar> myschool2_object:
+    -
+    sg:
+      name: sydney grammar
+      state: nsw
+      address: sydney
+      postcode: 2000
+    
+    dvar[object]> myschool2_object:
     {
       "sg": {
-        "name": "sydney grammar",
         "state": "nsw",
         "address": "sydney",
-        "postcode": 2000
+        "postcode": 2000,
+        "name": "sydney grammar"
       }
     }
     
@@ -285,29 +342,45 @@ weight: 11564
       "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool2_object": {
         "sg": {
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney",
+          "postcode": 2000
+        }
+      },
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "state": "nsw",
           "address": "sydney",
           "postcode": 2000,
-          "name": "sydney grammar",
-          "state": "nsw"
+          "name": "sydney grammar"
         }
-      }
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool2_object": {
         "sg": {
-          "name": "sydney grammar",
           "state": "nsw",
           "address": "sydney",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney grammar"
         }
-      }
+      },
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "address": "sydney",
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw"
+        }
+      })
     })
     
     {{.myschool2}}
@@ -329,10 +402,10 @@ weight: 11564
     object:
      myschool2_object: {
       "sg": {
-        "address": "sydney",
         "postcode": 2000,
         "name": "sydney grammar",
-        "state": "nsw"
+        "state": "nsw",
+        "address": "sydney"
       }
     }
     
@@ -344,15 +417,15 @@ weight: 11564
       Name: "",
       Do: {
         {
+          "name": "toObj",
           "cmd": {
             "fromkey": "school",
             "reg": "myschool3_object"
-          },
-          "name": "toObj"
+          }
         },
         {
-          "name": "printObj",
-          "cmd": "myschool3_object"
+          "cmd": "myschool3_object",
+          "name": "printObj"
         }
       },
       Dox: <nil>,
@@ -367,11 +440,22 @@ weight: 11564
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "state": "nsw",
+          "address": "sydney",
+          "postcode": 2000,
+          "name": "sydney grammar"
+        }
+      }),
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
@@ -382,8 +466,16 @@ weight: 11564
     
     
     scope[local] merged: {
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney"
+        }
+      }),
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     }
     
     
@@ -391,7 +483,15 @@ weight: 11564
     
     (*core.Cache)({
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney"
+        }
+      })
     })
     
     map[fromkey:school reg:myschool3_object]
@@ -399,9 +499,17 @@ weight: 11564
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "": "myschool3_object",
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "state": "nsw",
+          "address": "sydney",
+          "postcode": 2000,
+          "name": "sydney grammar"
+        }
+      }),
+      "": "myschool3_object"
     })
     
     after reg the var - local:
@@ -409,6 +517,14 @@ weight: 11564
     (*core.Cache)({
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney"
+        }
+      }),
       "myschool3_object": {
         "sg": {
           "name": "sydney grammar",
@@ -426,10 +542,10 @@ weight: 11564
     object:
      myschool3_object: {
       "sg": {
-        "name": "sydney grammar",
-        "state": "nsw",
         "address": "sydney",
-        "postcode": 2000
+        "postcode": 2000,
+        "name": "sydney grammar",
+        "state": "nsw"
       }
     }
     

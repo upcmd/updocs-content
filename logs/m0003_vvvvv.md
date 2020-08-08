@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvvv"
-date: 2020-07-20T02:02:15+77:00
+date: 2020-08-09T01:36:43+88:00
 draft: false
 weight: 100304
 
@@ -20,14 +20,21 @@ weight: 100304
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0003
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177060)(<nil>)
+    (*impl.Scopes)(0xc0001e50a0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 100304
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "caller-aaa"
@@ -82,7 +83,10 @@ weight: 100304
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -113,8 +117,14 @@ weight: 100304
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f0200)(<nil>)
+    (*impl.Scopes)(0xc00025c300)(<nil>)
     
     ---------group vars----------
     
@@ -123,12 +133,6 @@ weight: 100304
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -191,14 +195,17 @@ weight: 100304
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -216,9 +223,9 @@ weight: 100304
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     ... module world
@@ -279,7 +286,10 @@ weight: 100304
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -304,22 +314,24 @@ weight: 100304
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa",
-      "b": "module-bbb"
-    })
-    
-    [exec_vars exec_base_vars]
-    ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars](*core.Cache)({
       "a": "caller-aaa",
       "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2
     })
     
-     2: inspect[exec_base_vars]{
-      "a": "caller-aaa",
-      "b": "module-bbb"
+    [exec_vars exec_base_vars]
+    ~SubStep1: [inspect:  ]
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "b": "module-bbb",
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
+    })
+    
+     2: inspect[exec_base_vars]
+    {
+      "b": "module-bbb",
+      "a": "caller-aaa"
     }
     
     back to main caller

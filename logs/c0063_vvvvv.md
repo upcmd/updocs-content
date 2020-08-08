@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvvv"
-date: 2020-07-20T02:01:40+77:00
+date: 2020-08-09T01:36:08+88:00
 draft: false
 weight: 10634
 
@@ -20,14 +20,21 @@ weight: 10634
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0063
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00023f180)(<nil>)
+    (*impl.Scopes)(0xc0000965e0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10634
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global-var-a"
@@ -89,13 +90,16 @@ weight: 10634
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "global-var-a",
-      "b": "runtime-var-b"
+      "b": "runtime-var-b",
+      "a": "global-var-a"
     })
     
     [local] dvar expanded result:
@@ -176,19 +180,22 @@ weight: 10634
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "b": "runtime-var-b",
-      "a": "global-var-a"
+      "b": "runtime-var-b"
     })
     
     [local] dvar expanded result:
@@ -197,14 +204,14 @@ weight: 10634
     
     
     scope[local] merged: {
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "b": "runtime-var-b",
-      "a": "global-var-a"
+      "b": "runtime-var-b"
     }
     
     
@@ -248,7 +255,10 @@ weight: 10634
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -268,13 +278,13 @@ weight: 10634
     
     
     scope[local] merged: {
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "a": "global-var-a"
     }
     
     

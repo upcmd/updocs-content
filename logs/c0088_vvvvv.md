@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:12+88:00
 draft: false
 weight: 10884
 
@@ -20,14 +20,21 @@ weight: 10884
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0088
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c940)(<nil>)
+    (*impl.Scopes)(0xc00000c500)(<nil>)
     
     ---------group vars----------
     
@@ -36,17 +43,9 @@ weight: 10884
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
             "name": "sydney",
@@ -54,7 +53,9 @@ weight: 10884
             "cbd": true
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
     }
     
@@ -65,9 +66,9 @@ weight: 10884
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
        (string) (len=6) "suburb": (map[string]interface {}) (len=3) {
+        (string) (len=8) "postcode": (int) 2000,
         (string) (len=3) "cbd": (bool) true,
-        (string) (len=4) "name": (string) (len=6) "sydney",
-        (string) (len=8) "postcode": (int) 2000
+        (string) (len=4) "name": (string) (len=6) "sydney"
        }
       }
      }
@@ -86,9 +87,9 @@ weight: 10884
         "gender": "Male",
         "address": {
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
         }
@@ -138,58 +139,14 @@ weight: 10884
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "dynadir": "./tests/functests"
-    })
-    
-    dvar> sgp_address_dyna_dir:
-    "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
-    
-    dvar> sgp_address_dyna_dir_object:
-    {
-      "address": {
-        "school": "Sydney Grammar",
-        "suburb": {
-          "name": "sydney",
-          "postcode": 2000,
-          "CBD": true
-        }
-      }
-    }
-    
-    [local] dvar expanded result:
-    {
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "sgp_address_dyna_dir_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
-        }
-      }
-    }
-    
-    
-    scope[local] merged: {
       "dynadir": "./tests/functests",
       "student": {
         "name": "Tom",
@@ -202,14 +159,69 @@ weight: 10884
           },
           "school": "Sydney Grammar"
         }
-      },
+      }
+    })
+    
+    dvar> sgp_address_dyna_dir:
+    "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
+    
+    -
+    address:
+      suburb:
+        name: sydney
+        postcode: 2000
+        CBD: yes
+      school: Sydney Grammar
+    
+    dvar[object]> sgp_address_dyna_dir_object:
+    {
+      "address": {
+        "suburb": {
+          "name": "sydney",
+          "postcode": 2000,
+          "CBD": true
+        },
+        "school": "Sydney Grammar"
+      }
+    }
+    
+    [local] dvar expanded result:
+    {
       "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "sgp_address_dyna_dir_object": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        }
+      }
+    }
+    
+    
+    scope[local] merged: {
+      "dynadir": "./tests/functests",
       "sgp_address_dyna_dir_object": {
         "address": {
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "cbd": true,
+            "name": "sydney",
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
         }
@@ -220,30 +232,30 @@ weight: 10884
     self: final context exec vars:
     
     (*core.Cache)({
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "sgp_address_dyna_dir_object": {
+      "student": {
+        "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
-            "CBD": true,
+            "cbd": true,
             "name": "sydney",
             "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
+          }
+        },
+        "name": "Tom"
       },
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
+      "dynadir": "./tests/functests",
+      "sgp_address_dyna_dir_object": {
         "address": {
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
-            "cbd": true
+            "CBD": true
           },
           "school": "Sydney Grammar"
         }
       },
-      "dynadir": "./tests/functests"
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     })
     
     cmd( 1):
@@ -263,6 +275,7 @@ weight: 10884
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=119) "echo \"\"\"1.address -> \\naddress:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n\"\"\"",

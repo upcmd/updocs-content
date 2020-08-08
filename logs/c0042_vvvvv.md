@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvvv"
-date: 2020-07-20T02:01:37+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10424
 
@@ -20,14 +20,21 @@ weight: 10424
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0042
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000241520)(<nil>)
+    (*impl.Scopes)(0xc000175500)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10424
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -82,7 +83,10 @@ weight: 10424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -169,7 +173,10 @@ weight: 10424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -184,6 +191,10 @@ weight: 10424
     
     dvar> reg_hello:
     "hello: hanks\n\n"
+    
+    -
+    hello: hanks
+    
     
     [local] dvar expanded result:
     {
@@ -213,8 +224,8 @@ weight: 10424
         Output: "hanks",
         ErrMsg: ""
       }),
-      "reg_hello": "hello: hanks\n\n",
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "reg_hello": "hello: hanks\n\n"
     })
     
     cmd( 1):
@@ -239,6 +250,8 @@ weight: 10424
     
     "<=
     reg_hello - hello: hanks
+    
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=33) "echo \"reg_hello - hello: hanks\n\n\"",
@@ -283,18 +296,21 @@ weight: 10424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks"
     })
     
     [local] dvar expanded result:
@@ -304,14 +320,14 @@ weight: 10424
     
     
     scope[local] merged: {
-      "hellomsg": "hanks",
+      "reg_hello": "\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
       }),
-      "reg_hello": "\n"
+      "hellomsg": "hanks"
     }
     
     
@@ -362,7 +378,10 @@ weight: 10424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -451,7 +470,10 @@ weight: 10424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -466,6 +488,9 @@ weight: 10424
     
     dvar> void:
     "hello: something\n"
+    
+    -
+    hello: something
     
     [local] dvar expanded result:
     {
@@ -487,13 +512,13 @@ weight: 10424
     self: final context exec vars:
     
     (*core.Cache)({
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     })
     
     cmd( 1):
@@ -529,18 +554,21 @@ weight: 10424
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      }),
-      "iamvoid": "something"
+      })
     })
     
     [local] dvar expanded result:
@@ -562,13 +590,13 @@ weight: 10424
     self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      }),
-      "iamvoid": "something"
+      })
     })
     
     cmd( 1):

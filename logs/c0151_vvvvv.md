@@ -1,6 +1,6 @@
 ---
 title: "c0151_vvvvv"
-date: 2020-07-20T02:01:56+77:00
+date: 2020-08-09T01:36:22+88:00
 draft: false
 weight: 11514
 
@@ -20,14 +20,21 @@ weight: 11514
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0151
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001757e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf880)(<nil>)
     
     ---------group vars----------
     
@@ -36,21 +43,15 @@ weight: 11514
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "greet_to": "Tom"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=8) "greet_to": (string) (len=3) "Tom",
-     (string) (len=7) "weather": (string) (len=5) "sunny"
+     (string) (len=7) "weather": (string) (len=5) "sunny",
+     (string) (len=8) "greet_to": (string) (len=3) "Tom"
     }
     
     [runtime global] dvar expanded result:
@@ -61,8 +62,8 @@ weight: 11514
     -------runtime global final merged with dvars-------
     
     {
-      "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "greet_to": "Tom"
     }
     
       located task-> 1 [task]: 
@@ -87,13 +88,16 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "greet_to": "Tom"
     })
     
     [local] dvar expanded result:
@@ -110,14 +114,14 @@ weight: 11514
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "greet_to": "Tom"
     })
     
     caller's vars to task (greet)::
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "greet_to": "Tom"
     })
     
       located task-> 2 [greet]: 
@@ -142,13 +146,16 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
       "weather": "sunny",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -158,8 +165,8 @@ weight: 11514
     
     
     scope[local] merged: {
-      "greet_to": "Tom",
       "weather": "sunny",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1
     }
     
@@ -167,8 +174,8 @@ weight: 11514
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Tom",
       "weather": "sunny",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -208,20 +215,23 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
+      "up_runtime_task_layer_number": 1,
       "weather": "sunny",
+      "greet_to": "Tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -230,23 +240,8 @@ weight: 11514
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Tom\"",
-        Code: 0,
-        Output: "Hello, Tom",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "greet_to": "Tom",
-      "weather": "sunny"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "greet_to": "Tom",
       "weather": "sunny",
+      "greet_to": "Tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
@@ -254,6 +249,21 @@ weight: 11514
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "weather": "sunny",
+      "greet_to": "Tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Tom\"",
+        Code: 0,
+        Output: "Hello, Tom",
+        ErrMsg: ""
+      })
     })
     
     It is {{.weather}}
@@ -281,8 +291,8 @@ weight: 11514
           "func": "cmd",
           "do": {
             {
-              "name": "print",
-              "cmd": "What a bad day!!"
+              "cmd": "What a bad day!!",
+              "name": "print"
             }
           }
         }
@@ -290,20 +300,23 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "weather": "sunny",
+      "greet_to": "Tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
-      }),
-      "greet_to": "Tom",
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -312,15 +325,15 @@ weight: 11514
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "weather": "sunny",
+      "greet_to": "Tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
       }),
-      "greet_to": "Tom"
+      "up_runtime_task_layer_number": 1,
+      "weather": "sunny"
     }
     
     
@@ -328,13 +341,13 @@ weight: 11514
     
     (*core.Cache)({
       "weather": "sunny",
+      "greet_to": "Tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
       }),
-      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -361,13 +374,16 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Grace",
       "weather": "sunny",
+      "greet_to": "Grace",
       "up_runtime_task_layer_number": 1
     })
     
@@ -377,8 +393,8 @@ weight: 11514
     
     
     scope[local] merged: {
-      "greet_to": "Grace",
       "weather": "sunny",
+      "greet_to": "Grace",
       "up_runtime_task_layer_number": 1
     }
     
@@ -386,16 +402,16 @@ weight: 11514
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Grace",
       "weather": "sunny",
+      "greet_to": "Grace",
       "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (greet)::
     (*core.Cache)({
       "weather": "sunny",
-      "up_runtime_task_layer_number": 1,
-      "greet_to": "Grace"
+      "greet_to": "Grace",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 2 [greet]: 
@@ -420,13 +436,16 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "weather": "sunny",
       "up_runtime_task_layer_number": 1,
+      "weather": "sunny",
       "greet_to": "Grace"
     })
     
@@ -436,17 +455,17 @@ weight: 11514
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
+      "weather": "sunny",
       "greet_to": "Grace",
-      "weather": "sunny"
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Grace",
       "weather": "sunny",
+      "greet_to": "Grace",
       "up_runtime_task_layer_number": 1
     })
     
@@ -486,20 +505,23 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Grace",
-      "weather": "sunny",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Grace\"",
         Code: 0,
         Output: "Hello, Grace",
         ErrMsg: ""
-      })
+      }),
+      "weather": "sunny",
+      "greet_to": "Grace"
     })
     
     [local] dvar expanded result:
@@ -515,15 +537,14 @@ weight: 11514
         Output: "Hello, Grace",
         ErrMsg: ""
       }),
-      "greet_to": "Grace",
-      "weather": "sunny"
+      "weather": "sunny",
+      "greet_to": "Grace"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "weather": "sunny",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Grace\"",
@@ -531,6 +552,7 @@ weight: 11514
         Output: "Hello, Grace",
         ErrMsg: ""
       }),
+      "weather": "sunny",
       "greet_to": "Grace"
     })
     
@@ -568,20 +590,23 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "weather": "sunny",
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Grace\"",
         Code: 0,
         Output: "Hello, Grace",
         ErrMsg: ""
       }),
-      "greet_to": "Grace"
+      "weather": "sunny",
+      "greet_to": "Grace",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -591,29 +616,29 @@ weight: 11514
     
     scope[local] merged: {
       "weather": "sunny",
+      "greet_to": "Grace",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Grace\"",
         Code: 0,
         Output: "Hello, Grace",
         ErrMsg: ""
-      }),
-      "greet_to": "Grace"
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "weather": "sunny",
+      "greet_to": "Grace",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Grace\"",
         Code: 0,
         Output: "Hello, Grace",
         ErrMsg: ""
-      }),
-      "greet_to": "Grace",
-      "weather": "sunny"
+      })
     })
     
     What a great day!
@@ -640,14 +665,17 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "weather": "sunny",
       "greet_to": "Tom",
-      "weather": "sunny"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -657,17 +685,17 @@ weight: 11514
     
     scope[local] merged: {
       "weather": "sunny",
-      "up_runtime_task_layer_number": 1,
-      "greet_to": "Tom"
+      "greet_to": "Tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "weather": "sunny",
       "greet_to": "Tom",
-      "weather": "sunny"
+      "up_runtime_task_layer_number": 1
     })
     
     Have you got a little taste of using the UPcmd?
@@ -699,13 +727,16 @@ weight: 11514
       Loop: "team",
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
       "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
@@ -719,40 +750,40 @@ weight: 11514
     
     
     scope[local] merged: {
+      "weather": "stormy",
+      "greet_to": "Tom",
+      "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
-      },
-      "greet_to": "Tom",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "weather": "stormy",
+      "greet_to": "Tom",
+      "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (sayhi)::
     (*core.Cache)({
-      "greet_to": "Tom",
+      "loopindex": 0,
+      "loopindex1": 1,
       "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopitem": "Jason"
     })
     
       located task-> 3 [sayhi]: 
@@ -764,8 +795,8 @@ weight: 11514
       Name: "",
       Do: {
         {
-          "cmd": "Hi {{.loopitem}}, how are you?",
-          "name": "print"
+          "name": "print",
+          "cmd": "Hi {{.loopitem}}, how are you?"
         }
       },
       Dox: <nil>,
@@ -780,21 +811,24 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
       "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1
+      }
     })
     
     [local] dvar expanded result:
@@ -803,23 +837,8 @@ weight: 11514
     
     
     scope[local] merged: {
-      "loopindex": 0,
-      "loopindex1": 1,
+      "weather": "stormy",
       "greet_to": "Tom",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "weather": "stormy",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
@@ -827,8 +846,23 @@ weight: 11514
       },
       "loopitem": "Jason",
       "loopindex": 0,
+      "loopindex1": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "Jason",
+      "loopindex": 0,
       "loopindex1": 1,
-      "greet_to": "Tom"
+      "weather": "stormy",
+      "greet_to": "Tom",
+      "up_runtime_task_layer_number": 1,
+      "team": {
+        "Jason",
+        "Connie"
+      }
     })
     
     Hi {{.loopitem}}, how are you?
@@ -867,21 +901,24 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "greet_to": "Tom",
       "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Jason",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -891,38 +928,8 @@ weight: 11514
     
     
     scope[local] merged: {
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
       "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
-      "team": {
-        "Jason",
-        "Connie"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 1,
       "greet_to": "Jason",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0
-    })
-    
-    caller's vars to task (greet)::
-    (*core.Cache)({
-      "greet_to": "Jason",
-      "weather": "stormy",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
@@ -931,6 +938,36 @@ weight: 11514
       "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 1,
+      "team": {
+        "Jason",
+        "Connie"
+      }
+    })
+    
+    caller's vars to task (greet)::
+    (*core.Cache)({
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 2 [greet]: 
@@ -955,21 +992,24 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "weather": "stormy"
+      }
     })
     
     [local] dvar expanded result:
@@ -979,6 +1019,7 @@ weight: 11514
     
     scope[local] merged: {
       "weather": "stormy",
+      "greet_to": "Jason",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
@@ -986,24 +1027,23 @@ weight: 11514
       },
       "loopitem": "Jason",
       "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason"
+      "loopindex1": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "weather": "stormy"
+      "loopindex": 0
     })
     
     cmd( 1):
@@ -1026,8 +1066,8 @@ weight: 11514
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "It is {{.weather}}"
+          "cmd": "It is {{.weather}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -1042,27 +1082,30 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "weather": "stormy",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -1071,44 +1114,44 @@ weight: 11514
     
     
     scope[local] merged: {
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
       "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "weather": "stormy",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Jason\"",
-        Code: 0,
-        Output: "Hello, Jason",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "weather": "stormy",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "loopitem": "Jason",
+      "loopindex": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 0,
+      "loopindex1": 1,
+      "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Jason\"",
+        Code: 0,
+        Output: "Hello, Jason",
+        ErrMsg: ""
+      }),
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Jason"
     })
     
     It is {{.weather}}
@@ -1145,19 +1188,20 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "weather": "stormy",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
@@ -1165,7 +1209,9 @@ weight: 11514
       "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
-      "greet_to": "Jason"
+      "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -1175,43 +1221,43 @@ weight: 11514
     
     scope[local] merged: {
       "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Jason",
       "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason"
+      "loopindex1": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
-      "greet_to": "Jason",
       "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Jason"
     })
     
     ---Step1:
@@ -1235,7 +1281,10 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1246,7 +1295,6 @@ weight: 11514
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
@@ -1254,8 +1302,9 @@ weight: 11514
       "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
+      "weather": "stormy",
       "greet_to": "Jason",
-      "weather": "stormy"
+      "up_runtime_task_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -1270,7 +1319,6 @@ weight: 11514
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
@@ -1278,30 +1326,31 @@ weight: 11514
       "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
+      "weather": "stormy",
       "greet_to": "Jason",
-      "weather": "stormy"
+      "up_runtime_task_layer_number": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
       "loopindex1": 1,
-      "greet_to": "Jason",
       "weather": "stormy",
+      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
-      })
+      }),
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Jason",
+      "loopindex": 0
     })
     
     What a bad day!!
@@ -1309,16 +1358,16 @@ weight: 11514
     What a bad day!!
     caller's vars to task (sayhi)::
     (*core.Cache)({
+      "weather": "stormy",
+      "greet_to": "Tom",
+      "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Connie",
       "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Tom",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     })
     
       located task-> 3 [sayhi]: 
@@ -1346,21 +1395,24 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Connie",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Tom",
-      "weather": "stormy"
+      "loopindex": 1
     })
     
     [local] dvar expanded result:
@@ -1370,8 +1422,8 @@ weight: 11514
     
     scope[local] merged: {
       "loopindex1": 2,
-      "greet_to": "Tom",
       "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
@@ -1385,16 +1437,16 @@ weight: 11514
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "Connie",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Tom",
       "weather": "stormy",
+      "greet_to": "Tom",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     Hi {{.loopitem}}, how are you?
@@ -1433,21 +1485,24 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "greet_to": "Tom",
-      "weather": "stormy",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Connie",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Tom"
     })
     
     [local] dvar expanded result:
@@ -1457,22 +1512,36 @@ weight: 11514
     
     
     scope[local] merged: {
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Connie",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Connie",
-      "weather": "stormy"
+      "loopindex": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
+      "up_runtime_task_layer_number": 1
+    })
+    
+    caller's vars to task (greet)::
+    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
@@ -1481,22 +1550,8 @@ weight: 11514
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
-      "greet_to": "Connie",
-      "weather": "stormy"
-    })
-    
-    caller's vars to task (greet)::
-    (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Connie",
       "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Connie"
+      "greet_to": "Connie"
     })
     
       located task-> 2 [greet]: 
@@ -1521,13 +1576,16 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Connie",
       "weather": "stormy",
+      "greet_to": "Connie",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
@@ -1546,8 +1604,8 @@ weight: 11514
     scope[local] merged: {
       "loopindex": 1,
       "loopindex1": 2,
-      "greet_to": "Connie",
       "weather": "stormy",
+      "greet_to": "Connie",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
@@ -1560,7 +1618,7 @@ weight: 11514
     self: final context exec vars:
     
     (*core.Cache)({
-      "weather": "stormy",
+      "greet_to": "Connie",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
@@ -1569,7 +1627,7 @@ weight: 11514
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
-      "greet_to": "Connie"
+      "weather": "stormy"
     })
     
     cmd( 1):
@@ -1608,12 +1666,20 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "weather": "stormy",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Connie\"",
+        Code: 0,
+        Output: "Hello, Connie",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
@@ -1622,12 +1688,7 @@ weight: 11514
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
+      "weather": "stormy",
       "greet_to": "Connie"
     })
     
@@ -1637,6 +1698,34 @@ weight: 11514
     
     
     scope[local] merged: {
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Connie\"",
+        Code: 0,
+        Output: "Hello, Connie",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 2
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Connie\"",
+        Code: 0,
+        Output: "Hello, Connie",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
@@ -1645,36 +1734,8 @@ weight: 11514
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
-      "greet_to": "Connie",
-      "weather": "stormy"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
-      "greet_to": "Connie",
       "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Connie"
+      "greet_to": "Connie"
     })
     
     It is {{.weather}}
@@ -1685,8 +1746,8 @@ weight: 11514
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "What a great day!"
+          "cmd": "What a great day!",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -1699,39 +1760,42 @@ weight: 11514
       If: "{{eq .weather \"sunny\"}}",
       Else: {
         {
-          "func": "cmd",
           "do": {
             {
               "name": "print",
               "cmd": "What a bad day!!"
             }
-          }
+          },
+          "func": "cmd"
         }
       },
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "Connie",
-      "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
         Output: "Hello, Connie",
         ErrMsg: ""
       }),
-      "greet_to": "Connie",
-      "weather": "stormy",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie"
     })
     
     [local] dvar expanded result:
@@ -1740,22 +1804,22 @@ weight: 11514
     
     
     scope[local] merged: {
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
         Output: "Hello, Connie",
         ErrMsg: ""
       }),
-      "greet_to": "Connie",
-      "weather": "stormy",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      },
-      "loopitem": "Connie",
-      "loopindex": 1,
-      "loopindex1": 2
+      }
     }
     
     
@@ -1770,14 +1834,14 @@ weight: 11514
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
         Output: "Hello, Connie",
         ErrMsg: ""
-      }),
-      "greet_to": "Connie",
-      "weather": "stormy"
+      })
     })
     
     ---Step1:
@@ -1801,11 +1865,21 @@ weight: 11514
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Connie\"",
+        Code: 0,
+        Output: "Hello, Connie",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
@@ -1813,15 +1887,8 @@ weight: 11514
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
-      "greet_to": "Connie",
       "weather": "stormy",
-      "up_runtime_task_layer_number": 2
+      "greet_to": "Connie"
     })
     
     [local] dvar expanded result:
@@ -1830,44 +1897,44 @@ weight: 11514
     
     
     scope[local] merged: {
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
         Output: "Hello, Connie",
         ErrMsg: ""
       }),
-      "greet_to": "Connie",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Connie"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Connie",
-      "loopindex": 1,
       "loopindex1": 2,
+      "weather": "stormy",
+      "greet_to": "Connie",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
         Output: "Hello, Connie",
         ErrMsg: ""
       }),
-      "greet_to": "Connie",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "loopitem": "Connie",
+      "loopindex": 1
     })
     
     What a bad day!!

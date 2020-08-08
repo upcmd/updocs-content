@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvv"
-date: 2020-07-20T02:01:39+77:00
+date: 2020-08-09T01:36:06+88:00
 draft: false
 weight: 10543
 
@@ -20,12 +20,19 @@ weight: 10543
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0054
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10543
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -140,11 +141,9 @@ weight: 10543
     
     cmd=>:
     echo "step2" |grep notexist<=
-          exec error: -> exit status 1
-    -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exec wait -> exit status 1
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "step3"
     
@@ -197,6 +196,8 @@ weight: 10543
     dvar> last_task_succeeded:
     "true"
     
+    -
+    true
     self: final context exec vars:
     
     (*core.Cache)({
@@ -282,11 +283,9 @@ weight: 10543
     
     cmd=>:
     echo "step2" |grep notexist<=
-          exec error: -> exit status 1
-    -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exec wait -> exit status 1
+          exit status 1
+     .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step8:
     current exec runtime vars:
@@ -295,7 +294,7 @@ weight: 10543
         Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
-        ErrMsg: ""
+        ErrMsg: "exit status 1"
       })
     })
     
@@ -306,7 +305,7 @@ weight: 10543
         Cmd: "echo \"step2\" |grep notexist",
         Code: 1,
         Output: "",
-        ErrMsg: ""
+        ErrMsg: "exit status 1"
       })
     })
     
@@ -326,13 +325,15 @@ weight: 10543
     dvar> condition:
     "true"
     
+    -
+    true
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       },
       "condition": "true",
       "last_result": (*utils.ExecResult)(<nil>)
@@ -365,21 +366,23 @@ weight: 10543
     dvar> condition:
     "true"
     
+    -
+    true
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"simple dvar as condition\"",
-        Code: 0,
-        Output: "simple dvar as condition",
-        ErrMsg: ""
-      }),
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
       },
-      "condition": "true"
+      "condition": "true",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"simple dvar as condition\"",
+        Code: 0,
+        Output: "simple dvar as condition",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -409,9 +412,12 @@ weight: 10543
     dvar> condition:
     "true"
     
+    -
+    true
     self: final context exec vars:
     
     (*core.Cache)({
+      "condition": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"complicated dvar evaluation as condition\"",
         Code: 0,
@@ -422,8 +428,7 @@ weight: 10543
         "name": "peter",
         "sex": "male",
         "age": 23
-      },
-      "condition": "true"
+      }
     })
     
     cmd( 1):
@@ -437,22 +442,6 @@ weight: 10543
     -Step12:
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "sex": "male",
-        "age": 23,
-        "name": "peter"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"a even more complicated condition but more readable\"",
-        Code: 0,
-        Output: "a even more complicated condition but more readable",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a even more complicated condition but more readable\"",
         Code: 0,
@@ -464,6 +453,22 @@ weight: 10543
         "sex": "male",
         "age": 23
       }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a even more complicated condition but more readable\"",
+        Code: 0,
+        Output: "a even more complicated condition but more readable",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -479,18 +484,6 @@ weight: 10543
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "doc": "hello",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"a complicated condition without dvar\"",
-        Code: 0,
-        Output: "a complicated condition without dvar",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
@@ -498,6 +491,18 @@ weight: 10543
         ErrMsg: ""
       }),
       "doc": "hello"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "doc": "hello",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a complicated condition without dvar\"",
+        Code: 0,
+        Output: "a complicated condition without dvar",
+        ErrMsg: ""
+      })
     })
     
     ~SubStep1: [print:  ]

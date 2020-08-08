@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvv"
-date: 2020-07-20T02:02:16+77:00
+date: 2020-08-09T01:36:44+88:00
 draft: false
 weight: 101202
 
@@ -20,16 +20,17 @@ weight: 101202
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 8
     work dir: /up_project/up/tests/modtests/f0012
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [self] instance id: [dev]
     Task1: [Main ==> Main: main entry ]
     -Step1:
     self: final context exec vars:
@@ -39,12 +40,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [hello-module] instance id: [nonamed]
     =>call module: [hello-module] task: [Say_hello]
     Task2: [TODO: Main Caller Taskname ==> Say_hello:  ]
     -Step1:
@@ -66,12 +67,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
     Task3: [TODO: Main Caller Taskname ==> Cross_call1:  ]
     -Step1:
@@ -92,12 +93,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk2], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk2] instance id: [nonamed]
     =>call module: [crosstalk2] task: [Cross_call2]
     Task3: [TODO: Main Caller Taskname ==> Cross_call2:  ]
     -Step1:
@@ -118,12 +119,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
     Task3: [TODO: Main Caller Taskname ==> Cross_call1:  ]
     -Step1:
@@ -144,12 +145,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk2], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk2] instance id: [nonamed]
     =>call module: [crosstalk2] task: [Cross_call2]
     Task3: [TODO: Main Caller Taskname ==> Cross_call2:  ]
     -Step1:
@@ -170,12 +171,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
     Task3: [TODO: Main Caller Taskname ==> Cross_call1:  ]
     -Step1:
@@ -196,12 +197,12 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk2], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk2] instance id: [nonamed]
     =>call module: [crosstalk2] task: [Cross_call2]
     Task3: [TODO: Main Caller Taskname ==> Cross_call2:  ]
     -Step1:
@@ -222,14 +223,15 @@ weight: 101202
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
+    module: [crosstalk1], instance id: [nonamed], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [crosstalk1] instance id: [nonamed]
     =>call module: [crosstalk1] task: [Cross_call1]
-      ERROR: Module call layer check: [Too many layers of recursive module executions, max allowed(8), please fix your recursive call]
+     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+    task finally -> runtime error: invalid memory address or nil pointer dereference
     
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvv"
-date: 2020-07-20T02:02:15+77:00
+date: 2020-08-09T01:36:43+88:00
 draft: false
 weight: 100403
 
@@ -20,12 +20,19 @@ weight: 100403
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0004
     -exec task: Main
     loading [Task]:  ./up.yml
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 100403
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -142,6 +143,12 @@ weight: 100403
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
+    module: [hello-module], instance id: [nonamed], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -149,12 +156,6 @@ weight: 100403
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [hello-module] instance id: [nonamed]
     merged[ nonamed ] runtime vars:
     {
     }
@@ -234,23 +235,6 @@ weight: 100403
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ls ../../..|grep modtests",
-        Code: 0,
-        Output: "modtests",
-        ErrMsg: ""
-      })
-    })
-    
-      located task-> 3 [internal_task]: 
-    =Task3: [TODO: Main Caller Taskname/Say_world ==> internal_task:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    current exec runtime vars:
-    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
@@ -261,17 +245,34 @@ weight: 100403
       "up_runtime_tasker_layer_number": 2
     })
     
-    hello-module: final context exec vars:
+      located task-> 3 [internal_task]: 
+    =Task3: [TODO: Main Caller Taskname/Say_world ==> internal_task:  ]
+    Executing task stack layer: 2
     
+    --Step1:
+    current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
+      })
+    })
+    
+    hello-module: final context exec vars:
+    
+    (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
+        Code: 0,
+        Output: "modtests",
+        ErrMsg: ""
+      })
     })
     
     ~~SubStep1: [print:  ]
@@ -279,14 +280,14 @@ weight: 100403
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     hello-module: final context exec vars:
@@ -378,8 +379,8 @@ weight: 100403
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

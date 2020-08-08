@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvv"
-date: 2020-07-20T02:01:38+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10493
 
@@ -20,27 +20,28 @@ weight: 10493
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0049
-    ---------group vars----------
-    
-    global: {
-      "envVar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules"
-    }
-    
-    
-    groups members:[]
+    module: [self], instance id: [dev], exec profile: []
     profile -  envVars:
     
     (*core.Cache)({
     })
     
-    module: [self] instance id: [dev]
+    ---------group vars----------
+    
+    global: {
+      "SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules"
+    }
+    
+    
+    groups members:[]
     merged[ dev ] runtime vars:
     {
       "envVar_SCHOOL": "James Rules",
@@ -50,12 +51,12 @@ weight: 10493
     -------runtime global final merged with dvars-------
     
     {
-      "envVar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envVar_STUDENT_AGE": "18"
+      "SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules"
     }
     
       located task-> 1 [task]: 
@@ -65,23 +66,23 @@ weight: 10493
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "STUDENT_AGE": "18",
-      "envVar_STUDENT_AGE": "18",
       "envVar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
-      "envVar_STUDENT_NAME": "James Bond"
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18",
+      "SCHOOL": "James Rules"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "SCHOOL": "James Rules",
       "STUDENT_NAME": "Tom Hanks",
       "envVar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
-      "envVar_STUDENT_AGE": "18",
-      "envVar_SCHOOL": "James Rules"
+      "SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18"
     })
     
     cmd( 1):
@@ -104,35 +105,35 @@ weight: 10493
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "STUDENT_AGE": "18",
+      "envVar_SCHOOL": "James Rules",
       "envVar_STUDENT_AGE": "18",
+      "STUDENT_NAME": "James Bond",
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_AGE",
         Code: 0,
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
-      "envVar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond",
-      "envVar_STUDENT_NAME": "James Bond"
+      "SCHOOL": "James Rules"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "envVar_SCHOOL": "James Rules",
-      "SCHOOL": "James Rules",
-      "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envVar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_AGE",
         Code: 0,
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
-      })
+      }),
+      "SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
+      "envVar_STUDENT_AGE": "18",
+      "STUDENT_NAME": "James Bond"
     })
     
     cmd( 1):

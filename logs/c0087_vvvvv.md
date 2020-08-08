@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:12+88:00
 draft: false
 weight: 10874
 
@@ -20,14 +20,21 @@ weight: 10874
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0087
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175520)(<nil>)
+    (*impl.Scopes)(0xc0001bf5c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10874
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -81,7 +82,10 @@ weight: 10874
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -138,7 +142,10 @@ weight: 10874
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -202,7 +209,10 @@ weight: 10874
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -265,7 +275,10 @@ weight: 10874
       },
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -306,6 +319,7 @@ weight: 10874
     
     caller's vars to task (impl1)::
     (*core.Cache)({
+      "loopindex": 0,
       "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
@@ -313,8 +327,7 @@ weight: 10874
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl1",
-      "loopindex": 0
+      "loopitem": "impl1"
     })
     
       located task-> 2 [impl1]: 
@@ -342,21 +355,24 @@ weight: 10874
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "impl1",
       "loopindex": 0,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "impl1"
+      })
     })
     
     [local] dvar expanded result:
@@ -365,16 +381,16 @@ weight: 10874
     
     
     scope[local] merged: {
-      "loopitem": "impl1",
       "loopindex": 0,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "loopitem": "impl1"
     }
     
     
@@ -384,13 +400,13 @@ weight: 10874
       "loopitem": "impl1",
       "loopindex": 0,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     hello
@@ -401,8 +417,8 @@ weight: 10874
       Name: "",
       Do: {
         {
-          "cmd": 1000,
-          "name": "sleep"
+          "name": "sleep",
+          "cmd": 1000
         }
       },
       Dox: <nil>,
@@ -417,21 +433,24 @@ weight: 10874
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 0,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "up_runtime_task_layer_number": 1
+      "loopitem": "impl1"
     })
     
     [local] dvar expanded result:
@@ -440,7 +459,6 @@ weight: 10874
     
     
     scope[local] merged: {
-      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
@@ -449,6 +467,7 @@ weight: 10874
       }),
       "loopitem": "impl1",
       "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
     }
     
@@ -456,7 +475,6 @@ weight: 10874
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
@@ -465,6 +483,7 @@ weight: 10874
       }),
       "loopitem": "impl1",
       "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
     })
     
@@ -510,21 +529,24 @@ weight: 10874
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "impl2",
-      "up_runtime_task_layer_number": 1,
       "loopindex": 1,
       "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      })
+      }),
+      "loopitem": "impl2"
     })
     
     [local] dvar expanded result:
@@ -533,32 +555,32 @@ weight: 10874
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo 'hello'",
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl2"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "loopitem": "impl2",
-      "up_runtime_task_layer_number": 1,
       "loopindex": 1,
       "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      }),
+      "loopitem": "impl2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     world

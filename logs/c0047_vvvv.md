@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvv"
-date: 2020-07-20T02:01:37+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10473
 
@@ -20,12 +20,19 @@ weight: 10473
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0047
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -35,16 +42,10 @@ weight: 10473
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     -------runtime global final merged with dvars-------
@@ -85,9 +86,11 @@ weight: 10473
     age: 28
     """
     <=
+    
     student details:
     name: Tom Hanks
     age: 28
+    
      .. ok
     . ok
     

@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvvv"
-date: 2020-07-20T02:01:44+77:00
+date: 2020-08-09T01:36:11+88:00
 draft: false
 weight: 10864
 
@@ -20,14 +20,21 @@ weight: 10864
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0086
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf660)(<nil>)
+    (*impl.Scopes)(0xc00000cb00)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10864
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "lines": "hello\nthis\nis a\nbeautiful world"
@@ -103,7 +104,10 @@ weight: 10864
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -113,6 +117,12 @@ weight: 10864
     
     dvar> linelist:
     "- hello\n- this\n- is a\n- beautiful world\n"
+    
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
     
     [local] dvar expanded result:
     {
@@ -141,14 +151,14 @@ weight: 10864
     self: final context exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
     })
     
     cmd( 1):
@@ -184,6 +194,7 @@ weight: 10864
     - this
     - is a
     - beautiful world
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=47) "echo '- hello\n- this\n- is a\n- beautiful world\n'",
@@ -244,7 +255,10 @@ weight: 10864
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -266,6 +280,12 @@ weight: 10864
     
     dvar> void:
     "- hello\n- this\n- is a\n- beautiful world\n"
+    
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
     
     [local] dvar expanded result:
     {
@@ -400,59 +420,13 @@ weight: 10864
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      }
-    })
-    
-    dvar> void:
-    "- hello\n- this\n- is a\n- beautiful world\n"
-    
-    [local] dvar expanded result:
-    {
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      }
-    }
-    
-    
-    scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
@@ -467,6 +441,61 @@ weight: 10864
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       })
+    })
+    
+    dvar> void:
+    "- hello\n- this\n- is a\n- beautiful world\n"
+    
+    -
+    - hello
+    - this
+    - is a
+    - beautiful world
+    
+    [local] dvar expanded result:
+    {
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
+    }
+    
+    
+    scope[local] merged: {
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
@@ -538,24 +567,27 @@ weight: 10864
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     })
     
     [local] dvar expanded result:
@@ -682,7 +714,10 @@ weight: 10864
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -705,8 +740,12 @@ weight: 10864
     dvar> void:
     "person:\n  name: tom\n  age: \"18\""
     
+    -
+    person:
+      name: tom
+      age: "18"
      WARN: [?reg a void] - [you can't register a object with void name, use a proper name instead or split to multiple steps]
-    dvar> void_object:
+    dvar[object]> void_object:
     {
       "person": {
         "name": "tom",
@@ -720,38 +759,38 @@ weight: 10864
     
     
     scope[local] merged: {
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     })
     
      WARN: [shell] - [Not implemented or void for no action!]

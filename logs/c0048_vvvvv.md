@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvvv"
-date: 2020-07-20T02:01:38+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10484
 
@@ -20,14 +20,21 @@ weight: 10484
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0048
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf220)(<nil>)
+    (*impl.Scopes)(0xc0001ef200)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10484
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -99,7 +100,10 @@ weight: 10484
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -108,14 +112,14 @@ weight: 10484
     
     [local] dvar expanded result:
     {
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     }
     
     
     scope[local] merged: {
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
@@ -192,7 +196,10 @@ weight: 10484
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -207,9 +214,9 @@ weight: 10484
     
     [local] dvar expanded result:
     {
-      "student_name_re_map": "Tom Hanks",
       "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks"
     }
     
     
@@ -220,9 +227,9 @@ weight: 10484
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
       }),
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "student_name_re_map": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
@@ -235,9 +242,9 @@ weight: 10484
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
       }),
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "student_name_re_map": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):

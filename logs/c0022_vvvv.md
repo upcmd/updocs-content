@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvv"
-date: 2020-07-20T02:01:32+77:00
+date: 2020-08-09T01:36:02+88:00
 draft: false
 weight: 10223
 
@@ -20,12 +20,19 @@ weight: 10223
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0022
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10223
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -55,10 +56,10 @@ weight: 10223
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     })
     
     self: final context exec vars:
@@ -83,6 +84,7 @@ weight: 10223
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
+    
      .. ok
     . ok
     

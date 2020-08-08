@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvv"
-date: 2020-07-20T02:01:52+77:00
+date: 2020-08-09T01:36:18+88:00
 draft: false
 weight: 11303
 
@@ -20,12 +20,19 @@ weight: 11303
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0130
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11303
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "a": "global_aaa",
@@ -49,9 +50,9 @@ weight: 11303
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -69,11 +70,11 @@ weight: 11303
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
-      "db": "local_db",
       "da": "local_da",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     condition failed, skip executing step 

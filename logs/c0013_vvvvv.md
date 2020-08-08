@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvvv"
-date: 2020-07-20T02:01:31+77:00
+date: 2020-08-09T01:36:01+88:00
 draft: false
 weight: 10134
 
@@ -20,14 +20,21 @@ weight: 10134
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0013
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000172ec0)(<nil>)
+    (*impl.Scopes)(0xc000216360)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10134
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "studentname": "Jason",
@@ -51,10 +52,10 @@ weight: 10134
     }
     
     (core.Cache) (len=4) {
-     (string) (len=11) "studentname": (string) (len=5) "Jason",
      (string) (len=1) "a": (string) (len=9) "runtime-a",
      (string) (len=1) "e": (string) (len=9) "runtime-e",
-     (string) (len=1) "k": (string) (len=9) "runtime-k"
+     (string) (len=1) "k": (string) (len=9) "runtime-k",
+     (string) (len=11) "studentname": (string) (len=5) "Jason"
     }
     
     [runtime global] dvar expanded result:
@@ -65,10 +66,10 @@ weight: 10134
     -------runtime global final merged with dvars-------
     
     {
-      "studentname": "Jason",
       "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "studentname": "Jason"
     }
     
       located task-> 1 [task]: 
@@ -85,8 +86,8 @@ weight: 10134
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "school": "SG",
-        "studentname": "Tom"
+        "studentname": "Tom",
+        "school": "SG"
       },
       Dvars: <nil>,
       Desc: "to test display env vars from shell context",
@@ -97,16 +98,19 @@ weight: 10134
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "k": "runtime-k",
+      "school": "SG",
       "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
-      "school": "SG"
+      "k": "runtime-k"
     })
     
     [local] dvar expanded result:
@@ -115,22 +119,22 @@ weight: 10134
     
     
     scope[local] merged: {
+      "a": "runtime-a",
       "e": "runtime-e",
-      "school": "SG",
       "k": "runtime-k",
-      "studentname": "Tom",
-      "a": "runtime-a"
+      "school": "SG",
+      "studentname": "Tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "k": "runtime-k",
-      "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
-      "school": "SG"
+      "k": "runtime-k",
+      "school": "SG",
+      "studentname": "Tom"
     })
     
     cmd( 1):

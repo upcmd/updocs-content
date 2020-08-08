@@ -1,6 +1,6 @@
 ---
 title: "c0153_vvvvv"
-date: 2020-07-20T02:01:56+77:00
+date: 2020-08-09T01:36:22+88:00
 draft: false
 weight: 11534
 
@@ -20,22 +20,29 @@ weight: 11534
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0153
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177aa0)((len=6 cap=6) {
+    (*impl.Scopes)(0xc000259ac0)((len=6 cap=6) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=4) "port": (int) 5432,
-       (string) (len=9) "db_driver": (string) (len=8) "postgres"
+       (string) (len=9) "db_driver": (string) (len=8) "postgres",
+       (string) (len=4) "port": (int) 5432
       },
       Dvars: (impl.Dvars) (len=1 cap=1) {
        (impl.Dvar) {
@@ -154,9 +161,9 @@ weight: 11534
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=3) {
-       (string) (len=7) "db_host": (string) (len=25) "pord_database.proddb.host",
        (string) (len=7) "db_user": (string) (len=12) "prod_db_user",
-       (string) (len=10) "host_alias": (string) (len=4) "prod"
+       (string) (len=10) "host_alias": (string) (len=4) "prod",
+       (string) (len=7) "db_host": (string) (len=25) "pord_database.proddb.host"
       },
       Dvars: (impl.Dvars) (len=1 cap=1) {
        (impl.Dvar) {
@@ -179,16 +186,16 @@ weight: 11534
     
     [global] dvar expanded result:
     {
-      "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var"
+      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "A_GLOBAL_ENV_VAR": "a_global_env_var"
     }
     
     
     scope[global] merged: {
-      "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_driver": "postgres",
       "port": 5432,
-      "db_driver": "postgres"
+      "A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var"
     }
     
     
@@ -199,10 +206,10 @@ weight: 11534
     
     
     scope[nonprod] merged: {
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "db_host": "nonpord_database.test.host",
       "db_port": 8354,
-      "db_user": "test_db_user"
+      "db_user": "test_db_user",
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     }
     
     
@@ -219,10 +226,10 @@ weight: 11534
     ---------group vars----------
     
     nonprod: {
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "db_host": "nonpord_database.test.host",
       "db_port": 8354,
-      "db_user": "test_db_user"
+      "db_user": "test_db_user",
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     }
     
     
@@ -234,18 +241,12 @@ weight: 11534
     global: {
       "A_GLOBAL_ENV_VAR": "a_global_env_var",
       "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "port": 5432,
-      "db_driver": "postgres"
+      "db_driver": "postgres",
+      "port": 5432
     }
     
     
     groups members:[dev staging prod]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
       "db_host": "nonpord_database.test.host",
@@ -262,29 +263,29 @@ weight: 11534
     
     merged[ dev ] runtime vars:
     {
-      "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_host": "nonpord_database.test.host",
-      "host_alias": "dev",
-      "db_driver": "postgres",
-      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_port": 8354,
       "db_user": "test_db_user",
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "host_alias": "dev",
       "A_DEV_ENV_VAR": "a_global_env_var",
-      "port": 5432
+      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_host": "nonpord_database.test.host",
+      "db_port": 8354,
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "db_driver": "postgres",
+      "port": 5432,
+      "A_GLOBAL_ENV_VAR": "a_global_env_var"
     }
     
     (core.Cache) (len=10) {
-     (string) (len=7) "db_user": (string) (len=12) "test_db_user",
-     (string) (len=11) "db_password": (string) (len=44) "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-     (string) (len=13) "A_DEV_ENV_VAR": (string) (len=16) "a_global_env_var",
-     (string) (len=4) "port": (int) 5432,
      (string) (len=23) "envVar_A_GLOBAL_ENV_VAR": (string) (len=16) "a_global_env_var",
+     (string) (len=7) "db_host": (string) (len=26) "nonpord_database.test.host",
      (string) (len=7) "db_port": (int) 8354,
+     (string) (len=7) "db_user": (string) (len=12) "test_db_user",
      (string) (len=10) "host_alias": (string) (len=3) "dev",
+     (string) (len=13) "A_DEV_ENV_VAR": (string) (len=16) "a_global_env_var",
      (string) (len=9) "db_driver": (string) (len=8) "postgres",
+     (string) (len=4) "port": (int) 5432,
      (string) (len=16) "A_GLOBAL_ENV_VAR": (string) (len=16) "a_global_env_var",
-     (string) (len=7) "db_host": (string) (len=26) "nonpord_database.test.host"
+     (string) (len=11) "db_password": (string) (len=44) "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     }
     
     [runtime global] dvar expanded result:
@@ -297,18 +298,18 @@ weight: 11534
     -------runtime global final merged with dvars-------
     
     {
-      "db_port": 8354,
-      "port": 5432,
-      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "host_alias": "dev",
-      "db_driver": "postgres",
-      "db_hostname": "dev.myapp.com",
-      "db_user": "test_db_user",
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "A_DEV_ENV_VAR": "a_global_env_var",
       "db_host": "nonpord_database.test.host",
+      "host_alias": "dev",
+      "port": 5432,
+      "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true",
+      "A_DEV_ENV_VAR": "a_global_env_var",
+      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_driver": "postgres",
       "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true"
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "db_hostname": "dev.myapp.com",
+      "db_port": 8354,
+      "db_user": "test_db_user"
     }
     
       located task-> 1 [task]: 
@@ -320,10 +321,10 @@ weight: 11534
       Name: "",
       Do: {
         {
-          "name": "inspect",
           "cmd": {
             "exec_vars"
-          }
+          },
+          "name": "inspect"
         },
         {
           "name": "assert",
@@ -347,22 +348,25 @@ weight: 11534
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "A_DEV_ENV_VAR": "a_global_env_var",
       "host_alias": "dev",
-      "db_driver": "postgres",
-      "db_hostname": "dev.myapp.com",
-      "db_port": 8354,
-      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_user": "test_db_user",
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "port": 5432,
+      "db_port": 8354,
+      "db_hostname": "dev.myapp.com",
+      "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
       "db_host": "nonpord_database.test.host",
+      "db_user": "test_db_user",
+      "db_driver": "postgres",
       "A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "A_DEV_ENV_VAR": "a_global_env_var",
       "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true"
     })
     
@@ -372,17 +376,17 @@ weight: 11534
     
     
     scope[local] merged: {
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "port": 5432,
-      "db_host": "nonpord_database.test.host",
-      "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "host_alias": "dev",
-      "db_port": 8354,
+      "db_driver": "postgres",
       "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_host": "nonpord_database.test.host",
+      "host_alias": "dev",
+      "port": 5432,
+      "db_hostname": "dev.myapp.com",
       "db_user": "test_db_user",
       "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true",
-      "db_driver": "postgres",
-      "db_hostname": "dev.myapp.com",
+      "A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "db_port": 8354,
       "A_DEV_ENV_VAR": "a_global_env_var"
     }
     
@@ -390,35 +394,36 @@ weight: 11534
     self: final context exec vars:
     
     (*core.Cache)({
-      "db_host": "nonpord_database.test.host",
-      "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true",
       "port": 5432,
-      "db_driver": "postgres",
-      "db_hostname": "dev.myapp.com",
       "db_port": 8354,
+      "db_hostname": "dev.myapp.com",
       "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_user": "test_db_user",
+      "db_host": "nonpord_database.test.host",
+      "host_alias": "dev",
+      "db_driver": "postgres",
+      "A_GLOBAL_ENV_VAR": "a_global_env_var",
       "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "A_DEV_ENV_VAR": "a_global_env_var",
-      "host_alias": "dev"
+      "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true",
+      "db_user": "test_db_user"
     })
     
     [exec_vars]
     ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars](*core.Cache)({
-      "port": 5432,
-      "db_host": "nonpord_database.test.host",
-      "A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true",
+     1: inspect[exec_vars]
+    (*core.Cache)({
       "envVar_A_GLOBAL_ENV_VAR": "a_global_env_var",
-      "db_user": "test_db_user",
-      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "A_DEV_ENV_VAR": "a_global_env_var",
+      "db_host": "nonpord_database.test.host",
       "host_alias": "dev",
-      "db_driver": "postgres",
+      "port": 5432,
+      "db_port": 8354,
       "db_hostname": "dev.myapp.com",
-      "db_port": 8354
+      "A_DEV_ENV_VAR": "a_global_env_var",
+      "db_url": "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true",
+      "db_user": "test_db_user",
+      "db_driver": "postgres",
+      "A_GLOBAL_ENV_VAR": "a_global_env_var",
+      "db_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     })
     
     [{{eq .A_GLOBAL_ENV_VAR "a_global_env_var"}} {{eq .A_DEV_ENV_VAR "a_global_env_var"}} {{eq .db_host "devtest_database.mycompany.local"}} {{eq .db_url "jdbc:postgres://dev.myapp.com:8354/test?user=test_db_user&password=6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=&ssl=true"}}]

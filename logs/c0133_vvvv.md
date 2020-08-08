@@ -1,6 +1,6 @@
 ---
 title: "c0133_vvvv"
-date: 2020-07-20T02:01:53+77:00
+date: 2020-08-09T01:36:19+88:00
 draft: false
 weight: 11333
 
@@ -20,12 +20,19 @@ weight: 11333
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0133
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11333
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "b": "global_bbb",
@@ -49,9 +50,9 @@ weight: 11333
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -61,39 +62,39 @@ weight: 11333
     -Step1: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
       "a": "local_aaa",
+      "b": "local_bbb",
       "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "c": "global_ccc"
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
-      "da": "local_da",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     cmd( 1):
@@ -116,30 +117,30 @@ weight: 11333
     (*core.Cache)({
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer1_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
+      "db": "local_db",
       "da": "local_da",
-      "db": "local_db"
+      "a": "block_layer1_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "da": "local_da",
+      "a": "block_layer1_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer1_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "da": "local_da",
       "db": "local_db_layer1"
     })
     
@@ -161,9 +162,9 @@ weight: 11333
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
@@ -177,17 +178,17 @@ weight: 11333
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
-      "da": "local_da",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "db": "local_db",
+      "da": "local_da"
     })
     
     cmd( 1):
@@ -208,15 +209,15 @@ weight: 11333
     -Step4: [: test embeded 2nd layer of block ]
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db",
-      "da": "local_da",
-      "a": "local_block_layer2_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
+      "da": "local_da",
+      "db": "local_db",
+      "a": "local_block_layer2_aaa",
       "b": "local_block_layer2_bbb",
       "c": "global_ccc"
     })
@@ -224,49 +225,49 @@ weight: 11333
     self: final context exec vars:
     
     (*core.Cache)({
+      "db": "local_db_layer2",
+      "a": "local_block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
-      "db": "local_db_layer2",
-      "da": "local_da_layer2",
-      "a": "local_block_layer2_aaa"
+      "da": "local_da_layer2"
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_block_layer2_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
+      "da": "local_da_layer2",
       "db": "local_db_layer2",
-      "da": "local_da_layer2"
+      "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_block_layer2_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
+      "da": "local_da_layer2",
       "db": "local_db_layer2",
-      "da": "local_da_layer2"
+      "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb"
     })
     
     ~SubStep1: [print:  ]
@@ -287,33 +288,33 @@ weight: 11333
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "db": "local_db",
-      "da": "local_da",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa"
+      "db": "local_db"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
+      "da": "local_da",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "db": "local_db",
-      "da": "local_da",
+      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "db": "local_db"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvv"
-date: 2020-07-20T02:01:45+77:00
+date: 2020-08-09T01:36:12+88:00
 draft: false
 weight: 10903
 
@@ -20,12 +20,19 @@ weight: 10903
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0090
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10903
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -63,6 +64,8 @@ weight: 10903
     dvar> person:
     "None"
     
+    -
+    None
     self: final context exec vars:
     
     (*core.Cache)({
@@ -97,16 +100,18 @@ weight: 10903
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar",
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar"
+      "loopindex1": 1
     })
     
     dvar> person:
     "tom"
     
+    -
+    tom
     self: final context exec vars:
     
     (*core.Cache)({
@@ -135,25 +140,27 @@ weight: 10903
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
       "taskvar": "taskvar",
       "loopitem": "peter",
       "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1
     })
     
     dvar> person:
     "peter"
     
+    -
+    peter
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "person": "peter",
+      "loopindex1": 2,
       "taskvar": "taskvar",
       "loopitem": "peter",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "peter"
+      "loopindex": 1
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -176,22 +183,24 @@ weight: 10903
       "loopitem": "james",
       "loopindex": 2,
       "loopindex1": 3,
-      "taskvar": "taskvar",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar"
     })
     
     dvar> person:
     "james"
     
+    -
+    james
     self: final context exec vars:
     
     (*core.Cache)({
       "loopitem": "james",
       "loopindex": 2,
       "loopindex1": 3,
-      "taskvar": "taskvar",
       "up_runtime_task_layer_number": 1,
-      "person": "james"
+      "person": "james",
+      "taskvar": "taskvar"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]

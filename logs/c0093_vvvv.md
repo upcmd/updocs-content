@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvv"
-date: 2020-07-20T02:01:45+77:00
+date: 2020-08-09T01:36:13+88:00
 draft: false
 weight: 10933
 
@@ -20,12 +20,19 @@ weight: 10933
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0093
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10933
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -56,8 +57,8 @@ weight: 10933
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     })
     
@@ -88,8 +89,8 @@ weight: 10933
     
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       },
       "up_runtime_task_layer_number": 1
     })

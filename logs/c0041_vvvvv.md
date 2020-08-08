@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvvv"
-date: 2020-07-20T02:01:36+77:00
+date: 2020-08-09T01:36:04+88:00
 draft: false
 weight: 10414
 
@@ -20,14 +20,21 @@ weight: 10414
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0041
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001750c0)(<nil>)
+    (*impl.Scopes)(0xc0001e5100)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10414
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -82,7 +83,10 @@ weight: 10414
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -153,7 +157,10 @@ weight: 10414
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -285,7 +292,10 @@ weight: 10414
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -305,13 +315,13 @@ weight: 10414
     
     
     scope[local] merged: {
+      "greet": "hello: hanks\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "greet": "hello: hanks\n"
+      })
     }
     
     
@@ -376,6 +386,7 @@ weight: 10414
     echo "hello: hanks
     "<=
     hello: hanks
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello: hanks\n\"",

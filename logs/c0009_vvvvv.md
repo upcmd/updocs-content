@@ -1,6 +1,6 @@
 ---
 title: "c0009_vvvvv"
-date: 2020-07-20T02:01:30+77:00
+date: 2020-08-09T01:36:00+88:00
 draft: false
 weight: 10094
 
@@ -20,27 +20,34 @@ weight: 10094
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0009
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     loading [ref vars]:  ./tests/functests/d0009-global.yml
     (core.Cache) (len=4) {
-     (string) (len=1) "b": (string) (len=8) "global-b",
-     (string) (len=1) "c": (string) (len=8) "global-c",
      (string) (len=1) "d": (string) (len=8) "global-d",
-     (string) (len=1) "a": (string) (len=8) "global-a"
+     (string) (len=1) "a": (string) (len=8) "global-a",
+     (string) (len=1) "b": (string) (len=8) "global-b",
+     (string) (len=1) "c": (string) (len=8) "global-c"
     }
     
     loading vars from: d0009-global.yml
     
     {
-      "a": "global-a",
-      "b": "global-b",
       "c": "global-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
     }
     
     loading [ref vars]:  ./tests/functests/d0009-dev.yml
@@ -52,12 +59,12 @@ weight: 10094
     loading vars from: d0009-dev.yml
     
     {
-      "c": "dev-c",
-      "a": "dev-a"
+      "a": "dev-a",
+      "c": "dev-c"
     }
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001db140)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001771a0)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) (len=16) "d0009-global.yml",
@@ -107,8 +114,8 @@ weight: 10094
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "b": (string) (len=9) "staging-b",
-       (string) (len=1) "a": (string) (len=9) "staging-a"
+       (string) (len=1) "a": (string) (len=9) "staging-a",
+       (string) (len=1) "b": (string) (len=9) "staging-b"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -131,10 +138,10 @@ weight: 10094
     
     
     scope[global] merged: {
-      "c": "global-c",
       "d": "global-d",
       "a": "global-a",
-      "b": "global-b"
+      "b": "global-b",
+      "c": "global-c"
     }
     
     
@@ -155,9 +162,9 @@ weight: 10094
     
     
     scope[nonprod] merged: {
-      "c": "non-prod-c",
       "a": "non-prod-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "non-prod-c"
     }
     
     
@@ -177,28 +184,22 @@ weight: 10094
     
     
     global: {
-      "a": "global-a",
-      "b": "global-b",
       "c": "global-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
     groups members:[dr prod dev st staging]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
     
     
     scope[dev] merged: {
-      "c": "dev-c",
-      "a": "dev-a"
+      "a": "dev-a",
+      "c": "dev-c"
     }
     
     
@@ -211,10 +212,10 @@ weight: 10094
     }
     
     (core.Cache) (len=4) {
-     (string) (len=1) "c": (string) (len=5) "dev-c",
-     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=5) "dev-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b"
+     (string) (len=1) "b": (string) (len=10) "non-prod-b",
+     (string) (len=1) "c": (string) (len=5) "dev-c",
+     (string) (len=1) "d": (string) (len=8) "global-d"
     }
     
     [runtime global] dvar expanded result:
@@ -225,10 +226,10 @@ weight: 10094
     -------runtime global final merged with dvars-------
     
     {
+      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "a": "dev-a"
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -253,15 +254,18 @@ weight: 10094
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
-      "a": "dev-a"
+      "d": "global-d"
     })
     
     [local] dvar expanded result:
@@ -270,10 +274,10 @@ weight: 10094
     
     
     scope[local] merged: {
-      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a"
     }
     
     

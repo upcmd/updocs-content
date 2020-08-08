@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvv"
-date: 2020-07-20T02:01:30+77:00
+date: 2020-08-09T01:36:00+88:00
 draft: false
 weight: 10063
 
@@ -20,12 +20,19 @@ weight: 10063
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0006
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10063
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -69,7 +70,7 @@ weight: 10063
     cmd=>:
     echo "aaa: $aaa"
     <=
-    aaa:
+    aaa: 
      .. ok
     cmd( 2):
     echo "bbb: $bbb"
@@ -78,28 +79,28 @@ weight: 10063
     cmd=>:
     echo "bbb: $bbb"
     <=
-    bbb:
+    bbb: 
      .. ok
     cmd( 3):
     echo "aaa':' $aaa"
     
     cmd=>:
     echo "aaa':' $aaa"<=
-    aaa':'
+    aaa':' 
      .. ok
     cmd( 4):
     echo "aaa":" $aaa"
     
     cmd=>:
     echo "aaa":" $aaa"<=
-    aaa:
+    aaa: 
      .. ok
     cmd( 5):
     echo "aaa -> $aaa"
     
     cmd=>:
     echo "aaa -> $aaa"<=
-    aaa ->
+    aaa -> 
      .. ok
     . ok
     

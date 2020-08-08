@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvvv"
-date: 2020-07-20T02:01:30+77:00
+date: 2020-08-09T01:36:00+88:00
 draft: false
 weight: 10084
 
@@ -20,14 +20,21 @@ weight: 10084
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0008
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5bc0)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001bfc60)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -65,9 +72,9 @@ weight: 10084
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=3) {
+       (string) (len=1) "a": (string) (len=10) "non-prod-a",
        (string) (len=1) "b": (string) (len=10) "non-prod-b",
-       (string) (len=1) "c": (string) (len=10) "non-prod-c",
-       (string) (len=1) "a": (string) (len=10) "non-prod-a"
+       (string) (len=1) "c": (string) (len=10) "non-prod-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -101,10 +108,10 @@ weight: 10084
     
     
     scope[global] merged: {
-      "c": "global-c",
-      "d": "global-d",
       "a": "global-a",
-      "b": "global-b"
+      "b": "global-b",
+      "c": "global-c",
+      "d": "global-d"
     }
     
     
@@ -114,8 +121,8 @@ weight: 10084
     
     
     scope[prod] merged: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -125,42 +132,36 @@ weight: 10084
     
     
     scope[nonprod] merged: {
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
+      "c": "non-prod-c",
+      "a": "non-prod-a"
     }
     
     
     ---------group vars----------
     
+    global: {
+      "c": "global-c",
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
+    }
+    
+    
     prod: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
     nonprod: {
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
-    }
-    
-    
-    global: {
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b",
-      "c": "global-c"
+      "c": "non-prod-c",
+      "a": "non-prod-a"
     }
     
     
     groups members:[dr prod dev st staging]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     [dev] dvar expanded result:
     {
     }
@@ -174,17 +175,17 @@ weight: 10084
     
     merged[ dev ] runtime vars:
     {
-      "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c"
     }
     
     (core.Cache) (len=4) {
-     (string) (len=1) "c": (string) (len=5) "dev-c",
-     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=5) "dev-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b"
+     (string) (len=1) "b": (string) (len=10) "non-prod-b",
+     (string) (len=1) "c": (string) (len=5) "dev-c",
+     (string) (len=1) "d": (string) (len=8) "global-d"
     }
     
     [runtime global] dvar expanded result:
@@ -195,10 +196,10 @@ weight: 10084
     -------runtime global final merged with dvars-------
     
     {
-      "c": "dev-c",
-      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -223,7 +224,10 @@ weight: 10084
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -250,10 +254,10 @@ weight: 10084
     self: final context exec vars:
     
     (*core.Cache)({
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvvv"
-date: 2020-07-20T02:01:40+77:00
+date: 2020-08-09T01:36:08+88:00
 draft: false
 weight: 10654
 
@@ -20,14 +20,21 @@ weight: 10654
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0065
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bb220)(<nil>)
+    (*impl.Scopes)(0xc0002deb80)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10654
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "person": "peter",
@@ -53,58 +54,70 @@ weight: 10654
     }
     
     (core.Cache) (len=2) {
+     (string) (len=6) "person": (string) (len=5) "peter",
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
-     },
-     (string) (len=6) "person": (string) (len=5) "peter"
+     }
     }
     
     dvar> var_with_range_v:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_vv:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_vvv:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_vvvv:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_vvvvv:
     " x  x  x "
     
+    -
+     x  x  x 
     dvar> var_with_range_vvvvv:
     " x  x  x "
     
+    -
+     x  x  x 
     [runtime global] dvar expanded result:
     {
-      "var_with_range_v": " x  x  x ",
-      "var_with_range_vv": " x  x  x ",
-      "var_with_range_vvv": " x  x  x ",
       "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
-      "var_with_range_vvvvvv": " x  x  x "
+      "var_with_range_vvvvvv": " x  x  x ",
+      "var_with_range_v": " x  x  x ",
+      "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x "
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range_vvvvv": " x  x  x ",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range_vvvvvv": " x  x  x ",
-      "var_with_range_v": " x  x  x ",
       "var_with_range_vv": " x  x  x ",
       "var_with_range_vvv": " x  x  x ",
-      "var_with_range_vvvv": " x  x  x "
+      "var_with_range_vvvv": " x  x  x ",
+      "var_with_range_vvvvv": " x  x  x ",
+      "var_with_range_vvvvvv": " x  x  x ",
+      "var_with_range_v": " x  x  x "
     }
     
       located task-> 1 [task]: 

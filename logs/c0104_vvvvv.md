@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvvv"
-date: 2020-07-20T02:01:48+77:00
+date: 2020-08-09T01:36:14+88:00
 draft: false
 weight: 11044
 
@@ -20,14 +20,21 @@ weight: 11044
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0104
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000235400)(<nil>)
+    (*impl.Scopes)(0xc00023f460)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11044
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "extra_task_name": "post_task"
@@ -84,7 +85,10 @@ weight: 11044
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -113,7 +117,7 @@ weight: 11044
     
     cmd=>:
     echo " I love this "<=
-    I love this
+     I love this 
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \" I love this \"",
@@ -142,18 +146,21 @@ weight: 11044
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "extra_task_name": "post_task"
     })
     
     [local] dvar expanded result:
@@ -217,19 +224,22 @@ weight: 11044
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -252,14 +262,14 @@ weight: 11044
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
     })
     
     cmd( 1):
@@ -310,19 +320,22 @@ weight: 11044
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
     })
     
     [local] dvar expanded result:
@@ -331,20 +344,6 @@ weight: 11044
     
     
     scope[local] merged: {
-      "extra_task_name": "post_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"world\"",
-        Code: 0,
-        Output: "world",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
@@ -353,6 +352,20 @@ weight: 11044
         Output: "world",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "extra_task_name": "post_task",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
+        Code: 0,
+        Output: "world",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

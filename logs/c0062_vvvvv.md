@@ -1,6 +1,6 @@
 ---
 title: "c0062_vvvvv"
-date: 2020-07-20T02:01:40+77:00
+date: 2020-08-09T01:36:07+88:00
 draft: false
 weight: 10624
 
@@ -20,14 +20,21 @@ weight: 10624
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0062
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000176ea0)(<nil>)
+    (*impl.Scopes)(0xc000174ee0)(<nil>)
     
     ---------group vars----------
     
@@ -36,31 +43,25 @@ weight: 10624
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=12) "student_name": (string) (len=3) "tom",
      (string) (len=7) "classes": ([]interface {}) (len=4 cap=4) {
       (string) (len=2) "1k",
       (string) (len=2) "2b",
       (string) (len=2) "3j",
       (string) (len=2) "4s"
-     }
+     },
+     (string) (len=12) "student_name": (string) (len=3) "tom"
     }
     
     [runtime global] dvar expanded result:
@@ -107,18 +108,21 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
     [local] dvar expanded result:
@@ -127,26 +131,26 @@ weight: 10624
     
     
     scope[local] merged: {
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
     cmd( 1):
@@ -198,7 +202,10 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -209,13 +216,13 @@ weight: 10624
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
     [local] dvar expanded result:
@@ -230,32 +237,32 @@ weight: 10624
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
-      })
+      }),
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom"
     })
     
     caller's vars to task (task_a)::
@@ -266,13 +273,13 @@ weight: 10624
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
       located task-> 2 [task_a]: 
@@ -297,25 +304,28 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
     [local] dvar expanded result:
@@ -324,20 +334,20 @@ weight: 10624
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -350,13 +360,13 @@ weight: 10624
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -383,13 +393,13 @@ weight: 10624
         Output: "task_a_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
       located task-> 3 [task_c]: 
@@ -414,25 +424,28 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_a_step1\"",
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom"
     })
     
     [local] dvar expanded result:
@@ -441,38 +454,38 @@ weight: 10624
     
     
     scope[local] merged: {
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_a_step1\"",
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_a_step1\"",
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
       "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
@@ -494,13 +507,13 @@ weight: 10624
     . ok
     caller's vars to task (task_a)::
     (*core.Cache)({
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_c_step1\"",
         Code: 0,
         Output: "task_c_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
@@ -531,24 +544,27 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task_c_step1\"",
-        Code: 0,
-        Output: "task_c_step1",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_c_step1\"",
+        Code: 0,
+        Output: "task_c_step1",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 1
     })
     
@@ -564,34 +580,34 @@ weight: 10624
         Output: "task_c_step1",
         ErrMsg: ""
       }),
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "up_runtime_task_layer_number": 1
+      "student_name": "tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task_c_step1\"",
-        Code: 0,
-        Output: "task_c_step1",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "up_runtime_task_layer_number": 1
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_c_step1\"",
+        Code: 0,
+        Output: "task_c_step1",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -627,25 +643,28 @@ weight: 10624
       Loop: "classes",
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -654,33 +673,33 @@ weight: 10624
     
     
     scope[local] merged: {
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -692,12 +711,7 @@ weight: 10624
     
     caller's vars to task (task_b)::
     (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -708,7 +722,12 @@ weight: 10624
       "loopitem": "1k",
       "loopindex": 0,
       "loopindex1": 1,
-      "student_name": "tom"
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
       located task-> 5 [task_b]: 
@@ -734,7 +753,10 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -749,13 +771,13 @@ weight: 10624
       "loopitem": "1k",
       "loopindex": 0,
       "loopindex1": 1,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom"
     })
     
     [local] dvar expanded result:
@@ -764,6 +786,29 @@ weight: 10624
     
     
     scope[local] merged: {
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "1k",
+      "loopindex": 0,
+      "loopindex1": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -774,36 +819,13 @@ weight: 10624
       "loopitem": "1k",
       "loopindex": 0,
       "loopindex1": 1,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "1k",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task step 2\"",
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      })
+      "student_name": "tom"
     })
     
     cmd( 1):
@@ -841,13 +863,13 @@ weight: 10624
       "loopitem": "2b",
       "loopindex": 1,
       "loopindex1": 2,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
         Code: 0,
@@ -879,20 +901,15 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
         Code: 0,
@@ -900,7 +917,15 @@ weight: 10624
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "2b"
+      "loopitem": "2b",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
     [local] dvar expanded result:
@@ -910,13 +935,13 @@ weight: 10624
     
     scope[local] merged: {
       "loopindex1": 2,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
         Code: 0,
@@ -932,6 +957,15 @@ weight: 10624
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
         Code: 0,
@@ -939,16 +973,7 @@ weight: 10624
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "2b",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
+      "loopitem": "2b"
     })
     
     cmd( 1):
@@ -982,13 +1007,14 @@ weight: 10624
     . ok
     caller's vars to task (task_b)::
     (*core.Cache)({
-      "student_name": "tom",
+      "loopindex1": 3,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
@@ -997,8 +1023,7 @@ weight: 10624
       }),
       "up_runtime_task_layer_number": 1,
       "loopitem": "3j",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
       located task-> 5 [task_b]: 
@@ -1024,20 +1049,15 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
@@ -1045,7 +1065,15 @@ weight: 10624
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "3j"
+      "loopitem": "3j",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
     [local] dvar expanded result:
@@ -1054,16 +1082,39 @@ weight: 10624
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "loopitem": "3j",
       "loopindex": 2,
       "loopindex1": 3,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
+        Code: 0,
+        Output: "1 -> student nameed tom has been in class [2b]",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "3j",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
@@ -1071,29 +1122,6 @@ weight: 10624
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "3j",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
-        Code: 0,
-        Output: "1 -> student nameed tom has been in class [2b]",
-        ErrMsg: ""
-      })
     })
     
     cmd( 1):
@@ -1127,15 +1155,7 @@ weight: 10624
     . ok
     caller's vars to task (task_b)::
     (*core.Cache)({
-      "loopindex": 3,
-      "loopindex1": 4,
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
         Code: 0,
@@ -1143,7 +1163,15 @@ weight: 10624
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "4s"
+      "loopitem": "4s",
+      "loopindex": 3,
+      "loopindex1": 4,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
       located task-> 5 [task_b]: 
@@ -1169,28 +1197,31 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
+        Code: 0,
+        Output: "2 -> student nameed tom has been in class [3j]",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 1,
       "loopitem": "4s",
       "loopindex": 3,
       "loopindex1": 4,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
-        Code: 0,
-        Output: "2 -> student nameed tom has been in class [3j]",
-        ErrMsg: ""
-      })
+      "student_name": "tom"
     })
     
     [local] dvar expanded result:
@@ -1199,15 +1230,38 @@ weight: 10624
     
     
     scope[local] merged: {
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
+        Code: 0,
+        Output: "2 -> student nameed tom has been in class [3j]",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "4s",
       "loopindex": 3,
       "loopindex1": 4,
-      "student_name": "tom",
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 3,
+      "loopindex1": 4,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
         Code: 0,
@@ -1216,29 +1270,6 @@ weight: 10624
       }),
       "up_runtime_task_layer_number": 1,
       "loopitem": "4s"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "4s",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
-        Code: 0,
-        Output: "2 -> student nameed tom has been in class [3j]",
-        ErrMsg: ""
-      })
     })
     
     cmd( 1):
@@ -1289,18 +1320,21 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -1316,33 +1350,33 @@ weight: 10624
     
     
     scope[local] merged: {
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -1399,25 +1433,28 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task step 4\"",
-        Code: 0,
-        Output: "task step 4",
-        ErrMsg: ""
-      }),
-      "student_name": "tom",
       "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
+      },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 4\"",
+        Code: 0,
+        Output: "task step 4",
+        ErrMsg: ""
+      })
     })
     
     [local] dvar expanded result:
@@ -1426,40 +1463,40 @@ weight: 10624
     
     
     scope[local] merged: {
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
       "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (a_very_complicated_task)::
@@ -1470,13 +1507,13 @@ weight: 10624
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
-      "student_name": "tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -1504,25 +1541,28 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -1538,33 +1578,33 @@ weight: 10624
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
-      }),
-      "student_name": "tom"
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
-      }),
-      "student_name": "tom",
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
@@ -1629,7 +1669,10 @@ weight: 10624
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -1641,13 +1684,13 @@ weight: 10624
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"i am a very complicated flow of step3\"",
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
-      }),
-      "student_name": "tom"
+      })
     })
     
     [local] dvar expanded result:
@@ -1656,40 +1699,40 @@ weight: 10624
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"i am a very complicated flow of step3\"",
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
       }),
-      "student_name": "tom"
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"i am a very complicated flow of step3\"",
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
       }),
-      "student_name": "tom"
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

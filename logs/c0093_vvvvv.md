@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvvv"
-date: 2020-07-20T02:01:45+77:00
+date: 2020-08-09T01:36:13+88:00
 draft: false
 weight: 10934
 
@@ -20,14 +20,21 @@ weight: 10934
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0093
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175020)(<nil>)
+    (*impl.Scopes)(0xc0001df040)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10934
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -86,7 +87,10 @@ weight: 10934
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -104,8 +108,8 @@ weight: 10934
     
     scope[local] merged: {
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     }
     
@@ -114,8 +118,8 @@ weight: 10934
     
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     
@@ -152,14 +156,17 @@ weight: 10934
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       },
       "up_runtime_task_layer_number": 1
     })
@@ -170,11 +177,11 @@ weight: 10934
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      }
+      },
+      "up_runtime_task_layer_number": 1
     }
     
     

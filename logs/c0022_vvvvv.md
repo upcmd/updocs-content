@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvvv"
-date: 2020-07-20T02:01:32+77:00
+date: 2020-08-09T01:36:02+88:00
 draft: false
 weight: 10224
 
@@ -20,14 +20,21 @@ weight: 10224
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0022
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000a42c0)(<nil>)
+    (*impl.Scopes)(0xc000174ec0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10224
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -72,10 +73,10 @@ weight: 10224
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "student": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
-        "student": "Tom"
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
       },
       Dvars: <nil>,
       Desc: "",
@@ -86,7 +87,10 @@ weight: 10224
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -103,10 +107,10 @@ weight: 10224
     
     
     scope[local] merged: {
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     }
     
     
@@ -132,6 +136,7 @@ weight: 10224
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
+    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=94) "echo \"\"\"my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n\"\"\"\n",

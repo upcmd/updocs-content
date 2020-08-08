@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvvv"
-date: 2020-07-20T02:01:41+77:00
+date: 2020-08-09T01:36:08+88:00
 draft: false
 weight: 10684
 
@@ -20,14 +20,21 @@ weight: 10684
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0068
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000176f60)(<nil>)
+    (*impl.Scopes)(0xc0001ecfa0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10684
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -83,7 +84,10 @@ weight: 10684
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -123,16 +127,15 @@ weight: 10684
     
     cmd=>:
     echo "world"|grep non-exist<=
-          exec error: -> exit status 1
+          exec wait -> exit status 1
     -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"world\"|grep non-exist",
      Code: (int) 1,
      Output: (string) "",
-     ErrMsg: (string) ""
+     ErrMsg: (string) (len=13) "exit status 1"
     }
     
     cmd( 3):

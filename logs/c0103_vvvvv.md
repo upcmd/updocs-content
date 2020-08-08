@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvvv"
-date: 2020-07-20T02:01:47+77:00
+date: 2020-08-09T01:36:14+88:00
 draft: false
 weight: 11034
 
@@ -20,14 +20,21 @@ weight: 11034
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0103
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022c380)(<nil>)
+    (*impl.Scopes)(0xc0001bf000)(<nil>)
     
     ---------group vars----------
     
@@ -36,21 +43,15 @@ weight: 11034
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=5) "emily": (string) (len=31) "emily:\n  sex: female\n  age: 32\n",
-     (string) (len=3) "tom": (string) (len=27) "tom:\n  sex: male\n  age: 23\n"
+     (string) (len=3) "tom": (string) (len=27) "tom:\n  sex: male\n  age: 23\n",
+     (string) (len=5) "emily": (string) (len=31) "emily:\n  sex: female\n  age: 32\n"
     }
     
     [runtime global] dvar expanded result:
@@ -61,8 +62,8 @@ weight: 11034
     -------runtime global final merged with dvars-------
     
     {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
       located task-> 1 [task]: 
@@ -74,14 +75,14 @@ weight: 11034
       Name: "",
       Do: {
         {
-          "name": "ymlWrite",
           "cmd": {
             "ymlstr": "{{.tom}}",
             "path": "tom.sex",
             "value": "female",
             "verbose": "v",
             "reg": "tomyml"
-          }
+          },
+          "name": "ymlWrite"
         },
         {
           "name": "print",
@@ -90,11 +91,11 @@ weight: 11034
         {
           "name": "ymlWrite",
           "cmd": {
+            "reg": "tomyml",
             "ymlstr": "{{.tomyml}}",
             "path": "tom.wife",
             "nodevalue": "{{.emily}}",
-            "verbose": "vvvv",
-            "reg": "tomyml"
+            "verbose": "vvvv"
           }
         },
         {
@@ -114,13 +115,16 @@ weight: 11034
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
     [local] dvar expanded result:
@@ -129,16 +133,16 @@ weight: 11034
     
     
     scope[local] merged: {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:tom.sex reg:tomyml value:female verbose:v ymlstr:{{.tom}}]

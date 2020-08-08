@@ -1,6 +1,6 @@
 ---
 title: "c0009_vvvv"
-date: 2020-07-20T02:01:30+77:00
+date: 2020-08-09T01:36:00+88:00
 draft: false
 weight: 10093
 
@@ -20,20 +20,27 @@ weight: 10093
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0009
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     loading [ref vars]:  ./tests/functests/d0009-global.yml
     loading vars from: d0009-global.yml
     
     {
+      "d": "global-d",
       "a": "global-a",
       "b": "global-b",
-      "c": "global-c",
-      "d": "global-d"
+      "c": "global-c"
     }
     
     loading [ref vars]:  ./tests/functests/d0009-dev.yml
@@ -46,6 +53,12 @@ weight: 10093
     
     ---------group vars----------
     
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
+    }
+    
+    
     nonprod: {
       "a": "non-prod-a",
       "b": "non-prod-b",
@@ -54,41 +67,29 @@ weight: 10093
     
     
     global: {
+      "c": "global-c",
       "d": "global-d",
       "a": "global-a",
-      "b": "global-b",
-      "c": "global-c"
-    }
-    
-    
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "b": "global-b"
     }
     
     
     groups members:[dr prod dev st staging]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
-    {
-      "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
     {
       "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d"
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b",
+      "c": "dev-c"
     }
     
       located task-> 1 [task]: 
@@ -98,19 +99,19 @@ weight: 10093
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c",
-      "d": "global-d"
+      "c": "dev-c"
     })
     
     cmd( 1):

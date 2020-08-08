@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvv"
-date: 2020-07-20T02:01:38+77:00
+date: 2020-08-09T01:36:06+88:00
 draft: false
 weight: 10503
 
@@ -20,12 +20,19 @@ weight: 10503
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0050
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10503
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "school": "Sydney Grammar"
@@ -47,14 +48,14 @@ weight: 10503
     -------runtime global final merged with dvars-------
     
     {
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
       "z": "i am zzz",
-      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
+      "school": "Sydney Grammar",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar"
+      "m": "m=>n=>Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>"
     }
     
       located task-> 1 [task]: 
@@ -66,8 +67,8 @@ weight: 10503
     (*core.Cache)({
       "o": "o=><no value>",
       "z": "i am zzz",
-      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
+      "school": "Sydney Grammar",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
@@ -77,14 +78,14 @@ weight: 10503
     self: final context exec vars:
     
     (*core.Cache)({
-      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
+      "yv": "y->i am zzz",
       "school": "Sydney Grammar",
-      "yv": "y->i am zzz"
+      "x": "x=>y->i am zzz"
     })
     
     cmd( 1):

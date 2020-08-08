@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvv"
-date: 2020-07-20T02:01:39+77:00
+date: 2020-08-09T01:36:06+88:00
 draft: false
 weight: 10523
 
@@ -20,12 +20,19 @@ weight: 10523
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0052
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10523
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -74,11 +75,9 @@ weight: 10523
     
     cmd=>:
     echo "step2" |grep notexist<=
-          exec error: -> exit status 1
-    -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exec wait -> exit status 1
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "step3"
     
@@ -121,11 +120,9 @@ weight: 10523
     
     cmd=>:
     echo "step5" |grep notexist<=
-          exec error: -> exit status 1
-    -----trace for reference-----
-    
-          
-     .. failed(suppressed if not last step)
+          exec wait -> exit status 1
+          exit status 1
+     .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "step6"
     

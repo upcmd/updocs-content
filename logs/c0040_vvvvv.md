@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvvv"
-date: 2020-07-20T02:01:36+77:00
+date: 2020-08-09T01:36:04+88:00
 draft: false
 weight: 10404
 
@@ -20,14 +20,21 @@ weight: 10404
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0040
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bef80)(<nil>)
+    (*impl.Scopes)(0xc000174f60)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 10404
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -81,7 +82,10 @@ weight: 10404
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -125,11 +129,14 @@ weight: 10404
     f0116.yml
     f0117.yml
     f0125.yml
+    f0171.yml
+    f0172.yml
+    f0176.yml
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=31) "cd ./tests/functests; ls f*.yml",
      Code: (int) 0,
-     Output: (string) (len=179) "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
+     Output: (string) (len=209) "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
      ErrMsg: (string) ""
     }
     
@@ -152,21 +159,24 @@ weight: 10404
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "cases": (*utils.ExecResult)({
-        Cmd: "cd ./tests/functests; ls f*.yml",
-        Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
-        ErrMsg: ""
-      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+        ErrMsg: ""
+      }),
+      "cases": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
+        Code: 0,
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
         ErrMsg: ""
       })
     })
@@ -180,13 +190,13 @@ weight: 10404
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
         ErrMsg: ""
       })
     }
@@ -198,13 +208,13 @@ weight: 10404
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
         ErrMsg: ""
       })
     })
@@ -217,7 +227,7 @@ weight: 10404
     {{end}}
     
     
-          template rendering problem -> template: .:1:33: executing "." at <splitLines>: wrong type for value; expected string; got *utils.ExecResult
+          template rendering -> template: .:1:33: executing "." at <splitLines>: wrong type for value; expected string; got *utils.ExecResult
     WARN:
         1:{{ range $idx, $file := .cases | splitLines -}}
         2:{{$casename :=  $file | replace ".yml" ""}}
@@ -226,10 +236,12 @@ weight: 10404
         5:{{end}}
         6:
     
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
     -----trace for reference-----
     cmd=>:
     <=
-    
      .. ok
     (utils.ExecResult) {
      Cmd: (string) "",

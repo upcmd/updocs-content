@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvvv"
-date: 2020-07-20T02:01:48+77:00
+date: 2020-08-09T01:36:14+88:00
 draft: false
 weight: 11064
 
@@ -20,14 +20,21 @@ weight: 11064
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0106
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000204a40)(<nil>)
+    (*impl.Scopes)(0xc00016b5c0)(<nil>)
     
     ---------group vars----------
     
@@ -36,12 +43,6 @@ weight: 11064
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -82,7 +83,10 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -122,9 +126,9 @@ weight: 11064
         {
           "name": "reg",
           "cmd": {
+            "name": "hitom",
             "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}",
-            "name": "hitom"
+            "value": "hello, {{.tom}}"
           },
           "flags": {
             "localOnly"
@@ -147,13 +151,16 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -185,9 +192,9 @@ weight: 11064
     after reg the var - local:
     
     (*core.Cache)({
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "hitom": "hello, this is tom"
     })
     
     {{.hitom}}
@@ -198,9 +205,9 @@ weight: 11064
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "should be <no value> since it is marked localOnly",
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "cmd": "{{.hitom}}"
         }
       },
       Dox: <nil>,
@@ -215,7 +222,10 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -268,13 +278,16 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -314,7 +327,10 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -337,14 +353,14 @@ weight: 11064
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     caller's vars to task (sub2)::
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
       located task-> 3 [sub2]: 
@@ -364,8 +380,8 @@ weight: 11064
           }
         },
         {
-          "name": "print",
-          "cmd": "{{.hitom}}"
+          "cmd": "{{.hitom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -380,13 +396,16 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -412,9 +431,9 @@ weight: 11064
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     after reg the var - local:
@@ -450,7 +469,10 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -509,7 +531,10 @@ weight: 11064
       Loop: <nil>,
       Until: "",
       RefDir: "",
-      VarsFile: ""
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
     }
     
     current exec runtime vars:
@@ -532,8 +557,8 @@ weight: 11064
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     {{.hitom}}

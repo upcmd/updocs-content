@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvv"
-date: 2020-07-20T02:01:48+77:00
+date: 2020-08-09T01:36:15+88:00
 draft: false
 weight: 11083
 
@@ -20,12 +20,19 @@ weight: 11083
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0108
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11083
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -95,8 +96,8 @@ weight: 11083
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
     ~SubStep1: [print: this should print out the dvar value of jerry ]
@@ -104,15 +105,15 @@ weight: 11083
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
@@ -120,15 +121,15 @@ weight: 11083
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "jerry is overrided in local scope"
+      "jerry": "jerry is overrided in local scope",
+      "tom": "this is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "jerry is overrided in local scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "jerry is overrided in local scope"
     })
     
     ~SubStep1: [print: var jerry in task scope is overrided by local var jerry ]

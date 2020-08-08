@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvv"
-date: 2020-07-20T02:01:38+77:00
+date: 2020-08-09T01:36:05+88:00
 draft: false
 weight: 10483
 
@@ -20,12 +20,19 @@ weight: 10483
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0048
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 10483
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
     }
@@ -61,8 +62,8 @@ weight: 10483
     self: final context exec vars:
     
     (*core.Cache)({
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):

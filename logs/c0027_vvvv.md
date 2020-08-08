@@ -1,6 +1,6 @@
 ---
 title: "c0027_vvvv"
-date: 2020-07-20T02:01:33+77:00
+date: 2020-08-09T01:36:02+88:00
 draft: false
 weight: 10273
 
@@ -20,12 +20,19 @@ weight: 10273
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0027
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,42 +40,25 @@ weight: 10273
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "cbd": true
-          },
-          "school": "Sydney Grammar"
-        }
+          }
+        },
+        "name": "Tom"
       }
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "tom": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -80,6 +70,12 @@ weight: 10273
             "name": "sydney"
           }
         }
+      },
+      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
+      "a_smart_guy_object": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n",
       "school_address_object": {
@@ -94,6 +90,11 @@ weight: 10273
             "name": "Tom"
           }
         }
+      },
+      "tom": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     }
     
@@ -104,34 +105,16 @@ weight: 10273
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a_smart_guy_object": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          }
-        }
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n",
       "school_address_object": {
         "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
           "school": "Sydney Grammar",
           "tom": {
             "name": "Tom"
+          },
+          "suburb": {
+            "CBD": true,
+            "name": "sydney",
+            "postcode": 2000
           }
         }
       },
@@ -140,36 +123,34 @@ weight: 10273
         "gender": "Male",
         "school": "Sydney Grammar"
       },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n"
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          }
+        }
+      },
+      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
+      "a_smart_guy_object": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n",
-      "school_address_object": {
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar",
-          "tom": {
-            "name": "Tom"
-          }
-        }
-      },
       "tom": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
       },
       "student": {
         "name": "Tom",
@@ -177,10 +158,30 @@ weight: 10273
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
-            "postcode": 2000,
             "cbd": true,
-            "name": "sydney"
+            "name": "sydney",
+            "postcode": 2000
           }
+        }
+      },
+      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
+      "a_smart_guy_object": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n",
+      "school_address_object": {
+        "address": {
+          "tom": {
+            "name": "Tom"
+          },
+          "suburb": {
+            "CBD": true,
+            "name": "sydney",
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
         }
       }
     })
@@ -196,6 +197,7 @@ weight: 10273
     a smart guy=>name: Tom
     gender: Male
     school: Sydney Grammar
+    
      .. ok
     cmd( 2):
     echo """postcode=>{{.student.address.suburb.postcode}}"""
@@ -225,6 +227,7 @@ weight: 10273
       school: Sydney Grammar
       tom:
         name: Tom
+    
      .. ok
     cmd( 4):
     echo """this guy is in =>{{.a_smart_guy_object.school}} school"""
@@ -247,109 +250,12 @@ weight: 10273
     echo """school address object -> sydney"""<=
     school address object -> sydney
      .. ok
-    . ok
-    -Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"school address object -> sydney\"\"\"",
-        Code: 0,
-        Output: "school address object -> sydney",
-        ErrMsg: ""
-      }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          }
-        }
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n",
-      "school_address_object": {
-        "address": {
-          "tom": {
-            "name": "Tom"
-          },
-          "suburb": {
-            "postcode": 2000,
-            "CBD": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "tom": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n  tom:\n    name: Tom\n",
-      "school_address_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "tom": {
-            "name": "Tom"
-          },
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          }
-        }
-      },
-      "tom": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"school address object -> sydney\"\"\"",
-        Code: 0,
-        Output: "school address object -> sydney",
-        ErrMsg: ""
-      }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        }
-      }
-    })
-    
-    cmd( 1):
-    echo hello
+    cmd( 7):
+    echo """tom - {{.tom}}"""
     
     cmd=>:
-    echo hello<=
-    hello
+    echo """tom - map[gender:Male name:Tom school:Sydney Grammar]"""<=
+    tom - map[gender:Male name:Tom school:Sydney Grammar]
      .. ok
     . ok
     

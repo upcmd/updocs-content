@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvv"
-date: 2020-07-20T02:01:30+77:00
+date: 2020-08-09T01:36:00+88:00
 draft: false
 weight: 10083
 
@@ -20,12 +20,19 @@ weight: 10083
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0008
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     prod: {
@@ -35,42 +42,36 @@ weight: 10083
     
     
     nonprod: {
+      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a",
-      "b": "non-prod-b"
+      "a": "non-prod-a"
     }
     
     
     global: {
+      "a": "global-a",
       "b": "global-b",
       "c": "global-c",
-      "d": "global-d",
-      "a": "global-a"
+      "d": "global-d"
     }
     
     
     groups members:[dr prod dev st staging]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -80,19 +81,19 @@ weight: 10083
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a"
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
     cmd( 1):

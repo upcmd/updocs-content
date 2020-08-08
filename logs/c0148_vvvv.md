@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvv"
-date: 2020-07-20T02:01:56+77:00
+date: 2020-08-09T01:36:21+88:00
 draft: false
 weight: 11483
 
@@ -20,12 +20,19 @@ weight: 11483
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0148
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11483
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "tom": "this is tom"
@@ -75,8 +76,8 @@ weight: 11483
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -133,9 +134,9 @@ weight: 11483
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "tom": "this is tom",
-      "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1
+      "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:
@@ -153,9 +154,9 @@ weight: 11483
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:

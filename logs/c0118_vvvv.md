@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvv"
-date: 2020-07-20T02:01:50+77:00
+date: 2020-08-09T01:36:16+88:00
 draft: false
 weight: 11183
 
@@ -20,12 +20,19 @@ weight: 11183
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0118
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,12 +40,6 @@ weight: 11183
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
       "items": {
@@ -52,12 +53,12 @@ weight: 11183
     -------runtime global final merged with dvars-------
     
     {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
       located task-> 1 [task]: 
@@ -67,25 +68,25 @@ weight: 11183
     -Step1: [step1: demo loop will not be executed if false ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
       "person": "tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "tom",
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "person": "tom"
     })
     
     condition failed, skip executing step step1
@@ -93,25 +94,25 @@ weight: 11183
     -Step2: [step1: demo use if condition is true ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
       "person": "tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "tom",
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "person": "tom"
     })
     
     condition failed, skip executing step step1
@@ -119,23 +120,23 @@ weight: 11183
     -Step3: [step1: demo use dynamic key to ref to a loop item from var ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     ~SubStep1: [print:  ]

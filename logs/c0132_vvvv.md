@@ -1,6 +1,6 @@
 ---
 title: "c0132_vvvv"
-date: 2020-07-20T02:01:53+77:00
+date: 2020-08-09T01:36:19+88:00
 draft: false
 weight: 11323
 
@@ -20,12 +20,19 @@ weight: 11323
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0132
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,25 +40,19 @@ weight: 11323
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
+      "c": "global_ccc"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -61,37 +62,37 @@ weight: 11323
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa"
+      "c": "global_ccc"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "db": "local_db",
       "da": "local_da"
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "block_layer2_aaa",
-      "b": "local_bbb",
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "block_layer2_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "a": "block_layer2_aaa",
-      "b": "local_bbb",
       "da": "local_da",
       "db": "local_db"
     })
@@ -102,18 +103,20 @@ weight: 11323
     ~SubStep2: [assert:  ]
      1 ASSERT FAILED: [{{eq .a "aaa"}}]
     ~SubStep3: [inspect:  ]
-     1: inspect[exec_vars](*core.Cache)({
-      "db": "local_db",
+     1: inspect[exec_vars]
+    (*core.Cache)({
       "c": "global_ccc",
       "a": "block_layer2_aaa",
-      "b": "local_bbb",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db",
+      "b": "local_bbb"
     })
     
-     2: inspect[exec_base_vars]{
-      "c": "global_ccc",
+     2: inspect[exec_base_vars]
+    {
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
     

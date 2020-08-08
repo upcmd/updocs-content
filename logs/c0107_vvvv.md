@@ -1,6 +1,6 @@
 ---
 title: "c0107_vvvv"
-date: 2020-07-20T02:01:48+77:00
+date: 2020-08-09T01:36:15+88:00
 draft: false
 weight: 11073
 
@@ -20,12 +20,19 @@ weight: 11073
               ModuleName -> self
                ShellType -> /bin/sh
            MaxCallLayers -> 8
+                 Timeout -> 3600000
      MaxModuelCallLayers -> 256
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
     -exec task: task
     loading [Task]:  ./tests/functests/c0107
+    module: [self], instance id: [dev], exec profile: []
+    profile -  envVars:
+    
+    (*core.Cache)({
+    })
+    
     ---------group vars----------
     
     global: {
@@ -33,23 +40,17 @@ weight: 11073
     
     
     groups members:[]
-    profile -  envVars:
-    
-    (*core.Cache)({
-    })
-    
-    module: [self] instance id: [dev]
     merged[ dev ] runtime vars:
     {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
     }
     
       located task-> 1 [task]: 
@@ -77,19 +78,19 @@ weight: 11073
     --Step1: [: check value of tom 1 ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "john": "john in sub func1",
       "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "john": "john in sub func1"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "john": "john in sub func1",
-      "up_runtime_task_layer_number": 1,
       "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [reg:  ]
@@ -98,16 +99,16 @@ weight: 11073
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -116,19 +117,19 @@ weight: 11073
     --Step3: [: check value of tom 2 ]
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "tom created in sub",
+      "john": "john in sub func2",
       "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1,
-      "john": "john in sub func2"
+      "tom": "tom created in sub"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "tom created in sub",
-      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1,
-      "john": "john in sub func2"
+      "tom": "tom created in sub",
+      "john": "john in sub func2",
+      "jerry": "this is jerry in global"
     })
     
     ~~SubStep1: [print:  ]
@@ -155,15 +156,15 @@ weight: 11073
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom in global",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
