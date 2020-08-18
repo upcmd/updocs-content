@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:14+88:00
 draft: false
 weight: 11314
 
@@ -143,10 +143,10 @@ weight: 11314
           }
         },
         {
-          "func": "shell",
           "do": {
             "echo do something else step2 ......."
-          }
+          },
+          "func": "shell"
         },
         {
           "func": "cmd",

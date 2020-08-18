@@ -1,6 +1,6 @@
 ---
 title: "f0172_vvvvv"
-date: 2020-08-09T01:36:30+88:00
+date: 2020-08-18T15:16:29+88:00
 draft: false
 weight: 11724
 
@@ -34,7 +34,7 @@ weight: 11724
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e70c0)(<nil>)
+    (*impl.Scopes)(0xc0000ac520)(<nil>)
     
     ---------group vars----------
     
@@ -124,8 +124,6 @@ weight: 11724
     Step Finally:
     (*utils.ExecResult)(<nil>)
     
-    <nil>
-    
     Recovered from: manual trigger a panic cmd
     finally caller vars to task (close_file)::
     (*core.Cache)({
@@ -163,8 +161,8 @@ weight: 11724
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     [local] dvar expanded result:
@@ -181,16 +179,18 @@ weight: 11724
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"close the file .....\"",
@@ -200,9 +200,9 @@ weight: 11724
     }
     
     . ok
-     WARN: [No rescued in step level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in step level] - [please assess the panic problem and cause, fix it before re-run the task]
     Recovered from: manual trigger a panic cmd
-     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
     task finally -> manual trigger a panic cmd
     -----trace for reference-----
     

@@ -1,6 +1,6 @@
 ---
 title: "c0134_vvvv"
-date: 2020-08-09T01:36:19+88:00
+date: 2020-08-18T15:16:15+88:00
 draft: false
 weight: 11343
 
@@ -42,9 +42,9 @@ weight: 11343
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
     -------runtime global final merged with dvars-------
@@ -62,19 +62,19 @@ weight: 11343
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
       "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "a": "local_aaa"
     })
     
     -Step1:
@@ -90,40 +90,44 @@ weight: 11343
     self: final context exec vars:
     
     (*core.Cache)({
+      "c": "global_ccc",
       "db": "local_db",
       "da": "local_da",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
     cmd( 1):
     echo "in block"
     
     cmd=>:
-    echo "in block"<=
+    echo "in block"
+    -
     in block
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
       "db": "local_db",
       "da": "local_da",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"in block\"",
         Code: 0,
         Output: "in block",
         ErrMsg: ""
-      }),
-      "a": "local_aaa"
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "local_aaa",
+      "b": "local_bbb",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"in block\"",
@@ -131,8 +135,6 @@ weight: 11343
         Output: "in block",
         ErrMsg: ""
       }),
-      "a": "local_aaa",
-      "b": "local_bbb",
       "db": "local_db",
       "da": "local_da"
     })
@@ -144,6 +146,24 @@ weight: 11343
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "local_aaa",
+      "db": "local_db",
+      "da": "local_da",
+      "up_runtime_task_layer_number": 1,
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"in block\"",
+        Code: 0,
+        Output: "in block",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "b": "local_bbb",
       "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"in block\"",
@@ -152,27 +172,9 @@ weight: 11343
         ErrMsg: ""
       }),
       "a": "local_aaa",
-      "up_runtime_task_layer_number": 1,
-      "b": "local_bbb",
-      "db": "local_db",
-      "da": "local_da"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "a": "local_aaa",
-      "up_runtime_task_layer_number": 1,
-      "b": "local_bbb",
       "db": "callee_db",
       "da": "local_da",
-      "c": "global_ccc",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"in block\"",
-        Code: 0,
-        Output: "in block",
-        ErrMsg: ""
-      })
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]

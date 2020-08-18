@@ -1,6 +1,6 @@
 ---
 title: "c0156_vvvv"
-date: 2020-08-09T01:36:23+88:00
+date: 2020-08-18T15:16:20+88:00
 draft: false
 weight: 11563
 
@@ -168,25 +168,25 @@ weight: 11563
     self: final context exec vars:
     
     (*core.Cache)({
+      "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool2_object": {
+        "sg": {
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney"
+        }
+      },
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "address": "sydney",
-          "postcode": 2000,
           "name": "sydney grammar",
-          "state": "nsw"
-        }
-      }),
-      "myschool2_object": {
-        "sg": {
+          "state": "nsw",
           "address": "sydney",
-          "postcode": 2000,
-          "name": "sydney grammar",
-          "state": "nsw"
+          "postcode": 2000
         }
-      },
-      "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      })
     })
     
     ~SubStep1: [print:  ]
@@ -217,31 +217,31 @@ weight: 11563
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "name": "sydney grammar",
-          "state": "nsw",
           "address": "sydney",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw"
         }
       }),
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
+          "postcode": 2000,
           "name": "sydney grammar",
           "state": "nsw",
-          "address": "sydney",
-          "postcode": 2000
+          "address": "sydney"
         }
-      })
+      }),
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     ~SubStep1: [toObj:  ]
@@ -251,10 +251,10 @@ weight: 11563
     object:
      myschool3_object: {
       "sg": {
-        "postcode": 2000,
         "name": "sydney grammar",
         "state": "nsw",
-        "address": "sydney"
+        "address": "sydney",
+        "postcode": 2000
       }
     }
     

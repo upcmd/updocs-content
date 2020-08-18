@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100303
 
@@ -101,8 +101,8 @@ weight: 100303
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "module-bbb",
       "a": "caller-aaa",
+      "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -110,8 +110,8 @@ weight: 100303
     
     (*core.Cache)({
       "b": "module-bbb",
-      "a": "caller-aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     ~SubStep1: [print:  ]
@@ -127,9 +127,9 @@ weight: 100303
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     self: final context exec vars:
@@ -143,9 +143,9 @@ weight: 100303
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "b": "module-bbb",
       "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "a": "caller-aaa",
+      "b": "module-bbb"
     })
     
      2: inspect[exec_base_vars]

@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:07+88:00
 draft: false
 weight: 10993
 
@@ -42,6 +42,27 @@ weight: 10993
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "gender": "Female",
+              "school": "MLC",
+              "name": "Grace"
+            }
+          }
+        }
+      },
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
@@ -57,27 +78,6 @@ weight: 10993
             }
           }
         }
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
-            }
-          }
-        }
-      },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
       }
     }
     
@@ -88,6 +88,11 @@ weight: 10993
     -Step1: [: use datatemplate as datasource ]
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -98,11 +103,6 @@ weight: 10993
             }
           }
         }
-      },
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
       }
     })
     
@@ -114,6 +114,61 @@ weight: 10993
     self: final context exec vars:
     
     (*core.Cache)({
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "MLC",
+              "name": "Grace",
+              "gender": "Female"
+            }
+          }
+        }
+      },
+      "student_info": "my name is:Grace and I am in MLC"
+    })
+    
+    ~SubStep1: [print:  ]
+    my name is:Grace and I am in MLC
+    -Step2: [: use datatemplate as datasource ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "gender": "Female",
+              "school": "MLC",
+              "name": "Grace"
+            }
+          }
+        }
+      }
+    })
+    
+    dvar> student_info:
+    "my name is:Grace and I am in MLC"
+    
+    -
+    my name is:Grace and I am in MLC
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -125,62 +180,7 @@ weight: 10993
           }
         }
       },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "student_info": "my name is:Grace and I am in MLC"
-    })
-    
-    ~SubStep1: [print:  ]
-    my name is:Grace and I am in MLC
-    -Step2: [: use datatemplate as datasource ]
-    current exec runtime vars:
-    (*core.Cache)({
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
-            }
-          }
-        }
-      },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      }
-    })
-    
-    dvar> student_info:
-    "my name is:Grace and I am in MLC"
-    
-    -
-    my name is:Grace and I am in MLC
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "student_info": "my name is:Grace and I am in MLC",
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
-            }
-          }
-        }
-      }
     })
     
     ~SubStep1: [print:  ]

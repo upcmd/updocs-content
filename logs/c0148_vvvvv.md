@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:19+88:00
 draft: false
 weight: 11484
 
@@ -34,7 +34,7 @@ weight: 11484
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000284940)(<nil>)
+    (*impl.Scopes)(0xc0001f54a0)(<nil>)
     
     ---------group vars----------
     
@@ -87,9 +87,9 @@ weight: 11484
           "func": "cmd",
           "do": {
             {
-              "cmd": "{{.jerry}}",
               "name": "print",
-              "desc": "this should print out the dvar value of jerry"
+              "desc": "this should print out the dvar value of jerry",
+              "cmd": "{{.jerry}}"
             }
           }
         }
@@ -192,8 +192,8 @@ weight: 11484
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -202,9 +202,9 @@ weight: 11484
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -237,8 +237,8 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     }
     
     
@@ -257,9 +257,9 @@ weight: 11484
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}"
+          "cmd": "{{.jerry}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -343,8 +343,8 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     }
     
     
@@ -419,9 +419,9 @@ weight: 11484
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     {{.jerry}}
@@ -435,9 +435,9 @@ weight: 11484
       Name: "",
       Do: {
         {
+          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "remember that the caller's vars should override callee's vars\nso jerry's value should the one from caller instead this local value\n",
-          "cmd": "{{.jerry}}"
+          "desc": "remember that the caller's vars should override callee's vars\nso jerry's value should the one from caller instead this local value\n"
         },
         {
           "name": "trace",
@@ -477,9 +477,9 @@ weight: 11484
     
     
     scope[local] merged: {
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 1
     }
     
     

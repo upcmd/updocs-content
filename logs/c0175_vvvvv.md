@@ -1,6 +1,6 @@
 ---
 title: "c0175_vvvvv"
-date: 2020-08-09T01:36:27+88:00
+date: 2020-08-18T15:16:25+88:00
 draft: false
 weight: 11754
 
@@ -34,7 +34,7 @@ weight: 11754
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001750c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf120)(<nil>)
     
     ---------group vars----------
     
@@ -113,8 +113,10 @@ weight: 11754
     echo "opening file"
     
     cmd=>:
-    echo "opening file"<=
+    echo "opening file"
+    -
     opening file
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"opening file\"",
@@ -127,10 +129,9 @@ weight: 11754
     echo "hello"|grep "world"
     
     cmd=>:
-    echo "hello"|grep "world"<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "hello"|grep "world"
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=25) "echo \"hello\"|grep \"world\"",
@@ -207,8 +208,10 @@ weight: 11754
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"close the file .....\"",

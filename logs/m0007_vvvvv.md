@@ -1,6 +1,6 @@
 ---
 title: "0007_vvvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100704
 
@@ -118,7 +118,7 @@ weight: 100704
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bfb00)(<nil>)
+    (*impl.Scopes)(0xc0001bfbc0)(<nil>)
     
     ---------group vars----------
     
@@ -156,8 +156,8 @@ weight: 100704
       Name: "",
       Do: {
         {
-          "cmd": " .... world from Say_world",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... world from Say_world"
         }
       },
       Dox: <nil>,

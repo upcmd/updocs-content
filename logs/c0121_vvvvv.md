@@ -1,6 +1,6 @@
 ---
 title: "c0121_vvvvv"
-date: 2020-08-09T01:36:17+88:00
+date: 2020-08-18T15:16:12+88:00
 draft: false
 weight: 11214
 
@@ -34,7 +34,7 @@ weight: 11214
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000096b20)(<nil>)
+    (*impl.Scopes)(0xc0001eb660)(<nil>)
     
     ---------group vars----------
     
@@ -395,8 +395,8 @@ weight: 11214
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "sub task step1"
+          "cmd": "sub task step1",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -481,8 +481,8 @@ weight: 11214
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "person": "tom"
+      "person": "tom",
+      "up_runtime_task_layer_number": 1
     }
     
     

@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvv"
-date: 2020-08-09T01:36:04+88:00
+date: 2020-08-18T15:15:54+88:00
 draft: false
 weight: 10413
 
@@ -67,15 +67,19 @@ weight: 10413
     echo hello
     
     cmd=>:
-    echo hello<=
+    echo hello
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo world
     
     cmd=>:
-    echo world<=
+    echo world
+    -
     world
+    -
      .. ok
     . ok
     -Step2: [: step2 ]
@@ -104,29 +108,37 @@ weight: 10413
     echo tom
     
     cmd=>:
-    echo tom<=
+    echo tom
+    -
     tom
+    -
      .. ok
     cmd( 2):
     echo "{{.last_result.Code}}"
     
     cmd=>:
-    echo "0"<=
+    echo "0"
+    -
     0
+    -
      .. ok
     cmd( 3):
     echo "{{.last_result.Output}}"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     cmd( 4):
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     . ok
     -Step3: [: step3 ]
@@ -156,31 +168,39 @@ weight: 10413
     echo tom
     
     cmd=>:
-    echo tom<=
+    echo tom
+    -
     tom
+    -
      .. ok
     cmd( 2):
     echo "{{.last_result.Output}}"
     
     cmd=>:
-    echo "hanks"<=
+    echo "hanks"
+    -
     hanks
+    -
      .. ok
     cmd( 3):
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     cmd( 4):
     echo "{{.greet}}"
     
     cmd=>:
     echo "hello: hanks
-    "<=
+    "
+    -
     hello: hanks
     
+    -
      .. ok
     . ok
     

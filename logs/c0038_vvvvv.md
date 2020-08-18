@@ -1,6 +1,6 @@
 ---
 title: "c0038_vvvvv"
-date: 2020-08-09T01:36:04+88:00
+date: 2020-08-18T15:15:54+88:00
 draft: false
 weight: 10384
 
@@ -34,7 +34,7 @@ weight: 10384
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed480)(<nil>)
+    (*impl.Scopes)(0xc0001e34c0)(<nil>)
     
     ---------group vars----------
     
@@ -58,8 +58,6 @@ weight: 10384
         "alice"
       },
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "teachers": {
           "tom",
           "jason",
@@ -67,12 +65,14 @@ weight: 10384
         },
         "address": {
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "cbd": true
+            "cbd": true,
+            "name": "sydney"
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       },
       "ns": "prod",
       "pod_name": "web_app",
@@ -80,13 +80,6 @@ weight: 10384
     }
     
     (core.Cache) (len=8) {
-     (string) (len=3) "age": (int) 34,
-     (string) (len=3) "old": (int) 54,
-     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
-      (string) (len=3) "tom",
-      (string) (len=5) "jason",
-      (string) (len=5) "alice"
-     },
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
@@ -102,16 +95,23 @@ weight: 10384
       },
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "suburb": (map[string]interface {}) (len=3) {
-        (string) (len=4) "name": (string) (len=6) "sydney",
         (string) (len=8) "postcode": (int) 2000,
-        (string) (len=3) "cbd": (bool) true
+        (string) (len=3) "cbd": (bool) true,
+        (string) (len=4) "name": (string) (len=6) "sydney"
        },
        (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
       }
      },
      (string) (len=2) "ns": (string) (len=4) "prod",
      (string) (len=8) "pod_name": (string) (len=7) "web_app",
-     (string) (len=2) "ha": (bool) true
+     (string) (len=2) "ha": (bool) true,
+     (string) (len=3) "age": (int) 34,
+     (string) (len=3) "old": (int) 54,
+     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
+      (string) (len=3) "tom",
+      (string) (len=5) "jason",
+      (string) (len=5) "alice"
+     }
     }
     
     dvar> sprig_trim:
@@ -136,24 +136,20 @@ weight: 10384
     Hello!              
     [runtime global] dvar expanded result:
     {
-      "var_slice_index": "jason",
       "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
       "gtf_ljust": "Hello!              ",
-      "sprig_trim": "hello"
+      "sprig_trim": "hello",
+      "var_slice_index": "jason"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "ha": true,
-      "old": 54,
-      "sprig_trim": "hello",
-      "var_slice_index": "jason",
-      "gtf_ljust": "Hello!              ",
+      "ns": "prod",
       "pod_name": "web_app",
       "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "age": 34,
+      "gtf_ljust": "Hello!              ",
       "admins": {
         "tom",
         "jason",
@@ -172,16 +168,20 @@ weight: 10384
         },
         "address": {
           "suburb": {
+            "postcode": 2000,
             "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
+            "name": "sydney"
           },
           "school": "Sydney Grammar"
         },
         "name": "Tom",
         "gender": "Male"
       },
-      "ns": "prod"
+      "var_slice_index": "jason",
+      "sprig_trim": "hello",
+      "ha": true,
+      "age": 34,
+      "old": 54
     }
     
       located task-> 1 [task]: 
@@ -214,6 +214,20 @@ weight: 10384
     
     current exec runtime vars:
     (*core.Cache)({
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "ns": "prod",
+      "sprig_trim": "hello",
+      "age": 34,
+      "old": 54,
+      "var_slice_index": "jason",
+      "pod_name": "web_app",
+      "gtf_ljust": "Hello!              ",
+      "ha": true,
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
       "managers": {
         "tom",
         "jason",
@@ -228,28 +242,14 @@ weight: 10384
         },
         "address": {
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "cbd": true
+            "cbd": true,
+            "name": "sydney"
           },
           "school": "Sydney Grammar"
         },
         "name": "Tom"
-      },
-      "pod_name": "web_app",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "gtf_ljust": "Hello!              ",
-      "sprig_trim": "hello",
-      "var_slice_index": "jason",
-      "age": 34,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "ns": "prod",
-      "ha": true,
-      "old": 54
+      }
     })
     
     [local] dvar expanded result:
@@ -259,10 +259,8 @@ weight: 10384
     
     scope[local] merged: {
       "old": 54,
-      "var_slice_index": "jason",
-      "age": 34,
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "managers": {
+      "gtf_ljust": "Hello!              ",
+      "admins": {
         "tom",
         "jason",
         "alice"
@@ -276,65 +274,67 @@ weight: 10384
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
+            "cbd": true,
+            "name": "sydney"
+          }
         }
       },
-      "pod_name": "web_app",
-      "sprig_trim": "hello",
-      "admins": {
+      "ha": true,
+      "managers": {
         "tom",
         "jason",
         "alice"
       },
+      "age": 34,
+      "var_slice_index": "jason",
+      "pod_name": "web_app",
       "ns": "prod",
-      "ha": true,
-      "gtf_ljust": "Hello!              "
+      "sprig_trim": "hello",
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "ns": "prod",
       "ha": true,
-      "old": 54,
-      "sprig_trim": "hello",
-      "var_slice_index": "jason",
-      "age": 34,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "pod_name": "web_app",
       "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "gtf_ljust": "Hello!              ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
       "student": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "cbd": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
-        },
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
-        },
-        "name": "Tom"
+        }
+      },
+      "ns": "prod",
+      "sprig_trim": "hello",
+      "age": 34,
+      "old": 54,
+      "var_slice_index": "jason",
+      "pod_name": "web_app",
+      "gtf_ljust": "Hello!              ",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
       }
     })
     
@@ -342,8 +342,10 @@ weight: 10384
     echo "check the value of other dvar using vvvv flag print out"
     
     cmd=>:
-    echo "check the value of other dvar using vvvv flag print out"<=
+    echo "check the value of other dvar using vvvv flag print out"
+    -
     check the value of other dvar using vvvv flag print out
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=62) "echo \"check the value of other dvar using vvvv flag print out\"",

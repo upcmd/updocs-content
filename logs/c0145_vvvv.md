@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:18+88:00
 draft: false
 weight: 11453
 
@@ -78,10 +78,12 @@ weight: 11453
     cat /tmp/mockup_doc.md
     
     cmd=>:
-    cat /tmp/mockup_doc.md<=
+    cat /tmp/mockup_doc.md
+    -
     title: "HelloWorld example"
-    date: 2020-08-09T01:29:43+88:00
-    draft: false .. ok
+    date: 2020-08-17T23:52:49+88:00
+    draft: false-
+     .. ok
     . ok
     
 ```

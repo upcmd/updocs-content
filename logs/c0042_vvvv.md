@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvv"
-date: 2020-08-09T01:36:04+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10423
 
@@ -67,15 +67,19 @@ weight: 10423
     echo tom
     
     cmd=>:
-    echo tom<=
+    echo tom
+    -
     tom
+    -
      .. ok
     cmd( 2):
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     . ok
     -Step2: [: the last result of hanks will be registered as varname: hellomsg
@@ -100,22 +104,24 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
-      "hellomsg": "hanks",
-      "reg_hello": "hello: hanks\n\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks",
+      "reg_hello": "hello: hanks\n\n"
     })
     
     cmd( 1):
     echo "hellomsg  - {{.hellomsg}}"
     
     cmd=>:
-    echo "hellomsg  - hanks"<=
+    echo "hellomsg  - hanks"
+    -
     hellomsg  - hanks
+    -
      .. ok
     cmd( 2):
     echo "reg_hello - {{.reg_hello}}"
@@ -123,10 +129,12 @@ weight: 10423
     cmd=>:
     echo "reg_hello - hello: hanks
     
-    "<=
+    "
+    -
     reg_hello - hello: hanks
     
     
+    -
      .. ok
     . ok
     -Step3: [: the hellomsg will be still availabe in this step
@@ -134,34 +142,36 @@ weight: 10423
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "hellomsg": "hanks",
+      "reg_hello": "\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "reg_hello": "\n"
+      })
     })
     
     cmd( 1):
     echo "{{.hellomsg}}"
     
     cmd=>:
-    echo "hanks"<=
+    echo "hanks"
+    -
     hanks
+    -
      .. ok
     . ok
     -Step4: [: now the hellomsg should be <no value>
@@ -191,8 +201,10 @@ weight: 10423
     echo "{{.hellomsg}}"
     
     cmd=>:
-    echo "<no value>"<=
+    echo "<no value>"
+    -
     <no value>
+    -
      .. ok
     . ok
     -Step5:
@@ -215,21 +227,23 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     })
     
     cmd( 1):
     echo '{{.iamvoid}}'
     
     cmd=>:
-    echo 'something'<=
+    echo 'something'
+    -
     something
+    -
      .. ok
     . ok
     -Step6:
@@ -260,8 +274,10 @@ weight: 10423
     echo '{{.iamvoid}}'
     
     cmd=>:
-    echo 'something'<=
+    echo 'something'
+    -
     something
+    -
      .. ok
     . ok
     

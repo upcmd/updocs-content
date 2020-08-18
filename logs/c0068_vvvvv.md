@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:16:00+88:00
 draft: false
 weight: 10684
 
@@ -34,7 +34,7 @@ weight: 10684
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ecfa0)(<nil>)
+    (*impl.Scopes)(0xc000176fc0)(<nil>)
     
     ---------group vars----------
     
@@ -112,8 +112,10 @@ weight: 10684
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -126,10 +128,9 @@ weight: 10684
     echo "world"|grep non-exist
     
     cmd=>:
-    echo "world"|grep non-exist<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "world"|grep non-exist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"world\"|grep non-exist",
@@ -142,8 +143,10 @@ weight: 10684
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",

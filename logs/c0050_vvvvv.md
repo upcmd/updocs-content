@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:56+88:00
 draft: false
 weight: 10504
 
@@ -34,7 +34,7 @@ weight: 10504
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5060)(<nil>)
+    (*impl.Scopes)(0xc00000c560)(<nil>)
     
     ---------group vars----------
     
@@ -54,13 +54,13 @@ weight: 10504
     
     [runtime global] dvar expanded result:
     {
-      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz"
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz"
     }
     
     
@@ -69,12 +69,12 @@ weight: 10504
     {
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
-      "z": "i am zzz",
-      "school": "Sydney Grammar"
+      "z": "i am zzz"
     }
     
       located task-> 1 [task]: 
@@ -113,14 +113,14 @@ weight: 10504
     
     current exec runtime vars:
     (*core.Cache)({
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
       "z": "i am zzz",
-      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar"
+      "m": "m=>n=>Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>"
     })
     
     [local] dvar expanded result:
@@ -133,9 +133,9 @@ weight: 10504
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar"
     }
     
@@ -143,22 +143,24 @@ weight: 10504
     self: final context exec vars:
     
     (*core.Cache)({
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "school": "Sydney Grammar"
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar"
     })
     
     cmd( 1):
     echo "n->{{.nv}}"
     
     cmd=>:
-    echo "n->n=>Sydney Grammar"<=
+    echo "n->n=>Sydney Grammar"
+    -
     n->n=>Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"n->n=>Sydney Grammar\"",
@@ -171,8 +173,10 @@ weight: 10504
     echo "m->{{.m}}"
     
     cmd=>:
-    echo "m->m=>n=>Sydney Grammar"<=
+    echo "m->m=>n=>Sydney Grammar"
+    -
     m->m=>n=>Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=30) "echo \"m->m=>n=>Sydney Grammar\"",
@@ -185,8 +189,10 @@ weight: 10504
     echo "j->{{.j}}"
     
     cmd=>:
-    echo "j->j=>m=>n=>Sydney Grammar"<=
+    echo "j->j=>m=>n=>Sydney Grammar"
+    -
     j->j=>m=>n=>Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=33) "echo \"j->j=>m=>n=>Sydney Grammar\"",
@@ -199,8 +205,10 @@ weight: 10504
     echo "o->{{.o}}"
     
     cmd=>:
-    echo "o->o=><no value>"<=
+    echo "o->o=><no value>"
+    -
     o->o=><no value>
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=23) "echo \"o->o=><no value>\"",
@@ -213,8 +221,10 @@ weight: 10504
     echo "z->{{.z}}"
     
     cmd=>:
-    echo "z->i am zzz"<=
+    echo "z->i am zzz"
+    -
     z->i am zzz
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"z->i am zzz\"",
@@ -227,8 +237,10 @@ weight: 10504
     echo "y->{{.yv}}"
     
     cmd=>:
-    echo "y->y->i am zzz"<=
+    echo "y->y->i am zzz"
+    -
     y->y->i am zzz
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=21) "echo \"y->y->i am zzz\"",
@@ -241,8 +253,10 @@ weight: 10504
     echo "x->{{.x}}"
     
     cmd=>:
-    echo "x->x=>y->i am zzz"<=
+    echo "x->x=>y->i am zzz"
+    -
     x->x=>y->i am zzz
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=24) "echo \"x->x=>y->i am zzz\"",

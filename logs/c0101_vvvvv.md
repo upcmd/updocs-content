@@ -1,6 +1,6 @@
 ---
 title: "c0101_vvvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:07+88:00
 draft: false
 weight: 11014
 
@@ -34,7 +34,7 @@ weight: 11014
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7040)(<nil>)
+    (*impl.Scopes)(0xc0001f5040)(<nil>)
     
     ---------group vars----------
     

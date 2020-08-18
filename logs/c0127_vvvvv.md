@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:14+88:00
 draft: false
 weight: 11274
 
@@ -34,7 +34,7 @@ weight: 11274
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001776c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf740)(<nil>)
     
     ---------group vars----------
     
@@ -279,8 +279,8 @@ weight: 11274
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "go ahead ......."
+          "cmd": "go ahead .......",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -384,8 +384,8 @@ weight: 11274
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     })
     
     go ahead .......
@@ -447,8 +447,8 @@ weight: 11274
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     })
     
     go ahead .......

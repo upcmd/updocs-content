@@ -1,6 +1,6 @@
 ---
 title: "c0082_vvvvv"
-date: 2020-08-09T01:36:11+88:00
+date: 2020-08-18T15:16:03+88:00
 draft: false
 weight: 10824
 
@@ -34,7 +34,7 @@ weight: 10824
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c12a0)(<nil>)
+    (*impl.Scopes)(0xc0001e7220)(<nil>)
     
     ---------group vars----------
     
@@ -45,12 +45,10 @@ weight: 10824
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "aaa": "aaa",
-      "datapointer": "student",
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "nsw": {
         "sydney": {
@@ -62,16 +60,12 @@ weight: 10824
             }
           }
         }
-      }
+      },
+      "aaa": "aaa",
+      "datapointer": "student"
     }
     
     (core.Cache) (len=4) {
-     (string) (len=11) "datapointer": (string) (len=7) "student",
-     (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-      (string) (len=4) "name": (string) (len=3) "Tom",
-      (string) (len=6) "gender": (string) (len=4) "Male"
-     },
      (string) (len=3) "nsw": (map[string]interface {}) (len=1) {
       (string) (len=6) "sydney": (map[string]interface {}) (len=1) {
        (string) (len=8) "sgschool": (map[string]interface {}) (len=1) {
@@ -83,7 +77,13 @@ weight: 10824
        }
       }
      },
-     (string) (len=3) "aaa": (string) (len=3) "aaa"
+     (string) (len=3) "aaa": (string) (len=3) "aaa",
+     (string) (len=11) "datapointer": (string) (len=7) "student",
+     (string) (len=7) "student": (map[string]interface {}) (len=3) {
+      (string) (len=6) "gender": (string) (len=4) "Male",
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+      (string) (len=4) "name": (string) (len=3) "Tom"
+     }
     }
     
     [runtime global] dvar expanded result:
@@ -104,9 +104,9 @@ weight: 10824
         "sydney": {
           "sgschool": {
             "student": {
-              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar"
+              "school": "Sydney Grammar",
+              "name": "Tom"
             }
           }
         }
@@ -202,6 +202,25 @@ weight: 10824
         "name": "Tom",
         "gender": "Male"
       },
+      "student_info": "my name is:<no value> and I am in <no value>",
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "Sydney Grammar",
+              "name": "Tom",
+              "gender": "Male"
+            }
+          }
+        }
+      },
+      "aaa": "aaa"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -214,32 +233,13 @@ weight: 10824
         }
       },
       "aaa": "aaa",
-      "student_info": "my name is:<no value> and I am in <no value>"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_info": "my name is:<no value> and I am in <no value>",
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
-            }
-          }
-        }
-      },
-      "aaa": "aaa",
       "datapointer": "student",
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
-      }
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "student_info": "my name is:<no value> and I am in <no value>"
     })
     
     {{.student_info}}
@@ -291,24 +291,24 @@ weight: 10824
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "school": "Sydney Grammar",
               "name": "Tom",
-              "gender": "Male",
-              "school": "Sydney Grammar"
+              "gender": "Male"
             }
           }
         }
       },
       "aaa": "aaa",
-      "datapointer": "student"
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
     })
     
     dvar> student_info:
@@ -323,7 +323,31 @@ weight: 10824
     
     
     scope[local] merged: {
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "student_info": "my name is:<no value> and I am in <no value>",
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "Sydney Grammar",
+              "name": "Tom",
+              "gender": "Male"
+            }
+          }
+        }
+      },
+      "aaa": "aaa"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "aaa": "aaa",
       "datapointer": "student",
       "student": {
@@ -331,42 +355,18 @@ weight: 10824
         "school": "Sydney Grammar",
         "name": "Tom"
       },
+      "student_info": "my name is:<no value> and I am in <no value>",
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "school": "Sydney Grammar",
               "name": "Tom",
-              "gender": "Male",
-              "school": "Sydney Grammar"
+              "gender": "Male"
             }
           }
         }
       }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "datapointer": "student",
-      "student_info": "my name is:<no value> and I am in <no value>",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "name": "Tom",
-              "gender": "Male",
-              "school": "Sydney Grammar"
-            }
-          }
-        }
-      },
-      "aaa": "aaa"
     })
     
     {{.student_info}}

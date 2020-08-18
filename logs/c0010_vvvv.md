@@ -1,6 +1,6 @@
 ---
 title: "c0010_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10103
 
@@ -44,55 +44,55 @@ weight: 10103
     nonprod: {
       "b": "non-prod-b",
       "c": {
-        "c2": "nonprod-c2",
         "c3": {
-          "c33": "nonprod-c33",
-          "c32": "nonprod-c32"
+          "c32": "nonprod-c32",
+          "c33": "nonprod-c33"
         },
         "c4": "nonprod-c4",
         "c5": "nonprod-c5",
-        "c1": "nonprod-c1"
+        "c1": "nonprod-c1",
+        "c2": "nonprod-c2"
       },
       "a": "non-prod-a"
     }
     
     
     global: {
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b",
       "c": {
-        "c1": "global-c1",
-        "c2": "global-c2",
         "c3": {
           "c33": "global-c33",
           "c31": "global-c31",
           "c32": "global-c32"
         },
-        "c4": "global-c4"
-      },
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b"
+        "c4": "global-c4",
+        "c1": "global-c1",
+        "c2": "global-c2"
+      }
     }
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
         "c1": "dev-c1",
+        "c2": "dev-c2",
         "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c2": "dev-c2",
         "c3": {
+          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33",
-          "c31": "global-c31"
+          "c33": "dev-c33"
         },
         "c4": "nonprod-c4"
-      }
+      },
+      "d": "global-d"
     }
     
     -------runtime global final merged with dvars-------
@@ -101,17 +101,17 @@ weight: 10103
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
-        "c7": "dev-c7",
+        "c4": "nonprod-c4",
+        "c1": "dev-c1",
         "c2": "dev-c2",
+        "c5": "nonprod-c5",
+        "c6": "dev-c6",
+        "c7": "dev-c7",
         "c3": {
           "c33": "dev-c33",
           "c31": "global-c31",
           "c32": "nonprod-c32"
-        },
-        "c4": "nonprod-c4",
-        "c1": "dev-c1",
-        "c5": "nonprod-c5",
-        "c6": "dev-c6"
+        }
       },
       "d": "global-d"
     }
@@ -123,22 +123,22 @@ weight: 10103
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "c": {
-        "c7": "dev-c7",
-        "c2": "dev-c2",
-        "c3": {
-          "c32": "nonprod-c32",
-          "c33": "dev-c33",
-          "c31": "global-c31"
-        },
-        "c4": "nonprod-c4",
-        "c1": "dev-c1",
-        "c5": "nonprod-c5",
-        "c6": "dev-c6"
-      },
-      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": {
+        "c1": "dev-c1",
+        "c2": "dev-c2",
+        "c5": "nonprod-c5",
+        "c6": "dev-c6",
+        "c7": "dev-c7",
+        "c3": {
+          "c31": "global-c31",
+          "c32": "nonprod-c32",
+          "c33": "dev-c33"
+        },
+        "c4": "nonprod-c4"
+      },
+      "d": "global-d"
     })
     
     self: final context exec vars:
@@ -147,17 +147,17 @@ weight: 10103
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
-        "c1": "dev-c1",
         "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c2": "dev-c2",
         "c3": {
+          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33",
-          "c31": "global-c31"
+          "c33": "dev-c33"
         },
-        "c4": "nonprod-c4"
+        "c4": "nonprod-c4",
+        "c1": "dev-c1",
+        "c2": "dev-c2"
       },
       "d": "global-d"
     })
@@ -166,8 +166,10 @@ weight: 10103
     echo "test out the var scopes only"
     
     cmd=>:
-    echo "test out the var scopes only"<=
+    echo "test out the var scopes only"
+    -
     test out the var scopes only
+    -
      .. ok
     . ok
     

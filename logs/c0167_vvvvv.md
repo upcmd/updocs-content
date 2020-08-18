@@ -1,6 +1,6 @@
 ---
 title: "c0167_vvvvv"
-date: 2020-08-09T01:36:26+88:00
+date: 2020-08-18T15:16:23+88:00
 draft: false
 weight: 11674
 
@@ -34,7 +34,7 @@ weight: 11674
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf040)(<nil>)
+    (*impl.Scopes)(0xc0001e6fe0)(<nil>)
     
     ---------group vars----------
     
@@ -70,12 +70,12 @@ weight: 11674
     -------runtime global final merged with dvars-------
     
     {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
       located task-> 1 [task]: 
@@ -125,12 +125,12 @@ weight: 11674
     
     
     scope[local] merged: {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     
@@ -197,12 +197,12 @@ weight: 11674
     
     
     scope[local] merged: {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     

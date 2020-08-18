@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10524
 
@@ -34,7 +34,7 @@ weight: 10524
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001731c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf1e0)(<nil>)
     
     ---------group vars----------
     
@@ -114,8 +114,10 @@ weight: 10524
     echo "step1"
     
     cmd=>:
-    echo "step1"<=
+    echo "step1"
+    -
     step1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step1\"",
@@ -128,10 +130,9 @@ weight: 10524
     echo "step2" |grep notexist
     
     cmd=>:
-    echo "step2" |grep notexist<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "step2" |grep notexist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
@@ -144,8 +145,10 @@ weight: 10524
     echo "step3"
     
     cmd=>:
-    echo "step3"<=
+    echo "step3"
+    -
     step3
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step3\"",
@@ -223,8 +226,10 @@ weight: 10524
     echo "step4"
     
     cmd=>:
-    echo "step4"<=
+    echo "step4"
+    -
     step4
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step4\"",
@@ -237,10 +242,9 @@ weight: 10524
     echo "step5" |grep notexist
     
     cmd=>:
-    echo "step5" |grep notexist<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "step5" |grep notexist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"step5\" |grep notexist",
@@ -253,8 +257,10 @@ weight: 10524
     echo "step6"
     
     cmd=>:
-    echo "step6"<=
+    echo "step6"
+    -
     step6
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step6\"",
@@ -330,8 +336,10 @@ weight: 10524
     echo "step7"
     
     cmd=>:
-    echo "step7"<=
+    echo "step7"
+    -
     step7
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step7\"",
@@ -344,8 +352,10 @@ weight: 10524
     echo "step8"
     
     cmd=>:
-    echo "step8"<=
+    echo "step8"
+    -
     step8
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step8\"",
@@ -358,8 +368,10 @@ weight: 10524
     echo "step9"
     
     cmd=>:
-    echo "step9"<=
+    echo "step9"
+    -
     step9
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step9\"",

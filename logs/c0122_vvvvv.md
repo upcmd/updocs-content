@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvvv"
-date: 2020-08-09T01:36:17+88:00
+date: 2020-08-18T15:16:13+88:00
 draft: false
 weight: 11224
 
@@ -34,7 +34,7 @@ weight: 11224
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1240)(<nil>)
+    (*impl.Scopes)(0xc000290600)(<nil>)
     
     ---------group vars----------
     
@@ -46,8 +46,8 @@ weight: 11224
     merged[ dev ] runtime vars:
     {
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
@@ -132,8 +132,8 @@ weight: 11224
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     })
     
@@ -195,8 +195,8 @@ weight: 11224
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     })
     
@@ -213,8 +213,8 @@ weight: 11224
           "cmd": "{{eq .student.age \"None\"}}"
         },
         {
-          "name": "print",
-          "cmd": "{{.student.age}}"
+          "cmd": "{{.student.age}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -269,11 +269,11 @@ weight: 11224
     
     
     scope[local] merged: {
+      "student_age": ".student.age",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      },
-      "student_age": ".student.age"
+        "name": "tom",
+        "sex": "male"
+      }
     }
     
     
@@ -281,8 +281,8 @@ weight: 11224
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "student_age": ".student.age"
     })

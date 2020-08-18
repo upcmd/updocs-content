@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10134
 
@@ -34,7 +34,7 @@ weight: 10134
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000216360)(<nil>)
+    (*impl.Scopes)(0xc0001bcf60)(<nil>)
     
     ---------group vars----------
     
@@ -45,17 +45,17 @@ weight: 10134
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "studentname": "Jason",
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "studentname": "Jason",
+      "a": "runtime-a"
     }
     
     (core.Cache) (len=4) {
-     (string) (len=1) "a": (string) (len=9) "runtime-a",
-     (string) (len=1) "e": (string) (len=9) "runtime-e",
      (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=11) "studentname": (string) (len=5) "Jason"
+     (string) (len=11) "studentname": (string) (len=5) "Jason",
+     (string) (len=1) "a": (string) (len=9) "runtime-a",
+     (string) (len=1) "e": (string) (len=9) "runtime-e"
     }
     
     [runtime global] dvar expanded result:
@@ -66,10 +66,10 @@ weight: 10134
     -------runtime global final merged with dvars-------
     
     {
+      "studentname": "Jason",
       "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "studentname": "Jason"
+      "k": "runtime-k"
     }
     
       located task-> 1 [task]: 
@@ -106,11 +106,11 @@ weight: 10134
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "SG",
       "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "school": "SG"
     })
     
     [local] dvar expanded result:
@@ -119,30 +119,32 @@ weight: 10134
     
     
     scope[local] merged: {
+      "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "school": "SG",
-      "studentname": "Tom"
+      "school": "SG"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "school": "SG",
-      "studentname": "Tom"
+      "school": "SG"
     })
     
     cmd( 1):
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"hello, world\"",
@@ -155,8 +157,10 @@ weight: 10134
     echo "hello {{.studentname}}"
     
     cmd=>:
-    echo "hello Tom"<=
+    echo "hello Tom"
+    -
     hello Tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"hello Tom\"",

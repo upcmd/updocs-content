@@ -1,6 +1,6 @@
 ---
 title: "c0173_vvvv"
-date: 2020-08-09T01:36:27+88:00
+date: 2020-08-18T15:16:24+88:00
 draft: false
 weight: 11733
 
@@ -68,10 +68,6 @@ weight: 11733
     ~SubStep2: [panic:  ]
      WARN: [manual panic] - [manual trigger a panic cmd]
     Step Finally:
-    (*utils.ExecResult)(<nil>)
-    
-    <nil>
-    
     Recovered from: manual trigger a panic cmd
     -Step1: [close_file: ensure the opened file is closed
      ]
@@ -88,8 +84,10 @@ weight: 11733
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     . ok
     -Step2: [: extra steps ]

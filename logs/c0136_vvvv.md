@@ -1,6 +1,6 @@
 ---
 title: "c0136_vvvv"
-date: 2020-08-09T01:36:19+88:00
+date: 2020-08-18T15:16:16+88:00
 draft: false
 weight: 11363
 
@@ -62,19 +62,19 @@ weight: 11363
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "da": "local_da",
-      "a": "local_aaa",
+      "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc",
-      "db": "local_db"
+      "a": "local_aaa"
     })
     
       located task-> 3 [callee_task1]: 
@@ -84,23 +84,23 @@ weight: 11363
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "c": "global_ccc",
+      "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb",
       "a": "local_aaa",
-      "da": "local_da"
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 1,
+      "c": "global_ccc"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "b": "local_bbb",
-      "a": "local_aaa",
-      "da": "local_da_callee_task1",
       "up_runtime_task_layer_number": 1,
       "c": "global_ccc",
-      "db": "local_db_callee_task1"
+      "da": "local_da_callee_task1",
+      "db": "local_db_callee_task1",
+      "a": "local_aaa"
     })
     
       located task-> 2 [callee_task2]: 
@@ -110,21 +110,21 @@ weight: 11363
     ---Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "da": "local_da_callee_task1",
-      "up_runtime_task_layer_number": 2,
       "c": "global_ccc",
+      "da": "local_da_callee_task1",
+      "a": "local_aaa",
       "db": "local_db_callee_task1",
       "b": "local_bbb",
-      "a": "local_aaa"
+      "up_runtime_task_layer_number": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
-      "da": "local_da_callee_task1",
       "up_runtime_task_layer_number": 2,
       "c": "global_ccc",
+      "da": "local_da_callee_task1",
+      "a": "local_aaa",
       "db": "callee_db_callee_task2",
       "b": "local_bbb"
     })
@@ -132,23 +132,23 @@ weight: 11363
     ---Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_bbb",
-      "a": "local_aaa",
       "da": "local_da_callee_task1",
+      "db": "callee_db_callee_task2",
+      "a": "local_aaa",
+      "b": "local_bbb",
       "up_runtime_task_layer_number": 2,
-      "c": "global_ccc",
-      "db": "callee_db_callee_task2"
+      "c": "global_ccc"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "da": "local_da_callee_task1",
-      "up_runtime_task_layer_number": 2,
       "c": "global_ccc",
+      "da": "local_da_callee_task1",
       "db": "callee_db_callee_task2",
+      "a": "local_aaa",
       "b": "local_bbb",
-      "a": "local_aaa"
+      "up_runtime_task_layer_number": 2
     })
     
     ~~~SubStep1: [print:  ]

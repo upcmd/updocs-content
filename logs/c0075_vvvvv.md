@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:01+88:00
 draft: false
 weight: 10754
 
@@ -34,7 +34,7 @@ weight: 10754
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00023b260)(<nil>)
+    (*impl.Scopes)(0xc0001e7220)(<nil>)
     
     ---------group vars----------
     
@@ -45,21 +45,21 @@ weight: 10754
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      },
-      "person": "peter"
+      }
     }
     
     (core.Cache) (len=2) {
+     (string) (len=6) "person": (string) (len=5) "peter",
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
-     },
-     (string) (len=6) "person": (string) (len=5) "peter"
+     }
     }
     
     dvar> var_with_range:
@@ -102,30 +102,30 @@ weight: 10754
      peter  peter  peter 
     [runtime global] dvar expanded result:
     {
-      "var_with_range": " x  x  x ",
       "var_with_range_item": " tom  jason  alice ",
       "var_with_range_item_simpler": " tom  jason  alice ",
       "var_to_ref_to_outside_of_range_from_within_range": " ",
       "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+      "var_with_range": " x  x  x "
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice ",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_to_ref_to_outside_of_range_from_within_range": " ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "person": "peter",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_to_ref_to_outside_of_range_from_within_range": " ",
       "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter "
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+      "var_with_range": " x  x  x ",
+      "person": "peter"
     }
     
       located task-> 1 [task]: 

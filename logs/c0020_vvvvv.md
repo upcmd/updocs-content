@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10204
 
@@ -97,9 +97,9 @@ weight: 10204
     
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
       "gender": "male",
-      "school": "sydney grammar"
+      "school": "sydney grammar",
+      "studentname": "Tom"
     })
     
     [local] dvar expanded result:
@@ -108,18 +108,18 @@ weight: 10204
     
     
     scope[local] merged: {
+      "gender": "male",
       "school": "sydney grammar",
-      "studentname": "Tom",
-      "gender": "male"
+      "studentname": "Tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "gender": "male",
       "school": "sydney grammar",
-      "studentname": "Tom",
-      "gender": "male"
+      "studentname": "Tom"
     })
     
     caller's vars to task (function)::
@@ -196,8 +196,10 @@ weight: 10204
     echo "studentname -> {{.studentname}} | gender -> {{.gender}}"
     
     cmd=>:
-    echo "studentname -> Tom | gender -> male"<=
+    echo "studentname -> Tom | gender -> male"
+    -
     studentname -> Tom | gender -> male
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=42) "echo \"studentname -> Tom | gender -> male\"",
@@ -210,8 +212,10 @@ weight: 10204
     echo "school -> {{.school}}"
     
     cmd=>:
-    echo "school -> sydney grammar"<=
+    echo "school -> sydney grammar"
+    -
     school -> sydney grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=31) "echo \"school -> sydney grammar\"",

@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvv"
-date: 2020-08-09T01:36:12+88:00
+date: 2020-08-18T15:16:04+88:00
 draft: false
 weight: 10883
 
@@ -62,12 +62,12 @@ weight: 10883
       "student": {
         "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
+            "postcode": 2000,
             "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
         },
         "name": "Tom"
       }
@@ -83,12 +83,12 @@ weight: 10883
       "student": {
         "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "cbd": true
-          }
+          },
+          "school": "Sydney Grammar"
         },
         "name": "Tom"
       },
@@ -121,20 +121,20 @@ weight: 10883
     self: final context exec vars:
     
     (*core.Cache)({
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
+        "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
         },
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "dynadir": "./tests/functests",
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "sgp_address_dyna_dir_object": {
         "address": {
           "suburb": {
@@ -157,7 +157,8 @@ weight: 10883
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
-    """<=
+    """
+    -
     1.address -> \naddress:
       suburb:
         name: sydney
@@ -165,13 +166,16 @@ weight: 10883
         CBD: yes
       school: Sydney Grammar
     
+    -
      .. ok
     cmd( 2):
     echo """1.address object-> \n{{.sgp_address_dyna_dir_object}}"""
     
     cmd=>:
-    echo """1.address object-> \nmap[address:map[school:Sydney Grammar suburb:map[CBD:true name:sydney postcode:2000]]]"""<=
+    echo """1.address object-> \nmap[address:map[school:Sydney Grammar suburb:map[CBD:true name:sydney postcode:2000]]]"""
+    -
     1.address object-> \nmap[address:map[school:Sydney Grammar suburb:map[CBD:true name:sydney postcode:2000]]]
+    -
      .. ok
     . ok
     

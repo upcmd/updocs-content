@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11053
 
@@ -119,8 +119,8 @@ weight: 11053
     self: final context exec vars:
     
     (*core.Cache)({
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "hitom": "hello, this is tom"
     })
     
     ~SubStep1: [print: hijerry is not accessible here and got <no value> ]

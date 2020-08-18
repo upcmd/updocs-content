@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvvv"
-date: 2020-08-09T01:35:59+88:00
+date: 2020-08-18T15:15:47+88:00
 draft: false
 weight: 10024
 
@@ -34,7 +34,7 @@ weight: 10024
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002903c0)(<nil>)
+    (*impl.Scopes)(0xc0001eefa0)(<nil>)
     
     ---------group vars----------
     
@@ -111,8 +111,10 @@ weight: 10024
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -125,8 +127,10 @@ weight: 10024
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",
@@ -204,8 +208,10 @@ weight: 10024
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -218,10 +224,9 @@ weight: 10024
     echo "I got exception"|grep non-exist
     
     cmd=>:
-    echo "I got exception"|grep non-exist<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "I got exception"|grep non-exist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=37) "echo \"I got exception\"|grep non-exist",
@@ -234,8 +239,10 @@ weight: 10024
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",

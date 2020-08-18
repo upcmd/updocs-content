@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvv"
-date: 2020-08-09T01:36:17+88:00
+date: 2020-08-18T15:16:13+88:00
 draft: false
 weight: 11233
 
@@ -52,11 +52,11 @@ weight: 11233
     -------runtime global final merged with dvars-------
     
     {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
       located task-> 1 [task]: 
@@ -76,11 +76,11 @@ weight: 11233
     self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     ~SubStep1: [print:  ]
@@ -90,21 +90,21 @@ weight: 11233
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     ~SubStep1: [print:  ]
@@ -112,21 +112,21 @@ weight: 11233
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "name": "tom"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     condition failed, skip executing step 
@@ -134,11 +134,11 @@ weight: 11233
     -Step4: [query:  ]
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     })
     
     self: final context exec vars:
@@ -167,8 +167,8 @@ weight: 11233
     (*core.Cache)({
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     })
     

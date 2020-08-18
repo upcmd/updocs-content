@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10553
 
@@ -112,15 +112,19 @@ weight: 10553
     echo "hello from taska"
     
     cmd=>:
-    echo "hello from taska"<=
+    echo "hello from taska"
+    -
     hello from taska
+    -
      .. ok
     cmd( 2):
     echo "{{.greet}} from taska"
     
     cmd=>:
-    echo "<no value> from taska"<=
+    echo "<no value> from taska"
+    -
     <no value> from taska
+    -
      .. ok
     . ok
     

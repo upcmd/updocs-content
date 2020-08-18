@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100403
 
@@ -97,7 +97,8 @@ weight: 100403
     ls -lart
     
     cmd=>:
-    ls -lart<=
+    ls -lart
+    -
     total 12
     -rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml
     -rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml
@@ -105,28 +106,35 @@ weight: 100403
     -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
     drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
     drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
+    -
      .. ok
     cmd( 2):
     ls |grep up
     
     cmd=>:
-    ls |grep up<=
+    ls |grep up
+    -
     up.yml
     upconfig.yml
+    -
      .. ok
     cmd( 3):
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up/tests/modtests/0004
+    -
      .. ok
     cmd( 4):
     ls ../..|grep modtests
     
     cmd=>:
-    ls ../..|grep modtests<=
+    ls ../..|grep modtests
+    -
     modtests
+    -
      .. ok
     . ok
     -Step2:
@@ -175,8 +183,8 @@ weight: 100403
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     hello-module: final context exec vars:
@@ -190,46 +198,54 @@ weight: 100403
     ls -lart
     
     cmd=>:
-    ls -lart<=
+    ls -lart
+    -
     total 4
     -rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml
     drwxr-xr-x    6 root     root           192 Jun 11 09:38 ..
     drwxr-xr-x    3 root     root            96 Jun 11 09:38 .
+    -
      .. ok
     cmd( 2):
     ls |grep up
     
     cmd=>:
-    ls |grep up<=
+    ls |grep up
+    -
     up.yml
+    -
      .. ok
     cmd( 3):
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up/tests/modtests/0004/hello-module
+    -
      .. ok
     cmd( 4):
     ls ../../..|grep modtests
     
     cmd=>:
-    ls ../../..|grep modtests<=
+    ls ../../..|grep modtests
+    -
     modtests
+    -
      .. ok
     . ok
     -Step2: [: this should call its own internal task
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     hello-module: final context exec vars:
@@ -265,34 +281,6 @@ weight: 100403
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ls ../../..|grep modtests",
-        Code: 0,
-        Output: "modtests",
-        ErrMsg: ""
-      })
-    })
-    
-    ~~SubStep1: [print:  ]
-    this is a internal task in module
-    --Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ls ../../..|grep modtests",
-        Code: 0,
-        Output: "modtests",
-        ErrMsg: ""
-      })
-    })
-    
-    hello-module: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
@@ -303,36 +291,72 @@ weight: 100403
       "up_runtime_task_layer_number": 1
     })
     
+    ~~SubStep1: [print:  ]
+    this is a internal task in module
+    --Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
+        Code: 0,
+        Output: "modtests",
+        ErrMsg: ""
+      }),
+      "up_runtime_tasker_layer_number": 2
+    })
+    
+    hello-module: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ls ../../..|grep modtests",
+        Code: 0,
+        Output: "modtests",
+        ErrMsg: ""
+      }),
+      "up_runtime_tasker_layer_number": 2
+    })
+    
     cmd( 1):
     ls -lart
     
     cmd=>:
-    ls -lart<=
+    ls -lart
+    -
     total 4
     -rw-r--r--    1 root     root           796 Jun 11 09:38 up.yml
     drwxr-xr-x    6 root     root           192 Jun 11 09:38 ..
     drwxr-xr-x    3 root     root            96 Jun 11 09:38 .
+    -
      .. ok
     cmd( 2):
     ls |grep up
     
     cmd=>:
-    ls |grep up<=
+    ls |grep up
+    -
     up.yml
+    -
      .. ok
     cmd( 3):
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up/tests/modtests/0004/hello-module
+    -
      .. ok
     cmd( 4):
     ls ../../..|grep modtests
     
     cmd=>:
-    ls ../../..|grep modtests<=
+    ls ../../..|grep modtests
+    -
     modtests
+    -
      .. ok
     . ok
     -Step3:
@@ -356,15 +380,15 @@ weight: 100403
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -372,22 +396,23 @@ weight: 100403
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
     cmd( 1):
     ls -lart
     
     cmd=>:
-    ls -lart<=
+    ls -lart
+    -
     total 12
     -rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml
     -rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml
@@ -395,28 +420,35 @@ weight: 100403
     -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
     drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
     drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
+    -
      .. ok
     cmd( 2):
     ls |grep up
     
     cmd=>:
-    ls |grep up<=
+    ls |grep up
+    -
     up.yml
     upconfig.yml
+    -
      .. ok
     cmd( 3):
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up/tests/modtests/0004
+    -
      .. ok
     cmd( 4):
     ls ../..|grep modtests
     
     cmd=>:
-    ls ../..|grep modtests<=
+    ls ../..|grep modtests
+    -
     modtests
+    -
      .. ok
     . ok
     

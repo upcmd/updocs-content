@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11054
 
@@ -34,7 +34,7 @@ weight: 11054
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001772e0)(<nil>)
+    (*impl.Scopes)(0xc0000c26e0)(<nil>)
     
     ---------group vars----------
     
@@ -72,8 +72,8 @@ weight: 11054
       Name: "",
       Do: {
         {
-          "cmd": "{{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.tom}}"
         },
         {
           "name": "print",
@@ -135,20 +135,20 @@ weight: 11054
       Name: "",
       Do: {
         {
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.jerry}}"
         },
         {
           "name": "reg",
           "cmd": {
+            "value": "hello, {{.tom}}",
             "name": "hitom",
-            "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}"
+            "desc": "by default hitom is registered in to global context"
           }
         },
         {
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.hitom}}"
         }
       },
       Dox: <nil>,
@@ -198,8 +198,8 @@ weight: 11054
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "hitom": "hello, this is tom"
     })
     
     after reg the var - local:
@@ -224,18 +224,18 @@ weight: 11054
         {
           "name": "reg",
           "cmd": {
-            "name": "hijerry",
             "desc": "hijerry is registered to local scope only",
-            "value": "hello, jerry"
+            "value": "hello, jerry",
+            "name": "hijerry"
           },
           "flags": {
             "localOnly"
           }
         },
         {
-          "cmd": "{{.hijerry}}",
           "name": "print",
-          "desc": "expecting to see its value since it is still in same func scope"
+          "desc": "expecting to see its value since it is still in same func scope",
+          "cmd": "{{.hijerry}}"
         }
       },
       Dox: <nil>,
@@ -333,8 +333,8 @@ weight: 11054
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -343,8 +343,8 @@ weight: 11054
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     }
     
     

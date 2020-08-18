@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:16:00+88:00
 draft: false
 weight: 10683
 
@@ -67,23 +67,27 @@ weight: 10683
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "world"|grep non-exist
     
     cmd=>:
-    echo "world"|grep non-exist<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "world"|grep non-exist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
     

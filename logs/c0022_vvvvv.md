@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvvv"
-date: 2020-08-09T01:36:02+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10224
 
@@ -73,10 +73,10 @@ weight: 10224
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
         "student": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+        "school": "Sydney Grammar"
       },
       Dvars: <nil>,
       Desc: "",
@@ -107,10 +107,10 @@ weight: 10224
     
     
     scope[local] merged: {
-      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
+      "student": "Tom"
     }
     
     
@@ -132,11 +132,13 @@ weight: 10224
     student's gender: {{.gender}}
     school's name: {{.school}}
     """
-    <=
+    
+    -
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=94) "echo \"\"\"my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n\"\"\"\n",

@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:02+88:00
 draft: false
 weight: 10784
 
@@ -34,7 +34,7 @@ weight: 10784
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00011c4e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf100)(<nil>)
     
     ---------group vars----------
     
@@ -117,8 +117,8 @@ weight: 10784
     
     current exec runtime vars:
     (*core.Cache)({
-      "school_address": "1 fox road, sydney, nsw 2000",
-      "school_name": "sydney grammar"
+      "school_name": "sydney grammar",
+      "school_address": "1 fox road, sydney, nsw 2000"
     })
     
     [local] dvar expanded result:

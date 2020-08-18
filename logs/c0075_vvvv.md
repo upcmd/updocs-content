@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:01+88:00
 draft: false
 weight: 10753
 
@@ -93,15 +93,15 @@ weight: 10753
       "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
       "var_with_range": " x  x  x ",
       "var_with_range_item": " tom  jason  alice ",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      }
+      },
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_to_ref_to_outside_of_range_from_within_range": " ",
+      "var_directly_ref_to": "peter"
     }
     
       located task-> 1 [task]: 

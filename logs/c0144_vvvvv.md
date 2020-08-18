@@ -1,6 +1,6 @@
 ---
 title: "c0144_vvvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:18+88:00
 draft: false
 weight: 11444
 
@@ -34,7 +34,7 @@ weight: 11444
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e4e20)(<nil>)
+    (*impl.Scopes)(0xc0001e6e20)(<nil>)
     
     ---------group vars----------
     
@@ -110,8 +110,10 @@ weight: 11444
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=3) "pwd",

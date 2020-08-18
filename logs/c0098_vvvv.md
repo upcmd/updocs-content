@@ -1,6 +1,6 @@
 ---
 title: "c0098_vvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:07+88:00
 draft: false
 weight: 10983
 
@@ -42,47 +42,47 @@ weight: 10983
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "Sydney Grammar",
+              "name": "Tom",
+              "gender": "Male"
+            }
+          }
+        }
+      },
       "aaa": "aaa",
       "datapointer": "student",
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
-            }
-          }
-        }
       }
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "datapointer": "student",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "school": "Sydney Grammar",
               "name": "Tom",
-              "gender": "Male",
-              "school": "Sydney Grammar"
+              "gender": "Male"
             }
           }
         }
       },
-      "aaa": "aaa"
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
     }
     
       located task-> 1 [task]: 
@@ -92,6 +92,13 @@ weight: 10983
     -Step1: [: use sub element of an var as context to render values ]
     current exec runtime vars:
     (*core.Cache)({
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -102,13 +109,6 @@ weight: 10983
             }
           }
         }
-      },
-      "aaa": "aaa",
-      "datapointer": "student",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
       }
     })
     
@@ -120,12 +120,6 @@ weight: 10983
     self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "student_info": "my name is:<no value> and I am in <no value>",
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -138,7 +132,13 @@ weight: 10983
         }
       },
       "aaa": "aaa",
-      "datapointer": "student"
+      "datapointer": "student",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "student_info": "my name is:<no value> and I am in <no value>"
     })
     
     ~SubStep1: [print:  ]

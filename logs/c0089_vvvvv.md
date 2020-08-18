@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvvv"
-date: 2020-08-09T01:36:12+88:00
+date: 2020-08-18T15:16:05+88:00
 draft: false
 weight: 10894
 
@@ -34,7 +34,7 @@ weight: 10894
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00026cd80)(<nil>)
+    (*impl.Scopes)(0xc0001f6d80)(<nil>)
     
     ---------group vars----------
     
@@ -118,8 +118,10 @@ weight: 10894
     echo "task step 1"
     
     cmd=>:
-    echo "task step 1"<=
+    echo "task step 1"
+    -
     task step 1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"task step 1\"",
@@ -132,8 +134,10 @@ weight: 10894
     echo "task step 2"
     
     cmd=>:
-    echo "task step 2"<=
+    echo "task step 2"
+    -
     task step 2
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"task step 2\"",

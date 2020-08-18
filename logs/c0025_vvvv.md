@@ -1,6 +1,6 @@
 ---
 title: "c0025_vvvv"
-date: 2020-08-09T01:36:02+88:00
+date: 2020-08-18T15:15:51+88:00
 draft: false
 weight: 10253
 
@@ -43,9 +43,9 @@ weight: 10253
     merged[ dev ] runtime vars:
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -53,9 +53,9 @@ weight: 10253
     
     {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     }
@@ -67,12 +67,12 @@ weight: 10253
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n",
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
-      }
+      },
+      "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
     
     self: final context exec vars:
@@ -93,11 +93,13 @@ weight: 10253
     echo """a smart guy=>name: "Tom"
     sex: "Male"
     school: "Sydney Grammar"
-    """<=
+    """
+    -
     a smart guy=>name: Tom
     sex: Male
     school: Sydney Grammar
     
+    -
      .. ok
     . ok
     

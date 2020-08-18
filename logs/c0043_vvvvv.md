@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10434
 
@@ -34,7 +34,7 @@ weight: 10434
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001771a0)(<nil>)
+    (*impl.Scopes)(0xc0001731a0)(<nil>)
     
     ---------group vars----------
     
@@ -236,30 +236,30 @@ weight: 10434
     
     
     scope[local] merged: {
+      "a": "aa",
+      "b": "bb",
+      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "a": "aa",
-      "b": "bb",
-      "adebug": "aa"
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "aa",
+      "b": "bb",
+      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "a": "aa",
-      "b": "bb",
-      "adebug": "aa"
+      })
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -333,7 +333,21 @@ weight: 10434
     
     
     scope[local] merged: {
+      "c": "cc",
       "d": "dd",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "",
+        Code: 0,
+        Output: "",
+        ErrMsg: ""
+      }),
+      "cdebug": "cc"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "cdebug": "cc",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
@@ -341,22 +355,8 @@ weight: 10434
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "",
-        Code: 0,
-        Output: "",
-        ErrMsg: ""
-      }),
       "c": "cc",
-      "d": "dd",
-      "cdebug": "cc"
+      "d": "dd"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]

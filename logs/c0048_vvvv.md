@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:56+88:00
 draft: false
 weight: 10483
 
@@ -70,8 +70,10 @@ weight: 10483
     env |grep STUDENT_NAME
     
     cmd=>:
-    env |grep STUDENT_NAME<=
+    env |grep STUDENT_NAME
+    -
     STUDENT_NAME=Tom Hanks
+    -
      .. ok
     . ok
     -Step2: [: STUDENT_NAME is also accessible in dvar processing
@@ -89,30 +91,34 @@ weight: 10483
     self: final context exec vars:
     
     (*core.Cache)({
+      "student_name_re_map": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_NAME",
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
-      }),
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "student_name_re_map": "Tom Hanks"
+      })
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
     cmd=>:
-    env |grep STUDENT_NAME<=
+    env |grep STUDENT_NAME
+    -
     STUDENT_NAME=Tom Hanks
+    -
      .. ok
     cmd( 2):
     echo "student_name_re_map is [{{.student_name_re_map}}]"
     
     cmd=>:
-    echo "student_name_re_map is [Tom Hanks]"<=
+    echo "student_name_re_map is [Tom Hanks]"
+    -
     student_name_re_map is [Tom Hanks]
+    -
      .. ok
     . ok
     

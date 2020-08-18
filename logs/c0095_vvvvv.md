@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:06+88:00
 draft: false
 weight: 10954
 
@@ -34,7 +34,7 @@ weight: 10954
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000aa4a0)(<nil>)
+    (*impl.Scopes)(0xc00000c500)(<nil>)
     
     ---------group vars----------
     
@@ -77,8 +77,8 @@ weight: 10954
           }
         },
         {
-          "cmd": "person_object",
-          "name": "printObj"
+          "name": "printObj",
+          "cmd": "person_object"
         },
         {
           "name": "print",
@@ -87,8 +87,8 @@ weight: 10954
         {
           "name": "toObj",
           "cmd": {
-            "reg": "{{.name_to_reg}}",
-            "fromkey": "{{.name_to_convert}}"
+            "fromkey": "{{.name_to_convert}}",
+            "reg": "{{.name_to_reg}}"
           }
         },
         {
@@ -104,17 +104,17 @@ weight: 10954
           }
         },
         {
-          "cmd": "{{.name_to_reg}}",
-          "name": "printObj"
+          "name": "printObj",
+          "cmd": "{{.name_to_reg}}"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "person_yml": "person:\n  name: tom\n  age: 23\n",
         "name_to_convert": "person_yml",
         "name_to_reg": "person_dyna_object",
-        "person": "jason"
+        "person": "jason",
+        "person_yml": "person:\n  name: tom\n  age: 23\n"
       },
       Dvars: <nil>,
       Desc: "",
@@ -133,10 +133,10 @@ weight: 10954
     
     current exec runtime vars:
     (*core.Cache)({
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason"
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
     })
     
     [local] dvar expanded result:
@@ -145,20 +145,20 @@ weight: 10954
     
     
     scope[local] merged: {
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason"
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason"
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
     })
     
     map[fromkey:person_yml reg:person_object]
@@ -176,13 +176,13 @@ weight: 10954
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
       "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "person_object": {
         "person": {
-          "name": "tom",
-          "age": 23
+          "age": 23,
+          "name": "tom"
         }
-      },
-      "person_yml": "person:\n  name: tom\n  age: 23\n"
+      }
     })
     
     person_object
@@ -211,22 +211,22 @@ weight: 10954
     after reg the var - local:
     
     (*core.Cache)({
-      "person_object": {
-        "person": {
-          "name": "tom",
-          "age": 23
-        }
-      },
       "person_dyna_object": {
         "person": {
           "name": "tom",
           "age": 23
         }
       },
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason"
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
+      "person_object": {
+        "person": {
+          "name": "tom",
+          "age": 23
+        }
+      }
     })
     
     {{.name_to_reg}}
@@ -249,29 +249,29 @@ weight: 10954
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "person:\n  name: jason\n  age: 53\n": "person_dyna_object",
-      "": "person_dyna_object"
+      "": "person_dyna_object",
+      "person:\n  name: jason\n  age: 53\n": "person_dyna_object"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "person_object": {
-        "person": {
-          "name": "tom",
-          "age": 23
-        }
-      },
       "person_dyna_object": {
         "person": {
           "name": "jason",
           "age": 53
         }
       },
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
-      "person": "jason"
+      "person": "jason",
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
+      "person_object": {
+        "person": {
+          "name": "tom",
+          "age": 23
+        }
+      }
     })
     
     {{.name_to_reg}}
@@ -281,8 +281,8 @@ weight: 10954
     object:
      person_dyna_object: {
       "person": {
-        "name": "jason",
-        "age": 53
+        "age": 53,
+        "name": "jason"
       }
     }
     

@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:56+88:00
 draft: false
 weight: 10484
 
@@ -34,7 +34,7 @@ weight: 10484
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef200)(<nil>)
+    (*impl.Scopes)(0xc00000c080)(<nil>)
     
     ---------group vars----------
     
@@ -118,24 +118,26 @@ weight: 10484
     
     
     scope[local] merged: {
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
     cmd=>:
-    env |grep STUDENT_NAME<=
+    env |grep STUDENT_NAME
+    -
     STUDENT_NAME=Tom Hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "env |grep STUDENT_NAME",
@@ -221,15 +223,15 @@ weight: 10484
     
     
     scope[local] merged: {
+      "student_name_re_map": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_NAME",
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
-      }),
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "student_name_re_map": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      })
     }
     
     
@@ -242,17 +244,19 @@ weight: 10484
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
       }),
-      "envVar_STUDENT_NAME": "Tom Hanks",
       "student_name_re_map": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
     cmd=>:
-    env |grep STUDENT_NAME<=
+    env |grep STUDENT_NAME
+    -
     STUDENT_NAME=Tom Hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "env |grep STUDENT_NAME",
@@ -265,8 +269,10 @@ weight: 10484
     echo "student_name_re_map is [{{.student_name_re_map}}]"
     
     cmd=>:
-    echo "student_name_re_map is [Tom Hanks]"<=
+    echo "student_name_re_map is [Tom Hanks]"
+    -
     student_name_re_map is [Tom Hanks]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=41) "echo \"student_name_re_map is [Tom Hanks]\"",

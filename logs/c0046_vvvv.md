@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10463
 
@@ -36,16 +36,16 @@ weight: 10463
     ---------group vars----------
     
     global: {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     }
     
     
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     -------runtime global final merged with dvars-------
@@ -63,20 +63,20 @@ weight: 10463
     -Step1: [: this show an example of the empty value is mapped to None ]
     current exec runtime vars:
     (*core.Cache)({
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_age": "28"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "someone": "None",
       "i_am_empty": "None",
-      "empty_env_var": "None",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "empty_env_var": "None"
     })
     
     cmd( 1):
@@ -89,15 +89,18 @@ weight: 10463
     echo "None"
     echo "None"
     echo "None"
-    <=
+    
+    -
     None
     None
     None
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
@@ -105,14 +108,12 @@ weight: 10463
         Output: "None\nNone\nNone",
         ErrMsg: ""
       }),
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_name": "Tom Hanks"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
         Code: 0,
@@ -120,7 +121,8 @@ weight: 10463
         ErrMsg: ""
       }),
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
     ~SubStep1: [inspect:  ]
@@ -139,15 +141,15 @@ weight: 10463
     
      2: inspect[exec_base_vars]
     {
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
         Code: 0,
         Output: "None\nNone\nNone",
         ErrMsg: ""
-      }),
-      "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      })
     }
     
     

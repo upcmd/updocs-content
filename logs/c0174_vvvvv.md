@@ -1,6 +1,6 @@
 ---
 title: "c0174_vvvvv"
-date: 2020-08-09T01:36:27+88:00
+date: 2020-08-18T15:16:24+88:00
 draft: false
 weight: 11744
 
@@ -34,7 +34,7 @@ weight: 11744
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7220)(<nil>)
+    (*impl.Scopes)(0xc000175220)(<nil>)
     
     ---------group vars----------
     
@@ -97,15 +97,15 @@ weight: 11744
           }
         },
         {
+          "func": "cmd",
           "desc": "see if the exec context result: up_runtime_shell_exec_result is still availabe\nconditional do something about the error etc\n",
           "do": {
             {
-              "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n",
-              "name": "print"
+              "name": "print",
+              "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n"
             }
           },
-          "if": "{{ne .up_runtime_shell_exec_result.Code 0}}",
-          "func": "cmd"
+          "if": "{{ne .up_runtime_shell_exec_result.Code 0}}"
         }
       },
       Rescue: false
@@ -133,8 +133,10 @@ weight: 11744
     echo "opening file"
     
     cmd=>:
-    echo "opening file"<=
+    echo "opening file"
+    -
     opening file
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"opening file\"",
@@ -147,10 +149,9 @@ weight: 11744
     echo "hello"|grep "world"
     
     cmd=>:
-    echo "hello"|grep "world"<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "hello"|grep "world"
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=25) "echo \"hello\"|grep \"world\"",
@@ -166,8 +167,6 @@ weight: 11744
       Output: "",
       ErrMsg: "exit status 1"
     })
-    
-    <nil>
     
     -Step1: [: ensure the opened file is closed
      ]
@@ -235,8 +234,10 @@ weight: 11744
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"close the file .....\"",
@@ -261,13 +262,15 @@ weight: 11744
     error message: exit status 1
     error output: 
     """
-    <=
+    
+    -
     
     exec command: echo hello|grep world
     error code: 1
     error message: exit status 1
     error output: 
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=111) "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
@@ -328,17 +331,17 @@ weight: 11744
     
     
     scope[local] merged: {
-      "up_runtime_shell_exec_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello\"|grep \"world\"",
-        Code: 1,
-        Output: "",
-        ErrMsg: "exit status 1"
-      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
         Code: 0,
         Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
         ErrMsg: ""
+      }),
+      "up_runtime_shell_exec_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello\"|grep \"world\"",
+        Code: 1,
+        Output: "",
+        ErrMsg: "exit status 1"
       })
     }
     
@@ -432,8 +435,10 @@ weight: 11744
     echo "extra step ..."
     
     cmd=>:
-    echo "extra step ..."<=
+    echo "extra step ..."
+    -
     extra step ...
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=21) "echo \"extra step ...\"",

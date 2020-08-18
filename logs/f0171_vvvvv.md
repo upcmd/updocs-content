@@ -1,6 +1,6 @@
 ---
 title: "f0171_vvvvv"
-date: 2020-08-09T01:36:29+88:00
+date: 2020-08-18T15:16:29+88:00
 draft: false
 weight: 11714
 
@@ -34,7 +34,7 @@ weight: 11714
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002330c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf0e0)(<nil>)
     
     ---------group vars----------
     
@@ -112,8 +112,10 @@ weight: 11714
     echo "open a file ....."
     
     cmd=>:
-    echo "open a file ....."<=
+    echo "open a file ....."
+    -
     open a file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=24) "echo \"open a file .....\"",
@@ -126,10 +128,9 @@ weight: 11714
     echo "reading the file" |grep "cause an exception"
     
     cmd=>:
-    echo "reading the file" |grep "cause an exception"<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "reading the file" |grep "cause an exception"
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=50) "echo \"reading the file\" |grep \"cause an exception\"",
@@ -145,8 +146,6 @@ weight: 11714
       Output: "",
       ErrMsg: "exit status 1"
     })
-    
-    <nil>
     
     finally caller vars to task (close_file)::
     (*core.Cache)({
@@ -230,8 +229,10 @@ weight: 11714
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"close the file .....\"",
@@ -243,7 +244,7 @@ weight: 11714
     . ok
     Recovered from:   ERROR: Failed And Not Ignored! [You may want to continue and ignore the error]
     
-     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
     task finally ->   ERROR: Failed And Not Ignored! [You may want to continue and ignore the error]
     
     -----trace for reference-----

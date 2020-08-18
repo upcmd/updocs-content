@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:06+88:00
 draft: false
 weight: 10953
 
@@ -65,10 +65,10 @@ weight: 10953
     self: final context exec vars:
     
     (*core.Cache)({
-      "name_to_reg": "person_dyna_object",
       "person": "jason",
       "person_yml": "person:\n  name: tom\n  age: 23\n",
-      "name_to_convert": "person_yml"
+      "name_to_convert": "person_yml",
+      "name_to_reg": "person_dyna_object"
     })
     
     ~SubStep1: [toObj: the key is pointing to a var name and use its content as yml content

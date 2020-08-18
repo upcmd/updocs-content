@@ -1,6 +1,6 @@
 ---
 title: "c0132_vvvv"
-date: 2020-08-09T01:36:19+88:00
+date: 2020-08-18T15:16:15+88:00
 draft: false
 weight: 11323
 
@@ -42,17 +42,17 @@ weight: 11323
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
       located task-> 1 [task]: 
@@ -62,39 +62,39 @@ weight: 11323
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa"
     })
     
     self: final context exec vars:
     
-    (*core.Cache)({
-      "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "da": "local_da"
-    })
-    
-    -Step1:
-    current exec runtime vars:
     (*core.Cache)({
       "da": "local_da",
       "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa"
+      "a": "local_aaa"
     })
     
-    self: final context exec vars:
-    
+    -Step1:
+    current exec runtime vars:
     (*core.Cache)({
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "block_layer2_aaa",
       "da": "local_da",
       "db": "local_db"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "a": "block_layer2_aaa",
+      "da": "local_da",
+      "db": "local_db",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     ~SubStep1: [assert:  ]
@@ -105,18 +105,18 @@ weight: 11323
     ~SubStep3: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "c": "global_ccc",
-      "a": "block_layer2_aaa",
       "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "a": "block_layer2_aaa"
     })
     
      2: inspect[exec_base_vars]
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
     

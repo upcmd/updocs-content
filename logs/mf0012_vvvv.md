@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvvv"
-date: 2020-08-09T01:36:44+88:00
+date: 2020-08-18T15:16:54+88:00
 draft: false
 weight: 101203
 
@@ -97,8 +97,8 @@ weight: 101203
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     })
     
     hello-module: final context exec vars:
@@ -491,7 +491,7 @@ weight: 101203
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 9
     
-     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
     task finally -> runtime error: invalid memory address or nil pointer dereference
     
 ```

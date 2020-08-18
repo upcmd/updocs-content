@@ -1,6 +1,6 @@
 ---
 title: "c0174_vvvv"
-date: 2020-08-09T01:36:27+88:00
+date: 2020-08-18T15:16:24+88:00
 draft: false
 weight: 11743
 
@@ -67,27 +67,20 @@ weight: 11743
     echo "opening file"
     
     cmd=>:
-    echo "opening file"<=
+    echo "opening file"
+    -
     opening file
+    -
      .. ok
     cmd( 2):
     echo "hello"|grep "world"
     
     cmd=>:
-    echo "hello"|grep "world"<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "hello"|grep "world"
+    -
+    -
      .. failed(suppressed if it is not the last step)
     Step Finally:
-    (*utils.ExecResult)({
-      Cmd: "echo \"hello\"|grep \"world\"",
-      Code: 1,
-      Output: "",
-      ErrMsg: "exit status 1"
-    })
-    
-    <nil>
-    
     -Step1: [: ensure the opened file is closed
      ]
     current exec runtime vars:
@@ -115,8 +108,10 @@ weight: 11743
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     cmd( 2):
     echo """
@@ -134,13 +129,15 @@ weight: 11743
     error message: exit status 1
     error output: 
     """
-    <=
+    
+    -
     
     exec command: echo hello|grep world
     error code: 1
     error message: exit status 1
     error output: 
     
+    -
      .. ok
     . ok
     -Step2: [: see if the exec context result: up_runtime_shell_exec_result is still availabe
@@ -211,8 +208,10 @@ weight: 11743
     echo "extra step ..."
     
     cmd=>:
-    echo "extra step ..."<=
+    echo "extra step ..."
+    -
     extra step ...
+    -
      .. ok
     . ok
     

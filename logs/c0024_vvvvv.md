@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvvv"
-date: 2020-08-09T01:36:02+88:00
+date: 2020-08-18T15:15:51+88:00
 draft: false
 weight: 10244
 
@@ -34,7 +34,7 @@ weight: 10244
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000176fc0)(<nil>)
+    (*impl.Scopes)(0xc00000c4c0)(<nil>)
     
     ---------group vars----------
     
@@ -46,9 +46,9 @@ weight: 10244
     merged[ dev ] runtime vars:
     {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     }
     
@@ -71,12 +71,12 @@ weight: 10244
     
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
-      "studentgender": "Male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "studentgender": "Male"
     }
     
       located task-> 1 [task]: 
@@ -113,12 +113,12 @@ weight: 10244
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
-      "studentgender": "Male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     [local] dvar expanded result:
@@ -127,12 +127,12 @@ weight: 10244
     
     
     scope[local] merged: {
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "studentgender": "Male",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "studentname": "Tom"
     }
     
@@ -141,20 +141,22 @@ weight: 10244
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
-      "studentgender": "Male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     cmd( 1):
     echo "student=>{{.student}}"
     
     cmd=>:
-    echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"<=
+    echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"
+    -
     student=>map[gender:Male name:Tom school:Sydney Grammar]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=63) "echo \"student=>map[gender:Male name:Tom school:Sydney Grammar]\"",
@@ -167,8 +169,10 @@ weight: 10244
     echo "name=>{{.studentname}}"
     
     cmd=>:
-    echo "name=>Tom"<=
+    echo "name=>Tom"
+    -
     name=>Tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"name=>Tom\"",
@@ -181,8 +185,10 @@ weight: 10244
     echo "gender=>{{.studentgender}}"
     
     cmd=>:
-    echo "gender=>Male"<=
+    echo "gender=>Male"
+    -
     gender=>Male
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"gender=>Male\"",
@@ -195,8 +201,10 @@ weight: 10244
     echo "school=>{{.student.school}}"
     
     cmd=>:
-    echo "school=>Sydney Grammar"<=
+    echo "school=>Sydney Grammar"
+    -
     school=>Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=29) "echo \"school=>Sydney Grammar\"",

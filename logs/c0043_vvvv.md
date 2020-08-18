@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10433
 
@@ -95,14 +95,14 @@ weight: 10433
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aa",
-      "b": "bb",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "a": "aa",
+      "b": "bb"
     })
     
     dvar> adebug:
@@ -113,6 +113,7 @@ weight: 10433
     self: final context exec vars:
     
     (*core.Cache)({
+      "b": "bb",
       "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
@@ -120,8 +121,7 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
-      "a": "aa",
-      "b": "bb"
+      "a": "aa"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -138,8 +138,8 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
-      "d": "dd",
-      "c": "cc"
+      "c": "cc",
+      "d": "dd"
     })
     
     dvar> cdebug:
@@ -156,8 +156,8 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
-      "d": "dd",
       "c": "cc",
+      "d": "dd",
       "cdebug": "cc"
     })
     

@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvvv"
-date: 2020-08-09T01:36:17+88:00
+date: 2020-08-18T15:16:12+88:00
 draft: false
 weight: 11184
 
@@ -34,7 +34,7 @@ weight: 11184
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000226660)(<nil>)
+    (*impl.Scopes)(0xc0000ba660)(<nil>)
     
     ---------group vars----------
     
@@ -117,13 +117,13 @@ weight: 11184
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items",
-      "person": "tom"
+      }
     })
     
     [local] dvar expanded result:
@@ -145,13 +145,13 @@ weight: 11184
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
     condition failed, skip executing step step1
@@ -161,8 +161,8 @@ weight: 11184
       Name: "step1",
       Do: {
         {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -273,12 +273,12 @@ weight: 11184
     
     
     scope[local] merged: {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     

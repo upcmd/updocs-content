@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10133
 
@@ -42,19 +42,19 @@ weight: 10133
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Jason",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "studentname": "Jason"
+      "studentname": "Jason",
+      "a": "runtime-a"
     }
     
       located task-> 1 [task]: 
@@ -64,20 +64,20 @@ weight: 10133
     -Step1: [step1: to test display env vars from shell context ]
     current exec runtime vars:
     (*core.Cache)({
-      "school": "SG",
+      "studentname": "Tom",
+      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "studentname": "Tom",
-      "a": "runtime-a"
+      "school": "SG"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "e": "runtime-e",
-      "k": "runtime-k",
       "studentname": "Tom",
       "a": "runtime-a",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "school": "SG"
     })
     
@@ -85,15 +85,19 @@ weight: 10133
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     cmd( 2):
     echo "hello {{.studentname}}"
     
     cmd=>:
-    echo "hello Tom"<=
+    echo "hello Tom"
+    -
     hello Tom
+    -
      .. ok
     . ok
     

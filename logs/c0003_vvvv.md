@@ -1,6 +1,6 @@
 ---
 title: "c0003_vvvv"
-date: 2020-08-09T01:35:59+88:00
+date: 2020-08-18T15:15:47+88:00
 draft: false
 weight: 10033
 
@@ -71,9 +71,11 @@ weight: 10033
     cmd=>:
     echo "hello"
     echo "world"
-    <=
+    
+    -
     hello
     world
+    -
      .. ok
     . ok
     

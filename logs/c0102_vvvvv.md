@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11024
 
@@ -34,7 +34,7 @@ weight: 11024
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175260)(<nil>)
+    (*impl.Scopes)(0xc0001e7260)(<nil>)
     
     ---------group vars----------
     
@@ -125,7 +125,9 @@ weight: 11024
     emily:
       sex: female
       age: 32
-    " > /tmp/mock_yml.yml<=
+    " > /tmp/mock_yml.yml
+    -
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=114) "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
@@ -140,6 +142,7 @@ weight: 11024
       Name: "",
       Do: {
         {
+          "name": "ymlDelete",
           "cmd": {
             "ymlfile": "mock_yml.yml",
             "refdir": "/tmp",
@@ -148,17 +151,16 @@ weight: 11024
           },
           "flags": {
             "inplace"
-          },
-          "name": "ymlDelete"
+          }
         },
         {
+          "name": "readFile",
+          "desc": "check new file content",
           "cmd": {
             "filename": "mock_yml.yml",
             "dir": "/tmp",
             "reg": "new_yml"
-          },
-          "name": "readFile",
-          "desc": "check new file content"
+          }
         },
         {
           "name": "print",
@@ -186,13 +188,13 @@ weight: 11024
     
     current exec runtime vars:
     (*core.Cache)({
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     [local] dvar expanded result:
@@ -275,11 +277,11 @@ weight: 11024
         {
           "name": "ymlDelete",
           "cmd": {
-            "ymlfile": "mock_yml.yml",
-            "refdir": "/tmp",
             "path": "jason.sex",
             "verbose": "vvvv",
-            "reg": "modified_yml"
+            "reg": "modified_yml",
+            "ymlfile": "mock_yml.yml",
+            "refdir": "/tmp"
           },
           "flags": {
             "localOnly"
@@ -311,14 +313,14 @@ weight: 11024
     
     current exec runtime vars:
     (*core.Cache)({
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      })
     })
     
     [local] dvar expanded result:
@@ -341,14 +343,14 @@ weight: 11024
     self: final context exec vars:
     
     (*core.Cache)({
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:jason.sex refdir:/tmp reg:modified_yml verbose:vvvv ymlfile:mock_yml.yml]

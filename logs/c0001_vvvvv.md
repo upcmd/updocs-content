@@ -1,6 +1,6 @@
 ---
 title: "c0001_vvvvv"
-date: 2020-08-09T01:35:59+88:00
+date: 2020-08-18T15:15:47+88:00
 draft: false
 weight: 10014
 
@@ -34,7 +34,7 @@ weight: 10014
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000140ec0)(<nil>)
+    (*impl.Scopes)(0xc0001e4e60)(<nil>)
     
     ---------group vars----------
     
@@ -111,8 +111,10 @@ weight: 10014
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -125,8 +127,10 @@ weight: 10014
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",

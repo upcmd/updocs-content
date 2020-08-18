@@ -1,6 +1,6 @@
 ---
 title: "c0098_vvvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:07+88:00
 draft: false
 weight: 10984
 
@@ -34,7 +34,7 @@ weight: 10984
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf0c0)(<nil>)
+    (*impl.Scopes)(0xc0000a2480)(<nil>)
     
     ---------group vars----------
     
@@ -54,9 +54,9 @@ weight: 10984
         "sydney": {
           "sgschool": {
             "student": {
+              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
+              "school": "Sydney Grammar"
             }
           }
         }
@@ -66,24 +66,24 @@ weight: 10984
     }
     
     (core.Cache) (len=4) {
-     (string) (len=3) "aaa": (string) (len=3) "aaa",
-     (string) (len=11) "datapointer": (string) (len=7) "student",
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
+      (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-      (string) (len=4) "name": (string) (len=3) "Tom"
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
      },
      (string) (len=3) "nsw": (map[string]interface {}) (len=1) {
       (string) (len=6) "sydney": (map[string]interface {}) (len=1) {
        (string) (len=8) "sgschool": (map[string]interface {}) (len=1) {
         (string) (len=7) "student": (map[string]interface {}) (len=3) {
+         (string) (len=4) "name": (string) (len=3) "Tom",
          (string) (len=6) "gender": (string) (len=4) "Male",
-         (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-         (string) (len=4) "name": (string) (len=3) "Tom"
+         (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
         }
        }
       }
-     }
+     },
+     (string) (len=3) "aaa": (string) (len=3) "aaa",
+     (string) (len=11) "datapointer": (string) (len=7) "student"
     }
     
     [runtime global] dvar expanded result:
@@ -95,17 +95,17 @@ weight: 10984
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
+              "school": "Sydney Grammar"
             }
           }
         }
@@ -123,8 +123,8 @@ weight: 10984
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.student_info}}"
+          "cmd": "{{.student_info}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -200,49 +200,49 @@ weight: 10984
     
     
     scope[local] merged: {
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
+      "aaa": "aaa",
+      "datapointer": "student",
       "student_info": "my name is:<no value> and I am in <no value>",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
+              "school": "Sydney Grammar"
             }
           }
         }
-      },
-      "aaa": "aaa",
-      "datapointer": "student"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom"
+              "name": "Tom",
+              "gender": "Male"
             }
           }
         }
       },
       "aaa": "aaa",
       "datapointer": "student",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "student_info": "my name is:<no value> and I am in <no value>"
     })
     

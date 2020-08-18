@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvvvv"
-date: 2020-08-09T01:36:44+88:00
+date: 2020-08-18T15:16:54+88:00
 draft: false
 weight: 101204
 
@@ -34,7 +34,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001b5020)(<nil>)
+    (*impl.Scopes)(0xc000174fe0)(<nil>)
     
     ---------group vars----------
     
@@ -117,7 +117,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022e0a0)(<nil>)
+    (*impl.Scopes)(0xc00021c0e0)(<nil>)
     
     ---------group vars----------
     
@@ -263,7 +263,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022faa0)(<nil>)
+    (*impl.Scopes)(0xc00021dbe0)(<nil>)
     
     ---------group vars----------
     
@@ -404,7 +404,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000281540)(<nil>)
+    (*impl.Scopes)(0xc00000d0c0)(<nil>)
     
     ---------group vars----------
     
@@ -545,7 +545,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002d6fe0)(<nil>)
+    (*impl.Scopes)(0xc00042ec60)(<nil>)
     
     ---------group vars----------
     
@@ -686,7 +686,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00038b920)(<nil>)
+    (*impl.Scopes)(0xc00000dd60)(<nil>)
     
     ---------group vars----------
     
@@ -724,8 +724,8 @@ weight: 101204
       Name: "",
       Do: {
         {
-          "cmd": " .... cross call 2",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... cross call 2"
         }
       },
       Dox: <nil>,
@@ -827,7 +827,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0004353c0)(<nil>)
+    (*impl.Scopes)(0xc000174ae0)(<nil>)
     
     ---------group vars----------
     
@@ -968,7 +968,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000486e60)(<nil>)
+    (*impl.Scopes)(0xc00042e540)(<nil>)
     
     ---------group vars----------
     
@@ -1109,7 +1109,7 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000502900)(<nil>)
+    (*impl.Scopes)(0xc00058c9c0)(<nil>)
     
     ---------group vars----------
     
@@ -1139,7 +1139,7 @@ weight: 101204
     Executing tasker layer: 9
     
     Recovered from: runtime error: invalid memory address or nil pointer dereference
-     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
     task finally -> runtime error: invalid memory address or nil pointer dereference
     -----trace for reference-----
     

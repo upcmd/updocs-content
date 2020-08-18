@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvv"
-date: 2020-08-09T01:36:15+88:00
+date: 2020-08-18T15:16:09+88:00
 draft: false
 weight: 11083
 
@@ -112,8 +112,8 @@ weight: 11083
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry in task scope"
     })
     
     ~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
@@ -121,8 +121,8 @@ weight: 11083
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "jerry is overrided in local scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "jerry is overrided in local scope"
     })
     
     self: final context exec vars:

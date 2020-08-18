@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100304
 
@@ -34,7 +34,7 @@ weight: 100304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e50a0)(<nil>)
+    (*impl.Scopes)(0xc0001750a0)(<nil>)
     
     ---------group vars----------
     
@@ -124,7 +124,7 @@ weight: 100304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025c300)(<nil>)
+    (*impl.Scopes)(0xc00021e380)(<nil>)
     
     ---------group vars----------
     
@@ -166,11 +166,11 @@ weight: 100304
           "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          },
-          "name": "assert"
+          }
         },
         {
           "name": "return",
@@ -183,8 +183,8 @@ weight: 100304
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "a": "module-aaa",
-        "b": "module-bbb"
+        "b": "module-bbb",
+        "a": "module-aaa"
       },
       Dvars: <nil>,
       Desc: "",
@@ -203,8 +203,8 @@ weight: 100304
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
+      "a": "caller-aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -214,8 +214,8 @@ weight: 100304
     
     
     scope[local] merged: {
-      "a": "caller-aaa",
       "b": "module-bbb",
+      "a": "caller-aaa",
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -224,8 +224,8 @@ weight: 100304
     
     (*core.Cache)({
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "a": "caller-aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     ... module world
@@ -266,12 +266,12 @@ weight: 100304
           "cmd": "back to main caller\na: {{.a}}\nb: {{.b}}\n"
         },
         {
-          "name": "assert",
           "des": "var b is returned from module\n",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
@@ -305,9 +305,9 @@ weight: 100304
     
     
     scope[local] merged: {
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     }
     
     
@@ -323,9 +323,9 @@ weight: 100304
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
      2: inspect[exec_base_vars]

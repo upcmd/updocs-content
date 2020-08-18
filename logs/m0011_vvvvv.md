@@ -1,6 +1,6 @@
 ---
 title: "0011_vvvvv"
-date: 2020-08-09T01:36:44+88:00
+date: 2020-08-18T15:16:53+88:00
 draft: false
 weight: 101104
 
@@ -117,7 +117,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000224b80)(<nil>)
+    (*impl.Scopes)(0xc000230c00)(<nil>)
     
     ---------group vars----------
     
@@ -155,8 +155,8 @@ weight: 101104
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "... hello"
+          "cmd": "... hello",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -191,16 +191,16 @@ weight: 101104
     
     
     scope[local] merged: {
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     })
     
     ... hello
@@ -263,7 +263,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000225f60)(<nil>)
+    (*impl.Scopes)(0xc0003100e0)(<nil>)
     
     ---------group vars----------
     
@@ -327,8 +327,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -409,7 +409,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00027d2a0)(<nil>)
+    (*impl.Scopes)(0xc000311520)(<nil>)
     
     ---------group vars----------
     
@@ -550,7 +550,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002f46c0)(<nil>)
+    (*impl.Scopes)(0xc0003dca40)(<nil>)
     
     ---------group vars----------
     
@@ -691,7 +691,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002f59c0)(<nil>)
+    (*impl.Scopes)(0xc0003dc480)(<nil>)
     
     ---------group vars----------
     
@@ -832,7 +832,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000350d80)(<nil>)
+    (*impl.Scopes)(0xc0003dd940)(<nil>)
     
     ---------group vars----------
     

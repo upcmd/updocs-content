@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:02+88:00
 draft: false
 weight: 10763
 
@@ -67,8 +67,10 @@ weight: 10763
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     . ok
     -Step2: [: test register a variable to global vars
@@ -127,15 +129,19 @@ weight: 10763
     echo "{{.reg_hello}}"
     
     cmd=>:
-    echo "<no value>"<=
+    echo "<no value>"
+    -
     <no value>
+    -
      .. ok
     cmd( 2):
     echo "{{.hellomsg}}"
     
     cmd=>:
-    echo "hanks"<=
+    echo "hanks"
+    -
     hanks
+    -
      .. ok
     . ok
     -Step4: [: the reg_tom's value is a object, but since reg_tom is only a local, it
@@ -143,17 +149,17 @@ weight: 10763
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "person": {
+        "name": "tom",
+        "age": 18
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "person": {
-        "name": "tom",
-        "age": 18
-      }
+      "hellomsg": "hanks"
     })
     
     dvar> local_tom:
@@ -167,41 +173,41 @@ weight: 10763
     self: final context exec vars:
     
     (*core.Cache)({
+      "hellomsg": "hanks",
+      "person": {
+        "name": "tom",
+        "age": 18
+      },
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
+      "tom": {
+        "age": 18,
+        "name": "tom"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "person": {
-        "age": 18,
-        "name": "tom"
-      },
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
-      "local_tom": "my name is tom\nage: 18\nname: tom\n"
+      })
     })
     
     ~SubStep1: [reg:  ]
     -Step5: [: debug the results ]
     current exec runtime vars:
     (*core.Cache)({
+      "tom": {
+        "age": 18,
+        "name": "tom"
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "objname": "global_tom"
+      "hellomsg": "hanks"
     })
     
     self: final context exec vars:
@@ -216,8 +222,8 @@ weight: 10763
       }),
       "hellomsg": "hanks",
       "tom": {
-        "name": "tom",
-        "age": 18
+        "age": 18,
+        "name": "tom"
       },
       "global_tom": "my name is tom\nage: 18\nname: tom\n"
     })

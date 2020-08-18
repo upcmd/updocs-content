@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100203
 
@@ -67,8 +67,10 @@ weight: 100203
     echo "hello world"
     
     cmd=>:
-    echo "hello world"<=
+    echo "hello world"
+    -
     hello world
+    -
      .. ok
     . ok
     -Step2:
@@ -100,13 +102,13 @@ weight: 100203
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     self: final context exec vars:
@@ -126,14 +128,14 @@ weight: 100203
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -183,8 +185,6 @@ weight: 100203
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-aaa",
-      "b": "module-bbb",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
@@ -192,22 +192,24 @@ weight: 100203
         ErrMsg: ""
       }),
       "up_runtime_tasker_layer_number": 2,
+      "b": "module-bbb",
+      "a": "caller-aaa",
       "up_runtime_task_layer_number": 1
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa",
-      "b": "module-bbb",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "b": "module-bbb",
+      "a": "caller-aaa",
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]

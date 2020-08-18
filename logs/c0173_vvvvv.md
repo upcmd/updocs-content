@@ -1,6 +1,6 @@
 ---
 title: "c0173_vvvvv"
-date: 2020-08-09T01:36:27+88:00
+date: 2020-08-18T15:16:24+88:00
 draft: false
 weight: 11734
 
@@ -34,7 +34,7 @@ weight: 11734
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7220)(<nil>)
+    (*impl.Scopes)(0xc0001e51e0)(<nil>)
     
     ---------group vars----------
     
@@ -96,20 +96,20 @@ weight: 11734
       Timeout: 0,
       Finally: {
         {
-          "func": "shell",
           "name": "close_file",
           "desc": "ensure the opened file is closed\n",
           "do": {
             "echo \"close the file .....\""
-          }
+          },
+          "func": "shell"
         },
         {
           "func": "cmd",
           "desc": "extra steps",
           "do": {
             {
-              "cmd": "extra step",
-              "name": "print"
+              "name": "print",
+              "cmd": "extra step"
             }
           }
         }
@@ -142,8 +142,6 @@ weight: 11734
      WARN: [manual panic] - [manual trigger a panic cmd]
     Step Finally:
     (*utils.ExecResult)(<nil>)
-    
-    <nil>
     
     Recovered from: manual trigger a panic cmd
     -Step1: [close_file: ensure the opened file is closed
@@ -193,8 +191,10 @@ weight: 11734
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"close the file .....\"",

@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvv"
-date: 2020-08-09T01:36:02+88:00
+date: 2020-08-18T15:15:51+88:00
 draft: false
 weight: 10243
 
@@ -53,9 +53,9 @@ weight: 10243
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -68,54 +68,62 @@ weight: 10243
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
-      "studentgender": "Male",
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
         "name": "Tom"
-      }
+      },
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "studentname": "Tom",
-      "studentgender": "Male",
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "studentname": "Tom",
+      "studentgender": "Male"
     })
     
     cmd( 1):
     echo "student=>{{.student}}"
     
     cmd=>:
-    echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"<=
+    echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"
+    -
     student=>map[gender:Male name:Tom school:Sydney Grammar]
+    -
      .. ok
     cmd( 2):
     echo "name=>{{.studentname}}"
     
     cmd=>:
-    echo "name=>Tom"<=
+    echo "name=>Tom"
+    -
     name=>Tom
+    -
      .. ok
     cmd( 3):
     echo "gender=>{{.studentgender}}"
     
     cmd=>:
-    echo "gender=>Male"<=
+    echo "gender=>Male"
+    -
     gender=>Male
+    -
      .. ok
     cmd( 4):
     echo "school=>{{.student.school}}"
     
     cmd=>:
-    echo "school=>Sydney Grammar"<=
+    echo "school=>Sydney Grammar"
+    -
     school=>Sydney Grammar
+    -
      .. ok
     . ok
     

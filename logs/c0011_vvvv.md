@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10113
 
@@ -36,15 +36,15 @@ weight: 10113
     ---------group vars----------
     
     prod: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
     nonprod: {
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
+      "c": "non-prod-c",
+      "a": "non-prod-a"
     }
     
     
@@ -70,12 +70,12 @@ weight: 10113
     -------runtime global final merged with dvars-------
     
     {
+      "b": "non-prod-b",
+      "c": "dev-c",
       "d": "global-d",
       "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
+      "a": "runtime-a"
     }
     
       located task-> 1 [task]: 
@@ -87,31 +87,33 @@ weight: 10113
     (*core.Cache)({
       "a": "runtime-a",
       "b": "non-prod-b",
-      "m": "local-m",
       "c": "dev-c",
       "d": "global-d",
       "e": "local-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "m": "local-m"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "d": "global-d",
       "e": "local-e",
       "k": "runtime-k",
+      "m": "local-m",
       "a": "runtime-a",
       "b": "non-prod-b",
-      "m": "local-m",
-      "c": "dev-c",
-      "d": "global-d"
+      "c": "dev-c"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
     cmd=>:
-    echo "test out the var scopes only"<=
+    echo "test out the var scopes only"
+    -
     test out the var scopes only
+    -
      .. ok
     . ok
     

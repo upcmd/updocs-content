@@ -1,6 +1,6 @@
 ---
 title: "c0157_vvvvv"
-date: 2020-08-09T01:36:23+88:00
+date: 2020-08-18T15:16:21+88:00
 draft: false
 weight: 11574
 
@@ -34,7 +34,7 @@ weight: 11574
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1160)(<nil>)
+    (*impl.Scopes)(0xc0000a4520)(<nil>)
     
     ---------group vars----------
     
@@ -167,14 +167,14 @@ weight: 11574
       If: "{{eq .school \"None\"}}",
       Else: {
         {
+          "desc": "now it is safe to access school from person object",
           "do": {
             {
               "name": "print",
               "cmd": "hello: {{.person.name}} from {{.person.school}}"
             }
           },
-          "func": "cmd",
-          "desc": "now it is safe to access school from person object"
+          "func": "cmd"
         }
       },
       Loop: <nil>,

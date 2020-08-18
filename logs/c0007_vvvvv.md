@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10074
 
@@ -34,7 +34,7 @@ weight: 10074
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000a4480)(<nil>)
+    (*impl.Scopes)(0xc000173060)(<nil>)
     
     ---------group vars----------
     
@@ -111,8 +111,10 @@ weight: 10074
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -125,8 +127,10 @@ weight: 10074
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",
@@ -201,8 +205,10 @@ weight: 10074
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -215,8 +221,10 @@ weight: 10074
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",
@@ -291,8 +299,10 @@ weight: 10074
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -305,8 +315,10 @@ weight: 10074
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",

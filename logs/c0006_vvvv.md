@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10063
 
@@ -69,8 +69,10 @@ weight: 10063
     
     cmd=>:
     echo "aaa: $aaa"
-    <=
+    
+    -
     aaa: 
+    -
      .. ok
     cmd( 2):
     echo "bbb: $bbb"
@@ -78,29 +80,37 @@ weight: 10063
     
     cmd=>:
     echo "bbb: $bbb"
-    <=
+    
+    -
     bbb: 
+    -
      .. ok
     cmd( 3):
     echo "aaa':' $aaa"
     
     cmd=>:
-    echo "aaa':' $aaa"<=
+    echo "aaa':' $aaa"
+    -
     aaa':' 
+    -
      .. ok
     cmd( 4):
     echo "aaa":" $aaa"
     
     cmd=>:
-    echo "aaa":" $aaa"<=
+    echo "aaa":" $aaa"
+    -
     aaa: 
+    -
      .. ok
     cmd( 5):
     echo "aaa -> $aaa"
     
     cmd=>:
-    echo "aaa -> $aaa"<=
+    echo "aaa -> $aaa"
+    -
     aaa -> 
+    -
      .. ok
     . ok
     

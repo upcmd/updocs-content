@@ -1,6 +1,6 @@
 ---
 title: "c0071_vvvvv"
-date: 2020-08-09T01:36:09+88:00
+date: 2020-08-18T15:16:00+88:00
 draft: false
 weight: 10714
 
@@ -34,7 +34,7 @@ weight: 10714
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002984a0)(<nil>)
+    (*impl.Scopes)(0xc000175040)(<nil>)
     
     ---------group vars----------
     
@@ -78,19 +78,19 @@ weight: 10714
           "name": "writeFile",
           "desc": "write content to a file",
           "cmd": {
+            "content": "{{.mystory}}",
             "filename": "mystory.txt",
-            "dir": "/tmp",
-            "content": "{{.mystory}}"
+            "dir": "/tmp"
           }
         },
         {
+          "name": "readFile",
+          "desc": "read content of a file and register it to a var",
           "cmd": {
             "filename": "mystory.txt",
             "dir": "/tmp",
             "reg": "my_interesting_story"
-          },
-          "name": "readFile",
-          "desc": "read content of a file and register it to a var"
+          }
         },
         {
           "name": "print",

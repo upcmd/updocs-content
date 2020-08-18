@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvvv"
-date: 2020-08-09T01:36:22+88:00
+date: 2020-08-18T15:16:19+88:00
 draft: false
 weight: 11504
 
@@ -34,7 +34,7 @@ weight: 11504
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001755a0)(<nil>)
+    (*impl.Scopes)(0xc0001c1600)(<nil>)
     
     ---------group vars----------
     
@@ -164,8 +164,10 @@ weight: 11504
     uname
     
     cmd=>:
-    uname<=
+    uname
+    -
     Linux
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=5) "uname",
@@ -254,27 +256,26 @@ weight: 11504
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux",
-      "result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      })
+      "os": "Linux"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "os": "Linux",
       "result": (*utils.ExecResult)({
         Cmd: "uname",
@@ -287,7 +288,8 @@ weight: 11504
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     facts OS: {{.os}}
@@ -327,6 +329,7 @@ weight: 11504
       Name: "",
       Do: {
         {
+          "func": "cmd",
           "do": {
             {
               "name": "print",
@@ -339,8 +342,7 @@ weight: 11504
                 "fg": "red"
               }
             }
-          },
-          "func": "cmd"
+          }
         }
       },
       Dox: <nil>,
@@ -363,6 +365,7 @@ weight: 11504
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -375,8 +378,7 @@ weight: 11504
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "os": "Linux"
     })
     
     [local] dvar expanded result:
@@ -385,6 +387,7 @@ weight: 11504
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -397,8 +400,7 @@ weight: 11504
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "os": "Linux"
     }
     
     
@@ -462,8 +464,8 @@ weight: 11504
     
     
     scope[local] merged: {
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "os": "Linux"
     }
     
     

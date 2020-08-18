@@ -1,6 +1,6 @@
 ---
 title: "0005_vvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100503
 
@@ -78,9 +78,9 @@ weight: 100503
     ~SubStep1: [inspect: the vars in caller before invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "a": "caller-global-aaa",
-      "b": "caller-global-bbb"
+      "a": "caller-global-aaa"
     })
     
      2: inspect[exec_base_vars]
@@ -93,17 +93,17 @@ weight: 100503
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "b": "caller-global-bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "b": "caller-global-bbb"
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
@@ -130,8 +130,8 @@ weight: 100503
     -------runtime global final merged with dvars-------
     
     {
-      "c": "module-global-ccc",
-      "a": "module-global-aaa"
+      "a": "module-global-aaa",
+      "c": "module-global-ccc"
     }
     
     =>call module: [hello-module] task: [Say_world]
@@ -144,20 +144,20 @@ weight: 100503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "d": "module-local-ddd",
       "c": "module-global-ccc",
       "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2,
-      "b": "caller-global-bbb",
-      "d": "module-local-ddd",
-      "a": "caller-global-aaa"
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb"
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
-      "a": "caller-global-aaa",
       "c": "module-global-ccc",
       "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2
@@ -172,19 +172,19 @@ weight: 100503
      ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "d": "module-local-ddd",
-      "a": "caller-global-aaa",
-      "c": "module-global-ccc",
-      "e": "caller-global-eee",
       "up_runtime_tasker_layer_number": 2,
-      "b": "caller-global-bbb"
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb",
+      "d": "module-local-ddd",
+      "c": "module-global-ccc",
+      "e": "caller-global-eee"
     })
     
      2: inspect[exec_base_vars]
     {
-      "e": "caller-global-eee",
       "a": "caller-global-aaa",
       "c": "module-global-ccc",
+      "e": "caller-global-eee",
       "b": "caller-global-bbb"
     }
     
@@ -198,31 +198,31 @@ weight: 100503
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "caller-global-bbb",
       "c": "module-global-ccc",
+      "up_runtime_tasker_layer_number": 2,
       "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "up_runtime_tasker_layer_number": 2
+      "b": "caller-global-bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "caller-global-bbb",
-      "c": "module-global-ccc",
       "e": "caller-global-eee",
       "a": "caller-global-aaa",
+      "b": "caller-global-bbb",
+      "c": "module-global-ccc",
       "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
+      "e": "caller-global-eee",
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "c": "module-global-ccc",
-      "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "up_runtime_tasker_layer_number": 2
     })
     
      2: inspect[exec_base_vars]

@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10473
 
@@ -44,15 +44,15 @@ weight: 10473
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "student_age": "28",
       "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
@@ -63,17 +63,17 @@ weight: 10473
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student_age": "28",
       "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_age": "28"
     })
     
     cmd( 1):
@@ -85,12 +85,14 @@ weight: 10473
     name: Tom Hanks
     age: 28
     """
-    <=
+    
+    -
     
     student details:
     name: Tom Hanks
     age: 28
     
+    -
      .. ok
     . ok
     

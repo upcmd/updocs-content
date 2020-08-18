@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvv"
-date: 2020-08-09T01:36:17+88:00
+date: 2020-08-18T15:16:13+88:00
 draft: false
 weight: 11223
 
@@ -43,8 +43,8 @@ weight: 11223
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     }
     
@@ -52,8 +52,8 @@ weight: 11223
     
     {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     }
     
@@ -74,8 +74,8 @@ weight: 11223
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     })
     
@@ -116,8 +116,8 @@ weight: 11223
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "student_age": ".student.age"
     })

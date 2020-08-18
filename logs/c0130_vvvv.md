@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:14+88:00
 draft: false
 weight: 11303
 
@@ -42,17 +42,17 @@ weight: 11303
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
+      "b": "global_bbb"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
       located task-> 1 [task]: 
@@ -70,11 +70,11 @@ weight: 11303
     self: final context exec vars:
     
     (*core.Cache)({
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "da": "local_da",
+      "db": "local_db"
     })
     
     condition failed, skip executing step 

@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10194
 
@@ -34,7 +34,7 @@ weight: 10194
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e4f00)(<nil>)
+    (*impl.Scopes)(0xc000174f00)(<nil>)
     
     ---------group vars----------
     
@@ -45,19 +45,19 @@ weight: 10194
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
-      },
-      "school": "sydney grammar"
+      }
     }
     
     (core.Cache) (len=2) {
+     (string) (len=6) "school": (string) (len=14) "sydney grammar",
      (string) (len=2) "sg": (map[string]interface {}) (len=2) {
       (string) (len=4) "name": (string) (len=14) "sydney grammar",
       (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000"
-     },
-     (string) (len=6) "school": (string) (len=14) "sydney grammar"
+     }
     }
     
     [runtime global] dvar expanded result:
@@ -68,11 +68,11 @@ weight: 10194
     -------runtime global final merged with dvars-------
     
     {
+      "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
-      },
-      "school": "sydney grammar"
+      }
     }
     
       located task-> 1 [task]: 
@@ -112,11 +112,11 @@ weight: 10194
     current exec runtime vars:
     (*core.Cache)({
       "school": "sydney grammar",
-      "studentname": "Tom",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
-      }
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
+      },
+      "studentname": "Tom"
     })
     
     [local] dvar expanded result:
@@ -125,11 +125,11 @@ weight: 10194
     
     
     scope[local] merged: {
-      "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
-      },
       "school": "sydney grammar",
+      "sg": {
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
+      },
       "studentname": "Tom"
     }
     
@@ -137,11 +137,11 @@ weight: 10194
     self: final context exec vars:
     
     (*core.Cache)({
-      "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
-      },
       "school": "sydney grammar",
+      "sg": {
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
+      },
       "studentname": "Tom"
     })
     
@@ -149,8 +149,10 @@ weight: 10194
     echo "studentname -> {{.studentname}}"
     
     cmd=>:
-    echo "studentname -> Tom"<=
+    echo "studentname -> Tom"
+    -
     studentname -> Tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=25) "echo \"studentname -> Tom\"",
@@ -163,8 +165,10 @@ weight: 10194
     echo "gender -> male"
     
     cmd=>:
-    echo "gender -> male"<=
+    echo "gender -> male"
+    -
     gender -> male
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=21) "echo \"gender -> male\"",
@@ -177,8 +181,10 @@ weight: 10194
     echo "school -> {{.school}}"
     
     cmd=>:
-    echo "school -> sydney grammar"<=
+    echo "school -> sydney grammar"
+    -
     school -> sydney grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=31) "echo \"school -> sydney grammar\"",
@@ -191,8 +197,10 @@ weight: 10194
     echo "nonexist -> {{.notexist}}"
     
     cmd=>:
-    echo "nonexist -> <no value>"<=
+    echo "nonexist -> <no value>"
+    -
     nonexist -> <no value>
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=29) "echo \"nonexist -> <no value>\"",
@@ -205,8 +213,10 @@ weight: 10194
     echo "SG details -> {{.sg.name}}/{{.sg.address}}"
     
     cmd=>:
-    echo "SG details -> sydney grammar/Sydney, NSW 2000"<=
+    echo "SG details -> sydney grammar/Sydney, NSW 2000"
+    -
     SG details -> sydney grammar/Sydney, NSW 2000
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=52) "echo \"SG details -> sydney grammar/Sydney, NSW 2000\"",

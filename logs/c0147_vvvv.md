@@ -1,6 +1,6 @@
 ---
 title: "c0147_vvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:19+88:00
 draft: false
 weight: 11473
 
@@ -42,17 +42,17 @@ weight: 11473
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "a": "aaa",
       "b": "bbb",
-      "c": "ccc"
+      "c": "ccc",
+      "a": "aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "a": "aaa",
       "b": "bbb",
-      "c": "ccc"
+      "c": "ccc",
+      "a": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -62,15 +62,15 @@ weight: 11473
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "d": "ddd",
-      "b": "bbb"
+      "b": "bbb",
+      "d": "ddd"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "bbb",
-      "d": "ddd"
+      "d": "ddd",
+      "b": "bbb"
     })
     
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
@@ -93,15 +93,15 @@ weight: 11473
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     })
     
       located task-> 2 [substack]: 
@@ -114,18 +114,18 @@ weight: 11473
       "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
-      "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "e": "first_level_eee"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "e": "first_level_eee",
       "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
-      "e": "first_level_eee"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [inspect: the vars in caller after invoking module task ]
@@ -134,14 +134,14 @@ weight: 11473
       "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
-      "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "e": "first_level_eee"
     })
     
      2: inspect[exec_base_vars]
     {
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     }
     
     

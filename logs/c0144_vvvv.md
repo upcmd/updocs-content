@@ -1,6 +1,6 @@
 ---
 title: "c0144_vvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:18+88:00
 draft: false
 weight: 11443
 
@@ -67,8 +67,10 @@ weight: 11443
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up
+    -
      .. ok
     . ok
     

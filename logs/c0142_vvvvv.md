@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvvv"
-date: 2020-08-09T01:36:20+88:00
+date: 2020-08-18T15:16:17+88:00
 draft: false
 weight: 11424
 
@@ -34,7 +34,7 @@ weight: 11424
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7060)(<nil>)
+    (*impl.Scopes)(0xc000177060)(<nil>)
     
     ---------group vars----------
     
@@ -84,11 +84,11 @@ weight: 11424
           }
         },
         {
-          "name": "colorPrint",
           "cmd": {
-            "fg": "white",
-            "msg": "hello, world"
-          }
+            "msg": "hello, world",
+            "fg": "white"
+          },
+          "name": "colorPrint"
         },
         {
           "name": "colorPrint",
@@ -99,17 +99,17 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
-            "bg": "red",
             "msg": "{{.person.name}}: {{.person.age}}",
-            "fg": "blue"
+            "fg": "blue",
+            "bg": "red"
           }
         },
         {
           "name": "colorPrint",
           "cmd": {
+            "object": "person",
             "fg": "blue",
-            "bg": "black",
-            "object": "person"
+            "bg": "black"
           }
         },
         {
@@ -123,10 +123,10 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
+            "bg": "black",
             "object": "person",
             "msg": "person",
-            "fg": "blue",
-            "bg": "black"
+            "fg": "blue"
           }
         }
       },
@@ -134,8 +134,8 @@ weight: 11424
       Func: "cmd",
       Vars: {
         "person": {
-          "name": "tom",
-          "age": 18
+          "age": 18,
+          "name": "tom"
         },
         "objectname": "person"
       },
@@ -169,11 +169,11 @@ weight: 11424
     
     
     scope[local] merged: {
-      "objectname": "person",
       "person": {
-        "age": 18,
-        "name": "tom"
-      }
+        "name": "tom",
+        "age": 18
+      },
+      "objectname": "person"
     }
     
     

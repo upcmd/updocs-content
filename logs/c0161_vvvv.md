@@ -1,6 +1,6 @@
 ---
 title: "c0161_vvvv"
-date: 2020-08-09T01:36:24+88:00
+date: 2020-08-18T15:16:22+88:00
 draft: false
 weight: 11613
 
@@ -133,8 +133,10 @@ weight: 11613
     echo "{{.aaa}}"
     
     cmd=>:
-    echo "var_a_from_task"<=
+    echo "var_a_from_task"
+    -
     var_a_from_task
+    -
      .. ok
     . ok
     

@@ -1,6 +1,6 @@
 ---
 title: "f0172_vvvv"
-date: 2020-08-09T01:36:30+88:00
+date: 2020-08-18T15:16:29+88:00
 draft: false
 weight: 11723
 
@@ -68,10 +68,6 @@ weight: 11723
     ~SubStep2: [panic:  ]
      WARN: [manual panic] - [manual trigger a panic cmd]
     Step Finally:
-    (*utils.ExecResult)(<nil>)
-    
-    <nil>
-    
     Recovered from: manual trigger a panic cmd
       located task-> 2 [close_file]: 
     =Task2: [task ==> close_file:  ]
@@ -81,8 +77,8 @@ weight: 11723
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     self: final context exec vars:
@@ -96,12 +92,14 @@ weight: 11723
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     . ok
-     WARN: [No rescued in step level] - [please assess the panic problem and cause, fix it before re-run the task]
-     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in step level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
     task finally -> manual trigger a panic cmd
     
 ```

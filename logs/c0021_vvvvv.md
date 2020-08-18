@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvvv"
-date: 2020-08-09T01:36:02+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10214
 
@@ -77,10 +77,10 @@ weight: 10214
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "student": "Tom",
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+        "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+        "student": "Tom",
+        "gender": "Male"
       },
       Dvars: <nil>,
       Desc: "",
@@ -101,10 +101,10 @@ weight: 10214
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+      "student": "Tom"
     })
     
     [local] dvar expanded result:
@@ -113,20 +113,20 @@ weight: 10214
     
     
     scope[local] merged: {
-      "gender": "Male",
       "school": "Sydney Grammar",
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom"
+      "student": "Tom",
+      "gender": "Male"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
+      "school": "Sydney Grammar"
     })
     
     cmd( 1):
@@ -139,10 +139,12 @@ weight: 10214
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    <=
+    
+    -
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=81) "echo \"\"\"my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar\"\"\"\n",
@@ -163,10 +165,12 @@ weight: 10214
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    <=
+    
+    -
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=82) "\necho \"\"\"my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar\"\"\"\n",
@@ -191,10 +195,12 @@ weight: 10214
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    <=
+    
+    -
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=84) "\n\n\necho \"\"\"my student: Tom\nstudent's gender: Male\n school's name: Sydney Grammar\"\"\"\n",
@@ -217,16 +223,16 @@ weight: 10214
     
     -----trace for reference-----
     cmd=>:
-    echo """my school: <=
-          exec wait -> exit status 2
-    -----trace for reference-----
-          exit status 2
+    echo """my school: 
+    -
+    /bin/sh: syntax error: unterminated quoted string
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"\"\"my school: ",
      Code: (int) 2,
      Output: (string) "",
-     ErrMsg: (string) (len=13) "exit status 2"
+     ErrMsg: (string) (len=50) "/bin/sh: syntax error: unterminated quoted string\n"
     }
     
     cmd( 5):
@@ -238,11 +244,13 @@ weight: 10214
      gender: Male
      school: Sydney Grammar
     """
-    <=
+    
+    -
     my student: student: Tom
      gender: Male
      school: Sydney Grammar
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=75) "echo \"\"\"my student: student: Tom\n gender: Male\n school: Sydney Grammar\n\"\"\"\n",

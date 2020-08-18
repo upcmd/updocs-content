@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10073
 
@@ -67,15 +67,19 @@ weight: 10073
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
     -Step2:
@@ -104,15 +108,19 @@ weight: 10073
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
     -Step3:
@@ -141,15 +149,19 @@ weight: 10073
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
     

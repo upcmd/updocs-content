@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvv"
-date: 2020-08-09T01:36:44+88:00
+date: 2020-08-18T15:16:53+88:00
 draft: false
 weight: 101003
 
@@ -97,15 +97,15 @@ weight: 101003
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [print:  ]
@@ -156,8 +156,8 @@ weight: 101003
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "a": "aaa"
     })
     
     hi-module: final context exec vars:

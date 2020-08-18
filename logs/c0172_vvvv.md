@@ -1,6 +1,6 @@
 ---
 title: "c0172_vvvv"
-date: 2020-08-09T01:36:26+88:00
+date: 2020-08-18T15:16:24+88:00
 draft: false
 weight: 11723
 
@@ -68,10 +68,6 @@ weight: 11723
     ~SubStep2: [panic:  ]
      WARN: [manual panic] - [manual trigger a panic cmd]
     Step Finally:
-    (*utils.ExecResult)(<nil>)
-    
-    <nil>
-    
     Recovered from: manual trigger a panic cmd
       located task-> 2 [close_file]: 
     =Task2: [task ==> close_file:  ]
@@ -88,16 +84,18 @@ weight: 11723
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     cmd( 1):
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     . ok
      WARN: [Rescued in step level, but not advised!] - [setting rescue to yes/true to continue is not recommended

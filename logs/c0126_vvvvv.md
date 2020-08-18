@@ -1,6 +1,6 @@
 ---
 title: "c0126_vvvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:13+88:00
 draft: false
 weight: 11264
 
@@ -34,7 +34,7 @@ weight: 11264
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000a2740)(<nil>)
+    (*impl.Scopes)(0xc0001e7320)(<nil>)
     
     ---------group vars----------
     
@@ -69,8 +69,8 @@ weight: 11264
       Name: "",
       Do: {
         {
-          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n",
-          "name": "print"
+          "name": "print",
+          "cmd": "true/false value of goahead:\n{{.goahead}}\n{{not .goahead}}\n"
         }
       },
       Dox: <nil>,
@@ -217,8 +217,8 @@ weight: 11264
       Name: "",
       Do: {
         {
-          "cmd": "do something else .......",
-          "name": "print"
+          "name": "print",
+          "cmd": "do something else ......."
         }
       },
       Dox: <nil>,

@@ -1,6 +1,6 @@
 ---
 title: "c0169_vvvv"
-date: 2020-08-09T01:36:26+88:00
+date: 2020-08-18T15:16:23+88:00
 draft: false
 weight: 11693
 
@@ -67,12 +67,12 @@ weight: 11693
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
@@ -81,7 +81,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -92,7 +92,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -101,28 +101,32 @@ weight: 11693
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     hello, world
+    -
      .. ok
     cmd( 2):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     hello, world
+    -
      .. ok
     . ok
     -Step3: [: an example of retry
@@ -153,45 +157,45 @@ weight: 11693
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step4: [: an example of retry
@@ -203,7 +207,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -214,7 +218,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -225,11 +229,11 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": "retry1",
-      "loopindex1": 1
+      "loopindex1": 1,
+      "loopitem": "retry1"
     })
     
     self: final context exec vars:
@@ -238,23 +242,23 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": "retry1",
-      "loopindex1": 1
+      "loopindex1": 1,
+      "loopitem": "retry1"
     })
     
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
@@ -263,11 +267,11 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": "retry1",
-      "loopindex1": 1
+      "loopindex1": 1,
+      "loopitem": "retry1"
     })
     
     self: final context exec vars:
@@ -276,11 +280,11 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": "retry1",
-      "loopindex1": 1
+      "loopindex1": 1,
+      "loopitem": "retry1"
     })
     
     ~SubStep1: [sleep: delay 2 seconds in each attemp ]
@@ -292,7 +296,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "loopitem": "retry2",
@@ -306,7 +310,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "loopitem": "retry2",
@@ -318,24 +322,55 @@ weight: 11693
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "loopitem": "retry2",
       "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
+      "loopitem": "retry2",
+      "loopindex": 1
+    })
+    
+    ~SubStep1: [sleep: delay 2 seconds in each attemp ]
+    sleeping 200 milli seconds
+    ..
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "retry3",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -346,27 +381,36 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": "retry2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopitem": "retry3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
-    ~SubStep1: [sleep: delay 2 seconds in each attemp ]
-    sleeping 200 milli seconds
-    ..
-    -Step1:
+    cmd( 1):
+    ping goole.com
+    
+    cmd=>:
+    ping goole.com
+     WARN: [explicit timeout:] - [500 milli seconds]
+    -
+    PING goole.com (217.160.0.201): 56 data bytes
+    -
+     WARN: [timeout] - [shell execution timed out]
+     .. failed(suppressed if it is not the last step)
+     WARN: [HightLight:] - [Error ignored!!!]
+    -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "loopindex": 2,
       "loopindex1": 3,
       "loopitem": "retry3"
     })
@@ -374,53 +418,13 @@ weight: 11693
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "retry3",
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopindex1": 3,
-      "loopitem": "retry3",
-      "loopindex": 2
-    })
-    
-    cmd( 1):
-    ping goole.com
-    
-    cmd=>:
-    ping goole.com<=
-     WARN: [explicit timeout:] - [500 milli seconds]
-    PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
-     WARN: [timeout] - [shell execution timed out]
-          signal: killed
-     .. failed(suppressed if it is not the last step)
-     WARN: [HightLight:] - [Error ignored!!!]
-    -Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
-      "loopitem": "retry3",
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
-      "loopitem": "retry3",
       "loopindex": 2,
       "loopindex1": 3
     })
@@ -431,15 +435,15 @@ weight: 11693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 3,
+      "loopindex1": 4,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": "retry4",
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopitem": "retry4"
     })
     
     self: final context exec vars:
@@ -448,7 +452,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "loopitem": "retry4",
@@ -460,12 +464,12 @@ weight: 11693
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
@@ -474,7 +478,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "loopitem": "retry4",
@@ -488,7 +492,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "loopitem": "retry4",
@@ -506,7 +510,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -517,7 +521,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       })
     })
@@ -526,67 +530,67 @@ weight: 11693
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step6: [: an example of retry
@@ -596,6 +600,12 @@ weight: 11693
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "myretry": {
         100,
         101,
@@ -603,13 +613,7 @@ weight: 11693
         103,
         104,
         105
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      })
+      }
     })
     
     self: final context exec vars:
@@ -618,7 +622,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -634,19 +638,19 @@ weight: 11693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
-      "loopindex1": 1,
       "loopitem": 100
     })
     
@@ -659,37 +663,31 @@ weight: 11693
         102,
         103
       },
+      "loopitem": 100,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      }),
-      "loopindex1": 1,
-      "loopitem": 100
+      })
     })
     
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
@@ -697,18 +695,18 @@ weight: 11693
         103
       },
       "loopitem": 100,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
@@ -716,7 +714,13 @@ weight: 11693
         103
       },
       "loopitem": 100,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      })
     })
     
     ~SubStep1: [sleep: delay 2 seconds in each attemp ]
@@ -725,65 +729,62 @@ weight: 11693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": 101,
       "loopindex": 1,
       "loopindex1": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      })
+      "loopitem": 101
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
       "loopitem": 101,
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": 101,
-      "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -791,7 +792,10 @@ weight: 11693
         101,
         102,
         103
-      }
+      },
+      "loopitem": 101,
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     self: final context exec vars:
@@ -800,7 +804,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -820,38 +824,38 @@ weight: 11693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 2,
       "loopindex1": 3,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
-      "loopitem": 102,
-      "loopindex": 2
+      "loopitem": 102
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
       "loopitem": 102,
       "loopindex": 2,
       "loopindex1": 3
@@ -861,44 +865,24 @@ weight: 11693
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
       "loopitem": 102,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopindex": 2
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "loopindex": 2,
       "loopindex1": 3,
-      "loopitem": 102,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -907,6 +891,26 @@ weight: 11693
         102,
         103
       }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "loopitem": 102,
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     ~SubStep1: [sleep: delay 2 seconds in each attemp ]
@@ -915,11 +919,30 @@ weight: 11693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "loopindex1": 4,
       "loopitem": 103,
+      "loopindex": 3,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -928,40 +951,21 @@ weight: 11693
         102,
         103
       },
-      "loopindex": 3,
-      "loopindex1": 4
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 3,
       "loopindex1": 4,
       "loopitem": 103,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      }
+      "loopindex": 3
     })
     
     cmd( 1):
     ping goole.com
     
     cmd=>:
-    ping goole.com<=
+    ping goole.com
      WARN: [explicit timeout:] - [500 milli seconds]
+    -
     PING goole.com (217.160.0.201): 56 data bytes
-          exec wait -> signal: killed
+    -
      WARN: [timeout] - [shell execution timed out]
-          signal: killed
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step2:
@@ -971,7 +975,7 @@ weight: 11693
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -987,10 +991,12 @@ weight: 11693
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 3,
+      "loopindex1": 4,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
-        Output: "",
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
       "myretry": {
@@ -999,9 +1005,7 @@ weight: 11693
         102,
         103
       },
-      "loopitem": 103,
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopitem": 103
     })
     
     ~SubStep1: [sleep: delay 2 seconds in each attemp ]

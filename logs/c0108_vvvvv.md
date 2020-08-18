@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvvv"
-date: 2020-08-09T01:36:15+88:00
+date: 2020-08-18T15:16:09+88:00
 draft: false
 weight: 11084
 
@@ -34,7 +34,7 @@ weight: 11084
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1460)(<nil>)
+    (*impl.Scopes)(0xc000177400)(<nil>)
     
     ---------group vars----------
     
@@ -102,8 +102,8 @@ weight: 11084
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "jerry": "this is jerry"
     })
     
     [local] dvar expanded result:
@@ -135,9 +135,9 @@ weight: 11084
       Name: "",
       Do: {
         {
+          "cmd": "{{.jerry}}",
           "name": "print",
-          "desc": "jerry is in local scope so there is no value",
-          "cmd": "{{.jerry}}"
+          "desc": "jerry is in local scope so there is no value"
         }
       },
       Dox: <nil>,
@@ -187,9 +187,9 @@ weight: 11084
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}"
+          "cmd": "{{.jerry}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -371,9 +371,9 @@ weight: 11084
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "this should print out the jerry defined in task var scope",
-          "cmd": "{{.jerry}}"
+          "cmd": "{{.jerry}}",
+          "name": "print"
         }
       },
       Dox: <nil>,

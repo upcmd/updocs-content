@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:14+88:00
 draft: false
 weight: 11304
 
@@ -34,7 +34,7 @@ weight: 11304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e56e0)(<nil>)
+    (*impl.Scopes)(0xc0001756e0)(<nil>)
     
     ---------group vars----------
     
@@ -45,15 +45,15 @@ weight: 11304
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "c": (string) (len=10) "global_ccc",
      (string) (len=1) "a": (string) (len=10) "global_aaa",
-     (string) (len=1) "b": (string) (len=10) "global_bbb",
-     (string) (len=1) "c": (string) (len=10) "global_ccc"
+     (string) (len=1) "b": (string) (len=10) "global_bbb"
     }
     
     [runtime global] dvar expanded result:
@@ -64,9 +64,9 @@ weight: 11304
     -------runtime global final merged with dvars-------
     
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc"
     }
     
       located task-> 1 [task]: 
@@ -78,13 +78,14 @@ weight: 11304
       Name: "",
       Do: {
         {
+          "func": "shell",
           "do": {
             "echo \"shell step1\"",
             "echo \"shell step2\""
-          },
-          "func": "shell"
+          }
         },
         {
+          "func": "cmd",
           "vars": {
             "a": "block_layer1_aaa"
           },
@@ -93,8 +94,7 @@ weight: 11304
               "name": "print",
               "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          },
-          "func": "cmd"
+          }
         },
         {
           "func": "shell",
@@ -106,8 +106,8 @@ weight: 11304
         {
           "desc": "test embeded 2nd layer of block",
           "vars": {
-            "a": "local_block_layer2_aaa",
-            "b": "local_block_layer2_bbb"
+            "b": "local_block_layer2_bbb",
+            "a": "local_block_layer2_aaa"
           },
           "dvars": {
             {
@@ -192,15 +192,15 @@ weight: 11304
           }
         },
         {
+          "func": "cmd",
+          "vars": {
+            "a": "block_layer1_aaa_else"
+          },
           "do": {
             {
               "name": "print",
               "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
             }
-          },
-          "func": "cmd",
-          "vars": {
-            "a": "block_layer1_aaa_else"
           }
         }
       },
@@ -215,9 +215,9 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     [local] dvar expanded result:
@@ -228,22 +228,22 @@ weight: 11304
     
     
     scope[local] merged: {
+      "da": "local_da",
       "db": "local_db",
-      "c": "global_ccc",
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da"
+      "c": "global_ccc"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
-      "c": "global_ccc",
+      "da": "local_da",
       "a": "local_aaa",
       "b": "local_bbb",
-      "da": "local_da"
+      "c": "global_ccc",
+      "db": "local_db"
     })
     
     condition failed, skip executing step 

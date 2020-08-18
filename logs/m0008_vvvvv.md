@@ -1,6 +1,6 @@
 ---
 title: "0008_vvvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:53+88:00
 draft: false
 weight: 100804
 
@@ -34,7 +34,7 @@ weight: 100804
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001750a0)(<nil>)
+    (*impl.Scopes)(0xc0001c1100)(<nil>)
     
     ---------group vars----------
     
@@ -119,7 +119,7 @@ weight: 100804
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175f00)(<nil>)
+    (*impl.Scopes)(0xc000276020)(<nil>)
     
     ---------group vars----------
     

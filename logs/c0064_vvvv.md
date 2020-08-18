@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10643
 
@@ -43,9 +43,9 @@ weight: 10643
     merged[ dev ] runtime vars:
     {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     }
     
@@ -53,9 +53,9 @@ weight: 10643
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -77,9 +77,9 @@ weight: 10643
     
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       }
     })
     
@@ -87,17 +87,19 @@ weight: 10643
     echo "hello 1"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -111,9 +113,9 @@ weight: 10643
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",

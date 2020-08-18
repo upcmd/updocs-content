@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvvv"
-date: 2020-08-09T01:36:44+88:00
+date: 2020-08-18T15:16:53+88:00
 draft: false
 weight: 101304
 
@@ -34,7 +34,7 @@ weight: 101304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000098220)(<nil>)
+    (*impl.Scopes)(0xc0001c0de0)(<nil>)
     
     ---------group vars----------
     
@@ -117,7 +117,7 @@ weight: 101304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002b27e0)(<nil>)
+    (*impl.Scopes)(0xc0001c1ee0)(<nil>)
     
     ---------group vars----------
     
@@ -155,8 +155,8 @@ weight: 101304
       Name: "",
       Do: {
         {
-          "cmd": "... hello",
-          "name": "print"
+          "name": "print",
+          "cmd": "... hello"
         }
       },
       Dox: <nil>,
@@ -181,8 +181,8 @@ weight: 101304
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -263,7 +263,7 @@ weight: 101304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00035c1e0)(<nil>)
+    (*impl.Scopes)(0xc00026b9e0)(<nil>)
     
     ---------group vars----------
     

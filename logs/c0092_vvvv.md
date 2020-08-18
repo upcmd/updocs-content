@@ -1,6 +1,6 @@
 ---
 title: "c0092_vvvv"
-date: 2020-08-09T01:36:12+88:00
+date: 2020-08-18T15:16:05+88:00
 draft: false
 weight: 10923
 
@@ -66,8 +66,8 @@ weight: 10923
     
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     })
     
@@ -89,8 +89,8 @@ weight: 10923
     
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       },
       "up_runtime_task_layer_number": 1
     })

@@ -1,6 +1,6 @@
 ---
 title: "c0147_vvvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:19+88:00
 draft: false
 weight: 11474
 
@@ -34,7 +34,7 @@ weight: 11474
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00013f480)(<nil>)
+    (*impl.Scopes)(0xc0001bf480)(<nil>)
     
     ---------group vars----------
     
@@ -45,15 +45,15 @@ weight: 11474
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "c": "ccc",
       "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "c": "ccc"
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "a": (string) (len=3) "aaa",
      (string) (len=1) "b": (string) (len=3) "bbb",
-     (string) (len=1) "c": (string) (len=3) "ccc"
+     (string) (len=1) "c": (string) (len=3) "ccc",
+     (string) (len=1) "a": (string) (len=3) "aaa"
     }
     
     [runtime global] dvar expanded result:
@@ -64,9 +64,9 @@ weight: 11474
     -------runtime global final merged with dvars-------
     
     {
-      "c": "ccc",
       "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "c": "ccc"
     }
     
       located task-> 1 [task]: 
@@ -86,18 +86,18 @@ weight: 11474
           }
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .b  \"bbb\"}}",
             "{{eq .d  \"ddd\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "d": "ddd",
-        "b": "bbb"
+        "b": "bbb",
+        "d": "ddd"
       },
       Dvars: <nil>,
       Desc: "",
@@ -118,8 +118,8 @@ weight: 11474
     
     current exec runtime vars:
     (*core.Cache)({
-      "d": "ddd",
-      "b": "bbb"
+      "b": "bbb",
+      "d": "ddd"
     })
     
     [local] dvar expanded result:
@@ -128,31 +128,31 @@ weight: 11474
     
     
     scope[local] merged: {
-      "d": "ddd",
-      "b": "bbb"
+      "b": "bbb",
+      "d": "ddd"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "d": "ddd",
-      "b": "bbb"
+      "b": "bbb",
+      "d": "ddd"
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "d": "ddd",
-      "b": "bbb"
+      "b": "bbb",
+      "d": "ddd"
     })
     
      2: inspect[exec_base_vars]
     {
-      "c": "ccc",
       "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "c": "ccc"
     }
     
     [{{eq .b  "bbb"}} {{eq .d  "ddd"}}]
@@ -166,8 +166,8 @@ weight: 11474
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "e": "first_level_eee",
-        "f": "first_level_fff"
+        "f": "first_level_fff",
+        "e": "first_level_eee"
       },
       Dvars: <nil>,
       Desc: "",
@@ -198,8 +198,8 @@ weight: 11474
     
     
     scope[local] merged: {
-      "f": "first_level_fff",
-      "e": "first_level_eee"
+      "e": "first_level_eee",
+      "f": "first_level_fff"
     }
     
     
@@ -236,9 +236,9 @@ weight: 11474
       Dox: <nil>,
       Func: "cmd",
       Vars: {
+        "f": "fff",
         "g": "ggg",
-        "h": "hhh",
-        "f": "fff"
+        "h": "hhh"
       },
       Dvars: <nil>,
       Desc: "",
@@ -270,33 +270,33 @@ weight: 11474
     
     
     scope[local] merged: {
+      "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
       "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff"
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
       "f": "first_level_fff",
       "g": "ggg",
-      "h": "hhh"
+      "h": "hhh",
+      "e": "first_level_eee"
     })
     
     [exec_vars exec_base_vars]
     ~~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
       "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "f": "first_level_fff"
     })
     
      2: inspect[exec_base_vars]

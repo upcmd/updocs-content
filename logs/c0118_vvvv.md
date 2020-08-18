@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvv"
-date: 2020-08-09T01:36:16+88:00
+date: 2020-08-18T15:16:12+88:00
 draft: false
 weight: 11183
 
@@ -53,12 +53,12 @@ weight: 11183
     -------runtime global final merged with dvars-------
     
     {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     }
     
       located task-> 1 [task]: 
@@ -69,23 +69,23 @@ weight: 11183
     current exec runtime vars:
     (*core.Cache)({
       "loopkey": "items",
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "person": "tom"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
+      "loopkey": "items",
       "person": "tom"
     })
     
@@ -94,12 +94,12 @@ weight: 11183
     -Step2: [step1: demo use if condition is true ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
+      "loopkey": "items",
       "person": "tom"
     })
     
@@ -107,12 +107,12 @@ weight: 11183
     
     (*core.Cache)({
       "loopkey": "items",
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "person": "tom"
+      }
     })
     
     condition failed, skip executing step step1
@@ -120,23 +120,23 @@ weight: 11183
     -Step3: [step1: demo use dynamic key to ref to a loop item from var ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
     ~SubStep1: [print:  ]

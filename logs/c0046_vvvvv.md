@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10464
 
@@ -34,7 +34,7 @@ weight: 10464
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001773c0)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001ed3c0)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -82,8 +82,8 @@ weight: 10464
     
     
     scope[global] merged: {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     }
     
     
@@ -116,9 +116,9 @@ weight: 10464
     -------runtime global final merged with dvars-------
     
     {
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
       located task-> 1 [task]: 
@@ -208,24 +208,24 @@ weight: 10464
     
     
     scope[local] merged: {
+      "empty_env_var": "None",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "someone": "None",
-      "i_am_empty": "None",
-      "empty_env_var": "None"
+      "i_am_empty": "None"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "someone": "None",
       "i_am_empty": "None",
-      "empty_env_var": "None"
+      "empty_env_var": "None",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     })
     
     cmd( 1):
@@ -238,10 +238,12 @@ weight: 10464
     echo "None"
     echo "None"
     echo "None"
-    <=
+    
+    -
     None
     None
     None
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=36) "echo \"None\"\necho \"None\"\necho \"None\"\n",
@@ -300,21 +302,7 @@ weight: 10464
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
-        Code: 0,
-        Output: "None\nNone\nNone",
-        ErrMsg: ""
-      }),
       "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
@@ -322,8 +310,22 @@ weight: 10464
         Code: 0,
         Output: "None\nNone\nNone",
         ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
       }),
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     })
     
     [exec_vars exec_base_vars]

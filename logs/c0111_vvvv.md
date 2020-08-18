@@ -1,6 +1,6 @@
 ---
 title: "c0111_vvvv"
-date: 2020-08-09T01:36:15+88:00
+date: 2020-08-18T15:16:10+88:00
 draft: false
 weight: 11113
 
@@ -60,21 +60,21 @@ weight: 11113
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "global_a": "aaa",
-      "global_b": "bbb",
-      "tom": "my name is tom",
       "local_a": "aaa",
-      "local_b": "bbb"
+      "local_b": "bbb",
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "tom": "my name is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "global_b": "bbb",
+      "global_a": "aaa",
       "tom": "my name is tom",
       "local_a": "aaa",
-      "local_b": "bbb",
-      "global_a": "aaa"
+      "local_b": "bbb"
     })
     
       located task-> 2 [subtask1]: 
@@ -84,22 +84,22 @@ weight: 11113
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "tom": "my name is tom",
       "local_a": "aaa",
       "local_b": "bbb",
-      "global_a": "aaa",
-      "global_b": "bbb",
-      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "tom": "my name is tom",
       "local_a": "aaa",
       "local_b": "bbb",
-      "global_a": "aaa",
-      "global_b": "bbb",
-      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -110,23 +110,23 @@ weight: 11113
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 1,
       "tom": "my name is tom",
-      "local_b": "bbb",
       "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb",
+      "up_runtime_task_layer_number": 1,
       "global_b": "bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "local_b": "bbb",
+      "tom": "my name is tom",
       "global_a": "aaa",
-      "global_b": "bbb",
       "local_a": "aaa",
+      "local_b": "bbb",
       "up_runtime_task_layer_number": 1,
-      "tom": "my name is tom"
+      "global_b": "bbb"
     })
     
     ~~SubStep1: [print:  ]

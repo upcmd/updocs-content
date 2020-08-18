@@ -1,6 +1,6 @@
 ---
 title: "c0112_vvvvv"
-date: 2020-08-09T01:36:16+88:00
+date: 2020-08-18T15:16:10+88:00
 draft: false
 weight: 11124
 
@@ -34,7 +34,7 @@ weight: 11124
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c17a0)(<nil>)
+    (*impl.Scopes)(0xc0001e5740)(<nil>)
     
     ---------group vars----------
     
@@ -45,13 +45,13 @@ weight: 11124
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "global_a": "aaa",
-      "global_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=8) "global_a": (string) (len=3) "aaa",
-     (string) (len=8) "global_b": (string) (len=3) "bbb"
+     (string) (len=8) "global_b": (string) (len=3) "bbb",
+     (string) (len=8) "global_a": (string) (len=3) "aaa"
     }
     
     [runtime global] dvar expanded result:
@@ -62,8 +62,8 @@ weight: 11124
     -------runtime global final merged with dvars-------
     
     {
-      "global_a": "aaa",
-      "global_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -79,9 +79,9 @@ weight: 11124
       Dox: <nil>,
       Func: "call",
       Vars: {
+        "tom": "my name is tom",
         "local_a": "aaa",
-        "local_b": "bbb",
-        "tom": "my name is tom"
+        "local_b": "bbb"
       },
       Dvars: <nil>,
       Desc: "",
@@ -100,9 +100,9 @@ weight: 11124
     
     current exec runtime vars:
     (*core.Cache)({
-      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom"
     })
@@ -113,31 +113,31 @@ weight: 11124
     
     
     scope[local] merged: {
-      "local_a": "aaa",
-      "global_b": "bbb",
       "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb",
-      "tom": "my name is tom"
+      "tom": "my name is tom",
+      "global_b": "bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "my name is tom",
-      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
-      "local_b": "bbb"
+      "local_a": "aaa",
+      "local_b": "bbb",
+      "tom": "my name is tom"
     })
     
     caller's vars to task (subtask1)::
     (*core.Cache)({
       "global_b": "bbb",
       "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb",
-      "tom": "my name is tom",
-      "local_a": "aaa"
+      "tom": "my name is tom"
     })
     
       located task-> 2 [subtask1]: 
@@ -149,14 +149,14 @@ weight: 11124
       Name: "",
       Do: {
         {
-          "cmd": "{{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.tom}}"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .tom \"my name is tom\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -180,11 +180,11 @@ weight: 11124
     current exec runtime vars:
     (*core.Cache)({
       "local_a": "aaa",
-      "global_b": "bbb",
-      "global_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
+      "global_a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -193,24 +193,24 @@ weight: 11124
     
     
     scope[local] merged: {
-      "global_a": "aaa",
-      "local_b": "bbb",
-      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
+      "global_a": "aaa",
       "local_a": "aaa",
-      "global_b": "bbb"
+      "local_b": "bbb",
+      "tom": "my name is tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
       "up_runtime_task_layer_number": 1,
-      "local_a": "aaa",
-      "global_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa"
     })
     
     {{.tom}}
@@ -256,11 +256,11 @@ weight: 11124
     
     current exec runtime vars:
     (*core.Cache)({
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 1,
       "tom": "my name is tom",
+      "up_runtime_task_layer_number": 1,
       "global_b": "bbb",
       "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb"
     })
     
@@ -270,24 +270,24 @@ weight: 11124
     
     
     scope[local] merged: {
-      "global_a": "aaa",
-      "local_b": "bbb",
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 1,
       "tom": "my name is tom",
-      "global_b": "bbb"
+      "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_a": "aaa",
       "local_b": "bbb",
-      "local_a": "aaa",
-      "up_runtime_task_layer_number": 1,
       "tom": "my name is tom",
-      "global_b": "bbb"
+      "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa"
     })
     
     {{.tom}}
@@ -322,11 +322,11 @@ weight: 11124
     
     current exec runtime vars:
     (*core.Cache)({
+      "global_b": "bbb",
       "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "local_a": "aaa",
-      "global_b": "bbb",
       "up_runtime_task_layer_number": 1
     })
     
@@ -337,33 +337,33 @@ weight: 11124
     
     scope[local] merged: {
       "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "local_a": "aaa",
-      "global_b": "bbb",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "global_b": "bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_a": "aaa",
-      "local_b": "bbb",
       "tom": "my name is tom",
-      "local_a": "aaa",
+      "up_runtime_task_layer_number": 1,
       "global_b": "bbb",
-      "up_runtime_task_layer_number": 1
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb"
     })
     
     caller's vars to task (subtask2)::
     (*core.Cache)({
-      "local_a": "aaa",
-      "global_b": "bbb",
+      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1,
+      "global_b": "bbb",
       "global_a": "aaa",
-      "local_b": "bbb",
-      "tom": "my name is tom"
+      "local_a": "aaa",
+      "local_b": "bbb"
     })
     
       located task-> 3 [subtask2]: 
@@ -375,14 +375,14 @@ weight: 11124
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.tom}}"
+          "cmd": "{{.tom}}",
+          "name": "print"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .tom \"my name is tom\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -405,12 +405,12 @@ weight: 11124
     
     current exec runtime vars:
     (*core.Cache)({
-      "local_b": "bbb",
       "tom": "my name is tom",
-      "local_a": "aaa",
-      "global_b": "bbb",
       "up_runtime_task_layer_number": 2,
-      "global_a": "aaa"
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb"
     })
     
     [local] dvar expanded result:
@@ -420,23 +420,23 @@ weight: 11124
     
     scope[local] merged: {
       "local_a": "aaa",
-      "global_b": "bbb",
-      "up_runtime_task_layer_number": 2,
-      "global_a": "aaa",
       "local_b": "bbb",
-      "tom": "my name is tom"
+      "tom": "my name is tom",
+      "up_runtime_task_layer_number": 2,
+      "global_b": "bbb",
+      "global_a": "aaa"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "local_a": "aaa",
-      "global_b": "bbb",
-      "up_runtime_task_layer_number": 2,
-      "global_a": "aaa"
+      "up_runtime_task_layer_number": 2
     })
     
     {{.tom}}
@@ -450,14 +450,14 @@ weight: 11124
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.tom}}"
+          "cmd": "{{.tom}}",
+          "name": "print"
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .tom \"my name is tom\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -483,10 +483,10 @@ weight: 11124
     current exec runtime vars:
     (*core.Cache)({
       "tom": "my name is tom",
-      "global_a": "aaa",
-      "local_b": "bbb",
-      "local_a": "aaa",
       "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb",
       "up_runtime_task_layer_number": 2
     })
     
@@ -496,12 +496,12 @@ weight: 11124
     
     
     scope[local] merged: {
-      "tom": "my name is tom",
-      "global_a": "aaa",
-      "local_b": "bbb",
-      "local_a": "aaa",
       "global_b": "bbb",
-      "up_runtime_task_layer_number": 2
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb",
+      "up_runtime_task_layer_number": 2,
+      "tom": "my name is tom"
     }
     
     
@@ -509,10 +509,10 @@ weight: 11124
     
     (*core.Cache)({
       "tom": "my name is tom",
-      "global_a": "aaa",
-      "local_b": "bbb",
-      "local_a": "aaa",
       "global_b": "bbb",
+      "global_a": "aaa",
+      "local_a": "aaa",
+      "local_b": "bbb",
       "up_runtime_task_layer_number": 2
     })
     

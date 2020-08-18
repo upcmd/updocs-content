@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvvv"
-date: 2020-08-09T01:36:04+88:00
+date: 2020-08-18T15:15:54+88:00
 draft: false
 weight: 10404
 
@@ -34,7 +34,7 @@ weight: 10404
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f60)(<nil>)
+    (*impl.Scopes)(0xc0000a2380)(<nil>)
     
     ---------group vars----------
     
@@ -110,7 +110,8 @@ weight: 10404
     cd ./tests/functests; ls f*.yml
     
     cmd=>:
-    cd ./tests/functests; ls f*.yml<=
+    cd ./tests/functests; ls f*.yml
+    -
     f0001.yml
     f0002.yml
     f0009.yml
@@ -132,11 +133,13 @@ weight: 10404
     f0171.yml
     f0172.yml
     f0176.yml
+    f0178.yml
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=31) "cd ./tests/functests; ls f*.yml",
      Code: (int) 0,
-     Output: (string) (len=209) "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+     Output: (string) (len=219) "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
      ErrMsg: (string) ""
     }
     
@@ -167,16 +170,16 @@ weight: 10404
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "cd ./tests/functests; ls f*.yml",
-        Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
-        ErrMsg: ""
-      }),
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
+        Code: 0,
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
         ErrMsg: ""
       })
     })
@@ -190,13 +193,13 @@ weight: 10404
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
         ErrMsg: ""
       })
     }
@@ -208,13 +211,13 @@ weight: 10404
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
         ErrMsg: ""
       })
     })
@@ -241,7 +244,9 @@ weight: 10404
     
     -----trace for reference-----
     cmd=>:
-    <=
+    
+    -
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) "",

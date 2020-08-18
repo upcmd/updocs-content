@@ -1,6 +1,6 @@
 ---
 title: "c0167_vvvv"
-date: 2020-08-09T01:36:26+88:00
+date: 2020-08-18T15:16:23+88:00
 draft: false
 weight: 11673
 
@@ -42,12 +42,12 @@ weight: 11673
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     -------runtime global final merged with dvars-------
@@ -107,12 +107,12 @@ weight: 11673
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     ~SubStep1: [print:  ]

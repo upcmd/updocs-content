@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:56+88:00
 draft: false
 weight: 10503
 
@@ -48,14 +48,14 @@ weight: 10503
     -------runtime global final merged with dvars-------
     
     {
+      "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz",
       "school": "Sydney Grammar",
+      "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>"
+      "j": "j=>m=>n=>Sydney Grammar"
     }
     
       located task-> 1 [task]: 
@@ -65,77 +65,91 @@ weight: 10503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz",
       "school": "Sydney Grammar",
+      "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar"
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "z": "i am zzz",
+      "school": "Sydney Grammar",
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
-      "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "school": "Sydney Grammar",
-      "x": "x=>y->i am zzz"
+      "o": "o=><no value>"
     })
     
     cmd( 1):
     echo "n->{{.nv}}"
     
     cmd=>:
-    echo "n->n=>Sydney Grammar"<=
+    echo "n->n=>Sydney Grammar"
+    -
     n->n=>Sydney Grammar
+    -
      .. ok
     cmd( 2):
     echo "m->{{.m}}"
     
     cmd=>:
-    echo "m->m=>n=>Sydney Grammar"<=
+    echo "m->m=>n=>Sydney Grammar"
+    -
     m->m=>n=>Sydney Grammar
+    -
      .. ok
     cmd( 3):
     echo "j->{{.j}}"
     
     cmd=>:
-    echo "j->j=>m=>n=>Sydney Grammar"<=
+    echo "j->j=>m=>n=>Sydney Grammar"
+    -
     j->j=>m=>n=>Sydney Grammar
+    -
      .. ok
     cmd( 4):
     echo "o->{{.o}}"
     
     cmd=>:
-    echo "o->o=><no value>"<=
+    echo "o->o=><no value>"
+    -
     o->o=><no value>
+    -
      .. ok
     cmd( 5):
     echo "z->{{.z}}"
     
     cmd=>:
-    echo "z->i am zzz"<=
+    echo "z->i am zzz"
+    -
     z->i am zzz
+    -
      .. ok
     cmd( 6):
     echo "y->{{.yv}}"
     
     cmd=>:
-    echo "y->y->i am zzz"<=
+    echo "y->y->i am zzz"
+    -
     y->y->i am zzz
+    -
      .. ok
     cmd( 7):
     echo "x->{{.x}}"
     
     cmd=>:
-    echo "x->x=>y->i am zzz"<=
+    echo "x->x=>y->i am zzz"
+    -
     x->x=>y->i am zzz
+    -
      .. ok
     . ok
     

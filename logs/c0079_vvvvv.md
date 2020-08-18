@@ -1,6 +1,6 @@
 ---
 title: "c0079_vvvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:02+88:00
 draft: false
 weight: 10794
 
@@ -34,7 +34,7 @@ weight: 10794
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bfac0)(<nil>)
+    (*impl.Scopes)(0xc00000d380)(<nil>)
     
     ---------group vars----------
     
@@ -61,8 +61,8 @@ weight: 10794
     -------runtime global final merged with dvars-------
     
     {
-      "intest": "false",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false"
     }
     
       located task-> 1 [task]: 
@@ -81,14 +81,14 @@ weight: 10794
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "school_name": "sydney grammar",
-        "school_address": "1 fox road, sydney, nsw 2000",
         "schoo_principals": {
           "peter",
           "tom",
           "jane"
         },
-        "schoo_ranking": "No 5"
+        "schoo_ranking": "No 5",
+        "school_name": "sydney grammar",
+        "school_address": "1 fox road, sydney, nsw 2000"
       },
       Dvars: {
         {
@@ -129,8 +129,8 @@ weight: 10794
         "jane"
       },
       "schoo_ranking": "No 5",
-      "intest": "false",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
       "school_name": "sydney grammar"
     })
     
@@ -141,8 +141,24 @@ weight: 10794
     
     
     scope[local] merged: {
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_name": "sydney grammar",
+      "school_address": "1 fox road, sydney, nsw 2000",
+      "schoo_principals": {
+        "peter",
+        "tom",
+        "jane"
+      },
       "school_string": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "schoo_ranking": "No 5",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "intest": "false",
       "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000",
       "schoo_principals": {
@@ -151,24 +167,8 @@ weight: 10794
         "jane"
       },
       "schoo_ranking": "No 5",
-      "intest": "false"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "schoo_principals": {
-        "peter",
-        "tom",
-        "jane"
-      },
-      "schoo_ranking": "No 5",
       "school_string": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "school_name": "sydney grammar",
-      "school_address": "1 fox road, sydney, nsw 2000"
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
     })
     
     {{.school_string}}
@@ -237,16 +237,16 @@ weight: 10794
     
     current exec runtime vars:
     (*core.Cache)({
+      "schoo_ranking": "No 5",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
+      "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000",
       "schoo_principals": {
         "peter",
         "tom",
         "jane"
-      },
-      "schoo_ranking": "No 5",
-      "school_name": "sydney grammar"
+      }
     })
     
     [local] dvar expanded result:
@@ -256,24 +256,9 @@ weight: 10794
     
     
     scope[local] merged: {
-      "school_name": "sydney grammar",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
-      "school_address": "1 fox road, sydney, nsw 2000",
-      "schoo_principals": {
-        "peter",
-        "tom",
-        "jane"
-      },
-      "schoo_ranking": "No 5"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "intest": "false",
+      "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000",
       "schoo_principals": {
         "peter",
@@ -281,9 +266,24 @@ weight: 10794
         "jane"
       },
       "schoo_ranking": "No 5",
-      "school_name": "sydney grammar",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "school_address": "1 fox road, sydney, nsw 2000",
+      "schoo_principals": {
+        "peter",
+        "tom",
+        "jane"
+      },
+      "schoo_ranking": "No 5",
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_name": "sydney grammar"
     })
     
     {{.school_yml}}
@@ -308,8 +308,8 @@ weight: 10794
           "cmd": "{{.school_yml}}"
         },
         {
-          "name": "printObj",
-          "cmd": "school_details"
+          "cmd": "school_details",
+          "name": "printObj"
         },
         {
           "name": "print",
@@ -359,9 +359,9 @@ weight: 10794
     
     current exec runtime vars:
     (*core.Cache)({
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
     })
     
     dvar> school_details:
@@ -379,16 +379,16 @@ weight: 10794
     
     dvar[object]> school_details_object:
     {
+      "ranking": "No 5",
       "school": {
-        "address": "1 fox road, sydney, nsw 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "1 fox road, sydney, nsw 2000"
       },
       "principals": {
         "peter",
         "tom",
         "jane"
-      },
-      "ranking": "No 5"
+      }
     }
     
     [local] dvar expanded result:
@@ -410,10 +410,9 @@ weight: 10794
     
     
     scope[local] merged: {
-      "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
+        "ranking": "No 5",
         "school": {
           "name": "sydney grammar",
           "address": "1 fox road, sydney, nsw 2000"
@@ -422,10 +421,11 @@ weight: 10794
           "peter",
           "tom",
           "jane"
-        },
-        "ranking": "No 5"
+        }
       },
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
     }
     
     
@@ -436,8 +436,8 @@ weight: 10794
       "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
         "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
         },
         "principals": {
           "peter",
@@ -485,15 +485,15 @@ weight: 10794
     
     object:
      school_details_object: {
-      "ranking": "No 5",
-      "school": {
-        "name": "sydney grammar",
-        "address": "1 fox road, sydney, nsw 2000"
-      },
       "principals": {
         "peter",
         "tom",
         "jane"
+      },
+      "ranking": "No 5",
+      "school": {
+        "name": "sydney grammar",
+        "address": "1 fox road, sydney, nsw 2000"
       }
     }
     
@@ -548,29 +548,28 @@ weight: 10794
     
     
     scope[local] merged: {
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false",
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
         "principals": {
           "peter",
           "tom",
           "jane"
         },
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        }
+        "ranking": "No 5"
       },
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
@@ -585,15 +584,18 @@ weight: 10794
           "jane"
         },
         "ranking": "No 5"
-      }
+      },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
     })
     
     cmd( 1):
     echo "?intest ->  {{.intest}}"
     
     cmd=>:
-    echo "?intest ->  false"<=
+    echo "?intest ->  false"
+    -
     ?intest ->  false
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=24) "echo \"?intest ->  false\"",
@@ -606,8 +608,10 @@ weight: 10794
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=3) "pwd",
@@ -626,12 +630,12 @@ weight: 10794
           "cmd": "intest is: [{{.intest}}]"
         },
         {
-          "name": "reg",
           "cmd": {
             "name": "correct_working_dir",
             "desc": "the value of .intest is string but not bool so you can not simple use if .intest for condition",
             "value": "{{if eq .intest \"true\" }}{{.register_task_root.Output}}{{else}}{{.register_task_root.Output}}{{end}}"
-          }
+          },
+          "name": "reg"
         }
       },
       Dox: <nil>,
@@ -654,25 +658,6 @@ weight: 10794
     
     current exec runtime vars:
     (*core.Cache)({
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
-      },
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "register_task_root": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "pwd",
         Code: 0,
@@ -681,15 +666,6 @@ weight: 10794
       }),
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
         "school": {
@@ -709,35 +685,15 @@ weight: 10794
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false"
+      })
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
-      },
+    scope[local] merged: {
       "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "register_task_root": (*utils.ExecResult)({
         Cmd: "pwd",
@@ -751,7 +707,55 @@ weight: 10794
         Output: "/up_project/up",
         ErrMsg: ""
       }),
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      }
     })
     
     intest is: [{{.intest}}]
@@ -762,6 +766,41 @@ weight: 10794
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "correct_working_dir": "/up_project/up",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false"
+    })
+    
+    after reg the var - local:
+    
+    (*core.Cache)({
+      "correct_working_dir": "/up_project/up",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
@@ -789,42 +828,7 @@ weight: 10794
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up"
-    })
-    
-    after reg the var - local:
-    
-    (*core.Cache)({
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "register_task_root": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "correct_working_dir": "/up_project/up",
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      }
+      })
     })
     
     -Step6:
@@ -860,20 +864,6 @@ weight: 10794
     
     current exec runtime vars:
     (*core.Cache)({
-      "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
       "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "register_task_root": (*utils.ExecResult)({
         Cmd: "pwd",
@@ -888,7 +878,21 @@ weight: 10794
         ErrMsg: ""
       }),
       "correct_working_dir": "/up_project/up",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n"
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        }
+      }
     })
     
     [local] dvar expanded result:
@@ -897,6 +901,54 @@ weight: 10794
     
     
     scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "correct_working_dir": "/up_project/up",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        }
+      },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "register_task_root": (*utils.ExecResult)({
         Cmd: "pwd",
         Code: 0,
@@ -912,55 +964,7 @@ weight: 10794
       "correct_working_dir": "/up_project/up",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "register_task_root": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up"
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
     })
     
     root dir is: [{{.register_task_root.Output}}]
@@ -974,13 +978,13 @@ weight: 10794
       Name: "",
       Do: {
         {
-          "name": "template",
           "desc": "render the template file using above dynamic variable from defined var",
           "cmd": {
+            "src": "{{.correct_working_dir}}/tests/functests/d0079.template",
             "dest": "/tmp/myschool.txt",
-            "datakey": "school_details_object",
-            "src": "{{.correct_working_dir}}/tests/functests/d0079.template"
-          }
+            "datakey": "school_details_object"
+          },
+          "name": "template"
         }
       },
       Dox: <nil>,
@@ -1003,11 +1007,15 @@ weight: 10794
     
     current exec runtime vars:
     (*core.Cache)({
+      "correct_working_dir": "/up_project/up",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
         "ranking": "No 5",
         "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
         },
         "principals": {
           "peter",
@@ -1027,11 +1035,7 @@ weight: 10794
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
+      })
     })
     
     [local] dvar expanded result:
@@ -1040,41 +1044,6 @@ weight: 10794
     
     
     scope[local] merged: {
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
-      },
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "register_task_root": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "correct_working_dir": "/up_project/up",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
@@ -1104,6 +1073,41 @@ weight: 10794
         Output: "/up_project/up",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "correct_working_dir": "/up_project/up"
     })
     
     map[datakey:school_details_object dest:/tmp/myschool.txt src:{{.correct_working_dir}}/tests/functests/d0079.template]
@@ -1116,9 +1120,9 @@ weight: 10794
           "name": "readFile",
           "desc": "read content of a file and register it to a var",
           "cmd": {
+            "filename": "myschool.txt",
             "dir": "/tmp",
-            "reg": "my_school",
-            "filename": "myschool.txt"
+            "reg": "my_school"
           }
         },
         {
@@ -1164,8 +1168,8 @@ weight: 10794
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
         "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
         },
         "principals": {
           "peter",
@@ -1183,14 +1187,11 @@ weight: 10794
     
     
     scope[local] merged: {
-      "correct_working_dir": "/up_project/up",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "intest": "false",
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
       "school_details_object": {
         "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
         },
         "principals": {
           "peter",
@@ -1211,13 +1212,29 @@ weight: 10794
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      })
+      }),
+      "correct_working_dir": "/up_project/up",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "correct_working_dir": "/up_project/up",
       "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
       "intest": "false",
       "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
@@ -1233,7 +1250,66 @@ weight: 10794
         },
         "ranking": "No 5"
       },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
+    })
+    
+    map[dir:/tmp filename:myschool.txt reg:my_school]
+    ~SubStep1: [readFile: read content of a file and register it to a var ]
+    after reg the var - contextual global:
+    
+    (*core.Cache)({
+      "intest": "false",
       "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      },
+      "register_task_root": (*utils.ExecResult)({
+        Cmd: "pwd",
+        Code: 0,
+        Output: "/up_project/up",
+        ErrMsg: ""
+      }),
+      "correct_working_dir": "/up_project/up",
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n"
+    })
+    
+    after reg the var - local:
+    
+    (*core.Cache)({
+      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
+        }
+      },
+      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
+      "intest": "false",
       "register_task_root": (*utils.ExecResult)({
         Cmd: "pwd",
         Code: 0,
@@ -1247,78 +1323,6 @@ weight: 10794
         ErrMsg: ""
       }),
       "correct_working_dir": "/up_project/up"
-    })
-    
-    map[dir:/tmp filename:myschool.txt reg:my_school]
-    ~SubStep1: [readFile: read content of a file and register it to a var ]
-    after reg the var - contextual global:
-    
-    (*core.Cache)({
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "correct_working_dir": "/up_project/up",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
-      "intest": "false",
-      "register_task_root": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
-    })
-    
-    after reg the var - local:
-    
-    (*core.Cache)({
-      "school_yml": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
-      "register_task_root": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "pwd",
-        Code: 0,
-        Output: "/up_project/up",
-        ErrMsg: ""
-      }),
-      "intest": "false",
-      "school_details": "school:\n  name: 'sydney grammar'\n  address: '1 fox road, sydney, nsw 2000'\nprincipals:\n  - peter\n  - tom\n  - jane\nranking: 'No 5'\n",
-      "correct_working_dir": "/up_project/up",
-      "complex_data_structure_template": "school:\n  name: '{{.school_name}}'\n  address: '{{.school_address}}'\nprincipals:\n{{- range $_, $p :=.schoo_principals }}\n  - {{$p}}\n{{- end}}\nranking: '{{.schoo_ranking}}'\n",
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
     })
     
     {{.my_school}}

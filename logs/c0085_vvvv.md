@@ -1,6 +1,6 @@
 ---
 title: "c0085_vvvv"
-date: 2020-08-09T01:36:11+88:00
+date: 2020-08-18T15:16:03+88:00
 draft: false
 weight: 10853
 
@@ -53,12 +53,12 @@ weight: 10853
     -------runtime global final merged with dvars-------
     
     {
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     }
     
       located task-> 1 [task]: 
@@ -68,12 +68,12 @@ weight: 10853
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      }
     })
     
     dvar> linelist:
@@ -84,13 +84,13 @@ weight: 10853
     self: final context exec vars:
     
     (*core.Cache)({
-      "linelist": "[hello this is a beautiful world]",
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "linelist": "[hello this is a beautiful world]"
     })
     
     cmd( 1):
@@ -100,29 +100,33 @@ weight: 10853
     echo 'hello
     this
     is a
-    beautiful world'<=
+    beautiful world'
+    -
     hello
     this
     is a
     beautiful world
+    -
      .. ok
     cmd( 2):
     echo '{{.linelist}}'
     
     cmd=>:
-    echo '[hello this is a beautiful world]'<=
+    echo '[hello this is a beautiful world]'
+    -
     [hello this is a beautiful world]
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
@@ -153,19 +157,19 @@ weight: 10853
     self: final context exec vars:
     
     (*core.Cache)({
-      "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n",
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      })
+      }),
+      "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n"
     })
     
     cmd( 1):
@@ -175,11 +179,13 @@ weight: 10853
     echo 'hello
     this
     is a
-    beautiful world'<=
+    beautiful world'
+    -
     hello
     this
     is a
     beautiful world
+    -
      .. ok
     cmd( 2):
     echo '{{.linelist}}'
@@ -192,7 +198,8 @@ weight: 10853
       "beautiful world"
     }
     
-    '<=
+    '
+    -
     {
       "hello",
       "this",
@@ -201,23 +208,24 @@ weight: 10853
     }
     
     
+    -
      .. ok
     . ok
     -Step3: [regtest:  ]
     current exec runtime vars:
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
         ErrMsg: ""
-      }),
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      }
+      })
     })
     
     dvar> linelist:
@@ -232,25 +240,25 @@ weight: 10853
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
-        Code: 0,
-        Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
-        ErrMsg: ""
-      }),
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
+        Code: 0,
+        Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
+        ErrMsg: ""
+      }),
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
     })
     
     cmd( 1):
@@ -260,11 +268,13 @@ weight: 10853
     echo 'hello
     this
     is a
-    beautiful world'<=
+    beautiful world'
+    -
     hello
     this
     is a
     beautiful world
+    -
      .. ok
     cmd( 2):
     echo '{{.linelist}}'
@@ -274,25 +284,56 @@ weight: 10853
     - this
     - is a
     - beautiful world
-    '<=
+    '
+    -
     - hello
     - this
     - is a
     - beautiful world
     
+    -
      .. ok
     cmd( 3):
     echo '{{.linelist_object}}'
     
     cmd=>:
-    echo '[hello this is a beautiful world]'<=
+    echo '[hello this is a beautiful world]'
+    -
     [hello this is a beautiful world]
+    -
      .. ok
     . ok
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
@@ -305,10 +346,57 @@ weight: 10853
         "is a",
         "beautiful world"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world"
+    })
+    
+    cmd( 1):
+    echo "{{.loopindex1}} -> {{.loopitem}}"
+    
+    cmd=>:
+    echo "1 -> peter"
+    -
+    1 -> peter
+    -
+     .. ok
+    cmd( 1):
+    echo "{{.loopindex1}} -> {{.loopitem}}"
+    
+    cmd=>:
+    echo "2 -> tom"
+    -
+    2 -> tom
+    -
+     .. ok
+    cmd( 1):
+    echo "{{.loopindex1}} -> {{.loopitem}}"
+    
+    cmd=>:
+    echo "3 -> james"
+    -
+    3 -> james
+    -
+     .. ok
+    . ok
+    -Step5:
+    current exec runtime vars:
+    (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"3 -> james\"",
+        Code: 0,
+        Output: "3 -> james",
+        ErrMsg: ""
+      }),
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
       }
     })
     
@@ -316,10 +404,15 @@ weight: 10853
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
+        Cmd: "echo \"3 -> james\"",
         Code: 0,
-        Output: "[hello this is a beautiful world]",
+        Output: "3 -> james",
         ErrMsg: ""
       }),
       "linelist_object": {
@@ -327,11 +420,6 @@ weight: 10853
         "this",
         "is a",
         "beautiful world"
-      },
-      "workers": {
-        "peter",
-        "tom",
-        "james"
       }
     })
     
@@ -339,97 +427,37 @@ weight: 10853
     echo "{{.loopindex1}} -> {{.loopitem}}"
     
     cmd=>:
-    echo "1 -> peter"<=
-    1 -> peter
-     .. ok
-    cmd( 1):
-    echo "{{.loopindex1}} -> {{.loopitem}}"
-    
-    cmd=>:
-    echo "2 -> tom"<=
-    2 -> tom
-     .. ok
-    cmd( 1):
-    echo "{{.loopindex1}} -> {{.loopitem}}"
-    
-    cmd=>:
-    echo "3 -> james"<=
-    3 -> james
-     .. ok
-    . ok
-    -Step5:
-    current exec runtime vars:
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"3 -> james\"",
-        Code: 0,
-        Output: "3 -> james",
-        ErrMsg: ""
-      }),
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"3 -> james\"",
-        Code: 0,
-        Output: "3 -> james",
-        ErrMsg: ""
-      }),
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "lines": "hello\nthis\nis a\nbeautiful world"
-    })
-    
-    cmd( 1):
-    echo "{{.loopindex1}} -> {{.loopitem}}"
-    
-    cmd=>:
-    echo "1 -> hello"<=
+    echo "1 -> hello"
+    -
     1 -> hello
+    -
      .. ok
     cmd( 1):
     echo "{{.loopindex1}} -> {{.loopitem}}"
     
     cmd=>:
-    echo "2 -> this"<=
+    echo "2 -> this"
+    -
     2 -> this
+    -
      .. ok
     cmd( 1):
     echo "{{.loopindex1}} -> {{.loopitem}}"
     
     cmd=>:
-    echo "3 -> is a"<=
+    echo "3 -> is a"
+    -
     3 -> is a
+    -
      .. ok
     cmd( 1):
     echo "{{.loopindex1}} -> {{.loopitem}}"
     
     cmd=>:
-    echo "4 -> beautiful world"<=
+    echo "4 -> beautiful world"
+    -
     4 -> beautiful world
+    -
      .. ok
     . ok
     

@@ -1,6 +1,6 @@
 ---
 title: "c0087_vvvv"
-date: 2020-08-09T01:36:12+88:00
+date: 2020-08-18T15:16:04+88:00
 draft: false
 weight: 10873
 
@@ -67,8 +67,10 @@ weight: 10873
     echo 'hello'
     
     cmd=>:
-    echo 'hello'<=
+    echo 'hello'
+    -
     hello
+    -
      .. ok
     . ok
     -Step2:
@@ -149,21 +151,6 @@ weight: 10873
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo 'hello'",
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      }),
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
@@ -174,6 +161,21 @@ weight: 10873
       "loopitem": "impl1",
       "loopindex": 0,
       "loopindex1": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo 'hello'",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      }),
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -189,23 +191,23 @@ weight: 10873
       }),
       "loopitem": "impl1",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "impl1",
-      "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'hello'",
         Code: 0,
         Output: "hello",
         ErrMsg: ""
-      })
+      }),
+      "loopitem": "impl1",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [sleep:  ]

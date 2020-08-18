@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10633
 
@@ -79,40 +79,44 @@ weight: 10633
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "hello {{.a}}"
     
     cmd=>:
-    echo "hello global-var-a"<=
+    echo "hello global-var-a"
+    -
     hello global-var-a
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
+      "a": "global-var-a",
       "b": "runtime-var-b"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
+      "a": "global-var-a",
       "b": "runtime-var-b"
     })
     
@@ -127,13 +131,13 @@ weight: 10633
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "a": "global-var-a"
+      })
     })
     
     self: final context exec vars:
@@ -152,8 +156,10 @@ weight: 10633
     echo "next step"
     
     cmd=>:
-    echo "next step"<=
+    echo "next step"
+    -
     next step
+    -
      .. ok
     . ok
     

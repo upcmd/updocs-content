@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvv"
-date: 2020-08-09T01:36:03+88:00
+date: 2020-08-18T15:15:52+88:00
 draft: false
 weight: 10293
 
@@ -36,47 +36,47 @@ weight: 10293
     ---------group vars----------
     
     nonprod: {
-      "dab": "non-prod-a-and-non-prod-b",
       "dvar_np_a": "non-prod-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
-      "d": "non-prod-d",
-      "a": "non-prod-a"
+      "d": "non-prod-d"
     }
     
     
     global: {
+      "a": "global-a",
       "b": "global-b",
       "c": "global-c",
       "e": "global-e",
       "da": "global-a",
-      "dab": "global-a-and-global-b",
-      "a": "global-a"
+      "dab": "global-a-and-global-b"
     }
     
     
     groups members:[dev staging]
     merged[ dev ] runtime vars:
     {
-      "b": "non-prod-b",
       "c": "non-prod-c",
-      "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d",
       "e": "global-e",
       "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a"
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     }
     
     -------runtime global final merged with dvars-------
     
     {
       "c": "non-prod-c",
-      "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d",
       "e": "global-e",
       "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
       "a": "non-prod-a",
       "b": "non-prod-b"
     }
@@ -88,49 +88,55 @@ weight: 10293
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
-      "b": "non-prod-b",
       "c": "non-prod-c",
-      "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d",
       "e": "global-e",
-      "da": "global-a"
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "dvar_np_a": "non-prod-a",
-      "d": "non-prod-d",
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
       "e": "global-e",
       "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c"
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a"
     })
     
     cmd( 1):
     echo "cmd1:da -> {{.da}}"
     
     cmd=>:
-    echo "cmd1:da -> global-a"<=
+    echo "cmd1:da -> global-a"
+    -
     cmd1:da -> global-a
+    -
      .. ok
     cmd( 2):
     echo "cmd2:dab -> {{.dab}}"
     
     cmd=>:
-    echo "cmd2:dab -> non-prod-a-and-non-prod-b"<=
+    echo "cmd2:dab -> non-prod-a-and-non-prod-b"
+    -
     cmd2:dab -> non-prod-a-and-non-prod-b
+    -
      .. ok
     cmd( 3):
     echo "cmd3:{{.dvar_np_a}}"
     
     cmd=>:
-    echo "cmd3:non-prod-a"<=
+    echo "cmd3:non-prod-a"
+    -
     cmd3:non-prod-a
+    -
      .. ok
     . ok
     

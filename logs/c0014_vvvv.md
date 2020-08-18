@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10143
 
@@ -42,17 +42,17 @@ weight: 10143
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
+      "k": "runtime-k"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     }
     
       located task-> 2 [task]: 
@@ -62,10 +62,10 @@ weight: 10143
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "k": "runtime-k",
       "a": "caller-ref-a",
       "e": "runtime-e",
-      "b": "caller-ref-b",
-      "k": "runtime-k"
+      "b": "caller-ref-b"
     })
     
     self: final context exec vars:
@@ -87,28 +87,30 @@ weight: 10143
       "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "k": "runtime-k",
       "e": "runtime-e",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "k": "runtime-k"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "k": "runtime-k",
       "e": "runtime-e",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "k": "runtime-k",
+      "a": "caller-ref-a"
     })
     
     cmd( 1):
     echo "exec ref-task"
     
     cmd=>:
-    echo "exec ref-task"<=
+    echo "exec ref-task"
+    -
     exec ref-task
+    -
      .. ok
     cmd( 2):
     echo """
@@ -130,7 +132,8 @@ weight: 10143
     e: runtime-e
     k: runtime-k
     """
-    <=
+    
+    -
     
     vars:
     a: caller-ref-a
@@ -139,6 +142,7 @@ weight: 10143
     e: runtime-e
     k: runtime-k
     
+    -
      .. ok
     . ok
     

@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:07+88:00
 draft: false
 weight: 10994
 
@@ -34,7 +34,7 @@ weight: 10994
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025f2a0)(<nil>)
+    (*impl.Scopes)(0xc000175260)(<nil>)
     
     ---------group vars----------
     
@@ -46,9 +46,9 @@ weight: 10994
     merged[ dev ] runtime vars:
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "nsw": {
         "sydney": {
@@ -64,11 +64,6 @@ weight: 10994
     }
     
     (core.Cache) (len=2) {
-     (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=4) "name": (string) (len=3) "Tom",
-      (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
-     },
      (string) (len=3) "nsw": (map[string]interface {}) (len=1) {
       (string) (len=6) "sydney": (map[string]interface {}) (len=1) {
        (string) (len=8) "sgschool": (map[string]interface {}) (len=1) {
@@ -79,6 +74,11 @@ weight: 10994
         }
        }
       }
+     },
+     (string) (len=7) "student": (map[string]interface {}) (len=3) {
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+      (string) (len=4) "name": (string) (len=3) "Tom",
+      (string) (len=6) "gender": (string) (len=4) "Male"
      }
     }
     
@@ -90,11 +90,6 @@ weight: 10994
     -------runtime global final merged with dvars-------
     
     {
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -105,6 +100,11 @@ weight: 10994
             }
           }
         }
+      },
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
       }
     }
     
@@ -158,11 +158,6 @@ weight: 10994
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -173,6 +168,11 @@ weight: 10994
             }
           }
         }
+      },
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
       }
     })
     
@@ -192,9 +192,9 @@ weight: 10994
         "sydney": {
           "sgschool": {
             "student": {
+              "school": "MLC",
               "name": "Grace",
-              "gender": "Female",
-              "school": "MLC"
+              "gender": "Female"
             }
           }
         }
@@ -212,9 +212,9 @@ weight: 10994
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "nsw": {
         "sydney": {
@@ -309,21 +309,21 @@ weight: 10994
     
     
     scope[local] merged: {
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "school": "MLC",
               "name": "Grace",
-              "gender": "Female",
-              "school": "MLC"
+              "gender": "Female"
             }
           }
         }
-      },
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
       },
       "student_info": "my name is:Grace and I am in MLC"
     }

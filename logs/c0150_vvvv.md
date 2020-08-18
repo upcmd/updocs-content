@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvv"
-date: 2020-08-09T01:36:22+88:00
+date: 2020-08-18T15:16:19+88:00
 draft: false
 weight: 11503
 
@@ -83,26 +83,28 @@ weight: 11503
     uname
     
     cmd=>:
-    uname<=
+    uname
+    -
     Linux
+    -
      .. ok
     . ok
     --Step2: [: get os  - [Darwin | Linux] ]
     current exec runtime vars:
     (*core.Cache)({
-      "result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      })
     })
     
     dvar> os:
@@ -113,6 +115,8 @@ weight: 11503
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "os": "Linux",
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -124,9 +128,7 @@ weight: 11503
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux"
+      })
     })
     
     ~~SubStep1: [print:  ]
@@ -139,7 +141,6 @@ weight: 11503
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "os": "Linux",
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -152,13 +153,13 @@ weight: 11503
         Output: "Linux",
         ErrMsg: ""
       }),
+      "os": "Linux",
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "os": "Linux",
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -171,6 +172,7 @@ weight: 11503
         Output: "Linux",
         ErrMsg: ""
       }),
+      "os": "Linux",
       "up_runtime_task_layer_number": 1
     })
     
@@ -179,8 +181,8 @@ weight: 11503
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux"
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:

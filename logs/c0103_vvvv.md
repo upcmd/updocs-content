@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11033
 
@@ -42,8 +42,8 @@ weight: 11033
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
     -------runtime global final merged with dvars-------
@@ -60,8 +60,8 @@ weight: 11033
     -Step1: [: inplace modification ]
     current exec runtime vars:
     (*core.Cache)({
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
     self: final context exec vars:

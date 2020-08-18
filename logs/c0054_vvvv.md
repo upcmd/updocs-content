@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10543
 
@@ -67,8 +67,10 @@ weight: 10543
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     . ok
     -Step2:
@@ -133,23 +135,27 @@ weight: 10543
     echo "step1"
     
     cmd=>:
-    echo "step1"<=
+    echo "step1"
+    -
     step1
+    -
      .. ok
     cmd( 2):
     echo "step2" |grep notexist
     
     cmd=>:
-    echo "step2" |grep notexist<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "step2" |grep notexist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "step3"
     
     cmd=>:
-    echo "step3"<=
+    echo "step3"
+    -
     step3
+    -
      .. ok
     . ok
     -Step5:
@@ -178,8 +184,10 @@ weight: 10543
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     . ok
     -Step6:
@@ -214,15 +222,19 @@ weight: 10543
     echo "check last step"
     
     cmd=>:
-    echo "check last step"<=
+    echo "check last step"
+    -
     check last step
+    -
      .. ok
     cmd( 2):
     echo "{{.last_result|toJson}}"
     
     cmd=>:
-    echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"<=
+    echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"
+    -
     {Cmd:echo "hello, world",Code:0,Output:hello, world,ErrMsg:}
+    -
      .. ok
     cmd( 3):
     echo "{{.last_result|toPrettyJson}}"
@@ -233,20 +245,24 @@ weight: 10543
       "Code": 0,
       "Output": "hello, world",
       "ErrMsg": ""
-    }"<=
+    }"
+    -
     {
       Cmd: echo "hello, world",
       Code: 0,
       Output: hello, world,
       ErrMsg: 
     }
+    -
      .. ok
     cmd( 4):
     echo "{{eq .last_result.Code 0}}"
     
     cmd=>:
-    echo "true"<=
+    echo "true"
+    -
     true
+    -
      .. ok
     . ok
     -Step7:
@@ -275,16 +291,18 @@ weight: 10543
     echo "step1"
     
     cmd=>:
-    echo "step1"<=
+    echo "step1"
+    -
     step1
+    -
      .. ok
     cmd( 2):
     echo "step2" |grep notexist
     
     cmd=>:
-    echo "step2" |grep notexist<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "step2" |grep notexist
+    -
+    -
      .. failed(suppressed if it is not the last step)
      WARN: [HightLight:] - [Error ignored!!!]
     -Step8:
@@ -330,21 +348,23 @@ weight: 10543
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)(<nil>),
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       },
-      "condition": "true",
-      "last_result": (*utils.ExecResult)(<nil>)
+      "condition": "true"
     })
     
     cmd( 1):
     echo "simple dvar as condition"
     
     cmd=>:
-    echo "simple dvar as condition"<=
+    echo "simple dvar as condition"
+    -
     simple dvar as condition
+    -
      .. ok
     . ok
     -Step10:
@@ -371,26 +391,28 @@ weight: 10543
     self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
-      "condition": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"simple dvar as condition\"",
         Code: 0,
         Output: "simple dvar as condition",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
+      "condition": "true"
     })
     
     cmd( 1):
     echo "complicated dvar evaluation as condition"
     
     cmd=>:
-    echo "complicated dvar evaluation as condition"<=
+    echo "complicated dvar evaluation as condition"
+    -
     complicated dvar evaluation as condition
+    -
      .. ok
     . ok
     -Step11:
@@ -417,7 +439,6 @@ weight: 10543
     self: final context exec vars:
     
     (*core.Cache)({
-      "condition": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"complicated dvar evaluation as condition\"",
         Code: 0,
@@ -428,15 +449,18 @@ weight: 10543
         "name": "peter",
         "sex": "male",
         "age": 23
-      }
+      },
+      "condition": "true"
     })
     
     cmd( 1):
     echo "a even more complicated condition but more readable"
     
     cmd=>:
-    echo "a even more complicated condition but more readable"<=
+    echo "a even more complicated condition but more readable"
+    -
     a even more complicated condition but more readable
+    -
      .. ok
     . ok
     -Step12:
@@ -458,25 +482,27 @@ weight: 10543
     self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a even more complicated condition but more readable\"",
         Code: 0,
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "age": 23,
+        "name": "peter",
+        "sex": "male"
+      }
     })
     
     cmd( 1):
     echo "a complicated condition without dvar"
     
     cmd=>:
-    echo "a complicated condition without dvar"<=
+    echo "a complicated condition without dvar"
+    -
     a complicated condition without dvar
+    -
      .. ok
     . ok
     -Step13: [: show that complicated arg needs to be quoted using ()
@@ -496,13 +522,13 @@ weight: 10543
     self: final context exec vars:
     
     (*core.Cache)({
-      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      })
+      }),
+      "doc": "hello"
     })
     
     ~SubStep1: [print:  ]

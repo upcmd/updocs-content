@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvvv"
-date: 2020-08-09T01:36:44+88:00
+date: 2020-08-18T15:16:53+88:00
 draft: false
 weight: 101004
 
@@ -34,7 +34,7 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bede0)(<nil>)
+    (*impl.Scopes)(0xc0001e6d80)(<nil>)
     
     ---------group vars----------
     
@@ -117,7 +117,7 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bfe60)(<nil>)
+    (*impl.Scopes)(0xc0001e7e80)(<nil>)
     
     ---------group vars----------
     
@@ -191,8 +191,8 @@ weight: 101004
     
     
     scope[local] merged: {
-      "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     }
     
     
@@ -263,7 +263,7 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000237240)(<nil>)
+    (*impl.Scopes)(0xc00000d520)(<nil>)
     
     ---------group vars----------
     
@@ -301,8 +301,8 @@ weight: 101004
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "... hi"
+          "cmd": "... hi",
+          "name": "print"
         }
       },
       Dox: <nil>,

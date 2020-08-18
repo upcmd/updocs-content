@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvvv"
-date: 2020-08-09T01:36:43+88:00
+date: 2020-08-18T15:16:52+88:00
 draft: false
 weight: 100204
 
@@ -34,7 +34,7 @@ weight: 100204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001eb060)(<nil>)
+    (*impl.Scopes)(0xc00011c4c0)(<nil>)
     
     ---------group vars----------
     
@@ -110,8 +110,10 @@ weight: 100204
     echo "hello world"
     
     cmd=>:
-    echo "hello world"<=
+    echo "hello world"
+    -
     hello world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello world\"",
@@ -222,13 +224,13 @@ weight: 100204
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -288,22 +290,6 @@ weight: 100204
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello world\"",
-        Code: 0,
-        Output: "hello world",
-        ErrMsg: ""
-      })
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
@@ -312,12 +298,14 @@ weight: 100204
       }),
       "up_runtime_task_layer_number": 1,
       "a": "caller-aaa"
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
+    scope[local] merged: {
       "up_runtime_task_layer_number": 1,
       "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
@@ -326,6 +314,20 @@ weight: 100204
         Output: "hello world",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
+        Code: 0,
+        Output: "hello world",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "a": "caller-aaa"
     })
     
     caller's vars to task (hello-module.Say_world)::
@@ -349,7 +351,7 @@ weight: 100204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000257280)(<nil>)
+    (*impl.Scopes)(0xc00033eda0)(<nil>)
     
     ---------group vars----------
     
@@ -391,18 +393,18 @@ weight: 100204
           "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "a": "module-aaa",
-        "b": "module-bbb"
+        "b": "module-bbb",
+        "a": "module-aaa"
       },
       Dvars: <nil>,
       Desc: "",
@@ -439,8 +441,6 @@ weight: 100204
     
     
     scope[local] merged: {
-      "a": "caller-aaa",
-      "b": "module-bbb",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
@@ -448,13 +448,16 @@ weight: 100204
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa",
+      "b": "module-bbb"
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
       "b": "module-bbb",
       "last_result": (*utils.ExecResult)({
@@ -463,8 +466,7 @@ weight: 100204
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_task_layer_number": 1
     })
     
     ... module world

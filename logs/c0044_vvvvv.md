@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10444
 
@@ -34,7 +34,7 @@ weight: 10444
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002a4a00)(<nil>)
+    (*impl.Scopes)(0xc0001f5140)(<nil>)
     
     ---------group vars----------
     
@@ -62,16 +62,16 @@ weight: 10444
     Your path is set to /root 
     [runtime global] dvar expanded result:
     {
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     }
     
       located task-> 1 [task]: 
@@ -167,8 +167,8 @@ weight: 10444
     
     current exec runtime vars:
     (*core.Cache)({
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     })
     
     [local] dvar expanded result:
@@ -177,24 +177,26 @@ weight: 10444
     
     
     scope[local] merged: {
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "homedir": "/root",
+      "yourhome": "Your path is set to /root "
     })
     
     cmd( 1):
     echo """my home is at {{.homedir}}"""
     
     cmd=>:
-    echo """my home is at /root"""<=
+    echo """my home is at /root"""
+    -
     my home is at /root
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=30) "echo \"\"\"my home is at /root\"\"\"",
@@ -207,8 +209,10 @@ weight: 10444
     echo """my home is at $HOME"""
     
     cmd=>:
-    echo """my home is at $HOME"""<=
+    echo """my home is at $HOME"""
+    -
     my home is at /root
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=30) "echo \"\"\"my home is at $HOME\"\"\"",
@@ -221,8 +225,10 @@ weight: 10444
     echo """{{.yourhome}}"""
     
     cmd=>:
-    echo """Your path is set to /root """<=
+    echo """Your path is set to /root """
+    -
     Your path is set to /root 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=37) "echo \"\"\"Your path is set to /root \"\"\"",

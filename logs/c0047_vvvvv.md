@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10474
 
@@ -34,7 +34,7 @@ weight: 10474
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00016d1c0)((len=1 cap=1) {
+    (*impl.Scopes)(0xc00000c6a0)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -151,9 +151,9 @@ weight: 10474
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     })
     
     [local] dvar expanded result:
@@ -171,9 +171,9 @@ weight: 10474
     self: final context exec vars:
     
     (*core.Cache)({
+      "student_name": "Tom Hanks",
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks"
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
     cmd( 1):
@@ -185,12 +185,14 @@ weight: 10474
     name: Tom Hanks
     age: 28
     """
-    <=
+    
+    -
     
     student details:
     name: Tom Hanks
     age: 28
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=54) "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",

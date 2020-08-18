@@ -1,6 +1,6 @@
 ---
 title: "c0025_vvvvv"
-date: 2020-08-09T01:36:02+88:00
+date: 2020-08-18T15:15:51+88:00
 draft: false
 weight: 10254
 
@@ -34,7 +34,7 @@ weight: 10254
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf080)(<nil>)
+    (*impl.Scopes)(0xc00000c4e0)(<nil>)
     
     ---------group vars----------
     
@@ -108,9 +108,9 @@ weight: 10254
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
@@ -122,9 +122,9 @@ weight: 10254
     
     scope[local] merged: {
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     }
@@ -134,9 +134,9 @@ weight: 10254
     
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "a_smart_guy": "name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n"
     })
@@ -148,11 +148,13 @@ weight: 10254
     echo """a smart guy=>name: "Tom"
     sex: "Male"
     school: "Sydney Grammar"
-    """<=
+    """
+    -
     a smart guy=>name: Tom
     sex: Male
     school: Sydney Grammar
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=73) "echo \"\"\"a smart guy=>name: \"Tom\"\nsex: \"Male\"\nschool: \"Sydney Grammar\"\n\"\"\"",

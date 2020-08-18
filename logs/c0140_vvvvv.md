@@ -1,6 +1,6 @@
 ---
 title: "c0140_vvvvv"
-date: 2020-08-09T01:36:20+88:00
+date: 2020-08-18T15:16:17+88:00
 draft: false
 weight: 11404
 
@@ -34,7 +34,7 @@ weight: 11404
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000a2600)(<nil>)
+    (*impl.Scopes)(0xc0001e51c0)(<nil>)
     
     ---------group vars----------
     
@@ -69,8 +69,8 @@ weight: 11404
       Name: "",
       Do: {
         {
-          "cmd": "I am the main entry",
-          "name": "print"
+          "name": "print",
+          "cmd": "I am the main entry"
         }
       },
       Dox: <nil>,

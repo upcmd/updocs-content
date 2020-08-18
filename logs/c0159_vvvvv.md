@@ -1,6 +1,6 @@
 ---
 title: "c0159_vvvvv"
-date: 2020-08-09T01:36:23+88:00
+date: 2020-08-18T15:16:21+88:00
 draft: false
 weight: 11594
 
@@ -34,7 +34,7 @@ weight: 11594
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177540)(<nil>)
+    (*impl.Scopes)(0xc0001c15a0)(<nil>)
     
     ---------group vars----------
     
@@ -164,8 +164,8 @@ weight: 11594
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     }
     
     
@@ -226,16 +226,16 @@ weight: 11594
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     --Step1: [: inspect if the correct parameter has been passed in correctly
@@ -272,8 +272,8 @@ weight: 11594
     
     current exec runtime vars:
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     [local] dvar expanded result:
@@ -362,7 +362,6 @@ weight: 11594
       Name: "",
       Do: {
         {
-          "desc": "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n",
           "do": {
             {
               "name": "assert",
@@ -371,7 +370,8 @@ weight: 11594
               }
             }
           },
-          "func": "cmd"
+          "func": "cmd",
+          "desc": "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n"
         }
       },
       Dox: <nil>,
@@ -396,8 +396,8 @@ weight: 11594
     
     current exec runtime vars:
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     [local] dvar expanded result:
@@ -406,8 +406,8 @@ weight: 11594
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -426,10 +426,10 @@ weight: 11594
       Name: "",
       Do: {
         {
+          "name": "assert",
           "cmd": {
             "{{eq .aaa \"var_a_from_task\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -452,8 +452,8 @@ weight: 11594
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:

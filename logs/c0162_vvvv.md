@@ -1,6 +1,6 @@
 ---
 title: "c0162_vvvv"
-date: 2020-08-09T01:36:25+88:00
+date: 2020-08-18T15:16:22+88:00
 draft: false
 weight: 11623
 
@@ -56,28 +56,28 @@ weight: 11623
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "who_is_trusted": "my_friend",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
       },
-      "my_friend": "joe doe",
-      "who_is_trusted": "my_friend"
+      "my_friend": "joe doe"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "who_is_trusted": "my_friend",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
       },
-      "countries": "- Austraila\n- US\n- China\n- Japan\n",
       "my_friend": "joe doe",
-      "who_is_trusted": "my_friend"
+      "countries": "- Austraila\n- US\n- China\n- Japan\n"
     })
     
     ~SubStep1: [print:  ]

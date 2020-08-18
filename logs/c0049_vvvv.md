@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:56+88:00
 draft: false
 weight: 10493
 
@@ -53,10 +53,10 @@ weight: 10493
     {
       "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
-      "envVar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18",
       "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules",
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18"
     }
     
       located task-> 1 [task]: 
@@ -66,38 +66,42 @@ weight: 10493
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "envVar_SCHOOL": "James Rules",
-      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
+      "SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "SCHOOL": "James Rules"
+      "envVar_STUDENT_AGE": "18"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "STUDENT_NAME": "Tom Hanks",
+      "envVar_SCHOOL": "James Rules",
       "envVar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
-      "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules",
-      "envVar_STUDENT_AGE": "18"
+      "envVar_STUDENT_AGE": "18",
+      "STUDENT_NAME": "Tom Hanks",
+      "SCHOOL": "James Rules"
     })
     
     cmd( 1):
     env |grep STUDENT_NAME
     
     cmd=>:
-    env |grep STUDENT_NAME<=
+    env |grep STUDENT_NAME
+    -
     STUDENT_NAME=Tom Hanks
+    -
      .. ok
     cmd( 2):
     env |grep STUDENT_AGE
     
     cmd=>:
-    env |grep STUDENT_AGE<=
+    env |grep STUDENT_AGE
+    -
     STUDENT_AGE=18
+    -
      .. ok
     . ok
     -Step2: [: since there is no local envVar for STUDENT_NAME
@@ -105,11 +109,28 @@ weight: 10493
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "envVar_SCHOOL": "James Rules",
-      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "env |grep STUDENT_AGE",
+        Code: 0,
+        Output: "STUDENT_AGE=18",
+        ErrMsg: ""
+      }),
+      "SCHOOL": "James Rules",
+      "envVar_SCHOOL": "James Rules",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "envVar_SCHOOL": "James Rules",
+      "envVar_STUDENT_NAME": "James Bond",
+      "STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18",
+      "STUDENT_NAME": "James Bond",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_AGE",
         Code: 0,
@@ -119,43 +140,32 @@ weight: 10493
       "SCHOOL": "James Rules"
     })
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "envVar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "env |grep STUDENT_AGE",
-        Code: 0,
-        Output: "STUDENT_AGE=18",
-        ErrMsg: ""
-      }),
-      "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules",
-      "envVar_STUDENT_AGE": "18",
-      "STUDENT_NAME": "James Bond"
-    })
-    
     cmd( 1):
     env |grep STUDENT_NAME
     
     cmd=>:
-    env |grep STUDENT_NAME<=
+    env |grep STUDENT_NAME
+    -
     STUDENT_NAME=James Bond
+    -
      .. ok
     cmd( 2):
     env |grep STUDENT_AGE
     
     cmd=>:
-    env |grep STUDENT_AGE<=
+    env |grep STUDENT_AGE
+    -
     STUDENT_AGE=18
+    -
      .. ok
     cmd( 3):
     env |grep SCHOOL
     
     cmd=>:
-    env |grep SCHOOL<=
+    env |grep SCHOOL
+    -
     SCHOOL=James Rules
+    -
      .. ok
     . ok
     

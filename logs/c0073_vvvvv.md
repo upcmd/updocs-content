@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvvv"
-date: 2020-08-09T01:36:09+88:00
+date: 2020-08-18T15:16:01+88:00
 draft: false
 weight: 10734
 
@@ -34,7 +34,7 @@ weight: 10734
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002044e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf0a0)(<nil>)
     
     ---------group vars----------
     
@@ -45,21 +45,21 @@ weight: 10734
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story2": "hello world"
     }
     
     (core.Cache) (len=6) {
-     (string) (len=21) "my_interesting_story6": (string) (len=14) "hello\nworld\n\n\n",
      (string) (len=21) "my_interesting_story1": (string) (len=12) "hello\nworld\n",
      (string) (len=21) "my_interesting_story2": (string) (len=11) "hello world",
      (string) (len=21) "my_interesting_story3": (string) (len=12) "hello world\n",
      (string) (len=21) "my_interesting_story4": (string) (len=11) "hello\nworld",
-     (string) (len=21) "my_interesting_story5": (string) (len=11) "hello world"
+     (string) (len=21) "my_interesting_story5": (string) (len=11) "hello world",
+     (string) (len=21) "my_interesting_story6": (string) (len=14) "hello\nworld\n\n\n"
     }
     
     [runtime global] dvar expanded result:
@@ -70,12 +70,12 @@ weight: 10734
     -------runtime global final merged with dvars-------
     
     {
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world"
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world"
     }
     
       located task-> 1 [task]: 
@@ -97,9 +97,9 @@ weight: 10734
           "cmd": "[{{.my_interesting_story2}}]"
         },
         {
+          "desc": "folded style",
           "cmd": "[{{.my_interesting_story3}}]",
-          "name": "print",
-          "desc": "folded style"
+          "name": "print"
         },
         {
           "name": "print",
@@ -109,9 +109,9 @@ weight: 10734
         {
           "name": "reg",
           "cmd": {
+            "value": "{{if .isnew }} this is a new story {{else}} same old story {{end}}",
             "name": "newstory_with_blank_space_front_and_tail",
-            "desc": "you can't remove the empty space because it is from the folded feature of yaml",
-            "value": "{{if .isnew }} this is a new story {{else}} same old story {{end}}"
+            "desc": "you can't remove the empty space because it is from the folded feature of yaml"
           }
         },
         {
@@ -144,12 +144,12 @@ weight: 10734
     
     current exec runtime vars:
     (*core.Cache)({
+      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story3": "hello world\n"
     })
     
     [local] dvar expanded result:
@@ -158,24 +158,24 @@ weight: 10734
     
     
     scope[local] merged: {
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n"
     })
     
     [{{.my_interesting_story1}}]
@@ -199,25 +199,25 @@ weight: 10734
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "my_interesting_story1": "hello\nworld\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world"
+      "my_interesting_story6": "hello\nworld\n\n\n"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story3": "hello world\n"
     })
     
     map[name:newstory_clean value:{{if .isnew}}this is a new story{{else}}same old story{{end}}]
@@ -225,27 +225,27 @@ weight: 10734
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "my_interesting_story1": "hello\nworld\n",
       "newstory_with_blank_space_front_and_tail": " same old story ",
       "newstory_clean": "same old story",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
       "newstory_with_blank_space_front_and_tail": " same old story ",
       "newstory_clean": "same old story",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n"
     })
     
     -Step2:
@@ -278,14 +278,14 @@ weight: 10734
     
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story5": "hello world"
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     })
     
     [local] dvar expanded result:
@@ -294,28 +294,28 @@ weight: 10734
     
     
     scope[local] merged: {
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story"
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story"
     })
     
     cmd( 1):
@@ -323,9 +323,11 @@ weight: 10734
     
     cmd=>:
     echo "[hello world
-    ]"<=
+    ]"
+    -
     [hello world
     ]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=21) "echo \"[hello world\n]\"",
@@ -338,8 +340,10 @@ weight: 10734
     echo [{{.my_interesting_story5}}]
     
     cmd=>:
-    echo [hello world]<=
+    echo [hello world]
+    -
     [hello world]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo [hello world]",
@@ -356,12 +360,14 @@ weight: 10734
     world
     
     
-    ]"<=
+    ]"
+    -
     [hello
     world
     
     
     ]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=23) "echo \"[hello\nworld\n\n\n]\"",
@@ -374,8 +380,10 @@ weight: 10734
     echo "[{{.newstory_with_blank_space_front_and_tail}}]"
     
     cmd=>:
-    echo "[ same old story ]"<=
+    echo "[ same old story ]"
+    -
     [ same old story ]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=25) "echo \"[ same old story ]\"",
@@ -388,8 +396,10 @@ weight: 10734
     echo "[{{.newstory_clean}}]"
     
     cmd=>:
-    echo "[same old story]"<=
+    echo "[same old story]"
+    -
     [same old story]
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=23) "echo \"[same old story]\"",

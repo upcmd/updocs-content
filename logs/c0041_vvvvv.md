@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvvv"
-date: 2020-08-09T01:36:04+88:00
+date: 2020-08-18T15:15:54+88:00
 draft: false
 weight: 10414
 
@@ -34,7 +34,7 @@ weight: 10414
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5100)(<nil>)
+    (*impl.Scopes)(0xc000177100)(<nil>)
     
     ---------group vars----------
     
@@ -111,8 +111,10 @@ weight: 10414
     echo hello
     
     cmd=>:
-    echo hello<=
+    echo hello
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=10) "echo hello",
@@ -125,8 +127,10 @@ weight: 10414
     echo world
     
     cmd=>:
-    echo world<=
+    echo world
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=10) "echo world",
@@ -203,8 +207,10 @@ weight: 10414
     echo tom
     
     cmd=>:
-    echo tom<=
+    echo tom
+    -
     tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=8) "echo tom",
@@ -217,8 +223,10 @@ weight: 10414
     echo "{{.last_result.Code}}"
     
     cmd=>:
-    echo "0"<=
+    echo "0"
+    -
     0
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=8) "echo \"0\"",
@@ -231,8 +239,10 @@ weight: 10414
     echo "{{.last_result.Output}}"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",
@@ -245,8 +255,10 @@ weight: 10414
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=10) "echo hanks",
@@ -315,13 +327,13 @@ weight: 10414
     
     
     scope[local] merged: {
-      "greet": "hello: hanks\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "greet": "hello: hanks\n"
     }
     
     
@@ -341,8 +353,10 @@ weight: 10414
     echo tom
     
     cmd=>:
-    echo tom<=
+    echo tom
+    -
     tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=8) "echo tom",
@@ -355,8 +369,10 @@ weight: 10414
     echo "{{.last_result.Output}}"
     
     cmd=>:
-    echo "hanks"<=
+    echo "hanks"
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hanks\"",
@@ -369,8 +385,10 @@ weight: 10414
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=10) "echo hanks",
@@ -384,9 +402,11 @@ weight: 10414
     
     cmd=>:
     echo "hello: hanks
-    "<=
+    "
+    -
     hello: hanks
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello: hanks\n\"",

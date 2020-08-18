@@ -1,6 +1,6 @@
 ---
 title: "c0092_vvvvv"
-date: 2020-08-09T01:36:12+88:00
+date: 2020-08-18T15:16:05+88:00
 draft: false
 weight: 10924
 
@@ -34,7 +34,7 @@ weight: 10924
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7020)(<nil>)
+    (*impl.Scopes)(0xc0001c10a0)(<nil>)
     
     ---------group vars----------
     
@@ -108,8 +108,8 @@ weight: 10924
     
     scope[local] merged: {
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     }
     
@@ -126,8 +126,8 @@ weight: 10924
     caller's vars to task (tom_action)::
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     
@@ -177,11 +177,11 @@ weight: 10924
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "person": {
-        "name": "tom",
-        "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+        "age": 23,
+        "name": "tom"
+      }
     }
     
     

@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvvv"
-date: 2020-08-09T01:36:13+88:00
+date: 2020-08-18T15:16:06+88:00
 draft: false
 weight: 10934
 
@@ -34,7 +34,7 @@ weight: 10934
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001df040)(<nil>)
+    (*impl.Scopes)(0xc000175060)(<nil>)
     
     ---------group vars----------
     
@@ -96,8 +96,8 @@ weight: 10934
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     
@@ -118,8 +118,8 @@ weight: 10934
     
     (*core.Cache)({
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     })
     
@@ -165,8 +165,8 @@ weight: 10934
     current exec runtime vars:
     (*core.Cache)({
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       },
       "up_runtime_task_layer_number": 1
     })

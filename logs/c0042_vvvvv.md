@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10424
 
@@ -111,8 +111,10 @@ weight: 10424
     echo tom
     
     cmd=>:
-    echo tom<=
+    echo tom
+    -
     tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=8) "echo tom",
@@ -125,8 +127,10 @@ weight: 10424
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=10) "echo hanks",
@@ -232,8 +236,10 @@ weight: 10424
     echo "hellomsg  - {{.hellomsg}}"
     
     cmd=>:
-    echo "hellomsg  - hanks"<=
+    echo "hellomsg  - hanks"
+    -
     hellomsg  - hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=24) "echo \"hellomsg  - hanks\"",
@@ -248,10 +254,12 @@ weight: 10424
     cmd=>:
     echo "reg_hello - hello: hanks
     
-    "<=
+    "
+    -
     reg_hello - hello: hanks
     
     
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=33) "echo \"reg_hello - hello: hanks\n\n\"",
@@ -304,13 +312,13 @@ weight: 10424
     
     current exec runtime vars:
     (*core.Cache)({
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
     [local] dvar expanded result:
@@ -320,14 +328,14 @@ weight: 10424
     
     
     scope[local] merged: {
-      "reg_hello": "\n",
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "reg_hello": "\n"
     }
     
     
@@ -340,16 +348,18 @@ weight: 10424
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "reg_hello": "\n"
+      "reg_hello": "\n",
+      "hellomsg": "hanks"
     })
     
     cmd( 1):
     echo "{{.hellomsg}}"
     
     cmd=>:
-    echo "hanks"<=
+    echo "hanks"
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hanks\"",
@@ -424,8 +434,10 @@ weight: 10424
     echo "{{.hellomsg}}"
     
     cmd=>:
-    echo "<no value>"<=
+    echo "<no value>"
+    -
     <no value>
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"<no value>\"",
@@ -512,21 +524,23 @@ weight: 10424
     self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      }),
-      "iamvoid": "something"
+      })
     })
     
     cmd( 1):
     echo '{{.iamvoid}}'
     
     cmd=>:
-    echo 'something'<=
+    echo 'something'
+    -
     something
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo 'something'",
@@ -577,34 +591,36 @@ weight: 10424
     
     
     scope[local] merged: {
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something"
     })
     
     cmd( 1):
     echo '{{.iamvoid}}'
     
     cmd=>:
-    echo 'something'<=
+    echo 'something'
+    -
     something
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo 'something'",

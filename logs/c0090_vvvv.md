@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvv"
-date: 2020-08-09T01:36:12+88:00
+date: 2020-08-18T15:16:05+88:00
 draft: false
 weight: 10903
 
@@ -100,11 +100,11 @@ weight: 10903
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     dvar> person:
@@ -115,12 +115,12 @@ weight: 10903
     self: final context exec vars:
     
     (*core.Cache)({
-      "taskvar": "taskvar",
-      "loopitem": "tom",
       "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "tom"
+      "person": "tom",
+      "taskvar": "taskvar",
+      "loopitem": "tom"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -180,11 +180,11 @@ weight: 10903
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "taskvar": "taskvar",
       "loopitem": "james",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar"
+      "up_runtime_task_layer_number": 1
     })
     
     dvar> person:
@@ -195,12 +195,12 @@ weight: 10903
     self: final context exec vars:
     
     (*core.Cache)({
+      "taskvar": "taskvar",
       "loopitem": "james",
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "person": "james",
-      "taskvar": "taskvar"
+      "person": "james"
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]

@@ -1,6 +1,6 @@
 ---
 title: "c0066_vvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10663
 
@@ -77,9 +77,9 @@ weight: 10663
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     })
     
@@ -87,40 +87,42 @@ weight: 10663
     echo "hello 1"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "school": "Sydney Grammar"
     })
     
@@ -158,9 +160,9 @@ weight: 10663
     
     (*core.Cache)({
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -180,27 +182,27 @@ weight: 10663
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -219,9 +221,9 @@ weight: 10663
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -234,25 +236,27 @@ weight: 10663
     self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
     })
     
     cmd( 1):
     echo "hello {{.greet}}"
     
     cmd=>:
-    echo "hello <no value>"<=
+    echo "hello <no value>"
+    -
     hello <no value>
+    -
      .. ok
     . ok
     

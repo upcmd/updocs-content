@@ -1,6 +1,6 @@
 ---
 title: "f0045_vvvvv"
-date: 2020-08-09T01:36:28+88:00
+date: 2020-08-18T15:16:27+88:00
 draft: false
 weight: 10454
 
@@ -34,7 +34,7 @@ weight: 10454
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f40)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001d6f20)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",

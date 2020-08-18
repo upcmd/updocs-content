@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvv"
-date: 2020-08-09T01:36:03+88:00
+date: 2020-08-18T15:15:53+88:00
 draft: false
 weight: 10353
 
@@ -71,8 +71,10 @@ weight: 10353
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up
+    -
      .. ok
     . ok
     -Step2: [step2:  ]
@@ -101,8 +103,10 @@ weight: 10353
     echo "{{.a}}"
     
     cmd=>:
-    echo "<no value>"<=
+    echo "<no value>"
+    -
     <no value>
+    -
      .. ok
     . ok
     

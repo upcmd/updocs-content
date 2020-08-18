@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvv"
-date: 2020-08-09T01:36:07+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10563
 
@@ -71,16 +71,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
     }
@@ -94,16 +94,16 @@ weight: 10563
     (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "population": "2000m",
           "name": "British"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -139,22 +139,28 @@ weight: 10563
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello tom"<=
+    echo "hello tom"
+    -
     hello tom
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello peter"<=
+    echo "hello peter"
+    -
     hello peter
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello james"<=
+    echo "hello james"
+    -
     hello james
+    -
      .. ok
     . ok
     -Step2:
@@ -170,8 +176,8 @@ weight: 10563
           "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -195,16 +201,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -219,43 +225,55 @@ weight: 10563
     echo "name {{.loopitem.name}}"
     
     cmd=>:
-    echo "name tom"<=
+    echo "name tom"
+    -
     name tom
+    -
      .. ok
     cmd( 2):
     echo "age {{.loopitem.age}}"
     
     cmd=>:
-    echo "age 11"<=
+    echo "age 11"
+    -
     age 11
+    -
      .. ok
     cmd( 1):
     echo "name {{.loopitem.name}}"
     
     cmd=>:
-    echo "name peter"<=
+    echo "name peter"
+    -
     name peter
+    -
      .. ok
     cmd( 2):
     echo "age {{.loopitem.age}}"
     
     cmd=>:
-    echo "age 45"<=
+    echo "age 45"
+    -
     age 45
+    -
      .. ok
     cmd( 1):
     echo "name {{.loopitem.name}}"
     
     cmd=>:
-    echo "name james"<=
+    echo "name james"
+    -
     name james
+    -
      .. ok
     cmd( 2):
     echo "age {{.loopitem.age}}"
     
     cmd=>:
-    echo "age 23"<=
+    echo "age 23"
+    -
     age 23
+    -
      .. ok
     . ok
     -Step3:
@@ -267,16 +285,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -298,20 +316,20 @@ weight: 10563
       }),
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
           "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       }
     })
@@ -320,29 +338,37 @@ weight: 10563
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello Australia"<=
+    echo "hello Australia"
+    -
     hello Australia
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello British"<=
+    echo "hello British"
+    -
     hello British
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello China"<=
+    echo "hello China"
+    -
     hello China
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello Danmark"<=
+    echo "hello Danmark"
+    -
     hello Danmark
+    -
      .. ok
     . ok
     -Step4: [: the loop point to a iteratable var countries
@@ -355,16 +381,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -384,16 +410,16 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -408,57 +434,73 @@ weight: 10563
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Australia"<=
+    echo "hello Australia"
+    -
     hello Australia
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 20m"<=
+    echo "hello 20m"
+    -
     hello 20m
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello British"<=
+    echo "hello British"
+    -
     hello British
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 2000m"<=
+    echo "hello 2000m"
+    -
     hello 2000m
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello China"<=
+    echo "hello China"
+    -
     hello China
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 1.4b"<=
+    echo "hello 1.4b"
+    -
     hello 1.4b
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Danmark"<=
+    echo "hello Danmark"
+    -
     hello Danmark
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 30m"<=
+    echo "hello 30m"
+    -
     hello 30m
+    -
      .. ok
     . ok
     -Step5: [: the templated value will be eventually a var/dvar name
@@ -471,8 +513,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -507,8 +549,8 @@ weight: 10563
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -525,113 +567,145 @@ weight: 10563
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 0"<=
+    echo "hello 0"
+    -
     hello 0
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Australia"<=
+    echo "hello Australia"
+    -
     hello Australia
+    -
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 20m"<=
+    echo "hello 20m"
+    -
     hello 20m
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 2"<=
+    echo "hello 2"
+    -
     hello 2
+    -
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello British"<=
+    echo "hello British"
+    -
     hello British
+    -
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 2000m"<=
+    echo "hello 2000m"
+    -
     hello 2000m
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 2"<=
+    echo "hello 2"
+    -
     hello 2
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 3"<=
+    echo "hello 3"
+    -
     hello 3
+    -
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello China"<=
+    echo "hello China"
+    -
     hello China
+    -
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 1.4b"<=
+    echo "hello 1.4b"
+    -
     hello 1.4b
+    -
      .. ok
     cmd( 1):
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 3"<=
+    echo "hello 3"
+    -
     hello 3
+    -
      .. ok
     cmd( 2):
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 4"<=
+    echo "hello 4"
+    -
     hello 4
+    -
      .. ok
     cmd( 3):
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Danmark"<=
+    echo "hello Danmark"
+    -
     hello Danmark
+    -
      .. ok
     cmd( 4):
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 30m"<=
+    echo "hello 30m"
+    -
     hello 30m
+    -
      .. ok
     . ok
     

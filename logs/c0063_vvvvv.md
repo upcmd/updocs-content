@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10634
 
@@ -34,7 +34,7 @@ weight: 10634
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000965e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf1c0)(<nil>)
     
     ---------group vars----------
     
@@ -98,8 +98,8 @@ weight: 10634
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "runtime-var-b",
-      "a": "global-var-a"
+      "a": "global-var-a",
+      "b": "runtime-var-b"
     })
     
     [local] dvar expanded result:
@@ -130,8 +130,10 @@ weight: 10634
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -144,8 +146,10 @@ weight: 10634
     echo "hello {{.a}}"
     
     cmd=>:
-    echo "hello global-var-a"<=
+    echo "hello global-var-a"
+    -
     hello global-var-a
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=25) "echo \"hello global-var-a\"",
@@ -278,19 +282,6 @@ weight: 10634
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello global-var-a\"",
-        Code: 0,
-        Output: "hello global-var-a",
-        ErrMsg: ""
-      }),
-      "a": "global-var-a"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
@@ -298,14 +289,29 @@ weight: 10634
         Output: "hello global-var-a",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
+        Code: 0,
+        Output: "hello global-var-a",
+        ErrMsg: ""
+      }),
+      "a": "global-var-a"
     })
     
     cmd( 1):
     echo "next step"
     
     cmd=>:
-    echo "next step"<=
+    echo "next step"
+    -
     next step
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"next step\"",

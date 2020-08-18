@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:19+88:00
 draft: false
 weight: 11483
 
@@ -84,8 +84,8 @@ weight: 11483
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     self: final context exec vars:
@@ -116,8 +116,8 @@ weight: 11483
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     self: final context exec vars:
@@ -154,16 +154,16 @@ weight: 11483
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
+      "up_runtime_task_layer_number": 1,
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
+      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1
     })
     

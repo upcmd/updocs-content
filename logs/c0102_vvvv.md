@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11023
 
@@ -80,7 +80,9 @@ weight: 11023
     emily:
       sex: female
       age: 32
-    " > /tmp/mock_yml.yml<=
+    " > /tmp/mock_yml.yml
+    -
+    -
      .. ok
     . ok
     -Step2: [: inplace modification ]
@@ -135,14 +137,14 @@ weight: 11023
     self: final context exec vars:
     
     (*core.Cache)({
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     ~SubStep1: [ymlDelete:  ]

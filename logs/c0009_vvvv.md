@@ -1,6 +1,6 @@
 ---
 title: "c0009_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10093
 
@@ -37,10 +37,10 @@ weight: 10093
     loading vars from: d0009-global.yml
     
     {
+      "c": "global-c",
       "d": "global-d",
       "a": "global-a",
-      "b": "global-b",
-      "c": "global-c"
+      "b": "global-b"
     }
     
     loading [ref vars]:  ./tests/functests/d0009-dev.yml
@@ -53,24 +53,24 @@ weight: 10093
     
     ---------group vars----------
     
-    prod: {
-      "a": "prod-a",
-      "c": "prod-c"
-    }
-    
-    
     nonprod: {
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "c": "non-prod-c"
+      "c": "non-prod-c",
+      "a": "non-prod-a"
     }
     
     
     global: {
-      "c": "global-c",
-      "d": "global-d",
       "a": "global-a",
-      "b": "global-b"
+      "b": "global-b",
+      "c": "global-c",
+      "d": "global-d"
+    }
+    
+    
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -86,10 +86,10 @@ weight: 10093
     -------runtime global final merged with dvars-------
     
     {
+      "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -99,27 +99,29 @@ weight: 10093
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a"
+      "a": "dev-a",
+      "b": "non-prod-b"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b",
-      "c": "dev-c"
+      "b": "non-prod-b"
     })
     
     cmd( 1):
     echo "test out the var scopes only"
     
     cmd=>:
-    echo "test out the var scopes only"<=
+    echo "test out the var scopes only"
+    -
     test out the var scopes only
+    -
      .. ok
     . ok
     

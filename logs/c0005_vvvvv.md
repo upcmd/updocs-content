@@ -1,6 +1,6 @@
 ---
 title: "c0005_vvvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10054
 
@@ -34,7 +34,7 @@ weight: 10054
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175420)(<nil>)
+    (*impl.Scopes)(0xc0001bf480)(<nil>)
     
     ---------group vars----------
     
@@ -161,8 +161,10 @@ weight: 10054
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hello\"",
@@ -221,8 +223,10 @@ weight: 10054
     echo " I love this "
     
     cmd=>:
-    echo " I love this "<=
+    echo " I love this "
+    -
      I love this 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \" I love this \"",
@@ -337,13 +341,13 @@ weight: 10054
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -352,34 +356,36 @@ weight: 10054
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",
@@ -430,13 +436,13 @@ weight: 10054
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -471,8 +477,10 @@ weight: 10054
     echo "this is 2nd task"
     
     cmd=>:
-    echo "this is 2nd task"<=
+    echo "this is 2nd task"
+    -
     this is 2nd task
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=23) "echo \"this is 2nd task\"",

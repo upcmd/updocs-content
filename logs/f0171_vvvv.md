@@ -1,6 +1,6 @@
 ---
 title: "f0171_vvvv"
-date: 2020-08-09T01:36:29+88:00
+date: 2020-08-18T15:16:29+88:00
 draft: false
 weight: 11713
 
@@ -68,27 +68,20 @@ weight: 11713
     echo "open a file ....."
     
     cmd=>:
-    echo "open a file ....."<=
+    echo "open a file ....."
+    -
     open a file .....
+    -
      .. ok
     cmd( 2):
     echo "reading the file" |grep "cause an exception"
     
     cmd=>:
-    echo "reading the file" |grep "cause an exception"<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "reading the file" |grep "cause an exception"
+    -
+    -
      .. failed(suppressed if it is not the last step)
     Step Finally:
-    (*utils.ExecResult)({
-      Cmd: "echo \"reading the file\" |grep \"cause an exception\"",
-      Code: 1,
-      Output: "",
-      ErrMsg: "exit status 1"
-    })
-    
-    <nil>
-    
       located task-> 2 [close_file]: 
     =Task2: [task ==> close_file:  ]
     Executing task stack layer: 2
@@ -122,11 +115,13 @@ weight: 11713
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     . ok
-     WARN: [No rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
+     WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]
     task finally ->   ERROR: Failed And Not Ignored! [You may want to continue and ignore the error]
     
     

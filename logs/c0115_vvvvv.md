@@ -1,6 +1,6 @@
 ---
 title: "c0115_vvvvv"
-date: 2020-08-09T01:36:16+88:00
+date: 2020-08-18T15:16:11+88:00
 draft: false
 weight: 11154
 
@@ -34,7 +34,7 @@ weight: 11154
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5900)(<nil>)
+    (*impl.Scopes)(0xc0000aad60)(<nil>)
     
     ---------group vars----------
     
@@ -50,8 +50,8 @@ weight: 11154
     }
     
     (core.Cache) (len=2) {
-     (string) (len=3) "tom": (string) (len=21) "this is tom in global",
-     (string) (len=5) "jerry": (string) (len=23) "this is jerry in global"
+     (string) (len=5) "jerry": (string) (len=23) "this is jerry in global",
+     (string) (len=3) "tom": (string) (len=21) "this is tom in global"
     }
     
     [runtime global] dvar expanded result:
@@ -131,16 +131,16 @@ weight: 11154
       Name: "",
       Do: {
         {
-          "name": "reg",
           "desc": "by default hitom is registered in to global context",
           "cmd": {
             "name": "tom",
             "value": "tom created in subtask1"
-          }
+          },
+          "name": "reg"
         },
         {
-          "cmd": "in subtask1 print1: {{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "in subtask1 print1: {{.tom}}"
         }
       },
       Dox: <nil>,
@@ -166,9 +166,9 @@ weight: 11154
     current exec runtime vars:
     (*core.Cache)({
       "john": "john in sub_loop func1",
+      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -178,8 +178,8 @@ weight: 11154
     
     scope[local] merged: {
       "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global",
       "john": "john in sub_loop func1",
+      "jerry": "this is jerry in global",
       "tom": "this is tom in global"
     }
     
@@ -188,9 +188,9 @@ weight: 11154
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
+      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 1
     })
     
     map[name:tom value:tom created in subtask1]
@@ -198,17 +198,17 @@ weight: 11154
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "tom": "tom created in subtask1",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "tom": "tom created in subtask1"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
+      "jerry": "this is jerry in global",
       "tom": "tom created in subtask1",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 1
     })
     
     in subtask1 print1: {{.tom}}
@@ -245,10 +245,10 @@ weight: 11154
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func2",
+      "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "tom": "tom created in subtask1"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -257,20 +257,20 @@ weight: 11154
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func2",
+      "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "tom": "tom created in subtask1"
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "tom created in subtask1",
       "up_runtime_task_layer_number": 1,
-      "john": "john in sub_loop func2"
+      "john": "john in sub_loop func2",
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global"
     })
     
     in subtask1 print21: {{.tom}}
@@ -303,9 +303,9 @@ weight: 11154
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in subtask1",
       "jerry": "this is jerry in global",
-      "tom": "tom created in subtask1"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -315,24 +315,24 @@ weight: 11154
     
     scope[local] merged: {
       "tom": "tom created in subtask1",
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (subtask2)::
     (*core.Cache)({
       "jerry": "this is jerry in global",
-      "tom": "tom created in subtask1",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in subtask1"
     })
     
       located task-> 3 [subtask2]: 
@@ -344,12 +344,12 @@ weight: 11154
       Name: "",
       Do: {
         {
-          "desc": "by default hitom is registered in to global context",
           "cmd": {
             "name": "tom",
             "value": "tom2 created in subtask2"
           },
-          "name": "reg"
+          "name": "reg",
+          "desc": "by default hitom is registered in to global context"
         },
         {
           "name": "print",
@@ -378,9 +378,9 @@ weight: 11154
     
     current exec runtime vars:
     (*core.Cache)({
-      "john": "john in sub_loop func1",
-      "up_runtime_task_layer_number": 2,
       "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2,
+      "john": "john in sub_loop func1",
       "tom": "tom created in subtask1"
     })
     
@@ -391,19 +391,19 @@ weight: 11154
     
     scope[local] merged: {
       "tom": "tom created in subtask1",
-      "john": "john in sub_loop func1",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2,
-      "jerry": "this is jerry in global"
+      "john": "john in sub_loop func1"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "tom created in subtask1",
       "john": "john in sub_loop func1",
-      "up_runtime_task_layer_number": 2,
-      "jerry": "this is jerry in global"
+      "tom": "tom created in subtask1",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
     })
     
     map[name:tom value:tom2 created in subtask2]
@@ -411,8 +411,8 @@ weight: 11154
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -420,9 +420,9 @@ weight: 11154
     
     (*core.Cache)({
       "john": "john in sub_loop func1",
-      "up_runtime_task_layer_number": 2,
+      "tom": "tom2 created in subtask2",
       "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2"
+      "up_runtime_task_layer_number": 2
     })
     
     in subtask2 print1: {{.tom}}
@@ -433,151 +433,7 @@ weight: 11154
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "in subtask2 print2: {{.tom}}"
-        },
-        {
-          "name": "return",
-          "cmd": {
-            "tom"
-          }
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: {
-        "john": "john in sub_loop func2"
-      },
-      Dvars: <nil>,
-      Desc: "check value of tom and it should be available in current stack",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "john": "john in sub_loop func2",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2,
-      "jerry": "this is jerry in global"
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "jerry": "this is jerry in global",
-      "john": "john in sub_loop func2",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "john": "john in sub_loop func2",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2
-    })
-    
-    in subtask2 print2: {{.tom}}
-    ~~~SubStep1: [print:  ]
-    in subtask2 print2: tom2 created in subtask2
-    [tom]
-    ~~~SubStep2: [return:  ]
-    contextual return vars:
-    
-    (*core.Cache)({
-      "tom": "tom2 created in subtask2"
-    })
-    
-    caller's vars to task (subtask3)::
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2"
-    })
-    
-      located task-> 4 [subtask3]: 
-    ==Task4: [task/subtask1 ==> subtask3: subtask3 ]
-    Executing task stack layer: 3
-    
-    ---Step1: [: dummy ]
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "dummy to help build inspect task"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "dummy",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2
-    })
-    
-    dummy to help build inspect task
-    ~~~SubStep1: [print:  ]
-    dummy to help build inspect task
-    --Step4: [: check value of tom and it should be available in current stack ]
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "in subtask1 print22: {{.tom}}",
+          "cmd": "in subtask2 print2: {{.tom}}",
           "name": "print"
         },
         {
@@ -611,8 +467,8 @@ weight: 11154
     (*core.Cache)({
       "john": "john in sub_loop func2",
       "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2,
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -621,9 +477,9 @@ weight: 11154
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 2,
       "john": "john in sub_loop func2",
       "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2,
       "jerry": "this is jerry in global"
     }
     
@@ -631,10 +487,154 @@ weight: 11154
     self: final context exec vars:
     
     (*core.Cache)({
-      "john": "john in sub_loop func2",
-      "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 2,
-      "jerry": "this is jerry in global"
+      "john": "john in sub_loop func2",
+      "tom": "tom2 created in subtask2"
+    })
+    
+    in subtask2 print2: {{.tom}}
+    ~~~SubStep1: [print:  ]
+    in subtask2 print2: tom2 created in subtask2
+    [tom]
+    ~~~SubStep2: [return:  ]
+    contextual return vars:
+    
+    (*core.Cache)({
+      "tom": "tom2 created in subtask2"
+    })
+    
+    caller's vars to task (subtask3)::
+    (*core.Cache)({
+      "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 4 [subtask3]: 
+    ==Task4: [task/subtask1 ==> subtask3: subtask3 ]
+    Executing task stack layer: 3
+    
+    ---Step1: [: dummy ]
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": "dummy to help build inspect task",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "dummy",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2,
+      "tom": "tom2 created in subtask2"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "tom": "tom2 created in subtask2",
+      "jerry": "this is jerry in global",
+      "up_runtime_task_layer_number": 2
+    })
+    
+    dummy to help build inspect task
+    ~~~SubStep1: [print:  ]
+    dummy to help build inspect task
+    --Step4: [: check value of tom and it should be available in current stack ]
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "in subtask1 print22: {{.tom}}"
+        },
+        {
+          "name": "return",
+          "cmd": {
+            "tom"
+          }
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: {
+        "john": "john in sub_loop func2"
+      },
+      Dvars: <nil>,
+      Desc: "check value of tom and it should be available in current stack",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "john": "john in sub_loop func2",
+      "jerry": "this is jerry in global",
+      "tom": "tom2 created in subtask2",
+      "up_runtime_task_layer_number": 2
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 2,
+      "john": "john in sub_loop func2",
+      "jerry": "this is jerry in global",
+      "tom": "tom2 created in subtask2"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "john": "john in sub_loop func2",
+      "jerry": "this is jerry in global",
+      "tom": "tom2 created in subtask2",
+      "up_runtime_task_layer_number": 2
     })
     
     in subtask1 print22: {{.tom}}
@@ -691,9 +691,9 @@ weight: 11154
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 2,
       "jerry": "this is jerry in global",
-      "tom": "tom2 created in subtask2",
-      "up_runtime_task_layer_number": 2
+      "tom": "tom2 created in subtask2"
     }
     
     

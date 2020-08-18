@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvvv"
-date: 2020-08-09T01:36:03+88:00
+date: 2020-08-18T15:15:53+88:00
 draft: false
 weight: 10354
 
@@ -34,7 +34,7 @@ weight: 10354
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f80)(<nil>)
+    (*impl.Scopes)(0xc000172f80)(<nil>)
     
     ---------group vars----------
     
@@ -73,8 +73,8 @@ weight: 10354
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "a": "aaa",
-        "b": "bbb"
+        "b": "bbb",
+        "a": "aaa"
       },
       Dvars: <nil>,
       Desc: "",
@@ -93,8 +93,8 @@ weight: 10354
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -103,24 +103,26 @@ weight: 10354
     
     
     scope[local] merged: {
-      "b": "bbb",
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "a": "aaa"
     })
     
     cmd( 1):
     pwd
     
     cmd=>:
-    pwd<=
+    pwd
+    -
     /up_project/up
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=3) "pwd",
@@ -194,8 +196,10 @@ weight: 10354
     echo "{{.a}}"
     
     cmd=>:
-    echo "<no value>"<=
+    echo "<no value>"
+    -
     <no value>
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"<no value>\"",

@@ -1,6 +1,6 @@
 ---
 title: "c0162_vvvvv"
-date: 2020-08-09T01:36:25+88:00
+date: 2020-08-18T15:16:22+88:00
 draft: false
 weight: 11624
 
@@ -34,7 +34,7 @@ weight: 11624
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001df200)(<nil>)
+    (*impl.Scopes)(0xc0001c1280)(<nil>)
     
     ---------group vars----------
     
@@ -69,8 +69,8 @@ weight: 11624
       Name: "",
       Do: {
         {
-          "cmd": "{{.countries}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.countries}}"
         },
         {
           "name": "typeOf",
@@ -82,8 +82,8 @@ weight: 11624
           }
         },
         {
-          "name": "print",
-          "cmd": "type of countries: {{.countries | typeOf}}\ntype of friends: {{.friends | typeOf}}\ntype of my_friends: {{.my_friend | typeOf}}\nwho is trusted: {{.who_is_trusted |typeOf}}\n"
+          "cmd": "type of countries: {{.countries | typeOf}}\ntype of friends: {{.friends | typeOf}}\ntype of my_friends: {{.my_friend | typeOf}}\nwho is trusted: {{.who_is_trusted |typeOf}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -147,13 +147,13 @@ weight: 11624
     
     
     scope[local] merged: {
-      "countries": "- Austraila\n- US\n- China\n- Japan\n",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
       },
+      "countries": "- Austraila\n- US\n- China\n- Japan\n",
       "my_friend": "joe doe",
       "who_is_trusted": "my_friend"
     }
@@ -162,14 +162,14 @@ weight: 11624
     self: final context exec vars:
     
     (*core.Cache)({
+      "my_friend": "joe doe",
+      "who_is_trusted": "my_friend",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
       },
-      "my_friend": "joe doe",
-      "who_is_trusted": "my_friend",
       "countries": "- Austraila\n- US\n- China\n- Japan\n"
     })
     

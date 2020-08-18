@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:13+88:00
 draft: false
 weight: 11273
 
@@ -151,8 +151,8 @@ weight: 11273
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:

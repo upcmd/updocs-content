@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:09+88:00
 draft: false
 weight: 11063
 
@@ -74,8 +74,8 @@ weight: 11063
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -143,8 +143,8 @@ weight: 11063
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -168,9 +168,9 @@ weight: 11063
     self: final context exec vars:
     
     (*core.Cache)({
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "hitom": "hello, this is tom"
     })
     
     ~~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func

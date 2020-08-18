@@ -1,6 +1,6 @@
 ---
 title: "c0172_vvvvv"
-date: 2020-08-09T01:36:26+88:00
+date: 2020-08-18T15:16:24+88:00
 draft: false
 weight: 11724
 
@@ -34,7 +34,7 @@ weight: 11724
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177160)(<nil>)
+    (*impl.Scopes)(0xc0001d7140)(<nil>)
     
     ---------group vars----------
     
@@ -124,8 +124,6 @@ weight: 11724
     Step Finally:
     (*utils.ExecResult)(<nil>)
     
-    <nil>
-    
     Recovered from: manual trigger a panic cmd
     finally caller vars to task (close_file)::
     (*core.Cache)({
@@ -189,8 +187,10 @@ weight: 11724
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"close the file .....\"",

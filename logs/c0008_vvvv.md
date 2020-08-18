@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10083
 
@@ -36,42 +36,42 @@ weight: 10083
     ---------group vars----------
     
     prod: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
     nonprod: {
-      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a"
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     }
     
     
     global: {
+      "d": "global-d",
       "a": "global-a",
       "b": "global-b",
-      "c": "global-c",
-      "d": "global-d"
+      "c": "global-c"
     }
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
     {
-      "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "c": "dev-c",
-      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -81,10 +81,10 @@ weight: 10083
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     })
     
     self: final context exec vars:
@@ -100,8 +100,10 @@ weight: 10083
     echo "test out the var scopes only"
     
     cmd=>:
-    echo "test out the var scopes only"<=
+    echo "test out the var scopes only"
+    -
     test out the var scopes only
+    -
      .. ok
     . ok
     

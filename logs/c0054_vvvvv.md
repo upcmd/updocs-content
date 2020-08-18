@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10544
 
@@ -34,7 +34,7 @@ weight: 10544
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7f00)(<nil>)
+    (*impl.Scopes)(0xc000177f40)(<nil>)
     
     ---------group vars----------
     
@@ -110,8 +110,10 @@ weight: 10544
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"hello, world\"",
@@ -291,8 +293,10 @@ weight: 10544
     echo "step1"
     
     cmd=>:
-    echo "step1"<=
+    echo "step1"
+    -
     step1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step1\"",
@@ -305,10 +309,9 @@ weight: 10544
     echo "step2" |grep notexist
     
     cmd=>:
-    echo "step2" |grep notexist<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "step2" |grep notexist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
@@ -321,8 +324,10 @@ weight: 10544
     echo "step3"
     
     cmd=>:
-    echo "step3"<=
+    echo "step3"
+    -
     step3
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step3\"",
@@ -396,8 +401,10 @@ weight: 10544
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"hello, world\"",
@@ -499,8 +506,10 @@ weight: 10544
     echo "check last step"
     
     cmd=>:
-    echo "check last step"<=
+    echo "check last step"
+    -
     check last step
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "echo \"check last step\"",
@@ -513,8 +522,10 @@ weight: 10544
     echo "{{.last_result|toJson}}"
     
     cmd=>:
-    echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"<=
+    echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"
+    -
     {Cmd:echo "hello, world",Code:0,Output:hello, world,ErrMsg:}
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=83) "echo \"{\"Cmd\":\"echo \\\"hello, world\\\"\",\"Code\":0,\"Output\":\"hello, world\",\"ErrMsg\":\"\"}\"",
@@ -532,13 +543,15 @@ weight: 10544
       "Code": 0,
       "Output": "hello, world",
       "ErrMsg": ""
-    }"<=
+    }"
+    -
     {
       Cmd: echo "hello, world",
       Code: 0,
       Output: hello, world,
       ErrMsg: 
     }
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=100) "echo \"{\n  \"Cmd\": \"echo \\\"hello, world\\\"\",\n  \"Code\": 0,\n  \"Output\": \"hello, world\",\n  \"ErrMsg\": \"\"\n}\"",
@@ -551,8 +564,10 @@ weight: 10544
     echo "{{eq .last_result.Code 0}}"
     
     cmd=>:
-    echo "true"<=
+    echo "true"
+    -
     true
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=11) "echo \"true\"",
@@ -629,8 +644,10 @@ weight: 10544
     echo "step1"
     
     cmd=>:
-    echo "step1"<=
+    echo "step1"
+    -
     step1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step1\"",
@@ -643,10 +660,9 @@ weight: 10544
     echo "step2" |grep notexist
     
     cmd=>:
-    echo "step2" |grep notexist<=
-          exec wait -> exit status 1
-    -----trace for reference-----
-          exit status 1
+    echo "step2" |grep notexist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
      Cmd: (string) (len=27) "echo \"step2\" |grep notexist",
@@ -771,9 +787,9 @@ weight: 10544
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       }
     })
     
@@ -789,13 +805,13 @@ weight: 10544
     
     
     scope[local] merged: {
-      "condition": "true",
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       },
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "condition": "true"
     }
     
     
@@ -815,8 +831,10 @@ weight: 10544
     echo "simple dvar as condition"
     
     cmd=>:
-    echo "simple dvar as condition"<=
+    echo "simple dvar as condition"
+    -
     simple dvar as condition
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=31) "echo \"simple dvar as condition\"",
@@ -907,9 +925,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       },
       "condition": "true"
     }
@@ -918,7 +936,6 @@ weight: 10544
     self: final context exec vars:
     
     (*core.Cache)({
-      "condition": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"simple dvar as condition\"",
         Code: 0,
@@ -926,18 +943,21 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
-      }
+        "age": 23
+      },
+      "condition": "true"
     })
     
     cmd( 1):
     echo "complicated dvar evaluation as condition"
     
     cmd=>:
-    echo "complicated dvar evaluation as condition"<=
+    echo "complicated dvar evaluation as condition"
+    -
     complicated dvar evaluation as condition
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=47) "echo \"complicated dvar evaluation as condition\"",
@@ -957,9 +977,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
-          "age": 23,
           "name": "peter",
-          "sex": "male"
+          "sex": "male",
+          "age": 23
         }
       },
       Dvars: {
@@ -1003,9 +1023,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       }
     })
     
@@ -1028,9 +1048,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "name": "peter",
         "sex": "male",
-        "age": 23,
-        "name": "peter"
+        "age": 23
       },
       "condition": "true"
     }
@@ -1057,8 +1077,10 @@ weight: 10544
     echo "a even more complicated condition but more readable"
     
     cmd=>:
-    echo "a even more complicated condition but more readable"<=
+    echo "a even more complicated condition but more readable"
+    -
     a even more complicated condition but more readable
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=58) "echo \"a even more complicated condition but more readable\"",
@@ -1078,9 +1100,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
+          "name": "peter",
           "sex": "male",
-          "age": 23,
-          "name": "peter"
+          "age": 23
         }
       },
       Dvars: <nil>,
@@ -1100,17 +1122,17 @@ weight: 10544
     
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a even more complicated condition but more readable\"",
         Code: 0,
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
-      }),
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      }
+      })
     })
     
     [local] dvar expanded result:
@@ -1126,9 +1148,9 @@ weight: 10544
         ErrMsg: ""
       }),
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       }
     }
     
@@ -1153,8 +1175,10 @@ weight: 10544
     echo "a complicated condition without dvar"
     
     cmd=>:
-    echo "a complicated condition without dvar"<=
+    echo "a complicated condition without dvar"
+    -
     a complicated condition without dvar
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=43) "echo \"a complicated condition without dvar\"",

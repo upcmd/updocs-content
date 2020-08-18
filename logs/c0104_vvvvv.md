@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11044
 
@@ -34,7 +34,7 @@ weight: 11044
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00023f460)(<nil>)
+    (*impl.Scopes)(0xc000175400)(<nil>)
     
     ---------group vars----------
     
@@ -116,8 +116,10 @@ weight: 11044
     echo " I love this "
     
     cmd=>:
-    echo " I love this "<=
+    echo " I love this "
+    -
      I love this 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \" I love this \"",
@@ -154,13 +156,13 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "extra_task_name": "post_task"
+      })
     })
     
     [local] dvar expanded result:
@@ -276,8 +278,10 @@ weight: 11044
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"world\"",
@@ -328,14 +332,14 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "extra_task_name": "post_task"
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -344,14 +348,14 @@ weight: 11044
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -372,8 +376,10 @@ weight: 11044
     echo "this is 2nd task"
     
     cmd=>:
-    echo "this is 2nd task"<=
+    echo "this is 2nd task"
+    -
     this is 2nd task
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=23) "echo \"this is 2nd task\"",

@@ -1,6 +1,6 @@
 ---
 title: "c0117_vvvv"
-date: 2020-08-09T01:36:16+88:00
+date: 2020-08-18T15:16:11+88:00
 draft: false
 weight: 11173
 
@@ -70,10 +70,10 @@ weight: 11173
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -90,10 +90,10 @@ weight: 11173
     --Step2: [step2: the loopitem here is the local defined loopitem ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 1",
-      "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1",
+      "loopindex": 0
     })
     
     self: final context exec vars:
@@ -116,20 +116,20 @@ weight: 11173
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 1",
-      "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1",
+      "loopindex": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "parentLoopItem": "proc 1",
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "parentLoopItem": "proc 1"
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -145,10 +145,10 @@ weight: 11173
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     })
     
     self: final context exec vars:
@@ -165,10 +165,10 @@ weight: 11173
     --Step2: [step2: the loopitem here is the local defined loopitem ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -191,20 +191,20 @@ weight: 11173
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 2",
       "loopindex": 1,
-      "up_runtime_task_layer_number": 1,
       "loopindex1": 2,
-      "loopitem": "proc 2"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
+      "parentLoopItem": "proc 2",
       "loopitem": "proc 2",
       "loopindex": 1,
-      "up_runtime_task_layer_number": 1,
-      "parentLoopItem": "proc 2"
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -220,18 +220,18 @@ weight: 11173
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
-      "loopitem": "proc 3",
       "loopindex": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 3"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
       "loopitem": "proc 3",
       "loopindex": 2,
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1
     })
     
@@ -241,17 +241,17 @@ weight: 11173
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "proc 3",
+      "up_runtime_task_layer_number": 1,
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
+      "loopitem": "proc 3",
       "up_runtime_task_layer_number": 1
     })
     
@@ -266,18 +266,18 @@ weight: 11173
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
+      "loopitem": "proc 3",
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
+      "loopitem": "proc 3",
       "up_runtime_task_layer_number": 1,
       "parentLoopItem": "proc 3"
     })

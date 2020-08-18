@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:08+88:00
 draft: false
 weight: 11043
 
@@ -71,20 +71,22 @@ weight: 11043
     echo " I love this "
     
     cmd=>:
-    echo " I love this "<=
+    echo " I love this "
+    -
      I love this 
+    -
      .. ok
     . ok
     -Step2: [: use a dynamic var to refer to a task name ]
     current exec runtime vars:
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "extra_task_name": "post_task"
     })
     
     self: final context exec vars:
@@ -106,6 +108,19 @@ weight: 11043
     --Step1: [: do step1 in shell func ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
+        Code: 0,
+        Output: "I love this",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
@@ -116,25 +131,14 @@ weight: 11043
       "up_runtime_task_layer_number": 1
     })
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \" I love this \"",
-        Code: 0,
-        Output: "I love this",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "extra_task_name": "post_task"
-    })
-    
     cmd( 1):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
       located task-> 3 [2ndtask]: 
@@ -157,22 +161,24 @@ weight: 11043
     self: final context exec vars:
     
     (*core.Cache)({
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "extra_task_name": "post_task"
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
     echo "this is 2nd task"
     
     cmd=>:
-    echo "this is 2nd task"<=
+    echo "this is 2nd task"
+    -
     this is 2nd task
+    -
      .. ok
     . ok
     

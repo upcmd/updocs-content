@@ -1,6 +1,6 @@
 ---
 title: "c0175_vvvv"
-date: 2020-08-09T01:36:27+88:00
+date: 2020-08-18T15:16:25+88:00
 draft: false
 weight: 11753
 
@@ -69,16 +69,18 @@ weight: 11753
     echo "opening file"
     
     cmd=>:
-    echo "opening file"<=
+    echo "opening file"
+    -
     opening file
+    -
      .. ok
     cmd( 2):
     echo "hello"|grep "world"
     
     cmd=>:
-    echo "hello"|grep "world"<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "hello"|grep "world"
+    -
+    -
      .. failed(suppressed if it is not the last step)
     task Finally:
     -Step1: [close_file: ensure the opened file is closed
@@ -108,8 +110,10 @@ weight: 11753
     echo "close the file ....."
     
     cmd=>:
-    echo "close the file ....."<=
+    echo "close the file ....."
+    -
     close the file .....
+    -
      .. ok
     . ok
      WARN: [Rescued in task level, but not advised!] - [setting rescue to yes/true to continue is not recommended

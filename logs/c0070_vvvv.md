@@ -1,6 +1,6 @@
 ---
 title: "c0070_vvvv"
-date: 2020-08-09T01:36:09+88:00
+date: 2020-08-18T15:16:00+88:00
 draft: false
 weight: 10703
 
@@ -82,13 +82,16 @@ weight: 10703
     
       But they answered: "Frighten? Why should any one be frightened by a hat?"
     
-      My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grown-ups were not able to understand it, I made another drawing: I drew the inside of a boa constrictor, so that the grown-ups could see it clearly. They always need to have things explained. My Drawing Number Two looked like this:w""" > /tmp/mystory.txt<=
+      My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grown-ups were not able to understand it, I made another drawing: I drew the inside of a boa constrictor, so that the grown-ups could see it clearly. They always need to have things explained. My Drawing Number Two looked like this:w""" > /tmp/mystory.txt
+    -
+    -
      .. ok
     cmd( 2):
     cat /tmp/mystory.txt
     
     cmd=>:
-    cat /tmp/mystory.txt<=
+    cat /tmp/mystory.txt
+    -
     school address   Once when I was six years old I saw a magnificent picture in a book, called True Stories from Nature, about the primeval forest. It was a picture of a boa constrictor in the act of swallowing an animal. Here is a copy of the drawing.
     
         boa constrictor swallowing an animal
@@ -102,6 +105,7 @@ weight: 10703
       But they answered: Frighten? Why should any one be frightened by a hat?
     
       My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grown-ups were not able to understand it, I made another drawing: I drew the inside of a boa constrictor, so that the grown-ups could see it clearly. They always need to have things explained. My Drawing Number Two looked like this:w
+    -
      .. ok
     . ok
     

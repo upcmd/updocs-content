@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvv"
-date: 2020-08-09T01:36:09+88:00
+date: 2020-08-18T15:16:01+88:00
 draft: false
 weight: 10733
 
@@ -42,23 +42,23 @@ weight: 10733
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n"
     }
     
       located task-> 1 [task]: 
@@ -79,12 +79,12 @@ weight: 10733
     self: final context exec vars:
     
     (*core.Cache)({
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story1": "hello\nworld\n"
     })
     
     ~SubStep1: [print: literal style, there will be a line break ]
@@ -104,27 +104,27 @@ weight: 10733
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "newstory_with_blank_space_front_and_tail": " same old story ",
       "newstory_clean": "same old story",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "newstory_with_blank_space_front_and_tail": " same old story ",
       "newstory_clean": "same old story",
-      "my_interesting_story2": "hello world"
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     })
     
     cmd( 1):
@@ -132,16 +132,20 @@ weight: 10733
     
     cmd=>:
     echo "[hello world
-    ]"<=
+    ]"
+    -
     [hello world
     ]
+    -
      .. ok
     cmd( 2):
     echo [{{.my_interesting_story5}}]
     
     cmd=>:
-    echo [hello world]<=
+    echo [hello world]
+    -
     [hello world]
+    -
      .. ok
     cmd( 3):
     echo "[{{.my_interesting_story6}}]"
@@ -151,26 +155,32 @@ weight: 10733
     world
     
     
-    ]"<=
+    ]"
+    -
     [hello
     world
     
     
     ]
+    -
      .. ok
     cmd( 4):
     echo "[{{.newstory_with_blank_space_front_and_tail}}]"
     
     cmd=>:
-    echo "[ same old story ]"<=
+    echo "[ same old story ]"
+    -
     [ same old story ]
+    -
      .. ok
     cmd( 5):
     echo "[{{.newstory_clean}}]"
     
     cmd=>:
-    echo "[same old story]"<=
+    echo "[same old story]"
+    -
     [same old story]
+    -
      .. ok
     . ok
     

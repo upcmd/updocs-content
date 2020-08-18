@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10653
 
@@ -83,18 +83,18 @@ weight: 10653
     -------runtime global final merged with dvars-------
     
     {
-      "var_with_range_vvvvvv": " x  x  x ",
-      "var_with_range_v": " x  x  x ",
-      "var_with_range_vv": " x  x  x ",
       "var_with_range_vvv": " x  x  x ",
       "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
+      "var_with_range_vvvvvv": " x  x  x ",
+      "var_with_range_v": " x  x  x ",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      }
+      },
+      "var_with_range_vv": " x  x  x "
     }
     
       located task-> 1 [task]: 

@@ -1,6 +1,6 @@
 ---
 title: "c0128_vvvv"
-date: 2020-08-09T01:36:18+88:00
+date: 2020-08-18T15:16:14+88:00
 draft: false
 weight: 11283
 
@@ -42,17 +42,17 @@ weight: 11283
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "b": "global_bbb",
       "c": "global_ccc",
-      "a": "global_aaa",
-      "b": "global_bbb"
+      "a": "global_aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "b": "global_bbb",
       "c": "global_ccc",
-      "a": "global_aaa",
-      "b": "global_bbb"
+      "a": "global_aaa"
     }
     
       located task-> 1 [task]: 
@@ -62,28 +62,28 @@ weight: 11283
     -Step1: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
       "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "b": "local_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
+      "da": "local_da",
       "db": "local_db",
-      "da": "local_da"
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "db": "local_db",
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "db": "local_db",
       "da": "local_da"
     })
     
@@ -93,27 +93,47 @@ weight: 11283
       "b": "local_bbb",
       "c": "global_ccc",
       "a": "local_aaa",
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     })
     
     cmd( 1):
     echo "shell step1"
     
     cmd=>:
-    echo "shell step1"<=
+    echo "shell step1"
+    -
     shell step1
+    -
      .. ok
     cmd( 2):
     echo "shell step2"
     
     cmd=>:
-    echo "shell step2"<=
+    echo "shell step2"
+    -
     shell step2
+    -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
+    (*core.Cache)({
+      "db": "local_db",
+      "b": "local_bbb",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"shell step2\"",
+        Code: 0,
+        Output: "shell step2",
+        ErrMsg: ""
+      }),
+      "c": "global_ccc",
+      "a": "local_aaa",
+      "da": "local_da"
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "b": "local_bbb",
       "last_result": (*utils.ExecResult)({
@@ -124,24 +144,8 @@ weight: 11283
       }),
       "c": "global_ccc",
       "a": "local_aaa",
-      "db": "local_db",
-      "da": "local_da"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"shell step2\"",
-        Code: 0,
-        Output: "shell step2",
-        ErrMsg: ""
-      }),
-      "c": "global_ccc",
-      "a": "local_aaa",
-      "db": "local_db",
       "da": "local_da",
-      "b": "local_bbb"
+      "db": "local_db"
     })
     
     ~SubStep1: [print:  ]

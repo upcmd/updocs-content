@@ -1,6 +1,6 @@
 ---
 title: "c0074_vvvv"
-date: 2020-08-09T01:36:09+88:00
+date: 2020-08-18T15:16:01+88:00
 draft: false
 weight: 10743
 
@@ -51,16 +51,16 @@ weight: 10743
       "usecase_object": {
         "doc_meta": "folder: object-oriented\ntitle: parse yml to object\nhead: |\n  Showcase you can load a yml file and parse the content to object\n\nsections:\n  - title: How to use\n    content: |\n      Simply use dvar ref to load the content and also flag it to be converted toObj\n\n      The print cmd shows how to use the object and reference in golang template to iterate through the elements\n\n  - title: Relavant\n    content: toObj cmd\n    refs:\n      - title: toObj cmd\n        link: ../../cmd-func/c0095\n\n  - title: Demo\n    log: yes\n",
         "docs": {
-          "usage": {
-            "use docs as root element to document a functest or a test case",
-            "two layers structure"
-          },
           "goal": {
             "to test that I can parse this file to an object and use it in templating",
             "use the format like this to automate the docs generation"
           },
           "usecase": {
             "used to generate auto document for up project"
+          },
+          "usage": {
+            "use docs as root element to document a functest or a test case",
+            "two layers structure"
           }
         },
         "dvars": {
@@ -74,13 +74,14 @@ weight: 10743
         },
         "tasks": {
           {
+            "desc": <nil>,
             "task": {
               {
                 "func": "cmd",
                 "do": {
                   {
-                    "name": "print",
-                    "cmd": "<no value>"
+                    "cmd": "<no value>",
+                    "name": "print"
                   },
                   {
                     "name": "print",
@@ -97,8 +98,7 @@ weight: 10743
                 }
               }
             },
-            "name": "task",
-            "desc": <nil>
+            "name": "task"
           }
         }
       }
@@ -128,11 +128,11 @@ weight: 10743
         },
         "dvars": {
           {
-            "ref": "c0074.yml",
             "flags": {
               "toObj"
             },
-            "name": "usecase"
+            "name": "usecase",
+            "ref": "c0074.yml"
           }
         },
         "tasks": {
@@ -144,16 +144,16 @@ weight: 10743
                 "func": "cmd",
                 "do": {
                   {
-                    "name": "print",
-                    "cmd": "<no value>"
-                  },
-                  {
-                    "name": "print",
-                    "cmd": "<no value>"
-                  },
-                  {
-                    "cmd": "",
+                    "cmd": "<no value>",
                     "name": "print"
+                  },
+                  {
+                    "cmd": "<no value>",
+                    "name": "print"
+                  },
+                  {
+                    "name": "print",
+                    "cmd": ""
                   },
                   {
                     "name": "print",
@@ -188,15 +188,16 @@ weight: 10743
         },
         "dvars": {
           {
-            "name": "usecase",
-            "ref": "c0074.yml",
             "flags": {
               "toObj"
-            }
+            },
+            "name": "usecase",
+            "ref": "c0074.yml"
           }
         },
         "tasks": {
           {
+            "name": "task",
             "desc": <nil>,
             "task": {
               {
@@ -211,8 +212,8 @@ weight: 10743
                     "name": "print"
                   },
                   {
-                    "name": "print",
-                    "cmd": ""
+                    "cmd": "",
+                    "name": "print"
                   },
                   {
                     "name": "print",
@@ -220,8 +221,7 @@ weight: 10743
                   }
                 }
               }
-            },
-            "name": "task"
+            }
           }
         }
       },

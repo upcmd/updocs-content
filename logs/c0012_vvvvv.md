@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10124
 
@@ -34,7 +34,7 @@ weight: 10124
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000ac340)(<nil>)
+    (*impl.Scopes)(0xc0001f4ee0)(<nil>)
     
     ---------group vars----------
     
@@ -51,9 +51,9 @@ weight: 10124
     }
     
     (core.Cache) (len=3) {
+     (string) (len=1) "a": (string) (len=9) "runtime-a",
      (string) (len=1) "e": (string) (len=9) "runtime-e",
-     (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=1) "a": (string) (len=9) "runtime-a"
+     (string) (len=1) "k": (string) (len=9) "runtime-k"
     }
     
     [runtime global] dvar expanded result:
@@ -111,26 +111,28 @@ weight: 10124
     
     
     scope[local] merged: {
+      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "a": "runtime-a"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     })
     
     cmd( 1):
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=19) "echo \"hello, world\"",
@@ -143,8 +145,10 @@ weight: 10124
     echo 'hello {{.a}}'
     
     cmd=>:
-    echo 'hello runtime-a'<=
+    echo 'hello runtime-a'
+    -
     hello runtime-a
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "echo 'hello runtime-a'",

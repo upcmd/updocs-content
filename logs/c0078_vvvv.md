@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:02+88:00
 draft: false
 weight: 10783
 
@@ -56,15 +56,15 @@ weight: 10783
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "school_address": "1 fox road, sydney, nsw 2000",
-      "school_name": "sydney grammar"
+      "school_name": "sydney grammar",
+      "school_address": "1 fox road, sydney, nsw 2000"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_address": "1 fox road, sydney, nsw 2000",
       "school_name": "sydney grammar",
+      "school_address": "1 fox road, sydney, nsw 2000",
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     

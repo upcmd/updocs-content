@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvv"
-date: 2020-08-09T01:36:05+88:00
+date: 2020-08-18T15:15:55+88:00
 draft: false
 weight: 10443
 
@@ -93,30 +93,36 @@ weight: 10443
     self: final context exec vars:
     
     (*core.Cache)({
-      "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "homedir": "/root"
     })
     
     cmd( 1):
     echo """my home is at {{.homedir}}"""
     
     cmd=>:
-    echo """my home is at /root"""<=
+    echo """my home is at /root"""
+    -
     my home is at /root
+    -
      .. ok
     cmd( 2):
     echo """my home is at $HOME"""
     
     cmd=>:
-    echo """my home is at $HOME"""<=
+    echo """my home is at $HOME"""
+    -
     my home is at /root
+    -
      .. ok
     cmd( 3):
     echo """{{.yourhome}}"""
     
     cmd=>:
-    echo """Your path is set to /root """<=
+    echo """Your path is set to /root """
+    -
     Your path is set to /root 
+    -
      .. ok
     . ok
     

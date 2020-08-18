@@ -1,6 +1,6 @@
 ---
 title: "c0138_vvvvv"
-date: 2020-08-09T01:36:20+88:00
+date: 2020-08-18T15:16:16+88:00
 draft: false
 weight: 11384
 
@@ -34,7 +34,7 @@ weight: 11384
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c11a0)(<nil>)
+    (*impl.Scopes)(0xc000177140)(<nil>)
     
     ---------group vars----------
     
@@ -129,8 +129,8 @@ weight: 11384
       Name: "",
       Do: {
         {
-          "cmdy": "step4",
-          "name": "print"
+          "name": "print",
+          "cmdy": "step4"
         },
         {
           "namex": "exit"
@@ -192,8 +192,8 @@ weight: 11384
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "step5"
+          "cmd": "step5",
+          "name": "print"
         }
       },
       Dox: <nil>,

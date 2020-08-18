@@ -1,6 +1,6 @@
 ---
 title: "c0005_vvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10053
 
@@ -83,8 +83,10 @@ weight: 10053
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     . ok
     -Step2:
@@ -103,8 +105,10 @@ weight: 10053
     echo " I love this "
     
     cmd=>:
-    echo " I love this "<=
+    echo " I love this "
+    -
      I love this 
+    -
      .. ok
     . ok
     -Step3:
@@ -138,33 +142,35 @@ weight: 10053
     --Step1: [: do step1 in shell func ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
       located task-> 3 [2ndtask]: 
@@ -199,8 +205,10 @@ weight: 10053
     echo "this is 2nd task"
     
     cmd=>:
-    echo "this is 2nd task"<=
+    echo "this is 2nd task"
+    -
     this is 2nd task
+    -
      .. ok
     . ok
     

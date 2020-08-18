@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvvv"
-date: 2020-08-09T01:36:07+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10564
 
@@ -34,7 +34,7 @@ weight: 10564
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00026b5a0)(<nil>)
+    (*impl.Scopes)(0xc0001775a0)(<nil>)
     
     ---------group vars----------
     
@@ -68,12 +68,12 @@ weight: 10564
     (core.Cache) (len=1) {
      (string) (len=9) "countries": ([]interface {}) (len=4 cap=4) {
       (map[interface {}]interface {}) (len=2) {
-       (string) (len=4) "name": (string) (len=9) "Australia",
-       (string) (len=10) "population": (string) (len=3) "20m"
+       (string) (len=10) "population": (string) (len=3) "20m",
+       (string) (len=4) "name": (string) (len=9) "Australia"
       },
       (map[interface {}]interface {}) (len=2) {
-       (string) (len=10) "population": (string) (len=5) "2000m",
-       (string) (len=4) "name": (string) (len=7) "British"
+       (string) (len=4) "name": (string) (len=7) "British",
+       (string) (len=10) "population": (string) (len=5) "2000m"
       },
       (map[interface {}]interface {}) (len=2) {
        (string) (len=4) "name": (string) (len=5) "China",
@@ -100,16 +100,16 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
     }
@@ -154,16 +154,16 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
     })
@@ -188,8 +188,8 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
     }
@@ -204,16 +204,16 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
     })
@@ -222,8 +222,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello tom"<=
+    echo "hello tom"
+    -
     hello tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"hello tom\"",
@@ -236,8 +238,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello peter"<=
+    echo "hello peter"
+    -
     hello peter
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello peter\"",
@@ -250,8 +254,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello james"<=
+    echo "hello james"
+    -
     hello james
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello james\"",
@@ -301,38 +307,6 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
-      "countries": {
-        {
-          "population": "20m",
-          "name": "Australia"
-        },
-        {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      })
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello james\"",
         Code: 0,
@@ -353,16 +327,18 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       }
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
+    scope[local] merged: {
       "countries": {
         {
           "name": "Australia",
@@ -377,8 +353,38 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -393,8 +399,10 @@ weight: 10564
     echo "name {{.loopitem.name}}"
     
     cmd=>:
-    echo "name tom"<=
+    echo "name tom"
+    -
     name tom
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=15) "echo \"name tom\"",
@@ -407,8 +415,10 @@ weight: 10564
     echo "age {{.loopitem.age}}"
     
     cmd=>:
-    echo "age 11"<=
+    echo "age 11"
+    -
     age 11
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=13) "echo \"age 11\"",
@@ -421,8 +431,10 @@ weight: 10564
     echo "name {{.loopitem.name}}"
     
     cmd=>:
-    echo "name peter"<=
+    echo "name peter"
+    -
     name peter
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"name peter\"",
@@ -435,8 +447,10 @@ weight: 10564
     echo "age {{.loopitem.age}}"
     
     cmd=>:
-    echo "age 45"<=
+    echo "age 45"
+    -
     age 45
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=13) "echo \"age 45\"",
@@ -449,8 +463,10 @@ weight: 10564
     echo "name {{.loopitem.name}}"
     
     cmd=>:
-    echo "name james"<=
+    echo "name james"
+    -
     name james
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"name james\"",
@@ -463,8 +479,10 @@ weight: 10564
     echo "age {{.loopitem.age}}"
     
     cmd=>:
-    echo "age 23"<=
+    echo "age 23"
+    -
     age 23
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=13) "echo \"age 23\"",
@@ -505,30 +523,30 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      }),
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"age 23\"",
-        Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      })
+      }
     })
     
     [local] dvar expanded result:
@@ -539,20 +557,20 @@ weight: 10564
     scope[local] merged: {
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -573,16 +591,16 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -597,8 +615,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello Australia"<=
+    echo "hello Australia"
+    -
     hello Australia
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "echo \"hello Australia\"",
@@ -611,8 +631,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello British"<=
+    echo "hello British"
+    -
     hello British
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello British\"",
@@ -625,8 +647,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello China"<=
+    echo "hello China"
+    -
     hello China
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello China\"",
@@ -639,8 +663,10 @@ weight: 10564
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello Danmark"<=
+    echo "hello Danmark"
+    -
     hello Danmark
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello Danmark\"",
@@ -678,30 +704,30 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello Danmark\"",
-        Code: 0,
-        Output: "hello Danmark",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello Danmark\"",
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      })
     })
     
     [local] dvar expanded result:
@@ -716,16 +742,16 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -742,20 +768,20 @@ weight: 10564
     (*core.Cache)({
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -770,8 +796,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Australia"<=
+    echo "hello Australia"
+    -
     hello Australia
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "echo \"hello Australia\"",
@@ -784,8 +812,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 20m"<=
+    echo "hello 20m"
+    -
     hello 20m
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"hello 20m\"",
@@ -798,8 +828,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello British"<=
+    echo "hello British"
+    -
     hello British
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello British\"",
@@ -812,8 +844,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 2000m"<=
+    echo "hello 2000m"
+    -
     hello 2000m
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello 2000m\"",
@@ -826,8 +860,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello China"<=
+    echo "hello China"
+    -
     hello China
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello China\"",
@@ -840,8 +876,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 1.4b"<=
+    echo "hello 1.4b"
+    -
     hello 1.4b
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"hello 1.4b\"",
@@ -854,8 +892,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Danmark"<=
+    echo "hello Danmark"
+    -
     hello Danmark
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello Danmark\"",
@@ -868,8 +908,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 30m"<=
+    echo "hello 30m"
+    -
     hello 30m
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"hello 30m\"",
@@ -938,8 +980,8 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -963,12 +1005,12 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "population": "30m",
@@ -988,22 +1030,23 @@ weight: 10564
     self: final context exec vars:
     
     (*core.Cache)({
+      "listname": "countries",
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -1011,16 +1054,17 @@ weight: 10564
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
-      }),
-      "listname": "countries"
+      })
     })
     
     cmd( 1):
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 0"<=
+    echo "hello 0"
+    -
     hello 0
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 0\"",
@@ -1033,8 +1077,10 @@ weight: 10564
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 1\"",
@@ -1047,8 +1093,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Australia"<=
+    echo "hello Australia"
+    -
     hello Australia
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "echo \"hello Australia\"",
@@ -1061,8 +1109,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 20m"<=
+    echo "hello 20m"
+    -
     hello 20m
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"hello 20m\"",
@@ -1075,8 +1125,10 @@ weight: 10564
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 1\"",
@@ -1089,8 +1141,10 @@ weight: 10564
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 2"<=
+    echo "hello 2"
+    -
     hello 2
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 2\"",
@@ -1103,8 +1157,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello British"<=
+    echo "hello British"
+    -
     hello British
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello British\"",
@@ -1117,8 +1173,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 2000m"<=
+    echo "hello 2000m"
+    -
     hello 2000m
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello 2000m\"",
@@ -1131,8 +1189,10 @@ weight: 10564
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 2"<=
+    echo "hello 2"
+    -
     hello 2
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 2\"",
@@ -1145,8 +1205,10 @@ weight: 10564
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 3"<=
+    echo "hello 3"
+    -
     hello 3
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 3\"",
@@ -1159,8 +1221,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello China"<=
+    echo "hello China"
+    -
     hello China
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"hello China\"",
@@ -1173,8 +1237,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 1.4b"<=
+    echo "hello 1.4b"
+    -
     hello 1.4b
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"hello 1.4b\"",
@@ -1187,8 +1253,10 @@ weight: 10564
     echo "hello {{.loopindex}}"
     
     cmd=>:
-    echo "hello 3"<=
+    echo "hello 3"
+    -
     hello 3
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 3\"",
@@ -1201,8 +1269,10 @@ weight: 10564
     echo "hello {{.loopindex1}}"
     
     cmd=>:
-    echo "hello 4"<=
+    echo "hello 4"
+    -
     hello 4
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 4\"",
@@ -1215,8 +1285,10 @@ weight: 10564
     echo "hello {{.loopitem.name}}"
     
     cmd=>:
-    echo "hello Danmark"<=
+    echo "hello Danmark"
+    -
     hello Danmark
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=20) "echo \"hello Danmark\"",
@@ -1229,8 +1301,10 @@ weight: 10564
     echo "hello {{.loopitem.population}}"
     
     cmd=>:
-    echo "hello 30m"<=
+    echo "hello 30m"
+    -
     hello 30m
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=16) "echo \"hello 30m\"",

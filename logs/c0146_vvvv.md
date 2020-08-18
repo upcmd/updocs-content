@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvv"
-date: 2020-08-09T01:36:21+88:00
+date: 2020-08-18T15:16:18+88:00
 draft: false
 weight: 11463
 
@@ -57,28 +57,28 @@ weight: 11463
     loading [varsfile]:  ./tests/functests/d0146_data.yml
     current exec runtime vars:
     (*core.Cache)({
-      "folder": "module",
-      "title": "HelloWorld example",
-      "personname": "Tom Cruise",
-      "school": "james rules"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "school": "james rules",
       "folder": "module",
       "title": "HelloWorld example",
       "personname": "Tom Cruise"
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "title": "HelloWorld example",
+      "personname": "Tom Cruise",
+      "school": "james rules",
+      "folder": "module"
+    })
+    
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "folder": "module",
-      "title": "HelloWorld example",
       "personname": "Tom Cruise",
-      "school": "james rules"
+      "school": "james rules",
+      "folder": "module",
+      "title": "HelloWorld example"
     })
     
      2: inspect[exec_base_vars]
@@ -104,10 +104,12 @@ weight: 11463
     cat /tmp/mockup_doc.md
     
     cmd=>:
-    cat /tmp/mockup_doc.md<=
+    cat /tmp/mockup_doc.md
+    -
     title: "HelloWorld example"
-    date: 2020-08-09T01:29:43+88:00
-    draft: false .. ok
+    date: 2020-08-17T23:52:50+88:00
+    draft: false-
+     .. ok
     . ok
     
 ```

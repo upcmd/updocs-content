@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvvv"
-date: 2020-08-09T01:36:14+88:00
+date: 2020-08-18T15:16:09+88:00
 draft: false
 weight: 11064
 
@@ -34,7 +34,7 @@ weight: 11064
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00016b5c0)(<nil>)
+    (*impl.Scopes)(0xc0001e75c0)(<nil>)
     
     ---------group vars----------
     
@@ -124,14 +124,14 @@ weight: 11064
       Name: "",
       Do: {
         {
-          "name": "reg",
-          "cmd": {
-            "name": "hitom",
-            "desc": "by default hitom is registered in to global context",
-            "value": "hello, {{.tom}}"
-          },
           "flags": {
             "localOnly"
+          },
+          "name": "reg",
+          "cmd": {
+            "desc": "by default hitom is registered in to global context",
+            "value": "hello, {{.tom}}",
+            "name": "hitom"
           }
         },
         {
@@ -159,8 +159,8 @@ weight: 11064
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -177,8 +177,8 @@ weight: 11064
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     map[desc:by default hitom is registered in to global context name:hitom value:hello, {{.tom}}]
@@ -205,9 +205,9 @@ weight: 11064
       Name: "",
       Do: {
         {
-          "name": "print",
           "desc": "should be <no value> since it is marked localOnly",
-          "cmd": "{{.hitom}}"
+          "cmd": "{{.hitom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -230,8 +230,8 @@ weight: 11064
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     [local] dvar expanded result:
@@ -240,8 +240,8 @@ weight: 11064
     
     
     scope[local] merged: {
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     }
     
     
@@ -353,14 +353,14 @@ weight: 11064
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     caller's vars to task (sub2)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 3 [sub2]: 
@@ -380,8 +380,8 @@ weight: 11064
           }
         },
         {
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.hitom}}"
         }
       },
       Dox: <nil>,
@@ -404,8 +404,8 @@ weight: 11064
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -414,8 +414,8 @@ weight: 11064
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -431,9 +431,9 @@ weight: 11064
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "hitom": "hello, this is tom"
     })
     
     after reg the var - local:
@@ -557,8 +557,8 @@ weight: 11064
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     {{.hitom}}

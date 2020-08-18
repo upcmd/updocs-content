@@ -1,6 +1,6 @@
 ---
 title: "c0059_vvvvv"
-date: 2020-08-09T01:36:07+88:00
+date: 2020-08-18T15:15:58+88:00
 draft: false
 weight: 10594
 
@@ -34,7 +34,7 @@ weight: 10594
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000230dc0)(<nil>)
+    (*impl.Scopes)(0xc0001ead60)(<nil>)
     
     ---------group vars----------
     
@@ -113,8 +113,10 @@ weight: 10594
     echo "step1"
     
     cmd=>:
-    echo "step1"<=
+    echo "step1"
+    -
     step1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step1\"",
@@ -127,8 +129,10 @@ weight: 10594
     echo "step2"
     
     cmd=>:
-    echo "step2"<=
+    echo "step2"
+    -
     step2
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step2\"",
@@ -141,8 +145,10 @@ weight: 10594
     echo "step3"
     
     cmd=>:
-    echo "step3"<=
+    echo "step3"
+    -
     step3
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step3\"",
@@ -218,8 +224,10 @@ weight: 10594
     echo "step4"
     
     cmd=>:
-    echo "step4"<=
+    echo "step4"
+    -
     step4
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step4\"",
@@ -232,8 +240,10 @@ weight: 10594
     echo "step5"
     
     cmd=>:
-    echo "step5"<=
+    echo "step5"
+    -
     step5
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step5\"",
@@ -246,8 +256,10 @@ weight: 10594
     echo "step6"
     
     cmd=>:
-    echo "step6"<=
+    echo "step6"
+    -
     step6
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step6\"",
@@ -323,8 +335,10 @@ weight: 10594
     echo "step7"
     
     cmd=>:
-    echo "step7"<=
+    echo "step7"
+    -
     step7
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step7\"",
@@ -337,8 +351,10 @@ weight: 10594
     echo "step8"
     
     cmd=>:
-    echo "step8"<=
+    echo "step8"
+    -
     step8
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step8\"",
@@ -351,8 +367,10 @@ weight: 10594
     echo "step9"
     
     cmd=>:
-    echo "step9"<=
+    echo "step9"
+    -
     step9
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"step9\"",

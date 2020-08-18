@@ -1,6 +1,6 @@
 ---
 title: "c0119_vvvv"
-date: 2020-08-09T01:36:17+88:00
+date: 2020-08-18T15:16:12+88:00
 draft: false
 weight: 11193
 
@@ -98,19 +98,19 @@ weight: 11193
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -122,10 +122,10 @@ weight: 11193
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -160,19 +160,19 @@ weight: 11193
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1",
-      "loopindex": 0
+      "loopitem": "proc 1"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -184,19 +184,19 @@ weight: 11193
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -208,19 +208,19 @@ weight: 11193
     --Step1: [step1: the loopitem here is inherited from caller ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     ~~SubStep1: [print:  ]
@@ -248,21 +248,21 @@ weight: 11193
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 1",
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 1",
-      "loopindex": 0
+      "person": "jason"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "jason",
-      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "jason",
+      "loopitem": "proc 1"
     })
     
     condition failed, skip executing step 
@@ -296,11 +296,11 @@ weight: 11193
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "proc 2",
+      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 2",
-      "loopindex": 1
+      "person": "jason"
     })
     
     self: final context exec vars:
@@ -318,21 +318,21 @@ weight: 11193
     --Step2: [step2:  ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -344,21 +344,21 @@ weight: 11193
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "person": "jason",
+      "loopitem": "proc 3",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "jason",
-      "loopitem": "proc 3"
+      "up_runtime_task_layer_number": 1
     })
     
     condition failed, skip executing step 
@@ -376,11 +376,11 @@ weight: 11193
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 2,
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 3",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopitem": "proc 3"
     })
     
     ~~SubStep1: [print:  ]
@@ -402,32 +402,32 @@ weight: 11193
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1,
       "person": "jason",
-      "loopitem": "proc 4"
-    })
-    
-    ~~SubStep1: [reg:  ]
-    --Step2: [step2:  ]
-    current exec runtime vars:
-    (*core.Cache)({
-      "person": "tom",
       "loopitem": "proc 4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1
     })
     
-    self: final context exec vars:
-    
+    ~~SubStep1: [reg:  ]
+    --Step2: [step2:  ]
+    current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "person": "tom",
       "loopitem": "proc 4",
-      "loopindex": 3
+      "loopindex": 3,
+      "loopindex1": 4
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 3,
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom",
+      "loopitem": "proc 4"
     })
     
     ~~SubStep1: [print:  ]

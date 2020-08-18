@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvvv"
-date: 2020-08-09T01:36:10+88:00
+date: 2020-08-18T15:16:02+88:00
 draft: false
 weight: 10764
 
@@ -34,7 +34,7 @@ weight: 10764
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000173300)(<nil>)
+    (*impl.Scopes)(0xc000177300)(<nil>)
     
     ---------group vars----------
     
@@ -110,8 +110,10 @@ weight: 10764
     echo hanks
     
     cmd=>:
-    echo hanks<=
+    echo hanks
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=10) "echo hanks",
@@ -272,8 +274,10 @@ weight: 10764
     echo "{{.reg_hello}}"
     
     cmd=>:
-    echo "<no value>"<=
+    echo "<no value>"
+    -
     <no value>
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"<no value>\"",
@@ -286,8 +290,10 @@ weight: 10764
     echo "{{.hellomsg}}"
     
     cmd=>:
-    echo "hanks"<=
+    echo "hanks"
+    -
     hanks
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=12) "echo \"hanks\"",
@@ -304,19 +310,19 @@ weight: 10764
       Name: "",
       Do: {
         {
-          "name": "reg",
           "cmd": {
-            "name": "global_tom",
-            "value": "{{.local_tom}}"
-          }
+            "value": "{{.local_tom}}",
+            "name": "global_tom"
+          },
+          "name": "reg"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
         "person": {
-          "name": "tom",
-          "age": 18
+          "age": 18,
+          "name": "tom"
         }
       },
       Dvars: {
@@ -353,7 +359,6 @@ weight: 10764
     
     current exec runtime vars:
     (*core.Cache)({
-      "hellomsg": "hanks",
       "person": {
         "name": "tom",
         "age": 18
@@ -363,7 +368,8 @@ weight: 10764
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks"
     })
     
     dvar> local_tom:
@@ -385,22 +391,22 @@ weight: 10764
     
     
     scope[local] merged: {
-      "tom": {
+      "hellomsg": "hanks",
+      "person": {
         "name": "tom",
         "age": 18
       },
-      "local_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "person": {
-        "age": 18,
-        "name": "tom"
-      }
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "local_tom": "my name is tom\nage: 18\nname: tom\n"
     }
     
     
@@ -430,23 +436,25 @@ weight: 10764
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "tom": {
+        "age": 18,
+        "name": "tom"
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n"
+      "hellomsg": "hanks"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -461,9 +469,7 @@ weight: 10764
       "tom": {
         "name": "tom",
         "age": 18
-      },
-      "local_tom": "my name is tom\nage: 18\nname: tom\n",
-      "global_tom": "my name is tom\nage: 18\nname: tom\n"
+      }
     })
     
     -Step5: [: debug the results ]
@@ -471,19 +477,19 @@ weight: 10764
       Name: "",
       Do: {
         {
+          "cmd": "{{.local_tom}}",
           "name": "print",
-          "desc": "this local_tom should be <no value> as it is in scope of last step",
-          "cmd": "{{.local_tom}}"
+          "desc": "this local_tom should be <no value> as it is in scope of last step"
         },
         {
+          "cmd": "{{.tom}}",
           "name": "print",
-          "desc": "get the object from register global space",
-          "cmd": "{{.tom}}"
+          "desc": "get the object from register global space"
         },
         {
-          "name": "printObj",
           "desc": "dynamically reference to global_tom object registered",
-          "cmd": "{{.objname}}"
+          "cmd": "{{.objname}}",
+          "name": "printObj"
         }
       },
       Dox: <nil>,
@@ -548,19 +554,19 @@ weight: 10764
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "objname": "global_tom"
     })
     
     {{.local_tom}}

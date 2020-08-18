@@ -1,6 +1,6 @@
 ---
 title: "c0165_vvvv"
-date: 2020-08-09T01:36:25+88:00
+date: 2020-08-18T15:16:23+88:00
 draft: false
 weight: 11653
 
@@ -76,6 +76,7 @@ weight: 11653
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
@@ -84,28 +85,27 @@ weight: 11653
           },
           "school": "SG"
         }
-      },
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
+            "postcode": 2000,
+            "name": "sydney CBD"
           },
           "school": "SG"
         }
       },
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "this_is_an_obj": (*map[interface {}]interface {})({
         "address": {
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
+            "postcode": 2000,
+            "name": "sydney CBD"
           },
           "school": "SG"
         }

@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvv"
-date: 2020-08-09T01:35:59+88:00
+date: 2020-08-18T15:15:47+88:00
 draft: false
 weight: 10023
 
@@ -67,15 +67,19 @@ weight: 10023
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
     -Step2: [: do step2 in shell func ]
@@ -104,23 +108,27 @@ weight: 10023
     echo "hello"
     
     cmd=>:
-    echo "hello"<=
+    echo "hello"
+    -
     hello
+    -
      .. ok
     cmd( 2):
     echo "I got exception"|grep non-exist
     
     cmd=>:
-    echo "I got exception"|grep non-exist<=
-          exec wait -> exit status 1
-          exit status 1
+    echo "I got exception"|grep non-exist
+    -
+    -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
     echo "world"
     
     cmd=>:
-    echo "world"<=
+    echo "world"
+    -
     world
+    -
      .. ok
     . ok
     

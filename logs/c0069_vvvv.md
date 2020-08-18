@@ -1,6 +1,6 @@
 ---
 title: "c0069_vvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:16:00+88:00
 draft: false
 weight: 10693
 
@@ -46,12 +46,12 @@ weight: 10693
         "name": "Tom",
         "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "cbd": true
-          }
+          },
+          "school": "Sydney Grammar"
         }
       }
     }
@@ -63,12 +63,12 @@ weight: 10693
         "name": "Tom",
         "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "cbd": true
-          }
+            "cbd": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
         }
       },
       "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
@@ -81,8 +81,8 @@ weight: 10693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
-        "gender": "Male",
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
@@ -91,9 +91,9 @@ weight: 10693
             "cbd": true
           }
         },
-        "name": "Tom"
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
+        "name": "Tom",
+        "gender": "Male"
+      }
     })
     
     self: final context exec vars:
@@ -124,7 +124,8 @@ weight: 10693
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
-    """<=
+    """
+    -
     school address address:
       suburb:
         name: sydney
@@ -132,6 +133,7 @@ weight: 10693
         CBD: yes
       school: Sydney Grammar
     
+    -
      .. ok
     cmd( 2):
     echo """school address {{.school_address}}""" > /tmp/school.txt
@@ -143,13 +145,16 @@ weight: 10693
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
-    """ > /tmp/school.txt<=
+    """ > /tmp/school.txt
+    -
+    -
      .. ok
     cmd( 3):
     cat /tmp/school.txt
     
     cmd=>:
-    cat /tmp/school.txt<=
+    cat /tmp/school.txt
+    -
     school address address:
       suburb:
         name: sydney
@@ -157,6 +162,7 @@ weight: 10693
         CBD: yes
       school: Sydney Grammar
     
+    -
      .. ok
     . ok
     

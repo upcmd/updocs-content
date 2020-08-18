@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10644
 
@@ -34,7 +34,7 @@ weight: 10644
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f80)(<nil>)
+    (*impl.Scopes)(0xc000174fa0)(<nil>)
     
     ---------group vars----------
     
@@ -46,9 +46,9 @@ weight: 10644
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
     }
     
@@ -106,9 +106,9 @@ weight: 10644
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     })
     
@@ -119,9 +119,9 @@ weight: 10644
     
     scope[local] merged: {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -140,8 +140,10 @@ weight: 10644
     echo "hello 1"
     
     cmd=>:
-    echo "hello 1"<=
+    echo "hello 1"
+    -
     hello 1
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=14) "echo \"hello 1\"",
@@ -190,9 +192,9 @@ weight: 10644
     current exec runtime vars:
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -208,17 +210,17 @@ weight: 10644
     
     
     scope[local] merged: {
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
     }
     
     
@@ -226,9 +228,9 @@ weight: 10644
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",

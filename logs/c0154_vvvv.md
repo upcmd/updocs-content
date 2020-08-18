@@ -1,6 +1,6 @@
 ---
 title: "c0154_vvvv"
-date: 2020-08-09T01:36:22+88:00
+date: 2020-08-18T15:16:20+88:00
 draft: false
 weight: 11543
 
@@ -42,11 +42,11 @@ weight: 11543
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     }
     
     -------runtime global final merged with dvars-------
@@ -67,21 +67,21 @@ weight: 11543
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb",
-      "sydney_grammar": {
-        "address": "sydney"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
       "a": "aaa"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
+      "sydney_grammar": {
+        "address": "sydney"
+      }
     })
     
     ~SubStep1: [print:  ]
@@ -90,11 +90,11 @@ weight: 11543
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
       "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "a": "aaa"
     })
     
     self: final context exec vars:
@@ -119,21 +119,21 @@ weight: 11543
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "a": "aaa",
+      "b": "bbb"
     })
     
     ~SubStep1: [query: if the sub element does not exist, eg school_name does not exit, then the query result will give the result of the closest element result, in this caes the parent value "aaa" will be return
@@ -155,16 +155,16 @@ weight: 11543
     -Step4: [: test pathExisted in templating ]
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb",
-      "sydney_grammar": {
-        "address": "sydney"
-      },
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
-      "varb_sub_element_existed": false
+      "varb_sub_element_existed": false,
+      "sydney_grammar": {
+        "address": "sydney"
+      },
+      "a": "aaa",
+      "b": "bbb"
     })
     
     self: final context exec vars:
@@ -173,13 +173,13 @@ weight: 11543
       "sydney_grammar": {
         "address": "sydney"
       },
+      "a": "aaa",
+      "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
-      "varb_sub_element_existed": false,
-      "a": "aaa",
-      "b": "bbb"
+      "varb_sub_element_existed": false
     })
     
     ~SubStep1: [print:  ]
@@ -201,13 +201,13 @@ weight: 11543
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
-      "a": "aaa",
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       }
@@ -216,31 +216,31 @@ weight: 11543
     self: final context exec vars:
     
     (*core.Cache)({
-      "sydney_grammar": {
-        "address": "sydney"
-      },
+      "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
-      "a": "aaa",
-      "b": "bbb"
+      "sydney_grammar": {
+        "address": "sydney"
+      },
+      "a": "aaa"
     })
     
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "state_existed": false,
-      "varb_sub_element_existed": false,
-      "a": "aaa",
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
+      "a": "aaa",
+      "b": "bbb",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
-      "address_existed": true
+      "address_existed": true,
+      "state_existed": false,
+      "varb_sub_element_existed": false
     })
     
     ~SubStep2: [assert:  ]

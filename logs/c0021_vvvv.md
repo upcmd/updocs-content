@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10213
 
@@ -56,19 +56,19 @@ weight: 10213
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "gender": "Male",
       "school": "Sydney Grammar",
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom"
+      "student": "Tom",
+      "gender": "Male"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+      "student": "Tom"
     })
     
     cmd( 1):
@@ -81,10 +81,12 @@ weight: 10213
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    <=
+    
+    -
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    -
      .. ok
     cmd( 2):
     {{$details := .}}
@@ -98,10 +100,12 @@ weight: 10213
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    <=
+    
+    -
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    -
      .. ok
     cmd( 3):
     {{$a := .student}}
@@ -119,10 +123,12 @@ weight: 10213
     echo """my student: Tom
     student's gender: Male
      school's name: Sydney Grammar"""
-    <=
+    
+    -
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    -
      .. ok
     cmd( 4):
     echo """my school: {{.info.school}}"""
@@ -137,9 +143,10 @@ weight: 10213
     <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
     
     cmd=>:
-    echo """my school: <=
-          exec wait -> exit status 2
-          exit status 2
+    echo """my school: 
+    -
+    /bin/sh: syntax error: unterminated quoted string
+    -
      .. failed(suppressed if it is not the last step)
     cmd( 5):
     echo """my student: {{.info}}"""
@@ -150,11 +157,13 @@ weight: 10213
      gender: Male
      school: Sydney Grammar
     """
-    <=
+    
+    -
     my student: student: Tom
      gender: Male
      school: Sydney Grammar
     
+    -
      .. ok
     . ok
     

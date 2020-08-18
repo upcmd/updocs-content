@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10084
 
@@ -34,17 +34,17 @@ weight: 10084
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bfc60)((len=5 cap=5) {
+    (*impl.Scopes)(0xc000177c40)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
+       (string) (len=1) "c": (string) (len=8) "global-c",
        (string) (len=1) "d": (string) (len=8) "global-d",
        (string) (len=1) "a": (string) (len=8) "global-a",
-       (string) (len=1) "b": (string) (len=8) "global-b",
-       (string) (len=1) "c": (string) (len=8) "global-c"
+       (string) (len=1) "b": (string) (len=8) "global-b"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -57,8 +57,8 @@ weight: 10084
        (string) (len=4) "prod"
       },
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "a": (string) (len=6) "prod-a",
-       (string) (len=1) "c": (string) (len=6) "prod-c"
+       (string) (len=1) "c": (string) (len=6) "prod-c",
+       (string) (len=1) "a": (string) (len=6) "prod-a"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -108,10 +108,10 @@ weight: 10084
     
     
     scope[global] merged: {
-      "a": "global-a",
-      "b": "global-b",
       "c": "global-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
@@ -121,8 +121,8 @@ weight: 10084
     
     
     scope[prod] merged: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
@@ -132,21 +132,13 @@ weight: 10084
     
     
     scope[nonprod] merged: {
-      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a"
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     }
     
     
     ---------group vars----------
-    
-    global: {
-      "c": "global-c",
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b"
-    }
-    
     
     prod: {
       "c": "prod-c",
@@ -155,9 +147,17 @@ weight: 10084
     
     
     nonprod: {
-      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a"
+      "a": "non-prod-a",
+      "b": "non-prod-b"
+    }
+    
+    
+    global: {
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b",
+      "c": "global-c"
     }
     
     
@@ -168,8 +168,8 @@ weight: 10084
     
     
     scope[dev] merged: {
-      "a": "dev-a",
-      "c": "dev-c"
+      "c": "dev-c",
+      "a": "dev-a"
     }
     
     
@@ -182,10 +182,10 @@ weight: 10084
     }
     
     (core.Cache) (len=4) {
+     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "a": (string) (len=5) "dev-a",
      (string) (len=1) "b": (string) (len=10) "non-prod-b",
-     (string) (len=1) "c": (string) (len=5) "dev-c",
-     (string) (len=1) "d": (string) (len=8) "global-d"
+     (string) (len=1) "c": (string) (len=5) "dev-c"
     }
     
     [runtime global] dvar expanded result:
@@ -196,10 +196,10 @@ weight: 10084
     -------runtime global final merged with dvars-------
     
     {
+      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c",
-      "d": "global-d"
+      "c": "dev-c"
     }
     
       located task-> 1 [task]: 
@@ -244,10 +244,10 @@ weight: 10084
     
     
     scope[local] merged: {
-      "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c"
     }
     
     
@@ -264,8 +264,10 @@ weight: 10084
     echo "test out the var scopes only"
     
     cmd=>:
-    echo "test out the var scopes only"<=
+    echo "test out the var scopes only"
+    -
     test out the var scopes only
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=35) "echo \"test out the var scopes only\"",

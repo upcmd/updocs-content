@@ -1,6 +1,6 @@
 ---
 title: "c0159_vvvv"
-date: 2020-08-09T01:36:23+88:00
+date: 2020-08-18T15:16:21+88:00
 draft: false
 weight: 11593
 
@@ -82,8 +82,8 @@ weight: 11593
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     ~~SubStep1: [assert:  ]
@@ -126,15 +126,15 @@ weight: 11593
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     ~~SubStep1: [assert:  ]
@@ -166,8 +166,8 @@ weight: 11593
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [assert:  ]

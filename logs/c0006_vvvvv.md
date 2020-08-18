@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvvv"
-date: 2020-08-09T01:36:00+88:00
+date: 2020-08-18T15:15:48+88:00
 draft: false
 weight: 10064
 
@@ -34,7 +34,7 @@ weight: 10064
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e4f80)(<nil>)
+    (*impl.Scopes)(0xc0001befe0)(<nil>)
     
     ---------group vars----------
     
@@ -116,8 +116,10 @@ weight: 10064
     
     cmd=>:
     echo "aaa: $aaa"
-    <=
+    
+    -
     aaa: 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"aaa: $aaa\"\n",
@@ -132,8 +134,10 @@ weight: 10064
     
     cmd=>:
     echo "bbb: $bbb"
-    <=
+    
+    -
     bbb: 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=17) "echo \"bbb: $bbb\"\n",
@@ -146,8 +150,10 @@ weight: 10064
     echo "aaa':' $aaa"
     
     cmd=>:
-    echo "aaa':' $aaa"<=
+    echo "aaa':' $aaa"
+    -
     aaa':' 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"aaa':' $aaa\"",
@@ -160,8 +166,10 @@ weight: 10064
     echo "aaa":" $aaa"
     
     cmd=>:
-    echo "aaa":" $aaa"<=
+    echo "aaa":" $aaa"
+    -
     aaa: 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"aaa\":\" $aaa\"",
@@ -174,8 +182,10 @@ weight: 10064
     echo "aaa -> $aaa"
     
     cmd=>:
-    echo "aaa -> $aaa"<=
+    echo "aaa -> $aaa"
+    -
     aaa -> 
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=18) "echo \"aaa -> $aaa\"",

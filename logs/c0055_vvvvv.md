@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvvv"
-date: 2020-08-09T01:36:06+88:00
+date: 2020-08-18T15:15:57+88:00
 draft: false
 weight: 10554
 
@@ -34,7 +34,7 @@ weight: 10554
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7220)(<nil>)
+    (*impl.Scopes)(0xc000265220)(<nil>)
     
     ---------group vars----------
     
@@ -274,8 +274,10 @@ weight: 10554
     echo "hello from taska"
     
     cmd=>:
-    echo "hello from taska"<=
+    echo "hello from taska"
+    -
     hello from taska
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=23) "echo \"hello from taska\"",
@@ -288,8 +290,10 @@ weight: 10554
     echo "{{.greet}} from taska"
     
     cmd=>:
-    echo "<no value> from taska"<=
+    echo "<no value> from taska"
+    -
     <no value> from taska
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=28) "echo \"<no value> from taska\"",

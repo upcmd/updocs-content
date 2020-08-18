@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvvv"
-date: 2020-08-09T01:36:08+88:00
+date: 2020-08-18T15:15:59+88:00
 draft: false
 weight: 10654
 
@@ -34,7 +34,7 @@ weight: 10654
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002deb80)(<nil>)
+    (*impl.Scopes)(0xc0001db200)(<nil>)
     
     ---------group vars----------
     
@@ -94,18 +94,19 @@ weight: 10654
      x  x  x 
     [runtime global] dvar expanded result:
     {
+      "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x ",
       "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
       "var_with_range_vvvvvv": " x  x  x ",
-      "var_with_range_v": " x  x  x ",
-      "var_with_range_vv": " x  x  x ",
-      "var_with_range_vvv": " x  x  x "
+      "var_with_range_v": " x  x  x "
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
+      "var_with_range_v": " x  x  x ",
       "person": "peter",
       "managers": {
         "tom",
@@ -116,8 +117,7 @@ weight: 10654
       "var_with_range_vvv": " x  x  x ",
       "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
-      "var_with_range_vvvvvv": " x  x  x ",
-      "var_with_range_v": " x  x  x "
+      "var_with_range_vvvvvv": " x  x  x "
     }
     
       located task-> 1 [task]: 

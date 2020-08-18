@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10193
 
@@ -52,11 +52,11 @@ weight: 10193
     -------runtime global final merged with dvars-------
     
     {
+      "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
-      },
-      "school": "sydney grammar"
+      }
     }
     
       located task-> 1 [task]: 
@@ -66,59 +66,69 @@ weight: 10193
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
+      "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
       },
-      "school": "sydney grammar"
+      "studentname": "Tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "studentname": "Tom",
+      "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
       },
-      "school": "sydney grammar"
+      "studentname": "Tom"
     })
     
     cmd( 1):
     echo "studentname -> {{.studentname}}"
     
     cmd=>:
-    echo "studentname -> Tom"<=
+    echo "studentname -> Tom"
+    -
     studentname -> Tom
+    -
      .. ok
     cmd( 2):
     echo "gender -> male"
     
     cmd=>:
-    echo "gender -> male"<=
+    echo "gender -> male"
+    -
     gender -> male
+    -
      .. ok
     cmd( 3):
     echo "school -> {{.school}}"
     
     cmd=>:
-    echo "school -> sydney grammar"<=
+    echo "school -> sydney grammar"
+    -
     school -> sydney grammar
+    -
      .. ok
     cmd( 4):
     echo "nonexist -> {{.notexist}}"
     
     cmd=>:
-    echo "nonexist -> <no value>"<=
+    echo "nonexist -> <no value>"
+    -
     nonexist -> <no value>
+    -
      .. ok
     cmd( 5):
     echo "SG details -> {{.sg.name}}/{{.sg.address}}"
     
     cmd=>:
-    echo "SG details -> sydney grammar/Sydney, NSW 2000"<=
+    echo "SG details -> sydney grammar/Sydney, NSW 2000"
+    -
     SG details -> sydney grammar/Sydney, NSW 2000
+    -
      .. ok
     . ok
     

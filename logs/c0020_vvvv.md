@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:50+88:00
 draft: false
 weight: 10203
 
@@ -82,34 +82,38 @@ weight: 10203
     --Step1: [: show school and student info ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "school": "sydney grammar",
       "studentname": "Tom",
       "gender": "male",
-      "school": "sydney grammar"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "studentname": "Tom",
       "gender": "male",
+      "up_runtime_task_layer_number": 1,
       "school": "sydney grammar",
-      "up_runtime_task_layer_number": 1
+      "studentname": "Tom"
     })
     
     cmd( 1):
     echo "studentname -> {{.studentname}} | gender -> {{.gender}}"
     
     cmd=>:
-    echo "studentname -> Tom | gender -> male"<=
+    echo "studentname -> Tom | gender -> male"
+    -
     studentname -> Tom | gender -> male
+    -
      .. ok
     cmd( 2):
     echo "school -> {{.school}}"
     
     cmd=>:
-    echo "school -> sydney grammar"<=
+    echo "school -> sydney grammar"
+    -
     school -> sydney grammar
+    -
      .. ok
     . ok
     

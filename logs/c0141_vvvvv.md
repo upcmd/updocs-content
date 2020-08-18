@@ -1,6 +1,6 @@
 ---
 title: "c0141_vvvvv"
-date: 2020-08-09T01:36:20+88:00
+date: 2020-08-18T15:16:17+88:00
 draft: false
 weight: 11414
 
@@ -34,7 +34,7 @@ weight: 11414
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf380)(<nil>)
+    (*impl.Scopes)(0xc000175320)(<nil>)
     
     ---------group vars----------
     
@@ -112,23 +112,25 @@ weight: 11414
     curl -s -X GET "https://httpbin.org/get" -H "accept: application/json"
     
     cmd=>:
-    curl -s -X GET "https://httpbin.org/get" -H "accept: application/json"<=
+    curl -s -X GET "https://httpbin.org/get" -H "accept: application/json"
+    -
     {
       "args": {}, 
       "headers": {
         "Accept": "application/json", 
         "Host": "httpbin.org", 
         "User-Agent": "curl/7.70.0", 
-        "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
+        "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
       }, 
       "origin": "118.208.99.251", 
       "url": "https://httpbin.org/get"
     }
+    -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=70) "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
      Code: (int) 0,
-     Output: (string) (len=268) "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+     Output: (string) (len=268) "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
      ErrMsg: (string) ""
     }
     
@@ -146,8 +148,8 @@ weight: 11414
           "cmd": "{{.httpbin_get_result.Output}}"
         },
         {
-          "name": "print",
-          "cmd": "{{.api_response}}"
+          "cmd": "{{.api_response}}",
+          "name": "print"
         },
         {
           "name": "inspect",
@@ -160,8 +162,8 @@ weight: 11414
           "cmd": "{{.api_response_object.headers.Host}}"
         },
         {
-          "name": "printObj",
-          "cmd": "api_response_headers"
+          "cmd": "api_response_headers",
+          "name": "printObj"
         },
         {
           "name": "print",
@@ -246,19 +248,19 @@ weight: 11414
       "last_result": (*utils.ExecResult)({
         Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
         Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
         ErrMsg: ""
       }),
       "httpbin_get_result": (*utils.ExecResult)({
         Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
         Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
         ErrMsg: ""
       })
     })
     
     dvar> api_response:
-    "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}"
+    "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}"
     
     -
     {
@@ -267,30 +269,30 @@ weight: 11414
         "Accept": "application/json", 
         "Host": "httpbin.org", 
         "User-Agent": "curl/7.70.0", 
-        "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
+        "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
       }, 
       "origin": "118.208.99.251", 
       "url": "https://httpbin.org/get"
     }
     dvar[object]> api_response_object:
     {
+      "origin": "118.208.99.251",
+      "url": "https://httpbin.org/get",
       "args": {
       },
       "headers": {
         "Accept": "application/json",
         "Host": "httpbin.org",
         "User-Agent": "curl/7.70.0",
-        "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
-      },
-      "origin": "118.208.99.251",
-      "url": "https://httpbin.org/get"
+        "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
+      }
     }
     
     dvar> api_response_headers:
-    "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]"
+    "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]"
     
     -
-    map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]
+    map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]
     dvar> api_response_headers_host:
     "httpbin.org"
     
@@ -298,26 +300,26 @@ weight: 11414
     httpbin.org
     [local] dvar expanded result:
     {
-      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+      "api_response_headers_host": "httpbin.org",
+      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
       "api_response_object": {
         "args": {
         },
         "headers": {
-          "Accept": "application/json",
-          "Host": "httpbin.org",
           "User-Agent": "curl/7.70.0",
-          "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
+          "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91",
+          "Accept": "application/json",
+          "Host": "httpbin.org"
         },
         "origin": "118.208.99.251",
         "url": "https://httpbin.org/get"
       },
-      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]",
-      "api_response_headers_host": "httpbin.org"
+      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]"
     }
     
     
     scope[local] merged: {
-      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
       "api_response_object": {
         "args": {
         },
@@ -325,23 +327,23 @@ weight: 11414
           "Accept": "application/json",
           "Host": "httpbin.org",
           "User-Agent": "curl/7.70.0",
-          "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
+          "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
         },
         "origin": "118.208.99.251",
         "url": "https://httpbin.org/get"
       },
-      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]",
+      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]",
       "api_response_headers_host": "httpbin.org",
-      "httpbin_get_result": (*utils.ExecResult)({
-        Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
-        Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
-        ErrMsg: ""
-      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
         Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        ErrMsg: ""
+      }),
+      "httpbin_get_result": (*utils.ExecResult)({
+        Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
+        Code: 0,
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
         ErrMsg: ""
       })
     }
@@ -350,33 +352,33 @@ weight: 11414
     self: final context exec vars:
     
     (*core.Cache)({
+      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]",
+      "api_response_headers_host": "httpbin.org",
       "last_result": (*utils.ExecResult)({
         Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
         Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
         ErrMsg: ""
       }),
-      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
-      "api_response_object": {
-        "args": {
-        },
-        "headers": {
-          "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89",
-          "Accept": "application/json",
-          "Host": "httpbin.org",
-          "User-Agent": "curl/7.70.0"
-        },
-        "origin": "118.208.99.251",
-        "url": "https://httpbin.org/get"
-      },
-      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]",
-      "api_response_headers_host": "httpbin.org",
       "httpbin_get_result": (*utils.ExecResult)({
         Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
         Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
         ErrMsg: ""
-      })
+      }),
+      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+      "api_response_object": {
+        "origin": "118.208.99.251",
+        "url": "https://httpbin.org/get",
+        "args": {
+        },
+        "headers": {
+          "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91",
+          "Accept": "application/json",
+          "Host": "httpbin.org",
+          "User-Agent": "curl/7.70.0"
+        }
+      }
     })
     
     {{.httpbin_get_result.Code}}
@@ -390,7 +392,7 @@ weight: 11414
         "Accept": "application/json", 
         "Host": "httpbin.org", 
         "User-Agent": "curl/7.70.0", 
-        "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
+        "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
       }, 
       "origin": "118.208.99.251", 
       "url": "https://httpbin.org/get"
@@ -403,7 +405,7 @@ weight: 11414
         "Accept": "application/json", 
         "Host": "httpbin.org", 
         "User-Agent": "curl/7.70.0", 
-        "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89"
+        "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
       }, 
       "origin": "118.208.99.251", 
       "url": "https://httpbin.org/get"
@@ -412,33 +414,33 @@ weight: 11414
     ~SubStep4: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "api_response_headers_host": "httpbin.org",
-      "httpbin_get_result": (*utils.ExecResult)({
-        Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
-        Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
-        Code: 0,
-        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
-        ErrMsg: ""
-      }),
-      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+      "api_response": "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
       "api_response_object": {
+        "url": "https://httpbin.org/get",
         "args": {
         },
         "headers": {
-          "User-Agent": "curl/7.70.0",
-          "X-Amzn-Trace-Id": "Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89",
           "Accept": "application/json",
-          "Host": "httpbin.org"
+          "Host": "httpbin.org",
+          "User-Agent": "curl/7.70.0",
+          "X-Amzn-Trace-Id": "Root=1-5f3a8bb0-f7078452d20592be70e9be91"
         },
-        "origin": "118.208.99.251",
-        "url": "https://httpbin.org/get"
+        "origin": "118.208.99.251"
       },
-      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]"
+      "api_response_headers": "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]",
+      "api_response_headers_host": "httpbin.org",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
+        Code: 0,
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        ErrMsg: ""
+      }),
+      "httpbin_get_result": (*utils.ExecResult)({
+        Cmd: "curl -s -X GET \"https://httpbin.org/get\" -H \"accept: application/json\"",
+        Code: 0,
+        Output: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"curl/7.70.0\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f3a8bb0-f7078452d20592be70e9be91\"\n  }, \n  \"origin\": \"118.208.99.251\", \n  \"url\": \"https://httpbin.org/get\"\n}",
+        ErrMsg: ""
+      })
     })
     
     {{.api_response_object.headers.Host}}
@@ -449,12 +451,12 @@ weight: 11414
     (string) (len=20) "api_response_headers"
     
     object:
-     api_response_headers: "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]"
+     api_response_headers: "map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]"
     
     {{.api_response_headers}}
     ~SubStep7: [print: you can not use this header directly, if you intend to use a sub node, then you should use query and register a sub node
      ]
-    map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f2ec4e6-fa5b54608a8a90e3b4496b89]
+    map[Accept:application/json Host:httpbin.org User-Agent:curl/7.70.0 X-Amzn-Trace-Id:Root=1-5f3a8bb0-f7078452d20592be70e9be91]
     {{.api_response_headers_host}}
     ~SubStep8: [print:  ]
     httpbin.org

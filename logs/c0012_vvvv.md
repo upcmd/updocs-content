@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvv"
-date: 2020-08-09T01:36:01+88:00
+date: 2020-08-18T15:15:49+88:00
 draft: false
 weight: 10123
 
@@ -62,32 +62,36 @@ weight: 10123
     -Step1: [: to test display env vars from shell context ]
     current exec runtime vars:
     (*core.Cache)({
-      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
+      "k": "runtime-k"
     })
     
     cmd( 1):
     echo "hello, world"
     
     cmd=>:
-    echo "hello, world"<=
+    echo "hello, world"
+    -
     hello, world
+    -
      .. ok
     cmd( 2):
     echo 'hello {{.a}}'
     
     cmd=>:
-    echo 'hello runtime-a'<=
+    echo 'hello runtime-a'
+    -
     hello runtime-a
+    -
      .. ok
     . ok
     

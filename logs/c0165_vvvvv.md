@@ -1,6 +1,6 @@
 ---
 title: "c0165_vvvvv"
-date: 2020-08-09T01:36:25+88:00
+date: 2020-08-18T15:16:23+88:00
 draft: false
 weight: 11654
 
@@ -34,7 +34,7 @@ weight: 11654
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7040)(<nil>)
+    (*impl.Scopes)(0xc0001bf0a0)(<nil>)
     
     ---------group vars----------
     
@@ -45,6 +45,7 @@ weight: 11654
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
@@ -53,8 +54,7 @@ weight: 11654
           },
           "school": "SG"
         }
-      },
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n"
+      }
     }
     
     (core.Cache) (len=2) {
@@ -78,6 +78,7 @@ weight: 11654
     -------runtime global final merged with dvars-------
     
     {
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
@@ -86,8 +87,7 @@ weight: 11654
           },
           "school": "SG"
         }
-      },
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n"
+      }
     }
     
       located task-> 1 [task]: 
@@ -118,19 +118,19 @@ weight: 11654
           "desc": "object to json text"
         },
         {
-          "cmd": "{{.yml | ymlToObj|reg \"this_is_another_obj\"}}",
           "name": "print",
-          "desc": "convert yml string to obj in print"
+          "desc": "convert yml string to obj in print",
+          "cmd": "{{.yml | ymlToObj|reg \"this_is_another_obj\"}}"
         },
         {
+          "desc": "print this_is_another_obj",
           "cmd": "{{.this_is_another_obj}}",
-          "name": "print",
-          "desc": "print this_is_another_obj"
+          "name": "print"
         },
         {
+          "name": "print",
           "desc": "object to json text then to obj using ymlToObj\nyml is a superset of json, so ymlToObj works for json\n",
-          "cmd": "{{ .obj | toJson |ymlToObj}}",
-          "name": "print"
+          "cmd": "{{ .obj | toJson |ymlToObj}}"
         },
         {
           "name": "print",
@@ -173,6 +173,7 @@ weight: 11654
     
     current exec runtime vars:
     (*core.Cache)({
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
@@ -181,18 +182,17 @@ weight: 11654
           },
           "school": "SG"
         }
-      },
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n"
+      }
     })
     
     ymlToObj:
     (*map[interface {}]interface {})({
       "address": {
+        "school": "SG",
         "suburb": {
           "name": "sydney CBD",
           "postcode": 2000
-        },
-        "school": "SG"
+        }
       }
     })
     
@@ -212,30 +212,6 @@ weight: 11654
     
     scope[local] merged: {
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
-      "this_is_an_obj": (*map[interface {}]interface {})({
-        "address": {
-          "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
-          },
-          "school": "SG"
-        }
-      }),
-      "obj": {
-        "address": {
-          "school": "SG",
-          "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
-          }
-        }
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "obj": {
         "address": {
           "suburb": {
@@ -245,7 +221,31 @@ weight: 11654
           "school": "SG"
         }
       },
+      "this_is_an_obj": (*map[interface {}]interface {})({
+        "address": {
+          "suburb": {
+            "name": "sydney CBD",
+            "postcode": 2000
+          },
+          "school": "SG"
+        }
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
+      "obj": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "name": "sydney CBD"
+          },
+          "school": "SG"
+        }
+      },
       "this_is_an_obj": (*map[interface {}]interface {})({
         "address": {
           "suburb": {
@@ -271,8 +271,8 @@ weight: 11654
     (*map[interface {}]interface {})({
       "address": {
         "suburb": {
-          "postcode": 2000,
-          "name": "sydney CBD"
+          "name": "sydney CBD",
+          "postcode": 2000
         },
         "school": "SG"
       }
