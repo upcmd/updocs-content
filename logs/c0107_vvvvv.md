@@ -1,6 +1,6 @@
 ---
 title: "c0107_vvvvv"
-date: 2020-08-18T15:16:09+88:00
+date: 2020-09-18T00:51:39+99:00
 draft: false
 weight: 11074
 
@@ -22,6 +22,7 @@ weight: 11074
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11074
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf3e0)(<nil>)
+    (*impl.Scopes)(0xc00000c800)(<nil>)
     
     ---------group vars----------
     
@@ -45,13 +46,13 @@ weight: 11074
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "tom": "this is tom in global"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=3) "tom": (string) (len=21) "this is tom in global",
-     (string) (len=5) "jerry": (string) (len=23) "this is jerry in global"
+     (string) (len=5) "jerry": (string) (len=23) "this is jerry in global",
+     (string) (len=3) "tom": (string) (len=21) "this is tom in global"
     }
     
     [runtime global] dvar expanded result:
@@ -62,8 +63,8 @@ weight: 11074
     -------runtime global final merged with dvars-------
     
     {
-      "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "jerry": "this is jerry in global",
+      "tom": "this is tom in global"
     }
     
       located task-> 1 [task]: 
@@ -94,8 +95,9 @@ weight: 11074
     
     current exec runtime vars:
     (*core.Cache)({
+      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -104,22 +106,25 @@ weight: 11074
     
     
     scope[local] merged: {
+      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "jerry": "this is jerry in global",
       "tom": "this is tom in global",
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (sub)::
     (*core.Cache)({
       "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [sub]: 
@@ -131,16 +136,16 @@ weight: 11074
       Name: "",
       Do: {
         {
+          "name": "reg",
           "cmd": {
-            "value": "tom created in sub",
             "name": "tom",
-            "desc": "by default tom is registered in to global context"
-          },
-          "name": "reg"
+            "desc": "by default tom is registered in to global context",
+            "value": "tom created in sub"
+          }
         },
         {
-          "name": "print",
-          "cmd": "in sub print1: {{.tom}}"
+          "cmd": "in sub print1: {{.tom}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -165,10 +170,10 @@ weight: 11074
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "john": "john in sub func1",
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "tom": "this is tom in global"
     })
     
     [local] dvar expanded result:
@@ -178,8 +183,8 @@ weight: 11074
     
     scope[local] merged: {
       "john": "john in sub func1",
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
+      "tom": "this is tom in global",
       "up_runtime_task_layer_number": 1
     }
     
@@ -188,8 +193,8 @@ weight: 11074
     
     (*core.Cache)({
       "john": "john in sub func1",
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
+      "tom": "this is tom in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -198,17 +203,18 @@ weight: 11074
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "tom": "tom created in sub",
-      "jerry": "this is jerry in global"
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in global",
+      "tom": "tom created in sub"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "john": "john in sub func1",
-      "tom": "tom created in sub",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "tom": "tom created in sub",
+      "up_runtime_task_layer_number": 1,
+      "john": "john in sub func1"
     })
     
     in sub print1: {{.tom}}
@@ -243,8 +249,8 @@ weight: 11074
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "tom": "tom created in sub",
+      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in global"
     })
     
@@ -254,8 +260,8 @@ weight: 11074
     
     
     scope[local] merged: {
-      "tom": "tom created in sub",
       "jerry": "this is jerry in global",
+      "tom": "tom created in sub",
       "up_runtime_task_layer_number": 1
     }
     
@@ -264,8 +270,8 @@ weight: 11074
     
     (*core.Cache)({
       "tom": "tom created in sub",
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in global"
     })
     
     debug tom's value==>
@@ -276,8 +282,8 @@ weight: 11074
       Name: "",
       Do: {
         {
-          "cmd": "in sub print2: {{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "in sub print2: {{.tom}}"
         }
       },
       Dox: <nil>,
@@ -302,9 +308,9 @@ weight: 11074
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
       "john": "john in sub func2",
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in global",
       "tom": "tom created in sub"
     })
     
@@ -314,9 +320,9 @@ weight: 11074
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
       "john": "john in sub func2",
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in global",
       "tom": "tom created in sub"
     }
     
@@ -325,9 +331,9 @@ weight: 11074
     
     (*core.Cache)({
       "john": "john in sub func2",
-      "tom": "tom created in sub",
+      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "tom": "tom created in sub"
     })
     
     in sub print2: {{.tom}}
@@ -338,8 +344,8 @@ weight: 11074
       Name: "",
       Do: {
         {
-          "cmd": "<==debug tom's value",
-          "name": "trace"
+          "name": "trace",
+          "cmd": "<==debug tom's value"
         }
       },
       Dox: <nil>,
@@ -362,8 +368,8 @@ weight: 11074
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "tom created in sub",
       "jerry": "this is jerry in global",
+      "tom": "tom created in sub",
       "up_runtime_task_layer_number": 1
     })
     
@@ -373,17 +379,17 @@ weight: 11074
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in global",
+      "tom": "tom created in sub",
       "up_runtime_task_layer_number": 1,
-      "tom": "tom created in sub"
+      "jerry": "this is jerry in global"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "tom created in sub",
       "jerry": "this is jerry in global",
+      "tom": "tom created in sub",
       "up_runtime_task_layer_number": 1
     })
     
@@ -420,8 +426,8 @@ weight: 11074
     current exec runtime vars:
     (*core.Cache)({
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom in global"
+      "tom": "this is tom in global",
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -430,8 +436,8 @@ weight: 11074
     
     
     scope[local] merged: {
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
+      "tom": "this is tom in global",
       "up_runtime_task_layer_number": 1
     }
     
@@ -439,8 +445,8 @@ weight: 11074
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom in global",
       "jerry": "this is jerry in global",
+      "tom": "this is tom in global",
       "up_runtime_task_layer_number": 1
     })
     

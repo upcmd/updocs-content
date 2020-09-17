@@ -1,6 +1,6 @@
 ---
 title: "c0002_vvvv"
-date: 2020-08-18T15:15:47+88:00
+date: 2020-09-18T00:51:19+99:00
 draft: false
 weight: 10023
 
@@ -22,6 +22,7 @@ weight: 10023
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10023
     -Step1: [: do step1 in shell func ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10023
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -79,6 +83,7 @@ weight: 10023
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok
@@ -90,7 +95,8 @@ weight: 10023
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -101,7 +107,8 @@ weight: 10023
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -111,6 +118,7 @@ weight: 10023
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -119,6 +127,7 @@ weight: 10023
     cmd=>:
     echo "I got exception"|grep non-exist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
@@ -128,6 +137,7 @@ weight: 10023
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok

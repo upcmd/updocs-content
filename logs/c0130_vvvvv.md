@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvvv"
-date: 2020-08-18T15:16:14+88:00
+date: 2020-09-18T00:51:45+99:00
 draft: false
 weight: 11304
 
@@ -22,6 +22,7 @@ weight: 11304
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001756e0)(<nil>)
+    (*impl.Scopes)(0xc0001bf760)(<nil>)
     
     ---------group vars----------
     
@@ -45,15 +46,17 @@ weight: 11304
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "goahead": false,
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
+      "c": "global_ccc"
     }
     
-    (core.Cache) (len=3) {
-     (string) (len=1) "c": (string) (len=10) "global_ccc",
+    (core.Cache) (len=4) {
+     (string) (len=7) "goahead": (bool) false,
      (string) (len=1) "a": (string) (len=10) "global_aaa",
-     (string) (len=1) "b": (string) (len=10) "global_bbb"
+     (string) (len=1) "b": (string) (len=10) "global_bbb",
+     (string) (len=1) "c": (string) (len=10) "global_ccc"
     }
     
     [runtime global] dvar expanded result:
@@ -64,6 +67,7 @@ weight: 11304
     -------runtime global final merged with dvars-------
     
     {
+      "goahead": false,
       "a": "global_aaa",
       "b": "global_bbb",
       "c": "global_ccc"
@@ -85,15 +89,15 @@ weight: 11304
           }
         },
         {
+          "do": {
+            {
+              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
+              "name": "print"
+            }
+          },
           "func": "cmd",
           "vars": {
             "a": "block_layer1_aaa"
-          },
-          "do": {
-            {
-              "name": "print",
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-            }
           }
         },
         {
@@ -104,6 +108,21 @@ weight: 11304
           }
         },
         {
+          "do": {
+            {
+              "do": {
+                {
+                  "name": "print",
+                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+                }
+              },
+              "func": "cmd",
+              "vars": {
+                "a": "block_layer2_aaa"
+              }
+            }
+          },
+          "func": "block",
           "desc": "test embeded 2nd layer of block",
           "vars": {
             "b": "local_block_layer2_bbb",
@@ -115,25 +134,10 @@ weight: 11304
               "value": "local_da_layer2"
             },
             {
-              "name": "db",
-              "value": "local_db_layer2"
+              "value": "local_db_layer2",
+              "name": "db"
             }
-          },
-          "do": {
-            {
-              "func": "cmd",
-              "vars": {
-                "a": "block_layer2_aaa"
-              },
-              "do": {
-                {
-                  "name": "print",
-                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-                }
-              }
-            }
-          },
-          "func": "block"
+          }
         },
         {
           "func": "shell",
@@ -215,9 +219,11 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -228,25 +234,229 @@ weight: 11304
     
     
     scope[local] merged: {
+      "goahead": false,
       "da": "local_da",
       "db": "local_db",
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "da": "local_da",
+      "goahead": false,
       "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
       "db": "local_db"
     })
     
-    condition failed, skip executing step 
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        "echo \"else step1\"",
+        "echo \"else step2\""
+      },
+      Dox: <nil>,
+      Func: "shell",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "c": "global_ccc",
+      "goahead": false,
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
+      "goahead": false,
+      "a": "local_aaa"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "db": "local_db",
+      "c": "global_ccc",
+      "goahead": false,
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da"
+    })
+    
+    cmd( 1):
+    echo "else step1"
+    
+    cmd=>:
+    echo "else step1"
+    -
+    else step1
+    
+    -
+     .. ok
+    (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"else step1\"",
+     Code: (int) 0,
+     Output: (string) (len=10) "else step1",
+     ErrMsg: (string) ""
+    }
+    
+    cmd( 2):
+    echo "else step2"
+    
+    cmd=>:
+    echo "else step2"
+    -
+    else step2
+    
+    -
+     .. ok
+    (utils.ExecResult) {
+     Cmd: (string) (len=17) "echo \"else step2\"",
+     Code: (int) 0,
+     Output: (string) (len=10) "else step2",
+     ErrMsg: (string) ""
+    }
+    
+    . ok
+    -Step2:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: {
+        "a": "block_layer1_aaa_else"
+      },
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"else step2\"",
+        Code: 0,
+        Output: "else step2",
+        ErrMsg: ""
+      }),
+      "a": "block_layer1_aaa_else",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "db": "local_db",
+      "c": "global_ccc",
+      "goahead": false,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"else step2\"",
+        Code: 0,
+        Output: "else step2",
+        ErrMsg: ""
+      }),
+      "a": "block_layer1_aaa_else",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"else step2\"",
+        Code: 0,
+        Output: "else step2",
+        ErrMsg: ""
+      }),
+      "a": "block_layer1_aaa_else",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc"
+    })
+    
+    layer 1
+    up_runtime_task_layer_number: {{.up_runtime_task_layer_number}}
+    a: {{.a}}
+    b: {{.b}}
+    c: {{.c}}
+    da: {{.da}}
+    db: {{.db}}
+    
+    ~SubStep1: [print:  ]
+    layer 1
+    up_runtime_task_layer_number: 0
+    a: block_layer1_aaa_else
+    b: local_bbb
+    c: global_ccc
+    da: local_da
+    db: local_db
     
     
 ```

@@ -1,6 +1,6 @@
 ---
 title: "c0154_vvvv"
-date: 2020-08-18T15:16:20+88:00
+date: 2020-09-18T00:51:51+99:00
 draft: false
 weight: 11543
 
@@ -22,6 +22,7 @@ weight: 11543
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,11 +43,11 @@ weight: 11543
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb"
+      }
     }
     
     -------runtime global final merged with dvars-------
@@ -67,11 +68,12 @@ weight: 11543
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
       "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -81,7 +83,8 @@ weight: 11543
       "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -90,16 +93,18 @@ weight: 11543
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "up_runtime_task_layer_number": 0,
+      "a": "aaa",
+      "b": "bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "a": "aaa",
       "b": "bbb",
       "sydney_grammar": {
@@ -119,11 +124,12 @@ weight: 11543
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
+      "up_runtime_task_layer_number": 0,
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa",
-      "b": "bbb"
+      }
     })
     
     self: final context exec vars:
@@ -133,7 +139,8 @@ weight: 11543
         "address": "sydney"
       },
       "a": "aaa",
-      "b": "bbb"
+      "b": "bbb",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [query: if the sub element does not exist, eg school_name does not exit, then the query result will give the result of the closest element result, in this caes the parent value "aaa" will be return
@@ -155,31 +162,33 @@ weight: 11543
     -Step4: [: test pathExisted in templating ]
     current exec runtime vars:
     (*core.Cache)({
-      "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney"),
-      "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false,
+      "a": "aaa",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "school_address": (*string)("sydney"),
+      "address_existed": true,
+      "b": "bbb",
+      "up_runtime_task_layer_number": 0,
+      "myschool": (*string)("aaa")
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "aaa",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
-      "address_existed": true,
       "state_existed": false,
-      "varb_sub_element_existed": false
+      "varb_sub_element_existed": false,
+      "up_runtime_task_layer_number": 0,
+      "myschool": (*string)("aaa"),
+      "address_existed": true,
+      "b": "bbb"
     })
     
     ~SubStep1: [print:  ]
@@ -201,44 +210,47 @@ weight: 11543
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney"),
-      "address_existed": true,
-      "state_existed": false,
-      "varb_sub_element_existed": false,
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "school_address": (*string)("sydney"),
+      "state_existed": false,
+      "varb_sub_element_existed": false,
+      "b": "bbb",
+      "myschool": (*string)("aaa"),
+      "address_existed": true,
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney"),
       "address_existed": true,
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "myschool": (*string)("aaa"),
       "state_existed": false,
       "varb_sub_element_existed": false,
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "school_address": (*string)("sydney")
     })
     
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "myschool": (*string)("aaa"),
+      "address_existed": true,
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
-      "address_existed": true,
       "state_existed": false,
       "varb_sub_element_existed": false
     })

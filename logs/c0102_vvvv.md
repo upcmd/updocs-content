@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:38+99:00
 draft: false
 weight: 11023
 
@@ -22,6 +22,7 @@ weight: 11023
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -58,13 +59,15 @@ weight: 11023
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -82,6 +85,7 @@ weight: 11023
       age: 32
     " > /tmp/mock_yml.yml
     -
+    
     -
      .. ok
     . ok
@@ -94,7 +98,8 @@ weight: 11023
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -106,7 +111,8 @@ weight: 11023
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [ymlDelete:  ]
@@ -131,7 +137,8 @@ weight: 11023
         Output: "",
         ErrMsg: ""
       }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -144,7 +151,8 @@ weight: 11023
         Output: "",
         ErrMsg: ""
       }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [ymlDelete:  ]

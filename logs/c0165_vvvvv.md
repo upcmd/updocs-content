@@ -1,6 +1,6 @@
 ---
 title: "c0165_vvvvv"
-date: 2020-08-18T15:16:23+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11654
 
@@ -22,6 +22,7 @@ weight: 11654
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11654
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf0a0)(<nil>)
+    (*impl.Scopes)(0xc0001e5060)(<nil>)
     
     ---------group vars----------
     
@@ -49,8 +50,8 @@ weight: 11654
       "obj": {
         "address": {
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
+            "postcode": 2000,
+            "name": "sydney CBD"
           },
           "school": "SG"
         }
@@ -62,8 +63,8 @@ weight: 11654
      (string) (len=3) "obj": (map[string]interface {}) (len=1) {
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "suburb": (map[string]interface {}) (len=2) {
-        (string) (len=4) "name": (string) (len=10) "sydney CBD",
-        (string) (len=8) "postcode": (int) 2000
+        (string) (len=8) "postcode": (int) 2000,
+        (string) (len=4) "name": (string) (len=10) "sydney CBD"
        },
        (string) (len=6) "school": (string) (len=2) "SG"
       }
@@ -113,14 +114,14 @@ weight: 11654
           "cmd": "this_is_an_obj"
         },
         {
-          "cmd": "{{ .obj | toJson}}",
           "name": "print",
-          "desc": "object to json text"
+          "desc": "object to json text",
+          "cmd": "{{ .obj | toJson}}"
         },
         {
-          "name": "print",
           "desc": "convert yml string to obj in print",
-          "cmd": "{{.yml | ymlToObj|reg \"this_is_another_obj\"}}"
+          "cmd": "{{.yml | ymlToObj|reg \"this_is_another_obj\"}}",
+          "name": "print"
         },
         {
           "desc": "print this_is_another_obj",
@@ -176,23 +177,24 @@ weight: 11654
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
+          "school": "SG",
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
-          },
-          "school": "SG"
+            "postcode": 2000,
+            "name": "sydney CBD"
+          }
         }
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     ymlToObj:
     (*map[interface {}]interface {})({
       "address": {
-        "school": "SG",
         "suburb": {
           "name": "sydney CBD",
           "postcode": 2000
-        }
+        },
+        "school": "SG"
       }
     })
     
@@ -211,16 +213,17 @@ weight: 11654
     
     
     scope[local] merged: {
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
+          "school": "SG",
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
-          },
-          "school": "SG"
+            "postcode": 2000,
+            "name": "sydney CBD"
+          }
         }
       },
+      "up_runtime_task_layer_number": 0,
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "this_is_an_obj": (*map[interface {}]interface {})({
         "address": {
           "suburb": {
@@ -239,13 +242,14 @@ weight: 11654
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
+          "school": "SG",
           "suburb": {
             "postcode": 2000,
             "name": "sydney CBD"
-          },
-          "school": "SG"
+          }
         }
       },
+      "up_runtime_task_layer_number": 0,
       "this_is_an_obj": (*map[interface {}]interface {})({
         "address": {
           "suburb": {
@@ -328,8 +332,8 @@ weight: 11654
       "address": {
         "school": "SG",
         "suburb": {
-          "name": "sydney CBD",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney CBD"
         }
       }
     })

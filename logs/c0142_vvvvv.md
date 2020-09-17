@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvvv"
-date: 2020-08-18T15:16:17+88:00
+date: 2020-09-18T00:51:48+99:00
 draft: false
 weight: 11424
 
@@ -22,6 +22,7 @@ weight: 11424
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11424
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177060)(<nil>)
+    (*impl.Scopes)(0xc0001bd0e0)(<nil>)
     
     ---------group vars----------
     
@@ -84,11 +85,11 @@ weight: 11424
           }
         },
         {
+          "name": "colorPrint",
           "cmd": {
-            "msg": "hello, world",
-            "fg": "white"
-          },
-          "name": "colorPrint"
+            "fg": "white",
+            "msg": "hello, world"
+          }
         },
         {
           "name": "colorPrint",
@@ -107,9 +108,9 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
-            "object": "person",
             "fg": "blue",
-            "bg": "black"
+            "bg": "black",
+            "object": "person"
           }
         },
         {
@@ -123,10 +124,10 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
-            "bg": "black",
-            "object": "person",
             "msg": "person",
-            "fg": "blue"
+            "fg": "blue",
+            "bg": "black",
+            "object": "person"
           }
         }
       },
@@ -134,8 +135,8 @@ weight: 11424
       Func: "cmd",
       Vars: {
         "person": {
-          "age": 18,
-          "name": "tom"
+          "name": "tom",
+          "age": 18
         },
         "objectname": "person"
       },
@@ -156,6 +157,7 @@ weight: 11424
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
@@ -173,18 +175,20 @@ weight: 11424
         "name": "tom",
         "age": 18
       },
-      "objectname": "person"
+      "objectname": "person",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "objectname": "person",
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
-      },
-      "objectname": "person"
+      }
     })
     
     map[bg:blue fg:white msg:hello, world]

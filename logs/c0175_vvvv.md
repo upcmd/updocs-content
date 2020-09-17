@@ -1,6 +1,6 @@
 ---
 title: "c0175_vvvv"
-date: 2020-08-18T15:16:25+88:00
+date: 2020-09-18T00:51:55+99:00
 draft: false
 weight: 11753
 
@@ -22,6 +22,7 @@ weight: 11753
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -58,11 +59,13 @@ weight: 11753
     -Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -72,6 +75,7 @@ weight: 11753
     echo "opening file"
     -
     opening file
+    
     -
      .. ok
     cmd( 2):
@@ -80,6 +84,7 @@ weight: 11753
     cmd=>:
     echo "hello"|grep "world"
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     task Finally:
@@ -87,23 +92,13 @@ weight: 11753
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello\"|grep \"world\"",
-        Code: 1,
-        Output: "",
-        ErrMsg: "exit status 1"
-      })
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello\"|grep \"world\"",
-        Code: 1,
-        Output: "",
-        ErrMsg: "exit status 1"
-      })
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -113,6 +108,7 @@ weight: 11753
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     . ok

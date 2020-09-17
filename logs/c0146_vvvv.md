@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvv"
-date: 2020-08-18T15:16:18+88:00
+date: 2020-09-18T00:51:49+99:00
 draft: false
 weight: 11463
 
@@ -22,6 +22,7 @@ weight: 11463
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -57,28 +58,31 @@ weight: 11463
     loading [varsfile]:  ./tests/functests/d0146_data.yml
     current exec runtime vars:
     (*core.Cache)({
-      "school": "james rules",
+      "up_runtime_task_layer_number": 0,
+      "personname": "Tom Cruise",
       "folder": "module",
       "title": "HelloWorld example",
-      "personname": "Tom Cruise"
+      "school": "james rules"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "title": "HelloWorld example",
+      "up_runtime_task_layer_number": 0,
       "personname": "Tom Cruise",
-      "school": "james rules",
-      "folder": "module"
+      "folder": "module",
+      "title": "HelloWorld example",
+      "school": "james rules"
     })
     
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "personname": "Tom Cruise",
-      "school": "james rules",
       "folder": "module",
-      "title": "HelloWorld example"
+      "title": "HelloWorld example",
+      "school": "james rules"
     })
     
      2: inspect[exec_base_vars]
@@ -93,11 +97,13 @@ weight: 11463
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -107,8 +113,9 @@ weight: 11463
     cat /tmp/mockup_doc.md
     -
     title: "HelloWorld example"
-    date: 2020-08-17T23:52:50+88:00
-    draft: false-
+    date: 2020-09-18T00:48:24+99:00
+    draft: false
+    -
      .. ok
     . ok
     

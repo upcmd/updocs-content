@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvv"
-date: 2020-08-18T15:15:54+88:00
+date: 2020-09-18T00:51:25+99:00
 draft: false
 weight: 10403
 
@@ -22,6 +22,7 @@ weight: 10403
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10403
     -Step1: [getcases:  ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -91,22 +94,27 @@ weight: 10403
     f0172.yml
     f0176.yml
     f0178.yml
+    f0185.yml
+    f0186.yml
+    f0188.yml
+    
     -
      .. ok
     . ok
     -Step2: [: a real showcase of how to loop using template ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
         ErrMsg: ""
       })
     })
@@ -117,15 +125,16 @@ weight: 10403
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
         ErrMsg: ""
       }),
       "last_result": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml",
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -151,6 +160,7 @@ weight: 10403
     cmd=>:
     
     -
+    
     -
      .. ok
     . ok

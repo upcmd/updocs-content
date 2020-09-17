@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvvv"
-date: 2020-08-18T15:15:59+88:00
+date: 2020-09-18T00:51:29+99:00
 draft: false
 weight: 10644
 
@@ -22,6 +22,7 @@ weight: 10644
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10644
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174fa0)(<nil>)
+    (*impl.Scopes)(0xc000176fa0)(<nil>)
     
     ---------group vars----------
     
@@ -46,17 +47,17 @@ weight: 10644
     merged[ dev ] runtime vars:
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
       (string) (len=4) "name": (string) (len=3) "Tom",
-      (string) (len=6) "gender": (string) (len=4) "Male"
+      (string) (len=6) "gender": (string) (len=4) "Male",
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
      }
     }
     
@@ -69,9 +70,9 @@ weight: 10644
     
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       }
     }
     
@@ -106,10 +107,11 @@ weight: 10644
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -119,10 +121,11 @@ weight: 10644
     
     scope[local] merged: {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -133,7 +136,8 @@ weight: 10644
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -143,6 +147,7 @@ weight: 10644
     echo "hello 1"
     -
     hello 1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -158,9 +163,9 @@ weight: 10644
       Name: "",
       Do: {
         {
+          "cmd": "hello, this is print commmand",
           "name": "print",
-          "desc": "print some info",
-          "cmd": "hello, this is print commmand"
+          "desc": "print some info"
         },
         {
           "name": "print",
@@ -201,7 +206,8 @@ weight: 10644
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -210,17 +216,18 @@ weight: 10644
     
     
     scope[local] merged: {
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -237,7 +244,8 @@ weight: 10644
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     hello, this is print commmand

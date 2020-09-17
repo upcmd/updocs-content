@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvvv"
-date: 2020-08-18T15:16:05+88:00
+date: 2020-09-18T00:51:35+99:00
 draft: false
 weight: 10894
 
@@ -22,6 +22,7 @@ weight: 10894
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10894
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f6d80)(<nil>)
+    (*impl.Scopes)(0xc0001e6da0)(<nil>)
     
     ---------group vars----------
     
@@ -95,7 +96,8 @@ weight: 10894
     
     current exec runtime vars:
     (*core.Cache)({
-      "dynadir": "./tests/functests"
+      "dynadir": "./tests/functests",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -104,14 +106,16 @@ weight: 10894
     
     
     scope[local] merged: {
-      "dynadir": "./tests/functests"
+      "dynadir": "./tests/functests",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "dynadir": "./tests/functests"
+      "dynadir": "./tests/functests",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -121,6 +125,7 @@ weight: 10894
     echo "task step 1"
     -
     task step 1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -137,6 +142,7 @@ weight: 10894
     echo "task step 2"
     -
     task step 2
+    
     -
      .. ok
     (utils.ExecResult) {

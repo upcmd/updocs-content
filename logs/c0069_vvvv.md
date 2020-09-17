@@ -1,6 +1,6 @@
 ---
 title: "c0069_vvvv"
-date: 2020-08-18T15:16:00+88:00
+date: 2020-09-18T00:51:30+99:00
 draft: false
 weight: 10693
 
@@ -22,6 +22,7 @@ weight: 10693
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -43,8 +44,6 @@ weight: 10693
     merged[ dev ] runtime vars:
     {
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
             "name": "sydney",
@@ -52,7 +51,9 @@ weight: 10693
             "cbd": true
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
     }
     
@@ -64,9 +65,9 @@ weight: 10693
         "gender": "Male",
         "address": {
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
+            "cbd": true
           },
           "school": "Sydney Grammar"
         }
@@ -81,37 +82,39 @@ weight: 10693
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
-        },
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "cbd": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "up_runtime_task_layer_number": 0,
       "student": {
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
         },
         "name": "Tom",
         "gender": "Male"
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
+      }
     })
     
     cmd( 1):
@@ -133,6 +136,7 @@ weight: 10693
         CBD: yes
       school: Sydney Grammar
     
+    
     -
      .. ok
     cmd( 2):
@@ -147,6 +151,7 @@ weight: 10693
       school: Sydney Grammar
     """ > /tmp/school.txt
     -
+    
     -
      .. ok
     cmd( 3):
@@ -161,6 +166,7 @@ weight: 10693
         postcode: 2000
         CBD: yes
       school: Sydney Grammar
+    
     
     -
      .. ok

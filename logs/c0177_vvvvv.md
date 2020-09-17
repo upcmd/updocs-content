@@ -1,6 +1,6 @@
 ---
 title: "c0177_vvvvv"
-date: 2020-08-18T15:16:25+88:00
+date: 2020-09-18T00:51:55+99:00
 draft: false
 weight: 11774
 
@@ -22,6 +22,7 @@ weight: 11774
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11774
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e6e60)(<nil>)
+    (*impl.Scopes)(0xc0000bc3a0)(<nil>)
     
     ---------group vars----------
     
@@ -49,15 +50,17 @@ weight: 11774
         "name": "tom",
         "sex": "male",
         "age": 18
-      }
+      },
+      "env": "dev"
     }
     
-    (core.Cache) (len=1) {
+    (core.Cache) (len=2) {
      (string) (len=6) "person": (map[string]interface {}) (len=3) {
+      (string) (len=3) "age": (int) 18,
       (string) (len=4) "name": (string) (len=3) "tom",
-      (string) (len=3) "sex": (string) (len=4) "male",
-      (string) (len=3) "age": (int) 18
-     }
+      (string) (len=3) "sex": (string) (len=4) "male"
+     },
+     (string) (len=3) "env": (string) (len=3) "dev"
     }
     
     [runtime global] dvar expanded result:
@@ -69,10 +72,11 @@ weight: 11774
     
     {
       "person": {
-        "sex": "male",
         "age": 18,
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "env": "dev"
     }
     
       located task-> 1 [task]: 
@@ -87,7 +91,7 @@ weight: 11774
       Do: {
         {
           "name": "print",
-          "desc": "his age is {{.person.age}}\nhe is in school: {{.school}}\n",
+          "desc": "his age is {{.person.age}}\nhe is in school: {{.school}}\n?continue: {{.continue}}\n",
           "cmd": "what gender is {{.person.name}}"
         }
       },
@@ -96,7 +100,24 @@ weight: 11774
       Vars: {
         "school": "sydney grammar"
       },
-      Dvars: <nil>,
+      Dvars: {
+        {
+          Name: "continue",
+          Value: "N",
+          Desc: "Are you sure ? all items in {{.env}} infrastructure will be destroyed ! (yes/N)",
+          Expand: 0,
+          Flags: {
+            "prompt"
+          },
+          Rendered: "",
+          Secure: (*utils.SecureSetting)(<nil>),
+          Ref: "",
+          RefDir: "",
+          DataKey: "",
+          DataPath: "",
+          DataTemplate: ""
+        }
+      },
       Desc: "{{.person.name}} is {{.person.sex}}\n",
       Reg: "",
       Flags: <nil>,
@@ -118,21 +139,29 @@ weight: 11774
         "sex": "male",
         "age": 18
       },
+      "env": "dev",
+      "up_runtime_task_layer_number": 0,
       "school": "sydney grammar"
     })
     
+    Enter Value For [continue]: 
+    Are you sure ? all items in dev infrastructure will be destroyed ! (yes/N)
     [local] dvar expanded result:
     {
+      "continue": "N"
     }
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "school": "sydney grammar",
+      "continue": "N",
       "person": {
-        "age": 18,
         "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "age": 18
+      },
+      "env": "dev"
     }
     
     
@@ -140,16 +169,20 @@ weight: 11774
     
     (*core.Cache)({
       "person": {
+        "age": 18,
         "name": "tom",
-        "sex": "male",
-        "age": 18
+        "sex": "male"
       },
-      "school": "sydney grammar"
+      "env": "dev",
+      "up_runtime_task_layer_number": 0,
+      "school": "sydney grammar",
+      "continue": "N"
     })
     
     what gender is {{.person.name}}
     ~SubStep1: [print: his age is 18
     he is in school: sydney grammar
+    ?continue: N
      ]
     what gender is tom
     

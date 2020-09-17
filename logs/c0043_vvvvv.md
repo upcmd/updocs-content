@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10434
 
@@ -22,6 +22,7 @@ weight: 10434
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10434
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001731a0)(<nil>)
+    (*impl.Scopes)(0xc0001bf220)(<nil>)
     
     ---------group vars----------
     
@@ -89,6 +90,7 @@ weight: 10434
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -97,12 +99,14 @@ weight: 10434
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     . ok
@@ -135,7 +139,8 @@ weight: 10434
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -144,6 +149,7 @@ weight: 10434
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
@@ -161,7 +167,8 @@ weight: 10434
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -220,6 +227,7 @@ weight: 10434
         Output: "",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "a": "aa",
       "b": "bb"
     })
@@ -236,30 +244,32 @@ weight: 10434
     
     
     scope[local] merged: {
-      "a": "aa",
-      "b": "bb",
-      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "a": "aa",
+      "b": "bb",
+      "adebug": "aa"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "aa",
-      "b": "bb",
       "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "a": "aa",
+      "b": "bb"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -311,13 +321,14 @@ weight: 10434
     
     current exec runtime vars:
     (*core.Cache)({
+      "c": "cc",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc",
+      "up_runtime_task_layer_number": 0,
       "d": "dd"
     })
     
@@ -333,14 +344,15 @@ weight: 10434
     
     
     scope[local] merged: {
-      "c": "cc",
-      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
+      "d": "dd",
+      "c": "cc",
       "cdebug": "cc"
     }
     
@@ -348,15 +360,16 @@ weight: 10434
     self: final context exec vars:
     
     (*core.Cache)({
-      "cdebug": "cc",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
+      "d": "dd",
       "c": "cc",
-      "d": "dd"
+      "cdebug": "cc"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]

@@ -1,6 +1,6 @@
 ---
 title: "c0174_vvvvv"
-date: 2020-08-18T15:16:24+88:00
+date: 2020-09-18T00:51:55+99:00
 draft: false
 weight: 11744
 
@@ -22,6 +22,7 @@ weight: 11744
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11744
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175220)(<nil>)
+    (*impl.Scopes)(0xc0001c12a0)(<nil>)
     
     ---------group vars----------
     
@@ -113,6 +114,7 @@ weight: 11744
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -121,12 +123,14 @@ weight: 11744
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -136,6 +140,7 @@ weight: 11744
     echo "opening file"
     -
     opening file
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -151,6 +156,7 @@ weight: 11744
     cmd=>:
     echo "hello"|grep "world"
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -196,6 +202,7 @@ weight: 11744
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -210,6 +217,7 @@ weight: 11744
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -222,6 +230,7 @@ weight: 11744
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -237,6 +246,7 @@ weight: 11744
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -270,6 +280,7 @@ weight: 11744
     error message: exit status 1
     error output: 
     
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -287,8 +298,8 @@ weight: 11744
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n"
+          "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -311,17 +322,18 @@ weight: 11744
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
-        Code: 0,
-        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
-        ErrMsg: ""
-      }),
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
+        Code: 0,
+        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
+        ErrMsg: ""
       })
     })
     
@@ -337,6 +349,7 @@ weight: 11744
         Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -349,17 +362,18 @@ weight: 11744
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
-        Code: 0,
-        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
-        ErrMsg: ""
-      }),
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
+        Code: 0,
+        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
+        ErrMsg: ""
       })
     })
     
@@ -368,7 +382,7 @@ weight: 11744
     ~SubStep1: [print:  ]
     error message: exit status 1
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2: [: this step will not be reached if the ignoreError flag is not set
     try it yourself to remove the ignoreError flag and see difference
      ]
@@ -402,7 +416,8 @@ weight: 11744
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -416,7 +431,8 @@ weight: 11744
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -428,7 +444,8 @@ weight: 11744
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -438,6 +455,7 @@ weight: 11744
     echo "extra step ..."
     -
     extra step ...
+    
     -
      .. ok
     (utils.ExecResult) {

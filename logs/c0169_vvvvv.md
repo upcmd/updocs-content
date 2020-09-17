@@ -1,6 +1,6 @@
 ---
 title: "c0169_vvvvv"
-date: 2020-08-18T15:16:24+88:00
+date: 2020-09-18T00:51:54+99:00
 draft: false
 weight: 11694
 
@@ -22,6 +22,7 @@ weight: 11694
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11694
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177900)(<nil>)
+    (*impl.Scopes)(0xc000251920)(<nil>)
     
     ---------group vars----------
     
@@ -92,6 +93,7 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -100,12 +102,14 @@ weight: 11694
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -116,6 +120,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -126,7 +131,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
@@ -162,7 +167,8 @@ weight: 11694
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -171,6 +177,7 @@ weight: 11694
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
@@ -188,7 +195,8 @@ weight: 11694
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -199,6 +207,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     hello, world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -216,6 +225,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -234,6 +244,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     hello, world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -284,7 +295,8 @@ weight: 11694
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -298,7 +310,8 @@ weight: 11694
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -310,7 +323,8 @@ weight: 11694
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -321,6 +335,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -339,6 +354,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -357,6 +373,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -375,6 +392,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -385,7 +403,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step4: [: an example of retry
     it tries to ping 4 times with a timeout of 2 seconds every time
     with every attemp it puts a delay of 2 seconds
@@ -394,22 +412,22 @@ weight: 11694
       Name: "",
       Do: {
         {
-          "flags": {
-            "ignoreError"
-          },
           "func": "shell",
           "do": {
             "ping goole.com"
           },
-          "timeout": 500
+          "timeout": 500,
+          "flags": {
+            "ignoreError"
+          }
         },
         {
           "func": "cmd",
           "do": {
             {
-              "desc": "delay 2 seconds in each attemp",
               "cmd": 200,
-              "name": "sleep"
+              "name": "sleep",
+              "desc": "delay 2 seconds in each attemp"
             }
           }
         }
@@ -439,6 +457,7 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
@@ -458,7 +477,8 @@ weight: 11694
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -470,7 +490,8 @@ weight: 11694
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     -Step1:
@@ -501,14 +522,10 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "loopindex1": 1,
-      "loopitem": "retry1"
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry1",
+      "loopindex": 0
     })
     
     [local] dvar expanded result:
@@ -517,13 +534,9 @@ weight: 11694
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "loopindex": 0,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry1"
     }
     
@@ -531,14 +544,10 @@ weight: 11694
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "loopindex1": 1,
-      "loopitem": "retry1"
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry1",
+      "loopindex": 0
     })
     
     cmd( 1):
@@ -549,6 +558,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -559,15 +569,15 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
       Do: {
         {
+          "name": "sleep",
           "desc": "delay 2 seconds in each attemp",
-          "cmd": 200,
-          "name": "sleep"
+          "cmd": 200
         }
       },
       Dox: <nil>,
@@ -596,7 +606,9 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry1",
+      "loopindex": 0,
       "loopindex1": 1
     })
     
@@ -612,7 +624,9 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry1",
+      "loopindex": 0,
       "loopindex1": 1
     }
     
@@ -626,7 +640,9 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry1",
+      "loopindex": 0,
       "loopindex1": 1
     })
     
@@ -662,15 +678,10 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry2",
       "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      })
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -679,27 +690,17 @@ weight: 11694
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry2",
       "loopindex": 1,
       "loopindex1": 2
@@ -713,6 +714,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -723,7 +725,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
@@ -760,6 +762,7 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry2",
       "loopindex": 1,
       "loopindex1": 2
@@ -777,6 +780,7 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry2",
       "loopindex": 1,
       "loopindex1": 2
@@ -792,6 +796,7 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry2",
       "loopindex": 1,
       "loopindex1": 2
@@ -829,12 +834,7 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry3",
       "loopindex": 2,
       "loopindex1": 3
@@ -847,12 +847,7 @@ weight: 11694
     
     scope[local] merged: {
       "loopindex1": 3,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry3",
       "loopindex": 2
     }
@@ -861,12 +856,7 @@ weight: 11694
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "up_runtime_task_layer_number": 0,
       "loopitem": "retry3",
       "loopindex": 2,
       "loopindex1": 3
@@ -880,6 +870,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -890,15 +881,15 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
       Do: {
         {
-          "name": "sleep",
           "desc": "delay 2 seconds in each attemp",
-          "cmd": 200
+          "cmd": 200,
+          "name": "sleep"
         }
       },
       Dox: <nil>,
@@ -921,15 +912,16 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
-      "loopitem": "retry3",
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -938,15 +930,16 @@ weight: 11694
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry3",
+      "loopindex": 2,
+      "loopindex1": 3,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      }),
-      "loopindex": 2,
-      "loopindex1": 3,
-      "loopitem": "retry3"
+      })
     }
     
     
@@ -959,9 +952,10 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "loopitem": "retry3"
+      "loopindex1": 3
     })
     
     %!s(int=200)
@@ -996,14 +990,9 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "loopitem": "retry4",
       "loopindex": 3,
+      "up_runtime_task_layer_number": 0,
       "loopindex1": 4
     })
     
@@ -1013,30 +1002,20 @@ weight: 11694
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "up_runtime_task_layer_number": 0,
+      "loopindex1": 4,
       "loopitem": "retry4",
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopindex": 3
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "up_runtime_task_layer_number": 0,
+      "loopindex1": 4,
       "loopitem": "retry4",
-      "loopindex": 3,
-      "loopindex1": 4
+      "loopindex": 3
     })
     
     cmd( 1):
@@ -1047,6 +1026,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1057,7 +1037,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
@@ -1094,9 +1074,10 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry4",
       "loopindex": 3,
-      "loopindex1": 4,
-      "loopitem": "retry4"
+      "loopindex1": 4
     })
     
     [local] dvar expanded result:
@@ -1105,30 +1086,32 @@ weight: 11694
     
     
     scope[local] merged: {
-      "loopindex": 3,
-      "loopindex1": 4,
-      "loopitem": "retry4",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      })
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "retry4",
+      "loopindex": 3,
+      "loopindex1": 4
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "retry4",
       "loopindex": 3,
       "loopindex1": 4,
-      "loopitem": "retry4"
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     %!s(int=200)
@@ -1169,7 +1152,8 @@ weight: 11694
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -1178,6 +1162,7 @@ weight: 11694
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
@@ -1195,7 +1180,8 @@ weight: 11694
         Code: -1,
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -1206,6 +1192,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1224,6 +1211,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1242,6 +1230,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1260,6 +1249,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1278,6 +1268,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1296,6 +1287,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1306,7 +1298,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step6: [: an example of retry
     it tries to ping 4 times with a timeout of 2 seconds every time
     with every attemp it puts a delay of 2 seconds
@@ -1369,7 +1361,8 @@ weight: 11694
         103,
         104,
         105
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -1378,12 +1371,6 @@ weight: 11694
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
@@ -1391,7 +1378,14 @@ weight: 11694
         103,
         104,
         105
-      }
+      },
+      "up_runtime_task_layer_number": 0,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      })
     }
     
     
@@ -1411,7 +1405,8 @@ weight: 11694
         103,
         104,
         105
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     -Step1:
@@ -1442,20 +1437,16 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 100,
+      "loopindex": 0,
+      "loopindex1": 1,
       "myretry": {
         100,
         101,
         102,
         103
-      },
-      "loopitem": 100,
-      "loopindex1": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      })
+      }
     })
     
     [local] dvar expanded result:
@@ -1464,19 +1455,15 @@ weight: 11694
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 100,
+      "loopindex": 0,
       "loopindex1": 1
     }
     
@@ -1484,20 +1471,16 @@ weight: 11694
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "loopindex": 0,
+      "loopindex1": 1,
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "loopitem": 100,
-      "loopindex1": 1
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 100
     })
     
     cmd( 1):
@@ -1508,6 +1491,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -1518,7 +1502,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
@@ -1561,8 +1545,10 @@ weight: 11694
         102,
         103
       },
-      "loopindex1": 1,
-      "loopitem": 100
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 100,
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -1571,20 +1557,22 @@ weight: 11694
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 100,
+      "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": 100
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      })
     }
     
     
@@ -1597,8 +1585,10 @@ weight: 11694
         102,
         103
       },
-      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
       "loopitem": 100,
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
@@ -1639,6 +1629,126 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": 101,
+      "loopindex": 1,
+      "loopindex1": 2,
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 101,
+      "loopindex": 1,
+      "loopindex1": 2,
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 101
+    })
+    
+    cmd( 1):
+    ping goole.com
+    
+    cmd=>:
+    ping goole.com
+     WARN: [explicit timeout:] - [500 milli seconds]
+    -
+    PING goole.com (217.160.0.201): 56 data bytes
+    
+    -
+     WARN: [timeout] - [shell execution timed out]
+     .. failed(suppressed if it is not the last step)
+    (utils.ExecResult) {
+     Cmd: (string) (len=14) "ping goole.com",
+     Code: (int) -1,
+     Output: (string) (len=45) "PING goole.com (217.160.0.201): 56 data bytes",
+     ErrMsg: (string) (len=14) "signal: killed"
+    }
+    
+     WARN: [ignoreError:] - [Error ignored!!!]
+    -Step2:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": 200,
+          "name": "sleep",
+          "desc": "delay 2 seconds in each attemp"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 101,
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
@@ -1652,103 +1762,16 @@ weight: 11694
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 101,
       "loopindex": 1
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopitem": 101
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopitem": 101,
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      })
-    })
-    
-    cmd( 1):
-    ping goole.com
-    
-    cmd=>:
-    ping goole.com
-     WARN: [explicit timeout:] - [500 milli seconds]
-    -
-    PING goole.com (217.160.0.201): 56 data bytes
-    -
-     WARN: [timeout] - [shell execution timed out]
-     .. failed(suppressed if it is not the last step)
-    (utils.ExecResult) {
-     Cmd: (string) (len=14) "ping goole.com",
-     Code: (int) -1,
-     Output: (string) (len=45) "PING goole.com (217.160.0.201): 56 data bytes",
-     ErrMsg: (string) (len=14) "signal: killed"
-    }
-    
-     WARN: [HightLight:] - [Error ignored!!!]
-    -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "sleep",
-          "desc": "delay 2 seconds in each attemp",
-          "cmd": 200
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": 101,
       "loopindex": 1,
       "loopindex1": 2,
@@ -1764,50 +1787,6 @@ weight: 11694
         102,
         103
       }
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopitem": 101
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopitem": 101,
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      })
     })
     
     %!s(int=200)
@@ -1842,7 +1821,102 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "up_runtime_task_layer_number": 0,
+      "loopindex": 2,
       "loopindex1": 3,
+      "loopitem": 102
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "up_runtime_task_layer_number": 0,
+      "loopindex": 2,
+      "loopindex1": 3,
+      "loopitem": 102
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      },
+      "up_runtime_task_layer_number": 0,
+      "loopindex": 2,
+      "loopindex1": 3,
+      "loopitem": 102
+    })
+    
+    cmd( 1):
+    ping goole.com
+    
+    cmd=>:
+    ping goole.com
+     WARN: [explicit timeout:] - [500 milli seconds]
+    -
+    PING goole.com (217.160.0.201): 56 data bytes
+    
+    -
+     WARN: [timeout] - [shell execution timed out]
+     .. failed(suppressed if it is not the last step)
+    (utils.ExecResult) {
+     Cmd: (string) (len=14) "ping goole.com",
+     Code: (int) -1,
+     Output: (string) (len=45) "PING goole.com (217.160.0.201): 56 data bytes",
+     ErrMsg: (string) (len=14) "signal: killed"
+    }
+    
+     WARN: [ignoreError:] - [Error ignored!!!]
+    -Step2:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "sleep",
+          "desc": "delay 2 seconds in each attemp",
+          "cmd": 200
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "ping goole.com",
         Code: -1,
@@ -1855,8 +1929,10 @@ weight: 11694
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 102,
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -1879,6 +1955,7 @@ weight: 11694
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 102
     }
     
@@ -1898,116 +1975,7 @@ weight: 11694
         102,
         103
       },
-      "loopitem": 102,
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    cmd( 1):
-    ping goole.com
-    
-    cmd=>:
-    ping goole.com
-     WARN: [explicit timeout:] - [500 milli seconds]
-    -
-    PING goole.com (217.160.0.201): 56 data bytes
-    -
-     WARN: [timeout] - [shell execution timed out]
-     .. failed(suppressed if it is not the last step)
-    (utils.ExecResult) {
-     Cmd: (string) (len=14) "ping goole.com",
-     Code: (int) -1,
-     Output: (string) (len=45) "PING goole.com (217.160.0.201): 56 data bytes",
-     ErrMsg: (string) (len=14) "signal: killed"
-    }
-    
-     WARN: [HightLight:] - [Error ignored!!!]
-    -Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "sleep",
-          "desc": "delay 2 seconds in each attemp",
-          "cmd": 200
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopitem": 102,
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "loopitem": 102,
-      "loopindex": 2,
-      "loopindex1": 3
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 102,
       "loopindex": 2,
       "loopindex1": 3
@@ -2045,18 +2013,13 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 103,
       "loopindex": 3,
       "loopindex1": 4
@@ -2069,18 +2032,13 @@ weight: 11694
     
     scope[local] merged: {
       "loopindex1": 4,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
       "myretry": {
         100,
         101,
         102,
         103
       },
+      "up_runtime_task_layer_number": 0,
       "loopitem": 103,
       "loopindex": 3
     }
@@ -2089,21 +2047,16 @@ weight: 11694
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      }),
+      "loopitem": 103,
+      "loopindex": 3,
+      "loopindex1": 4,
       "myretry": {
         100,
         101,
         102,
         103
       },
-      "loopitem": 103,
-      "loopindex": 3,
-      "loopindex1": 4
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -2114,6 +2067,7 @@ weight: 11694
      WARN: [explicit timeout:] - [500 milli seconds]
     -
     PING goole.com (217.160.0.201): 56 data bytes
+    
     -
      WARN: [timeout] - [shell execution timed out]
      .. failed(suppressed if it is not the last step)
@@ -2124,7 +2078,7 @@ weight: 11694
      ErrMsg: (string) (len=14) "signal: killed"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step2:
     {
       Name: "",
@@ -2155,6 +2109,7 @@ weight: 11694
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": 103,
       "loopindex": 3,
       "loopindex1": 4,
@@ -2178,8 +2133,28 @@ weight: 11694
     
     
     scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "ping goole.com",
+        Code: -1,
+        Output: "PING goole.com (217.160.0.201): 56 data bytes",
+        ErrMsg: "signal: killed"
+      }),
+      "up_runtime_task_layer_number": 0,
+      "loopitem": 103,
       "loopindex": 3,
       "loopindex1": 4,
+      "myretry": {
+        100,
+        101,
+        102,
+        103
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "myretry": {
         100,
         101,
@@ -2192,28 +2167,10 @@ weight: 11694
         Output: "PING goole.com (217.160.0.201): 56 data bytes",
         ErrMsg: "signal: killed"
       }),
-      "loopitem": 103
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": 103,
       "loopindex": 3,
-      "loopindex1": 4,
-      "myretry": {
-        100,
-        101,
-        102,
-        103
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "ping goole.com",
-        Code: -1,
-        Output: "PING goole.com (217.160.0.201): 56 data bytes",
-        ErrMsg: "signal: killed"
-      })
+      "loopindex1": 4
     })
     
     %!s(int=200)

@@ -1,6 +1,6 @@
 ---
 title: "c0167_vvvvv"
-date: 2020-08-18T15:16:23+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11674
 
@@ -22,6 +22,7 @@ weight: 11674
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11674
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e6fe0)(<nil>)
+    (*impl.Scopes)(0xc000173000)(<nil>)
     
     ---------group vars----------
     
@@ -45,12 +46,12 @@ weight: 11674
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     }
     
     (core.Cache) (len=2) {
@@ -70,12 +71,12 @@ weight: 11674
     -------runtime global final merged with dvars-------
     
     {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     }
     
       located task-> 1 [task]: 
@@ -111,12 +112,13 @@ weight: 11674
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     [local] dvar expanded result:
@@ -130,19 +132,21 @@ weight: 11674
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "up_runtime_task_layer_number": 0
     })
     
     {{.loopitem}}
@@ -188,7 +192,8 @@ weight: 11674
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -197,12 +202,13 @@ weight: 11674
     
     
     scope[local] merged: {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -214,7 +220,8 @@ weight: 11674
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.loopitem}}

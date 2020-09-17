@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvvv"
-date: 2020-08-18T15:16:02+88:00
+date: 2020-09-18T00:51:33+99:00
 draft: false
 weight: 10784
 
@@ -22,6 +22,7 @@ weight: 10784
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10784
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf100)(<nil>)
+    (*impl.Scopes)(0xc0001bf120)(<nil>)
     
     ---------group vars----------
     
@@ -117,6 +118,7 @@ weight: 10784
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000"
     })
@@ -128,6 +130,7 @@ weight: 10784
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000",
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
@@ -137,6 +140,7 @@ weight: 10784
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000",
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
@@ -177,7 +181,8 @@ weight: 10784
     
     current exec runtime vars:
     (*core.Cache)({
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -186,14 +191,16 @@ weight: 10784
     
     
     scope[local] merged: {
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.school_address}}

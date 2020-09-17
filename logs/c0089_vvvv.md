@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvv"
-date: 2020-08-18T15:16:05+88:00
+date: 2020-09-18T00:51:35+99:00
 draft: false
 weight: 10893
 
@@ -22,6 +22,7 @@ weight: 10893
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -59,13 +60,15 @@ weight: 10893
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "dynadir": "./tests/functests"
+      "dynadir": "./tests/functests",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "dynadir": "./tests/functests"
+      "dynadir": "./tests/functests",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -75,6 +78,7 @@ weight: 10893
     echo "task step 1"
     -
     task step 1
+    
     -
      .. ok
     cmd( 2):
@@ -84,6 +88,7 @@ weight: 10893
     echo "task step 2"
     -
     task step 2
+    
     -
      .. ok
     . ok

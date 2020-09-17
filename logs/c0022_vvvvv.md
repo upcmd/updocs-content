@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10224
 
@@ -22,6 +22,7 @@ weight: 10224
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10224
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174ec0)(<nil>)
+    (*impl.Scopes)(0xc000240f40)(<nil>)
     
     ---------group vars----------
     
@@ -73,10 +74,10 @@ weight: 10224
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
         "student": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
       },
       Dvars: <nil>,
       Desc: "",
@@ -95,10 +96,11 @@ weight: 10224
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": "Tom",
-      "gender": "Male",
       "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
+      "up_runtime_task_layer_number": 0,
+      "student": "Tom",
+      "gender": "Male"
     })
     
     [local] dvar expanded result:
@@ -107,20 +109,22 @@ weight: 10224
     
     
     scope[local] merged: {
-      "gender": "Male",
       "school": "Sydney Grammar",
       "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
-      "student": "Tom"
+      "up_runtime_task_layer_number": 0,
+      "student": "Tom",
+      "gender": "Male"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
+      "up_runtime_task_layer_number": 0,
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar",
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+      "school": "Sydney Grammar"
     })
     
     cmd( 1):
@@ -137,6 +141,7 @@ weight: 10224
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
+    
     
     -
      .. ok

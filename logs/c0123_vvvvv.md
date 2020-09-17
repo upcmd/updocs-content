@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvvv"
-date: 2020-08-18T15:16:13+88:00
+date: 2020-09-18T00:51:43+99:00
 draft: false
 weight: 11234
 
@@ -22,6 +22,7 @@ weight: 11234
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11234
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c12e0)(<nil>)
+    (*impl.Scopes)(0xc0001e72a0)(<nil>)
     
     ---------group vars----------
     
@@ -45,11 +46,11 @@ weight: 11234
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n"
     }
     
     (core.Cache) (len=2) {
@@ -70,8 +71,8 @@ weight: 11234
     {
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
     }
     
@@ -112,11 +113,12 @@ weight: 11234
     
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -125,22 +127,24 @@ weight: 11234
     
     
     scope[local] merged: {
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     {{.student.name}}
@@ -154,8 +158,8 @@ weight: 11234
       Name: "",
       Do: {
         {
-          "cmd": "hello tom",
-          "name": "print"
+          "name": "print",
+          "cmd": "hello tom"
         }
       },
       Dox: <nil>,
@@ -182,7 +186,8 @@ weight: 11234
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -195,13 +200,15 @@ weight: 11234
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "tom",
         "sex": "male"
@@ -245,7 +252,8 @@ weight: 11234
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -255,10 +263,11 @@ weight: 11234
     
     scope[local] merged: {
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -266,10 +275,11 @@ weight: 11234
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -300,11 +310,12 @@ weight: 11234
     
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -313,22 +324,24 @@ weight: 11234
     
     
     scope[local] merged: {
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
@@ -365,7 +378,8 @@ weight: 11234
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -374,22 +388,24 @@ weight: 11234
     
     
     scope[local] merged: {
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "tom",
-        "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+        "sex": "male",
+        "name": "tom"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 

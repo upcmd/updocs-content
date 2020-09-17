@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10203
 
@@ -22,6 +22,7 @@ weight: 10203
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -59,6 +60,7 @@ weight: 10203
     current exec runtime vars:
     (*core.Cache)({
       "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0,
       "studentname": "Tom",
       "gender": "male"
     })
@@ -67,6 +69,7 @@ weight: 10203
     
     (*core.Cache)({
       "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0,
       "studentname": "Tom",
       "gender": "male"
     })
@@ -82,19 +85,19 @@ weight: 10203
     --Step1: [: show school and student info ]
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sydney grammar",
-      "studentname": "Tom",
       "gender": "male",
-      "up_runtime_task_layer_number": 1
+      "school": "sydney grammar",
+      "up_runtime_task_layer_number": 1,
+      "studentname": "Tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "gender": "male",
-      "up_runtime_task_layer_number": 1,
       "school": "sydney grammar",
-      "studentname": "Tom"
+      "up_runtime_task_layer_number": 1,
+      "studentname": "Tom",
+      "gender": "male"
     })
     
     cmd( 1):
@@ -104,6 +107,7 @@ weight: 10203
     echo "studentname -> Tom | gender -> male"
     -
     studentname -> Tom | gender -> male
+    
     -
      .. ok
     cmd( 2):
@@ -113,6 +117,7 @@ weight: 10203
     echo "school -> sydney grammar"
     -
     school -> sydney grammar
+    
     -
      .. ok
     . ok

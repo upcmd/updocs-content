@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvv"
-date: 2020-08-18T15:15:48+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10083
 
@@ -22,6 +22,7 @@ weight: 10083
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,8 +37,8 @@ weight: 10083
     ---------group vars----------
     
     prod: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
@@ -49,29 +50,29 @@ weight: 10083
     
     
     global: {
-      "d": "global-d",
-      "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
+      "c": "global-c",
+      "d": "global-d",
+      "a": "global-a"
     }
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
-      "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d",
+      "a": "dev-a"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -82,6 +83,7 @@ weight: 10083
     current exec runtime vars:
     (*core.Cache)({
       "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0,
       "c": "dev-c",
       "d": "global-d",
       "a": "dev-a"
@@ -90,6 +92,7 @@ weight: 10083
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
@@ -103,6 +106,7 @@ weight: 10083
     echo "test out the var scopes only"
     -
     test out the var scopes only
+    
     -
      .. ok
     . ok

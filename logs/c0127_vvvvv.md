@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvvv"
-date: 2020-08-18T15:16:14+88:00
+date: 2020-09-18T00:51:44+99:00
 draft: false
 weight: 11274
 
@@ -22,6 +22,7 @@ weight: 11274
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11274
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf740)(<nil>)
+    (*impl.Scopes)(0xc0001776e0)(<nil>)
     
     ---------group vars----------
     
@@ -45,9 +46,11 @@ weight: 11274
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "goahead": false
     }
     
-    (core.Cache) {
+    (core.Cache) (len=1) {
+     (string) (len=7) "goahead": (bool) false
     }
     
     [runtime global] dvar expanded result:
@@ -58,6 +61,7 @@ weight: 11274
     -------runtime global final merged with dvars-------
     
     {
+      "goahead": false
     }
     
       located task-> 1 [task]: 
@@ -93,6 +97,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -101,12 +107,16 @@ weight: 11274
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     true/false value of goahead:
@@ -115,7 +125,7 @@ weight: 11274
     
     ~SubStep1: [print:  ]
     true/false value of goahead:
-    <no value>
+    false
     true
     
     -Step2: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
@@ -144,6 +154,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -152,16 +164,82 @@ weight: 11274
     
     
     scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
-    condition failed, skip executing step 
+    else caller vars to task (goelse)::
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
+    })
     
+      located task-> 3 [goelse]: 
+    =Task3: [task ==> goelse:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "do something else ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    do something else .......
+    ~~SubStep1: [print:  ]
+    do something else .......
     -Step3: [: show example the else coud route to call a list of tasks ]
     {
       Name: "",
@@ -193,6 +271,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -201,16 +281,274 @@ weight: 11274
     
     
     scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
     })
     
-    condition failed, skip executing step 
+    else caller vars to task (goelse)::
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
     
+      located task-> 3 [goelse]: 
+    =Task3: [task ==> goelse:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "do something else ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    do something else .......
+    ~~SubStep1: [print:  ]
+    do something else .......
+    else caller vars to task (goelse)::
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 3 [goelse]: 
+    =Task3: [task ==> goelse:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "do something else ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    do something else .......
+    ~~SubStep1: [print:  ]
+    do something else .......
+    else caller vars to task (goelse2)::
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 4 [goelse2]: 
+    =Task4: [task ==> goelse2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "do something else2 ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    do something else2 .......
+    ~~SubStep1: [print:  ]
+    do something else2 .......
+    else caller vars to task (goelse2)::
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 4 [goelse2]: 
+    =Task4: [task ==> goelse2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "do something else2 ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    do something else2 .......
+    ~~SubStep1: [print:  ]
+    do something else2 .......
     -Step4: [: show it is same that you could assemble a list of tasks for if true condition ]
     {
       Name: "",
@@ -246,7 +584,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -255,6 +594,132 @@ weight: 11274
     
     
     scope[local] merged: {
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    caller's vars to task (goahead)::
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 2 [goahead]: 
+    =Task2: [task ==> goahead:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "go ahead ......."
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    go ahead .......
+    ~~SubStep1: [print:  ]
+    go ahead .......
+    caller's vars to task (goahead)::
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+      located task-> 2 [goahead]: 
+    =Task2: [task ==> goahead:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "cmd": "go ahead .......",
+          "name": "print"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "goahead": true
     }
     
@@ -262,12 +727,17 @@ weight: 11274
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
+    go ahead .......
+    ~~SubStep1: [print:  ]
+    go ahead .......
     caller's vars to task (goahead)::
     (*core.Cache)({
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 2 [goahead]: 
@@ -323,132 +793,6 @@ weight: 11274
     (*core.Cache)({
       "goahead": true,
       "up_runtime_task_layer_number": 1
-    })
-    
-    go ahead .......
-    ~~SubStep1: [print:  ]
-    go ahead .......
-    caller's vars to task (goahead)::
-    (*core.Cache)({
-      "goahead": true
-    })
-    
-      located task-> 2 [goahead]: 
-    =Task2: [task ==> goahead:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "go ahead ......."
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
-    })
-    
-    go ahead .......
-    ~~SubStep1: [print:  ]
-    go ahead .......
-    caller's vars to task (goahead)::
-    (*core.Cache)({
-      "goahead": true
-    })
-    
-      located task-> 2 [goahead]: 
-    =Task2: [task ==> goahead:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    {
-      Name: "",
-      Do: {
-        {
-          "name": "print",
-          "cmd": "go ahead ......."
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
     })
     
     go ahead .......

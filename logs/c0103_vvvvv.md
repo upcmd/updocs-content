@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:38+99:00
 draft: false
 weight: 11034
 
@@ -22,6 +22,7 @@ weight: 11034
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11034
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c400)(<nil>)
+    (*impl.Scopes)(0xc0000c43a0)(<nil>)
     
     ---------group vars----------
     
@@ -45,13 +46,13 @@ weight: 11034
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=5) "emily": (string) (len=31) "emily:\n  sex: female\n  age: 32\n",
-     (string) (len=3) "tom": (string) (len=27) "tom:\n  sex: male\n  age: 23\n"
+     (string) (len=3) "tom": (string) (len=27) "tom:\n  sex: male\n  age: 23\n",
+     (string) (len=5) "emily": (string) (len=31) "emily:\n  sex: female\n  age: 32\n"
     }
     
     [runtime global] dvar expanded result:
@@ -85,22 +86,22 @@ weight: 11034
           }
         },
         {
-          "name": "print",
-          "cmd": "{{.tomyml }}"
+          "cmd": "{{.tomyml }}",
+          "name": "print"
         },
         {
-          "name": "ymlWrite",
           "cmd": {
+            "verbose": "vvvv",
+            "reg": "tomyml",
             "ymlstr": "{{.tomyml}}",
             "path": "tom.wife",
-            "nodevalue": "{{.emily}}",
-            "verbose": "vvvv",
-            "reg": "tomyml"
-          }
+            "nodevalue": "{{.emily}}"
+          },
+          "name": "ymlWrite"
         },
         {
-          "name": "print",
-          "cmd": "{{.tomyml }}"
+          "cmd": "{{.tomyml }}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -123,8 +124,9 @@ weight: 11034
     
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "tom:\n  sex: male\n  age: 23\n",
       "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -134,6 +136,7 @@ weight: 11034
     
     scope[local] merged: {
       "emily": "emily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0,
       "tom": "tom:\n  sex: male\n  age: 23\n"
     }
     
@@ -141,8 +144,9 @@ weight: 11034
     self: final context exec vars:
     
     (*core.Cache)({
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "up_runtime_task_layer_number": 0,
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:tom.sex reg:tomyml value:female verbose:v ymlstr:{{.tom}}]

@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvv"
-date: 2020-08-18T15:15:48+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10073
 
@@ -22,6 +22,7 @@ weight: 10073
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10073
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10073
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -79,6 +83,7 @@ weight: 10073
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok
@@ -90,7 +95,8 @@ weight: 10073
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -101,7 +107,8 @@ weight: 10073
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -111,6 +118,7 @@ weight: 10073
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -120,6 +128,7 @@ weight: 10073
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok
@@ -131,7 +140,8 @@ weight: 10073
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -142,7 +152,8 @@ weight: 10073
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -152,6 +163,7 @@ weight: 10073
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -161,6 +173,7 @@ weight: 10073
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok

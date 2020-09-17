@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvv"
-date: 2020-08-18T15:15:56+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10483
 
@@ -22,6 +22,7 @@ weight: 10483
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -57,11 +58,13 @@ weight: 10483
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "STUDENT_NAME": "Tom Hanks",
       "envVar_STUDENT_NAME": "Tom Hanks"
     })
@@ -73,6 +76,7 @@ weight: 10483
     env |grep STUDENT_NAME
     -
     STUDENT_NAME=Tom Hanks
+    
     -
      .. ok
     . ok
@@ -85,21 +89,23 @@ weight: 10483
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name_re_map": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks",
       "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_NAME",
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
@@ -109,6 +115,7 @@ weight: 10483
     env |grep STUDENT_NAME
     -
     STUDENT_NAME=Tom Hanks
+    
     -
      .. ok
     cmd( 2):
@@ -118,6 +125,7 @@ weight: 10483
     echo "student_name_re_map is [Tom Hanks]"
     -
     student_name_re_map is [Tom Hanks]
+    
     -
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvvv"
-date: 2020-08-18T15:16:19+88:00
+date: 2020-09-18T00:51:50+99:00
 draft: false
 weight: 11484
 
@@ -22,6 +22,7 @@ weight: 11484
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11484
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f54a0)(<nil>)
+    (*impl.Scopes)(0xc0001f74c0)(<nil>)
     
     ---------group vars----------
     
@@ -72,16 +73,16 @@ weight: 11484
       Name: "",
       Do: {
         {
-          "func": "cmd",
           "dvars": {
             {
-              "name": "jerry",
-              "value": "this is jerry in task scope",
               "flags": {
                 "taskScope"
-              }
+              },
+              "name": "jerry",
+              "value": "this is jerry in task scope"
             }
-          }
+          },
+          "func": "cmd"
         },
         {
           "func": "cmd",
@@ -114,7 +115,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -123,14 +125,16 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     -Step1:
@@ -174,7 +178,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -185,6 +190,7 @@ weight: 11484
     
     scope[local] merged: {
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     }
     
@@ -193,6 +199,7 @@ weight: 11484
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -228,6 +235,7 @@ weight: 11484
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -237,8 +245,9 @@ weight: 11484
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope"
     }
     
     
@@ -246,6 +255,7 @@ weight: 11484
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -257,9 +267,9 @@ weight: 11484
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "this should print out the dvar value of jerry",
-          "cmd": "{{.jerry}}",
-          "name": "print"
+          "cmd": "{{.jerry}}"
         }
       },
       Dox: <nil>,
@@ -282,8 +292,9 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -292,8 +303,9 @@ weight: 11484
     
     
     scope[local] merged: {
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -301,6 +313,7 @@ weight: 11484
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -334,6 +347,7 @@ weight: 11484
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -343,8 +357,9 @@ weight: 11484
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope"
     }
     
     
@@ -352,13 +367,15 @@ weight: 11484
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
     caller's vars to task (subtask1)::
     (*core.Cache)({
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [subtask1]: 
@@ -375,8 +392,8 @@ weight: 11484
           "cmd": "{{.jerry}}"
         },
         {
-          "name": "trace",
-          "cmd": "===>"
+          "cmd": "===>",
+          "name": "trace"
         }
       },
       Dox: <nil>,
@@ -399,8 +416,8 @@ weight: 11484
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -410,8 +427,8 @@ weight: 11484
     
     
     scope[local] merged: {
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     }
     
@@ -419,9 +436,9 @@ weight: 11484
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "jerry": "this is jerry in task scope"
     })
     
     {{.jerry}}
@@ -477,9 +494,9 @@ weight: 11484
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "tom": "this is tom"
     }
     
     

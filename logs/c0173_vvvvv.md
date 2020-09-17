@@ -1,6 +1,6 @@
 ---
 title: "c0173_vvvvv"
-date: 2020-08-18T15:16:24+88:00
+date: 2020-09-18T00:51:55+99:00
 draft: false
 weight: 11734
 
@@ -22,6 +22,7 @@ weight: 11734
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11734
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e51e0)(<nil>)
+    (*impl.Scopes)(0xc0001e5300)(<nil>)
     
     ---------group vars----------
     
@@ -45,9 +46,11 @@ weight: 11734
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "global_aaa": "aaa"
     }
     
-    (core.Cache) {
+    (core.Cache) (len=1) {
+     (string) (len=10) "global_aaa": (string) (len=3) "aaa"
     }
     
     [runtime global] dvar expanded result:
@@ -58,6 +61,7 @@ weight: 11734
     -------runtime global final merged with dvars-------
     
     {
+      "global_aaa": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -82,7 +86,9 @@ weight: 11734
       },
       Dox: <nil>,
       Func: "cmd",
-      Vars: <nil>,
+      Vars: {
+        "local_aaa": "local_aaa"
+      },
       Dvars: <nil>,
       Desc: "step 1",
       Reg: "",
@@ -96,12 +102,25 @@ weight: 11734
       Timeout: 0,
       Finally: {
         {
+          "func": "cmd",
+          "do": {
+            {
+              "cmd": "global aaa: {{.global_aaa}}",
+              "name": "print"
+            },
+            {
+              "name": "print",
+              "cmd": "local aaa: {{.local_aaa}}"
+            }
+          }
+        },
+        {
+          "func": "shell",
           "name": "close_file",
           "desc": "ensure the opened file is closed\n",
           "do": {
             "echo \"close the file .....\""
-          },
-          "func": "shell"
+          }
         },
         {
           "func": "cmd",
@@ -119,6 +138,9 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -127,12 +149,18 @@ weight: 11734
     
     
     scope[local] merged: {
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa"
     })
     
     step 1
@@ -144,7 +172,74 @@ weight: 11734
     (*utils.ExecResult)(<nil>)
     
     Recovered from: manual trigger a panic cmd
-    -Step1: [close_file: ensure the opened file is closed
+    -Step1:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "global aaa: {{.global_aaa}}"
+        },
+        {
+          "name": "print",
+          "cmd": "local aaa: {{.local_aaa}}"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+    })
+    
+    global aaa: {{.global_aaa}}
+    ~SubStep1: [print:  ]
+    global aaa: aaa
+    local aaa: {{.local_aaa}}
+    ~SubStep2: [print:  ]
+    local aaa: local_aaa
+    -Step2: [close_file: ensure the opened file is closed
      ]
     {
       Name: "close_file",
@@ -171,6 +266,10 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "local_aaa": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -179,12 +278,20 @@ weight: 11734
     
     
     scope[local] merged: {
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "local_aaa": "local_aaa",
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "local_aaa": "local_aaa",
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     cmd( 1):
@@ -194,6 +301,7 @@ weight: 11734
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -204,7 +312,7 @@ weight: 11734
     }
     
     . ok
-    -Step2: [: extra steps ]
+    -Step3: [: extra steps ]
     {
       Name: "",
       Do: {
@@ -233,12 +341,16 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     [local] dvar expanded result:
@@ -252,7 +364,11 @@ weight: 11734
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa"
     }
     
     
@@ -264,7 +380,11 @@ weight: 11734
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa"
     })
     
     extra step
@@ -307,7 +427,9 @@ weight: 11734
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "global_aaa": "aaa"
     })
     
     [local] dvar expanded result:
@@ -316,24 +438,28 @@ weight: 11734
     
     
     scope[local] merged: {
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     step 2

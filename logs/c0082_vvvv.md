@@ -1,6 +1,6 @@
 ---
 title: "c0082_vvvv"
-date: 2020-08-18T15:16:03+88:00
+date: 2020-09-18T00:51:34+99:00
 draft: false
 weight: 10823
 
@@ -22,6 +22,7 @@ weight: 10823
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,24 +43,24 @@ weight: 10823
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "datapointer": "student",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
+              "name": "Tom"
             }
           }
         }
       },
-      "aaa": "aaa"
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
     }
     
     -------runtime global final merged with dvars-------
@@ -76,9 +77,9 @@ weight: 10823
         "sydney": {
           "sgschool": {
             "student": {
-              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar"
+              "school": "Sydney Grammar",
+              "name": "Tom"
             }
           }
         }
@@ -92,40 +93,6 @@ weight: 10823
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "datapointer": "student",
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
-            }
-          }
-        }
-      },
-      "aaa": "aaa"
-    })
-    
-    dvar> student_info:
-    "my name is:<no value> and I am in <no value>"
-    
-    -
-    my name is:<no value> and I am in <no value>
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "datapointer": "student",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -138,6 +105,42 @@ weight: 10823
         }
       },
       "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    dvar> student_info:
+    "my name is:<no value> and I am in <no value>"
+    
+    -
+    my name is:<no value> and I am in <no value>
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Tom",
+              "gender": "Male",
+              "school": "Sydney Grammar"
+            }
+          }
+        }
+      },
+      "aaa": "aaa",
+      "datapointer": "student",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "up_runtime_task_layer_number": 0,
       "student_info": "my name is:<no value> and I am in <no value>"
     })
     
@@ -150,14 +153,15 @@ weight: 10823
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "Sydney Grammar",
               "name": "Tom",
-              "gender": "Male"
+              "gender": "Male",
+              "school": "Sydney Grammar"
             }
           }
         }
       },
       "aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
       "datapointer": "student",
       "student": {
         "name": "Tom",
@@ -174,6 +178,8 @@ weight: 10823
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "student_info": "my name is:<no value> and I am in <no value>",
       "datapointer": "student",
       "student": {
         "name": "Tom",
@@ -184,15 +190,14 @@ weight: 10823
         "sydney": {
           "sgschool": {
             "student": {
+              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
+              "school": "Sydney Grammar"
             }
           }
         }
       },
-      "aaa": "aaa",
-      "student_info": "my name is:<no value> and I am in <no value>"
+      "aaa": "aaa"
     })
     
     ~SubStep1: [print:  ]

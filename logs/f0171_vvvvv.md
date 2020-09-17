@@ -1,6 +1,6 @@
 ---
 title: "f0171_vvvvv"
-date: 2020-08-18T15:16:29+88:00
+date: 2020-09-18T00:52:03+99:00
 draft: false
 weight: 11714
 
@@ -22,6 +22,7 @@ weight: 11714
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11714
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf0e0)(<nil>)
+    (*impl.Scopes)(0xc00000c4e0)(<nil>)
     
     ---------group vars----------
     
@@ -92,6 +93,7 @@ weight: 11714
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -100,12 +102,14 @@ weight: 11714
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -115,6 +119,7 @@ weight: 11714
     echo "open a file ....."
     -
     open a file .....
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -130,6 +135,7 @@ weight: 11714
     cmd=>:
     echo "reading the file" |grep "cause an exception"
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -188,13 +194,13 @@ weight: 11714
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"reading the file\" |grep \"cause an exception\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -203,13 +209,13 @@ weight: 11714
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"reading the file\" |grep \"cause an exception\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -232,6 +238,7 @@ weight: 11714
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     (utils.ExecResult) {

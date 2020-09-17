@@ -1,6 +1,6 @@
 ---
 title: "c0177_vvvv"
-date: 2020-08-18T15:16:25+88:00
+date: 2020-09-18T00:51:55+99:00
 draft: false
 weight: 11773
 
@@ -22,6 +22,7 @@ weight: 11773
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -43,20 +44,22 @@ weight: 11773
     merged[ dev ] runtime vars:
     {
       "person": {
-        "name": "tom",
         "sex": "male",
-        "age": 18
-      }
+        "age": 18,
+        "name": "tom"
+      },
+      "env": "dev"
     }
     
     -------runtime global final merged with dvars-------
     
     {
       "person": {
-        "sex": "male",
         "age": 18,
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "env": "dev"
     }
     
       located task-> 1 [task]: 
@@ -68,27 +71,35 @@ weight: 11773
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sydney grammar",
       "person": {
+        "age": 18,
         "name": "tom",
-        "sex": "male",
-        "age": 18
-      }
+        "sex": "male"
+      },
+      "env": "dev",
+      "up_runtime_task_layer_number": 0,
+      "school": "sydney grammar"
     })
     
+    Enter Value For [continue]: 
+    Are you sure ? all items in dev infrastructure will be destroyed ! (yes/N)
     self: final context exec vars:
     
     (*core.Cache)({
       "person": {
+        "age": 18,
         "name": "tom",
-        "sex": "male",
-        "age": 18
+        "sex": "male"
       },
-      "school": "sydney grammar"
+      "env": "dev",
+      "up_runtime_task_layer_number": 0,
+      "school": "sydney grammar",
+      "continue": "N"
     })
     
     ~SubStep1: [print: his age is 18
     he is in school: sydney grammar
+    ?continue: N
      ]
     what gender is tom
     

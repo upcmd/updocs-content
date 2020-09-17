@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvvv"
-date: 2020-08-18T15:16:06+88:00
+date: 2020-09-18T00:51:36+99:00
 draft: false
 weight: 10934
 
@@ -22,6 +22,7 @@ weight: 10934
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10934
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175060)(<nil>)
+    (*impl.Scopes)(0xc00023f0e0)(<nil>)
     
     ---------group vars----------
     
@@ -95,9 +96,10 @@ weight: 10934
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
-        "age": 23,
-        "name": "tom"
+        "name": "tom",
+        "age": 23
       }
     })
     
@@ -110,13 +112,15 @@ weight: 10934
       "person": {
         "name": "tom",
         "age": 23
-      }
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 23
@@ -125,6 +129,7 @@ weight: 10934
     
     caller's vars to task (tom_action)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 23
@@ -164,11 +169,11 @@ weight: 10934
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": {
-        "age": 23,
-        "name": "tom"
-      },
-      "up_runtime_task_layer_number": 1
+        "name": "tom",
+        "age": 23
+      }
     })
     
     [local] dvar expanded result:
@@ -177,22 +182,22 @@ weight: 10934
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
     hello {{.person.name}}

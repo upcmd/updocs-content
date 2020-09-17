@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvv"
-date: 2020-08-18T15:16:12+88:00
+date: 2020-09-18T00:51:42+99:00
 draft: false
 weight: 11183
 
@@ -22,6 +22,7 @@ weight: 11183
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,23 +43,23 @@ weight: 11183
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     }
     
       located task-> 1 [task]: 
@@ -68,13 +69,14 @@ weight: 11183
     -Step1: [step1: demo loop will not be executed if false ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopkey": "items",
-      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
+      "person": "tom"
     })
     
     self: final context exec vars:
@@ -86,6 +88,7 @@ weight: 11183
         "item3"
       },
       "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "person": "tom"
     })
     
@@ -94,25 +97,27 @@ weight: 11183
     -Step2: [step1: demo use if condition is true ]
     current exec runtime vars:
     (*core.Cache)({
-      "items": {
-        "item1",
-        "item2",
-        "item3"
-      },
-      "loopkey": "items",
-      "person": "tom"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "person": "tom",
+      "items": {
+        "item1",
+        "item2",
+        "item3"
+      },
+      "loopkey": "items"
     })
     
     condition failed, skip executing step step1
@@ -120,6 +125,7 @@ weight: 11183
     -Step3: [step1: demo use dynamic key to ref to a loop item from var ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "items": {
         "item1",
         "item2",
@@ -136,7 +142,8 @@ weight: 11183
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

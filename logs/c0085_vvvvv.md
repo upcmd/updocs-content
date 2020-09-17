@@ -1,6 +1,6 @@
 ---
 title: "c0085_vvvvv"
-date: 2020-08-18T15:16:04+88:00
+date: 2020-09-18T00:51:35+99:00
 draft: false
 weight: 10854
 
@@ -22,6 +22,7 @@ weight: 10854
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10854
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e55c0)(<nil>)
+    (*impl.Scopes)(0xc000175620)(<nil>)
     
     ---------group vars----------
     
@@ -45,21 +46,21 @@ weight: 10854
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      }
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=5) "lines": (string) (len=31) "hello\nthis\nis a\nbeautiful world",
      (string) (len=7) "workers": ([]interface {}) (len=3 cap=3) {
       (string) (len=5) "peter",
       (string) (len=3) "tom",
       (string) (len=5) "james"
-     }
+     },
+     (string) (len=5) "lines": (string) (len=31) "hello\nthis\nis a\nbeautiful world"
     }
     
     [runtime global] dvar expanded result:
@@ -70,12 +71,12 @@ weight: 10854
     -------runtime global final merged with dvars-------
     
     {
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      }
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world"
     }
     
       located task-> 1 [task]: 
@@ -126,12 +127,13 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
-      }
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> linelist:
@@ -146,12 +148,13 @@ weight: 10854
     
     
     scope[local] merged: {
-      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0,
       "workers": {
         "peter",
         "tom",
         "james"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist": "[hello this is a beautiful world]"
     }
     
@@ -164,8 +167,9 @@ weight: 10854
         "tom",
         "james"
       },
-      "linelist": "[hello this is a beautiful world]",
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0,
+      "linelist": "[hello this is a beautiful world]"
     })
     
     cmd( 1):
@@ -181,6 +185,7 @@ weight: 10854
     this
     is a
     beautiful world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -197,6 +202,7 @@ weight: 10854
     echo '[hello this is a beautiful world]'
     -
     [hello this is a beautiful world]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -251,18 +257,19 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     {
@@ -291,18 +298,19 @@ weight: 10854
     
     
     scope[local] merged: {
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n"
     }
     
@@ -310,18 +318,19 @@ weight: 10854
     self: final context exec vars:
     
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "linelist": "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n"
     })
     
@@ -338,6 +347,7 @@ weight: 10854
     this
     is a
     beautiful world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -366,6 +376,7 @@ weight: 10854
       "is a",
       "beautiful world"
     }
+    
     
     
     -
@@ -423,18 +434,19 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> linelist:
@@ -448,61 +460,63 @@ weight: 10854
     
     [local] dvar expanded result:
     {
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
+      }
     }
     
     
     scope[local] merged: {
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "lines": "hello\nthis\nis a\nbeautiful world",
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
         Code: 0,
         Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
-        Code: 0,
-        Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
-        ErrMsg: ""
-      }),
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}\n\n'",
+        Code: 0,
+        Output: "{\n  \"hello\",\n  \"this\",\n  \"is a\",\n  \"beautiful world\"\n}",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -518,6 +532,7 @@ weight: 10854
     this
     is a
     beautiful world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -542,6 +557,7 @@ weight: 10854
     - is a
     - beautiful world
     
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -558,6 +574,7 @@ weight: 10854
     echo '[hello this is a beautiful world]'
     -
     [hello this is a beautiful world]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -594,24 +611,25 @@ weight: 10854
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      })
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -620,24 +638,25 @@ weight: 10854
     
     
     scope[local] merged: {
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      })
     }
     
     
@@ -645,11 +664,7 @@ weight: 10854
     
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
@@ -661,6 +676,11 @@ weight: 10854
         "this",
         "is a",
         "beautiful world"
+      },
+      "workers": {
+        "peter",
+        "tom",
+        "james"
       }
     })
     
@@ -671,6 +691,7 @@ weight: 10854
     echo "1 -> peter"
     -
     1 -> peter
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -687,6 +708,7 @@ weight: 10854
     echo "2 -> tom"
     -
     2 -> tom
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -703,6 +725,7 @@ weight: 10854
     echo "3 -> james"
     -
     3 -> james
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -740,11 +763,6 @@ weight: 10854
     current exec runtime vars:
     (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
-      "workers": {
-        "peter",
-        "tom",
-        "james"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"3 -> james\"",
         Code: 0,
@@ -756,7 +774,13 @@ weight: 10854
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "workers": {
+        "peter",
+        "tom",
+        "james"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -765,6 +789,8 @@ weight: 10854
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"3 -> james\"",
         Code: 0,
@@ -777,7 +803,6 @@ weight: 10854
         "is a",
         "beautiful world"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
@@ -789,24 +814,25 @@ weight: 10854
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"3 -> james\"",
+        Code: 0,
+        Output: "3 -> james",
+        ErrMsg: ""
+      }),
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "workers": {
         "peter",
         "tom",
         "james"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"3 -> james\"",
-        Code: 0,
-        Output: "3 -> james",
-        ErrMsg: ""
-      })
+      "up_runtime_task_layer_number": 0,
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
@@ -816,6 +842,7 @@ weight: 10854
     echo "1 -> hello"
     -
     1 -> hello
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -832,6 +859,7 @@ weight: 10854
     echo "2 -> this"
     -
     2 -> this
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -848,6 +876,7 @@ weight: 10854
     echo "3 -> is a"
     -
     3 -> is a
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -864,6 +893,7 @@ weight: 10854
     echo "4 -> beautiful world"
     -
     4 -> beautiful world
+    
     -
      .. ok
     (utils.ExecResult) {

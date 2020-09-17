@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10444
 
@@ -22,6 +22,7 @@ weight: 10444
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10444
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5140)(<nil>)
+    (*impl.Scopes)(0xc00017d160)(<nil>)
     
     ---------group vars----------
     
@@ -112,7 +113,8 @@ weight: 10444
     current exec runtime vars:
     (*core.Cache)({
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -122,7 +124,8 @@ weight: 10444
     
     scope[local] merged: {
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -130,7 +133,8 @@ weight: 10444
     
     (*core.Cache)({
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.homedir}}
@@ -168,7 +172,8 @@ weight: 10444
     current exec runtime vars:
     (*core.Cache)({
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -178,7 +183,8 @@ weight: 10444
     
     scope[local] merged: {
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -186,7 +192,8 @@ weight: 10444
     
     (*core.Cache)({
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -196,6 +203,7 @@ weight: 10444
     echo """my home is at /root"""
     -
     my home is at /root
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -212,6 +220,7 @@ weight: 10444
     echo """my home is at $HOME"""
     -
     my home is at /root
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -228,6 +237,7 @@ weight: 10444
     echo """Your path is set to /root """
     -
     Your path is set to /root 
+    
     -
      .. ok
     (utils.ExecResult) {

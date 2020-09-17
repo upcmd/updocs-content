@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10133
 
@@ -22,6 +22,7 @@ weight: 10133
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,19 +43,19 @@ weight: 10133
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Jason",
-      "a": "runtime-a",
-      "e": "runtime-e"
+      "a": "runtime-a"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "e": "runtime-e",
-      "k": "runtime-k",
       "studentname": "Jason",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
       located task-> 1 [task]: 
@@ -68,17 +69,19 @@ weight: 10133
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "up_runtime_task_layer_number": 0,
       "school": "SG"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "studentname": "Tom",
-      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "school": "SG"
+      "up_runtime_task_layer_number": 0,
+      "school": "SG",
+      "studentname": "Tom",
+      "a": "runtime-a"
     })
     
     cmd( 1):
@@ -88,6 +91,7 @@ weight: 10133
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     cmd( 2):
@@ -97,6 +101,7 @@ weight: 10133
     echo "hello Tom"
     -
     hello Tom
+    
     -
      .. ok
     . ok

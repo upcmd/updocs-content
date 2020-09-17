@@ -1,6 +1,6 @@
 ---
 title: "c0049_vvvvv"
-date: 2020-08-18T15:15:56+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10494
 
@@ -22,6 +22,7 @@ weight: 10494
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10494
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000096920)((len=1 cap=1) {
+    (*impl.Scopes)(0xc000259480)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -70,8 +71,8 @@ weight: 10494
     
     
     scope[global] merged: {
-      "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules"
     }
     
     
@@ -86,8 +87,8 @@ weight: 10494
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules"
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules"
     }
     
     (core.Cache) (len=2) {
@@ -97,22 +98,22 @@ weight: 10494
     
     [runtime global] dvar expanded result:
     {
-      "envVar_STUDENT_AGE": "18",
       "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18"
+      "STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "envVar_STUDENT_AGE": "18",
-      "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18"
+      "STUDENT_AGE": "18",
+      "envVar_STUDENT_AGE": "18",
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules"
     }
     
       located task-> 1 [task]: 
@@ -164,11 +165,12 @@ weight: 10494
     current exec runtime vars:
     (*core.Cache)({
       "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
-      "envVar_STUDENT_AGE": "18",
-      "SCHOOL": "James Rules"
+      "up_runtime_task_layer_number": 0,
+      "envVar_STUDENT_AGE": "18"
     })
     
     [local] dvar expanded result:
@@ -179,24 +181,26 @@ weight: 10494
     
     
     scope[local] merged: {
+      "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
+      "STUDENT_NAME": "Tom Hanks",
       "envVar_STUDENT_NAME": "Tom Hanks",
       "STUDENT_AGE": "18",
-      "envVar_STUDENT_AGE": "18",
-      "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules",
-      "STUDENT_NAME": "Tom Hanks"
+      "up_runtime_task_layer_number": 0,
+      "envVar_STUDENT_AGE": "18"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "STUDENT_AGE": "18",
+      "up_runtime_task_layer_number": 0,
       "envVar_STUDENT_AGE": "18",
-      "SCHOOL": "James Rules",
       "envVar_SCHOOL": "James Rules",
+      "SCHOOL": "James Rules",
       "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_AGE": "18"
+      "envVar_STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
@@ -206,6 +210,7 @@ weight: 10494
     env |grep STUDENT_NAME
     -
     STUDENT_NAME=Tom Hanks
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -222,6 +227,7 @@ weight: 10494
     env |grep STUDENT_AGE
     -
     STUDENT_AGE=18
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -262,8 +268,9 @@ weight: 10494
     
     current exec runtime vars:
     (*core.Cache)({
-      "SCHOOL": "James Rules",
       "envVar_SCHOOL": "James Rules",
+      "up_runtime_task_layer_number": 0,
+      "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
@@ -282,6 +289,7 @@ weight: 10494
     
     
     scope[local] merged: {
+      "STUDENT_AGE": "18",
       "envVar_STUDENT_AGE": "18",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_AGE",
@@ -289,18 +297,17 @@ weight: 10494
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
-      "SCHOOL": "James Rules",
       "envVar_SCHOOL": "James Rules",
+      "up_runtime_task_layer_number": 0,
+      "SCHOOL": "James Rules",
       "STUDENT_NAME": "James Bond",
-      "envVar_STUDENT_NAME": "James Bond",
-      "STUDENT_AGE": "18"
+      "envVar_STUDENT_NAME": "James Bond"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "STUDENT_NAME": "James Bond",
       "envVar_STUDENT_NAME": "James Bond",
       "STUDENT_AGE": "18",
       "envVar_STUDENT_AGE": "18",
@@ -310,8 +317,10 @@ weight: 10494
         Output: "STUDENT_AGE=18",
         ErrMsg: ""
       }),
+      "envVar_SCHOOL": "James Rules",
+      "up_runtime_task_layer_number": 0,
       "SCHOOL": "James Rules",
-      "envVar_SCHOOL": "James Rules"
+      "STUDENT_NAME": "James Bond"
     })
     
     cmd( 1):
@@ -321,6 +330,7 @@ weight: 10494
     env |grep STUDENT_NAME
     -
     STUDENT_NAME=James Bond
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -337,6 +347,7 @@ weight: 10494
     env |grep STUDENT_AGE
     -
     STUDENT_AGE=18
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -353,6 +364,7 @@ weight: 10494
     env |grep SCHOOL
     -
     SCHOOL=James Rules
+    
     -
      .. ok
     (utils.ExecResult) {

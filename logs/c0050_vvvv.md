@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvv"
-date: 2020-08-18T15:15:56+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10503
 
@@ -22,6 +22,7 @@ weight: 10503
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -48,14 +49,14 @@ weight: 10503
     -------runtime global final merged with dvars-------
     
     {
-      "o": "o=><no value>",
-      "z": "i am zzz",
-      "school": "Sydney Grammar",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
+      "school": "Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar"
+      "j": "j=>m=>n=>Sydney Grammar",
+      "o": "o=><no value>",
+      "z": "i am zzz"
     }
     
       located task-> 1 [task]: 
@@ -65,27 +66,29 @@ weight: 10503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "z": "i am zzz",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "school": "Sydney Grammar",
+      "o": "o=><no value>",
+      "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>"
+      "m": "m=>n=>Sydney Grammar"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "z": "i am zzz",
       "school": "Sydney Grammar",
-      "yv": "y->i am zzz",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>"
+      "o": "o=><no value>",
+      "z": "i am zzz",
+      "yv": "y->i am zzz"
     })
     
     cmd( 1):
@@ -95,6 +98,7 @@ weight: 10503
     echo "n->n=>Sydney Grammar"
     -
     n->n=>Sydney Grammar
+    
     -
      .. ok
     cmd( 2):
@@ -104,6 +108,7 @@ weight: 10503
     echo "m->m=>n=>Sydney Grammar"
     -
     m->m=>n=>Sydney Grammar
+    
     -
      .. ok
     cmd( 3):
@@ -113,6 +118,7 @@ weight: 10503
     echo "j->j=>m=>n=>Sydney Grammar"
     -
     j->j=>m=>n=>Sydney Grammar
+    
     -
      .. ok
     cmd( 4):
@@ -122,6 +128,7 @@ weight: 10503
     echo "o->o=><no value>"
     -
     o->o=><no value>
+    
     -
      .. ok
     cmd( 5):
@@ -131,6 +138,7 @@ weight: 10503
     echo "z->i am zzz"
     -
     z->i am zzz
+    
     -
      .. ok
     cmd( 6):
@@ -140,6 +148,7 @@ weight: 10503
     echo "y->y->i am zzz"
     -
     y->y->i am zzz
+    
     -
      .. ok
     cmd( 7):
@@ -149,6 +158,7 @@ weight: 10503
     echo "x->x=>y->i am zzz"
     -
     x->x=>y->i am zzz
+    
     -
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvvv"
-date: 2020-08-18T15:15:53+88:00
+date: 2020-09-18T00:51:24+99:00
 draft: false
 weight: 10354
 
@@ -22,6 +22,7 @@ weight: 10354
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10354
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000172f80)(<nil>)
+    (*impl.Scopes)(0xc0001c1000)(<nil>)
     
     ---------group vars----------
     
@@ -93,8 +94,9 @@ weight: 10354
     
     current exec runtime vars:
     (*core.Cache)({
-      "b": "bbb",
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "b": "bbb"
     })
     
     [local] dvar expanded result:
@@ -104,6 +106,7 @@ weight: 10354
     
     scope[local] merged: {
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "b": "bbb"
     }
     
@@ -111,6 +114,7 @@ weight: 10354
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "b": "bbb",
       "a": "aaa"
     })
@@ -122,6 +126,7 @@ weight: 10354
     pwd
     -
     /up_project/up
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -163,7 +168,8 @@ weight: 10354
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -177,7 +183,8 @@ weight: 10354
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -189,7 +196,8 @@ weight: 10354
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -199,6 +207,7 @@ weight: 10354
     echo "<no value>"
     -
     <no value>
+    
     -
      .. ok
     (utils.ExecResult) {

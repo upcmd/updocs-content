@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:28+99:00
 draft: false
 weight: 10564
 
@@ -22,6 +22,7 @@ weight: 10564
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10564
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001775a0)(<nil>)
+    (*impl.Scopes)(0xc0001e75c0)(<nil>)
     
     ---------group vars----------
     
@@ -68,12 +69,12 @@ weight: 10564
     (core.Cache) (len=1) {
      (string) (len=9) "countries": ([]interface {}) (len=4 cap=4) {
       (map[interface {}]interface {}) (len=2) {
-       (string) (len=10) "population": (string) (len=3) "20m",
-       (string) (len=4) "name": (string) (len=9) "Australia"
+       (string) (len=4) "name": (string) (len=9) "Australia",
+       (string) (len=10) "population": (string) (len=3) "20m"
       },
       (map[interface {}]interface {}) (len=2) {
-       (string) (len=4) "name": (string) (len=7) "British",
-       (string) (len=10) "population": (string) (len=5) "2000m"
+       (string) (len=10) "population": (string) (len=5) "2000m",
+       (string) (len=4) "name": (string) (len=7) "British"
       },
       (map[interface {}]interface {}) (len=2) {
        (string) (len=4) "name": (string) (len=5) "China",
@@ -100,8 +101,8 @@ weight: 10564
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -165,7 +166,8 @@ weight: 10564
           "name": "Danmark",
           "population": "30m"
         }
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -191,7 +193,8 @@ weight: 10564
           "name": "Danmark",
           "population": "30m"
         }
-      }
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -215,7 +218,8 @@ weight: 10564
           "name": "Danmark",
           "population": "30m"
         }
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -225,6 +229,7 @@ weight: 10564
     echo "hello tom"
     -
     hello tom
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -241,6 +246,7 @@ weight: 10564
     echo "hello peter"
     -
     hello peter
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -257,6 +263,7 @@ weight: 10564
     echo "hello james"
     -
     hello james
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -293,8 +300,8 @@ weight: 10564
           "age": 45
         },
         {
-          "name": "james",
-          "age": 23
+          "age": 23,
+          "name": "james"
         }
       },
       Until: "",
@@ -307,30 +314,31 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -345,8 +353,8 @@ weight: 10564
           "population": "20m"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -362,7 +370,8 @@ weight: 10564
         Code: 0,
         Output: "hello james",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -392,7 +401,8 @@ weight: 10564
         Code: 0,
         Output: "hello james",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -402,6 +412,7 @@ weight: 10564
     echo "name tom"
     -
     name tom
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -418,6 +429,7 @@ weight: 10564
     echo "age 11"
     -
     age 11
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -434,6 +446,7 @@ weight: 10564
     echo "name peter"
     -
     name peter
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -450,6 +463,7 @@ weight: 10564
     echo "age 45"
     -
     age 45
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -466,6 +480,7 @@ weight: 10564
     echo "name james"
     -
     name james
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -482,6 +497,7 @@ weight: 10564
     echo "age 23"
     -
     age 23
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -523,46 +539,14 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"age 23\"",
-        Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      }
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "countries": {
-        {
-          "population": "20m",
-          "name": "Australia"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -578,7 +562,41 @@ weight: 10564
         Code: 0,
         Output: "age 23",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -595,12 +613,12 @@ weight: 10564
           "population": "2000m"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -608,7 +626,8 @@ weight: 10564
         Code: 0,
         Output: "age 23",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -618,6 +637,7 @@ weight: 10564
     echo "hello Australia"
     -
     hello Australia
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -634,6 +654,7 @@ weight: 10564
     echo "hello British"
     -
     hello British
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -650,6 +671,7 @@ weight: 10564
     echo "hello China"
     -
     hello China
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -666,6 +688,7 @@ weight: 10564
     echo "hello Danmark"
     -
     hello Danmark
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -706,6 +729,70 @@ weight: 10564
     (*core.Cache)({
       "countries": {
         {
+          "population": "20m",
+          "name": "Australia"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello Danmark\"",
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello Danmark\"",
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "countries": {
+        {
           "name": "Australia",
           "population": "20m"
         },
@@ -727,69 +814,8 @@ weight: 10564
         Code: 0,
         Output: "hello Danmark",
         ErrMsg: ""
-      })
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "population": "1.4b",
-          "name": "China"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello Danmark\"",
-        Code: 0,
-        Output: "hello Danmark",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "population": "1.4b",
-          "name": "China"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello Danmark\"",
-        Code: 0,
-        Output: "hello Danmark",
-        ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -799,6 +825,7 @@ weight: 10564
     echo "hello Australia"
     -
     hello Australia
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -815,6 +842,7 @@ weight: 10564
     echo "hello 20m"
     -
     hello 20m
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -831,6 +859,7 @@ weight: 10564
     echo "hello British"
     -
     hello British
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -847,6 +876,7 @@ weight: 10564
     echo "hello 2000m"
     -
     hello 2000m
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -863,6 +893,7 @@ weight: 10564
     echo "hello China"
     -
     hello China
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -879,6 +910,7 @@ weight: 10564
     echo "hello 1.4b"
     -
     hello 1.4b
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -895,6 +927,7 @@ weight: 10564
     echo "hello Danmark"
     -
     hello Danmark
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -911,6 +944,7 @@ weight: 10564
     echo "hello 30m"
     -
     hello 30m
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -989,7 +1023,8 @@ weight: 10564
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -999,37 +1034,13 @@ weight: 10564
     
     
     scope[local] merged: {
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "population": "30m",
-          "name": "Danmark"
-        }
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 30m\"",
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
       }),
-      "listname": "countries"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "listname": "countries",
       "countries": {
         {
@@ -1048,13 +1059,39 @@ weight: 10564
           "name": "Danmark",
           "population": "30m"
         }
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "population": "1.4b",
+          "name": "China"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 30m\"",
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "listname": "countries"
     })
     
     cmd( 1):
@@ -1064,6 +1101,7 @@ weight: 10564
     echo "hello 0"
     -
     hello 0
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1080,6 +1118,7 @@ weight: 10564
     echo "hello 1"
     -
     hello 1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1096,6 +1135,7 @@ weight: 10564
     echo "hello Australia"
     -
     hello Australia
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1112,6 +1152,7 @@ weight: 10564
     echo "hello 20m"
     -
     hello 20m
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1128,6 +1169,7 @@ weight: 10564
     echo "hello 1"
     -
     hello 1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1144,6 +1186,7 @@ weight: 10564
     echo "hello 2"
     -
     hello 2
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1160,6 +1203,7 @@ weight: 10564
     echo "hello British"
     -
     hello British
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1176,6 +1220,7 @@ weight: 10564
     echo "hello 2000m"
     -
     hello 2000m
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1192,6 +1237,7 @@ weight: 10564
     echo "hello 2"
     -
     hello 2
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1208,6 +1254,7 @@ weight: 10564
     echo "hello 3"
     -
     hello 3
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1224,6 +1271,7 @@ weight: 10564
     echo "hello China"
     -
     hello China
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1240,6 +1288,7 @@ weight: 10564
     echo "hello 1.4b"
     -
     hello 1.4b
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1256,6 +1305,7 @@ weight: 10564
     echo "hello 3"
     -
     hello 3
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1272,6 +1322,7 @@ weight: 10564
     echo "hello 4"
     -
     hello 4
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1288,6 +1339,7 @@ weight: 10564
     echo "hello Danmark"
     -
     hello Danmark
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1304,6 +1356,7 @@ weight: 10564
     echo "hello 30m"
     -
     hello 30m
+    
     -
      .. ok
     (utils.ExecResult) {

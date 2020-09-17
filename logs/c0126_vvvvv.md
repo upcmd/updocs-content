@@ -1,6 +1,6 @@
 ---
 title: "c0126_vvvvv"
-date: 2020-08-18T15:16:13+88:00
+date: 2020-09-18T00:51:44+99:00
 draft: false
 weight: 11264
 
@@ -22,6 +22,7 @@ weight: 11264
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11264
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7320)(<nil>)
+    (*impl.Scopes)(0xc0001c13a0)(<nil>)
     
     ---------group vars----------
     
@@ -45,9 +46,11 @@ weight: 11264
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "goahead": false
     }
     
-    (core.Cache) {
+    (core.Cache) (len=1) {
+     (string) (len=7) "goahead": (bool) false
     }
     
     [runtime global] dvar expanded result:
@@ -58,6 +61,7 @@ weight: 11264
     -------runtime global final merged with dvars-------
     
     {
+      "goahead": false
     }
     
       located task-> 1 [task]: 
@@ -93,6 +97,8 @@ weight: 11264
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -101,12 +107,16 @@ weight: 11264
     
     
     scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     true/false value of goahead:
@@ -115,7 +125,7 @@ weight: 11264
     
     ~SubStep1: [print:  ]
     true/false value of goahead:
-    <no value>
+    false
     true
     
     -Step2:
@@ -144,6 +154,8 @@ weight: 11264
     
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -152,12 +164,16 @@ weight: 11264
     
     
     scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -188,6 +204,8 @@ weight: 11264
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -196,16 +214,22 @@ weight: 11264
     
     
     scope[local] merged: {
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (else)::
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 3 [else]: 
@@ -241,6 +265,7 @@ weight: 11264
     
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
       "up_runtime_task_layer_number": 1
     })
     
@@ -250,13 +275,15 @@ weight: 11264
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
       "up_runtime_task_layer_number": 1
     })
     

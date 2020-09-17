@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10124
 
@@ -22,6 +22,7 @@ weight: 10124
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10124
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f4ee0)(<nil>)
+    (*impl.Scopes)(0xc0001bef60)(<nil>)
     
     ---------group vars----------
     
@@ -45,9 +46,9 @@ weight: 10124
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     }
     
     (core.Cache) (len=3) {
@@ -64,9 +65,9 @@ weight: 10124
     -------runtime global final merged with dvars-------
     
     {
+      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "e": "runtime-e"
     }
     
       located task-> 1 [task]: 
@@ -100,9 +101,10 @@ weight: 10124
     
     current exec runtime vars:
     (*core.Cache)({
-      "e": "runtime-e",
+      "up_runtime_task_layer_number": 0,
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e"
     })
     
     [local] dvar expanded result:
@@ -111,9 +113,10 @@ weight: 10124
     
     
     scope[local] merged: {
-      "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -122,7 +125,8 @@ weight: 10124
     (*core.Cache)({
       "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -132,6 +136,7 @@ weight: 10124
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -148,6 +153,7 @@ weight: 10124
     echo 'hello runtime-a'
     -
     hello runtime-a
+    
     -
      .. ok
     (utils.ExecResult) {

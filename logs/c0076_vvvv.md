@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvv"
-date: 2020-08-18T15:16:02+88:00
+date: 2020-09-18T00:51:33+99:00
 draft: false
 weight: 10763
 
@@ -22,6 +22,7 @@ weight: 10763
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10763
     -Step1: [: step1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10763
     echo hanks
     -
     hanks
+    
     -
      .. ok
     . ok
@@ -84,12 +88,14 @@ weight: 10763
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "hellomsg": "hanks",
       "reg_hello": "hanks\n\n",
       "last_result": (*utils.ExecResult)({
@@ -110,7 +116,8 @@ weight: 10763
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -122,7 +129,8 @@ weight: 10763
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -132,6 +140,7 @@ weight: 10763
     echo "<no value>"
     -
     <no value>
+    
     -
      .. ok
     cmd( 2):
@@ -141,6 +150,7 @@ weight: 10763
     echo "hanks"
     -
     hanks
+    
     -
      .. ok
     . ok
@@ -149,6 +159,7 @@ weight: 10763
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
@@ -174,15 +185,16 @@ weight: 10763
     
     (*core.Cache)({
       "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
       "person": {
+        "age": 18,
+        "name": "tom"
+      },
+      "tom": {
         "name": "tom",
         "age": 18
       },
       "local_tom": "my name is tom\nage: 18\nname: tom\n",
-      "tom": {
-        "age": 18,
-        "name": "tom"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -195,25 +207,6 @@ weight: 10763
     -Step5: [: debug the results ]
     current exec runtime vars:
     (*core.Cache)({
-      "tom": {
-        "age": 18,
-        "name": "tom"
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "objname": "global_tom",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hanks\"",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -225,7 +218,28 @@ weight: 10763
         "age": 18,
         "name": "tom"
       },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n"
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "up_runtime_task_layer_number": 0,
+      "objname": "global_tom"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "hellomsg": "hanks",
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "up_runtime_task_layer_number": 0,
+      "objname": "global_tom"
     })
     
     ~SubStep1: [print: this local_tom should be <no value> as it is in scope of last step ]

@@ -1,6 +1,6 @@
 ---
 title: "c0173_vvvv"
-date: 2020-08-18T15:16:24+88:00
+date: 2020-09-18T00:51:55+99:00
 draft: false
 weight: 11733
 
@@ -22,6 +22,7 @@ weight: 11733
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,11 +43,13 @@ weight: 11733
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "global_aaa": "aaa"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "global_aaa": "aaa"
     }
     
       located task-> 1 [task]: 
@@ -56,11 +59,17 @@ weight: 11733
     -Step1: [: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa"
     })
     
     ~SubStep1: [print:  ]
@@ -69,15 +78,45 @@ weight: 11733
      WARN: [manual panic] - [manual trigger a panic cmd]
     Step Finally:
     Recovered from: manual trigger a panic cmd
-    -Step1: [close_file: ensure the opened file is closed
-     ]
+    -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+    })
+    
+    ~SubStep1: [print:  ]
+    global aaa: aaa
+    ~SubStep2: [print:  ]
+    local aaa: local_aaa
+    -Step2: [close_file: ensure the opened file is closed
+     ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     cmd( 1):
@@ -87,29 +126,38 @@ weight: 11733
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     . ok
-    -Step2: [: extra steps ]
+    -Step3: [: extra steps ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     ~SubStep1: [print:  ]
@@ -120,23 +168,27 @@ weight: 11733
     -Step2: [: step 2 ]
     current exec runtime vars:
     (*core.Cache)({
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10523
 
@@ -22,6 +22,7 @@ weight: 10523
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10523
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10523
     echo "step1"
     -
     step1
+    
     -
      .. ok
     cmd( 2):
@@ -78,6 +82,7 @@ weight: 10523
     cmd=>:
     echo "step2" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
@@ -87,6 +92,7 @@ weight: 10523
     echo "step3"
     -
     step3
+    
     -
      .. ok
     . ok
@@ -98,12 +104,14 @@ weight: 10523
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step3\"",
         Code: 0,
@@ -119,6 +127,7 @@ weight: 10523
     echo "step4"
     -
     step4
+    
     -
      .. ok
     cmd( 2):
@@ -127,6 +136,7 @@ weight: 10523
     cmd=>:
     echo "step5" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
@@ -136,6 +146,7 @@ weight: 10523
     echo "step6"
     -
     step6
+    
     -
      .. ok
     . ok
@@ -147,7 +158,8 @@ weight: 10523
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -158,7 +170,8 @@ weight: 10523
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -168,6 +181,7 @@ weight: 10523
     echo "step7"
     -
     step7
+    
     -
      .. ok
     cmd( 2):
@@ -177,6 +191,7 @@ weight: 10523
     echo "step8"
     -
     step8
+    
     -
      .. ok
     cmd( 3):
@@ -186,6 +201,7 @@ weight: 10523
     echo "step9"
     -
     step9
+    
     -
      .. ok
     . ok

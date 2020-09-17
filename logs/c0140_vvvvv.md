@@ -1,6 +1,6 @@
 ---
 title: "c0140_vvvvv"
-date: 2020-08-18T15:16:17+88:00
+date: 2020-09-18T00:51:48+99:00
 draft: false
 weight: 11404
 
@@ -22,6 +22,7 @@ weight: 11404
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11404
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e51c0)(<nil>)
+    (*impl.Scopes)(0xc000177200)(<nil>)
     
     ---------group vars----------
     
@@ -69,8 +70,8 @@ weight: 11404
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "I am the main entry"
+          "cmd": "I am the main entry",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -93,6 +94,7 @@ weight: 11404
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -101,12 +103,14 @@ weight: 11404
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     I am the main entry

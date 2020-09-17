@@ -1,6 +1,6 @@
 ---
 title: "c0168_vvvvv"
-date: 2020-08-18T15:16:23+88:00
+date: 2020-09-18T00:51:54+99:00
 draft: false
 weight: 11684
 
@@ -22,6 +22,7 @@ weight: 11684
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11684
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000231000)(<nil>)
+    (*impl.Scopes)(0xc00000c440)(<nil>)
     
     ---------group vars----------
     
@@ -111,6 +112,7 @@ weight: 11684
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -126,6 +128,7 @@ weight: 11684
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "myloop": {
         1,
         2,
@@ -139,6 +142,7 @@ weight: 11684
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "myloop": {
         1,
         2,
@@ -184,7 +188,7 @@ weight: 11684
       Flags: <nil>,
       If: "",
       Else: <nil>,
-      Loop: "{{ loopRange 321 343 \"myrange\"}}",
+      Loop: "{{ loopRange 321 330 \"myrange\"}}",
       Until: "",
       RefDir: "",
       VarsFile: "",
@@ -201,7 +205,8 @@ weight: 11684
         3,
         4,
         5
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -210,6 +215,7 @@ weight: 11684
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "myloop": {
         1,
         2,
@@ -229,7 +235,8 @@ weight: 11684
         3,
         4,
         5
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     {{.loopitem}}
@@ -262,45 +269,6 @@ weight: 11684
     {{.loopitem}}
     ~SubStep1: [print:  ]
     330
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    331
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    332
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    333
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    334
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    335
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    336
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    337
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    338
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    339
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    340
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    341
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    342
-    {{.loopitem}}
-    ~SubStep1: [print:  ]
-    343
     
 ```
 

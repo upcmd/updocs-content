@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10433
 
@@ -22,6 +22,7 @@ weight: 10433
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,17 +57,20 @@ weight: 10433
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
@@ -83,7 +87,8 @@ weight: 10433
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -101,6 +106,7 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "a": "aa",
       "b": "bb"
     })
@@ -113,15 +119,16 @@ weight: 10433
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "bb",
-      "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "a": "aa"
+      "up_runtime_task_layer_number": 0,
+      "a": "aa",
+      "b": "bb",
+      "adebug": "aa"
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
@@ -132,14 +139,15 @@ weight: 10433
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "c": "cc",
-      "d": "dd"
+      "up_runtime_task_layer_number": 0,
+      "c": "cc"
     })
     
     dvar> cdebug:
@@ -156,6 +164,7 @@ weight: 10433
         Output: "",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "c": "cc",
       "d": "dd",
       "cdebug": "cc"

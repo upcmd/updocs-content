@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvvv"
-date: 2020-08-18T15:15:59+88:00
+date: 2020-09-18T00:51:29+99:00
 draft: false
 weight: 10634
 
@@ -22,6 +22,7 @@ weight: 10634
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10634
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf1c0)(<nil>)
+    (*impl.Scopes)(0xc00000c080)(<nil>)
     
     ---------group vars----------
     
@@ -99,6 +100,7 @@ weight: 10634
     current exec runtime vars:
     (*core.Cache)({
       "a": "global-var-a",
+      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
     })
     
@@ -109,6 +111,7 @@ weight: 10634
     
     scope[local] merged: {
       "a": "global-var-a",
+      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
     }
     
@@ -117,10 +120,11 @@ weight: 10634
     
     (*core.Cache)({
       "a": "global-var-a",
+      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
     })
     
-    Enter Value For pause action to continue: 
+    Enter Value For [pause action to continue]: 
     
     enter: continue 
         q: quit
@@ -133,6 +137,7 @@ weight: 10634
     echo "hello"
     -
     hello
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -149,6 +154,7 @@ weight: 10634
     echo "hello global-var-a"
     -
     hello global-var-a
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -192,14 +198,15 @@ weight: 10634
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "b": "runtime-var-b"
+      "up_runtime_task_layer_number": 0,
+      "b": "runtime-var-b",
+      "a": "global-var-a"
     })
     
     [local] dvar expanded result:
@@ -215,6 +222,7 @@ weight: 10634
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
     }
     
@@ -222,17 +230,18 @@ weight: 10634
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "b": "runtime-var-b",
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "b": "runtime-var-b"
+      })
     })
     
-    Enter Value For pause action to continue: 
+    Enter Value For [pause action to continue]: 
     
     enter: continue 
         q: quit
@@ -273,7 +282,8 @@ weight: 10634
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -288,20 +298,22 @@ weight: 10634
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "a": "global-var-a"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -311,6 +323,7 @@ weight: 10634
     echo "next step"
     -
     next step
+    
     -
      .. ok
     (utils.ExecResult) {

@@ -1,6 +1,6 @@
 ---
 title: "c0020_vvvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10204
 
@@ -22,6 +22,7 @@ weight: 10204
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177060)(<nil>)
+    (*impl.Scopes)(0xc0001bf0e0)(<nil>)
     
     ---------group vars----------
     
@@ -76,9 +77,9 @@ weight: 10204
       Dox: <nil>,
       Func: "call",
       Vars: {
-        "studentname": "Tom",
         "school": "sydney grammar",
-        "gender": "male"
+        "gender": "male",
+        "studentname": "Tom"
       },
       Dvars: <nil>,
       Desc: "call function with different vars",
@@ -97,8 +98,9 @@ weight: 10204
     
     current exec runtime vars:
     (*core.Cache)({
-      "gender": "male",
       "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0,
+      "gender": "male",
       "studentname": "Tom"
     })
     
@@ -108,8 +110,9 @@ weight: 10204
     
     
     scope[local] merged: {
-      "gender": "male",
       "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0,
+      "gender": "male",
       "studentname": "Tom"
     }
     
@@ -117,16 +120,18 @@ weight: 10204
     self: final context exec vars:
     
     (*core.Cache)({
-      "gender": "male",
+      "studentname": "Tom",
       "school": "sydney grammar",
-      "studentname": "Tom"
+      "up_runtime_task_layer_number": 0,
+      "gender": "male"
     })
     
     caller's vars to task (function)::
     (*core.Cache)({
-      "school": "sydney grammar",
+      "gender": "male",
       "studentname": "Tom",
-      "gender": "male"
+      "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [function]: 
@@ -164,10 +169,10 @@ weight: 10204
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sydney grammar",
-      "studentname": "Tom",
+      "up_runtime_task_layer_number": 1,
       "gender": "male",
-      "up_runtime_task_layer_number": 1
+      "studentname": "Tom",
+      "school": "sydney grammar"
     })
     
     [local] dvar expanded result:
@@ -176,19 +181,19 @@ weight: 10204
     
     
     scope[local] merged: {
-      "school": "sydney grammar",
       "studentname": "Tom",
-      "gender": "male",
-      "up_runtime_task_layer_number": 1
+      "school": "sydney grammar",
+      "up_runtime_task_layer_number": 1,
+      "gender": "male"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "school": "sydney grammar",
       "studentname": "Tom",
+      "school": "sydney grammar",
+      "up_runtime_task_layer_number": 1,
       "gender": "male"
     })
     
@@ -199,6 +204,7 @@ weight: 10204
     echo "studentname -> Tom | gender -> male"
     -
     studentname -> Tom | gender -> male
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -215,6 +221,7 @@ weight: 10204
     echo "school -> sydney grammar"
     -
     school -> sydney grammar
+    
     -
      .. ok
     (utils.ExecResult) {

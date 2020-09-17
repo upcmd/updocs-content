@@ -1,6 +1,6 @@
 ---
 title: "c0010_vvvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10104
 
@@ -22,6 +22,7 @@ weight: 10104
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000284720)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001772a0)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -46,9 +47,9 @@ weight: 10104
        (string) (len=1) "c": (map[interface {}]interface {}) (len=4) {
         (string) (len=2) "c2": (string) (len=9) "global-c2",
         (string) (len=2) "c3": (map[interface {}]interface {}) (len=3) {
+         (string) (len=3) "c31": (string) (len=10) "global-c31",
          (string) (len=3) "c32": (string) (len=10) "global-c32",
-         (string) (len=3) "c33": (string) (len=10) "global-c33",
-         (string) (len=3) "c31": (string) (len=10) "global-c31"
+         (string) (len=3) "c33": (string) (len=10) "global-c33"
         },
         (string) (len=2) "c4": (string) (len=9) "global-c4",
         (string) (len=2) "c1": (string) (len=9) "global-c1"
@@ -81,18 +82,18 @@ weight: 10104
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=3) {
-       (string) (len=1) "a": (string) (len=10) "non-prod-a",
-       (string) (len=1) "b": (string) (len=10) "non-prod-b",
        (string) (len=1) "c": (map[interface {}]interface {}) (len=5) {
-        (string) (len=2) "c2": (string) (len=10) "nonprod-c2",
         (string) (len=2) "c3": (map[interface {}]interface {}) (len=2) {
          (string) (len=3) "c32": (string) (len=11) "nonprod-c32",
          (string) (len=3) "c33": (string) (len=11) "nonprod-c33"
         },
         (string) (len=2) "c4": (string) (len=10) "nonprod-c4",
         (string) (len=2) "c5": (string) (len=10) "nonprod-c5",
-        (string) (len=2) "c1": (string) (len=10) "nonprod-c1"
-       }
+        (string) (len=2) "c1": (string) (len=10) "nonprod-c1",
+        (string) (len=2) "c2": (string) (len=10) "nonprod-c2"
+       },
+       (string) (len=1) "a": (string) (len=10) "non-prod-a",
+       (string) (len=1) "b": (string) (len=10) "non-prod-b"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -113,16 +114,16 @@ weight: 10104
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "a": (string) (len=5) "dev-a",
        (string) (len=1) "c": (map[interface {}]interface {}) (len=5) {
-        (string) (len=2) "c7": (string) (len=6) "dev-c7",
         (string) (len=2) "c1": (string) (len=6) "dev-c1",
         (string) (len=2) "c2": (string) (len=6) "dev-c2",
         (string) (len=2) "c3": (map[interface {}]interface {}) (len=1) {
          (string) (len=3) "c33": (string) (len=7) "dev-c33"
         },
-        (string) (len=2) "c6": (string) (len=6) "dev-c6"
-       }
+        (string) (len=2) "c6": (string) (len=6) "dev-c6",
+        (string) (len=2) "c7": (string) (len=6) "dev-c7"
+       },
+       (string) (len=1) "a": (string) (len=5) "dev-a"
       },
       Dvars: (impl.Dvars) <nil>
      }
@@ -134,9 +135,6 @@ weight: 10104
     
     
     scope[global] merged: {
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b",
       "c": {
         "c1": "global-c1",
         "c2": "global-c2",
@@ -146,7 +144,10 @@ weight: 10104
           "c33": "global-c33"
         },
         "c4": "global-c4"
-      }
+      },
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
@@ -156,8 +157,8 @@ weight: 10104
     
     
     scope[prod] merged: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -167,47 +168,8 @@ weight: 10104
     
     
     scope[nonprod] merged: {
-      "c": {
-        "c1": "nonprod-c1",
-        "c2": "nonprod-c2",
-        "c3": {
-          "c32": "nonprod-c32",
-          "c33": "nonprod-c33"
-        },
-        "c4": "nonprod-c4",
-        "c5": "nonprod-c5"
-      },
       "a": "non-prod-a",
-      "b": "non-prod-b"
-    }
-    
-    
-    ---------group vars----------
-    
-    global: {
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b",
-      "c": {
-        "c3": {
-          "c31": "global-c31",
-          "c32": "global-c32",
-          "c33": "global-c33"
-        },
-        "c4": "global-c4",
-        "c1": "global-c1",
-        "c2": "global-c2"
-      }
-    }
-    
-    
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
-    
-    
-    nonprod: {
+      "b": "non-prod-b",
       "c": {
         "c5": "nonprod-c5",
         "c1": "nonprod-c1",
@@ -217,9 +179,48 @@ weight: 10104
           "c33": "nonprod-c33"
         },
         "c4": "nonprod-c4"
+      }
+    }
+    
+    
+    ---------group vars----------
+    
+    prod: {
+      "c": "prod-c",
+      "a": "prod-a"
+    }
+    
+    
+    nonprod: {
+      "c": {
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5",
+        "c1": "nonprod-c1",
+        "c2": "nonprod-c2",
+        "c3": {
+          "c32": "nonprod-c32",
+          "c33": "nonprod-c33"
+        }
       },
       "a": "non-prod-a",
       "b": "non-prod-b"
+    }
+    
+    
+    global: {
+      "c": {
+        "c1": "global-c1",
+        "c2": "global-c2",
+        "c3": {
+          "c31": "global-c31",
+          "c32": "global-c32",
+          "c33": "global-c33"
+        },
+        "c4": "global-c4"
+      },
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
@@ -230,37 +231,37 @@ weight: 10104
     
     
     scope[dev] merged: {
+      "a": "dev-a",
       "c": {
-        "c2": "dev-c2",
         "c3": {
           "c33": "dev-c33"
         },
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c1": "dev-c1"
-      },
-      "a": "dev-a"
+        "c1": "dev-c1",
+        "c2": "dev-c2"
+      }
     }
     
     
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
-      "a": "dev-a",
       "b": "non-prod-b",
       "c": {
+        "c5": "nonprod-c5",
+        "c6": "dev-c6",
+        "c7": "dev-c7",
+        "c1": "dev-c1",
+        "c2": "dev-c2",
         "c3": {
           "c31": "global-c31",
           "c32": "nonprod-c32",
           "c33": "dev-c33"
         },
-        "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7",
-        "c4": "nonprod-c4",
-        "c1": "dev-c1",
-        "c2": "dev-c2"
-      }
+        "c4": "nonprod-c4"
+      },
+      "d": "global-d",
+      "a": "dev-a"
     }
     
     (core.Cache) (len=4) {
@@ -268,16 +269,16 @@ weight: 10104
      (string) (len=1) "a": (string) (len=5) "dev-a",
      (string) (len=1) "b": (string) (len=10) "non-prod-b",
      (string) (len=1) "c": (map[interface {}]interface {}) (len=7) {
-      (string) (len=2) "c1": (string) (len=6) "dev-c1",
-      (string) (len=2) "c2": (string) (len=6) "dev-c2",
-      (string) (len=2) "c3": (map[interface {}]interface {}) (len=3) {
-       (string) (len=3) "c31": (string) (len=10) "global-c31",
-       (string) (len=3) "c32": (string) (len=11) "nonprod-c32",
-       (string) (len=3) "c33": (string) (len=7) "dev-c33"
-      },
       (string) (len=2) "c5": (string) (len=10) "nonprod-c5",
       (string) (len=2) "c6": (string) (len=6) "dev-c6",
       (string) (len=2) "c7": (string) (len=6) "dev-c7",
+      (string) (len=2) "c1": (string) (len=6) "dev-c1",
+      (string) (len=2) "c2": (string) (len=6) "dev-c2",
+      (string) (len=2) "c3": (map[interface {}]interface {}) (len=3) {
+       (string) (len=3) "c33": (string) (len=7) "dev-c33",
+       (string) (len=3) "c31": (string) (len=10) "global-c31",
+       (string) (len=3) "c32": (string) (len=11) "nonprod-c32"
+      },
       (string) (len=2) "c4": (string) (len=10) "nonprod-c4"
      }
     }
@@ -290,22 +291,22 @@ weight: 10104
     -------runtime global final merged with dvars-------
     
     {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
+        "c6": "dev-c6",
+        "c7": "dev-c7",
         "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
+          "c33": "dev-c33",
           "c31": "global-c31",
-          "c32": "nonprod-c32",
-          "c33": "dev-c33"
+          "c32": "nonprod-c32"
         },
-        "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7",
-        "c4": "nonprod-c4"
-      }
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5"
+      },
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -338,22 +339,23 @@ weight: 10104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "b": "non-prod-b",
       "c": {
-        "c7": "dev-c7",
-        "c4": "nonprod-c4",
-        "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
-          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33"
+          "c33": "dev-c33",
+          "c31": "global-c31"
         },
+        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
-        "c6": "dev-c6"
+        "c6": "dev-c6",
+        "c7": "dev-c7",
+        "c1": "dev-c1"
       },
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     })
     
     [local] dvar expanded result:
@@ -362,10 +364,32 @@ weight: 10104
     
     
     scope[local] merged: {
-      "a": "dev-a",
       "b": "non-prod-b",
       "c": {
         "c4": "nonprod-c4",
+        "c5": "nonprod-c5",
+        "c6": "dev-c6",
+        "c7": "dev-c7",
+        "c1": "dev-c1",
+        "c2": "dev-c2",
+        "c3": {
+          "c31": "global-c31",
+          "c32": "nonprod-c32",
+          "c33": "dev-c33"
+        }
+      },
+      "d": "global-d",
+      "a": "dev-a",
+      "up_runtime_task_layer_number": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "b": "non-prod-b",
+      "c": {
+        "c7": "dev-c7",
         "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
@@ -373,33 +397,13 @@ weight: 10104
           "c33": "dev-c33",
           "c31": "global-c31"
         },
+        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7"
+        "c6": "dev-c6"
       },
-      "d": "global-d"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
+      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b",
-      "c": {
-        "c1": "dev-c1",
-        "c2": "dev-c2",
-        "c3": {
-          "c31": "global-c31",
-          "c32": "nonprod-c32",
-          "c33": "dev-c33"
-        },
-        "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7",
-        "c4": "nonprod-c4"
-      },
-      "d": "global-d"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -409,6 +413,7 @@ weight: 10104
     echo "test out the var scopes only"
     -
     test out the var scopes only
+    
     -
      .. ok
     (utils.ExecResult) {

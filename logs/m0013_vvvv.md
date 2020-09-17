@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:29+99:00
 draft: false
 weight: 101303
 
@@ -22,6 +22,7 @@ weight: 101303
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 8
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0013
@@ -56,16 +57,19 @@ weight: 101303
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [hello-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -98,6 +102,7 @@ weight: 101303
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -105,6 +110,7 @@ weight: 101303
     
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -113,18 +119,21 @@ weight: 101303
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -156,13 +165,15 @@ weight: 101303
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

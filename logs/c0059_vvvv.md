@@ -1,6 +1,6 @@
 ---
 title: "c0059_vvvv"
-date: 2020-08-18T15:15:58+88:00
+date: 2020-09-18T00:51:28+99:00
 draft: false
 weight: 10593
 
@@ -22,6 +22,7 @@ weight: 10593
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -57,11 +58,13 @@ weight: 10593
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -71,6 +74,7 @@ weight: 10593
     echo "step1"
     -
     step1
+    
     -
      .. ok
     cmd( 2):
@@ -80,6 +84,7 @@ weight: 10593
     echo "step2"
     -
     step2
+    
     -
      .. ok
     cmd( 3):
@@ -89,6 +94,7 @@ weight: 10593
     echo "step3"
     -
     step3
+    
     -
      .. ok
     . ok
@@ -100,7 +106,8 @@ weight: 10593
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -111,7 +118,8 @@ weight: 10593
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -121,6 +129,7 @@ weight: 10593
     echo "step4"
     -
     step4
+    
     -
      .. ok
     cmd( 2):
@@ -130,6 +139,7 @@ weight: 10593
     echo "step5"
     -
     step5
+    
     -
      .. ok
     cmd( 3):
@@ -139,6 +149,7 @@ weight: 10593
     echo "step6"
     -
     step6
+    
     -
      .. ok
     . ok
@@ -150,7 +161,8 @@ weight: 10593
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -161,7 +173,8 @@ weight: 10593
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -171,6 +184,7 @@ weight: 10593
     echo "step7"
     -
     step7
+    
     -
      .. ok
     cmd( 2):
@@ -180,6 +194,7 @@ weight: 10593
     echo "step8"
     -
     step8
+    
     -
      .. ok
     cmd( 3):
@@ -189,6 +204,7 @@ weight: 10593
     echo "step9"
     -
     step9
+    
     -
      .. ok
     . ok

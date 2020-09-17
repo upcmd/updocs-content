@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10213
 
@@ -22,6 +22,7 @@ weight: 10213
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,19 +57,21 @@ weight: 10213
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
+      "up_runtime_task_layer_number": 0,
       "student": "Tom",
-      "gender": "Male"
+      "gender": "Male",
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -86,6 +89,7 @@ weight: 10213
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    
     -
      .. ok
     cmd( 2):
@@ -105,6 +109,7 @@ weight: 10213
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    
     -
      .. ok
     cmd( 3):
@@ -128,6 +133,7 @@ weight: 10213
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    
     -
      .. ok
     cmd( 4):
@@ -146,6 +152,7 @@ weight: 10213
     echo """my school: 
     -
     /bin/sh: syntax error: unterminated quoted string
+    
     -
      .. failed(suppressed if it is not the last step)
     cmd( 5):
@@ -162,6 +169,7 @@ weight: 10213
     my student: student: Tom
      gender: Male
      school: Sydney Grammar
+    
     
     -
      .. ok

@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:39+99:00
 draft: false
 weight: 11044
 
@@ -22,6 +22,7 @@ weight: 11044
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11044
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175400)(<nil>)
+    (*impl.Scopes)(0xc0001bf480)(<nil>)
     
     ---------group vars----------
     
@@ -93,7 +94,8 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
-      "extra_task_name": "post_task"
+      "extra_task_name": "post_task",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -102,14 +104,16 @@ weight: 11044
     
     
     scope[local] merged: {
-      "extra_task_name": "post_task"
+      "extra_task_name": "post_task",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "extra_task_name": "post_task"
+      "extra_task_name": "post_task",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -119,6 +123,7 @@ weight: 11044
     echo " I love this "
     -
      I love this 
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -162,7 +167,8 @@ weight: 11044
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -171,13 +177,14 @@ weight: 11044
     
     
     scope[local] merged: {
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "extra_task_name": "post_task"
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -190,7 +197,8 @@ weight: 11044
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (post_task)::
@@ -201,7 +209,8 @@ weight: 11044
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [post_task]: 
@@ -264,14 +273,14 @@ weight: 11044
     self: final context exec vars:
     
     (*core.Cache)({
+      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "extra_task_name": "post_task"
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -281,6 +290,7 @@ weight: 11044
     echo "world"
     -
     world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -293,6 +303,7 @@ weight: 11044
     . ok
     caller's vars to task (2ndtask)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
@@ -348,28 +359,28 @@ weight: 11044
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
     })
     
     cmd( 1):
@@ -379,6 +390,7 @@ weight: 11044
     echo "this is 2nd task"
     -
     this is 2nd task
+    
     -
      .. ok
     (utils.ExecResult) {

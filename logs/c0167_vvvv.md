@@ -1,6 +1,6 @@
 ---
 title: "c0167_vvvv"
-date: 2020-08-18T15:16:23+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11673
 
@@ -22,6 +22,7 @@ weight: 11673
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,23 +43,23 @@ weight: 11673
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "loopkey": "items",
-      "items": {
-        "item1",
-        "item2",
-        "item3"
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
       "items": {
         "item1",
         "item2",
         "item3"
       },
       "loopkey": "items"
+    }
+    
+    -------runtime global final merged with dvars-------
+    
+    {
+      "loopkey": "items",
+      "items": {
+        "item1",
+        "item2",
+        "item3"
+      }
     }
     
       located task-> 1 [task]: 
@@ -73,12 +74,14 @@ weight: 11673
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "items": {
         "item1",
         "item2",
@@ -101,18 +104,20 @@ weight: 11673
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

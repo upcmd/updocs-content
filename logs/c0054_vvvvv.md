@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:28+99:00
 draft: false
 weight: 10544
 
@@ -22,6 +22,7 @@ weight: 10544
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10544
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177f40)(<nil>)
+    (*impl.Scopes)(0xc0001e5f60)(<nil>)
     
     ---------group vars----------
     
@@ -90,6 +91,7 @@ weight: 10544
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -98,12 +100,14 @@ weight: 10544
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -113,6 +117,7 @@ weight: 10544
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -154,7 +159,8 @@ weight: 10544
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -168,13 +174,15 @@ weight: 10544
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello, world\"",
         Code: 0,
@@ -211,7 +219,8 @@ weight: 10544
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -220,14 +229,16 @@ weight: 10544
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -270,6 +281,7 @@ weight: 10544
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)(<nil>)
     })
     
@@ -279,14 +291,16 @@ weight: 10544
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -296,6 +310,7 @@ weight: 10544
     echo "step1"
     -
     step1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -311,6 +326,7 @@ weight: 10544
     cmd=>:
     echo "step2" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -327,6 +343,7 @@ weight: 10544
     echo "step3"
     -
     step3
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -368,7 +385,8 @@ weight: 10544
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -382,7 +400,8 @@ weight: 10544
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -394,7 +413,8 @@ weight: 10544
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -404,6 +424,7 @@ weight: 10544
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -465,7 +486,8 @@ weight: 10544
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> last_task_succeeded:
@@ -486,6 +508,7 @@ weight: 10544
         Output: "hello, world",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "last_task_succeeded": "true"
     }
     
@@ -493,13 +516,14 @@ weight: 10544
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_task_succeeded": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello, world\"",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
       }),
-      "last_task_succeeded": "true"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -509,6 +533,7 @@ weight: 10544
     echo "check last step"
     -
     check last step
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -525,6 +550,7 @@ weight: 10544
     echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"
     -
     {Cmd:echo "hello, world",Code:0,Output:hello, world,ErrMsg:}
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -551,6 +577,7 @@ weight: 10544
       Output: hello, world,
       ErrMsg: 
     }
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -567,6 +594,7 @@ weight: 10544
     echo "true"
     -
     true
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -611,7 +639,8 @@ weight: 10544
         Code: 0,
         Output: "true",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -625,7 +654,8 @@ weight: 10544
         Code: 0,
         Output: "true",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -637,7 +667,8 @@ weight: 10544
         Code: 0,
         Output: "true",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -647,6 +678,7 @@ weight: 10544
     echo "step1"
     -
     step1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -662,6 +694,7 @@ weight: 10544
     cmd=>:
     echo "step2" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -671,7 +704,7 @@ weight: 10544
      ErrMsg: (string) (len=13) "exit status 1"
     }
     
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step8:
     {
       Name: "",
@@ -705,7 +738,8 @@ weight: 10544
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -719,7 +753,8 @@ weight: 10544
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -731,7 +766,8 @@ weight: 10544
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -786,6 +822,7 @@ weight: 10544
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
@@ -805,12 +842,13 @@ weight: 10544
     
     
     scope[local] merged: {
-      "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      },
       "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      },
       "condition": "true"
     }
     
@@ -818,13 +856,14 @@ weight: 10544
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>),
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
       },
-      "condition": "true"
+      "condition": "true",
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -834,6 +873,7 @@ weight: 10544
     echo "simple dvar as condition"
     -
     simple dvar as condition
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -854,9 +894,9 @@ weight: 10544
       Func: "shell",
       Vars: {
         "student": {
-          "name": "peter",
           "sex": "male",
-          "age": 23
+          "age": 23,
+          "name": "peter"
         }
       },
       Dvars: {
@@ -899,6 +939,7 @@ weight: 10544
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
@@ -918,18 +959,19 @@ weight: 10544
     
     
     scope[local] merged: {
+      "condition": "true",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"simple dvar as condition\"",
         Code: 0,
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "sex": "male",
         "age": 23,
-        "name": "peter",
-        "sex": "male"
-      },
-      "condition": "true"
+        "name": "peter"
+      }
     }
     
     
@@ -942,10 +984,11 @@ weight: 10544
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
+        "age": 23,
+        "name": "peter"
       },
       "condition": "true"
     })
@@ -957,6 +1000,7 @@ weight: 10544
     echo "complicated dvar evaluation as condition"
     -
     complicated dvar evaluation as condition
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1022,6 +1066,7 @@ weight: 10544
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
@@ -1047,10 +1092,11 @@ weight: 10544
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       },
       "condition": "true"
     }
@@ -1065,10 +1111,11 @@ weight: 10544
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
+        "age": 23,
+        "name": "peter"
       },
       "condition": "true"
     })
@@ -1080,6 +1127,7 @@ weight: 10544
     echo "a even more complicated condition but more readable"
     -
     a even more complicated condition but more readable
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1122,17 +1170,18 @@ weight: 10544
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "peter",
-        "sex": "male",
-        "age": 23
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a even more complicated condition but more readable\"",
         Code: 0,
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "name": "peter",
+        "sex": "male",
+        "age": 23
+      }
     })
     
     [local] dvar expanded result:
@@ -1147,10 +1196,11 @@ weight: 10544
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       }
     }
     
@@ -1164,10 +1214,11 @@ weight: 10544
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       }
     })
     
@@ -1178,6 +1229,7 @@ weight: 10544
     echo "a complicated condition without dvar"
     -
     a complicated condition without dvar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -1227,6 +1279,7 @@ weight: 10544
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     
@@ -1242,6 +1295,7 @@ weight: 10544
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     }
     
@@ -1249,13 +1303,14 @@ weight: 10544
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
-      }),
-      "doc": "hello"
+      })
     })
     
     {{ gt (.doc|len) 1 }}
@@ -1298,6 +1353,7 @@ weight: 10544
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     
@@ -1313,6 +1369,7 @@ weight: 10544
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     }
     
@@ -1326,6 +1383,7 @@ weight: 10544
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     

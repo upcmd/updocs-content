@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10113
 
@@ -22,6 +22,7 @@ weight: 10113
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,8 +37,8 @@ weight: 10113
     ---------group vars----------
     
     prod: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
@@ -49,33 +50,33 @@ weight: 10113
     
     
     global: {
-      "c": "global-c",
       "d": "global-d",
       "a": "global-a",
-      "b": "global-b"
+      "b": "global-b",
+      "c": "global-c"
     }
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
     {
-      "a": "runtime-a",
-      "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "d": "global-d",
+      "a": "runtime-a",
+      "b": "non-prod-b"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
       "e": "runtime-e",
       "k": "runtime-k",
-      "a": "runtime-a"
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -85,25 +86,27 @@ weight: 10113
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "m": "local-m",
+      "k": "runtime-k",
+      "d": "global-d",
       "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d",
       "e": "local-e",
-      "k": "runtime-k",
-      "m": "local-m"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "d": "global-d",
-      "e": "local-e",
-      "k": "runtime-k",
-      "m": "local-m",
-      "a": "runtime-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "e": "local-e",
+      "up_runtime_task_layer_number": 0,
+      "m": "local-m",
+      "k": "runtime-k",
+      "d": "global-d",
+      "a": "runtime-a"
     })
     
     cmd( 1):
@@ -113,6 +116,7 @@ weight: 10113
     echo "test out the var scopes only"
     -
     test out the var scopes only
+    
     -
      .. ok
     . ok

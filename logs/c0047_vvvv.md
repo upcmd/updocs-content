@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10473
 
@@ -22,6 +22,7 @@ weight: 10473
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -51,8 +52,8 @@ weight: 10473
     -------runtime global final merged with dvars-------
     
     {
-      "student_name": "Tom Hanks",
       "student_age": "28",
+      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
@@ -63,16 +64,18 @@ weight: 10473
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "Tom Hanks",
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_name": "Tom Hanks",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0,
       "student_age": "28"
     })
     
@@ -91,6 +94,7 @@ weight: 10473
     student details:
     name: Tom Hanks
     age: 28
+    
     
     -
      .. ok

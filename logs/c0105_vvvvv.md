@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:39+99:00
 draft: false
 weight: 11054
 
@@ -22,6 +22,7 @@ weight: 11054
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11054
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000c26e0)(<nil>)
+    (*impl.Scopes)(0xc0001ef300)(<nil>)
     
     ---------group vars----------
     
@@ -72,8 +73,8 @@ weight: 11054
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.tom}}"
+          "cmd": "{{.tom}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -103,6 +104,7 @@ weight: 11054
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry"
     })
     
@@ -113,6 +115,7 @@ weight: 11054
     
     scope[local] merged: {
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry"
     }
     
@@ -121,6 +124,7 @@ weight: 11054
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry"
     })
     
@@ -141,9 +145,9 @@ weight: 11054
         {
           "name": "reg",
           "cmd": {
-            "value": "hello, {{.tom}}",
             "name": "hitom",
-            "desc": "by default hitom is registered in to global context"
+            "desc": "by default hitom is registered in to global context",
+            "value": "hello, {{.tom}}"
           }
         },
         {
@@ -171,7 +175,8 @@ weight: 11054
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -180,14 +185,16 @@ weight: 11054
     
     
     scope[local] merged: {
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.jerry}}
@@ -206,6 +213,7 @@ weight: 11054
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "hitom": "hello, this is tom"
     })
     
@@ -217,16 +225,16 @@ weight: 11054
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "by default hitom is accessible from global context, that's why it is accessiable cross func",
-          "cmd": "{{.hitom}}",
-          "name": "print"
+          "cmd": "{{.hitom}}"
         },
         {
           "name": "reg",
           "cmd": {
+            "name": "hijerry",
             "desc": "hijerry is registered to local scope only",
-            "value": "hello, jerry",
-            "name": "hijerry"
+            "value": "hello, jerry"
           },
           "flags": {
             "localOnly"
@@ -259,6 +267,7 @@ weight: 11054
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "hitom": "hello, this is tom"
     })
     
@@ -269,15 +278,17 @@ weight: 11054
     
     scope[local] merged: {
       "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "hitom": "hello, this is tom",
       "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "up_runtime_task_layer_number": 0
     })
     
     {{.hitom}}
@@ -296,8 +307,9 @@ weight: 11054
     
     (*core.Cache)({
       "tom": "this is tom",
-      "hitom": "hello, this is tom",
-      "hijerry": "hello, jerry"
+      "up_runtime_task_layer_number": 0,
+      "hijerry": "hello, jerry",
+      "hitom": "hello, this is tom"
     })
     
     {{.hijerry}}
@@ -333,8 +345,9 @@ weight: 11054
     
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "this is tom",
       "hitom": "hello, this is tom",
-      "tom": "this is tom"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -344,6 +357,7 @@ weight: 11054
     
     scope[local] merged: {
       "hitom": "hello, this is tom",
+      "up_runtime_task_layer_number": 0,
       "tom": "this is tom"
     }
     
@@ -351,8 +365,9 @@ weight: 11054
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "up_runtime_task_layer_number": 0,
+      "tom": "this is tom"
     })
     
     {{.hijerry}}

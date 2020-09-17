@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvv"
-date: 2020-08-18T15:16:54+88:00
+date: 2020-09-18T00:52:29+99:00
 draft: false
 weight: 101202
 
@@ -22,6 +22,7 @@ weight: 101202
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 8
+               EntryTask -> Main
     work dir: /up_project/up/tests/modtests/f0012
     -exec task: Main
     loading [Task]:  ./up.yml
@@ -36,11 +37,13 @@ weight: 101202
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [hello-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -52,6 +55,7 @@ weight: 101202
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2,
       "a": "aaa"
     })
@@ -62,12 +66,14 @@ weight: 101202
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -79,6 +85,7 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
@@ -88,12 +95,14 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk2], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -105,7 +114,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 4
+      "up_runtime_tasker_layer_number": 4,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -114,12 +124,14 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 4
+      "up_runtime_tasker_layer_number": 4,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -131,7 +143,8 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 5
+      "up_runtime_tasker_layer_number": 5,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -140,12 +153,14 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 5
+      "up_runtime_tasker_layer_number": 5,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk2], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -157,7 +172,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6
+      "up_runtime_tasker_layer_number": 6,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -166,12 +182,14 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6
+      "up_runtime_tasker_layer_number": 6,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -183,7 +201,8 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 7
+      "up_runtime_tasker_layer_number": 7,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -192,12 +211,14 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 7
+      "up_runtime_tasker_layer_number": 7,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk2], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -209,6 +230,7 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 8
     })
     
@@ -218,12 +240,14 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 8
+      "up_runtime_tasker_layer_number": 8,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({

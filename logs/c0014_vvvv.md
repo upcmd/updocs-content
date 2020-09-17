@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10143
 
@@ -22,6 +22,7 @@ weight: 10143
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,17 +43,17 @@ weight: 10143
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "e": "runtime-e"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
       located task-> 2 [task]: 
@@ -62,18 +63,20 @@ weight: 10143
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "k": "runtime-k",
       "a": "caller-ref-a",
       "e": "runtime-e",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 0,
       "b": "caller-ref-b"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "k": "runtime-k",
       "a": "caller-ref-a",
       "e": "runtime-e",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 0,
       "b": "caller-ref-b"
     })
     
@@ -87,20 +90,20 @@ weight: 10143
       "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "e": "runtime-e",
+      "k": "runtime-k",
       "up_runtime_task_layer_number": 1,
-      "k": "runtime-k"
+      "e": "runtime-e"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "caller-ref-b",
-      "c": "callee-c",
-      "e": "runtime-e",
-      "up_runtime_task_layer_number": 1,
       "k": "runtime-k",
-      "a": "caller-ref-a"
+      "up_runtime_task_layer_number": 1,
+      "e": "runtime-e",
+      "a": "caller-ref-a",
+      "b": "caller-ref-b",
+      "c": "callee-c"
     })
     
     cmd( 1):
@@ -110,6 +113,7 @@ weight: 10143
     echo "exec ref-task"
     -
     exec ref-task
+    
     -
      .. ok
     cmd( 2):
@@ -141,6 +145,7 @@ weight: 10143
     c: callee-c
     e: runtime-e
     k: runtime-k
+    
     
     -
      .. ok

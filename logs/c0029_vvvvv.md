@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvvv"
-date: 2020-08-18T15:15:52+88:00
+date: 2020-09-18T00:51:23+99:00
 draft: false
 weight: 10294
 
@@ -22,6 +22,7 @@ weight: 10294
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10294
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025d2c0)((len=3 cap=3) {
+    (*impl.Scopes)(0xc0001f1300)((len=3 cap=3) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -128,8 +129,8 @@ weight: 10294
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "a": (string) (len=9) "staging-a",
-       (string) (len=1) "b": (string) (len=9) "staging-b"
+       (string) (len=1) "b": (string) (len=9) "staging-b",
+       (string) (len=1) "a": (string) (len=9) "staging-a"
       },
       Dvars: (impl.Dvars) <nil>
      }
@@ -143,12 +144,12 @@ weight: 10294
     
     
     scope[global] merged: {
-      "b": "global-b",
-      "da": "global-a",
-      "dab": "global-a-and-global-b",
       "c": "global-c",
       "e": "global-e",
-      "a": "global-a"
+      "a": "global-a",
+      "b": "global-b",
+      "dab": "global-a-and-global-b",
+      "da": "global-a"
     }
     
     
@@ -160,18 +161,6 @@ weight: 10294
     
     
     scope[nonprod] merged: {
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c"
-    }
-    
-    
-    ---------group vars----------
-    
-    nonprod: {
       "a": "non-prod-a",
       "b": "non-prod-b",
       "c": "non-prod-c",
@@ -181,38 +170,50 @@ weight: 10294
     }
     
     
+    ---------group vars----------
+    
+    nonprod: {
+      "c": "non-prod-c",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "a": "non-prod-a",
+      "b": "non-prod-b"
+    }
+    
+    
     global: {
+      "da": "global-a",
+      "c": "global-c",
       "e": "global-e",
       "a": "global-a",
       "b": "global-b",
-      "da": "global-a",
-      "dab": "global-a-and-global-b",
-      "c": "global-c"
+      "dab": "global-a-and-global-b"
     }
     
     
     groups members:[dev staging]
     merged[ dev ] runtime vars:
     {
+      "b": "non-prod-b",
       "dab": "non-prod-a-and-non-prod-b",
+      "da": "global-a",
       "c": "non-prod-c",
       "e": "global-e",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
       "a": "non-prod-a",
-      "b": "non-prod-b",
-      "da": "global-a"
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a"
     }
     
     (core.Cache) (len=8) {
-     (string) (len=2) "da": (string) (len=8) "global-a",
-     (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b",
-     (string) (len=1) "c": (string) (len=10) "non-prod-c",
-     (string) (len=1) "e": (string) (len=8) "global-e",
      (string) (len=1) "d": (string) (len=10) "non-prod-d",
      (string) (len=9) "dvar_np_a": (string) (len=10) "non-prod-a",
-     (string) (len=1) "a": (string) (len=10) "non-prod-a",
-     (string) (len=1) "b": (string) (len=10) "non-prod-b"
+     (string) (len=1) "b": (string) (len=10) "non-prod-b",
+     (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b",
+     (string) (len=2) "da": (string) (len=8) "global-a",
+     (string) (len=1) "c": (string) (len=10) "non-prod-c",
+     (string) (len=1) "e": (string) (len=8) "global-e",
+     (string) (len=1) "a": (string) (len=10) "non-prod-a"
     }
     
     [runtime global] dvar expanded result:
@@ -224,12 +225,12 @@ weight: 10294
     
     {
       "e": "global-e",
+      "a": "non-prod-a",
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
+      "da": "global-a",
       "c": "non-prod-c"
     }
     
@@ -266,13 +267,14 @@ weight: 10294
     current exec runtime vars:
     (*core.Cache)({
       "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "c": "non-prod-c",
       "e": "global-e",
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
-      "a": "non-prod-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0,
+      "dab": "non-prod-a-and-non-prod-b",
+      "c": "non-prod-c",
+      "a": "non-prod-a"
     })
     
     [local] dvar expanded result:
@@ -281,27 +283,29 @@ weight: 10294
     
     
     scope[local] merged: {
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "a": "non-prod-a",
       "b": "non-prod-b",
-      "da": "global-a",
+      "up_runtime_task_layer_number": 0,
       "dab": "non-prod-a-and-non-prod-b",
+      "da": "global-a",
       "c": "non-prod-c",
-      "e": "global-e"
+      "a": "non-prod-a",
+      "dvar_np_a": "non-prod-a",
+      "e": "global-e",
+      "d": "non-prod-d"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "non-prod-a",
-      "b": "non-prod-b",
       "da": "global-a",
-      "dab": "non-prod-a-and-non-prod-b",
-      "c": "non-prod-c",
       "e": "global-e",
       "d": "non-prod-d",
+      "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0,
+      "dab": "non-prod-a-and-non-prod-b",
+      "c": "non-prod-c",
+      "a": "non-prod-a",
       "dvar_np_a": "non-prod-a"
     })
     
@@ -312,6 +316,7 @@ weight: 10294
     echo "cmd1:da -> global-a"
     -
     cmd1:da -> global-a
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -328,6 +333,7 @@ weight: 10294
     echo "cmd2:dab -> non-prod-a-and-non-prod-b"
     -
     cmd2:dab -> non-prod-a-and-non-prod-b
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -344,6 +350,7 @@ weight: 10294
     echo "cmd3:non-prod-a"
     -
     cmd3:non-prod-a
+    
     -
      .. ok
     (utils.ExecResult) {

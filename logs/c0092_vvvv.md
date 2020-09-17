@@ -1,6 +1,6 @@
 ---
 title: "c0092_vvvv"
-date: 2020-08-18T15:16:05+88:00
+date: 2020-09-18T00:51:36+99:00
 draft: false
 weight: 10923
 
@@ -22,6 +22,7 @@ weight: 10923
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,6 +57,7 @@ weight: 10923
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 23
@@ -68,7 +70,8 @@ weight: 10923
       "person": {
         "name": "tom",
         "age": 23
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [tom_action]: 
@@ -78,21 +81,21 @@ weight: 10923
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
     ~~SubStep1: [print:  ]

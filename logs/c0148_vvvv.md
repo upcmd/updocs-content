@@ -1,6 +1,6 @@
 ---
 title: "c0148_vvvv"
-date: 2020-08-18T15:16:19+88:00
+date: 2020-09-18T00:51:49+99:00
 draft: false
 weight: 11483
 
@@ -22,6 +22,7 @@ weight: 11483
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -58,40 +59,46 @@ weight: 11483
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "tom": "this is tom"
-    })
-    
-    -Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "tom": "this is tom"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
-    })
-    
-     WARN: [cmd] - [Not implemented or void for no action!]
-    -Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
+    })
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope"
+    })
+    
+     WARN: [cmd] - [Not implemented or void for no action!]
+    -Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -101,6 +108,7 @@ weight: 11483
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -108,6 +116,7 @@ weight: 11483
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -116,14 +125,16 @@ weight: 11483
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -134,8 +145,8 @@ weight: 11483
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope"
     })
     
@@ -143,8 +154,8 @@ weight: 11483
     
     (*core.Cache)({
       "tom": "this is tom",
-      "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope"
     })
     
     ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
@@ -155,15 +166,15 @@ weight: 11483
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     

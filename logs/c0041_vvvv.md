@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvv"
-date: 2020-08-18T15:15:54+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10413
 
@@ -22,6 +22,7 @@ weight: 10413
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10413
     -Step1: [: step1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10413
     echo hello
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -79,6 +83,7 @@ weight: 10413
     echo world
     -
     world
+    
     -
      .. ok
     . ok
@@ -90,7 +95,8 @@ weight: 10413
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -101,7 +107,8 @@ weight: 10413
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -111,6 +118,7 @@ weight: 10413
     echo tom
     -
     tom
+    
     -
      .. ok
     cmd( 2):
@@ -120,6 +128,7 @@ weight: 10413
     echo "0"
     -
     0
+    
     -
      .. ok
     cmd( 3):
@@ -129,6 +138,7 @@ weight: 10413
     echo "world"
     -
     world
+    
     -
      .. ok
     cmd( 4):
@@ -138,6 +148,7 @@ weight: 10413
     echo hanks
     -
     hanks
+    
     -
      .. ok
     . ok
@@ -149,7 +160,8 @@ weight: 10413
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -161,6 +173,7 @@ weight: 10413
         Output: "hanks",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "greet": "hello: hanks\n"
     })
     
@@ -171,6 +184,7 @@ weight: 10413
     echo tom
     -
     tom
+    
     -
      .. ok
     cmd( 2):
@@ -180,6 +194,7 @@ weight: 10413
     echo "hanks"
     -
     hanks
+    
     -
      .. ok
     cmd( 3):
@@ -189,6 +204,7 @@ weight: 10413
     echo hanks
     -
     hanks
+    
     -
      .. ok
     cmd( 4):
@@ -199,6 +215,7 @@ weight: 10413
     "
     -
     hello: hanks
+    
     
     -
      .. ok

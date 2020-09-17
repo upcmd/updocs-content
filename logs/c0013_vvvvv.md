@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10134
 
@@ -22,6 +22,7 @@ weight: 10134
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10134
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bcf60)(<nil>)
+    (*impl.Scopes)(0xc0001e4f20)(<nil>)
     
     ---------group vars----------
     
@@ -45,10 +46,10 @@ weight: 10134
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "studentname": "Jason",
-      "a": "runtime-a"
+      "studentname": "Jason"
     }
     
     (core.Cache) (len=4) {
@@ -106,11 +107,12 @@ weight: 10134
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "school": "SG",
       "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "school": "SG"
+      "k": "runtime-k"
     })
     
     [local] dvar expanded result:
@@ -119,22 +121,24 @@ weight: 10134
     
     
     scope[local] merged: {
-      "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "school": "SG"
+      "up_runtime_task_layer_number": 0,
+      "school": "SG",
+      "studentname": "Tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "studentname": "Tom",
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
-      "school": "SG"
+      "up_runtime_task_layer_number": 0,
+      "school": "SG",
+      "studentname": "Tom"
     })
     
     cmd( 1):
@@ -144,6 +148,7 @@ weight: 10134
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -160,6 +165,7 @@ weight: 10134
     echo "hello Tom"
     -
     hello Tom
+    
     -
      .. ok
     (utils.ExecResult) {

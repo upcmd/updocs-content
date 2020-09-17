@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvvv"
-date: 2020-08-18T15:15:48+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10084
 
@@ -22,6 +22,7 @@ weight: 10084
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10084
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177c40)((len=5 cap=5) {
+    (*impl.Scopes)(0xc00025bc00)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -57,8 +58,8 @@ weight: 10084
        (string) (len=4) "prod"
       },
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "c": (string) (len=6) "prod-c",
-       (string) (len=1) "a": (string) (len=6) "prod-a"
+       (string) (len=1) "a": (string) (len=6) "prod-a",
+       (string) (len=1) "c": (string) (len=6) "prod-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -95,8 +96,8 @@ weight: 10084
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=2) {
-       (string) (len=1) "a": (string) (len=5) "dev-a",
-       (string) (len=1) "c": (string) (len=5) "dev-c"
+       (string) (len=1) "c": (string) (len=5) "dev-c",
+       (string) (len=1) "a": (string) (len=5) "dev-a"
       },
       Dvars: (impl.Dvars) <nil>
      }
@@ -121,8 +122,8 @@ weight: 10084
     
     
     scope[prod] merged: {
-      "c": "prod-c",
-      "a": "prod-a"
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -132,32 +133,32 @@ weight: 10084
     
     
     scope[nonprod] merged: {
+      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a",
-      "b": "non-prod-b"
+      "a": "non-prod-a"
     }
     
     
     ---------group vars----------
     
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
-    
-    
     nonprod: {
-      "c": "non-prod-c",
       "a": "non-prod-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "non-prod-c"
     }
     
     
     global: {
-      "d": "global-d",
-      "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
+      "c": "global-c",
+      "d": "global-d",
+      "a": "global-a"
+    }
+    
+    
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
     }
     
     
@@ -168,17 +169,17 @@ weight: 10084
     
     
     scope[dev] merged: {
-      "c": "dev-c",
-      "a": "dev-a"
+      "a": "dev-a",
+      "c": "dev-c"
     }
     
     
     merged[ dev ] runtime vars:
     {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "c": "dev-c",
+      "d": "global-d"
     }
     
     (core.Cache) (len=4) {
@@ -232,10 +233,11 @@ weight: 10084
     
     current exec runtime vars:
     (*core.Cache)({
+      "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0,
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a",
-      "b": "non-prod-b"
+      "a": "dev-a"
     })
     
     [local] dvar expanded result:
@@ -244,20 +246,22 @@ weight: 10084
     
     
     scope[local] merged: {
-      "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b",
-      "c": "dev-c"
+      "up_runtime_task_layer_number": 0,
+      "c": "dev-c",
+      "d": "global-d"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a"
+      "a": "dev-a",
+      "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -267,6 +271,7 @@ weight: 10084
     echo "test out the var scopes only"
     -
     test out the var scopes only
+    
     -
      .. ok
     (utils.ExecResult) {

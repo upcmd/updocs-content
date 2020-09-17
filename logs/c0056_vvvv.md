@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:28+99:00
 draft: false
 weight: 10563
 
@@ -22,6 +22,7 @@ weight: 10563
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -98,109 +99,6 @@ weight: 10563
           "name": "Australia"
         },
         {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "population": "2000m",
-          "name": "British"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      }
-    })
-    
-    cmd( 1):
-    echo "hello {{.loopitem}}"
-    
-    cmd=>:
-    echo "hello tom"
-    -
-    hello tom
-    -
-     .. ok
-    cmd( 1):
-    echo "hello {{.loopitem}}"
-    
-    cmd=>:
-    echo "hello peter"
-    -
-    hello peter
-    -
-     .. ok
-    cmd( 1):
-    echo "hello {{.loopitem}}"
-    
-    cmd=>:
-    echo "hello james"
-    -
-    hello james
-    -
-     .. ok
-    . ok
-    -Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
           "name": "British",
           "population": "2000m"
         },
@@ -213,107 +111,12 @@ weight: 10563
           "name": "Danmark"
         }
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      })
-    })
-    
-    cmd( 1):
-    echo "name {{.loopitem.name}}"
-    
-    cmd=>:
-    echo "name tom"
-    -
-    name tom
-    -
-     .. ok
-    cmd( 2):
-    echo "age {{.loopitem.age}}"
-    
-    cmd=>:
-    echo "age 11"
-    -
-    age 11
-    -
-     .. ok
-    cmd( 1):
-    echo "name {{.loopitem.name}}"
-    
-    cmd=>:
-    echo "name peter"
-    -
-    name peter
-    -
-     .. ok
-    cmd( 2):
-    echo "age {{.loopitem.age}}"
-    
-    cmd=>:
-    echo "age 45"
-    -
-    age 45
-    -
-     .. ok
-    cmd( 1):
-    echo "name {{.loopitem.name}}"
-    
-    cmd=>:
-    echo "name james"
-    -
-    name james
-    -
-     .. ok
-    cmd( 2):
-    echo "age {{.loopitem.age}}"
-    
-    cmd=>:
-    echo "age 23"
-    -
-    age 23
-    -
-     .. ok
-    . ok
-    -Step3:
-    current exec runtime vars:
-    (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"age 23\"",
-        Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      })
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"age 23\"",
-        Code: 0,
-        Output: "age 23",
-        ErrMsg: ""
-      }),
       "countries": {
         {
           "population": "20m",
@@ -328,53 +131,48 @@ weight: 10563
           "population": "1.4b"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello Australia"
+    echo "hello tom"
     -
-    hello Australia
+    hello tom
+    
     -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello British"
+    echo "hello peter"
     -
-    hello British
+    hello peter
+    
     -
      .. ok
     cmd( 1):
     echo "hello {{.loopitem}}"
     
     cmd=>:
-    echo "hello China"
+    echo "hello james"
     -
-    hello China
-    -
-     .. ok
-    cmd( 1):
-    echo "hello {{.loopitem}}"
+    hello james
     
-    cmd=>:
-    echo "hello Danmark"
-    -
-    hello Danmark
     -
      .. ok
     . ok
-    -Step4: [: the loop point to a iteratable var countries
-     ]
+    -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "countries": {
         {
           "name": "Australia",
@@ -394,9 +192,9 @@ weight: 10563
         }
       },
       "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello Danmark\"",
+        Cmd: "echo \"hello james\"",
         Code: 0,
-        Output: "hello Danmark",
+        Output: "hello james",
         ErrMsg: ""
       })
     })
@@ -418,6 +216,199 @@ weight: 10563
           "population": "1.4b"
         },
         {
+          "population": "30m",
+          "name": "Danmark"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    cmd( 1):
+    echo "name {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "name tom"
+    -
+    name tom
+    
+    -
+     .. ok
+    cmd( 2):
+    echo "age {{.loopitem.age}}"
+    
+    cmd=>:
+    echo "age 11"
+    -
+    age 11
+    
+    -
+     .. ok
+    cmd( 1):
+    echo "name {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "name peter"
+    -
+    name peter
+    
+    -
+     .. ok
+    cmd( 2):
+    echo "age {{.loopitem.age}}"
+    
+    cmd=>:
+    echo "age 45"
+    -
+    age 45
+    
+    -
+     .. ok
+    cmd( 1):
+    echo "name {{.loopitem.name}}"
+    
+    cmd=>:
+    echo "name james"
+    -
+    name james
+    
+    -
+     .. ok
+    cmd( 2):
+    echo "age {{.loopitem.age}}"
+    
+    cmd=>:
+    echo "age 23"
+    -
+    age 23
+    
+    -
+     .. ok
+    . ok
+    -Step3:
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      }),
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "population": "1.4b",
+          "name": "China"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"age 23\"",
+        Code: 0,
+        Output: "age 23",
+        ErrMsg: ""
+      }),
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "name": "British",
+          "population": "2000m"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    cmd( 1):
+    echo "hello {{.loopitem}}"
+    
+    cmd=>:
+    echo "hello Australia"
+    -
+    hello Australia
+    
+    -
+     .. ok
+    cmd( 1):
+    echo "hello {{.loopitem}}"
+    
+    cmd=>:
+    echo "hello British"
+    -
+    hello British
+    
+    -
+     .. ok
+    cmd( 1):
+    echo "hello {{.loopitem}}"
+    
+    cmd=>:
+    echo "hello China"
+    -
+    hello China
+    
+    -
+     .. ok
+    cmd( 1):
+    echo "hello {{.loopitem}}"
+    
+    cmd=>:
+    echo "hello Danmark"
+    -
+    hello Danmark
+    
+    -
+     .. ok
+    . ok
+    -Step4: [: the loop point to a iteratable var countries
+     ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "population": "1.4b",
+          "name": "China"
+        },
+        {
           "name": "Danmark",
           "population": "30m"
         }
@@ -427,7 +418,38 @@ weight: 10563
         Code: 0,
         Output: "hello Danmark",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello Danmark\"",
+        Code: 0,
+        Output: "hello Danmark",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "countries": {
+        {
+          "population": "20m",
+          "name": "Australia"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "population": "1.4b",
+          "name": "China"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      }
     })
     
     cmd( 1):
@@ -437,6 +459,7 @@ weight: 10563
     echo "hello Australia"
     -
     hello Australia
+    
     -
      .. ok
     cmd( 2):
@@ -446,6 +469,7 @@ weight: 10563
     echo "hello 20m"
     -
     hello 20m
+    
     -
      .. ok
     cmd( 1):
@@ -455,6 +479,7 @@ weight: 10563
     echo "hello British"
     -
     hello British
+    
     -
      .. ok
     cmd( 2):
@@ -464,6 +489,7 @@ weight: 10563
     echo "hello 2000m"
     -
     hello 2000m
+    
     -
      .. ok
     cmd( 1):
@@ -473,6 +499,7 @@ weight: 10563
     echo "hello China"
     -
     hello China
+    
     -
      .. ok
     cmd( 2):
@@ -482,6 +509,7 @@ weight: 10563
     echo "hello 1.4b"
     -
     hello 1.4b
+    
     -
      .. ok
     cmd( 1):
@@ -491,6 +519,7 @@ weight: 10563
     echo "hello Danmark"
     -
     hello Danmark
+    
     -
      .. ok
     cmd( 2):
@@ -500,6 +529,7 @@ weight: 10563
     echo "hello 30m"
     -
     hello 30m
+    
     -
      .. ok
     . ok
@@ -530,23 +560,18 @@ weight: 10563
         Code: 0,
         Output: "hello 30m",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 30m\"",
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      }),
       "listname": "countries",
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
@@ -560,7 +585,14 @@ weight: 10563
           "name": "Danmark",
           "population": "30m"
         }
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 30m\"",
+        Code: 0,
+        Output: "hello 30m",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -570,6 +602,7 @@ weight: 10563
     echo "hello 0"
     -
     hello 0
+    
     -
      .. ok
     cmd( 2):
@@ -579,6 +612,7 @@ weight: 10563
     echo "hello 1"
     -
     hello 1
+    
     -
      .. ok
     cmd( 3):
@@ -588,6 +622,7 @@ weight: 10563
     echo "hello Australia"
     -
     hello Australia
+    
     -
      .. ok
     cmd( 4):
@@ -597,6 +632,7 @@ weight: 10563
     echo "hello 20m"
     -
     hello 20m
+    
     -
      .. ok
     cmd( 1):
@@ -606,6 +642,7 @@ weight: 10563
     echo "hello 1"
     -
     hello 1
+    
     -
      .. ok
     cmd( 2):
@@ -615,6 +652,7 @@ weight: 10563
     echo "hello 2"
     -
     hello 2
+    
     -
      .. ok
     cmd( 3):
@@ -624,6 +662,7 @@ weight: 10563
     echo "hello British"
     -
     hello British
+    
     -
      .. ok
     cmd( 4):
@@ -633,6 +672,7 @@ weight: 10563
     echo "hello 2000m"
     -
     hello 2000m
+    
     -
      .. ok
     cmd( 1):
@@ -642,6 +682,7 @@ weight: 10563
     echo "hello 2"
     -
     hello 2
+    
     -
      .. ok
     cmd( 2):
@@ -651,6 +692,7 @@ weight: 10563
     echo "hello 3"
     -
     hello 3
+    
     -
      .. ok
     cmd( 3):
@@ -660,6 +702,7 @@ weight: 10563
     echo "hello China"
     -
     hello China
+    
     -
      .. ok
     cmd( 4):
@@ -669,6 +712,7 @@ weight: 10563
     echo "hello 1.4b"
     -
     hello 1.4b
+    
     -
      .. ok
     cmd( 1):
@@ -678,6 +722,7 @@ weight: 10563
     echo "hello 3"
     -
     hello 3
+    
     -
      .. ok
     cmd( 2):
@@ -687,6 +732,7 @@ weight: 10563
     echo "hello 4"
     -
     hello 4
+    
     -
      .. ok
     cmd( 3):
@@ -696,6 +742,7 @@ weight: 10563
     echo "hello Danmark"
     -
     hello Danmark
+    
     -
      .. ok
     cmd( 4):
@@ -705,6 +752,7 @@ weight: 10563
     echo "hello 30m"
     -
     hello 30m
+    
     -
      .. ok
     . ok

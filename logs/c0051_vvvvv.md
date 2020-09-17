@@ -1,6 +1,6 @@
 ---
 title: "c0051_vvvvv"
-date: 2020-08-18T15:15:56+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10514
 
@@ -22,6 +22,7 @@ weight: 10514
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10514
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f55c0)((len=2 cap=2) {
+    (*impl.Scopes)(0xc0001e55e0)((len=2 cap=2) {
      (impl.Scope) {
       Name: (string) (len=7) "nonprod",
       Ref: (string) "",
@@ -84,17 +85,17 @@ weight: 10514
     
     ---------group vars----------
     
-    nonprod: {
-      "enc_key": "my_non_enc_key"
-    }
-    
-    
     prod: {
       "enc_key": "my_prod_enc_key"
     }
     
     
     global: {
+    }
+    
+    
+    nonprod: {
+      "enc_key": "my_non_enc_key"
     }
     
     
@@ -106,15 +107,15 @@ weight: 10514
     }
     
     (core.Cache) (len=2) {
-     (string) (len=7) "enc_key": (string) (len=14) "my_non_enc_key",
-     (string) (len=9) "bank_acct": (string) (len=9) "1234-5678"
+     (string) (len=9) "bank_acct": (string) (len=9) "1234-5678",
+     (string) (len=7) "enc_key": (string) (len=14) "my_non_enc_key"
     }
     
     dvar> bank_password_encrypted:
-    "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4="
+    "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI="
     
     -
-    9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=
+    LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=
     dvar> bank_password_decrypted:
     "mybankpassword"
     
@@ -132,7 +133,7 @@ weight: 10514
     6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=
     [runtime global] dvar expanded result:
     {
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
       "bank_password_decrypted": "mybankpassword",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password": "mybankpassword",
@@ -144,14 +145,14 @@ weight: 10514
     -------runtime global final merged with dvars-------
     
     {
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "enc_key": "my_non_enc_key",
+      "bank_acct": "1234-5678",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
       "bank_password_decrypted": "mybankpassword",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password": "mybankpassword",
-      "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4="
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     }
     
       located task-> 1 [task]: 
@@ -182,14 +183,15 @@ weight: 10514
     
     current exec runtime vars:
     (*core.Cache)({
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
+      "bank_acct": "1234-5678",
+      "secure_bank_password": "mybankpassword",
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
+      "up_runtime_task_layer_number": 0,
       "bank_password_decrypted": "mybankpassword",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password": "mybankpassword",
-      "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password_using_defause_config": "mybankpassword"
+      "enc_key": "my_non_enc_key"
     })
     
     [local] dvar expanded result:
@@ -198,40 +200,43 @@ weight: 10514
     
     
     scope[local] merged: {
-      "bank_acct": "1234-5678",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
-      "bank_password_decrypted": "mybankpassword",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password": "mybankpassword",
-      "enc_key": "my_non_enc_key"
+      "up_runtime_task_layer_number": 0,
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_acct": "1234-5678",
+      "enc_key": "my_non_enc_key",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
+      "bank_password_decrypted": "mybankpassword",
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "secure_bank_password": "mybankpassword"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
-      "bank_password_decrypted": "mybankpassword",
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_acct": "1234-5678",
       "secure_bank_password": "mybankpassword",
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678"
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
+      "up_runtime_task_layer_number": 0,
+      "bank_password_decrypted": "mybankpassword",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     })
     
     caller's vars to task (task_generate_password)::
     (*core.Cache)({
-      "bank_password_decrypted": "mybankpassword",
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password": "mybankpassword",
-      "enc_key": "my_non_enc_key",
-      "bank_acct": "1234-5678",
       "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4="
+      "bank_acct": "1234-5678",
+      "bank_password_decrypted": "mybankpassword",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "enc_key": "my_non_enc_key",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [task_generate_password]: 
@@ -269,15 +274,15 @@ weight: 10514
     
     current exec runtime vars:
     (*core.Cache)({
-      "secure_bank_password_using_defause_config": "mybankpassword",
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password": "mybankpassword",
-      "enc_key": "my_non_enc_key",
       "up_runtime_task_layer_number": 1,
-      "bank_acct": "1234-5678",
+      "bank_password_decrypted": "mybankpassword",
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "secure_bank_password": "mybankpassword",
       "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
-      "bank_password_decrypted": "mybankpassword"
+      "enc_key": "my_non_enc_key",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_acct": "1234-5678"
     })
     
     [local] dvar expanded result:
@@ -286,30 +291,30 @@ weight: 10514
     
     
     scope[local] merged: {
-      "bank_password_decrypted": "mybankpassword",
-      "bank_acct": "1234-5678",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "enc_key": "my_non_enc_key",
-      "up_runtime_task_layer_number": 1,
-      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
       "secure_bank_password": "mybankpassword",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
-      "secure_bank_password_using_defause_config": "mybankpassword"
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_password_decrypted": "mybankpassword",
+      "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
+      "bank_acct": "1234-5678",
+      "enc_key": "my_non_enc_key",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "bank_password_decrypted": "mybankpassword",
-      "bank_acct": "1234-5678",
-      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "bank_password_encrypted": "9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=",
       "enc_key": "my_non_enc_key",
-      "up_runtime_task_layer_number": 1,
-      "secure_bank_password_using_defause_config": "mybankpassword",
+      "bank_password_encrypted": "LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=",
       "bank_password": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=",
-      "secure_bank_password": "mybankpassword"
+      "bank_acct": "1234-5678",
+      "up_runtime_task_layer_number": 1,
+      "bank_password_decrypted": "mybankpassword",
+      "secure_bank_password_using_defause_config": "mybankpassword",
+      "secure_bank_password": "mybankpassword",
+      "bank_password_using_defause_config": "6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY="
     })
     
     cmd( 1):
@@ -319,6 +324,7 @@ weight: 10514
     echo "bank account  [1234-5678]"
     -
     bank account  [1234-5678]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -332,15 +338,16 @@ weight: 10514
     echo "bank password encrypted [{{.bank_password_encrypted}}]"
     
     cmd=>:
-    echo "bank password encrypted [9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=]"
+    echo "bank password encrypted [LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=]"
     -
-    bank password encrypted [9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=]
+    bank password encrypted [LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=]
+    
     -
      .. ok
     (utils.ExecResult) {
-     Cmd: (string) (len=77) "echo \"bank password encrypted [9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=]\"",
+     Cmd: (string) (len=77) "echo \"bank password encrypted [LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=]\"",
      Code: (int) 0,
-     Output: (string) (len=70) "bank password encrypted [9ViqU3SnSqxSm3LrjNgIN9KDgmQHyvfvDxLnCmXQfb4=]",
+     Output: (string) (len=70) "bank password encrypted [LRiCgzPslfeSZvelo3NL7Q8u9zId0OMRbXH0uCEvnlI=]",
      ErrMsg: (string) ""
     }
     
@@ -351,6 +358,7 @@ weight: 10514
     echo "bank password [6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=]"
     -
     bank password [6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -367,6 +375,7 @@ weight: 10514
     echo "secure bank password [mybankpassword]"
     -
     secure bank password [mybankpassword]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -383,6 +392,7 @@ weight: 10514
     echo "bank password using default config [6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=]"
     -
     bank password using default config [6HmsmiJIW1PfIXcF4WwOKOMDiL7PstgfKs2aRFajrwY=]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -399,6 +409,7 @@ weight: 10514
     echo "secure bank password using default config [mybankpassword]"
     -
     secure bank password using default config [mybankpassword]
+    
     -
      .. ok
     (utils.ExecResult) {

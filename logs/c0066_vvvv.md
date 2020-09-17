@@ -1,6 +1,6 @@
 ---
 title: "c0066_vvvv"
-date: 2020-08-18T15:15:59+88:00
+date: 2020-09-18T00:51:30+99:00
 draft: false
 weight: 10663
 
@@ -22,6 +22,7 @@ weight: 10663
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -53,9 +54,9 @@ weight: 10663
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
     }
     
@@ -70,17 +71,19 @@ weight: 10663
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
-      }
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -90,6 +93,7 @@ weight: 10663
     echo "hello 1"
     -
     hello 1
+    
     -
      .. ok
     . ok
@@ -106,7 +110,8 @@ weight: 10663
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -123,6 +128,7 @@ weight: 10663
         Output: "hello 1",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "school": "Sydney Grammar"
     })
     
@@ -142,27 +148,29 @@ weight: 10663
     -Step3: [: the greetlocal will not be availe in this func call ]
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -182,44 +190,8 @@ weight: 10663
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
-    })
-    
-    ~SubStep1: [deReg: demo of deReg command ]
-    deRegister var: greet
-    -Step5: [: you will see that greet var is removed from global var map
-    you will see <no value> here
-     ]
-    current exec runtime vars:
-    (*core.Cache)({
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "up_runtime_task_layer_number": 0,
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
@@ -236,17 +208,57 @@ weight: 10663
     self: final context exec vars:
     
     (*core.Cache)({
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      })
+    })
+    
+    ~SubStep1: [deReg: demo of deReg command ]
+    deRegister var: greet
+    -Step5: [: you will see that greet var is removed from global var map
+    you will see <no value> here
+     ]
+    current exec runtime vars:
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -256,6 +268,7 @@ weight: 10663
     echo "hello <no value>"
     -
     hello <no value>
+    
     -
      .. ok
     . ok

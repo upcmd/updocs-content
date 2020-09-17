@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10443
 
@@ -22,6 +22,7 @@ weight: 10443
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -68,6 +69,7 @@ weight: 10443
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "homedir": "/root",
       "yourhome": "Your path is set to /root "
     })
@@ -76,7 +78,8 @@ weight: 10443
     
     (*core.Cache)({
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -87,14 +90,16 @@ weight: 10443
     current exec runtime vars:
     (*core.Cache)({
       "homedir": "/root",
-      "yourhome": "Your path is set to /root "
+      "yourhome": "Your path is set to /root ",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "homedir": "/root",
       "yourhome": "Your path is set to /root ",
-      "homedir": "/root"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -104,6 +109,7 @@ weight: 10443
     echo """my home is at /root"""
     -
     my home is at /root
+    
     -
      .. ok
     cmd( 2):
@@ -113,6 +119,7 @@ weight: 10443
     echo """my home is at $HOME"""
     -
     my home is at /root
+    
     -
      .. ok
     cmd( 3):
@@ -122,6 +129,7 @@ weight: 10443
     echo """Your path is set to /root """
     -
     Your path is set to /root 
+    
     -
      .. ok
     . ok

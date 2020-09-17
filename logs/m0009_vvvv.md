@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:28+99:00
 draft: false
 weight: 100903
 
@@ -22,6 +22,7 @@ weight: 100903
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0009

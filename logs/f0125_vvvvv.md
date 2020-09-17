@@ -1,6 +1,6 @@
 ---
 title: "f0125_vvvvv"
-date: 2020-08-18T15:16:29+88:00
+date: 2020-09-18T00:52:02+99:00
 draft: false
 weight: 11254
 
@@ -22,6 +22,7 @@ weight: 11254
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11254
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000241360)(<nil>)
+    (*impl.Scopes)(0xc000173320)(<nil>)
     
     ---------group vars----------
     
@@ -90,6 +91,7 @@ weight: 11254
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -98,16 +100,19 @@ weight: 11254
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (layer2)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [layer2]: 
@@ -119,8 +124,8 @@ weight: 11254
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "up_runtime_task_layer_number: {{.up_runtime_task_layer_number}}"
+          "cmd": "up_runtime_task_layer_number: {{.up_runtime_task_layer_number}}",
+          "name": "print"
         }
       },
       Dox: <nil>,

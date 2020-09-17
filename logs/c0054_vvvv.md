@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:28+99:00
 draft: false
 weight: 10543
 
@@ -22,6 +22,7 @@ weight: 10543
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10543
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10543
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     . ok
@@ -81,7 +85,8 @@ weight: 10543
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -92,7 +97,8 @@ weight: 10543
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -100,13 +106,15 @@ weight: 10543
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -122,13 +130,15 @@ weight: 10543
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)(<nil>)
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -138,6 +148,7 @@ weight: 10543
     echo "step1"
     -
     step1
+    
     -
      .. ok
     cmd( 2):
@@ -146,6 +157,7 @@ weight: 10543
     cmd=>:
     echo "step2" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     cmd( 3):
@@ -155,6 +167,7 @@ weight: 10543
     echo "step3"
     -
     step3
+    
     -
      .. ok
     . ok
@@ -166,7 +179,8 @@ weight: 10543
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -177,7 +191,8 @@ weight: 10543
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -187,6 +202,7 @@ weight: 10543
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     . ok
@@ -198,7 +214,8 @@ weight: 10543
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> last_task_succeeded:
@@ -215,6 +232,7 @@ weight: 10543
         Output: "hello, world",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "last_task_succeeded": "true"
     })
     
@@ -225,6 +243,7 @@ weight: 10543
     echo "check last step"
     -
     check last step
+    
     -
      .. ok
     cmd( 2):
@@ -234,6 +253,7 @@ weight: 10543
     echo "{"Cmd":"echo \"hello, world\"","Code":0,"Output":"hello, world","ErrMsg":""}"
     -
     {Cmd:echo "hello, world",Code:0,Output:hello, world,ErrMsg:}
+    
     -
      .. ok
     cmd( 3):
@@ -253,6 +273,7 @@ weight: 10543
       Output: hello, world,
       ErrMsg: 
     }
+    
     -
      .. ok
     cmd( 4):
@@ -262,6 +283,7 @@ weight: 10543
     echo "true"
     -
     true
+    
     -
      .. ok
     . ok
@@ -273,7 +295,8 @@ weight: 10543
         Code: 0,
         Output: "true",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -284,7 +307,8 @@ weight: 10543
         Code: 0,
         Output: "true",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -294,6 +318,7 @@ weight: 10543
     echo "step1"
     -
     step1
+    
     -
      .. ok
     cmd( 2):
@@ -302,9 +327,10 @@ weight: 10543
     cmd=>:
     echo "step2" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
-     WARN: [HightLight:] - [Error ignored!!!]
+     WARN: [ignoreError:] - [Error ignored!!!]
     -Step8:
     current exec runtime vars:
     (*core.Cache)({
@@ -313,7 +339,8 @@ weight: 10543
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -324,7 +351,8 @@ weight: 10543
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -332,12 +360,13 @@ weight: 10543
     -Step9:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>),
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
-      }
+      },
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> condition:
@@ -349,6 +378,7 @@ weight: 10543
     
     (*core.Cache)({
       "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
@@ -364,6 +394,7 @@ weight: 10543
     echo "simple dvar as condition"
     -
     simple dvar as condition
+    
     -
      .. ok
     . ok
@@ -376,6 +407,7 @@ weight: 10543
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
@@ -397,10 +429,11 @@ weight: 10543
         Output: "simple dvar as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       },
       "condition": "true"
     })
@@ -412,6 +445,7 @@ weight: 10543
     echo "complicated dvar evaluation as condition"
     -
     complicated dvar evaluation as condition
+    
     -
      .. ok
     . ok
@@ -424,10 +458,11 @@ weight: 10543
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       }
     })
     
@@ -445,6 +480,7 @@ weight: 10543
         Output: "complicated dvar evaluation as condition",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
@@ -460,6 +496,7 @@ weight: 10543
     echo "a even more complicated condition but more readable"
     -
     a even more complicated condition but more readable
+    
     -
      .. ok
     . ok
@@ -472,10 +509,11 @@ weight: 10543
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       }
     })
     
@@ -488,10 +526,11 @@ weight: 10543
         Output: "a even more complicated condition but more readable",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "age": 23,
         "name": "peter",
-        "sex": "male"
+        "sex": "male",
+        "age": 23
       }
     })
     
@@ -502,6 +541,7 @@ weight: 10543
     echo "a complicated condition without dvar"
     -
     a complicated condition without dvar
+    
     -
      .. ok
     . ok
@@ -516,6 +556,7 @@ weight: 10543
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     
@@ -528,6 +569,7 @@ weight: 10543
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     
@@ -542,6 +584,7 @@ weight: 10543
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     
@@ -554,6 +597,7 @@ weight: 10543
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "doc": "hello"
     })
     

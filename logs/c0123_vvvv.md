@@ -1,6 +1,6 @@
 ---
 title: "c0123_vvvv"
-date: 2020-08-18T15:16:13+88:00
+date: 2020-09-18T00:51:43+99:00
 draft: false
 weight: 11233
 
@@ -22,6 +22,7 @@ weight: 11233
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -52,11 +53,11 @@ weight: 11233
     -------runtime global final merged with dvars-------
     
     {
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     }
     
       located task-> 1 [task]: 
@@ -68,19 +69,21 @@ weight: 11233
     (*core.Cache)({
       "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "name": "tom"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -90,21 +93,23 @@ weight: 11233
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -112,21 +117,23 @@ weight: 11233
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
     current exec runtime vars:
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -134,42 +141,46 @@ weight: 11233
     -Step4: [query:  ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
         "name": "tom",
         "sex": "male"
-      },
-      "ymldoc": "student:\n  name: tom\n  sex: male\n"
+      }
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "name": "tom"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "ymldoc": "student:\n  name: tom\n  sex: male\n",
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "ymldoc": "student:\n  name: tom\n  sex: male\n",
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 

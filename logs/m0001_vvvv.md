@@ -1,6 +1,6 @@
 ---
 title: "0001_vvvv"
-date: 2020-08-18T15:16:51+88:00
+date: 2020-09-18T00:52:27+99:00
 draft: false
 weight: 100103
 
@@ -22,6 +22,7 @@ weight: 100103
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0001
@@ -56,11 +57,13 @@ weight: 100103
     -Step1: [: main job ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 100103
     echo "hello world"
     -
     hello world
+    
     -
      .. ok
     . ok
@@ -81,7 +85,8 @@ weight: 100103
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -92,7 +97,8 @@ weight: 100103
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [internal_task]: 
@@ -140,18 +146,19 @@ weight: 100103
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [hello-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
@@ -183,29 +190,29 @@ weight: 100103
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      })
     })
     
     ~SubStep1: [print:  ]

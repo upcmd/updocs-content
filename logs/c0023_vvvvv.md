@@ -1,6 +1,6 @@
 ---
 title: "c0023_vvvvv"
-date: 2020-08-18T15:15:51+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10234
 
@@ -22,6 +22,7 @@ weight: 10234
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10234
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000098560)(<nil>)
+    (*impl.Scopes)(0xc0001e50e0)(<nil>)
     
     ---------group vars----------
     
@@ -45,58 +46,58 @@ weight: 10234
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "b2": "b2->{{.c3}}",
+      "c3": "c3->{{.d4}}",
+      "d4": "d4->{{.student}}",
       "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
-      "a1": "a1->{{.b2}}",
-      "b2": "b2->{{.c3}}",
-      "c3": "c3->{{.d4}}",
-      "d4": "d4->{{.student}}"
+      "a1": "a1->{{.b2}}"
     }
     
     (core.Cache) (len=7) {
+     (string) (len=6) "gender": (string) (len=4) "Male",
+     (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+     (string) (len=2) "a1": (string) (len=11) "a1->{{.b2}}",
      (string) (len=2) "b2": (string) (len=11) "b2->{{.c3}}",
      (string) (len=2) "c3": (string) (len=11) "c3->{{.d4}}",
      (string) (len=2) "d4": (string) (len=16) "d4->{{.student}}",
-     (string) (len=7) "student": (string) (len=3) "Tom",
-     (string) (len=6) "gender": (string) (len=4) "Male",
-     (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-     (string) (len=2) "a1": (string) (len=11) "a1->{{.b2}}"
+     (string) (len=7) "student": (string) (len=3) "Tom"
     }
     
     [runtime global] dvar expanded result:
     {
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
-      "sex": "Male",
-      "dependon_vars": "Male",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
       "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
       "from": "Sydney Grammar",
-      "dependon_var_and_dvar": "Tom-Male"
+      "sex": "Male",
+      "dependon_vars": "Male",
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "dependon_var_and_dvar": "Tom-Male",
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
+      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
+      "gender": "Male",
+      "sex": "Male",
+      "dependon_var_and_dvar": "Tom-Male",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
       "student": "Tom",
       "school": "Sydney Grammar",
       "b2": "b2->{{.c3}}",
-      "dependon_var_and_dvar": "Tom-Male",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
-      "gender": "Male",
-      "d4": "d4->{{.student}}",
-      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
       "from": "Sydney Grammar",
-      "sex": "Male",
-      "a1": "a1->{{.b2}}",
       "c3": "c3->{{.d4}}",
+      "d4": "d4->{{.student}}",
       "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
+      "a1": "a1->{{.b2}}",
       "dependon_vars": "Male",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}"
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}"
     }
     
       located task-> 1 [task]: 
@@ -136,22 +137,23 @@ weight: 10234
     
     current exec runtime vars:
     (*core.Cache)({
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
-      "gender": "Male",
-      "d4": "d4->{{.student}}",
       "a1": "a1->{{.b2}}",
-      "dependon_vars": "Male",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "school": "Sydney Grammar",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
       "from": "Sydney Grammar",
-      "sex": "Male",
-      "c3": "c3->{{.d4}}",
-      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
-      "student": "Tom",
-      "b2": "b2->{{.c3}}",
       "dependon_var_and_dvar": "Tom-Male",
+      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
+      "dependon_vars": "Male",
+      "student": "Tom",
+      "school": "Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}"
+      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
+      "gender": "Male",
+      "b2": "b2->{{.c3}}",
+      "c3": "c3->{{.d4}}",
+      "sex": "Male",
+      "d4": "d4->{{.student}}",
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}"
     })
     
     [local] dvar expanded result:
@@ -160,44 +162,46 @@ weight: 10234
     
     
     scope[local] merged: {
-      "b2": "b2->{{.c3}}",
-      "dependon_vars": "Male",
-      "sex": "Male",
-      "from": "Sydney Grammar",
-      "student": "Tom",
       "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
-      "d4": "d4->{{.student}}",
-      "a1": "a1->{{.b2}}",
-      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
       "gender": "Male",
+      "b2": "b2->{{.c3}}",
+      "d4": "d4->{{.student}}",
+      "student": "Tom",
+      "school": "Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
+      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
+      "dependon_vars": "Male",
       "c3": "c3->{{.d4}}",
       "dependon_var_and_dvar": "Tom-Male",
-      "school": "Sydney Grammar"
+      "sex": "Male",
+      "a1": "a1->{{.b2}}",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
+      "from": "Sydney Grammar"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "Sydney Grammar",
       "from": "Sydney Grammar",
-      "sex": "Male",
-      "c3": "c3->{{.d4}}",
-      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "b2": "b2->{{.c3}}",
       "dependon_var_and_dvar": "Tom-Male",
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "student": "Tom",
-      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
-      "gender": "Male",
-      "d4": "d4->{{.student}}",
+      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
       "a1": "a1->{{.b2}}",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
+      "school": "Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "dependon_vars": "Male",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom"
+      "student": "Tom",
+      "gender": "Male",
+      "b2": "b2->{{.c3}}",
+      "c3": "c3->{{.d4}}",
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
+      "sex": "Male",
+      "d4": "d4->{{.student}}"
     })
     
     cmd( 1):
@@ -207,6 +211,7 @@ weight: 10234
     echo "student=>Tom"
     -
     student=>Tom
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -223,6 +228,7 @@ weight: 10234
     echo "a1=> a1->b2->{{.c3}}"
     -
     a1=> a1->b2->{{.c3}}
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -239,6 +245,7 @@ weight: 10234
     echo "from->Sydney Grammar"
     -
     from->Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -255,6 +262,7 @@ weight: 10234
     echo "sex->Male"
     -
     sex->Male
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -271,6 +279,7 @@ weight: 10234
     echo "dependon_vars->Male"
     -
     dependon_vars->Male
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -287,6 +296,7 @@ weight: 10234
     echo "dependon_var_and_dvar->Tom-Male"
     -
     dependon_var_and_dvar->Tom-Male
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -303,6 +313,7 @@ weight: 10234
     echo "multple_render_var_level3->multple-render-var-> b2->{{.c3}}"
     -
     multple_render_var_level3->multple-render-var-> b2->{{.c3}}
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -319,6 +330,7 @@ weight: 10234
     echo "multple_render_var_level4-><no value>"
     -
     multple_render_var_level4-><no value>
+    
     -
      .. ok
     (utils.ExecResult) {

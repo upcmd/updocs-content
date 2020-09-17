@@ -1,6 +1,6 @@
 ---
 title: "c0009_vvvv"
-date: 2020-08-18T15:15:48+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10093
 
@@ -22,6 +22,7 @@ weight: 10093
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -53,6 +54,12 @@ weight: 10093
     
     ---------group vars----------
     
+    prod: {
+      "a": "prod-a",
+      "c": "prod-c"
+    }
+    
+    
     nonprod: {
       "b": "non-prod-b",
       "c": "non-prod-c",
@@ -61,35 +68,29 @@ weight: 10093
     
     
     global: {
-      "a": "global-a",
-      "b": "global-b",
       "c": "global-c",
-      "d": "global-d"
-    }
-    
-    
-    prod: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "d": "global-d",
+      "a": "global-a",
+      "b": "global-b"
     }
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
     {
-      "a": "dev-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "c": "dev-c",
-      "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d"
     }
     
       located task-> 1 [task]: 
@@ -100,6 +101,7 @@ weight: 10093
     current exec runtime vars:
     (*core.Cache)({
       "c": "dev-c",
+      "up_runtime_task_layer_number": 0,
       "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b"
@@ -108,10 +110,11 @@ weight: 10093
     self: final context exec vars:
     
     (*core.Cache)({
-      "c": "dev-c",
+      "up_runtime_task_layer_number": 0,
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "b": "non-prod-b",
+      "c": "dev-c"
     })
     
     cmd( 1):
@@ -121,6 +124,7 @@ weight: 10093
     echo "test out the var scopes only"
     -
     test out the var scopes only
+    
     -
      .. ok
     . ok

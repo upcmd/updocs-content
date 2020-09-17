@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvvv"
-date: 2020-08-18T15:15:56+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10484
 
@@ -22,6 +22,7 @@ weight: 10484
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10484
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c080)(<nil>)
+    (*impl.Scopes)(0xc0001bf280)(<nil>)
     
     ---------group vars----------
     
@@ -108,16 +109,18 @@ weight: 10484
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
     {
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "STUDENT_NAME": "Tom Hanks",
       "envVar_STUDENT_NAME": "Tom Hanks"
     }
@@ -126,8 +129,9 @@ weight: 10484
     self: final context exec vars:
     
     (*core.Cache)({
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "up_runtime_task_layer_number": 0,
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
@@ -137,6 +141,7 @@ weight: 10484
     env |grep STUDENT_NAME
     -
     STUDENT_NAME=Tom Hanks
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -211,7 +216,8 @@ weight: 10484
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -223,15 +229,16 @@ weight: 10484
     
     
     scope[local] merged: {
-      "student_name_re_map": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_NAME",
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
-      })
+      }),
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks"
     }
     
     
@@ -244,9 +251,10 @@ weight: 10484
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
       }),
-      "student_name_re_map": "Tom Hanks",
+      "up_runtime_task_layer_number": 0,
       "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks"
     })
     
     cmd( 1):
@@ -256,6 +264,7 @@ weight: 10484
     env |grep STUDENT_NAME
     -
     STUDENT_NAME=Tom Hanks
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -272,6 +281,7 @@ weight: 10484
     echo "student_name_re_map is [Tom Hanks]"
     -
     student_name_re_map is [Tom Hanks]
+    
     -
      .. ok
     (utils.ExecResult) {

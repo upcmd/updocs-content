@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10223
 
@@ -22,6 +22,7 @@ weight: 10223
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -59,7 +60,8 @@ weight: 10223
       "gender": "Male",
       "school": "Sydney Grammar",
       "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
-      "student": "Tom"
+      "student": "Tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -68,6 +70,7 @@ weight: 10223
       "school": "Sydney Grammar",
       "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "student": "Tom",
+      "up_runtime_task_layer_number": 0,
       "gender": "Male"
     })
     
@@ -85,6 +88,7 @@ weight: 10223
     my student: {{.student}}
     student's gender: {{.gender}}
     school's name: {{.school}}
+    
     
     -
      .. ok

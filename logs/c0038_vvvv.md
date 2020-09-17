@@ -1,6 +1,6 @@
 ---
 title: "c0038_vvvv"
-date: 2020-08-18T15:15:54+88:00
+date: 2020-09-18T00:51:25+99:00
 draft: false
 weight: 10383
 
@@ -22,6 +22,7 @@ weight: 10383
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,8 +43,19 @@ weight: 10383
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "age": 34,
+      "old": 54,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
       "student": {
-        "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
@@ -57,23 +69,12 @@ weight: 10383
             "cbd": true
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom"
       },
       "ns": "prod",
       "pod_name": "web_app",
-      "ha": true,
-      "age": 34,
-      "old": 54,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      }
+      "ha": true
     }
     
     dvar> sprig_trim:
@@ -99,41 +100,41 @@ weight: 10383
     -------runtime global final merged with dvars-------
     
     {
-      "ha": true,
-      "var_slice_index": "jason",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "old": 54,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
       "student": {
+        "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
+            "cbd": true
+          }
         },
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "ns": "prod",
-      "pod_name": "web_app",
+      "var_slice_index": "jason",
       "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
       "gtf_ljust": "Hello!              ",
+      "pod_name": "web_app",
+      "ha": true,
       "age": 34,
+      "old": 54,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
       "sprig_trim": "hello"
     }
     
@@ -144,83 +145,85 @@ weight: 10383
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "ns": "prod",
-      "pod_name": "web_app",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "ha": true,
       "gtf_ljust": "Hello!              ",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
       "student": {
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "cbd": true,
+            "name": "sydney",
+            "postcode": 2000
+          }
+        },
         "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
-        },
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
         }
       },
-      "sprig_trim": "hello",
+      "ns": "prod",
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_slice_index": "jason",
+      "sprig_trim": "hello",
       "age": 34,
-      "old": 54
+      "old": 54,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "pod_name": "web_app",
+      "var_slice_index": "jason",
+      "up_runtime_task_layer_number": 0,
+      "ha": true
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
       "var_slice_index": "jason",
+      "up_runtime_task_layer_number": 0,
+      "ha": true,
       "age": 34,
       "old": 54,
-      "student": {
-        "address": {
-          "suburb": {
-            "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom",
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        }
-      },
-      "sprig_trim": "hello",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "ha": true,
-      "gtf_ljust": "Hello!              ",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
+      "pod_name": "web_app",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "sprig_trim": "hello",
+      "gtf_ljust": "Hello!              ",
+      "student": {
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        },
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "cbd": true,
+            "name": "sydney",
+            "postcode": 2000
+          }
+        },
+        "name": "Tom"
+      },
       "ns": "prod",
-      "pod_name": "web_app"
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd"
     })
     
     cmd( 1):
@@ -230,6 +233,7 @@ weight: 10383
     echo "check the value of other dvar using vvvv flag print out"
     -
     check the value of other dvar using vvvv flag print out
+    
     -
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:28+99:00
 draft: false
 weight: 100904
 
@@ -22,6 +22,7 @@ weight: 100904
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0009
@@ -34,7 +35,7 @@ weight: 100904
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf8c0)(<nil>)
+    (*impl.Scopes)(0xc0001ef880)(<nil>)
     
     ---------group vars----------
     

@@ -1,6 +1,6 @@
 ---
 title: "c0068_vvvvv"
-date: 2020-08-18T15:16:00+88:00
+date: 2020-09-18T00:51:30+99:00
 draft: false
 weight: 10684
 
@@ -22,6 +22,7 @@ weight: 10684
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10684
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000176fc0)(<nil>)
+    (*impl.Scopes)(0xc000172fe0)(<nil>)
     
     ---------group vars----------
     
@@ -92,6 +93,7 @@ weight: 10684
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -100,12 +102,14 @@ weight: 10684
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -115,6 +119,7 @@ weight: 10684
     echo "hello"
     -
     hello
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -130,6 +135,7 @@ weight: 10684
     cmd=>:
     echo "world"|grep non-exist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -146,6 +152,7 @@ weight: 10684
     echo "world"
     -
     world
+    
     -
      .. ok
     (utils.ExecResult) {

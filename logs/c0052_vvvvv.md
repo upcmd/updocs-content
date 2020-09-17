@@ -1,6 +1,6 @@
 ---
 title: "c0052_vvvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10524
 
@@ -22,6 +22,7 @@ weight: 10524
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10524
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf1e0)(<nil>)
+    (*impl.Scopes)(0xc0001e71a0)(<nil>)
     
     ---------group vars----------
     
@@ -94,6 +95,7 @@ weight: 10524
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -102,12 +104,14 @@ weight: 10524
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -117,6 +121,7 @@ weight: 10524
     echo "step1"
     -
     step1
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -132,6 +137,7 @@ weight: 10524
     cmd=>:
     echo "step2" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -148,6 +154,7 @@ weight: 10524
     echo "step3"
     -
     step3
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -193,7 +200,8 @@ weight: 10524
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -207,7 +215,8 @@ weight: 10524
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -219,7 +228,8 @@ weight: 10524
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -229,6 +239,7 @@ weight: 10524
     echo "step4"
     -
     step4
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -244,6 +255,7 @@ weight: 10524
     cmd=>:
     echo "step5" |grep notexist
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -260,6 +272,7 @@ weight: 10524
     echo "step6"
     -
     step6
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -303,7 +316,8 @@ weight: 10524
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -312,6 +326,7 @@ weight: 10524
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step6\"",
         Code: 0,
@@ -324,6 +339,7 @@ weight: 10524
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step6\"",
         Code: 0,
@@ -339,6 +355,7 @@ weight: 10524
     echo "step7"
     -
     step7
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -355,6 +372,7 @@ weight: 10524
     echo "step8"
     -
     step8
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -371,6 +389,7 @@ weight: 10524
     echo "step9"
     -
     step9
+    
     -
      .. ok
     (utils.ExecResult) {

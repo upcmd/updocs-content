@@ -1,6 +1,6 @@
 ---
 title: "c0147_vvvvv"
-date: 2020-08-18T15:16:19+88:00
+date: 2020-09-18T00:51:49+99:00
 draft: false
 weight: 11474
 
@@ -22,6 +22,7 @@ weight: 11474
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11474
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf480)(<nil>)
+    (*impl.Scopes)(0xc0002049a0)(<nil>)
     
     ---------group vars----------
     
@@ -46,12 +47,12 @@ weight: 11474
     merged[ dev ] runtime vars:
     {
       "a": "aaa",
-      "b": "bbb",
+      "b": "bbb-global",
       "c": "ccc"
     }
     
     (core.Cache) (len=3) {
-     (string) (len=1) "b": (string) (len=3) "bbb",
+     (string) (len=1) "b": (string) (len=10) "bbb-global",
      (string) (len=1) "c": (string) (len=3) "ccc",
      (string) (len=1) "a": (string) (len=3) "aaa"
     }
@@ -65,7 +66,7 @@ weight: 11474
     
     {
       "a": "aaa",
-      "b": "bbb",
+      "b": "bbb-global",
       "c": "ccc"
     }
     
@@ -86,11 +87,11 @@ weight: 11474
           }
         },
         {
+          "name": "assert",
           "cmd": {
             "{{eq .b  \"bbb\"}}",
             "{{eq .d  \"ddd\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -118,6 +119,7 @@ weight: 11474
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "b": "bbb",
       "d": "ddd"
     })
@@ -128,6 +130,7 @@ weight: 11474
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "b": "bbb",
       "d": "ddd"
     }
@@ -136,6 +139,7 @@ weight: 11474
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "b": "bbb",
       "d": "ddd"
     })
@@ -144,15 +148,16 @@ weight: 11474
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "b": "bbb",
       "d": "ddd"
     })
     
      2: inspect[exec_base_vars]
     {
+      "c": "ccc",
       "a": "aaa",
-      "b": "bbb",
-      "c": "ccc"
+      "b": "bbb-global"
     }
     
     [{{eq .b  "bbb"}} {{eq .d  "ddd"}}]
@@ -189,7 +194,8 @@ weight: 11474
     current exec runtime vars:
     (*core.Cache)({
       "e": "first_level_eee",
-      "f": "first_level_fff"
+      "f": "first_level_fff",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -198,6 +204,7 @@ weight: 11474
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "e": "first_level_eee",
       "f": "first_level_fff"
     }
@@ -206,12 +213,14 @@ weight: 11474
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "e": "first_level_eee",
       "f": "first_level_fff"
     })
     
     caller's vars to task (substack)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "e": "first_level_eee",
       "f": "first_level_fff"
     })
@@ -231,14 +240,22 @@ weight: 11474
             "exec_vars",
             "exec_base_vars"
           }
+        },
+        {
+          "name": "assert",
+          "cmd": {
+            "{{eq .f  \"first_level_fff\"}}",
+            "{{eq .e  \"first_level_eee\"}}",
+            "{{eq .g  \"ggg\"}}"
+          }
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "f": "fff",
         "g": "ggg",
-        "h": "hhh"
+        "h": "hhh",
+        "f": "fff"
       },
       Dvars: <nil>,
       Desc: "",
@@ -257,11 +274,11 @@ weight: 11474
     
     current exec runtime vars:
     (*core.Cache)({
+      "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
-      "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff"
+      "e": "first_level_eee"
     })
     
     [local] dvar expanded result:
@@ -270,21 +287,21 @@ weight: 11474
     
     
     scope[local] merged: {
-      "f": "first_level_fff",
-      "g": "ggg",
       "h": "hhh",
+      "up_runtime_task_layer_number": 1,
       "e": "first_level_eee",
-      "up_runtime_task_layer_number": 1
+      "f": "first_level_fff",
+      "g": "ggg"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
+      "up_runtime_task_layer_number": 1,
       "e": "first_level_eee"
     })
     
@@ -292,19 +309,25 @@ weight: 11474
     ~~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "f": "first_level_fff",
       "g": "ggg",
       "h": "hhh",
-      "e": "first_level_eee",
       "up_runtime_task_layer_number": 1,
-      "f": "first_level_fff"
+      "e": "first_level_eee"
     })
     
      2: inspect[exec_base_vars]
     {
       "e": "first_level_eee",
-      "f": "first_level_fff"
+      "f": "first_level_fff",
+      "up_runtime_task_layer_number": 0
     }
     
+    [{{eq .f  "first_level_fff"}} {{eq .e  "first_level_eee"}} {{eq .g  "ggg"}}]
+    ~~SubStep2: [assert:  ]
+     1 ASSERT OK:     [{{eq .f  "first_level_fff"}}]
+     2 ASSERT OK:     [{{eq .e  "first_level_eee"}}]
+     3 ASSERT OK:     [{{eq .g  "ggg"}}]
     
 ```
 

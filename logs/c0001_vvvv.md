@@ -1,6 +1,6 @@
 ---
 title: "c0001_vvvv"
-date: 2020-08-18T15:15:47+88:00
+date: 2020-09-18T00:51:18+99:00
 draft: false
 weight: 10013
 
@@ -22,6 +22,7 @@ weight: 10013
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10013
     -Step1: [: do step1 in shell func ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10013
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -79,6 +83,7 @@ weight: 10013
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok

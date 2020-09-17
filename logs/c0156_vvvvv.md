@@ -1,6 +1,6 @@
 ---
 title: "c0156_vvvvv"
-date: 2020-08-18T15:16:21+88:00
+date: 2020-09-18T00:51:51+99:00
 draft: false
 weight: 11564
 
@@ -22,6 +22,7 @@ weight: 11564
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11564
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000987e0)(<nil>)
+    (*impl.Scopes)(0xc0001f7360)(<nil>)
     
     ---------group vars----------
     
@@ -73,9 +74,9 @@ weight: 11564
       Name: "",
       Do: {
         {
+          "cmd": "{{.school |reg \"myschool\"}}",
           "name": "print",
-          "desc": "Use a actual cmd to register a variable does not make sense, but it is doable.\nIt is not advised to do it this way\n",
-          "cmd": "{{.school |reg \"myschool\"}}"
+          "desc": "Use a actual cmd to register a variable does not make sense, but it is doable.\nIt is not advised to do it this way\n"
         },
         {
           "name": "print",
@@ -98,9 +99,9 @@ weight: 11564
           "cmd": "{{.myschool_object}}"
         },
         {
-          "name": "printObj",
           "desc": "same as above, this will only print the string reprentation of the object\n",
-          "cmd": "{{.myschool_object}}"
+          "cmd": "{{.myschool_object}}",
+          "name": "printObj"
         },
         {
           "name": "printObj",
@@ -128,7 +129,8 @@ weight: 11564
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -137,14 +139,16 @@ weight: 11564
     
     
     scope[local] merged: {
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.school |reg "myschool"}}
@@ -174,10 +178,10 @@ weight: 11564
     ymlToObj:
     (*map[interface {}]interface {})({
       "sg": {
+        "postcode": 2000,
         "name": "sydney grammar",
         "state": "nsw",
-        "address": "sydney",
-        "postcode": 2000
+        "address": "sydney"
       }
     })
     
@@ -230,10 +234,10 @@ weight: 11564
     object:
      myschool_object: (*map[interface {}]interface {})({
       "sg": {
-        "name": "sydney grammar",
         "state": "nsw",
         "address": "sydney",
-        "postcode": 2000
+        "postcode": 2000,
+        "name": "sydney grammar"
       }
     })
     
@@ -244,12 +248,12 @@ weight: 11564
       Name: "",
       Do: {
         {
-          "cmd": "{{.myschool2}}\n{{.myschool2_object}}\n",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.myschool2}}\n{{.myschool2_object}}\n"
         },
         {
-          "cmd": "myschool2_object",
-          "name": "printObj"
+          "name": "printObj",
+          "cmd": "myschool2_object"
         }
       },
       Dox: <nil>,
@@ -294,12 +298,13 @@ weight: 11564
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "state": "nsw",
-          "address": "sydney",
           "postcode": 2000,
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney"
         }
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> myschool2:
@@ -315,10 +320,10 @@ weight: 11564
     dvar[object]> myschool2_object:
     {
       "sg": {
-        "address": "sydney",
-        "postcode": 2000,
         "name": "sydney grammar",
-        "state": "nsw"
+        "state": "nsw",
+        "address": "sydney",
+        "postcode": 2000
       }
     }
     
@@ -337,31 +342,7 @@ weight: 11564
     
     
     scope[local] merged: {
-      "myschool_object": (*map[interface {}]interface {})({
-        "sg": {
-          "address": "sydney",
-          "postcode": 2000,
-          "name": "sydney grammar",
-          "state": "nsw"
-        }
-      }),
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool2_object": {
-        "sg": {
-          "name": "sydney grammar",
-          "state": "nsw",
-          "address": "sydney",
-          "postcode": 2000
-        }
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool2_object": {
@@ -374,13 +355,39 @@ weight: 11564
       },
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
+          "state": "nsw",
+          "address": "sydney",
+          "postcode": 2000,
+          "name": "sydney grammar"
+        }
+      }),
+      "up_runtime_task_layer_number": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "myschool2_object": {
+        "sg": {
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney",
+          "postcode": 2000
+        }
+      },
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool_object": (*map[interface {}]interface {})({
+        "sg": {
           "address": "sydney",
           "postcode": 2000,
           "name": "sydney grammar",
           "state": "nsw"
         }
       }),
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "up_runtime_task_layer_number": 0,
+      "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     {{.myschool2}}
@@ -452,12 +459,13 @@ weight: 11564
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "name": "sydney grammar",
-          "state": "nsw",
           "address": "sydney",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney grammar",
+          "state": "nsw"
         }
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -469,12 +477,13 @@ weight: 11564
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "state": "nsw",
-          "address": "sydney",
           "postcode": 2000,
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "state": "nsw",
+          "address": "sydney"
         }
       }),
+      "up_runtime_task_layer_number": 0,
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     }
     
@@ -482,16 +491,17 @@ weight: 11564
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
+          "postcode": 2000,
           "name": "sydney grammar",
           "state": "nsw",
-          "address": "sydney",
-          "postcode": 2000
+          "address": "sydney"
         }
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     map[fromkey:school reg:myschool3_object]
@@ -499,32 +509,31 @@ weight: 11564
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "": "myschool3_object",
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
+          "name": "sydney grammar",
           "state": "nsw",
           "address": "sydney",
-          "postcode": 2000,
-          "name": "sydney grammar"
+          "postcode": 2000
         }
-      })
+      }),
+      "": "myschool3_object"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "address": "sydney",
           "postcode": 2000,
           "name": "sydney grammar",
-          "state": "nsw"
+          "state": "nsw",
+          "address": "sydney"
         }
       }),
+      "up_runtime_task_layer_number": 0,
       "myschool3_object": {
         "sg": {
           "name": "sydney grammar",
@@ -532,7 +541,9 @@ weight: 11564
           "address": "sydney",
           "postcode": 2000
         }
-      }
+      },
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     myschool3_object
@@ -542,10 +553,10 @@ weight: 11564
     object:
      myschool3_object: {
       "sg": {
-        "name": "sydney grammar",
         "state": "nsw",
         "address": "sydney",
-        "postcode": 2000
+        "postcode": 2000,
+        "name": "sydney grammar"
       }
     }
     

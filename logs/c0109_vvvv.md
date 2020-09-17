@@ -1,6 +1,6 @@
 ---
 title: "c0109_vvvv"
-date: 2020-08-18T15:16:09+88:00
+date: 2020-09-18T00:51:40+99:00
 draft: false
 weight: 11093
 
@@ -22,6 +22,7 @@ weight: 11093
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -58,13 +59,15 @@ weight: 11093
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -74,14 +77,16 @@ weight: 11093
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope"
     })
     
       located task-> 2 [subtask1]: 
@@ -91,16 +96,16 @@ weight: 11093
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
@@ -112,15 +117,15 @@ weight: 11093
     current exec runtime vars:
     (*core.Cache)({
       "jerry": "this is jerry in task scope",
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope",
       "tom": "this is tom"
     })
     
@@ -135,16 +140,16 @@ weight: 11093
     --Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "jerry": "this is jerry in task scope",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope"
     })
     

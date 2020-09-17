@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvvv"
-date: 2020-08-18T15:15:51+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10244
 
@@ -22,6 +22,7 @@ weight: 10244
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10244
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c4c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf040)(<nil>)
     
     ---------group vars----------
     
@@ -46,24 +47,24 @@ weight: 10244
     merged[ dev ] runtime vars:
     {
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     }
     
     (core.Cache) (len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+      (string) (len=4) "name": (string) (len=3) "Tom"
      }
     }
     
     [runtime global] dvar expanded result:
     {
-      "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "studentname": "Tom"
     }
     
     
@@ -71,9 +72,9 @@ weight: 10244
     
     {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -118,7 +119,8 @@ weight: 10244
         "school": "Sydney Grammar"
       },
       "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -128,6 +130,7 @@ weight: 10244
     
     scope[local] merged: {
       "studentgender": "Male",
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -140,10 +143,11 @@ weight: 10244
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -156,6 +160,7 @@ weight: 10244
     echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"
     -
     student=>map[gender:Male name:Tom school:Sydney Grammar]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -172,6 +177,7 @@ weight: 10244
     echo "name=>Tom"
     -
     name=>Tom
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -188,6 +194,7 @@ weight: 10244
     echo "gender=>Male"
     -
     gender=>Male
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -204,6 +211,7 @@ weight: 10244
     echo "school=>Sydney Grammar"
     -
     school=>Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {

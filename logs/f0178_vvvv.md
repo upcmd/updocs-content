@@ -1,6 +1,6 @@
 ---
 title: "f0178_vvvv"
-date: 2020-08-18T15:16:30+88:00
+date: 2020-09-18T00:52:03+99:00
 draft: false
 weight: 11783
 
@@ -22,6 +22,7 @@ weight: 11783
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 11783
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -76,6 +79,7 @@ weight: 11783
     error 1 ......
     error 2 ......
     ./tests/functests/mock_error.sh: exit: line 11: Illegal number: -1
+    
     -
      .. failed(suppressed if it is not the last step)
      WARN: [Not rescued in task level] - [please assess the panic problem and cause, fix it before re-run the task]

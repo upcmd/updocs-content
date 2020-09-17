@@ -1,6 +1,6 @@
 ---
 title: "c0110_vvvvv"
-date: 2020-08-18T15:16:10+88:00
+date: 2020-09-18T00:51:40+99:00
 draft: false
 weight: 11104
 
@@ -22,6 +22,7 @@ weight: 11104
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c8a0)(<nil>)
+    (*impl.Scopes)(0xc0002414c0)(<nil>)
     
     ---------group vars----------
     
@@ -94,6 +95,7 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -102,19 +104,22 @@ weight: 11104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (subtask1)::
     (*core.Cache)({
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [subtask1]: 
@@ -150,10 +155,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
       "up_runtime_task_layer_number": 1,
-      "loopindex1": 1,
-      "loopitem": "tom"
+      "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -162,20 +167,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex1": 1,
-      "loopitem": "tom",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "tom",
       "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "loopitem": "tom"
     })
     
     {{.loopindex1}}:{{.loopitem}}
@@ -212,10 +217,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -234,10 +239,10 @@ weight: 11104
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [{{eq .loopitem "tom"}}]
@@ -274,10 +279,11 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": "{{.loopitem}}",
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "person": "{{.loopitem}}",
       "loopitem": "tom",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 0
     })
     
     [local] dvar expanded result:
@@ -286,10 +292,11 @@ weight: 11104
     
     
     scope[local] merged: {
-      "person": "{{.loopitem}}",
+      "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "person": "{{.loopitem}}",
+      "loopitem": "tom"
     }
     
     
@@ -297,8 +304,9 @@ weight: 11104
     
     (*core.Cache)({
       "person": "{{.loopitem}}",
-      "loopindex1": 1,
       "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1
     })
     
@@ -349,10 +357,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "loopitem": "tom",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -362,22 +370,22 @@ weight: 11104
     
     
     scope[local] merged: {
+      "loopitem": "tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "tom",
-      "up_runtime_task_layer_number": 1,
-      "theone": "tom"
+      "theone": "tom",
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "theone": "tom",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "tom",
-      "up_runtime_task_layer_number": 1
+      "theone": "tom"
     })
     
     {{.theone}}
@@ -385,6 +393,7 @@ weight: 11104
     tom
     caller's vars to task (subtask1)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2
@@ -423,10 +432,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
       "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 1
     })
     
     [local] dvar expanded result:
@@ -435,20 +444,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex": 1,
       "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "jerry",
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopitem": "jerry",
+      "loopindex": 1
     })
     
     {{.loopindex1}}:{{.loopitem}}
@@ -486,9 +495,9 @@ weight: 11104
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
+      "loopitem": "jerry",
       "loopindex": 1,
-      "loopindex1": 2,
-      "loopitem": "jerry"
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -497,19 +506,19 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex": 1,
-      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "loopitem": "jerry",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "loopitem": "jerry",
       "up_runtime_task_layer_number": 1
     })
     
@@ -546,11 +555,11 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "jerry",
       "person": "{{.loopitem}}",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "jerry",
       "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -560,10 +569,10 @@ weight: 11104
     
     scope[local] merged: {
       "person": "{{.loopitem}}",
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "jerry"
+      "loopitem": "jerry",
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
@@ -571,10 +580,10 @@ weight: 11104
     
     (*core.Cache)({
       "person": "{{.loopitem}}",
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "jerry"
+      "loopitem": "jerry",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     {{.person}}
@@ -585,8 +594,8 @@ weight: 11104
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.theone}}"
+          "cmd": "{{.theone}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -624,10 +633,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "jerry",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "jerry"
     })
     
     [local] dvar expanded result:
@@ -637,22 +646,22 @@ weight: 11104
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "loopitem": "jerry",
       "theone": "jerry",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "theone": "jerry",
       "loopitem": "jerry",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "theone": "jerry"
     })
     
     {{.theone}}
@@ -660,6 +669,7 @@ weight: 11104
     jerry
     caller's vars to task (subtask1)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": "emily",
       "loopindex": 2,
       "loopindex1": 3
@@ -698,10 +708,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "emily",
-      "loopindex": 2,
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopindex1": 3
+      "loopitem": "emily",
+      "loopindex": 2
     })
     
     [local] dvar expanded result:
@@ -710,20 +720,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "loopindex1": 3,
-      "loopitem": "emily",
       "loopindex": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "emily"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
-      "loopitem": "emily",
       "loopindex": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "emily"
     })
     
     {{.loopindex1}}:{{.loopitem}}
@@ -760,10 +770,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "emily"
+      "loopitem": "emily",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -772,20 +782,20 @@ weight: 11104
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     condition failed, skip executing step 
@@ -821,11 +831,11 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "person": "{{.loopitem}}",
       "loopitem": "emily",
-      "loopindex": 2
+      "loopindex": 2,
+      "person": "{{.loopitem}}",
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -834,20 +844,20 @@ weight: 11104
     
     
     scope[local] merged: {
+      "loopindex": 2,
+      "person": "{{.loopitem}}",
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "person": "{{.loopitem}}",
-      "loopitem": "emily",
-      "loopindex": 2
+      "loopitem": "emily"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "{{.loopitem}}",
       "loopitem": "emily",
       "loopindex": 2,
+      "person": "{{.loopitem}}",
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1
     })
@@ -899,10 +909,10 @@ weight: 11104
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -915,19 +925,19 @@ weight: 11104
       "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
-      "theone": "emily",
-      "loopindex1": 3
+      "loopindex1": 3,
+      "theone": "emily"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "theone": "emily",
+      "up_runtime_task_layer_number": 1,
       "loopitem": "emily",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "theone": "emily"
     })
     
     {{.theone}}

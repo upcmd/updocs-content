@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:39+99:00
 draft: false
 weight: 11043
 
@@ -22,6 +22,7 @@ weight: 11043
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -58,13 +59,15 @@ weight: 11043
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "extra_task_name": "post_task"
+      "extra_task_name": "post_task",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "extra_task_name": "post_task"
+      "extra_task_name": "post_task",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -74,6 +77,7 @@ weight: 11043
     echo " I love this "
     -
      I love this 
+    
     -
      .. ok
     . ok
@@ -86,6 +90,7 @@ weight: 11043
         Output: "I love this",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "extra_task_name": "post_task"
     })
     
@@ -98,7 +103,8 @@ weight: 11043
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [post_task]: 
@@ -107,6 +113,19 @@ weight: 11043
     
     --Step1: [: do step1 in shell func ]
     current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \" I love this \"",
+        Code: 0,
+        Output: "I love this",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
@@ -118,19 +137,6 @@ weight: 11043
       })
     })
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "extra_task_name": "post_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \" I love this \"",
-        Code: 0,
-        Output: "I love this",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
-    })
-    
     cmd( 1):
     echo "world"
     
@@ -138,6 +144,7 @@ weight: 11043
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok
@@ -161,14 +168,14 @@ weight: 11043
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
@@ -178,6 +185,7 @@ weight: 11043
     echo "this is 2nd task"
     -
     this is 2nd task
+    
     -
      .. ok
     . ok

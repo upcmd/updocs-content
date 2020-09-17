@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10464
 
@@ -22,6 +22,7 @@ weight: 10464
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10464
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed3c0)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001c1440)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -116,9 +117,9 @@ weight: 10464
     -------runtime global final merged with dvars-------
     
     {
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "student_age": "28"
     }
     
       located task-> 1 [task]: 
@@ -194,9 +195,11 @@ weight: 10464
     
     current exec runtime vars:
     (*core.Cache)({
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "up_runtime_task_layer_number": 0,
+      "person": ""
     })
     
     [local] dvar expanded result:
@@ -208,23 +211,27 @@ weight: 10464
     
     
     scope[local] merged: {
-      "empty_env_var": "None",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28",
+      "up_runtime_task_layer_number": 0,
+      "person": "",
       "someone": "None",
-      "i_am_empty": "None"
+      "i_am_empty": "None",
+      "empty_env_var": "None"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "student_name": "Tom Hanks",
+      "up_runtime_task_layer_number": 0,
+      "person": "",
       "someone": "None",
       "i_am_empty": "None",
       "empty_env_var": "None",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks",
       "student_age": "28"
     })
     
@@ -243,6 +250,7 @@ weight: 10464
     None
     None
     None
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -285,15 +293,16 @@ weight: 10464
     
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
         Code: 0,
         Output: "None\nNone\nNone",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     })
     
     [local] dvar expanded result:
@@ -310,22 +319,24 @@ weight: 10464
         Code: 0,
         Output: "None\nNone\nNone",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
         Code: 0,
         Output: "None\nNone\nNone",
         ErrMsg: ""
-      }),
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      })
     })
     
     [exec_vars exec_base_vars]
@@ -340,7 +351,8 @@ weight: 10464
         Code: 0,
         Output: "None\nNone\nNone",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
      2: inspect[exec_base_vars]

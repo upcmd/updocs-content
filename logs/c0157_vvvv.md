@@ -1,6 +1,6 @@
 ---
 title: "c0157_vvvv"
-date: 2020-08-18T15:16:21+88:00
+date: 2020-09-18T00:51:51+99:00
 draft: false
 weight: 11573
 
@@ -22,6 +22,7 @@ weight: 11573
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -63,26 +64,7 @@ weight: 11573
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "person": {
-        "name": "tom"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "person": {
-        "name": "tom"
-      }
-    })
-    
-    ~SubStep1: [print:  ]
-    hello: tom
-    -Step2: [: correct way is to try to get the school value and save it to a dvar
-    then it is deterministic of the school value
-     ]
-    current exec runtime vars:
-    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom"
       }
@@ -94,6 +76,29 @@ weight: 11573
       "person": {
         "name": "tom"
       },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    ~SubStep1: [print:  ]
+    hello: tom
+    -Step2: [: correct way is to try to get the school value and save it to a dvar
+    then it is deterministic of the school value
+     ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "person": {
+        "name": "tom"
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "person": {
+        "name": "tom"
+      },
+      "up_runtime_task_layer_number": 0,
       "school": "None"
     })
     

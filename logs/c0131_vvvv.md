@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvv"
-date: 2020-08-18T15:16:14+88:00
+date: 2020-09-18T00:51:45+99:00
 draft: false
 weight: 11313
 
@@ -22,6 +22,7 @@ weight: 11313
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,11 +43,13 @@ weight: 11313
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "goahead": false
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "goahead": false
     }
     
       located task-> 1 [task]: 
@@ -56,30 +59,163 @@ weight: 11313
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
     true/false value of goahead:
-    <no value>
+    false
     true
     
     -Step2: [: show use a flow in else ]
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
-    condition failed, skip executing step 
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
+    })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
+    })
+    
+    ~SubStep1: [print:  ]
+    do something else step1 .......
+    -Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
+    })
+    
+    cmd( 1):
+    echo do something else step2 .......
+    
+    cmd=>:
+    echo do something else step2 .......
+    -
+    do something else step2 .......
+    
+    -
+     .. ok
+    . ok
+    -Step3:
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": false,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": false,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    ~SubStep1: [print:  ]
+    do something else step3 .......
+    -Step4: [: show it is same that you could assemble a list of tasks for if true condition ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": true,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "goahead": true,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+      located task-> 3 [goelse]: 
+    =Task3: [task ==> goelse:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "goahead": true,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
+    })
+    
+    ~~SubStep1: [print:  ]
+    do something else .......
     
 ```
 

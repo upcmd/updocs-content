@@ -1,6 +1,6 @@
 ---
 title: "c0172_vvvvv"
-date: 2020-08-18T15:16:24+88:00
+date: 2020-09-18T00:51:54+99:00
 draft: false
 weight: 11724
 
@@ -22,6 +22,7 @@ weight: 11724
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11724
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001d7140)(<nil>)
+    (*impl.Scopes)(0xc0001bf1e0)(<nil>)
     
     ---------group vars----------
     
@@ -69,8 +70,8 @@ weight: 11724
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "step 1"
+          "cmd": "step 1",
+          "name": "print"
         },
         {
           "name": "panic"
@@ -100,6 +101,7 @@ weight: 11724
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -108,12 +110,14 @@ weight: 11724
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     step 1
@@ -190,6 +194,7 @@ weight: 11724
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     (utils.ExecResult) {

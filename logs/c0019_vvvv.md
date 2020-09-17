@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10193
 
@@ -22,6 +22,7 @@ weight: 10193
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -66,22 +67,24 @@ weight: 10193
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sydney grammar",
+      "studentname": "Tom",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
       },
-      "studentname": "Tom"
+      "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
       },
+      "school": "sydney grammar",
+      "up_runtime_task_layer_number": 0,
       "studentname": "Tom"
     })
     
@@ -92,6 +95,7 @@ weight: 10193
     echo "studentname -> Tom"
     -
     studentname -> Tom
+    
     -
      .. ok
     cmd( 2):
@@ -101,6 +105,7 @@ weight: 10193
     echo "gender -> male"
     -
     gender -> male
+    
     -
      .. ok
     cmd( 3):
@@ -110,6 +115,7 @@ weight: 10193
     echo "school -> sydney grammar"
     -
     school -> sydney grammar
+    
     -
      .. ok
     cmd( 4):
@@ -119,6 +125,7 @@ weight: 10193
     echo "nonexist -> <no value>"
     -
     nonexist -> <no value>
+    
     -
      .. ok
     cmd( 5):
@@ -128,6 +135,7 @@ weight: 10193
     echo "SG details -> sydney grammar/Sydney, NSW 2000"
     -
     SG details -> sydney grammar/Sydney, NSW 2000
+    
     -
      .. ok
     . ok

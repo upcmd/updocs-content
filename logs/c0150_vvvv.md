@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvv"
-date: 2020-08-18T15:16:19+88:00
+date: 2020-09-18T00:51:50+99:00
 draft: false
 weight: 11503
 
@@ -22,6 +22,7 @@ weight: 11503
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 11503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 1 [facts]: 
@@ -86,20 +89,21 @@ weight: 11503
     uname
     -
     Linux
+    
     -
      .. ok
     . ok
     --Step2: [: get os  - [Darwin | Linux] ]
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
+      "up_runtime_task_layer_number": 1,
+      "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
+      "last_result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
         Output: "Linux",
@@ -116,7 +120,6 @@ weight: 11503
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
-      "os": "Linux",
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -128,7 +131,8 @@ weight: 11503
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
-      })
+      }),
+      "os": "Linux"
     })
     
     ~~SubStep1: [print:  ]
@@ -141,6 +145,7 @@ weight: 11503
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -153,13 +158,13 @@ weight: 11503
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "os": "Linux"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -172,8 +177,7 @@ weight: 11503
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "os": "Linux"
     })
     
     condition failed, skip executing step 
@@ -188,8 +192,8 @@ weight: 11503
     self: final context exec vars:
     
     (*core.Cache)({
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "os": "Linux"
     })
     
     ~SubStep1: [print:  ]

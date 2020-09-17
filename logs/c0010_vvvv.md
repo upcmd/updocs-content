@@ -1,6 +1,6 @@
 ---
 title: "c0010_vvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:20+99:00
 draft: false
 weight: 10103
 
@@ -22,6 +22,7 @@ weight: 10103
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,41 +37,41 @@ weight: 10103
     ---------group vars----------
     
     prod: {
-      "a": "prod-a",
-      "c": "prod-c"
+      "c": "prod-c",
+      "a": "prod-a"
     }
     
     
     nonprod: {
-      "b": "non-prod-b",
       "c": {
-        "c3": {
-          "c32": "nonprod-c32",
-          "c33": "nonprod-c33"
-        },
         "c4": "nonprod-c4",
         "c5": "nonprod-c5",
         "c1": "nonprod-c1",
-        "c2": "nonprod-c2"
+        "c2": "nonprod-c2",
+        "c3": {
+          "c33": "nonprod-c33",
+          "c32": "nonprod-c32"
+        }
       },
-      "a": "non-prod-a"
+      "a": "non-prod-a",
+      "b": "non-prod-b"
     }
     
     
     global: {
-      "d": "global-d",
-      "a": "global-a",
       "b": "global-b",
       "c": {
+        "c2": "global-c2",
         "c3": {
+          "c32": "global-c32",
           "c33": "global-c33",
-          "c31": "global-c31",
-          "c32": "global-c32"
+          "c31": "global-c31"
         },
         "c4": "global-c4",
-        "c1": "global-c1",
-        "c2": "global-c2"
-      }
+        "c1": "global-c1"
+      },
+      "d": "global-d",
+      "a": "global-a"
     }
     
     
@@ -80,17 +81,17 @@ weight: 10103
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
+        "c7": "dev-c7",
         "c1": "dev-c1",
         "c2": "dev-c2",
-        "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7",
         "c3": {
-          "c31": "global-c31",
           "c32": "nonprod-c32",
-          "c33": "dev-c33"
+          "c33": "dev-c33",
+          "c31": "global-c31"
         },
-        "c4": "nonprod-c4"
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5",
+        "c6": "dev-c6"
       },
       "d": "global-d"
     }
@@ -98,22 +99,22 @@ weight: 10103
     -------runtime global final merged with dvars-------
     
     {
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": {
-        "c4": "nonprod-c4",
+        "c7": "dev-c7",
         "c1": "dev-c1",
         "c2": "dev-c2",
-        "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7",
         "c3": {
-          "c33": "dev-c33",
           "c31": "global-c31",
-          "c32": "nonprod-c32"
-        }
+          "c32": "nonprod-c32",
+          "c33": "dev-c33"
+        },
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5",
+        "c6": "dev-c6"
       },
-      "d": "global-d"
+      "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b"
     }
     
       located task-> 1 [task]: 
@@ -126,19 +127,20 @@ weight: 10103
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
-        "c1": "dev-c1",
-        "c2": "dev-c2",
-        "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
+        "c1": "dev-c1",
+        "c2": "dev-c2",
         "c3": {
+          "c33": "dev-c33",
           "c31": "global-c31",
-          "c32": "nonprod-c32",
-          "c33": "dev-c33"
+          "c32": "nonprod-c32"
         },
-        "c4": "nonprod-c4"
+        "c4": "nonprod-c4",
+        "c5": "nonprod-c5"
       },
-      "d": "global-d"
+      "d": "global-d",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -147,19 +149,20 @@ weight: 10103
       "a": "dev-a",
       "b": "non-prod-b",
       "c": {
+        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
         "c6": "dev-c6",
         "c7": "dev-c7",
-        "c3": {
-          "c31": "global-c31",
-          "c32": "nonprod-c32",
-          "c33": "dev-c33"
-        },
-        "c4": "nonprod-c4",
         "c1": "dev-c1",
-        "c2": "dev-c2"
+        "c2": "dev-c2",
+        "c3": {
+          "c32": "nonprod-c32",
+          "c33": "dev-c33",
+          "c31": "global-c31"
+        }
       },
-      "d": "global-d"
+      "d": "global-d",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -169,6 +172,7 @@ weight: 10103
     echo "test out the var scopes only"
     -
     test out the var scopes only
+    
     -
      .. ok
     . ok

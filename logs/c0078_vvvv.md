@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvv"
-date: 2020-08-18T15:16:02+88:00
+date: 2020-09-18T00:51:33+99:00
 draft: false
 weight: 10783
 
@@ -22,6 +22,7 @@ weight: 10783
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,15 +57,17 @@ weight: 10783
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "school_name": "sydney grammar",
-      "school_address": "1 fox road, sydney, nsw 2000"
+      "up_runtime_task_layer_number": 0,
+      "school_address": "1 fox road, sydney, nsw 2000",
+      "school_name": "sydney grammar"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_name": "sydney grammar",
+      "up_runtime_task_layer_number": 0,
       "school_address": "1 fox road, sydney, nsw 2000",
+      "school_name": "sydney grammar",
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     
@@ -75,12 +78,14 @@ weight: 10783
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     

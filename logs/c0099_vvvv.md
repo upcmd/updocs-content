@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvv"
-date: 2020-08-18T15:16:07+88:00
+date: 2020-09-18T00:51:37+99:00
 draft: false
 weight: 10993
 
@@ -22,6 +22,7 @@ weight: 10993
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -54,121 +55,15 @@ weight: 10993
         }
       },
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
-            }
-          }
-        }
-      }
-    }
-    
-      located task-> 1 [task]: 
-    Task1: [task ==> task:  ]
-    Executing task stack layer: 1
-    
-    -Step1: [: use datatemplate as datasource ]
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
-            }
-          }
-        }
-      }
-    })
-    
-    dvar> student_info:
-    "my name is:Grace and I am in MLC"
-    
-    -
-    my name is:Grace and I am in MLC
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "MLC",
-              "name": "Grace",
-              "gender": "Female"
-            }
-          }
-        }
-      },
-      "student_info": "my name is:Grace and I am in MLC"
-    })
-    
-    ~SubStep1: [print:  ]
-    my name is:Grace and I am in MLC
-    -Step2: [: use datatemplate as datasource ]
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
-            }
-          }
-        }
-      }
-    })
-    
-    dvar> student_info:
-    "my name is:Grace and I am in MLC"
-    
-    -
-    my name is:Grace and I am in MLC
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -180,6 +75,116 @@ weight: 10993
           }
         }
       },
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
+    -Step1: [: use datatemplate as datasource ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Grace",
+              "gender": "Female",
+              "school": "MLC"
+            }
+          }
+        }
+      },
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    dvar> student_info:
+    "my name is:Grace and I am in MLC"
+    
+    -
+    my name is:Grace and I am in MLC
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Grace",
+              "gender": "Female",
+              "school": "MLC"
+            }
+          }
+        }
+      },
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "up_runtime_task_layer_number": 0,
+      "student_info": "my name is:Grace and I am in MLC"
+    })
+    
+    ~SubStep1: [print:  ]
+    my name is:Grace and I am in MLC
+    -Step2: [: use datatemplate as datasource ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "MLC",
+              "name": "Grace",
+              "gender": "Female"
+            }
+          }
+        }
+      },
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "up_runtime_task_layer_number": 0
+    })
+    
+    dvar> student_info:
+    "my name is:Grace and I am in MLC"
+    
+    -
+    my name is:Grace and I am in MLC
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "school": "MLC",
+              "name": "Grace",
+              "gender": "Female"
+            }
+          }
+        }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "up_runtime_task_layer_number": 0,
       "student_info": "my name is:Grace and I am in MLC"
     })
     

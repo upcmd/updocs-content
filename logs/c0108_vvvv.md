@@ -1,6 +1,6 @@
 ---
 title: "c0108_vvvv"
-date: 2020-08-18T15:16:09+88:00
+date: 2020-09-18T00:51:40+99:00
 draft: false
 weight: 11083
 
@@ -22,6 +22,7 @@ weight: 11083
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -59,14 +60,16 @@ weight: 11083
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "jerry": "this is jerry",
       "tom": "this is tom",
-      "jerry": "this is jerry"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -76,13 +79,15 @@ weight: 11083
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print: jerry is in local scope so there is no value ]
@@ -90,14 +95,16 @@ weight: 11083
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "jerry": "this is jerry in task scope"
+      "up_runtime_task_layer_number": 0,
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print: this should print out the dvar value of jerry ]
@@ -106,6 +113,7 @@ weight: 11083
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -113,6 +121,7 @@ weight: 11083
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -122,14 +131,16 @@ weight: 11083
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "jerry is overrided in local scope"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "jerry": "jerry is overrided in local scope",
       "tom": "this is tom",
-      "jerry": "jerry is overrided in local scope"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print: var jerry in task scope is overrided by local var jerry ]
@@ -138,6 +149,7 @@ weight: 11083
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     
@@ -145,6 +157,7 @@ weight: 11083
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry in task scope"
     })
     

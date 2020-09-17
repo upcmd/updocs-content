@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:38+99:00
 draft: false
 weight: 11033
 
@@ -22,6 +22,7 @@ weight: 11033
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -49,8 +50,8 @@ weight: 11033
     -------runtime global final merged with dvars-------
     
     {
-      "emily": "emily:\n  sex: female\n  age: 32\n",
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "tom": "tom:\n  sex: male\n  age: 23\n",
+      "emily": "emily:\n  sex: female\n  age: 32\n"
     }
     
       located task-> 1 [task]: 
@@ -60,15 +61,17 @@ weight: 11033
     -Step1: [: inplace modification ]
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "tom:\n  sex: male\n  age: 23\n",
-      "emily": "emily:\n  sex: female\n  age: 32\n"
+      "emily": "emily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0,
+      "tom": "tom:\n  sex: male\n  age: 23\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "tom": "tom:\n  sex: male\n  age: 23\n",
-      "emily": "emily:\n  sex: female\n  age: 32\n"
+      "emily": "emily:\n  sex: female\n  age: 32\n",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [ymlWrite:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvv"
-date: 2020-08-18T15:15:51+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10243
 
@@ -22,6 +22,7 @@ weight: 10243
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -53,9 +54,9 @@ weight: 10243
     
     {
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "studentname": "Tom",
       "studentgender": "Male"
@@ -68,23 +69,25 @@ weight: 10243
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
+      "up_runtime_task_layer_number": 0,
       "studentname": "Tom",
       "studentgender": "Male"
     })
@@ -96,6 +99,7 @@ weight: 10243
     echo "student=>map[gender:Male name:Tom school:Sydney Grammar]"
     -
     student=>map[gender:Male name:Tom school:Sydney Grammar]
+    
     -
      .. ok
     cmd( 2):
@@ -105,6 +109,7 @@ weight: 10243
     echo "name=>Tom"
     -
     name=>Tom
+    
     -
      .. ok
     cmd( 3):
@@ -114,6 +119,7 @@ weight: 10243
     echo "gender=>Male"
     -
     gender=>Male
+    
     -
      .. ok
     cmd( 4):
@@ -123,6 +129,7 @@ weight: 10243
     echo "school=>Sydney Grammar"
     -
     school=>Sydney Grammar
+    
     -
      .. ok
     . ok

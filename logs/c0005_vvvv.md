@@ -1,6 +1,6 @@
 ---
 title: "c0005_vvvv"
-date: 2020-08-18T15:15:48+88:00
+date: 2020-09-18T00:51:19+99:00
 draft: false
 weight: 10053
 
@@ -22,6 +22,7 @@ weight: 10053
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10053
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 1 [pre_task]: 
@@ -86,6 +89,7 @@ weight: 10053
     echo "hello"
     -
     hello
+    
     -
      .. ok
     . ok
@@ -108,6 +112,7 @@ weight: 10053
     echo " I love this "
     -
      I love this 
+    
     -
      .. ok
     . ok
@@ -142,25 +147,25 @@ weight: 10053
     --Step1: [: do step1 in shell func ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -170,6 +175,7 @@ weight: 10053
     echo "world"
     -
     world
+    
     -
      .. ok
     . ok
@@ -192,13 +198,13 @@ weight: 10053
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -208,6 +214,7 @@ weight: 10053
     echo "this is 2nd task"
     -
     this is 2nd task
+    
     -
      .. ok
     . ok

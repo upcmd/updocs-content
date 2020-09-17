@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvvv"
-date: 2020-08-18T15:15:56+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10504
 
@@ -22,6 +22,7 @@ weight: 10504
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10504
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c560)(<nil>)
+    (*impl.Scopes)(0xc00022c460)(<nil>)
     
     ---------group vars----------
     
@@ -54,27 +55,27 @@ weight: 10504
     
     [runtime global] dvar expanded result:
     {
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
-      "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz"
+      "z": "i am zzz"
     }
     
     
     -------runtime global final merged with dvars-------
     
     {
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "school": "Sydney Grammar",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
-      "z": "i am zzz"
+      "z": "i am zzz",
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
+      "nv": "n=>Sydney Grammar",
+      "school": "Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar"
     }
     
       located task-> 1 [task]: 
@@ -113,14 +114,15 @@ weight: 10504
     
     current exec runtime vars:
     (*core.Cache)({
+      "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "school": "Sydney Grammar",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>"
+      "nv": "n=>Sydney Grammar",
+      "school": "Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
+      "x": "x=>y->i am zzz"
     })
     
     [local] dvar expanded result:
@@ -129,28 +131,30 @@ weight: 10504
     
     
     scope[local] merged: {
-      "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
+      "m": "m=>n=>Sydney Grammar",
+      "nv": "n=>Sydney Grammar",
       "school": "Sydney Grammar",
-      "nv": "n=>Sydney Grammar"
+      "up_runtime_task_layer_number": 0,
+      "x": "x=>y->i am zzz",
+      "yv": "y->i am zzz"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "yv": "y->i am zzz",
+      "up_runtime_task_layer_number": 0,
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "yv": "y->i am zzz",
+      "m": "m=>n=>Sydney Grammar",
       "x": "x=>y->i am zzz",
-      "school": "Sydney Grammar",
       "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar"
+      "school": "Sydney Grammar"
     })
     
     cmd( 1):
@@ -160,6 +164,7 @@ weight: 10504
     echo "n->n=>Sydney Grammar"
     -
     n->n=>Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -176,6 +181,7 @@ weight: 10504
     echo "m->m=>n=>Sydney Grammar"
     -
     m->m=>n=>Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -192,6 +198,7 @@ weight: 10504
     echo "j->j=>m=>n=>Sydney Grammar"
     -
     j->j=>m=>n=>Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -208,6 +215,7 @@ weight: 10504
     echo "o->o=><no value>"
     -
     o->o=><no value>
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -224,6 +232,7 @@ weight: 10504
     echo "z->i am zzz"
     -
     z->i am zzz
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -240,6 +249,7 @@ weight: 10504
     echo "y->y->i am zzz"
     -
     y->y->i am zzz
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -256,6 +266,7 @@ weight: 10504
     echo "x->x=>y->i am zzz"
     -
     x->x=>y->i am zzz
+    
     -
      .. ok
     (utils.ExecResult) {

@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10194
 
@@ -22,6 +22,7 @@ weight: 10194
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10194
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f00)(<nil>)
+    (*impl.Scopes)(0xc0001f6f20)(<nil>)
     
     ---------group vars----------
     
@@ -45,19 +46,19 @@ weight: 10194
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "school": "sydney grammar",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
-      }
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
+      },
+      "school": "sydney grammar"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=6) "school": (string) (len=14) "sydney grammar",
      (string) (len=2) "sg": (map[string]interface {}) (len=2) {
       (string) (len=4) "name": (string) (len=14) "sydney grammar",
       (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000"
-     }
+     },
+     (string) (len=6) "school": (string) (len=14) "sydney grammar"
     }
     
     [runtime global] dvar expanded result:
@@ -111,12 +112,13 @@ weight: 10194
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "studentname": "Tom",
       "school": "sydney grammar",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
-      },
-      "studentname": "Tom"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
+      }
     })
     
     [local] dvar expanded result:
@@ -125,24 +127,26 @@ weight: 10194
     
     
     scope[local] merged: {
+      "studentname": "Tom",
       "school": "sydney grammar",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
       },
-      "studentname": "Tom"
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "sydney grammar",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
       },
-      "studentname": "Tom"
+      "up_runtime_task_layer_number": 0,
+      "studentname": "Tom",
+      "school": "sydney grammar"
     })
     
     cmd( 1):
@@ -152,6 +156,7 @@ weight: 10194
     echo "studentname -> Tom"
     -
     studentname -> Tom
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -168,6 +173,7 @@ weight: 10194
     echo "gender -> male"
     -
     gender -> male
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -184,6 +190,7 @@ weight: 10194
     echo "school -> sydney grammar"
     -
     school -> sydney grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -200,6 +207,7 @@ weight: 10194
     echo "nonexist -> <no value>"
     -
     nonexist -> <no value>
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -216,6 +224,7 @@ weight: 10194
     echo "SG details -> sydney grammar/Sydney, NSW 2000"
     -
     SG details -> sydney grammar/Sydney, NSW 2000
+    
     -
      .. ok
     (utils.ExecResult) {

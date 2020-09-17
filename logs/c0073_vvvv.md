@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvv"
-date: 2020-08-18T15:16:01+88:00
+date: 2020-09-18T00:51:31+99:00
 draft: false
 weight: 10733
 
@@ -22,6 +22,7 @@ weight: 10733
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,23 +43,23 @@ weight: 10733
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n"
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world"
+      "my_interesting_story3": "hello world\n"
     }
     
       located task-> 1 [task]: 
@@ -68,63 +69,71 @@ weight: 10733
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world"
+      "my_interesting_story5": "hello world",
+      "up_runtime_task_layer_number": 0,
+      "isnew": false,
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n"
+      "up_runtime_task_layer_number": 0,
+      "isnew": false
     })
     
-    ~SubStep1: [print: literal style, there will be a line break ]
+    ~SubStep1: [print:  ]
+    bb
+    ~SubStep2: [print: literal style, there will be a line break ]
     [hello
     world
     ]
-    ~SubStep2: [print: there will be no a line break ]
+    ~SubStep3: [print: there will be no a line break ]
     [hello world]
-    ~SubStep3: [print: folded style ]
+    ~SubStep4: [print: folded style ]
     [hello world
     ]
-    ~SubStep4: [print: literal style strip, the end line break is removed ]
+    ~SubStep5: [print: literal style strip, the end line break is removed ]
     [hello
     world]
-    ~SubStep5: [reg:  ]
     ~SubStep6: [reg:  ]
+    ~SubStep7: [reg:  ]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story5": "hello world",
       "my_interesting_story1": "hello\nworld\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
+      "up_runtime_task_layer_number": 0,
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world"
+      "newstory_clean": "same old story"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
+      "up_runtime_task_layer_number": 0,
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story4": "hello\nworld"
     })
     
     cmd( 1):
@@ -136,6 +145,7 @@ weight: 10733
     -
     [hello world
     ]
+    
     -
      .. ok
     cmd( 2):
@@ -145,6 +155,7 @@ weight: 10733
     echo [hello world]
     -
     [hello world]
+    
     -
      .. ok
     cmd( 3):
@@ -162,6 +173,7 @@ weight: 10733
     
     
     ]
+    
     -
      .. ok
     cmd( 4):
@@ -171,6 +183,7 @@ weight: 10733
     echo "[ same old story ]"
     -
     [ same old story ]
+    
     -
      .. ok
     cmd( 5):
@@ -180,6 +193,7 @@ weight: 10733
     echo "[same old story]"
     -
     [same old story]
+    
     -
      .. ok
     . ok

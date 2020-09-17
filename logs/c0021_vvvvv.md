@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvvv"
-date: 2020-08-18T15:15:50+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10214
 
@@ -22,6 +22,7 @@ weight: 10214
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10214
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c0fc0)(<nil>)
+    (*impl.Scopes)(0xc0001e6f80)(<nil>)
     
     ---------group vars----------
     
@@ -77,10 +78,10 @@ weight: 10214
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "school": "Sydney Grammar",
         "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
         "student": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       Dvars: <nil>,
       Desc: "",
@@ -101,10 +102,11 @@ weight: 10214
     
     current exec runtime vars:
     (*core.Cache)({
-      "gender": "Male",
-      "school": "Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom"
+      "student": "Tom",
+      "gender": "Male",
+      "school": "Sydney Grammar"
     })
     
     [local] dvar expanded result:
@@ -113,10 +115,11 @@ weight: 10214
     
     
     scope[local] merged: {
-      "school": "Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom",
-      "gender": "Male"
+      "gender": "Male",
+      "school": "Sydney Grammar"
     }
     
     
@@ -126,7 +129,8 @@ weight: 10214
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -144,6 +148,7 @@ weight: 10214
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -170,6 +175,7 @@ weight: 10214
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -200,6 +206,7 @@ weight: 10214
     my student: Tom
     student's gender: Male
      school's name: Sydney Grammar
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -226,6 +233,7 @@ weight: 10214
     echo """my school: 
     -
     /bin/sh: syntax error: unterminated quoted string
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
@@ -249,6 +257,7 @@ weight: 10214
     my student: student: Tom
      gender: Male
      school: Sydney Grammar
+    
     
     -
      .. ok

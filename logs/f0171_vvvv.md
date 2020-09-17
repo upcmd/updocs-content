@@ -1,6 +1,6 @@
 ---
 title: "f0171_vvvv"
-date: 2020-08-18T15:16:29+88:00
+date: 2020-09-18T00:52:03+99:00
 draft: false
 weight: 11713
 
@@ -22,6 +22,7 @@ weight: 11713
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -57,11 +58,13 @@ weight: 11713
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -71,6 +74,7 @@ weight: 11713
     echo "open a file ....."
     -
     open a file .....
+    
     -
      .. ok
     cmd( 2):
@@ -79,6 +83,7 @@ weight: 11713
     cmd=>:
     echo "reading the file" |grep "cause an exception"
     -
+    
     -
      .. failed(suppressed if it is not the last step)
     Step Finally:
@@ -118,6 +123,7 @@ weight: 11713
     echo "close the file ....."
     -
     close the file .....
+    
     -
      .. ok
     . ok

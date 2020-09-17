@@ -1,6 +1,6 @@
 ---
 title: "c0163_vvvv"
-date: 2020-08-18T15:16:22+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11633
 
@@ -22,6 +22,7 @@ weight: 11633
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,6 +57,7 @@ weight: 11633
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> countries:
@@ -78,6 +80,7 @@ weight: 11633
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "countries": {
         "Austraila",
         "US",
@@ -95,25 +98,25 @@ weight: 11633
     current exec runtime vars:
     (*core.Cache)({
       "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task"
     })
     
@@ -124,30 +127,32 @@ weight: 11633
     current exec runtime vars:
     (*core.Cache)({
       "aaa": "var_a_from_task",
+      "loopindex1": 1,
+      "loopitem": "Austraila",
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "Austraila",
-      "loopindex1": 1
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "aaa": "var_a_from_task",
+      "loopindex1": 1,
+      "loopitem": "Austraila",
+      "loopindex": 0,
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "Austraila",
-      "loopindex1": 1
+      }
     })
     
     ~~SubStep1: [assert:  ]
@@ -155,30 +160,32 @@ weight: 11633
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "Austraila",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "Austraila",
-      "loopindex1": 1
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 0,
       "loopindex1": 1,
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1,
       "loopitem": "Austraila"
     })
     
@@ -189,6 +196,7 @@ weight: 11633
     echo "var_a_from_task"
     -
     var_a_from_task
+    
     -
      .. ok
     cmd( 2):
@@ -198,6 +206,7 @@ weight: 11633
     echo "Austraila"
     -
     Austraila
+    
     -
      .. ok
     . ok
@@ -207,45 +216,33 @@ weight: 11633
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "US",
       "loopindex": 1,
       "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Austraila\"",
-        Code: 0,
-        Output: "Austraila",
-        ErrMsg: ""
-      }),
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "loopitem": "US"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "US",
       "loopindex": 1,
       "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Austraila\"",
-        Code: 0,
-        Output: "Austraila",
-        ErrMsg: ""
-      }),
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "aaa": "var_a_from_task"
+      "loopitem": "US"
     })
     
     ~~SubStep1: [assert:  ]
@@ -254,44 +251,32 @@ weight: 11633
     current exec runtime vars:
     (*core.Cache)({
       "aaa": "var_a_from_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Austraila\"",
-        Code: 0,
-        Output: "Austraila",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "US",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "aaa": "var_a_from_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Austraila\"",
-        Code: 0,
-        Output: "Austraila",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
       "loopitem": "US",
       "loopindex": 1,
       "loopindex1": 2
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "US",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      }
     })
     
     cmd( 1):
@@ -301,6 +286,7 @@ weight: 11633
     echo "var_a_from_task"
     -
     var_a_from_task
+    
     -
      .. ok
     cmd( 2):
@@ -310,6 +296,7 @@ weight: 11633
     echo "US"
     -
     US
+    
     -
      .. ok
     . ok
@@ -319,6 +306,8 @@ weight: 11633
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
@@ -326,21 +315,15 @@ weight: 11633
         "Japan"
       },
       "aaa": "var_a_from_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"US\"",
-        Code: 0,
-        Output: "US",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
       "loopitem": "China",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
@@ -348,16 +331,8 @@ weight: 11633
         "Japan"
       },
       "aaa": "var_a_from_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"US\"",
-        Code: 0,
-        Output: "US",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
       "loopitem": "China",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
     ~~SubStep1: [assert:  ]
@@ -365,38 +340,26 @@ weight: 11633
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "China",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"US\"",
-        Code: 0,
-        Output: "US",
-        ErrMsg: ""
-      }),
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "loopitem": "China",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "China",
       "loopindex": 2,
       "loopindex1": 3,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"US\"",
-        Code: 0,
-        Output: "US",
-        ErrMsg: ""
-      }),
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
@@ -413,6 +376,7 @@ weight: 11633
     echo "var_a_from_task"
     -
     var_a_from_task
+    
     -
      .. ok
     cmd( 2):
@@ -422,6 +386,7 @@ weight: 11633
     echo "China"
     -
     China
+    
     -
      .. ok
     . ok
@@ -431,12 +396,8 @@ weight: 11633
      ]
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"China\"",
-        Code: 0,
-        Output: "China",
-        ErrMsg: ""
-      }),
+      "loopitem": "Japan",
+      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
@@ -444,7 +405,39 @@ weight: 11633
         "Japan"
       },
       "aaa": "var_a_from_task",
+      "loopindex": 3,
+      "loopindex1": 4
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "aaa": "var_a_from_task",
+      "loopindex": 3,
+      "loopindex1": 4,
+      "loopitem": "Japan"
+    })
+    
+    ~~SubStep1: [assert:  ]
+     1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
+    --Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1,
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
       "loopitem": "Japan",
       "loopindex": 3,
       "loopindex1": 4
@@ -455,67 +448,15 @@ weight: 11633
     (*core.Cache)({
       "aaa": "var_a_from_task",
       "up_runtime_task_layer_number": 1,
-      "loopitem": "Japan",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"China\"",
-        Code: 0,
-        Output: "China",
-        ErrMsg: ""
-      }),
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
-    })
-    
-    ~~SubStep1: [assert:  ]
-     1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
-    --Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 4,
-      "loopitem": "Japan",
-      "loopindex": 3,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "aaa": "var_a_from_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"China\"",
-        Code: 0,
-        Output: "China",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "aaa": "var_a_from_task",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"China\"",
-        Code: 0,
-        Output: "China",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 4,
       "loopitem": "Japan",
-      "loopindex": 3
+      "loopindex": 3,
+      "loopindex1": 4
     })
     
     cmd( 1):
@@ -525,6 +466,7 @@ weight: 11633
     echo "var_a_from_task"
     -
     var_a_from_task
+    
     -
      .. ok
     cmd( 2):
@@ -534,6 +476,7 @@ weight: 11633
     echo "Japan"
     -
     Japan
+    
     -
      .. ok
     . ok

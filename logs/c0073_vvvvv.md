@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvvv"
-date: 2020-08-18T15:16:01+88:00
+date: 2020-09-18T00:51:31+99:00
 draft: false
 weight: 10734
 
@@ -22,6 +22,7 @@ weight: 10734
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10734
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf0a0)(<nil>)
+    (*impl.Scopes)(0xc0001410e0)(<nil>)
     
     ---------group vars----------
     
@@ -45,12 +46,12 @@ weight: 10734
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world"
+      "my_interesting_story6": "hello\nworld\n\n\n"
     }
     
     (core.Cache) (len=6) {
@@ -70,12 +71,12 @@ weight: 10734
     -------runtime global final merged with dvars-------
     
     {
+      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world"
+      "my_interesting_story4": "hello\nworld"
     }
     
       located task-> 1 [task]: 
@@ -88,18 +89,22 @@ weight: 10734
       Do: {
         {
           "name": "print",
+          "cmd": "{{if .isnew}}aa{{else}}bb{{end}}"
+        },
+        {
+          "name": "print",
           "desc": "literal style, there will be a line break",
           "cmd": "[{{.my_interesting_story1}}]"
         },
         {
-          "name": "print",
           "desc": "there will be no a line break",
-          "cmd": "[{{.my_interesting_story2}}]"
+          "cmd": "[{{.my_interesting_story2}}]",
+          "name": "print"
         },
         {
+          "name": "print",
           "desc": "folded style",
-          "cmd": "[{{.my_interesting_story3}}]",
-          "name": "print"
+          "cmd": "[{{.my_interesting_story3}}]"
         },
         {
           "name": "print",
@@ -109,9 +114,9 @@ weight: 10734
         {
           "name": "reg",
           "cmd": {
-            "value": "{{if .isnew }} this is a new story {{else}} same old story {{end}}",
             "name": "newstory_with_blank_space_front_and_tail",
-            "desc": "you can't remove the empty space because it is from the folded feature of yaml"
+            "desc": "you can't remove the empty space because it is from the folded feature of yaml",
+            "value": "{{if .isnew }} this is a new story {{else}} same old story {{end}}"
           }
         },
         {
@@ -144,12 +149,14 @@ weight: 10734
     
     current exec runtime vars:
     (*core.Cache)({
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "up_runtime_task_layer_number": 0,
+      "isnew": false,
+      "my_interesting_story1": "hello\nworld\n"
     })
     
     [local] dvar expanded result:
@@ -158,94 +165,105 @@ weight: 10734
     
     
     scope[local] merged: {
-      "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
+      "up_runtime_task_layer_number": 0,
+      "isnew": false,
       "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world"
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n"
+      "up_runtime_task_layer_number": 0,
+      "isnew": false,
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world"
     })
     
+    {{if .isnew}}aa{{else}}bb{{end}}
+    ~SubStep1: [print:  ]
+    bb
     [{{.my_interesting_story1}}]
-    ~SubStep1: [print: literal style, there will be a line break ]
+    ~SubStep2: [print: literal style, there will be a line break ]
     [hello
     world
     ]
     [{{.my_interesting_story2}}]
-    ~SubStep2: [print: there will be no a line break ]
+    ~SubStep3: [print: there will be no a line break ]
     [hello world]
     [{{.my_interesting_story3}}]
-    ~SubStep3: [print: folded style ]
+    ~SubStep4: [print: folded style ]
     [hello world
     ]
     [{{.my_interesting_story4}}]
-    ~SubStep4: [print: literal style strip, the end line break is removed ]
+    ~SubStep5: [print: literal style strip, the end line break is removed ]
     [hello
     world]
     map[desc:you can't remove the empty space because it is from the folded feature of yaml name:newstory_with_blank_space_front_and_tail value:{{if .isnew }} this is a new story {{else}} same old story {{end}}]
-    ~SubStep5: [reg:  ]
-    after reg the var - contextual global:
-    
-    (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
-    })
-    
-    after reg the var - local:
-    
-    (*core.Cache)({
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
-    })
-    
-    map[name:newstory_clean value:{{if .isnew}}this is a new story{{else}}same old story{{end}}]
     ~SubStep6: [reg:  ]
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
       "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story4": "hello\nworld"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story3": "hello world\n",
+      "isnew": false,
+      "newstory_with_blank_space_front_and_tail": " same old story "
+    })
+    
+    map[name:newstory_clean value:{{if .isnew}}this is a new story{{else}}same old story{{end}}]
+    ~SubStep7: [reg:  ]
+    after reg the var - contextual global:
+    
+    (*core.Cache)({
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
       "newstory_with_blank_space_front_and_tail": " same old story ",
       "newstory_clean": "same old story",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world"
+    })
+    
+    after reg the var - local:
+    
+    (*core.Cache)({
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "up_runtime_task_layer_number": 0,
+      "newstory_clean": "same old story",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story3": "hello world\n",
+      "isnew": false,
+      "newstory_with_blank_space_front_and_tail": " same old story "
     })
     
     -Step2:
@@ -278,14 +296,15 @@ weight: 10734
     
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story4": "hello\nworld",
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -294,28 +313,30 @@ weight: 10734
     
     
     scope[local] merged: {
-      "my_interesting_story1": "hello\nworld\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n"
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story4": "hello\nworld",
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "my_interesting_story2": "hello world",
+      "up_runtime_task_layer_number": 0,
+      "my_interesting_story3": "hello world\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n",
       "newstory_with_blank_space_front_and_tail": " same old story ",
-      "newstory_clean": "same old story"
+      "my_interesting_story5": "hello world",
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story4": "hello\nworld",
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -327,6 +348,7 @@ weight: 10734
     -
     [hello world
     ]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -343,6 +365,7 @@ weight: 10734
     echo [hello world]
     -
     [hello world]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -367,6 +390,7 @@ weight: 10734
     
     
     ]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -383,6 +407,7 @@ weight: 10734
     echo "[ same old story ]"
     -
     [ same old story ]
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -399,6 +424,7 @@ weight: 10734
     echo "[same old story]"
     -
     [same old story]
+    
     -
      .. ok
     (utils.ExecResult) {

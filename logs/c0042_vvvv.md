@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10423
 
@@ -22,6 +22,7 @@ weight: 10423
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,11 +57,13 @@ weight: 10423
     -Step1: [: step1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -70,6 +73,7 @@ weight: 10423
     echo tom
     -
     tom
+    
     -
      .. ok
     cmd( 2):
@@ -79,6 +83,7 @@ weight: 10423
     echo hanks
     -
     hanks
+    
     -
      .. ok
     . ok
@@ -91,7 +96,8 @@ weight: 10423
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> reg_hello:
@@ -110,8 +116,9 @@ weight: 10423
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "reg_hello": "hello: hanks\n\n"
+      "up_runtime_task_layer_number": 0,
+      "reg_hello": "hello: hanks\n\n",
+      "hellomsg": "hanks"
     })
     
     cmd( 1):
@@ -121,6 +128,7 @@ weight: 10423
     echo "hellomsg  - hanks"
     -
     hellomsg  - hanks
+    
     -
      .. ok
     cmd( 2):
@@ -134,6 +142,7 @@ weight: 10423
     reg_hello - hello: hanks
     
     
+    
     -
      .. ok
     . ok
@@ -143,6 +152,7 @@ weight: 10423
     current exec runtime vars:
     (*core.Cache)({
       "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
@@ -154,14 +164,15 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
-      "hellomsg": "hanks",
-      "reg_hello": "\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
+      "reg_hello": "\n"
     })
     
     cmd( 1):
@@ -171,6 +182,7 @@ weight: 10423
     echo "hanks"
     -
     hanks
+    
     -
      .. ok
     . ok
@@ -178,6 +190,7 @@ weight: 10423
      ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -194,7 +207,8 @@ weight: 10423
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -204,6 +218,7 @@ weight: 10423
     echo "<no value>"
     -
     <no value>
+    
     -
      .. ok
     . ok
@@ -215,7 +230,8 @@ weight: 10423
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> void:
@@ -227,13 +243,14 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
       }),
-      "iamvoid": "something"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -243,6 +260,7 @@ weight: 10423
     echo 'something'
     -
     something
+    
     -
      .. ok
     . ok
@@ -255,19 +273,21 @@ weight: 10423
         Output: "something",
         ErrMsg: ""
       }),
-      "iamvoid": "something"
+      "iamvoid": "something",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      }),
-      "iamvoid": "something"
+      })
     })
     
     cmd( 1):
@@ -277,6 +297,7 @@ weight: 10423
     echo 'something'
     -
     something
+    
     -
      .. ok
     . ok

@@ -1,6 +1,6 @@
 ---
 title: "c0101_vvvvv"
-date: 2020-08-18T15:16:07+88:00
+date: 2020-09-18T00:51:38+99:00
 draft: false
 weight: 11014
 
@@ -22,6 +22,7 @@ weight: 11014
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11014
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f5040)(<nil>)
+    (*impl.Scopes)(0xc000259040)(<nil>)
     
     ---------group vars----------
     
@@ -69,8 +70,8 @@ weight: 11014
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "hello"
+          "cmd": "hello",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -93,6 +94,7 @@ weight: 11014
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -101,12 +103,14 @@ weight: 11014
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     hello
@@ -140,6 +144,7 @@ weight: 11014
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -148,16 +153,18 @@ weight: 11014
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [pause:  ]
-    Enter Value For pause action to continue: 
+    Enter Value For [pause action to continue]: 
     
     enter: continue 
         q: quit
@@ -192,6 +199,7 @@ weight: 11014
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -200,12 +208,14 @@ weight: 11014
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     world

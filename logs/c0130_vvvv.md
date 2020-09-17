@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvv"
-date: 2020-08-18T15:16:14+88:00
+date: 2020-09-18T00:51:45+99:00
 draft: false
 weight: 11303
 
@@ -22,6 +22,7 @@ weight: 11303
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,17 +43,19 @@ weight: 11303
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "c": "global_ccc",
       "a": "global_aaa",
-      "b": "global_bbb"
+      "b": "global_bbb",
+      "c": "global_ccc",
+      "goahead": false
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "b": "global_bbb",
       "c": "global_ccc",
-      "a": "global_aaa"
+      "goahead": false,
+      "a": "global_aaa",
+      "b": "global_bbb"
     }
     
       located task-> 1 [task]: 
@@ -62,22 +65,114 @@ weight: 11303
     -Step1: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
       "a": "local_aaa",
       "b": "local_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa",
+      "up_runtime_task_layer_number": 0,
+      "db": "local_db",
       "da": "local_da",
+      "goahead": false,
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
+    })
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "da": "local_da",
+      "c": "global_ccc",
+      "goahead": false,
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
       "db": "local_db"
     })
     
-    condition failed, skip executing step 
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "c": "global_ccc",
+      "goahead": false,
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "db": "local_db",
+      "da": "local_da"
+    })
+    
+    cmd( 1):
+    echo "else step1"
+    
+    cmd=>:
+    echo "else step1"
+    -
+    else step1
+    
+    -
+     .. ok
+    cmd( 2):
+    echo "else step2"
+    
+    cmd=>:
+    echo "else step2"
+    -
+    else step2
+    
+    -
+     .. ok
+    . ok
+    -Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "b": "local_bbb",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"else step2\"",
+        Code: 0,
+        Output: "else step2",
+        ErrMsg: ""
+      }),
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0,
+      "db": "local_db",
+      "da": "local_da",
+      "goahead": false,
+      "a": "block_layer1_aaa_else"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "db": "local_db",
+      "da": "local_da",
+      "goahead": false,
+      "a": "block_layer1_aaa_else",
+      "b": "local_bbb",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"else step2\"",
+        Code: 0,
+        Output: "else step2",
+        ErrMsg: ""
+      }),
+      "c": "global_ccc"
+    })
+    
+    ~SubStep1: [print:  ]
+    layer 1
+    up_runtime_task_layer_number: 0
+    a: block_layer1_aaa_else
+    b: local_bbb
+    c: global_ccc
+    da: local_da
+    db: local_db
     
     
 ```

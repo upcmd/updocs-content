@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvvv"
-date: 2020-08-18T15:15:57+88:00
+date: 2020-09-18T00:51:28+99:00
 draft: false
 weight: 10554
 
@@ -22,6 +22,7 @@ weight: 10554
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10554
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000265220)(<nil>)
+    (*impl.Scopes)(0xc0001e7240)(<nil>)
     
     ---------group vars----------
     
@@ -90,6 +91,7 @@ weight: 10554
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -98,12 +100,14 @@ weight: 10554
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -149,6 +153,7 @@ weight: 10554
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> greet:
@@ -163,13 +168,15 @@ weight: 10554
     
     
     scope[local] merged: {
-      "greet": "hello"
+      "greet": "hello",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "greet": "hello"
     })
     
@@ -200,6 +207,7 @@ weight: 10554
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -208,16 +216,19 @@ weight: 10554
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (taska)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [taska]: 
@@ -277,6 +288,7 @@ weight: 10554
     echo "hello from taska"
     -
     hello from taska
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -293,6 +305,7 @@ weight: 10554
     echo "<no value> from taska"
     -
     <no value> from taska
+    
     -
      .. ok
     (utils.ExecResult) {

@@ -1,6 +1,6 @@
 ---
 title: "c0138_vvvvv"
-date: 2020-08-18T15:16:16+88:00
+date: 2020-09-18T00:51:47+99:00
 draft: false
 weight: 11384
 
@@ -22,6 +22,7 @@ weight: 11384
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11384
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177140)(<nil>)
+    (*impl.Scopes)(0xc000175160)(<nil>)
     
     ---------group vars----------
     
@@ -73,8 +74,8 @@ weight: 11384
           "cmdy": "step1"
         },
         {
-          "name": "print",
-          "cmdx": "step2"
+          "cmdx": "step2",
+          "name": "print"
         },
         {
           "name": "print",
@@ -101,6 +102,7 @@ weight: 11384
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -109,12 +111,14 @@ weight: 11384
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -163,6 +167,7 @@ weight: 11384
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -171,12 +176,14 @@ weight: 11384
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -192,8 +199,8 @@ weight: 11384
       Name: "",
       Do: {
         {
-          "cmd": "step5",
-          "name": "print"
+          "name": "print",
+          "cmd": "step5"
         }
       },
       Dox: <nil>,
@@ -216,6 +223,7 @@ weight: 11384
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -224,12 +232,14 @@ weight: 11384
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     step5
@@ -264,6 +274,7 @@ weight: 11384
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -272,12 +283,14 @@ weight: 11384
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

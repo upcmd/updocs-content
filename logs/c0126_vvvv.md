@@ -1,6 +1,6 @@
 ---
 title: "c0126_vvvv"
-date: 2020-08-18T15:16:13+88:00
+date: 2020-09-18T00:51:44+99:00
 draft: false
 weight: 11263
 
@@ -22,6 +22,7 @@ weight: 11263
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,11 +43,13 @@ weight: 11263
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "goahead": false
     }
     
     -------runtime global final merged with dvars-------
     
     {
+      "goahead": false
     }
     
       located task-> 1 [task]: 
@@ -56,26 +59,34 @@ weight: 11263
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
     true/false value of goahead:
-    <no value>
+    false
     true
     
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 
@@ -83,11 +94,15 @@ weight: 11263
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 3 [else]: 
@@ -97,12 +112,14 @@ weight: 11263
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "goahead": false,
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "goahead": false,
       "up_runtime_task_layer_number": 1
     })
     

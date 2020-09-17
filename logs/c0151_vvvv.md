@@ -1,6 +1,6 @@
 ---
 title: "c0151_vvvv"
-date: 2020-08-18T15:16:19+88:00
+date: 2020-09-18T00:51:50+99:00
 draft: false
 weight: 11513
 
@@ -22,6 +22,7 @@ weight: 11513
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -60,14 +61,16 @@ weight: 11513
     -Step1: [: greet to Tom ]
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "up_runtime_task_layer_number": 0,
+      "greet_to": "Tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "weather": "sunny",
+      "up_runtime_task_layer_number": 0,
       "greet_to": "Tom"
     })
     
@@ -98,35 +101,36 @@ weight: 11513
     echo "Hello, Tom"
     -
     Hello, Tom
+    
     -
      .. ok
     . ok
     --Step2: [: talk about weather ]
     current exec runtime vars:
     (*core.Cache)({
-      "greet_to": "Tom",
       "weather": "sunny",
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "greet_to": "Tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Tom",
       "weather": "sunny",
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "greet_to": "Tom"
     })
     
     ~~SubStep1: [print:  ]
@@ -136,26 +140,26 @@ weight: 11513
     (*core.Cache)({
       "greet_to": "Tom",
       "weather": "sunny",
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "sunny",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Tom\"",
         Code: 0,
         Output: "Hello, Tom",
         ErrMsg: ""
       }),
+      "greet_to": "Tom",
+      "weather": "sunny",
       "up_runtime_task_layer_number": 1
     })
     
@@ -172,9 +176,9 @@ weight: 11513
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "greet_to": "Grace",
-      "weather": "sunny"
+      "weather": "sunny",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 2 [greet]: 
@@ -184,17 +188,17 @@ weight: 11513
     --Step1: [: say hello ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "greet_to": "Grace",
-      "weather": "sunny",
-      "up_runtime_task_layer_number": 1
+      "weather": "sunny"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "greet_to": "Grace",
-      "weather": "sunny"
+      "weather": "sunny",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -204,12 +208,14 @@ weight: 11513
     echo "Hello, Grace"
     -
     Hello, Grace
+    
     -
      .. ok
     . ok
     --Step2: [: talk about weather ]
     current exec runtime vars:
     (*core.Cache)({
+      "greet_to": "Grace",
       "weather": "sunny",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
@@ -217,8 +223,7 @@ weight: 11513
         Code: 0,
         Output: "Hello, Grace",
         ErrMsg: ""
-      }),
-      "greet_to": "Grace"
+      })
     })
     
     self: final context exec vars:
@@ -254,15 +259,15 @@ weight: 11513
     self: final context exec vars:
     
     (*core.Cache)({
+      "greet_to": "Grace",
+      "weather": "sunny",
       "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Grace\"",
         Code: 0,
         Output: "Hello, Grace",
         ErrMsg: ""
-      }),
-      "greet_to": "Grace",
-      "weather": "sunny"
+      })
     })
     
     ~~SubStep1: [print:  ]
@@ -270,17 +275,17 @@ weight: 11513
     -Step3: [: do  you get the idea? ]
     current exec runtime vars:
     (*core.Cache)({
-      "weather": "sunny",
       "up_runtime_task_layer_number": 1,
-      "greet_to": "Tom"
+      "greet_to": "Tom",
+      "weather": "sunny"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "greet_to": "Tom",
-      "weather": "sunny"
+      "weather": "sunny",
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]
@@ -301,13 +306,13 @@ weight: 11513
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Tom",
-      "weather": "stormy",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "greet_to": "Tom",
+      "weather": "stormy"
     })
     
       located task-> 3 [sayhi]: 
@@ -317,22 +322,6 @@ weight: 11513
     --Step1: [: say hi to someone ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Tom",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "weather": "stormy",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
@@ -341,13 +330,12 @@ weight: 11513
       "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
-      "greet_to": "Tom"
+      "greet_to": "Tom",
+      "weather": "stormy"
     })
     
-    ~~SubStep1: [print:  ]
-    Hi Jason, how are you?
-    --Step2: [: greet to the team member ]
-    current exec runtime vars:
+    self: final context exec vars:
+    
     (*core.Cache)({
       "loopindex1": 1,
       "greet_to": "Tom",
@@ -361,11 +349,26 @@ weight: 11513
       "loopindex": 0
     })
     
+    ~~SubStep1: [print:  ]
+    Hi Jason, how are you?
+    --Step2: [: greet to the team member ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Tom",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 1,
+      "team": {
+        "Jason",
+        "Connie"
+      }
+    })
+    
     self: final context exec vars:
     
     (*core.Cache)({
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
@@ -373,7 +376,9 @@ weight: 11513
       "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
-      "greet_to": "Jason"
+      "greet_to": "Jason",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 2 [greet]: 
@@ -383,7 +388,6 @@ weight: 11513
     ---Step1: [: say hello ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "Jason",
       "loopindex": 0,
       "loopindex1": 1,
       "greet_to": "Jason",
@@ -392,22 +396,23 @@ weight: 11513
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "loopitem": "Jason"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "weather": "stormy",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      }
+      },
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Jason",
+      "weather": "stormy"
     })
     
     cmd( 1):
@@ -417,22 +422,44 @@ weight: 11513
     echo "Hello, Jason"
     -
     Hello, Jason
+    
     -
      .. ok
     . ok
     ---Step2: [: talk about weather ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Jason",
+      "weather": "stormy"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Jason\"",
+        Code: 0,
+        Output: "Hello, Jason",
+        ErrMsg: ""
+      }),
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Jason",
       "weather": "stormy",
       "up_runtime_task_layer_number": 2,
       "team": {
@@ -441,41 +468,56 @@ weight: 11513
       }
     })
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Jason\"",
-        Code: 0,
-        Output: "Hello, Jason",
-        ErrMsg: ""
-      }),
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason"
-    })
-    
     ~~~SubStep1: [print:  ]
     It is stormy
     ---Step3: [: ice break ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "greet_to": "Jason",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Jason\"",
         Code: 0,
         Output: "Hello, Jason",
         ErrMsg: ""
       }),
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Jason\"",
+        Code: 0,
+        Output: "Hello, Jason",
+        ErrMsg: ""
+      }),
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Jason",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      }
+    })
+    
+    ---Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Jason",
       "weather": "stormy",
       "up_runtime_task_layer_number": 2,
       "team": {
@@ -488,64 +530,16 @@ weight: 11513
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "Jason",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "greet_to": "Jason",
       "weather": "stormy",
       "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Jason\"",
-        Code: 0,
-        Output: "Hello, Jason",
-        ErrMsg: ""
-      })
-    })
-    
-    ---Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Jason\"",
-        Code: 0,
-        Output: "Hello, Jason",
-        ErrMsg: ""
-      }),
-      "weather": "stormy"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Jason",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "greet_to": "Jason",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Jason\"",
-        Code: 0,
-        Output: "Hello, Jason",
-        ErrMsg: ""
-      })
+      }
     })
     
     ~~~SubStep1: [print:  ]
@@ -557,6 +551,7 @@ weight: 11513
     --Step1: [: say hi to someone ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 1,
       "loopindex1": 2,
       "greet_to": "Tom",
       "weather": "stormy",
@@ -565,8 +560,7 @@ weight: 11513
         "Jason",
         "Connie"
       },
-      "loopitem": "Connie",
-      "loopindex": 1
+      "loopitem": "Connie"
     })
     
     self: final context exec vars:
@@ -589,21 +583,22 @@ weight: 11513
     --Step2: [: greet to the team member ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Tom",
       "weather": "stormy",
       "up_runtime_task_layer_number": 1,
       "team": {
         "Jason",
         "Connie"
       },
-      "loopitem": "Connie"
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "greet_to": "Tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
       "greet_to": "Connie",
@@ -612,8 +607,7 @@ weight: 11513
       "team": {
         "Jason",
         "Connie"
-      },
-      "loopitem": "Connie"
+      }
     })
     
       located task-> 2 [greet]: 
@@ -623,8 +617,6 @@ weight: 11513
     ---Step1: [: say hello ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "greet_to": "Connie",
       "weather": "stormy",
       "up_runtime_task_layer_number": 2,
@@ -632,22 +624,24 @@ weight: 11513
         "Jason",
         "Connie"
       },
-      "loopitem": "Connie"
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "team": {
+        "Jason",
+        "Connie"
+      },
       "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
       "greet_to": "Connie",
       "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      }
+      "up_runtime_task_layer_number": 2
     })
     
     cmd( 1):
@@ -657,33 +651,35 @@ weight: 11513
     echo "Hello, Connie"
     -
     Hello, Connie
+    
     -
      .. ok
     . ok
     ---Step2: [: talk about weather ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "greet_to": "Connie",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
         Output: "Hello, Connie",
         ErrMsg: ""
-      }),
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Connie",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      },
-      "loopitem": "Connie"
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "Connie",
       "loopindex": 1,
       "loopindex1": 2,
       "greet_to": "Connie",
@@ -693,7 +689,6 @@ weight: 11513
         "Jason",
         "Connie"
       },
-      "loopitem": "Connie",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"Hello, Connie\"",
         Code: 0,
@@ -707,34 +702,6 @@ weight: 11513
     ---Step3: [: ice break ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "Connie",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
-      "loopindex": 1,
-      "loopindex1": 2,
-      "greet_to": "Connie",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
-      "team": {
-        "Jason",
-        "Connie"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
-      "loopindex": 1,
       "loopindex1": 2,
       "greet_to": "Connie",
       "weather": "stormy",
@@ -743,7 +710,35 @@ weight: 11513
         "Jason",
         "Connie"
       },
-      "loopitem": "Connie"
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Connie\"",
+        Code: 0,
+        Output: "Hello, Connie",
+        ErrMsg: ""
+      }),
+      "loopitem": "Connie",
+      "loopindex": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "greet_to": "Connie",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 2,
+      "team": {
+        "Jason",
+        "Connie"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"Hello, Connie\"",
+        Code: 0,
+        Output: "Hello, Connie",
+        ErrMsg: ""
+      }),
+      "loopitem": "Connie",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     ---Step1:
@@ -755,12 +750,6 @@ weight: 11513
         "Connie"
       },
       "loopitem": "Connie",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
       "loopindex": 1,
       "loopindex1": 2,
       "greet_to": "Connie",
@@ -770,22 +759,16 @@ weight: 11513
     self: final context exec vars:
     
     (*core.Cache)({
-      "greet_to": "Connie",
-      "weather": "stormy",
-      "up_runtime_task_layer_number": 2,
       "team": {
         "Jason",
         "Connie"
       },
       "loopitem": "Connie",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"Hello, Connie\"",
-        Code: 0,
-        Output: "Hello, Connie",
-        ErrMsg: ""
-      }),
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "greet_to": "Connie",
+      "weather": "stormy",
+      "up_runtime_task_layer_number": 2
     })
     
     ~~~SubStep1: [print:  ]

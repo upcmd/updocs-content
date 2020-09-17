@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvvv"
-date: 2020-08-18T15:16:05+88:00
+date: 2020-09-18T00:51:36+99:00
 draft: false
 weight: 10904
 
@@ -22,6 +22,7 @@ weight: 10904
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10904
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f7680)(<nil>)
+    (*impl.Scopes)(0xc000096000)(<nil>)
     
     ---------group vars----------
     
@@ -117,6 +118,7 @@ weight: 10904
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> person:
@@ -131,6 +133,7 @@ weight: 10904
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "person": "None"
     }
     
@@ -138,6 +141,7 @@ weight: 10904
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": "None"
     })
     
@@ -188,6 +192,7 @@ weight: 10904
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "taskvar": "taskvar"
     })
     
@@ -197,6 +202,7 @@ weight: 10904
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "taskvar": "taskvar"
     }
     
@@ -204,15 +210,17 @@ weight: 10904
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "taskvar": "taskvar"
     })
     
     caller's vars to task (task_callee2)::
     (*core.Cache)({
-      "taskvar": "taskvar",
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
+      "taskvar": "taskvar"
     })
     
       located task-> 3 [task_callee2]: 
@@ -279,11 +287,11 @@ weight: 10904
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "tom",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     dvar> person:
@@ -298,22 +306,22 @@ weight: 10904
     
     
     scope[local] merged: {
-      "person": "tom",
-      "loopindex": 0,
-      "loopindex1": 1,
       "taskvar": "taskvar",
       "loopitem": "tom",
-      "up_runtime_task_layer_number": 1
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "person": "tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "taskvar": "taskvar",
       "loopitem": "tom",
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "person": "tom"
     })
@@ -334,10 +342,11 @@ weight: 10904
     taskvar: taskvar
     caller's vars to task (task_callee2)::
     (*core.Cache)({
-      "taskvar": "taskvar",
-      "loopitem": "peter",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 0,
+      "taskvar": "taskvar",
+      "loopitem": "peter"
     })
     
       located task-> 3 [task_callee2]: 
@@ -354,9 +363,9 @@ weight: 10904
           "cmd": "callee2: {{.person}}"
         },
         {
+          "cmd": "callee2: {{.loopitem}}",
           "name": "print",
-          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n",
-          "cmd": "callee2: {{.loopitem}}"
+          "desc": "this will be the loopitem from parent caller's\nvar space and this is design\n"
         },
         {
           "name": "print",
@@ -404,11 +413,11 @@ weight: 10904
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
-      "loopitem": "peter"
+      "loopitem": "peter",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     dvar> person:
@@ -423,24 +432,24 @@ weight: 10904
     
     
     scope[local] merged: {
-      "taskvar": "taskvar",
-      "loopitem": "peter",
       "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "person": "peter"
+      "person": "peter",
+      "taskvar": "taskvar",
+      "loopitem": "peter"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar",
       "loopitem": "peter",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "person": "peter",
-      "taskvar": "taskvar"
+      "person": "peter"
     })
     
     callee2: {{.person}}
@@ -459,10 +468,11 @@ weight: 10904
     taskvar: taskvar
     caller's vars to task (task_callee2)::
     (*core.Cache)({
-      "loopindex1": 3,
+      "up_runtime_task_layer_number": 0,
       "taskvar": "taskvar",
       "loopitem": "james",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
       located task-> 3 [task_callee2]: 
@@ -484,8 +494,8 @@ weight: 10904
           "cmd": "callee2: {{.loopitem}}"
         },
         {
-          "name": "print",
-          "cmd": "callee2: {{.greet}}"
+          "cmd": "callee2: {{.greet}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -548,24 +558,24 @@ weight: 10904
     
     
     scope[local] merged: {
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "person": "james",
-      "taskvar": "taskvar",
       "loopitem": "james",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "person": "james",
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "person": "james",
-      "taskvar": "taskvar",
-      "loopitem": "james",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "person": "james",
+      "up_runtime_task_layer_number": 1,
+      "taskvar": "taskvar",
+      "loopitem": "james"
     })
     
     callee2: {{.person}}

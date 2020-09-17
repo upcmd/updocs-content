@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvvv"
-date: 2020-08-18T15:16:12+88:00
+date: 2020-09-18T00:51:42+99:00
 draft: false
 weight: 11184
 
@@ -22,6 +22,7 @@ weight: 11184
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11184
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000ba660)(<nil>)
+    (*impl.Scopes)(0xc000204700)(<nil>)
     
     ---------group vars----------
     
@@ -117,13 +118,14 @@ weight: 11184
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopkey": "items",
-      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
+      "person": "tom"
     })
     
     [local] dvar expanded result:
@@ -138,6 +140,7 @@ weight: 11184
         "item3"
       },
       "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "person": "tom"
     }
     
@@ -145,13 +148,14 @@ weight: 11184
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     condition failed, skip executing step step1
@@ -191,13 +195,14 @@ weight: 11184
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
+      "person": "tom"
     })
     
     [local] dvar expanded result:
@@ -206,13 +211,14 @@ weight: 11184
     
     
     scope[local] merged: {
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
+      "person": "tom",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items",
-      "person": "tom"
+      }
     }
     
     
@@ -225,6 +231,7 @@ weight: 11184
         "item3"
       },
       "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "person": "tom"
     })
     
@@ -259,12 +266,13 @@ weight: 11184
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     [local] dvar expanded result:
@@ -273,24 +281,26 @@ weight: 11184
     
     
     scope[local] merged: {
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     {{.loopitem}}

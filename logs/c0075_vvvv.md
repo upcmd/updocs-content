@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvv"
-date: 2020-08-18T15:16:01+88:00
+date: 2020-09-18T00:51:32+99:00
 draft: false
 weight: 10753
 
@@ -22,6 +22,7 @@ weight: 10753
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -90,18 +91,18 @@ weight: 10753
     -------runtime global final merged with dvars-------
     
     {
+      "var_to_ref_to_outside_of_range_from_within_range": " ",
+      "var_directly_ref_to": "peter",
       "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
-      "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice ",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter"
+      "var_with_range": " x  x  x ",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range_item_simpler": " tom  jason  alice "
     }
     
       located task-> 1 [task]: 

@@ -1,6 +1,6 @@
 ---
 title: "c0162_vvvv"
-date: 2020-08-18T15:16:22+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11623
 
@@ -22,6 +22,7 @@ weight: 11623
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,28 +57,30 @@ weight: 11623
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "my_friend": "joe doe",
       "who_is_trusted": "my_friend",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
-      },
-      "my_friend": "joe doe"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "who_is_trusted": "my_friend",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
       },
+      "countries": "- Austraila\n- US\n- China\n- Japan\n",
+      "up_runtime_task_layer_number": 0,
       "my_friend": "joe doe",
-      "countries": "- Austraila\n- US\n- China\n- Japan\n"
+      "who_is_trusted": "my_friend"
     })
     
     ~SubStep1: [print:  ]
@@ -100,13 +103,15 @@ weight: 11623
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "my_friend": "john"
+      "my_friend": "john",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_friend": "john"
+      "my_friend": "john",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

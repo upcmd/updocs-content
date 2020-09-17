@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:28+99:00
 draft: false
 weight: 101004
 
@@ -22,6 +22,7 @@ weight: 101004
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0010
@@ -34,7 +35,7 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e6d80)(<nil>)
+    (*impl.Scopes)(0xc00000c280)(<nil>)
     
     ---------group vars----------
     
@@ -88,6 +89,7 @@ weight: 101004
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -96,28 +98,32 @@ weight: 101004
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (hello-module.Say_hello)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [hello-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7e80)(<nil>)
+    (*impl.Scopes)(0xc00000d4a0)(<nil>)
     
     ---------group vars----------
     
@@ -182,6 +188,7 @@ weight: 101004
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -192,7 +199,8 @@ weight: 101004
     
     scope[local] merged: {
       "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -200,6 +208,7 @@ weight: 101004
     
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -230,6 +239,7 @@ weight: 101004
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -239,6 +249,7 @@ weight: 101004
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -246,24 +257,27 @@ weight: 101004
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     caller's vars to task (hi-module.Say_hi)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hi-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000d520)(<nil>)
+    (*impl.Scopes)(0xc0002c68c0)(<nil>)
     
     ---------group vars----------
     
@@ -301,8 +315,8 @@ weight: 101004
       Name: "",
       Do: {
         {
-          "cmd": "... hi",
-          "name": "print"
+          "name": "print",
+          "cmd": "... hi"
         }
       },
       Dox: <nil>,
@@ -328,6 +342,7 @@ weight: 101004
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
@@ -338,6 +353,7 @@ weight: 101004
     
     scope[local] merged: {
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     }
     
@@ -346,6 +362,7 @@ weight: 101004
     
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     

@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvv"
-date: 2020-08-18T15:16:08+88:00
+date: 2020-09-18T00:51:39+99:00
 draft: false
 weight: 11053
 
@@ -22,6 +22,7 @@ weight: 11053
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -59,6 +60,7 @@ weight: 11053
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry"
     })
     
@@ -66,6 +68,7 @@ weight: 11053
     
     (*core.Cache)({
       "tom": "this is tom",
+      "up_runtime_task_layer_number": 0,
       "jerry": "this is jerry"
     })
     
@@ -76,13 +79,15 @@ weight: 11053
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -94,12 +99,14 @@ weight: 11053
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "tom": "this is tom",
       "hitom": "hello, this is tom"
     })
@@ -112,6 +119,7 @@ weight: 11053
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "tom": "this is tom",
       "hitom": "hello, this is tom"
     })
@@ -120,7 +128,8 @@ weight: 11053
     
     (*core.Cache)({
       "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print: hijerry is not accessible here and got <no value> ]

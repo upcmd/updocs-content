@@ -1,6 +1,6 @@
 ---
 title: "c0165_vvvv"
-date: 2020-08-18T15:16:23+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11653
 
@@ -22,6 +22,7 @@ weight: 11653
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -57,16 +58,16 @@ weight: 11653
     -------runtime global final merged with dvars-------
     
     {
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
+            "postcode": 2000,
+            "name": "sydney CBD"
           },
           "school": "SG"
         }
-      },
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n"
+      }
     }
     
       located task-> 1 [task]: 
@@ -80,17 +81,28 @@ weight: 11653
       "obj": {
         "address": {
           "suburb": {
-            "name": "sydney CBD",
-            "postcode": 2000
+            "postcode": 2000,
+            "name": "sydney CBD"
           },
           "school": "SG"
         }
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "this_is_an_obj": (*map[interface {}]interface {})({
+        "address": {
+          "school": "SG",
+          "suburb": {
+            "name": "sydney CBD",
+            "postcode": 2000
+          }
+        }
+      }),
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
@@ -100,16 +112,7 @@ weight: 11653
           },
           "school": "SG"
         }
-      },
-      "this_is_an_obj": (*map[interface {}]interface {})({
-        "address": {
-          "suburb": {
-            "postcode": 2000,
-            "name": "sydney CBD"
-          },
-          "school": "SG"
-        }
-      })
+      }
     })
     
     ~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvv"
-date: 2020-08-18T15:16:06+88:00
+date: 2020-09-18T00:51:37+99:00
 draft: false
 weight: 10953
 
@@ -22,6 +22,7 @@ weight: 10953
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -56,6 +57,7 @@ weight: 10953
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
       "name_to_reg": "person_dyna_object",
@@ -65,10 +67,11 @@ weight: 10953
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "jason",
-      "person_yml": "person:\n  name: tom\n  age: 23\n",
       "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object"
+      "name_to_reg": "person_dyna_object",
+      "person": "jason",
+      "up_runtime_task_layer_number": 0,
+      "person_yml": "person:\n  name: tom\n  age: 23\n"
     })
     
     ~SubStep1: [toObj: the key is pointing to a var name and use its content as yml content

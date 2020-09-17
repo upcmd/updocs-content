@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:29+99:00
 draft: false
 weight: 101304
 
@@ -22,6 +22,7 @@ weight: 101304
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 8
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0013
@@ -34,7 +35,7 @@ weight: 101304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c0de0)(<nil>)
+    (*impl.Scopes)(0xc000174da0)(<nil>)
     
     ---------group vars----------
     
@@ -88,6 +89,7 @@ weight: 101304
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -96,28 +98,32 @@ weight: 101304
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (hello-module.Say_hello)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [hello-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1ee0)(<nil>)
+    (*impl.Scopes)(0xc000175fc0)(<nil>)
     
     ---------group vars----------
     
@@ -181,8 +187,9 @@ weight: 101304
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -191,8 +198,9 @@ weight: 101304
     
     
     scope[local] merged: {
+      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -200,6 +208,7 @@ weight: 101304
     
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -230,6 +239,7 @@ weight: 101304
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -239,6 +249,7 @@ weight: 101304
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -246,24 +257,27 @@ weight: 101304
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     caller's vars to task (crosstalk1.Cross_call1)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [crosstalk1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00026b9e0)(<nil>)
+    (*impl.Scopes)(0xc00021fa40)(<nil>)
     
     ---------group vars----------
     
@@ -325,6 +339,7 @@ weight: 101304
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
@@ -334,6 +349,7 @@ weight: 101304
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     }
     
@@ -341,6 +357,7 @@ weight: 101304
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     

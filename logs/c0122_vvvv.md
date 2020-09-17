@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvv"
-date: 2020-08-18T15:16:13+88:00
+date: 2020-09-18T00:51:43+99:00
 draft: false
 weight: 11223
 
@@ -22,6 +22,7 @@ weight: 11223
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -65,9 +66,10 @@ weight: 11223
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "name": "tom"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -76,7 +78,8 @@ weight: 11223
       "student": {
         "sex": "male",
         "name": "tom"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -89,16 +92,18 @@ weight: 11223
       "student": {
         "name": "tom",
         "sex": "male"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
-      }
+        "sex": "male",
+        "name": "tom"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -106,9 +111,10 @@ weight: 11223
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       }
     })
     
@@ -119,6 +125,7 @@ weight: 11223
         "sex": "male",
         "name": "tom"
       },
+      "up_runtime_task_layer_number": 0,
       "student_age": ".student.age"
     })
     

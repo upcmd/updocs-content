@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvv"
-date: 2020-08-18T15:15:49+88:00
+date: 2020-09-18T00:51:21+99:00
 draft: false
 weight: 10123
 
@@ -22,6 +22,7 @@ weight: 10123
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -64,7 +65,8 @@ weight: 10123
     (*core.Cache)({
       "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -72,6 +74,7 @@ weight: 10123
     (*core.Cache)({
       "a": "runtime-a",
       "e": "runtime-e",
+      "up_runtime_task_layer_number": 0,
       "k": "runtime-k"
     })
     
@@ -82,6 +85,7 @@ weight: 10123
     echo "hello, world"
     -
     hello, world
+    
     -
      .. ok
     cmd( 2):
@@ -91,6 +95,7 @@ weight: 10123
     echo 'hello runtime-a'
     -
     hello runtime-a
+    
     -
      .. ok
     . ok

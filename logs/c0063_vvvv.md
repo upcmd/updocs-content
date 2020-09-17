@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvv"
-date: 2020-08-18T15:15:59+88:00
+date: 2020-09-18T00:51:29+99:00
 draft: false
 weight: 10633
 
@@ -22,6 +22,7 @@ weight: 10633
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -59,6 +60,7 @@ weight: 10633
     current exec runtime vars:
     (*core.Cache)({
       "a": "global-var-a",
+      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
     })
     
@@ -66,10 +68,11 @@ weight: 10633
     
     (*core.Cache)({
       "a": "global-var-a",
+      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
     })
     
-    Enter Value For pause action to continue: 
+    Enter Value For [pause action to continue]: 
     
     enter: continue 
         q: quit
@@ -82,6 +85,7 @@ weight: 10633
     echo "hello"
     -
     hello
+    
     -
      .. ok
     cmd( 2):
@@ -91,6 +95,7 @@ weight: 10633
     echo "hello global-var-a"
     -
     hello global-var-a
+    
     -
      .. ok
     . ok
@@ -103,24 +108,26 @@ weight: 10633
         Output: "hello global-var-a",
         ErrMsg: ""
       }),
-      "a": "global-var-a",
-      "b": "runtime-var-b"
+      "up_runtime_task_layer_number": 0,
+      "b": "runtime-var-b",
+      "a": "global-var-a"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "b": "runtime-var-b",
+      "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      }),
-      "a": "global-var-a",
-      "b": "runtime-var-b"
+      })
     })
     
-    Enter Value For pause action to continue: 
+    Enter Value For [pause action to continue]: 
     
     enter: continue 
         q: quit
@@ -131,6 +138,7 @@ weight: 10633
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
@@ -149,7 +157,8 @@ weight: 10633
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -159,6 +168,7 @@ weight: 10633
     echo "next step"
     -
     next step
+    
     -
      .. ok
     . ok

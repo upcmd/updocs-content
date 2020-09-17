@@ -1,6 +1,6 @@
 ---
 title: "c0023_vvvv"
-date: 2020-08-18T15:15:51+88:00
+date: 2020-09-18T00:51:22+99:00
 draft: false
 weight: 10233
 
@@ -22,6 +22,7 @@ weight: 10233
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -42,34 +43,34 @@ weight: 10233
     groups members:[]
     merged[ dev ] runtime vars:
     {
+      "a1": "a1->{{.b2}}",
       "b2": "b2->{{.c3}}",
       "c3": "c3->{{.d4}}",
       "d4": "d4->{{.student}}",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar",
-      "a1": "a1->{{.b2}}"
+      "school": "Sydney Grammar"
     }
     
     -------runtime global final merged with dvars-------
     
     {
-      "c3": "c3->{{.d4}}",
-      "dependon_var_and_dvar": "Tom-Male",
-      "sex": "Male",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "a1": "a1->{{.b2}}",
-      "d4": "d4->{{.student}}",
       "gender": "Male",
-      "from": "Sydney Grammar",
-      "dependon_vars": "Male",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
-      "b2": "b2->{{.c3}}",
-      "student": "Tom",
+      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
       "school": "Sydney Grammar",
-      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom"
+      "b2": "b2->{{.c3}}",
+      "c3": "c3->{{.d4}}",
+      "d4": "d4->{{.student}}",
+      "student": "Tom",
+      "dependon_var_and_dvar": "Tom-Male",
+      "dependon_vars": "Male",
+      "a1": "a1->{{.b2}}",
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
+      "sex": "Male",
+      "from": "Sydney Grammar",
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
+      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}"
     }
     
       located task-> 1 [task]: 
@@ -79,43 +80,45 @@ weight: 10233
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "gender": "Male",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
-      "school": "Sydney Grammar",
-      "dependon_var_and_dvar": "Tom-Male",
       "from": "Sydney Grammar",
+      "student": "Tom",
       "dependon_vars": "Male",
+      "school": "Sydney Grammar",
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "a1": "a1->{{.b2}}",
+      "b2": "b2->{{.c3}}",
+      "dependon_var_and_dvar": "Tom-Male",
+      "sex": "Male",
       "d4": "d4->{{.student}}",
       "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "a1": "a1->{{.b2}}",
       "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "c3": "c3->{{.d4}}",
-      "b2": "b2->{{.c3}}",
       "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
-      "student": "Tom",
-      "sex": "Male"
+      "gender": "Male",
+      "c3": "c3->{{.d4}}",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a1": "a1->{{.b2}}",
-      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
-      "sex": "Male",
-      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
-      "c3": "c3->{{.d4}}",
-      "b2": "b2->{{.c3}}",
-      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom",
-      "student": "Tom",
-      "gender": "Male",
-      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
       "school": "Sydney Grammar",
-      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
-      "dependon_var_and_dvar": "Tom-Male",
+      "multple_render_var_level3_with_expand3": "multple-render-var-> b2->c3->d4->{{.student}}",
+      "a1": "a1->{{.b2}}",
       "from": "Sydney Grammar",
+      "student": "Tom",
       "dependon_vars": "Male",
-      "d4": "d4->{{.student}}"
+      "b2": "b2->{{.c3}}",
+      "dependon_var_and_dvar": "Tom-Male",
+      "sex": "Male",
+      "d4": "d4->{{.student}}",
+      "gender": "Male",
+      "c3": "c3->{{.d4}}",
+      "multple_render_var_level3_with_expand4": "multple-render-var-> b2->c3->d4->Tom",
+      "up_runtime_task_layer_number": 0,
+      "multple_render_var_level3": "multple-render-var-> b2->{{.c3}}",
+      "multple_render_var_level3_with_expand2": "multple-render-var-> b2->c3->{{.d4}}",
+      "multple_render_var_level5": "multple-render-var-> a1->b2->c3->d4->Tom"
     })
     
     cmd( 1):
@@ -125,6 +128,7 @@ weight: 10233
     echo "student=>Tom"
     -
     student=>Tom
+    
     -
      .. ok
     cmd( 2):
@@ -134,6 +138,7 @@ weight: 10233
     echo "a1=> a1->b2->{{.c3}}"
     -
     a1=> a1->b2->{{.c3}}
+    
     -
      .. ok
     cmd( 3):
@@ -143,6 +148,7 @@ weight: 10233
     echo "from->Sydney Grammar"
     -
     from->Sydney Grammar
+    
     -
      .. ok
     cmd( 4):
@@ -152,6 +158,7 @@ weight: 10233
     echo "sex->Male"
     -
     sex->Male
+    
     -
      .. ok
     cmd( 5):
@@ -161,6 +168,7 @@ weight: 10233
     echo "dependon_vars->Male"
     -
     dependon_vars->Male
+    
     -
      .. ok
     cmd( 6):
@@ -170,6 +178,7 @@ weight: 10233
     echo "dependon_var_and_dvar->Tom-Male"
     -
     dependon_var_and_dvar->Tom-Male
+    
     -
      .. ok
     cmd( 7):
@@ -179,6 +188,7 @@ weight: 10233
     echo "multple_render_var_level3->multple-render-var-> b2->{{.c3}}"
     -
     multple_render_var_level3->multple-render-var-> b2->{{.c3}}
+    
     -
      .. ok
     cmd( 8):
@@ -188,6 +198,7 @@ weight: 10233
     echo "multple_render_var_level4-><no value>"
     -
     multple_render_var_level4-><no value>
+    
     -
      .. ok
     . ok

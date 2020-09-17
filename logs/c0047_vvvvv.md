@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:27+99:00
 draft: false
 weight: 10474
 
@@ -22,6 +22,7 @@ weight: 10474
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10474
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c6a0)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001c1240)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -98,13 +99,13 @@ weight: 10474
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=12) "student_name": (string) (len=9) "Tom Hanks",
-     (string) (len=11) "student_age": (string) (len=2) "28"
+     (string) (len=11) "student_age": (string) (len=2) "28",
+     (string) (len=12) "student_name": (string) (len=9) "Tom Hanks"
     }
     
     [runtime global] dvar expanded result:
@@ -151,9 +152,10 @@ weight: 10474
     
     current exec runtime vars:
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -164,7 +166,8 @@ weight: 10474
     scope[local] merged: {
       "student_name": "Tom Hanks",
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -173,7 +176,8 @@ weight: 10474
     (*core.Cache)({
       "student_name": "Tom Hanks",
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -191,6 +195,7 @@ weight: 10474
     student details:
     name: Tom Hanks
     age: 28
+    
     
     -
      .. ok

@@ -1,6 +1,6 @@
 ---
 title: "f0178_vvvvv"
-date: 2020-08-18T15:16:30+88:00
+date: 2020-09-18T00:52:03+99:00
 draft: false
 weight: 11784
 
@@ -22,6 +22,7 @@ weight: 11784
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11784
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bee80)(<nil>)
+    (*impl.Scopes)(0xc000172e40)(<nil>)
     
     ---------group vars----------
     
@@ -90,6 +91,7 @@ weight: 11784
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -98,12 +100,14 @@ weight: 11784
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -119,6 +123,7 @@ weight: 11784
     error 1 ......
     error 2 ......
     ./tests/functests/mock_error.sh: exit: line 11: Illegal number: -1
+    
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {

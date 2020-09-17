@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvvv"
-date: 2020-08-18T15:15:59+88:00
+date: 2020-09-18T00:51:30+99:00
 draft: false
 weight: 10654
 
@@ -22,6 +22,7 @@ weight: 10654
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10654
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001db200)(<nil>)
+    (*impl.Scopes)(0xc0001bf300)(<nil>)
     
     ---------group vars----------
     
@@ -45,21 +46,21 @@ weight: 10654
     groups members:[]
     merged[ dev ] runtime vars:
     {
-      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
-      }
+      },
+      "person": "peter"
     }
     
     (core.Cache) (len=2) {
-     (string) (len=6) "person": (string) (len=5) "peter",
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
-     }
+     },
+     (string) (len=6) "person": (string) (len=5) "peter"
     }
     
     dvar> var_with_range_v:
@@ -94,12 +95,12 @@ weight: 10654
      x  x  x 
     [runtime global] dvar expanded result:
     {
-      "var_with_range_vv": " x  x  x ",
-      "var_with_range_vvv": " x  x  x ",
-      "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
       "var_with_range_vvvvvv": " x  x  x ",
-      "var_with_range_v": " x  x  x "
+      "var_with_range_v": " x  x  x ",
+      "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x ",
+      "var_with_range_vvvv": " x  x  x "
     }
     
     
@@ -107,16 +108,16 @@ weight: 10654
     
     {
       "var_with_range_v": " x  x  x ",
-      "person": "peter",
+      "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x ",
+      "var_with_range_vvvv": " x  x  x ",
+      "var_with_range_vvvvv": " x  x  x ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range_vv": " x  x  x ",
-      "var_with_range_vvv": " x  x  x ",
-      "var_with_range_vvvv": " x  x  x ",
-      "var_with_range_vvvvv": " x  x  x ",
+      "person": "peter",
       "var_with_range_vvvvvv": " x  x  x "
     }
     

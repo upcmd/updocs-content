@@ -1,6 +1,6 @@
 ---
 title: "c0157_vvvvv"
-date: 2020-08-18T15:16:21+88:00
+date: 2020-09-18T00:51:51+99:00
 draft: false
 weight: 11574
 
@@ -22,6 +22,7 @@ weight: 11574
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11574
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000a4520)(<nil>)
+    (*impl.Scopes)(0xc000175120)(<nil>)
     
     ---------group vars----------
     
@@ -79,8 +80,8 @@ weight: 11574
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "hello: {{.person.name}}"
+          "cmd": "hello: {{.person.name}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -105,7 +106,8 @@ weight: 11574
     (*core.Cache)({
       "person": {
         "name": "tom"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -116,7 +118,8 @@ weight: 11574
     scope[local] merged: {
       "person": {
         "name": "tom"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -125,7 +128,8 @@ weight: 11574
     (*core.Cache)({
       "person": {
         "name": "tom"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     hello: {{.person.name}}
@@ -167,14 +171,14 @@ weight: 11574
       If: "{{eq .school \"None\"}}",
       Else: {
         {
+          "func": "cmd",
           "desc": "now it is safe to access school from person object",
           "do": {
             {
               "name": "print",
               "cmd": "hello: {{.person.name}} from {{.person.school}}"
             }
-          },
-          "func": "cmd"
+          }
         }
       },
       Loop: <nil>,
@@ -190,7 +194,8 @@ weight: 11574
     (*core.Cache)({
       "person": {
         "name": "tom"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -203,6 +208,7 @@ weight: 11574
       "person": {
         "name": "tom"
       },
+      "up_runtime_task_layer_number": 0,
       "school": "None"
     }
     
@@ -210,10 +216,11 @@ weight: 11574
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "school": "None",
       "person": {
         "name": "tom"
-      },
-      "school": "None"
+      }
     })
     
     hello: {{.person.name}}

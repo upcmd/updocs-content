@@ -1,6 +1,6 @@
 ---
 title: "c0162_vvvvv"
-date: 2020-08-18T15:16:22+88:00
+date: 2020-09-18T00:51:53+99:00
 draft: false
 weight: 11624
 
@@ -22,6 +22,7 @@ weight: 11624
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 11624
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1280)(<nil>)
+    (*impl.Scopes)(0xc000175240)(<nil>)
     
     ---------group vars----------
     
@@ -82,21 +83,21 @@ weight: 11624
           }
         },
         {
-          "cmd": "type of countries: {{.countries | typeOf}}\ntype of friends: {{.friends | typeOf}}\ntype of my_friends: {{.my_friend | typeOf}}\nwho is trusted: {{.who_is_trusted |typeOf}}\n",
-          "name": "print"
+          "name": "print",
+          "cmd": "type of countries: {{.countries | typeOf}}\ntype of friends: {{.friends | typeOf}}\ntype of my_friends: {{.my_friend | typeOf}}\nwho is trusted: {{.who_is_trusted |typeOf}}\n"
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
-        "my_friend": "joe doe",
-        "who_is_trusted": "my_friend",
         "friends": {
           "tom",
           "jane",
           "hans",
           "coook"
-        }
+        },
+        "my_friend": "joe doe",
+        "who_is_trusted": "my_friend"
       },
       Dvars: {
         {
@@ -130,14 +131,15 @@ weight: 11624
     
     current exec runtime vars:
     (*core.Cache)({
+      "my_friend": "joe doe",
+      "who_is_trusted": "my_friend",
+      "up_runtime_task_layer_number": 0,
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
-      },
-      "my_friend": "joe doe",
-      "who_is_trusted": "my_friend"
+      }
     })
     
     [local] dvar expanded result:
@@ -147,30 +149,32 @@ weight: 11624
     
     
     scope[local] merged: {
+      "my_friend": "joe doe",
+      "who_is_trusted": "my_friend",
+      "countries": "- Austraila\n- US\n- China\n- Japan\n",
+      "up_runtime_task_layer_number": 0,
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
-      },
-      "countries": "- Austraila\n- US\n- China\n- Japan\n",
-      "my_friend": "joe doe",
-      "who_is_trusted": "my_friend"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_friend": "joe doe",
-      "who_is_trusted": "my_friend",
       "friends": {
         "tom",
         "jane",
         "hans",
         "coook"
       },
-      "countries": "- Austraila\n- US\n- China\n- Japan\n"
+      "my_friend": "joe doe",
+      "who_is_trusted": "my_friend",
+      "countries": "- Austraila\n- US\n- China\n- Japan\n",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.countries}}
@@ -228,6 +232,7 @@ weight: 11624
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "my_friend": "john"
     })
     
@@ -237,13 +242,15 @@ weight: 11624
     
     
     scope[local] merged: {
-      "my_friend": "john"
+      "my_friend": "john",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "my_friend": "john"
     })
     

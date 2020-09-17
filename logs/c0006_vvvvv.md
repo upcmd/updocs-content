@@ -1,6 +1,6 @@
 ---
 title: "c0006_vvvvv"
-date: 2020-08-18T15:15:48+88:00
+date: 2020-09-18T00:51:19+99:00
 draft: false
 weight: 10064
 
@@ -22,6 +22,7 @@ weight: 10064
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10064
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001befe0)(<nil>)
+    (*impl.Scopes)(0xc00025af80)(<nil>)
     
     ---------group vars----------
     
@@ -94,6 +95,7 @@ weight: 10064
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -102,12 +104,14 @@ weight: 10064
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -119,6 +123,7 @@ weight: 10064
     
     -
     aaa: 
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -137,6 +142,7 @@ weight: 10064
     
     -
     bbb: 
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -153,6 +159,7 @@ weight: 10064
     echo "aaa':' $aaa"
     -
     aaa':' 
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -169,6 +176,7 @@ weight: 10064
     echo "aaa":" $aaa"
     -
     aaa: 
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -185,6 +193,7 @@ weight: 10064
     echo "aaa -> $aaa"
     -
     aaa -> 
+    
     -
      .. ok
     (utils.ExecResult) {

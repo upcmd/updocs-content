@@ -1,6 +1,6 @@
 ---
 title: "c0003_vvvvv"
-date: 2020-08-18T15:15:47+88:00
+date: 2020-09-18T00:51:19+99:00
 draft: false
 weight: 10034
 
@@ -22,6 +22,7 @@ weight: 10034
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10034
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174e20)(<nil>)
+    (*impl.Scopes)(0xc0001c0ea0)(<nil>)
     
     ---------group vars----------
     
@@ -88,6 +89,7 @@ weight: 10034
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -96,12 +98,14 @@ weight: 10034
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -116,6 +120,7 @@ weight: 10034
     -
     hello
     world
+    
     -
      .. ok
     (utils.ExecResult) {

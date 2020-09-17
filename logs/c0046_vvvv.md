@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvv"
-date: 2020-08-18T15:15:55+88:00
+date: 2020-09-18T00:51:26+99:00
 draft: false
 weight: 10463
 
@@ -22,6 +22,7 @@ weight: 10463
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,8 +37,8 @@ weight: 10463
     ---------group vars----------
     
     global: {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     
@@ -51,8 +52,8 @@ weight: 10463
     -------runtime global final merged with dvars-------
     
     {
-      "student_name": "Tom Hanks",
       "student_age": "28",
+      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
     }
     
@@ -63,9 +64,11 @@ weight: 10463
     -Step1: [: this show an example of the empty value is mapped to None ]
     current exec runtime vars:
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "student_age": "28",
       "student_name": "Tom Hanks",
-      "student_age": "28"
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0,
+      "person": ""
     })
     
     self: final context exec vars:
@@ -73,10 +76,12 @@ weight: 10463
     (*core.Cache)({
       "someone": "None",
       "i_am_empty": "None",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "student_name": "Tom Hanks",
+      "empty_env_var": "None",
       "student_age": "28",
-      "empty_env_var": "None"
+      "student_name": "Tom Hanks",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "up_runtime_task_layer_number": 0,
+      "person": ""
     })
     
     cmd( 1):
@@ -94,13 +99,13 @@ weight: 10463
     None
     None
     None
+    
     -
      .. ok
     . ok
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
@@ -108,41 +113,17 @@ weight: 10463
         Output: "None\nNone\nNone",
         ErrMsg: ""
       }),
+      "student_age": "28",
+      "up_runtime_task_layer_number": 0,
       "student_name": "Tom Hanks"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
-        Code: 0,
-        Output: "None\nNone\nNone",
-        ErrMsg: ""
-      }),
+      "student_age": "28",
+      "up_runtime_task_layer_number": 0,
       "student_name": "Tom Hanks",
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
-    })
-    
-    ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars]
-    (*core.Cache)({
-      "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
-        Code: 0,
-        Output: "None\nNone\nNone",
-        ErrMsg: ""
-      }),
-      "student_name": "Tom Hanks"
-    })
-    
-     2: inspect[exec_base_vars]
-    {
-      "student_name": "Tom Hanks",
-      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
@@ -150,6 +131,34 @@ weight: 10463
         Output: "None\nNone\nNone",
         ErrMsg: ""
       })
+    })
+    
+    ~SubStep1: [inspect:  ]
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      }),
+      "student_age": "28",
+      "up_runtime_task_layer_number": 0
+    })
+    
+     2: inspect[exec_base_vars]
+    {
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      }),
+      "student_age": "28",
+      "student_name": "Tom Hanks"
     }
     
     

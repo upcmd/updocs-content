@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvvv"
-date: 2020-08-18T15:16:02+88:00
+date: 2020-09-18T00:51:33+99:00
 draft: false
 weight: 10764
 
@@ -22,6 +22,7 @@ weight: 10764
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -34,7 +35,7 @@ weight: 10764
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000177300)(<nil>)
+    (*impl.Scopes)(0xc000175320)(<nil>)
     
     ---------group vars----------
     
@@ -90,6 +91,7 @@ weight: 10764
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -98,12 +100,14 @@ weight: 10764
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -113,6 +117,7 @@ weight: 10764
     echo hanks
     -
     hanks
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -170,13 +175,14 @@ weight: 10764
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
     {
-      "hellomsg": "hanks",
-      "reg_hello": "hanks\n\n"
+      "reg_hello": "hanks\n\n",
+      "hellomsg": "hanks"
     }
     
     
@@ -187,6 +193,7 @@ weight: 10764
         Output: "hanks",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "hellomsg": "hanks",
       "reg_hello": "hanks\n\n"
     }
@@ -201,6 +208,7 @@ weight: 10764
         Output: "hanks",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "hellomsg": "hanks",
       "reg_hello": "hanks\n\n"
     })
@@ -233,13 +241,14 @@ weight: 10764
     
     current exec runtime vars:
     (*core.Cache)({
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
     [local] dvar expanded result:
@@ -248,6 +257,7 @@ weight: 10764
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
@@ -261,13 +271,14 @@ weight: 10764
     self: final context exec vars:
     
     (*core.Cache)({
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
+      })
     })
     
     cmd( 1):
@@ -277,6 +288,7 @@ weight: 10764
     echo "<no value>"
     -
     <no value>
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -293,6 +305,7 @@ weight: 10764
     echo "hanks"
     -
     hanks
+    
     -
      .. ok
     (utils.ExecResult) {
@@ -310,19 +323,19 @@ weight: 10764
       Name: "",
       Do: {
         {
+          "name": "reg",
           "cmd": {
-            "value": "{{.local_tom}}",
-            "name": "global_tom"
-          },
-          "name": "reg"
+            "name": "global_tom",
+            "value": "{{.local_tom}}"
+          }
         }
       },
       Dox: <nil>,
       Func: "cmd",
       Vars: {
         "person": {
-          "age": 18,
-          "name": "tom"
+          "name": "tom",
+          "age": 18
         }
       },
       Dvars: {
@@ -359,17 +372,18 @@ weight: 10764
     
     current exec runtime vars:
     (*core.Cache)({
-      "person": {
-        "name": "tom",
-        "age": 18
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
+      "person": {
+        "age": 18,
+        "name": "tom"
+      }
     })
     
     dvar> local_tom:
@@ -391,70 +405,30 @@ weight: 10764
     
     
     scope[local] merged: {
-      "hellomsg": "hanks",
-      "person": {
-        "name": "tom",
-        "age": 18
-      },
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
+      "person": {
+        "age": 18,
+        "name": "tom"
+      },
       "tom": {
         "name": "tom",
         "age": 18
-      },
-      "local_tom": "my name is tom\nage: 18\nname: tom\n"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hanks\"",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "person": {
-        "name": "tom",
-        "age": 18
-      },
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
-      "local_tom": "my name is tom\nage: 18\nname: tom\n"
-    })
-    
-    map[name:global_tom value:{{.local_tom}}]
-    ~SubStep1: [reg:  ]
-    after reg the var - contextual global:
-    
-    (*core.Cache)({
-      "tom": {
-        "age": 18,
-        "name": "tom"
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hanks\"",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
-    })
-    
-    after reg the var - local:
-    
-    (*core.Cache)({
       "local_tom": "my name is tom\nage: 18\nname: tom\n",
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -462,6 +436,7 @@ weight: 10764
         ErrMsg: ""
       }),
       "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
@@ -470,6 +445,48 @@ weight: 10764
         "name": "tom",
         "age": 18
       }
+    })
+    
+    map[name:global_tom value:{{.local_tom}}]
+    ~SubStep1: [reg:  ]
+    after reg the var - contextual global:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "hellomsg": "hanks",
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n"
+    })
+    
+    after reg the var - local:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
+      "person": {
+        "name": "tom",
+        "age": 18
+      },
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "local_tom": "my name is tom\nage: 18\nname: tom\n",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n"
     })
     
     -Step5: [: debug the results ]
@@ -482,14 +499,14 @@ weight: 10764
           "desc": "this local_tom should be <no value> as it is in scope of last step"
         },
         {
-          "cmd": "{{.tom}}",
           "name": "print",
-          "desc": "get the object from register global space"
+          "desc": "get the object from register global space",
+          "cmd": "{{.tom}}"
         },
         {
+          "name": "printObj",
           "desc": "dynamically reference to global_tom object registered",
-          "cmd": "{{.objname}}",
-          "name": "printObj"
+          "cmd": "{{.objname}}"
         }
       },
       Dox: <nil>,
@@ -514,6 +531,7 @@ weight: 10764
     
     current exec runtime vars:
     (*core.Cache)({
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -525,7 +543,7 @@ weight: 10764
         "name": "tom",
         "age": 18
       },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "up_runtime_task_layer_number": 0,
       "objname": "global_tom"
     })
     
@@ -535,25 +553,29 @@ weight: 10764
     
     
     scope[local] merged: {
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "up_runtime_task_layer_number": 0,
+      "objname": "global_tom",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks",
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "objname": "global_tom"
+      "hellomsg": "hanks"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "objname": "global_tom",
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -564,9 +586,7 @@ weight: 10764
       "tom": {
         "name": "tom",
         "age": 18
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "objname": "global_tom"
+      }
     })
     
     {{.local_tom}}

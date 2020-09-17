@@ -1,6 +1,6 @@
 ---
 title: "0008_vvvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:28+99:00
 draft: false
 weight: 100804
 
@@ -22,6 +22,7 @@ weight: 100804
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0008
@@ -34,7 +35,7 @@ weight: 100804
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1100)(<nil>)
+    (*impl.Scopes)(0xc0001770c0)(<nil>)
     
     ---------group vars----------
     
@@ -89,6 +90,7 @@ weight: 100804
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -97,29 +99,33 @@ weight: 100804
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (hello.Say_world)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
      WARN: [Locked version differs, use locked version] - [locked: 25456bbcd17db524d1148e42bdcc3bb36ce90042, configured: v2]
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hello], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000276020)(<nil>)
+    (*impl.Scopes)(0xc00000d020)(<nil>)
     
     ---------group vars----------
     
@@ -181,6 +187,7 @@ weight: 100804
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -190,6 +197,7 @@ weight: 100804
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -197,6 +205,7 @@ weight: 100804
     hello: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     

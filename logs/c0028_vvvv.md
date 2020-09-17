@@ -1,6 +1,6 @@
 ---
 title: "c0028_vvvv"
-date: 2020-08-18T15:15:52+88:00
+date: 2020-09-18T00:51:23+99:00
 draft: false
 weight: 10283
 
@@ -22,6 +22,7 @@ weight: 10283
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> task
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -47,9 +48,9 @@ weight: 10283
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
+            "cbd": true,
             "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
+            "postcode": 2000
           }
         },
         "name": "Tom"
@@ -60,7 +61,56 @@ weight: 10283
     
     {
       "student": {
-        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom"
+      },
+      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
+      "a_smart_guy_object": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "school_address_object": {
+        "address": {
+          "suburb": {
+            "CBD": true,
+            "name": "sydney",
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
+        }
+      }
+    }
+    
+      located task-> 1 [task]: 
+    Task1: [task ==> task:  ]
+    Executing task stack layer: 1
+    
+    -Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "school_address_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "up_runtime_task_layer_number": 0,
+      "student": {
         "gender": "Male",
         "address": {
           "school": "Sydney Grammar",
@@ -69,7 +119,31 @@ weight: 10283
             "postcode": 2000,
             "cbd": true
           }
-        }
+        },
+        "name": "Tom"
+      },
+      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
+      "a_smart_guy_object": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom"
       },
       "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
       "a_smart_guy_object": {
@@ -87,79 +161,8 @@ weight: 10283
           },
           "school": "Sydney Grammar"
         }
-      }
-    }
-    
-      located task-> 1 [task]: 
-    Task1: [task ==> task:  ]
-    Executing task stack layer: 1
-    
-    -Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "student": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        },
-        "name": "Tom",
-        "gender": "Male"
       },
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "school_address_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        }
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "a_smart_guy": "name: Tom\ngender: Male\nschool: Sydney Grammar\n",
-      "a_smart_guy_object": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "school_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "school_address_object": {
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "student": {
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        },
-        "name": "Tom"
-      }
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -175,6 +178,7 @@ weight: 10283
     gender: Male
     school: Sydney Grammar
     
+    
     -
      .. ok
     cmd( 2):
@@ -184,6 +188,7 @@ weight: 10283
     echo """postcode=>2000"""
     -
     postcode=>2000
+    
     -
      .. ok
     cmd( 3):
@@ -205,6 +210,7 @@ weight: 10283
         CBD: yes
       school: Sydney Grammar
     
+    
     -
      .. ok
     cmd( 4):
@@ -214,6 +220,7 @@ weight: 10283
     echo """this guy is in =>Sydney Grammar school"""
     -
     this guy is in =>Sydney Grammar school
+    
     -
      .. ok
     cmd( 5):
@@ -223,6 +230,7 @@ weight: 10283
     echo """wrong ref here <no value>"""
     -
     wrong ref here <no value>
+    
     -
      .. ok
     cmd( 6):
@@ -232,6 +240,7 @@ weight: 10283
     echo """school address object -> sydney"""
     -
     school address object -> sydney
+    
     -
      .. ok
     . ok

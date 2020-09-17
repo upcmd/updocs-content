@@ -1,6 +1,6 @@
 ---
 title: "0011_vvvvv"
-date: 2020-08-18T15:16:53+88:00
+date: 2020-09-18T00:52:28+99:00
 draft: false
 weight: 101104
 
@@ -22,6 +22,7 @@ weight: 101104
            MaxCallLayers -> 8
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
+               EntryTask -> Main
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0011
@@ -34,7 +35,7 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf200)(<nil>)
+    (*impl.Scopes)(0xc0000b4220)(<nil>)
     
     ---------group vars----------
     
@@ -88,6 +89,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -96,28 +98,32 @@ weight: 101104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (hello-module.Say_hello)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
     loading [Task]:  ./up.yml
     module: [hello-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000230c00)(<nil>)
+    (*impl.Scopes)(0xc0000b5d40)(<nil>)
     
     ---------group vars----------
     
@@ -155,8 +161,8 @@ weight: 101104
       Name: "",
       Do: {
         {
-          "cmd": "... hello",
-          "name": "print"
+          "name": "print",
+          "cmd": "... hello"
         }
       },
       Dox: <nil>,
@@ -182,6 +188,7 @@ weight: 101104
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -192,15 +199,17 @@ weight: 101104
     
     scope[local] merged: {
       "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "aaa"
+      "a": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     ... hello
@@ -230,6 +239,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -239,31 +249,35 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     caller's vars to task (hi-module.Say_hi)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hi-module], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003100e0)(<nil>)
+    (*impl.Scopes)(0xc00034b160)(<nil>)
     
     ---------group vars----------
     
@@ -327,8 +341,9 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
       "up_runtime_tasker_layer_number": 3,
-      "a": "aaa"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -338,7 +353,8 @@ weight: 101104
     
     scope[local] merged: {
       "a": "aaa",
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -346,7 +362,8 @@ weight: 101104
     
     (*core.Cache)({
       "a": "aaa",
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     ... hi
@@ -376,6 +393,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
@@ -385,31 +403,35 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
     caller's vars to task (hello.Say_hello)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 3
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hello], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000311520)(<nil>)
+    (*impl.Scopes)(0xc00048c460)(<nil>)
     
     ---------group vars----------
     
@@ -447,8 +469,8 @@ weight: 101104
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": " .... hello from Say_hello"
+          "cmd": " .... hello from Say_hello",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -471,6 +493,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -480,6 +503,7 @@ weight: 101104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -487,6 +511,7 @@ weight: 101104
     hello: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -517,6 +542,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -526,6 +552,7 @@ weight: 101104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -533,24 +560,27 @@ weight: 101104
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     caller's vars to task (hello.Say_hello)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hello], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003dca40)(<nil>)
+    (*impl.Scopes)(0xc0001a8780)(<nil>)
     
     ---------group vars----------
     
@@ -612,7 +642,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -621,14 +652,16 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     }
     
     
     hello: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
      .... hello from Say_hello
@@ -658,6 +691,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -667,6 +701,7 @@ weight: 101104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -674,24 +709,27 @@ weight: 101104
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     caller's vars to task (hello-dummy1.Say_world)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hello-dummy1], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003dc480)(<nil>)
+    (*impl.Scopes)(0xc00034a3e0)(<nil>)
     
     ---------group vars----------
     
@@ -753,7 +791,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -762,6 +801,7 @@ weight: 101104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -769,7 +809,8 @@ weight: 101104
     hello-dummy1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
      .... world from Say_world
@@ -799,6 +840,7 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -808,31 +850,35 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
     caller's vars to task (hello-dummy2.Say_hello)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
     loading [Task]:  ./up.yml
     module: [hello-dummy2], instance id: [nonamed], exec profile: []
+     WARN: [*be aware*] - [both instance id and exec profile are not set]
     profile -  envVars:
     
     (*core.Cache)({
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003dd940)(<nil>)
+    (*impl.Scopes)(0xc00000c8e0)(<nil>)
     
     ---------group vars----------
     
@@ -894,7 +940,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -903,6 +950,7 @@ weight: 101104
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2
     }
     
@@ -910,7 +958,8 @@ weight: 101104
     hello-dummy2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
      .... hello from Say_hello
