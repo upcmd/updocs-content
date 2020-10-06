@@ -1,6 +1,6 @@
 ---
 title: "c0192_vvvv"
-date: 2020-09-18T01:27:58+99:00
+date: 2020-10-06T23:46:27+1010:00
 draft: false
 weight: 11923
 
@@ -23,6 +23,8 @@ weight: 11923
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11923
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "global_aa": "aa"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "global_aa": "aa"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -67,31 +69,31 @@ weight: 11923
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_aa": "aa",
       "up_runtime_task_layer_number": 0,
       "local_bb": "bb",
-      "task_tt": "tt"
+      "task_tt": "tt",
+      "global_aa": "aa"
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
-      "loopindex1": 1,
       "local_bb": "bb",
       "loopitem": "item1",
       "loopindex": 0,
-      "global_aa": "aa"
+      "loopindex1": 1,
+      "global_aa": "aa",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 1,
       "global_aa": "aa",
       "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
-      "loopindex1": 1,
       "local_bb": "bb",
       "loopitem": "item1",
       "loopindex": 0
@@ -111,7 +113,47 @@ weight: 11923
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"main task start\"",
+        Code: 0,
+        Output: "main task start",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 0,
+      "task_tt": "tt",
+      "local_bb": "bb",
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "global_aa": "aa"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "global_aa": "aa",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"main task start\"",
+        Code: 0,
+        Output: "main task start",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "task_tt": "tt",
+      "local_bb": "bb",
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1
+    })
+    
+      located task-> 2 [cc]: 
+    =Task2: [task ==> cc:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "task_tt": "tt",
       "local_bb": "bb",
       "loopitem": "item1",
@@ -129,46 +171,6 @@ weight: 11923
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
-      "global_aa": "aa",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"main task start\"",
-        Code: 0,
-        Output: "main task start",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "task_tt": "tt",
-      "local_bb": "bb",
-      "loopitem": "item1"
-    })
-    
-      located task-> 2 [cc]: 
-    =Task2: [task ==> cc:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "local_bb": "bb",
-      "loopitem": "item1",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "global_aa": "aa",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"main task start\"",
-        Code: 0,
-        Output: "main task start",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "task_tt": "tt"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"main task start\"",
         Code: 0,
@@ -196,8 +198,9 @@ weight: 11923
      .. ok
     . ok
     task Finally:
-    -Step1: [close_file: ensure the opened file is closed
-     ]
+    -Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "loopindex": 0,
@@ -213,14 +216,14 @@ weight: 11923
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
       "global_aa": "aa",
       "finally_cc": "cc",
       "up_runtime_task_layer_number": 1,
       "task_tt": "tt",
       "local_bb": "bb",
       "loopitem": "item1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     cmd( 1):
@@ -237,25 +240,25 @@ weight: 11923
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
+      "local_bb": "bb",
       "global_aa": "aa",
       "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
       "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "local_bb": "bb"
+      "loopindex": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "task_tt": "tt",
-      "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
       "local_bb": "bb",
-      "global_aa": "aa"
+      "global_aa": "aa",
+      "up_runtime_task_layer_number": 0,
+      "task_tt": "tt",
+      "loopitem": "item2"
     })
     
     cmd( 1):
@@ -278,31 +281,31 @@ weight: 11923
         Output: "main task start",
         ErrMsg: ""
       }),
-      "global_aa": "aa",
       "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
+      "local_bb": "bb",
       "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
-      "local_bb": "bb"
+      "global_aa": "aa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "local_bb": "bb",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"main task start\"",
         Code: 0,
         Output: "main task start",
         ErrMsg: ""
       }),
-      "global_aa": "aa",
       "up_runtime_task_layer_number": 0,
-      "task_tt": "tt"
+      "task_tt": "tt",
+      "local_bb": "bb",
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "global_aa": "aa"
     })
     
       located task-> 2 [cc]: 
@@ -312,37 +315,37 @@ weight: 11923
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "local_bb": "bb",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"main task start\"",
         Code: 0,
         Output: "main task start",
         ErrMsg: ""
       }),
-      "global_aa": "aa",
       "up_runtime_task_layer_number": 1,
       "task_tt": "tt",
+      "local_bb": "bb",
       "loopitem": "item2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "global_aa": "aa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "local_bb": "bb",
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "global_aa": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"main task start\"",
         Code: 0,
         Output: "main task start",
         ErrMsg: ""
       }),
-      "global_aa": "aa",
       "up_runtime_task_layer_number": 1,
-      "task_tt": "tt",
-      "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "task_tt": "tt"
     })
     
     cmd( 1):
@@ -357,30 +360,31 @@ weight: 11923
      .. ok
     . ok
     task Finally:
-    -Step1: [close_file: ensure the opened file is closed
-     ]
+    -Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "local_bb": "bb",
-      "global_aa": "aa",
       "up_runtime_task_layer_number": 1,
-      "finally_cc": "cc",
       "task_tt": "tt",
+      "local_bb": "bb",
       "loopitem": "item2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "finally_cc": "cc",
+      "global_aa": "aa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "global_aa": "aa",
+      "up_runtime_task_layer_number": 1,
       "task_tt": "tt",
+      "local_bb": "bb",
       "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
-      "local_bb": "bb",
-      "global_aa": "aa",
-      "up_runtime_task_layer_number": 1,
       "finally_cc": "cc"
     })
     
@@ -399,19 +403,19 @@ weight: 11923
     Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "global_aa": "aa",
-      "up_runtime_task_layer_number": 1,
       "task_tt": "tt",
-      "finally_task": "ff"
+      "finally_task": "ff",
+      "global_aa": "aa",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "task_tt": "tt",
-      "finally_task": "ff",
       "global_aa": "aa",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "task_tt": "tt",
+      "finally_task": "ff"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0022_vvvvv"
-date: 2020-09-18T01:27:23+99:00
+date: 2020-10-06T23:45:54+1010:00
 draft: false
 weight: 10224
 
@@ -23,6 +23,8 @@ weight: 10224
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10224
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000240f40)(<nil>)
+    (*impl.Scopes)(0xc0001c0fa0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10224
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -74,10 +76,10 @@ weight: 10224
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "student": "Tom",
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
+        "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
+        "student": "Tom",
+        "gender": "Male"
       },
       Dvars: <nil>,
       Desc: "",
@@ -96,11 +98,11 @@ weight: 10224
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "Sydney Grammar",
       "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "up_runtime_task_layer_number": 0,
       "student": "Tom",
-      "gender": "Male"
+      "gender": "Male",
+      "school": "Sydney Grammar"
     })
     
     [local] dvar expanded result:
@@ -120,11 +122,11 @@ weight: 10224
     self: final context exec vars:
     
     (*core.Cache)({
-      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n",
       "up_runtime_task_layer_number": 0,
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar"
+      "school": "Sydney Grammar",
+      "info": "my student: {{.student}}\nstudent's gender: {{.gender}}\nschool's name: {{.school}}\n"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0039_vvvv"
-date: 2020-09-18T01:27:26+99:00
+date: 2020-10-06T23:45:57+1010:00
 draft: false
 weight: 10393
 
@@ -23,6 +23,8 @@ weight: 10393
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,17 +38,23 @@ weight: 10393
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "age": 34,
       "ha": true,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
       "old": 54,
       "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
-      "nobody": <nil>,
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -56,31 +64,25 @@ weight: 10393
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "name": "sydney",
             "postcode": 2000,
-            "cbd": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
+            "cbd": true
+          }
         }
       },
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
+      "nobody": <nil>,
+      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
       "ns": "prod",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
-      "pod_name": "web_app",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "age": 34
-    }
+      "pod_name": "web_app"
+    })
     
     dvar> usage_of_with:
     "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  "
@@ -157,51 +159,51 @@ weight: 10393
     
     -------runtime global final merged with dvars-------
     
-    {
-      "nobody": <nil>,
-      "student": {
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
+    (*core.Cache)({
       "ha": true,
-      "pod_name": "web_app",
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
+      "nobody": <nil>,
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
       "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "usage_of_with_else": "  i am somebody  ",
+      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
       "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
-      "age": 34,
-      "ns": "prod",
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "old": 54,
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "pod_name": "web_app",
+      "student": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "cbd": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
+      },
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
-      "usage_of_with_else": "  i am somebody  ",
-      "old": 54,
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
-      "template_def_plain": "\n\n\nONE TWO\"\n",
-      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  "
-    }
+      "age": 34,
+      "ns": "prod"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -210,23 +212,57 @@ weight: 10393
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "pod_name": "web_app",
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
-      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+      "ha": true,
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
       "ns": "prod",
+      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "up_runtime_task_layer_number": 0,
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
+      "pod_name": "web_app",
+      "usage_of_with_else": "  i am somebody  ",
+      "old": 54,
+      "nobody": <nil>,
+      "student": {
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          }
+        },
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
+      },
+      "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
-      "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
-      "template_def_plain": "\n\n\nONE TWO\"\n",
-      "usage_of_with_else": "  i am somebody  ",
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
-      "nobody": <nil>,
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "age": 34
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
@@ -240,69 +276,35 @@ weight: 10393
             "cbd": true
           },
           "school": "Sydney Grammar"
-        },
-        "name": "Tom"
+        }
       },
       "ha": true,
+      "pod_name": "web_app",
+      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
+      "template_def_plain": "\n\n\nONE TWO\"\n",
+      "up_runtime_task_layer_number": 0,
+      "nobody": <nil>,
+      "old": 54,
+      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
-      "up_runtime_task_layer_number": 0,
-      "old": 54,
-      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
-      "age": 34
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
       "template_def_consume_dynamic_main": "{{.template_def_consume_dynamic_t1}}\n{{.template_def_consume_dynamic_t2}}\n{{.template_def_consume_dynamic_t3}}\n{{template \"T3\" .student}}\n",
-      "template_def_plain": "\n\n\nONE TWO\"\n",
-      "pod_name": "web_app",
-      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
       "template_def_consume_dynamic_t1": "{{define \"T1\"}}ONE: {{.}}{{end}}\n",
-      "ns": "prod",
+      "template_def_consume_dynamic_t3": "{{define \"T3\"}}student:\n  name: {{template \"T1\" .name}}\n  gender: {{template \"T2\" .gender}}{{end}}\n{{template \"T3\" .student}}\n",
+      "age": 34,
+      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
+      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "usage_of_with_else": "  i am somebody  ",
-      "template_def_consume_dynamic_t2": "{{define \"T2\"}}TWO: {{.}}{{end}}",
-      "nobody": <nil>,
-      "template_def_consume_dynamic": "\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n\n",
-      "student": {
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
-      "ha": true,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "old": 54,
-      "usage_of_with": "  student name: Tom\n  school name: Sydney Grammar\n  Male\n  ",
-      "age": 34,
-      "template_use_block": "\n\nstudent:\n  name: ONE: Tom\ngender: TWO: Male\n\n",
-      "up_runtime_task_layer_number": 0
+      "template_def_consume": "\nshow example of how you can define reusable template\nand how you can pass in the parameters\n\n\n\n\nstudent:\n  name: ONE: Tom\n  gender: TWO: Male\n",
+      "ns": "prod",
+      "usage_of_with_else": "  i am somebody  "
     })
     
     cmd( 1):

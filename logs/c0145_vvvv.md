@@ -1,6 +1,6 @@
 ---
 title: "c0145_vvvv"
-date: 2020-09-18T01:27:47+99:00
+date: 2020-10-06T23:46:18+1010:00
 draft: false
 weight: 11453
 
@@ -23,6 +23,8 @@ weight: 11453
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11453
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: mock up test to test module.template rendering ]
@@ -86,7 +88,7 @@ weight: 11453
     cat /tmp/mockup_doc.md
     -
     title: "HelloWorld example"
-    date: 2020-09-18T00:48:23+99:00
+    date: 2020-10-06T23:42:21+1010:00
     draft: false
     -
      .. ok

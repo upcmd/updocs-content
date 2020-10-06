@@ -1,6 +1,6 @@
 ---
 title: "c0095_vvvv"
-date: 2020-09-18T01:27:36+99:00
+date: 2020-10-06T23:46:07+1010:00
 draft: false
 weight: 10953
 
@@ -23,6 +23,8 @@ weight: 10953
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10953
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -67,11 +69,11 @@ weight: 10953
     self: final context exec vars:
     
     (*core.Cache)({
-      "name_to_convert": "person_yml",
-      "name_to_reg": "person_dyna_object",
       "person": "jason",
       "up_runtime_task_layer_number": 0,
-      "person_yml": "person:\n  name: tom\n  age: 23\n"
+      "person_yml": "person:\n  name: tom\n  age: 23\n",
+      "name_to_convert": "person_yml",
+      "name_to_reg": "person_dyna_object"
     })
     
     ~SubStep1: [toObj: the key is pointing to a var name and use its content as yml content

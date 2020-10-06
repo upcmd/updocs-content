@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvv"
-date: 2020-09-18T01:27:47+99:00
+date: 2020-10-06T23:46:18+1010:00
 draft: false
 weight: 11423
 
@@ -23,6 +23,8 @@ weight: 11423
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11423
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -58,21 +60,21 @@ weight: 11423
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "objectname": "person",
       "person": {
         "name": "tom",
         "age": 18
-      }
+      },
+      "objectname": "person"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
       },
-      "up_runtime_task_layer_number": 0,
       "objectname": "person"
     })
     
@@ -103,8 +105,8 @@ weight: 11423
     37 44
     object person:
      {
-      "name": "tom",
-      "age": 18
+      "age": 18,
+      "name": "tom"
     }
     
     ~SubStep8: [colorPrint:  ]

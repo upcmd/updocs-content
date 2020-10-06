@@ -1,6 +1,6 @@
 ---
 title: "c0099_vvvv"
-date: 2020-09-18T01:27:37+99:00
+date: 2020-10-06T23:46:08+1010:00
 draft: false
 weight: 10993
 
@@ -23,6 +23,8 @@ weight: 10993
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,34 +38,34 @@ weight: 10993
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "gender": "Female",
-              "school": "MLC",
-              "name": "Grace"
-            }
-          }
-        }
-      },
+    (*core.Cache)({
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Grace",
+              "gender": "Female",
+              "school": "MLC"
+            }
+          }
+        }
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -80,7 +82,7 @@ weight: 10993
         "school": "Sydney Grammar",
         "name": "Tom"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -89,6 +91,12 @@ weight: 10993
     -Step1: [: use datatemplate as datasource ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -99,13 +107,7 @@ weight: 10993
             }
           }
         }
-      },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
     dvar> student_info:
@@ -127,13 +129,13 @@ weight: 10993
           }
         }
       },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
       "up_runtime_task_layer_number": 0,
-      "student_info": "my name is:Grace and I am in MLC"
+      "student_info": "my name is:Grace and I am in MLC",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
     })
     
     ~SubStep1: [print:  ]
@@ -141,21 +143,21 @@ weight: 10993
     -Step2: [: use datatemplate as datasource ]
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "MLC",
               "name": "Grace",
-              "gender": "Female"
+              "gender": "Female",
+              "school": "MLC"
             }
           }
         }
-      },
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -168,6 +170,12 @@ weight: 10993
     self: final context exec vars:
     
     (*core.Cache)({
+      "student_info": "my name is:Grace and I am in MLC",
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "nsw": {
         "sydney": {
           "sgschool": {
@@ -179,13 +187,7 @@ weight: 10993
           }
         }
       },
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "up_runtime_task_layer_number": 0,
-      "student_info": "my name is:Grace and I am in MLC"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

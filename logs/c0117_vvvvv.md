@@ -1,6 +1,6 @@
 ---
 title: "c0117_vvvvv"
-date: 2020-09-18T01:27:41+99:00
+date: 2020-10-06T23:46:12+1010:00
 draft: false
 weight: 11174
 
@@ -23,6 +23,8 @@ weight: 11174
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11174
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c9460)(<nil>)
+    (*impl.Scopes)(0xc0001ed460)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc000130910)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11174
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: main entry ]
@@ -165,20 +167,20 @@ weight: 11174
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     {{.loopitem}}
@@ -217,10 +219,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
     [local] dvar expanded result:
@@ -254,9 +256,10 @@ weight: 11174
     {{.loopitem}}
     ~~SubStep1: [print:  ]
     item3
-    --Step3: [step3: demo use both loopitem in same context
+    --Step3: [
+    step3demo use both loopitem in same context
     the dvar parentLoopItem will map the value of parent loopitem
-     ]
+    ]
     {
       Name: "step3",
       Do: {
@@ -317,22 +320,22 @@ weight: 11174
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "parentLoopItem": "proc 1",
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1"
+      "parentLoopItem": "proc 1"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 1",
       "loopindex": 0,
       "loopindex1": 1,
-      "parentLoopItem": "proc 1"
+      "parentLoopItem": "proc 1",
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 1"
     })
     
     parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}
@@ -346,10 +349,10 @@ weight: 11174
     parent loop: proc 1, child loop: item3
     caller's vars to task (subtask)::
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
-      "loopitem": "proc 2"
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
       located task-> 2 [subtask]: 
@@ -385,10 +388,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -397,20 +400,20 @@ weight: 11174
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2"
     })
     
     {{.loopitem}}
@@ -421,8 +424,8 @@ weight: 11174
       Name: "step2",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -449,10 +452,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "loopitem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -461,10 +464,10 @@ weight: 11174
     
     
     scope[local] merged: {
-      "loopitem": "proc 2",
-      "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "proc 2",
+      "loopindex": 1
     }
     
     
@@ -486,9 +489,10 @@ weight: 11174
     {{.loopitem}}
     ~~SubStep1: [print:  ]
     item3
-    --Step3: [step3: demo use both loopitem in same context
+    --Step3: [
+    step3demo use both loopitem in same context
     the dvar parentLoopItem will map the value of parent loopitem
-     ]
+    ]
     {
       Name: "step3",
       Do: {
@@ -549,22 +553,22 @@ weight: 11174
     
     
     scope[local] merged: {
-      "parentLoopItem": "proc 2",
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "parentLoopItem": "proc 2"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "parentLoopItem": "proc 2",
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 2"
+      "loopitem": "proc 2",
+      "parentLoopItem": "proc 2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}
@@ -578,10 +582,10 @@ weight: 11174
     parent loop: proc 2, child loop: item3
     caller's vars to task (subtask)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": "proc 3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 0
+      "loopindex1": 3
     })
     
       located task-> 2 [subtask]: 
@@ -617,10 +621,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -629,10 +633,10 @@ weight: 11174
     
     
     scope[local] merged: {
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -681,10 +685,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
+      "loopitem": "proc 3",
+      "loopindex": 2
     })
     
     [local] dvar expanded result:
@@ -703,10 +707,10 @@ weight: 11174
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     {{.loopitem}}
@@ -718,9 +722,10 @@ weight: 11174
     {{.loopitem}}
     ~~SubStep1: [print:  ]
     item3
-    --Step3: [step3: demo use both loopitem in same context
+    --Step3: [
+    step3demo use both loopitem in same context
     the dvar parentLoopItem will map the value of parent loopitem
-     ]
+    ]
     {
       Name: "step3",
       Do: {
@@ -768,10 +773,10 @@ weight: 11174
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "proc 3"
+      "loopitem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     [local] dvar expanded result:
@@ -792,11 +797,11 @@ weight: 11174
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "loopitem": "proc 3",
-      "parentLoopItem": "proc 3"
+      "parentLoopItem": "proc 3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     parent loop: {{.parentLoopItem}}, child loop: {{.loopitem}}

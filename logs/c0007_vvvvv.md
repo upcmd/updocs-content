@@ -1,6 +1,6 @@
 ---
 title: "c0007_vvvvv"
-date: 2020-09-18T01:27:21+99:00
+date: 2020-10-06T23:45:51+1010:00
 draft: false
 weight: 10074
 
@@ -23,6 +23,8 @@ weight: 10074
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10074
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175080)(<nil>)
+    (*impl.Scopes)(0xc0001ed0e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0001308e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10074
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -272,13 +274,13 @@ weight: 10074
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -287,19 +289,6 @@ weight: 10074
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"world\"",
-        Code: 0,
-        Output: "world",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
@@ -307,6 +296,19 @@ weight: 10074
         Output: "world",
         ErrMsg: ""
       })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"world\"",
+        Code: 0,
+        Output: "world",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0109_vvvv"
-date: 2020-09-18T01:27:39+99:00
+date: 2020-10-06T23:46:10+1010:00
 draft: false
 weight: 11093
 
@@ -23,6 +23,8 @@ weight: 11093
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11093
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -76,17 +78,17 @@ weight: 11093
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "up_runtime_task_layer_number": 0,
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "up_runtime_task_layer_number": 0,
-      "jerry": "this is jerry in task scope"
+      "jerry": "this is jerry in task scope",
+      "tom": "this is tom"
     })
     
       located task-> 2 [subtask1]: 
@@ -96,17 +98,17 @@ weight: 11093
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope"
     })
     
     ~~SubStep1: [print: this should print out the dvar value of jerry as it is declared jerry is in taskScope ]
@@ -116,17 +118,17 @@ weight: 11093
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "tom": "this is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "jerry": "this is jerry in task scope",
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print: remember that the caller's vars should override callee's vars
@@ -140,9 +142,9 @@ weight: 11093
     --Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in task scope",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "jerry": "this is jerry in task scope"
     })
     
     self: final context exec vars:

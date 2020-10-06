@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvv"
-date: 2020-09-18T01:27:28+99:00
+date: 2020-10-06T23:45:58+1010:00
 draft: false
 weight: 10473
 
@@ -23,6 +23,8 @@ weight: 10473
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,26 +38,26 @@ weight: 10473
     
     ---------group vars----------
     
-    global: {
-      "student_name": "Tom Hanks",
-      "student_age": "28"
-    }
+    global: (*core.Cache)({
+      "student_age": "28",
+      "student_name": "Tom Hanks"
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student_name": "Tom Hanks",
       "student_age": "28"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "student_age": "28",
+    (*core.Cache)({
       "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -65,18 +67,18 @@ weight: 10473
     current exec runtime vars:
     (*core.Cache)({
       "student_age": "28",
-      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "student_name": "Tom Hanks"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "up_runtime_task_layer_number": 0,
-      "student_age": "28"
+      "student_name": "Tom Hanks"
     })
     
     cmd( 1):

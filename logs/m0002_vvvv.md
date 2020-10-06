@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvv"
-date: 2020-09-18T01:28:26+99:00
+date: 2020-10-06T23:46:54+1010:00
 draft: false
 weight: 100203
 
@@ -23,6 +23,8 @@ weight: 100203
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0002
@@ -36,19 +38,19 @@ weight: 100203
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -92,13 +94,13 @@ weight: 100203
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
       located task-> 2 [internal_task]: 
@@ -147,14 +149,14 @@ weight: 100203
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa"
+      "up_runtime_task_layer_number": 1
     })
     
     loading [Config]:  ./upconfig.yml
@@ -167,19 +169,19 @@ weight: 100203
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_world]
     Executing tasker layer: 2
@@ -191,21 +193,6 @@ weight: 100203
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello world\"",
-        Code: 0,
-        Output: "hello world",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa",
-      "b": "module-bbb"
-    })
-    
-    hello-module: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
       "b": "module-bbb",
@@ -216,6 +203,21 @@ weight: 100203
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0
+    })
+    
+    hello-module: final context exec vars:
+    
+    (*core.Cache)({
+      "a": "caller-aaa",
+      "b": "module-bbb",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello world\"",
+        Code: 0,
+        Output: "hello world",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     ~SubStep1: [print:  ]

@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvvv"
-date: 2020-09-18T01:27:25+99:00
+date: 2020-10-06T23:45:55+1010:00
 draft: false
 weight: 10294
 
@@ -23,6 +23,8 @@ weight: 10294
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,17 +37,17 @@ weight: 10294
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f1300)((len=3 cap=3) {
+    (*impl.Scopes)(0xc0001e9360)((len=3 cap=3) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "c": (string) (len=8) "global-c",
-       (string) (len=1) "e": (string) (len=8) "global-e",
        (string) (len=1) "a": (string) (len=8) "global-a",
-       (string) (len=1) "b": (string) (len=8) "global-b"
+       (string) (len=1) "b": (string) (len=8) "global-b",
+       (string) (len=1) "c": (string) (len=8) "global-c",
+       (string) (len=1) "e": (string) (len=8) "global-e"
       },
       Dvars: (impl.Dvars) (len=2 cap=2) {
        (impl.Dvar) {
@@ -87,10 +89,10 @@ weight: 10294
        (string) (len=7) "staging"
       },
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "b": (string) (len=10) "non-prod-b",
-       (string) (len=1) "c": (string) (len=10) "non-prod-c",
        (string) (len=1) "d": (string) (len=10) "non-prod-d",
-       (string) (len=1) "a": (string) (len=10) "non-prod-a"
+       (string) (len=1) "a": (string) (len=10) "non-prod-a",
+       (string) (len=1) "b": (string) (len=10) "non-prod-b",
+       (string) (len=1) "c": (string) (len=10) "non-prod-c"
       },
       Dvars: (impl.Dvars) (len=2 cap=2) {
        (impl.Dvar) {
@@ -144,12 +146,12 @@ weight: 10294
     
     
     scope[global] merged: {
+      "b": "global-b",
       "c": "global-c",
       "e": "global-e",
-      "a": "global-a",
-      "b": "global-b",
+      "da": "global-a",
       "dab": "global-a-and-global-b",
-      "da": "global-a"
+      "a": "global-a"
     }
     
     
@@ -172,49 +174,49 @@ weight: 10294
     
     ---------group vars----------
     
-    nonprod: {
-      "c": "non-prod-c",
+    nonprod: (*core.Cache)({
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
       "dab": "non-prod-a-and-non-prod-b",
       "a": "non-prod-a",
-      "b": "non-prod-b"
-    }
+      "b": "non-prod-b",
+      "c": "non-prod-c"
+    })
     
     
-    global: {
-      "da": "global-a",
+    global: (*core.Cache)({
+      "b": "global-b",
       "c": "global-c",
       "e": "global-e",
-      "a": "global-a",
-      "b": "global-b",
-      "dab": "global-a-and-global-b"
-    }
+      "da": "global-a",
+      "dab": "global-a-and-global-b",
+      "a": "global-a"
+    })
     
     
     groups members:[dev staging]
     merged[ dev ] runtime vars:
-    {
-      "b": "non-prod-b",
-      "dab": "non-prod-a-and-non-prod-b",
-      "da": "global-a",
+    (*core.Cache)({
       "c": "non-prod-c",
       "e": "global-e",
-      "a": "non-prod-a",
+      "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
       "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a"
-    }
+      "dvar_np_a": "non-prod-a",
+      "a": "non-prod-a",
+      "b": "non-prod-b"
+    })
     
-    (core.Cache) (len=8) {
+    (*core.Cache)(0xc00013e9d0)((len=8) {
+     (string) (len=1) "e": (string) (len=8) "global-e",
+     (string) (len=2) "da": (string) (len=8) "global-a",
+     (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b",
      (string) (len=1) "d": (string) (len=10) "non-prod-d",
      (string) (len=9) "dvar_np_a": (string) (len=10) "non-prod-a",
+     (string) (len=1) "a": (string) (len=10) "non-prod-a",
      (string) (len=1) "b": (string) (len=10) "non-prod-b",
-     (string) (len=3) "dab": (string) (len=25) "non-prod-a-and-non-prod-b",
-     (string) (len=2) "da": (string) (len=8) "global-a",
-     (string) (len=1) "c": (string) (len=10) "non-prod-c",
-     (string) (len=1) "e": (string) (len=8) "global-e",
-     (string) (len=1) "a": (string) (len=10) "non-prod-a"
-    }
+     (string) (len=1) "c": (string) (len=10) "non-prod-c"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -223,16 +225,16 @@ weight: 10294
     
     -------runtime global final merged with dvars-------
     
-    {
-      "e": "global-e",
-      "a": "non-prod-a",
+    (*core.Cache)({
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
+      "a": "non-prod-a",
       "b": "non-prod-b",
-      "dab": "non-prod-a-and-non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e",
       "da": "global-a",
-      "c": "non-prod-c"
-    }
+      "dab": "non-prod-a-and-non-prod-b"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -266,15 +268,15 @@ weight: 10294
     
     current exec runtime vars:
     (*core.Cache)({
-      "da": "global-a",
-      "e": "global-e",
-      "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
-      "b": "non-prod-b",
-      "up_runtime_task_layer_number": 0,
       "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
       "c": "non-prod-c",
-      "a": "non-prod-a"
+      "e": "global-e",
+      "a": "non-prod-a",
+      "da": "global-a",
+      "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -283,30 +285,30 @@ weight: 10294
     
     
     scope[local] merged: {
-      "b": "non-prod-b",
       "up_runtime_task_layer_number": 0,
       "dab": "non-prod-a-and-non-prod-b",
-      "da": "global-a",
-      "c": "non-prod-c",
       "a": "non-prod-a",
-      "dvar_np_a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
       "e": "global-e",
-      "d": "non-prod-d"
+      "da": "global-a",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "c": "non-prod-c",
+      "up_runtime_task_layer_number": 0,
       "da": "global-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "dvar_np_a": "non-prod-a",
       "e": "global-e",
       "d": "non-prod-d",
       "b": "non-prod-b",
-      "up_runtime_task_layer_number": 0,
-      "dab": "non-prod-a-and-non-prod-b",
-      "c": "non-prod-c",
-      "a": "non-prod-a",
-      "dvar_np_a": "non-prod-a"
+      "a": "non-prod-a"
     })
     
     cmd( 1):

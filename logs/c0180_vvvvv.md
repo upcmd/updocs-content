@@ -1,6 +1,6 @@
 ---
 title: "c0180_vvvvv"
-date: 2020-09-18T01:27:55+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11804
 
@@ -23,6 +23,8 @@ weight: 11804
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11804
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c15e0)(<nil>)
+    (*impl.Scopes)(0xc0001bd600)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e928)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11804
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -106,8 +108,8 @@ weight: 11804
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "msg": "hello, world\nthank you\nhello tom\ngood buy\n"
+      "msg": "hello, world\nthank you\nhello tom\ngood buy\n",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -212,13 +214,13 @@ weight: 11804
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "cat /tmp/msg",
         Code: 0,
         Output: "hello, world\nthank you\nhello tom\ngood buy",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     {{.last_result.Output}}
@@ -274,14 +276,14 @@ weight: 11804
     
     
     scope[local] merged: {
-      "msg": "hello, world\nthank you\nhello tom\ngood buy\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "cat /tmp/msg",
         Code: 0,
         Output: "hello, world\nthank you\nhello tom\ngood buy",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "msg": "hello, world\nthank you\nhello tom\ngood buy\n"
     }
     
     
@@ -321,9 +323,10 @@ weight: 11804
     }
     
      WARN: [ignoreError:] - [Error ignored!!!]
-    -Step4: [: silient only one sub step but not all
+    -Step4: [
+    silient only one sub step but not all
     in this case, it will make sub step 1 msg1 silent but not the msg2
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -372,6 +375,21 @@ weight: 11804
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "msg1": "sub step1",
+      "msg2": "sub step2",
+      "last_result": (*utils.ExecResult)({
+        Cmd: ">&2 echo \"encountering an error\"\nexit -1\n",
+        Code: 2,
+        Output: "",
+        ErrMsg: "encountering an error\n/bin/sh: exit: line 2: Illegal number: -1\n"
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "msg1": "sub step1",
       "msg2": "sub step2",
       "last_result": (*utils.ExecResult)({
@@ -381,21 +399,6 @@ weight: 11804
         ErrMsg: "encountering an error\n/bin/sh: exit: line 2: Illegal number: -1\n"
       }),
       "up_runtime_task_layer_number": 0
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: ">&2 echo \"encountering an error\"\nexit -1\n",
-        Code: 2,
-        Output: "",
-        ErrMsg: "encountering an error\n/bin/sh: exit: line 2: Illegal number: -1\n"
-      }),
-      "up_runtime_task_layer_number": 0,
-      "msg1": "sub step1",
-      "msg2": "sub step2"
     })
     
     cmd( 1):
@@ -432,9 +435,10 @@ weight: 11804
     }
     
     . ok
-    -Step5: [: silient only one sub step but not all
+    -Step5: [
+    silient only one sub step but not all
     in this case, it will make sub step 2 msg2 silent but not the msg1
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -467,14 +471,14 @@ weight: 11804
     current exec runtime vars:
     (*core.Cache)({
       "msg1": "sub step1",
+      "msg2": "sub step2",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"\"\"sub step2\"\"\"",
         Code: 0,
         Output: "sub step2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "msg2": "sub step2"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -483,7 +487,7 @@ weight: 11804
     
     
     scope[local] merged: {
-      "msg1": "sub step1",
+      "msg2": "sub step2",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"\"\"sub step2\"\"\"",
         Code: 0,
@@ -491,22 +495,22 @@ weight: 11804
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "msg2": "sub step2"
+      "msg1": "sub step1"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "msg2": "sub step2",
+      "up_runtime_task_layer_number": 0,
       "msg1": "sub step1",
+      "msg2": "sub step2",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"\"\"sub step2\"\"\"",
         Code: 0,
         Output: "sub step2",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     cmd( 1):
@@ -543,8 +547,9 @@ weight: 11804
     }
     
     . ok
-    -Step6: [: if there are combined flags of silent and silent-x, silent will take priority, then there will be no output for all of the sub steps
-     ]
+    -Step6: [
+    if there are combined flags of silent and silent-x, silent will take priority, then there will be no output for all of the sub steps
+    ]
     {
       Name: "",
       Do: {
@@ -554,8 +559,8 @@ weight: 11804
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "msg1": "sub step1",
-        "msg2": "sub step2"
+        "msg2": "sub step2",
+        "msg1": "sub step1"
       },
       Dvars: <nil>,
       Desc: "if there are combined flags of silent and silent-x, silent will take priority, then there will be no output for all of the sub steps\n",
@@ -577,6 +582,7 @@ weight: 11804
     
     current exec runtime vars:
     (*core.Cache)({
+      "msg1": "sub step1",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"\"\"sub step2\"\"\"",
         Code: 0,
@@ -584,7 +590,6 @@ weight: 11804
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "msg1": "sub step1",
       "msg2": "sub step2"
     })
     
@@ -594,6 +599,7 @@ weight: 11804
     
     
     scope[local] merged: {
+      "msg1": "sub step1",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"\"\"sub step2\"\"\"",
         Code: 0,
@@ -601,7 +607,6 @@ weight: 11804
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "msg1": "sub step1",
       "msg2": "sub step2"
     }
     
@@ -616,8 +621,8 @@ weight: 11804
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "msg1": "sub step1",
-      "msg2": "sub step2"
+      "msg2": "sub step2",
+      "msg1": "sub step1"
     })
     
     cmd( 1):

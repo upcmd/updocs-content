@@ -1,6 +1,6 @@
 ---
 title: "c0180_vvvv"
-date: 2020-09-18T01:27:55+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11803
 
@@ -23,6 +23,8 @@ weight: 11803
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11803
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -57,8 +59,8 @@ weight: 11803
     -Step1: [: the output of cat would be silent ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "msg": "hello, world\nthank you\nhello tom\ngood buy\n"
+      "msg": "hello, world\nthank you\nhello tom\ngood buy\n",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -94,18 +96,6 @@ weight: 11803
     -Step2: [: explicitly show the the shell exec result ]
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "cat /tmp/msg",
-        Code: 0,
-        Output: "hello, world\nthank you\nhello tom\ngood buy",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "cat /tmp/msg",
@@ -113,6 +103,18 @@ weight: 11803
         Output: "hello, world\nthank you\nhello tom\ngood buy",
         ErrMsg: ""
       })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "cat /tmp/msg",
+        Code: 0,
+        Output: "hello, world\nthank you\nhello tom\ngood buy",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -123,14 +125,14 @@ weight: 11803
     -Step3: [: the silent will not affect output of failed shell execution ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "msg": "hello, world\nthank you\nhello tom\ngood buy\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "cat /tmp/msg",
         Code: 0,
         Output: "hello, world\nthank you\nhello tom\ngood buy",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "msg": "hello, world\nthank you\nhello tom\ngood buy\n"
+      })
     })
     
     self: final context exec vars:
@@ -162,10 +164,25 @@ weight: 11803
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    -Step4: [: silient only one sub step but not all
+    -Step4: [
+    silient only one sub step but not all
     in this case, it will make sub step 1 msg1 silent but not the msg2
-     ]
+    ]
     current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "msg2": "sub step2",
+      "msg1": "sub step1",
+      "last_result": (*utils.ExecResult)({
+        Cmd: ">&2 echo \"encountering an error\"\nexit -1\n",
+        Code: 2,
+        Output: "",
+        ErrMsg: "encountering an error\n/bin/sh: exit: line 2: Illegal number: -1\n"
+      })
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: ">&2 echo \"encountering an error\"\nexit -1\n",
@@ -174,22 +191,8 @@ weight: 11803
         ErrMsg: "encountering an error\n/bin/sh: exit: line 2: Illegal number: -1\n"
       }),
       "up_runtime_task_layer_number": 0,
-      "msg1": "sub step1",
-      "msg2": "sub step2"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "msg1": "sub step1",
       "msg2": "sub step2",
-      "last_result": (*utils.ExecResult)({
-        Cmd: ">&2 echo \"encountering an error\"\nexit -1\n",
-        Code: 2,
-        Output: "",
-        ErrMsg: "encountering an error\n/bin/sh: exit: line 2: Illegal number: -1\n"
-      }),
-      "up_runtime_task_layer_number": 0
+      "msg1": "sub step1"
     })
     
     cmd( 1):
@@ -212,9 +215,60 @@ weight: 11803
     -
      .. ok
     . ok
-    -Step5: [: silient only one sub step but not all
+    -Step5: [
+    silient only one sub step but not all
     in this case, it will make sub step 2 msg2 silent but not the msg1
-     ]
+    ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"sub step2\"\"\"",
+        Code: 0,
+        Output: "sub step2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "msg2": "sub step2",
+      "msg1": "sub step1"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "msg2": "sub step2",
+      "msg1": "sub step1",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"sub step2\"\"\"",
+        Code: 0,
+        Output: "sub step2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    cmd( 1):
+    echo """{{.msg1}}"""
+    
+    cmd=>:
+    echo """sub step1"""
+    -
+    sub step1
+    
+    -
+     .. ok
+    cmd( 2):
+    echo """{{.msg2}}"""
+    
+    cmd=>:
+    echo """sub step2"""
+    -
+    
+    -
+     .. ok
+    . ok
+    -Step6: [
+    if there are combined flags of silent and silent-x, silent will take priority, then there will be no output for all of the sub steps
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "msg2": "sub step2",
@@ -240,55 +294,6 @@ weight: 11803
       "up_runtime_task_layer_number": 0,
       "msg1": "sub step1",
       "msg2": "sub step2"
-    })
-    
-    cmd( 1):
-    echo """{{.msg1}}"""
-    
-    cmd=>:
-    echo """sub step1"""
-    -
-    sub step1
-    
-    -
-     .. ok
-    cmd( 2):
-    echo """{{.msg2}}"""
-    
-    cmd=>:
-    echo """sub step2"""
-    -
-    
-    -
-     .. ok
-    . ok
-    -Step6: [: if there are combined flags of silent and silent-x, silent will take priority, then there will be no output for all of the sub steps
-     ]
-    current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "msg2": "sub step2",
-      "msg1": "sub step1",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"sub step2\"\"\"",
-        Code: 0,
-        Output: "sub step2",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "msg2": "sub step2",
-      "msg1": "sub step1",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"sub step2\"\"\"",
-        Code: 0,
-        Output: "sub step2",
-        ErrMsg: ""
-      })
     })
     
     cmd( 1):

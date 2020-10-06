@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvvv"
-date: 2020-09-18T01:27:35+99:00
+date: 2020-10-06T23:46:05+1010:00
 draft: false
 weight: 10864
 
@@ -23,6 +23,8 @@ weight: 10864
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 10864
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7620)(<nil>)
+    (*impl.Scopes)(0xc0001ef6c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000130958)((len=1) {
      (string) (len=5) "lines": (string) (len=31) "hello\nthis\nis a\nbeautiful world"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 10864
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: generate logs ]
@@ -113,8 +115,8 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "lines": "hello\nthis\nis a\nbeautiful world"
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> linelist:
@@ -139,21 +141,6 @@ weight: 10864
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
-      "lines": "hello\nthis\nis a\nbeautiful world"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world",
       "up_runtime_task_layer_number": 0,
       "linelist_object": {
@@ -163,6 +150,21 @@ weight: 10864
         "beautiful world"
       },
       "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -453,6 +455,12 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
@@ -460,12 +468,6 @@ weight: 10864
         "is a",
         "beautiful world"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 0
     })
     
@@ -490,13 +492,13 @@ weight: 10864
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
@@ -510,20 +512,20 @@ weight: 10864
     self: final context exec vars:
     
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
       },
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     cmd( 1):
@@ -612,28 +614,6 @@ weight: 10864
     
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo '[hello this is a beautiful world]'",
-        Code: 0,
-        Output: "[hello this is a beautiful world]",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "linelist_object": {
         "hello",
         "this",
@@ -648,6 +628,28 @@ weight: 10864
       }),
       "up_runtime_task_layer_number": 0,
       "lines": "hello\nthis\nis a\nbeautiful world"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo '[hello this is a beautiful world]'",
+        Code: 0,
+        Output: "[hello this is a beautiful world]",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -777,13 +779,13 @@ weight: 10864
         "is a",
         "beautiful world"
       },
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
@@ -798,8 +800,8 @@ weight: 10864
     dvar[object]> void_object:
     {
       "person": {
-        "name": "tom",
-        "age": "18"
+        "age": "18",
+        "name": "tom"
       }
     }
     
@@ -816,13 +818,13 @@ weight: 10864
         "is a",
         "beautiful world"
       },
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -835,14 +837,14 @@ weight: 10864
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
         "is a",
         "beautiful world"
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
      WARN: [shell] - [Not implemented or void for no action!]

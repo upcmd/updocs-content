@@ -1,6 +1,6 @@
 ---
 title: "c0112_vvvv"
-date: 2020-09-18T01:27:40+99:00
+date: 2020-10-06T23:46:11+1010:00
 draft: false
 weight: 11123
 
@@ -23,6 +23,8 @@ weight: 11123
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,23 +38,23 @@ weight: 11123
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "global_b": "bbb",
-      "global_a": "aaa"
-    }
+    (*core.Cache)({
+      "global_a": "aaa",
+      "global_b": "bbb"
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "global_b": "bbb",
-      "global_a": "aaa"
-    }
+    (*core.Cache)({
+      "global_a": "aaa",
+      "global_b": "bbb"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -61,22 +63,22 @@ weight: 11123
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "local_b": "bbb",
       "tom": "my name is tom",
+      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "local_a": "aaa",
-      "local_b": "bbb"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "local_b": "bbb",
-      "tom": "my name is tom",
       "global_b": "bbb",
       "global_a": "aaa",
       "up_runtime_task_layer_number": 0,
+      "local_b": "bbb",
+      "tom": "my name is tom",
       "local_a": "aaa"
     })
     
@@ -87,23 +89,23 @@ weight: 11123
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "local_b": "bbb",
       "tom": "my name is tom",
+      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
-      "up_runtime_task_layer_number": 1,
-      "local_a": "aaa",
-      "local_b": "bbb"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "my name is tom",
+      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
       "up_runtime_task_layer_number": 1,
-      "local_a": "aaa",
-      "local_b": "bbb"
+      "local_b": "bbb",
+      "tom": "my name is tom"
     })
     
     ~~SubStep1: [print:  ]
@@ -113,23 +115,23 @@ weight: 11123
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
+      "tom": "my name is tom",
       "up_runtime_task_layer_number": 1,
-      "local_a": "aaa",
-      "local_b": "bbb",
-      "tom": "my name is tom"
+      "local_b": "bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "tom": "my name is tom",
-      "global_b": "bbb",
-      "global_a": "aaa",
       "up_runtime_task_layer_number": 1,
+      "local_b": "bbb",
       "local_a": "aaa",
-      "local_b": "bbb"
+      "global_b": "bbb",
+      "global_a": "aaa"
     })
     
     ~~SubStep1: [print:  ]
@@ -139,23 +141,23 @@ weight: 11123
     --Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "local_a": "aaa",
+      "global_a": "aaa",
+      "up_runtime_task_layer_number": 1,
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_b": "bbb",
-      "global_a": "aaa",
-      "up_runtime_task_layer_number": 1
+      "local_a": "aaa",
+      "global_b": "bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_a": "aaa",
-      "up_runtime_task_layer_number": 1,
-      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_b": "bbb"
+      "local_a": "aaa",
+      "global_b": "bbb",
+      "global_a": "aaa",
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 3 [subtask2]: 
@@ -167,21 +169,21 @@ weight: 11123
     (*core.Cache)({
       "global_a": "aaa",
       "up_runtime_task_layer_number": 2,
-      "local_a": "aaa",
       "local_b": "bbb",
       "tom": "my name is tom",
+      "local_a": "aaa",
       "global_b": "bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "local_a": "aaa",
+      "global_a": "aaa",
+      "up_runtime_task_layer_number": 2,
       "local_b": "bbb",
       "tom": "my name is tom",
-      "global_b": "bbb",
-      "global_a": "aaa",
-      "up_runtime_task_layer_number": 2
+      "local_a": "aaa",
+      "global_b": "bbb"
     })
     
     ~~~SubStep1: [print:  ]
@@ -191,23 +193,23 @@ weight: 11123
     ---Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
       "local_b": "bbb",
+      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
-      "up_runtime_task_layer_number": 2,
-      "local_a": "aaa",
       "tom": "my name is tom"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "my name is tom",
-      "local_b": "bbb",
+      "local_a": "aaa",
       "global_b": "bbb",
       "global_a": "aaa",
+      "tom": "my name is tom",
       "up_runtime_task_layer_number": 2,
-      "local_a": "aaa"
+      "local_b": "bbb"
     })
     
     ~~~SubStep1: [print:  ]

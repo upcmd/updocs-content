@@ -1,6 +1,6 @@
 ---
 title: "c0035_vvvvv"
-date: 2020-09-18T01:27:26+99:00
+date: 2020-10-06T23:45:56+1010:00
 draft: false
 weight: 10354
 
@@ -23,6 +23,8 @@ weight: 10354
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10354
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1000)(<nil>)
+    (*impl.Scopes)(0xc000175000)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68e0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10354
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -74,8 +76,8 @@ weight: 10354
       Dox: <nil>,
       Func: "shell",
       Vars: {
-        "b": "bbb",
-        "a": "aaa"
+        "a": "aaa",
+        "b": "bbb"
       },
       Dvars: <nil>,
       Desc: "",
@@ -95,8 +97,8 @@ weight: 10354
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "b": "bbb"
+      "b": "bbb",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -105,8 +107,8 @@ weight: 10354
     
     
     scope[local] merged: {
-      "a": "aaa",
       "up_runtime_task_layer_number": 0,
+      "a": "aaa",
       "b": "bbb"
     }
     
@@ -114,8 +116,8 @@ weight: 10354
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "b": "bbb",
+      "up_runtime_task_layer_number": 0,
       "a": "aaa"
     })
     
@@ -163,13 +165,13 @@ weight: 10354
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -178,26 +180,26 @@ weight: 10354
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "pwd",
         Code: 0,
         Output: "/up_project/up",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0056_vvvvv"
-date: 2020-09-18T01:27:29+99:00
+date: 2020-10-06T23:46:00+1010:00
 draft: false
 weight: 10564
 
@@ -23,6 +23,8 @@ weight: 10564
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,25 +37,25 @@ weight: 10564
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e75c0)(<nil>)
+    (*impl.Scopes)(0xc0001bf680)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "countries": {
         {
           "population": "20m",
           "name": "Australia"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -64,9 +66,9 @@ weight: 10564
           "population": "30m"
         }
       }
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e978)((len=1) {
      (string) (len=9) "countries": ([]interface {}) (len=4 cap=4) {
       (map[interface {}]interface {}) (len=2) {
        (string) (len=4) "name": (string) (len=9) "Australia",
@@ -85,7 +87,7 @@ weight: 10564
        (string) (len=10) "population": (string) (len=3) "30m"
       }
      }
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -94,15 +96,15 @@ weight: 10564
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -113,7 +115,7 @@ weight: 10564
           "population": "30m"
         }
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -159,8 +161,8 @@ weight: 10564
           "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
           "name": "Danmark",
@@ -186,12 +188,12 @@ weight: 10564
           "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "up_runtime_task_layer_number": 0
@@ -211,12 +213,12 @@ weight: 10564
           "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "up_runtime_task_layer_number": 0
@@ -292,16 +294,16 @@ weight: 10564
       Else: <nil>,
       Loop: {
         {
-          "name": "tom",
-          "age": 11
+          "age": 11,
+          "name": "tom"
         },
         {
           "name": "peter",
           "age": 45
         },
         {
-          "age": 23,
-          "name": "james"
+          "name": "james",
+          "age": 23
         }
       },
       Until: "",
@@ -320,6 +322,45 @@ weight: 10564
           "population": "20m"
         },
         {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "population": "1.4b",
+          "name": "China"
+        },
+        {
+          "population": "30m",
+          "name": "Danmark"
+        }
+      },
+      "up_runtime_task_layer_number": 0,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      })
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      }),
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
           "name": "British",
           "population": "2000m"
         },
@@ -332,45 +373,6 @@ weight: 10564
           "name": "Danmark"
         }
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 0
     }
     
@@ -378,10 +380,16 @@ weight: 10564
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello james\"",
+        Code: 0,
+        Output: "hello james",
+        ErrMsg: ""
+      }),
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "name": "British",
@@ -392,16 +400,10 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello james\"",
-        Code: 0,
-        Output: "hello james",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 0
     })
     
@@ -541,8 +543,8 @@ weight: 10564
     (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
           "population": "2000m",
@@ -553,8 +555,8 @@ weight: 10564
           "population": "1.4b"
         },
         {
-          "name": "Danmark",
-          "population": "30m"
+          "population": "30m",
+          "name": "Danmark"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -574,16 +576,16 @@ weight: 10564
     scope[local] merged: {
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
           "name": "Danmark",
@@ -613,12 +615,12 @@ weight: 10564
           "population": "2000m"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
-          "population": "30m",
-          "name": "Danmark"
+          "name": "Danmark",
+          "population": "30m"
         }
       },
       "last_result": (*utils.ExecResult)({
@@ -699,8 +701,9 @@ weight: 10564
     }
     
     . ok
-    -Step4: [: the loop point to a iteratable var countries
-     ]
+    -Step4: [
+    the loop point to a iteratable var countries
+    ]
     {
       Name: "",
       Do: {
@@ -729,12 +732,12 @@ weight: 10564
     (*core.Cache)({
       "countries": {
         {
-          "population": "20m",
-          "name": "Australia"
+          "name": "Australia",
+          "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
           "name": "China",
@@ -760,14 +763,15 @@ weight: 10564
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
-          "population": "2000m",
-          "name": "British"
+          "name": "British",
+          "population": "2000m"
         },
         {
           "name": "China",
@@ -783,8 +787,7 @@ weight: 10564
         Code: 0,
         Output: "hello Danmark",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     }
     
     
@@ -793,16 +796,16 @@ weight: 10564
     (*core.Cache)({
       "countries": {
         {
-          "name": "Australia",
-          "population": "20m"
+          "population": "20m",
+          "name": "Australia"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
-          "name": "China",
-          "population": "1.4b"
+          "population": "1.4b",
+          "name": "China"
         },
         {
           "name": "Danmark",
@@ -955,8 +958,9 @@ weight: 10564
     }
     
     . ok
-    -Step5: [: the templated value will be eventually a var/dvar name
-     ]
+    -Step5: [
+    the templated value will be eventually a var/dvar name
+    ]
     {
       Name: "",
       Do: {
@@ -1000,40 +1004,6 @@ weight: 10564
     
     current exec runtime vars:
     (*core.Cache)({
-      "countries": {
-        {
-          "name": "Australia",
-          "population": "20m"
-        },
-        {
-          "name": "British",
-          "population": "2000m"
-        },
-        {
-          "name": "China",
-          "population": "1.4b"
-        },
-        {
-          "name": "Danmark",
-          "population": "30m"
-        }
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 30m\"",
-        Code: 0,
-        Output: "hello 30m",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
-    })
-    
-    [local] dvar expanded result:
-    {
-      "listname": "countries"
-    }
-    
-    
-    scope[local] merged: {
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 30m\"",
         Code: 0,
@@ -1041,7 +1011,6 @@ weight: 10564
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "listname": "countries",
       "countries": {
         {
           "name": "Australia",
@@ -1060,24 +1029,27 @@ weight: 10564
           "population": "30m"
         }
       }
+    })
+    
+    [local] dvar expanded result:
+    {
+      "listname": "countries"
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
+    scope[local] merged: {
       "countries": {
         {
           "name": "Australia",
           "population": "20m"
         },
         {
-          "name": "British",
-          "population": "2000m"
+          "population": "2000m",
+          "name": "British"
         },
         {
-          "population": "1.4b",
-          "name": "China"
+          "name": "China",
+          "population": "1.4b"
         },
         {
           "name": "Danmark",
@@ -1092,6 +1064,38 @@ weight: 10564
       }),
       "up_runtime_task_layer_number": 0,
       "listname": "countries"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "listname": "countries",
+      "countries": {
+        {
+          "name": "Australia",
+          "population": "20m"
+        },
+        {
+          "population": "2000m",
+          "name": "British"
+        },
+        {
+          "name": "China",
+          "population": "1.4b"
+        },
+        {
+          "name": "Danmark",
+          "population": "30m"
+        }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 30m\"",
+        Code: 0,
+        Output: "hello 30m",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

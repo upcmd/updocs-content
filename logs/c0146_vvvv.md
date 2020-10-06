@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvv"
-date: 2020-09-18T01:27:48+99:00
+date: 2020-10-06T23:46:18+1010:00
 draft: false
 weight: 11463
 
@@ -23,6 +23,8 @@ weight: 11463
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11463
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: mock up test to test module.template rendering ]
@@ -59,29 +61,29 @@ weight: 11463
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "personname": "Tom Cruise",
       "folder": "module",
       "title": "HelloWorld example",
+      "personname": "Tom Cruise",
       "school": "james rules"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "personname": "Tom Cruise",
       "folder": "module",
       "title": "HelloWorld example",
-      "school": "james rules"
+      "personname": "Tom Cruise",
+      "school": "james rules",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "personname": "Tom Cruise",
       "folder": "module",
       "title": "HelloWorld example",
+      "personname": "Tom Cruise",
       "school": "james rules"
     })
     
@@ -113,7 +115,7 @@ weight: 11463
     cat /tmp/mockup_doc.md
     -
     title: "HelloWorld example"
-    date: 2020-09-18T00:48:24+99:00
+    date: 2020-10-06T23:42:22+1010:00
     draft: false
     -
      .. ok

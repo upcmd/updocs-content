@@ -1,6 +1,6 @@
 ---
 title: "c0177_vvvv"
-date: 2020-09-18T01:27:54+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11773
 
@@ -23,6 +23,8 @@ weight: 11773
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,39 +38,40 @@ weight: 11773
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "person": {
+        "name": "tom",
         "sex": "male",
-        "age": 18,
-        "name": "tom"
+        "age": 18
       },
       "env": "dev"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "person": {
         "age": 18,
         "name": "tom",
         "sex": "male"
       },
       "env": "dev"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: this is a story about tom
      ]
     Executing task stack layer: 1
     
-    -Step1: [: tom is male
-     ]
+    -Step1: [
+    tom is male
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "person": {
@@ -76,9 +79,9 @@ weight: 11773
         "name": "tom",
         "sex": "male"
       },
-      "env": "dev",
       "up_runtime_task_layer_number": 0,
-      "school": "sydney grammar"
+      "school": "sydney grammar",
+      "env": "dev"
     })
     
     Enter Value For [continue]: 
@@ -86,15 +89,15 @@ weight: 11773
     self: final context exec vars:
     
     (*core.Cache)({
+      "continue": "N",
+      "env": "dev",
       "person": {
         "age": 18,
         "name": "tom",
         "sex": "male"
       },
-      "env": "dev",
       "up_runtime_task_layer_number": 0,
-      "school": "sydney grammar",
-      "continue": "N"
+      "school": "sydney grammar"
     })
     
     ~SubStep1: [print: his age is 18

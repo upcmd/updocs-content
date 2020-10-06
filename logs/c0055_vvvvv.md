@@ -1,6 +1,6 @@
 ---
 title: "c0055_vvvvv"
-date: 2020-09-18T01:27:29+99:00
+date: 2020-10-06T23:46:00+1010:00
 draft: false
 weight: 10554
 
@@ -23,6 +23,8 @@ weight: 10554
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10554
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7240)(<nil>)
+    (*impl.Scopes)(0xc00000c6a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e108)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10554
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -168,8 +170,8 @@ weight: 10554
     
     
     scope[local] merged: {
-      "greet": "hello",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "greet": "hello"
     }
     
     

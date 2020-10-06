@@ -1,6 +1,6 @@
 ---
 title: "0011_vvvvv"
-date: 2020-09-18T01:28:28+99:00
+date: 2020-10-06T23:46:56+1010:00
 draft: false
 weight: 101104
 
@@ -23,6 +23,8 @@ weight: 101104
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0011
@@ -35,21 +37,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000b4220)(<nil>)
+    (*impl.Scopes)(0xc0001bf380)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8c0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -123,21 +125,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000b5d40)(<nil>)
+    (*impl.Scopes)(0xc000234f80)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000ea90)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -146,8 +148,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_hello]
     Executing tasker layer: 2
@@ -198,9 +200,9 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     }
     
     
@@ -249,8 +251,8 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     }
     
     
@@ -277,21 +279,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00034b160)(<nil>)
+    (*impl.Scopes)(0xc0003143a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000ecb0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -300,8 +302,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hi-module] task: [Say_hi]
     Executing tasker layer: 3
@@ -361,9 +363,9 @@ weight: 101104
     hi-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
       "up_runtime_tasker_layer_number": 3,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "a": "aaa"
     })
     
     ... hi
@@ -431,21 +433,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00048c460)(<nil>)
+    (*impl.Scopes)(0xc0003156a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000eeb8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -454,8 +456,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello] task: [Say_hello]
     Executing tasker layer: 2
@@ -469,8 +471,8 @@ weight: 101104
       Name: "",
       Do: {
         {
-          "cmd": " .... hello from Say_hello",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... hello from Say_hello"
         }
       },
       Dox: <nil>,
@@ -493,8 +495,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -560,8 +562,8 @@ weight: 101104
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (hello.Say_hello)::
@@ -580,21 +582,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001a8780)(<nil>)
+    (*impl.Scopes)(0xc0003ea9e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000f0c0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -603,8 +605,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello] task: [Say_hello]
     Executing tasker layer: 2
@@ -642,8 +644,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -652,8 +654,8 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     }
     
     
@@ -701,8 +703,8 @@ weight: 101104
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -729,21 +731,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00034a3e0)(<nil>)
+    (*impl.Scopes)(0xc0001be6a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000100e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -752,8 +754,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-dummy1] task: [Say_world]
     Executing tasker layer: 2
@@ -791,8 +793,8 @@ weight: 101104
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -809,8 +811,8 @@ weight: 101104
     hello-dummy1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
      .... world from Say_world
@@ -878,21 +880,21 @@ weight: 101104
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c8e0)(<nil>)
+    (*impl.Scopes)(0xc0001bfc20)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000102f0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -901,8 +903,8 @@ weight: 101104
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-dummy2] task: [Say_hello]
     Executing tasker layer: 2
@@ -916,8 +918,8 @@ weight: 101104
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": " .... hello from Say_hello"
+          "cmd": " .... hello from Say_hello",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -958,8 +960,8 @@ weight: 101104
     hello-dummy2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
      .... hello from Say_hello

@@ -1,6 +1,6 @@
 ---
 title: "c0059_vvvvv"
-date: 2020-09-18T01:27:29+99:00
+date: 2020-10-06T23:46:00+1010:00
 draft: false
 weight: 10594
 
@@ -23,6 +23,8 @@ weight: 10594
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10594
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e6da0)(<nil>)
+    (*impl.Scopes)(0xc0001c0e60)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8d0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10594
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     loading [flow ref]:  ./tests/functests/c0059-task-ref.yml
       located task-> 1 [task]: 
@@ -193,13 +195,13 @@ weight: 10594
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -208,13 +210,13 @@ weight: 10594
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -310,13 +312,13 @@ weight: 10594
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -325,26 +327,26 @@ weight: 10594
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step6\"",
         Code: 0,
         Output: "step6",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

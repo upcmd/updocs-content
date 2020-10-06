@@ -1,6 +1,6 @@
 ---
 title: "c0066_vvvv"
-date: 2020-09-18T01:27:31+99:00
+date: 2020-10-06T23:46:01+1010:00
 draft: false
 weight: 10663
 
@@ -23,6 +23,8 @@ weight: 10663
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,29 +38,29 @@ weight: 10663
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
+    (*core.Cache)({
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
         "gender": "Male"
       }
-    }
+    })
+    
+    -------runtime global final merged with dvars-------
+    
+    (*core.Cache)({
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -67,12 +69,12 @@ weight: 10663
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
     self: final context exec vars:
@@ -101,9 +103,9 @@ weight: 10663
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -118,9 +120,9 @@ weight: 10663
     
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -148,6 +150,11 @@ weight: 10663
     -Step3: [: the greetlocal will not be availe in this func call ]
     current exec runtime vars:
     (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
@@ -155,12 +162,7 @@ weight: 10663
         ErrMsg: ""
       }),
       "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "up_runtime_task_layer_number": 0,
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      }
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -168,9 +170,9 @@ weight: 10663
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -190,67 +192,68 @@ weight: 10663
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "up_runtime_task_layer_number": 0,
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "up_runtime_task_layer_number": 0,
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      })
-    })
-    
-    ~SubStep1: [deReg: demo of deReg command ]
-    deRegister var: greet
-    -Step5: [: you will see that greet var is removed from global var map
-    you will see <no value> here
-     ]
-    current exec runtime vars:
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      }
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
+        "gender": "Male"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "up_runtime_task_layer_number": 0
+    })
+    
+    ~SubStep1: [deReg: demo of deReg command ]
+    deRegister var: greet
+    -Step5: [
+    you will see that greet var is removed from global var map
+    you will see <no value> here
+    ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "student": {
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",

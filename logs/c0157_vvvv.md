@@ -1,6 +1,6 @@
 ---
 title: "c0157_vvvv"
-date: 2020-09-18T01:27:50+99:00
+date: 2020-10-06T23:46:21+1010:00
 draft: false
 weight: 11573
 
@@ -23,6 +23,8 @@ weight: 11573
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,38 +38,39 @@ weight: 11573
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "person": {
         "name": "tom"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "person": {
         "name": "tom"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: the commented if statement will cause a template rendering issue since person.school is not able to be determined
-     ]
+    -Step1: [
+    the commented if statement will cause a template rendering issue since person.school is not able to be determined
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -81,9 +84,10 @@ weight: 11573
     
     ~SubStep1: [print:  ]
     hello: tom
-    -Step2: [: correct way is to try to get the school value and save it to a dvar
+    -Step2: [
+    correct way is to try to get the school value and save it to a dvar
     then it is deterministic of the school value
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "person": {

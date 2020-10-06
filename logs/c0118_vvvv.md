@@ -1,6 +1,6 @@
 ---
 title: "c0118_vvvv"
-date: 2020-09-18T01:27:41+99:00
+date: 2020-10-06T23:46:12+1010:00
 draft: false
 weight: 11183
 
@@ -23,6 +23,8 @@ weight: 11183
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,31 +38,31 @@ weight: 11183
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: main entry ]
@@ -74,22 +76,22 @@ weight: 11183
         "item2",
         "item3"
       },
-      "loopkey": "items",
       "up_runtime_task_layer_number": 0,
-      "person": "tom"
+      "person": "tom",
+      "loopkey": "items"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "person": "tom",
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items",
-      "up_runtime_task_layer_number": 0,
-      "person": "tom"
+      }
     })
     
     condition failed, skip executing step step1
@@ -97,14 +99,14 @@ weight: 11183
     -Step2: [step1: demo use if condition is true ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "person": "tom",
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "up_runtime_task_layer_number": 0,
+      "person": "tom"
     })
     
     self: final context exec vars:
@@ -112,12 +114,12 @@ weight: 11183
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "person": "tom",
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      },
-      "loopkey": "items"
+      }
     })
     
     condition failed, skip executing step step1
@@ -125,24 +127,24 @@ weight: 11183
     -Step3: [step1: demo use dynamic key to ref to a loop item from var ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
       "up_runtime_task_layer_number": 0
     })
     

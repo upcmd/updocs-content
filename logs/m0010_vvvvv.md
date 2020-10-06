@@ -1,6 +1,6 @@
 ---
 title: "0010_vvvvv"
-date: 2020-09-18T01:28:28+99:00
+date: 2020-10-06T23:46:55+1010:00
 draft: false
 weight: 101004
 
@@ -23,6 +23,8 @@ weight: 101004
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0010
@@ -35,21 +37,21 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c280)(<nil>)
+    (*impl.Scopes)(0xc000174e40)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68b0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 101004
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -123,21 +125,21 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000d4a0)(<nil>)
+    (*impl.Scopes)(0xc000220140)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6a80)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -146,8 +148,8 @@ weight: 101004
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_hello]
     Executing tasker layer: 2
@@ -198,18 +200,18 @@ weight: 101004
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
       "a": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_task_layer_number": 0
     })
     
     ... hello
@@ -239,8 +241,8 @@ weight: 101004
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -277,21 +279,21 @@ weight: 101004
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002c68c0)(<nil>)
+    (*impl.Scopes)(0xc000221560)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6ca0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -300,8 +302,8 @@ weight: 101004
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hi-module] task: [Say_hi]
     Executing tasker layer: 3
@@ -342,8 +344,8 @@ weight: 101004
     current exec runtime vars:
     (*core.Cache)({
       "a": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -353,8 +355,8 @@ weight: 101004
     
     scope[local] merged: {
       "a": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -362,8 +364,8 @@ weight: 101004
     
     (*core.Cache)({
       "a": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     ... hi

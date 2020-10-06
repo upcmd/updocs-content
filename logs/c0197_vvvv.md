@@ -1,6 +1,6 @@
 ---
 title: "c0197_vvvv"
-date: 2020-09-18T01:28:00+99:00
+date: 2020-10-06T23:46:28+1010:00
 draft: false
 weight: 11973
 
@@ -23,6 +23,8 @@ weight: 11973
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11973
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -57,26 +59,25 @@ weight: 11973
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "enc_key": "my_enc_key"
+      "enc_key": "my_enc_key",
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> value_encrypted:
-    "YGufc3GdQOBHVL4RY5UVPN4OW1uOTCciHiSnJ3ITPok="
+    "y76l464966iQdDOawpQCwLjx6+ZPqnyj7O8x1MUtpsU="
     
     -
-    YGufc3GdQOBHVL4RY5UVPN4OW1uOTCciHiSnJ3ITPok=
+    y76l464966iQdDOawpQCwLjx6+ZPqnyj7O8x1MUtpsU=
     self: final context exec vars:
     
     (*core.Cache)({
-      "envVar_ENV_BBB": "I_AM_ENV_VAR_BBB",
       "ENV_AAA": "tdRdCpkHCVz0xzzkthoPUsD6yS6w439zPMDNUot84mM=",
-      "secure_ENV_AAA": "ENV_AAA",
       "envVar_ENV_AAA": "ENV_AAA",
+      "value_encrypted": "y76l464966iQdDOawpQCwLjx6+ZPqnyj7O8x1MUtpsU=",
+      "ENV_BBB": "I_AM_ENV_VAR_BBB",
       "up_runtime_task_layer_number": 0,
       "enc_key": "my_enc_key",
-      "value_encrypted": "YGufc3GdQOBHVL4RY5UVPN4OW1uOTCciHiSnJ3ITPok=",
-      "ENV_BBB": "I_AM_ENV_VAR_BBB"
+      "envVar_ENV_BBB": "I_AM_ENV_VAR_BBB"
     })
     
     cmd( 1):
@@ -88,7 +89,7 @@ weight: 11973
     cmd=>:
     echo """normal env var: $ENV_BBB"""
     echo """expected decrypted secure env var: $ENV_AAA"""
-    echo """normal secure var: ENV_AAA"""
+    echo """normal secure var: SECURE_SENSITIVE_INFO_MASKED"""
     
     -
     normal env var: I_AM_ENV_VAR_BBB

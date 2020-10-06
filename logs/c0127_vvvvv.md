@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvvv"
-date: 2020-09-18T01:27:43+99:00
+date: 2020-10-06T23:46:14+1010:00
 draft: false
 weight: 11274
 
@@ -23,6 +23,8 @@ weight: 11274
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11274
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001776e0)(<nil>)
+    (*impl.Scopes)(0xc0001e5740)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000126958)((len=1) {
      (string) (len=7) "goahead": (bool) false
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11274
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -107,8 +109,8 @@ weight: 11274
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -164,8 +166,8 @@ weight: 11274
     
     
     scope[local] merged: {
-      "goahead": false,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     }
     
     
@@ -215,8 +217,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -225,8 +227,8 @@ weight: 11274
     
     
     scope[local] merged: {
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     }
     
     
@@ -271,8 +273,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -332,8 +334,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -342,16 +344,16 @@ weight: 11274
     
     
     scope[local] merged: {
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     do something else .......
@@ -372,8 +374,8 @@ weight: 11274
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "do something else ......."
+          "cmd": "do something else .......",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -460,8 +462,8 @@ weight: 11274
     
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -534,16 +536,16 @@ weight: 11274
     
     
     scope[local] merged: {
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     do something else2 .......
@@ -594,8 +596,8 @@ weight: 11274
     
     
     scope[local] merged: {
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     }
     
     
@@ -685,8 +687,8 @@ weight: 11274
       Name: "",
       Do: {
         {
-          "cmd": "go ahead .......",
-          "name": "print"
+          "name": "print",
+          "cmd": "go ahead ......."
         }
       },
       Dox: <nil>,
@@ -719,8 +721,8 @@ weight: 11274
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -736,8 +738,8 @@ weight: 11274
     go ahead .......
     caller's vars to task (goahead)::
     (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     })
     
       located task-> 2 [goahead]: 
@@ -749,8 +751,8 @@ weight: 11274
       Name: "",
       Do: {
         {
-          "cmd": "go ahead .......",
-          "name": "print"
+          "name": "print",
+          "cmd": "go ahead ......."
         }
       },
       Dox: <nil>,
@@ -791,8 +793,8 @@ weight: 11274
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     })
     
     go ahead .......

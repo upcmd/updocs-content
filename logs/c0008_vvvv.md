@@ -1,6 +1,6 @@
 ---
 title: "c0008_vvvv"
-date: 2020-09-18T01:27:21+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10083
 
@@ -23,6 +23,8 @@ weight: 10083
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,44 +38,44 @@ weight: 10083
     
     ---------group vars----------
     
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
+    prod: (*core.Cache)({
+      "a": "prod-a",
+      "c": "prod-c"
+    })
     
     
-    nonprod: {
+    nonprod: (*core.Cache)({
       "c": "non-prod-c",
       "a": "non-prod-a",
       "b": "non-prod-b"
-    }
+    })
     
     
-    global: {
+    global: (*core.Cache)({
       "b": "global-b",
       "c": "global-c",
       "d": "global-d",
       "a": "global-a"
-    }
+    })
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
       "a": "dev-a"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "c": "dev-c",
-      "d": "global-d",
+    (*core.Cache)({
       "a": "dev-a",
-      "b": "non-prod-b"
-    }
+      "b": "non-prod-b",
+      "c": "dev-c",
+      "d": "global-d"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -83,20 +85,20 @@ weight: 10083
     current exec runtime vars:
     (*core.Cache)({
       "b": "non-prod-b",
-      "up_runtime_task_layer_number": 0,
       "c": "dev-c",
       "d": "global-d",
-      "a": "dev-a"
+      "a": "dev-a",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "b": "non-prod-b",
       "c": "dev-c",
       "d": "global-d",
       "a": "dev-a",
-      "b": "non-prod-b"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

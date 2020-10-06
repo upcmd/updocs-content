@@ -1,6 +1,6 @@
 ---
 title: "c0196_vvvv"
-date: 2020-09-18T01:27:59+99:00
+date: 2020-10-06T23:46:28+1010:00
 draft: false
 weight: 11963
 
@@ -23,6 +23,8 @@ weight: 11963
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11963
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "my_secrete_file_reg_name": "my_secret"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "my_secrete_file_reg_name": "my_secret"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -75,23 +77,23 @@ weight: 11963
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "my_secrete_file_reg_name": "my_secret",
-      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298",
+      "my_secrete_file_reg_name": "my_secret"
     })
     
     dvar> filepath:
-    "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683"
+    "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298"
     
     -
-    /tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683
+    /tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298
     self: final context exec vars:
     
     (*core.Cache)({
+      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298",
       "my_secrete_file_reg_name": "my_secret",
-      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683",
       "up_runtime_task_layer_number": 0,
-      "filepath": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683"
+      "filepath": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298"
     })
     
     ~SubStep1: [inspect:  ]
@@ -104,14 +106,14 @@ weight: 11963
     
     "RuntimeVarsAndDvarsMerged"
     (*core.Cache)({
-      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683",
-      "my_secrete_file_reg_name": "my_secret"
+      "my_secrete_file_reg_name": "my_secret",
+      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298"
     })
     
     "ExecbaseVars"
     (*core.Cache)({
       "my_secrete_file_reg_name": "my_secret",
-      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683"
+      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298"
     })
     
     "TaskVars"
@@ -121,9 +123,9 @@ weight: 11963
     "ExecContextVars"
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "filepath": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683",
-      "my_secrete_file_reg_name": "my_secret",
-      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84775652683"
+      "filepath": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298",
+      "my_secret": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84431071298",
+      "my_secrete_file_reg_name": "my_secret"
     })
     
     --

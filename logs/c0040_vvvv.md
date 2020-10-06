@@ -1,6 +1,6 @@
 ---
 title: "c0040_vvvv"
-date: 2020-09-18T01:27:27+99:00
+date: 2020-10-06T23:45:57+1010:00
 draft: false
 weight: 10403
 
@@ -23,6 +23,8 @@ weight: 10403
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10403
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: test the exit scenarios due to different types of validation ]
@@ -104,24 +106,6 @@ weight: 10403
     -Step2: [: a real showcase of how to loop using template ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "cases": (*utils.ExecResult)({
-        Cmd: "cd ./tests/functests; ls f*.yml",
-        Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "cd ./tests/functests; ls f*.yml",
-        Code: 0,
-        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "cases": (*utils.ExecResult)({
         Cmd: "cd ./tests/functests; ls f*.yml",
         Code: 0,
@@ -137,6 +121,24 @@ weight: 10403
       "up_runtime_task_layer_number": 0
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
+        Code: 0,
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "cases": (*utils.ExecResult)({
+        Cmd: "cd ./tests/functests; ls f*.yml",
+        Code: 0,
+        Output: "f0001.yml\nf0002.yml\nf0009.yml\nf0016.yml\nf0018.yml\nf0031.yml\nf0037.yml\nf0045.yml\nf0053.yml\nf0060.yml\nf0061.yml\nf0067.yml\nf0077.yml\nf0088.yml\nf0097.yml\nf0116.yml\nf0117.yml\nf0125.yml\nf0171.yml\nf0172.yml\nf0176.yml\nf0178.yml\nf0185.yml\nf0186.yml\nf0188.yml",
+        ErrMsg: ""
+      })
+    })
+    
     cmd( 1):
     {{ range $idx, $file := .cases | splitLines -}}
     {{$casename :=  $file | replace ".yml" ""}}
@@ -144,6 +146,18 @@ weight: 10403
     echo "processing {{$casename}} .."
     {{end}}
     
+    
+          template rendering -> template: .:1:33: executing "." at <splitLines>: wrong type for value; expected string; got *utils.ExecResult
+    WARN:
+        1:{{ range $idx, $file := .cases | splitLines -}}
+        2:{{$casename :=  $file | replace ".yml" ""}}
+        3:echo "==========failure case test {{$idx |add1}}==============="
+        4:echo "processing {{$casename}} .."
+        5:{{end}}
+        6:
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
     
           template rendering -> template: .:1:33: executing "." at <splitLines>: wrong type for value; expected string; got *utils.ExecResult
     WARN:

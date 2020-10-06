@@ -1,6 +1,6 @@
 ---
 title: "c0181_vvvvv"
-date: 2020-09-18T01:27:55+99:00
+date: 2020-10-06T23:46:26+1010:00
 draft: false
 weight: 11814
 
@@ -23,6 +23,8 @@ weight: 11814
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11814
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175bc0)(<nil>)
+    (*impl.Scopes)(0xc0001bfc80)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e978)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,15 +60,16 @@ weight: 11814
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: break loop using until condition
-     ]
+    -Step1: [
+    break loop using until condition
+    ]
     {
       Name: "",
       Do: {
@@ -155,10 +158,10 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 0
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -167,20 +170,20 @@ weight: 11814
     
     
     scope[local] merged: {
-      "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 0,
-      "loopitem": "item1"
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "item1"
     })
     
     {{.loopitem}}
@@ -215,10 +218,10 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "item2",
       "up_runtime_task_layer_number": 0,
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "loopitem": "item2"
     })
     
     [local] dvar expanded result:
@@ -227,20 +230,20 @@ weight: 11814
     
     
     scope[local] merged: {
+      "loopindex1": 2,
       "loopitem": "item2",
       "up_runtime_task_layer_number": 0,
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "loopindex": 1,
       "loopindex1": 2,
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "up_runtime_task_layer_number": 0
     })
     
     {{.loopitem}}
@@ -287,10 +290,10 @@ weight: 11814
     
     
     scope[local] merged: {
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 0,
-      "loopitem": "item3"
+      "loopitem": "item3",
+      "loopindex": 2,
+      "loopindex1": 3
     }
     
     
@@ -359,24 +362,15 @@ weight: 11814
     ----------------------------------------------------
     ~SubStep1: [print:  ]
     ----------------------------------------------------
-    -Step3: [: in this case the until condition will use a var which is chaning in block func
+    -Step3: [
+    in this case the until condition will use a var which is chaning in block func
     in order to make the interal var accessible by parent block func, you will have to use return cmd to return the value, otherwise the block func can not use right changing value in the condition
     also the_internal_var has be be defined somewhere: scope/global/local, otherwise it will result in a golang templating error
-     ]
+    ]
     {
       Name: "",
       Do: {
         {
-          "func": "cmd",
-          "dvars": {
-            {
-              "name": "the_internal_var",
-              "value": "{{.loopitem}}",
-              "flags": {
-                "taskScope"
-              }
-            }
-          },
           "do": {
             {
               "name": "print",
@@ -387,6 +381,16 @@ weight: 11814
               "cmd": {
                 "the_internal_var"
               }
+            }
+          },
+          "func": "cmd",
+          "dvars": {
+            {
+              "flags": {
+                "taskScope"
+              },
+              "name": "the_internal_var",
+              "value": "{{.loopitem}}"
             }
           }
         },
@@ -452,16 +456,16 @@ weight: 11814
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "None"
+      "the_internal_var": "None",
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "None"
+      "the_internal_var": "None",
+      "up_runtime_task_layer_number": 0
     })
     
     -Step1:
@@ -516,11 +520,11 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
-      "the_internal_var": "None",
       "up_runtime_task_layer_number": 0,
-      "loopitem": "item1"
+      "the_internal_var": "None",
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -530,11 +534,11 @@ weight: 11814
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item1",
       "loopitem": "item1",
       "loopindex": 0,
       "loopindex1": 1,
-      "the_internal_var": "item1"
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -542,10 +546,10 @@ weight: 11814
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item1",
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "the_internal_var": "item1"
+      "loopindex1": 1
     })
     
     {{.loopitem}}
@@ -564,8 +568,8 @@ weight: 11814
       Name: "",
       Do: {
         {
-          "cmd": "post process {{.the_internal_var}} to see if this is executed",
-          "name": "print"
+          "name": "print",
+          "cmd": "post process {{.the_internal_var}} to see if this is executed"
         }
       },
       Dox: <nil>,
@@ -588,11 +592,11 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "loopitem": "item1",
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "None",
-      "loopindex": 0
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -601,11 +605,11 @@ weight: 11814
     
     
     scope[local] merged: {
-      "loopindex1": 1,
-      "loopitem": "item1",
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "None",
-      "loopindex": 0
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -614,9 +618,9 @@ weight: 11814
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "None",
+      "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "loopitem": "item1"
+      "loopindex1": 1
     })
     
     post process {{.the_internal_var}} to see if this is executed
@@ -674,11 +678,11 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item1",
       "loopitem": "item2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -688,22 +692,22 @@ weight: 11814
     
     
     scope[local] merged: {
+      "loopindex": 1,
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item2",
-      "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopitem": "item2"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item2",
       "loopitem": "item2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item2"
     })
     
     {{.loopitem}}
@@ -746,11 +750,11 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item1",
       "loopitem": "item2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item1"
     })
     
     [local] dvar expanded result:
@@ -759,22 +763,22 @@ weight: 11814
     
     
     scope[local] merged: {
+      "the_internal_var": "item1",
       "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item1"
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item1",
       "loopitem": "item2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     post process {{.the_internal_var}} to see if this is executed
@@ -785,14 +789,14 @@ weight: 11814
       Name: "",
       Do: {
         {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.loopitem}}"
         },
         {
-          "name": "return",
           "cmd": {
             "the_internal_var"
-          }
+          },
+          "name": "return"
         }
       },
       Dox: <nil>,
@@ -834,9 +838,9 @@ weight: 11814
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item2",
+      "loopindex": 2,
       "loopindex1": 3,
-      "loopitem": "item3",
-      "loopindex": 2
+      "loopitem": "item3"
     })
     
     [local] dvar expanded result:
@@ -848,20 +852,20 @@ weight: 11814
     scope[local] merged: {
       "loopindex1": 3,
       "loopitem": "item3",
-      "loopindex": 2,
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item3"
+      "the_internal_var": "item3",
+      "loopindex": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item3",
+      "loopindex": 2,
       "loopindex1": 3,
       "loopitem": "item3",
-      "loopindex": 2
+      "up_runtime_task_layer_number": 0
     })
     
     {{.loopitem}}
@@ -904,11 +908,11 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item2",
       "loopitem": "item3",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item2"
     })
     
     [local] dvar expanded result:
@@ -1004,22 +1008,22 @@ weight: 11814
     
     
     scope[local] merged: {
-      "loopitem": "item4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4"
+      "the_internal_var": "item4",
+      "loopitem": "item4"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "item4",
+      "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4",
-      "loopitem": "item4",
-      "loopindex": 3
+      "the_internal_var": "item4"
     })
     
     {{.loopitem}}
@@ -1062,11 +1066,11 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 3,
       "loopindex1": 4,
+      "loopitem": "item4",
+      "loopindex": 3,
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item3",
-      "loopitem": "item4"
+      "the_internal_var": "item3"
     })
     
     [local] dvar expanded result:
@@ -1075,22 +1079,22 @@ weight: 11814
     
     
     scope[local] merged: {
+      "loopitem": "item4",
       "loopindex": 3,
-      "loopindex1": 4,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item3",
-      "loopitem": "item4"
+      "loopindex1": 4
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item3",
-      "loopitem": "item4"
+      "loopindex1": 4,
+      "loopitem": "item4",
+      "loopindex": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     post process {{.the_internal_var}} to see if this is executed
@@ -1127,8 +1131,8 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "the_internal_var": "item4",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item4"
     })
     
     [local] dvar expanded result:
@@ -1196,28 +1200,28 @@ weight: 11814
     
     
     scope[local] merged: {
+      "the_internal_var2": "None",
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4",
-      "the_internal_var2": "None"
+      "the_internal_var": "item4"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item4",
-      "the_internal_var2": "None"
+      "the_internal_var2": "None",
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (sub_task)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4",
-      "the_internal_var2": "None",
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item4",
+      "the_internal_var2": "None"
     })
     
       located task-> 2 [sub_task]: 
@@ -1274,12 +1278,12 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "the_internal_var": "item4",
       "the_internal_var2": "None",
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -1289,24 +1293,24 @@ weight: 11814
     
     
     scope[local] merged: {
-      "loopitem": "item1",
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "the_internal_var": "item4",
-      "the_internal_var2": "item1"
+      "the_internal_var2": "item1",
+      "loopitem": "item1",
+      "loopindex": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "the_internal_var": "item4",
       "the_internal_var2": "item1",
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     {{.loopitem}}
@@ -1322,12 +1326,12 @@ weight: 11814
     
     caller's vars to task (sub_task)::
     (*core.Cache)({
-      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item4",
       "the_internal_var2": "item1",
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1
     })
     
       located task-> 2 [sub_task]: 
@@ -1339,14 +1343,14 @@ weight: 11814
       Name: "",
       Do: {
         {
-          "cmd": "{{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.loopitem}}"
         },
         {
+          "name": "return",
           "cmd": {
             "the_internal_var2"
-          },
-          "name": "return"
+          }
         }
       },
       Dox: <nil>,
@@ -1384,12 +1388,12 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
       "the_internal_var2": "item1",
       "loopitem": "item2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "the_internal_var": "item4"
     })
     
     [local] dvar expanded result:
@@ -1399,24 +1403,24 @@ weight: 11814
     
     
     scope[local] merged: {
-      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "the_internal_var": "item4",
       "the_internal_var2": "item2",
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
       "the_internal_var2": "item2",
       "loopitem": "item2",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "the_internal_var": "item4"
     })
     
     {{.loopitem}}
@@ -1432,12 +1436,12 @@ weight: 11814
     
     caller's vars to task (sub_task)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item4",
       "the_internal_var2": "item2",
       "loopitem": "item3",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4"
+      "loopindex1": 3
     })
     
       located task-> 2 [sub_task]: 
@@ -1542,12 +1546,12 @@ weight: 11814
     
     caller's vars to task (sub_task)::
     (*core.Cache)({
+      "the_internal_var2": "item3",
       "loopitem": "item4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item3"
+      "the_internal_var": "item4"
     })
     
       located task-> 2 [sub_task]: 
@@ -1559,8 +1563,8 @@ weight: 11814
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "{{.loopitem}}"
+          "cmd": "{{.loopitem}}",
+          "name": "print"
         },
         {
           "name": "return",
@@ -1619,24 +1623,24 @@ weight: 11814
     
     
     scope[local] merged: {
+      "the_internal_var2": "item4",
       "loopitem": "item4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item4"
+      "the_internal_var": "item4"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "the_internal_var2": "item4",
+      "loopitem": "item4",
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item4",
-      "loopitem": "item4"
+      "the_internal_var": "item4"
     })
     
     {{.loopitem}}
@@ -1683,9 +1687,9 @@ weight: 11814
     
     current exec runtime vars:
     (*core.Cache)({
+      "the_internal_var2": "item4",
       "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item4"
+      "the_internal_var": "item4"
     })
     
     [local] dvar expanded result:
@@ -1694,18 +1698,18 @@ weight: 11814
     
     
     scope[local] merged: {
-      "the_internal_var": "item4",
       "the_internal_var2": "item4",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "the_internal_var": "item4"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "the_internal_var2": "item4",
       "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4"
+      "the_internal_var": "item4",
+      "the_internal_var2": "item4"
     })
     
     [exec_vars]

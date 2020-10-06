@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvvv"
-date: 2020-09-18T01:27:31+99:00
+date: 2020-10-06T23:46:01+1010:00
 draft: false
 weight: 10654
 
@@ -23,6 +23,8 @@ weight: 10654
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,33 +37,33 @@ weight: 10654
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf300)(<nil>)
+    (*impl.Scopes)(0xc0000986c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "managers": {
         "tom",
         "jason",
         "alice"
       },
       "person": "peter"
-    }
+    })
     
-    (core.Cache) (len=2) {
+    (*core.Cache)(0xc0000c8138)((len=2) {
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
      },
      (string) (len=6) "person": (string) (len=5) "peter"
-    }
+    })
     
     dvar> var_with_range_v:
     " x  x  x "
@@ -106,20 +108,20 @@ weight: 10654
     
     -------runtime global final merged with dvars-------
     
-    {
-      "var_with_range_v": " x  x  x ",
-      "var_with_range_vv": " x  x  x ",
+    (*core.Cache)({
       "var_with_range_vvv": " x  x  x ",
       "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
+      "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "person": "peter",
-      "var_with_range_vvvvvv": " x  x  x "
-    }
+      "var_with_range_vvvvvv": " x  x  x ",
+      "var_with_range_v": " x  x  x ",
+      "var_with_range_vv": " x  x  x "
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]

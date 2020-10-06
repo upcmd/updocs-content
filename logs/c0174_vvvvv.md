@@ -1,6 +1,6 @@
 ---
 title: "c0174_vvvvv"
-date: 2020-09-18T01:27:53+99:00
+date: 2020-10-06T23:46:24+1010:00
 draft: false
 weight: 11744
 
@@ -23,6 +23,8 @@ weight: 11744
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11744
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c12a0)(<nil>)
+    (*impl.Scopes)(0xc0001752a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68f8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11744
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -90,14 +92,15 @@ weight: 11744
       Timeout: 0,
       Finally: {
         {
-          "func": "shell",
-          "desc": "ensure the opened file is closed\n",
           "do": {
             "echo \"close the file .....\"",
             "echo \"\"\"\nexec command: {{.up_runtime_shell_exec_result.Cmd}}\nerror code: {{.up_runtime_shell_exec_result.Code}}\nerror message: {{.up_runtime_shell_exec_result.ErrMsg}}\nerror output: {{.up_runtime_shell_exec_result.Output}}\n\"\"\"\n"
-          }
+          },
+          "func": "shell",
+          "desc": "ensure the opened file is closed\n"
         },
         {
+          "if": "{{ne .up_runtime_shell_exec_result.Code 0}}",
           "func": "cmd",
           "desc": "see if the exec context result: up_runtime_shell_exec_result is still availabe\nconditional do something about the error etc\n",
           "do": {
@@ -105,8 +108,7 @@ weight: 11744
               "name": "print",
               "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n"
             }
-          },
-          "if": "{{ne .up_runtime_shell_exec_result.Code 0}}"
+          }
         }
       },
       Rescue: false
@@ -174,8 +176,9 @@ weight: 11744
       ErrMsg: "exit status 1"
     })
     
-    -Step1: [: ensure the opened file is closed
-     ]
+    -Step1: [
+    ensure the opened file is closed
+    ]
     {
       Name: "",
       Do: {
@@ -202,13 +205,13 @@ weight: 11744
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -291,15 +294,16 @@ weight: 11744
     }
     
     . ok
-    -Step2: [: see if the exec context result: up_runtime_shell_exec_result is still availabe
+    -Step2: [
+    see if the exec context result: up_runtime_shell_exec_result is still availabe
     conditional do something about the error etc
-     ]
+    ]
     {
       Name: "",
       Do: {
         {
-          "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n",
-          "name": "print"
+          "name": "print",
+          "cmd": "error message: {{.up_runtime_shell_exec_result.ErrMsg}}\n"
         }
       },
       Dox: <nil>,
@@ -322,18 +326,18 @@ weight: 11744
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
+        Code: 0,
+        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
-        Code: 0,
-        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
-        ErrMsg: ""
       })
     })
     
@@ -362,18 +366,18 @@ weight: 11744
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
+        Code: 0,
+        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
+        ErrMsg: ""
+      }),
       "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
-        Code: 0,
-        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
-        ErrMsg: ""
       })
     })
     
@@ -383,9 +387,10 @@ weight: 11744
     error message: exit status 1
     
      WARN: [ignoreError:] - [Error ignored!!!]
-    -Step2: [: this step will not be reached if the ignoreError flag is not set
+    -Step2: [
+    this step will not be reached if the ignoreError flag is not set
     try it yourself to remove the ignoreError flag and see difference
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -426,13 +431,13 @@ weight: 11744
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     }
     
     

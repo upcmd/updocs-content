@@ -1,6 +1,6 @@
 ---
 title: "c0187_vvvv"
-date: 2020-09-18T01:27:57+99:00
+date: 2020-10-06T23:46:27+1010:00
 draft: false
 weight: 11873
 
@@ -23,6 +23,8 @@ weight: 11873
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11873
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -69,10 +71,10 @@ weight: 11873
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "item1"
     })
     
     self: final context exec vars:
@@ -91,19 +93,19 @@ weight: 11873
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item1"
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -120,28 +122,28 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     --Step1: [: processing ..... ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "aaaa",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "aaaa",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "aaaa"
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -173,10 +175,10 @@ weight: 11873
     ---Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 2
+      "loopindex1": 1
     })
     
     self: final context exec vars:
@@ -208,31 +210,32 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "xxx",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
       }),
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 2
+      "loopindex1": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
+      "loopindex": 0,
+      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -244,14 +247,15 @@ weight: 11873
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2
     })
     
     self: final context exec vars:
@@ -283,29 +287,29 @@ weight: 11873
     ---Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "loopindex": 1,
-      "loopindex1": 2
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
       "loopitem": "yyy"
     })
@@ -330,16 +334,17 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
       "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -351,38 +356,39 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy"
+      })
     })
     
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
-    (*core.Cache)({
-      "loopitem": "yyy",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 2
-    })
-    
-    self: final context exec vars:
-    
     (*core.Cache)({
       "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
       "loopitem": "yyy",
       "loopindex": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     cmd( 1):
@@ -408,10 +414,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "bbbb"
+      "loopitem": "bbbb",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     ~~SubStep1: [print:  ]
@@ -428,10 +434,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "bbbb",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
       located task-> 3 [sub_task_layer2]: 
@@ -443,10 +449,10 @@ weight: 11873
     ---Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "xxx",
-      "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx",
+      "loopindex": 0
     })
     
     self: final context exec vars:
@@ -478,13 +484,13 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "xxx",
       "loopindex": 0,
       "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
@@ -493,14 +499,13 @@ weight: 11873
         Output: "",
         ErrMsg: "exit status 1"
       }),
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "xxx",
       "loopindex": 0,
       "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
@@ -508,14 +513,17 @@ weight: 11873
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx"
     })
     
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 2,
@@ -527,10 +535,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
     cmd( 1):
@@ -553,7 +561,21 @@ weight: 11873
     ---Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"close the file .....\"",
+        Code: 0,
+        Output: "close the file .....",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 2,
       "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "loopindex": 1,
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
@@ -562,22 +584,8 @@ weight: 11873
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"close the file .....\"",
-        Code: 0,
-        Output: "close the file .....",
-        ErrMsg: ""
-      })
+      "loopitem": "yyy"
     })
     
     cmd( 1):
@@ -600,10 +608,11 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "loopindex1": 2,
@@ -636,23 +645,24 @@ weight: 11873
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "yyy",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
       "loopitem": "yyy",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     cmd( 1):
@@ -669,10 +679,10 @@ weight: 11873
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1
     })
     
     self: final context exec vars:
@@ -700,10 +710,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -711,19 +721,19 @@ weight: 11873
     --Step2: [: task ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "loopitem": "item2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     --Step1: [: processing ..... ]
@@ -738,10 +748,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "aaaa",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -749,10 +759,10 @@ weight: 11873
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "aaaa",
-      "loopindex": 0
+      "loopitem": "aaaa"
     })
     
     self: final context exec vars:
@@ -782,10 +792,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 2,
-      "loopitem": "xxx"
+      "loopitem": "xxx",
+      "loopindex": 0
     })
     
     cmd( 1):
@@ -808,31 +818,17 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
       "loopindex1": 1,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello\"|grep \"world\"",
-        Code: 1,
-        Output: "",
-        ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "xxx"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
       "loopindex": 0,
-      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -841,11 +837,27 @@ weight: 11873
       })
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello\"|grep \"world\"",
+        Code: 1,
+        Output: "",
+        ErrMsg: "exit status 1"
+      }),
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx",
+      "loopindex": 0
+    })
+    
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "xxx",
@@ -857,10 +869,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "xxx",
-      "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx",
+      "loopindex": 0
     })
     
     cmd( 1):
@@ -883,29 +895,29 @@ weight: 11873
     ---Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "yyy",
-      "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy",
+      "loopindex": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       }),
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
       "loopitem": "yyy"
     })
@@ -930,59 +942,61 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "yyy",
       "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
       }),
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "yyy",
       "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
       }),
-      "up_runtime_task_layer_number": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy"
     })
     
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy"
+      "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy"
+      "loopitem": "yyy",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     cmd( 1):
@@ -999,25 +1013,14 @@ weight: 11873
     --Step1: [: processing ..... ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "bbbb"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "loopitem": "bbbb",
       "loopindex": 1
     })
     
-    ~~SubStep1: [print:  ]
-    bbbb
-    --Step2:
-    current exec runtime vars:
+    self: final context exec vars:
+    
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "loopitem": "bbbb",
@@ -1025,13 +1028,24 @@ weight: 11873
       "loopindex1": 2
     })
     
-    self: final context exec vars:
-    
+    ~~SubStep1: [print:  ]
+    bbbb
+    --Step2:
+    current exec runtime vars:
     (*core.Cache)({
       "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "loopitem": "bbbb"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "bbbb",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
       located task-> 3 [sub_task_layer2]: 
@@ -1052,10 +1066,10 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2
     })
     
     cmd( 1):
@@ -1078,10 +1092,11 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -1090,38 +1105,39 @@ weight: 11873
         Output: "",
         ErrMsg: "exit status 1"
       }),
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "xxx",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "xxx"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
-      "loopindex": 0,
-      "loopindex1": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
       }),
-      "up_runtime_task_layer_number": 2
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 2,
       "loopitem": "xxx",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2
     })
     
     self: final context exec vars:
@@ -1155,29 +1171,29 @@ weight: 11873
     (*core.Cache)({
       "up_runtime_task_layer_number": 2,
       "loopitem": "yyy",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"close the file .....\"",
-        Code: 0,
-        Output: "close the file .....",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy",
       "loopindex": 1,
       "loopindex1": 2
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"close the file .....\"",
+        Code: 0,
+        Output: "close the file .....",
+        ErrMsg: ""
+      })
     })
     
     cmd( 1):
@@ -1200,16 +1216,17 @@ weight: 11873
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    ---Step2: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step2: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "yyy",
       "loopindex": 1,
       "loopindex1": 2,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -1221,29 +1238,30 @@ weight: 11873
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "loopitem": "yyy",
-      "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 2
     })
     
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "yyy",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 2
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "yyy"
     })
     
     self: final context exec vars:

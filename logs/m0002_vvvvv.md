@@ -1,6 +1,6 @@
 ---
 title: "0002_vvvvv"
-date: 2020-09-18T01:28:26+99:00
+date: 2020-10-06T23:46:54+1010:00
 draft: false
 weight: 100204
 
@@ -23,6 +23,8 @@ weight: 100204
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0002
@@ -35,21 +37,21 @@ weight: 100204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001730a0)(<nil>)
+    (*impl.Scopes)(0xc0002164e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0002360d8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 100204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -315,14 +317,14 @@ weight: 100204
     
     
     scope[local] merged: {
+      "a": "caller-aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "a": "caller-aaa"
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -360,21 +362,21 @@ weight: 100204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ed980)(<nil>)
+    (*impl.Scopes)(0xc00000c4c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e0e0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -383,8 +385,8 @@ weight: 100204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_world]
     Executing tasker layer: 2
@@ -434,14 +436,14 @@ weight: 100204
     (*core.Cache)({
       "a": "caller-aaa",
       "b": "module-bbb",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      })
     })
     
     [local] dvar expanded result:
@@ -450,32 +452,32 @@ weight: 100204
     
     
     scope[local] merged: {
-      "a": "caller-aaa",
-      "b": "module-bbb",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "a": "caller-aaa",
+      "b": "module-bbb"
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-aaa",
-      "b": "module-bbb",
+      "up_runtime_tasker_layer_number": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello world\"",
         Code: 0,
         Output: "hello world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "a": "caller-aaa",
+      "b": "module-bbb",
+      "up_runtime_task_layer_number": 0
     })
     
     ... module world

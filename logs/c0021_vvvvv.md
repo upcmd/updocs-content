@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvvv"
-date: 2020-09-18T01:27:23+99:00
+date: 2020-10-06T23:45:54+1010:00
 draft: false
 weight: 10214
 
@@ -23,6 +23,8 @@ weight: 10214
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10214
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e6f80)(<nil>)
+    (*impl.Scopes)(0xc000174fe0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68e0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10214
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -78,10 +80,10 @@ weight: 10214
       Dox: <nil>,
       Func: "shell",
       Vars: {
+        "school": "Sydney Grammar",
         "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
         "student": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       Dvars: <nil>,
       Desc: "",
@@ -102,11 +104,11 @@ weight: 10214
     
     current exec runtime vars:
     (*core.Cache)({
+      "gender": "Male",
+      "school": "Sydney Grammar",
       "up_runtime_task_layer_number": 0,
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
-      "student": "Tom",
-      "gender": "Male",
-      "school": "Sydney Grammar"
+      "student": "Tom"
     })
     
     [local] dvar expanded result:
@@ -126,11 +128,11 @@ weight: 10214
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "student": "Tom",
       "gender": "Male",
-      "school": "Sydney Grammar",
-      "up_runtime_task_layer_number": 0
+      "school": "Sydney Grammar"
     })
     
     cmd( 1):
@@ -220,6 +222,15 @@ weight: 10214
     echo """my school: {{.info.school}}"""
     
     
+          template rendering -> template: .:1:26: executing "." at <.info.school>: can't evaluate field school in type interface {}
+    WARN:
+        1:echo """my school: {{.info.school}}"""
+        2:
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
+    
+    -----trace for reference-----
           template rendering -> template: .:1:26: executing "." at <.info.school>: can't evaluate field school in type interface {}
     WARN:
         1:echo """my school: {{.info.school}}"""

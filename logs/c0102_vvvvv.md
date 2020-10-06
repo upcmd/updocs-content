@@ -1,6 +1,6 @@
 ---
 title: "c0102_vvvvv"
-date: 2020-09-18T01:27:38+99:00
+date: 2020-10-06T23:46:09+1010:00
 draft: false
 weight: 11024
 
@@ -23,6 +23,8 @@ weight: 11024
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11024
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00028e680)(<nil>)
+    (*impl.Scopes)(0xc0001ef2e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000130918)((len=1) {
      (string) (len=8) "mock_yml": (string) (len=87) "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11024
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -147,25 +149,25 @@ weight: 11024
       Name: "",
       Do: {
         {
-          "flags": {
-            "inplace"
-          },
           "name": "ymlDelete",
           "cmd": {
             "ymlfile": "mock_yml.yml",
             "refdir": "/tmp",
             "path": "jason.sex",
             "verbose": "v"
+          },
+          "flags": {
+            "inplace"
           }
         },
         {
-          "name": "readFile",
-          "desc": "check new file content",
           "cmd": {
             "filename": "mock_yml.yml",
             "dir": "/tmp",
             "reg": "new_yml"
-          }
+          },
+          "name": "readFile",
+          "desc": "check new file content"
         },
         {
           "name": "print",
@@ -193,14 +195,14 @@ weight: 11024
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
-      "up_runtime_task_layer_number": 0
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     [local] dvar expanded result:
@@ -223,14 +225,14 @@ weight: 11024
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
-      "up_runtime_task_layer_number": 0
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:jason.sex refdir:/tmp verbose:v ymlfile:mock_yml.yml]
@@ -244,28 +246,28 @@ weight: 11024
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
-      "up_runtime_task_layer_number": 0,
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
+      "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     {{.new_yml}}
@@ -286,11 +288,11 @@ weight: 11024
         {
           "name": "ymlDelete",
           "cmd": {
-            "verbose": "vvvv",
             "reg": "modified_yml",
             "ymlfile": "mock_yml.yml",
             "refdir": "/tmp",
-            "path": "jason.sex"
+            "path": "jason.sex",
+            "verbose": "vvvv"
           },
           "flags": {
             "localOnly"
@@ -354,6 +356,7 @@ weight: 11024
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "mock_yml": "tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"tom:\n  sex: male\n  age: 23\njason:\n  sex: male\n  age: 35\nemily:\n  sex: female\n  age: 32\n\" > /tmp/mock_yml.yml",
@@ -361,8 +364,7 @@ weight: 11024
         Output: "",
         ErrMsg: ""
       }),
-      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n",
-      "up_runtime_task_layer_number": 0
+      "new_yml": "tom:\n  sex: male\n  age: 23\njason:\n  age: 35\nemily:\n  sex: female\n  age: 32\n"
     })
     
     map[path:jason.sex refdir:/tmp reg:modified_yml verbose:vvvv ymlfile:mock_yml.yml]

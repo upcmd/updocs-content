@@ -1,6 +1,6 @@
 ---
 title: "c0156_vvvv"
-date: 2020-09-18T01:27:50+99:00
+date: 2020-10-06T23:46:20+1010:00
 draft: false
 weight: 11563
 
@@ -23,6 +23,8 @@ weight: 11563
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,28 +38,29 @@ weight: 11563
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: 1st solution: register object in any template rending
-     ]
+    -Step1: [
+    1st solution: register object in any template rending
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
@@ -131,22 +134,23 @@ weight: 11563
       }
     })
     
-    -Step2: [: 2nd solution:
+    -Step2: [
+    2nd solution:
     use dvar auto coversion
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "up_runtime_task_layer_number": 0,
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
+          "address": "sydney",
           "postcode": 2000,
           "name": "sydney grammar",
-          "state": "nsw",
-          "address": "sydney"
+          "state": "nsw"
         }
       }),
-      "up_runtime_task_layer_number": 0
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     dvar> myschool2:
@@ -162,28 +166,25 @@ weight: 11563
     dvar[object]> myschool2_object:
     {
       "sg": {
-        "address": "sydney",
         "postcode": 2000,
         "name": "sydney grammar",
-        "state": "nsw"
+        "state": "nsw",
+        "address": "sydney"
       }
     }
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "myschool2": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool2_object": {
         "sg": {
+          "postcode": 2000,
           "name": "sydney grammar",
           "state": "nsw",
-          "address": "sydney",
-          "postcode": 2000
+          "address": "sydney"
         }
       },
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
           "postcode": 2000,
@@ -191,7 +192,10 @@ weight: 11563
           "state": "nsw",
           "address": "sydney"
         }
-      })
+      }),
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -216,28 +220,30 @@ weight: 11563
       }
     }
     
-    -Step3: [: 3rd solution:
+    -Step3: [
+    3rd solution:
     use toObj cmd
     details: https://upcmd.netlify.app/cmd-func/c0095/
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
-          "name": "sydney grammar",
           "state": "nsw",
           "address": "sydney",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney grammar"
         }
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
       "myschool_object": (*map[interface {}]interface {})({
         "sg": {
           "address": "sydney",
@@ -247,8 +253,7 @@ weight: 11563
         }
       }),
       "up_runtime_task_layer_number": 0,
-      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n",
-      "myschool": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
+      "school": "sg:\n  name: sydney grammar\n  state: nsw\n  address: sydney\n  postcode: 2000\n"
     })
     
     ~SubStep1: [toObj:  ]
@@ -258,10 +263,10 @@ weight: 11563
     object:
      myschool3_object: {
       "sg": {
+        "name": "sydney grammar",
         "state": "nsw",
         "address": "sydney",
-        "postcode": 2000,
-        "name": "sydney grammar"
+        "postcode": 2000
       }
     }
     

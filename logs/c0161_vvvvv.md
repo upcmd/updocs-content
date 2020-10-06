@@ -1,6 +1,6 @@
 ---
 title: "c0161_vvvvv"
-date: 2020-09-18T01:27:51+99:00
+date: 2020-10-06T23:46:22+1010:00
 draft: false
 weight: 11614
 
@@ -23,6 +23,8 @@ weight: 11614
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11614
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf3c0)(<nil>)
+    (*impl.Scopes)(0xc0001f5360)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b88f8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,15 +60,16 @@ weight: 11614
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: test var overriding in sub_task
-     ]
+    -Step1: [
+    test var overriding in sub_task
+    ]
     {
       Name: "",
       Do: <nil>,
@@ -166,8 +169,8 @@ weight: 11614
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -180,8 +183,8 @@ weight: 11614
     
     caller's vars to task (sub_task)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 2 [sub_task]: 
@@ -255,10 +258,11 @@ weight: 11614
       "up_runtime_task_layer_number": 1
     })
     
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -307,8 +311,8 @@ weight: 11614
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     [{{eq .aaa "var_a_from_task"}}]
@@ -340,8 +344,8 @@ weight: 11614
     
     current exec runtime vars:
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     [local] dvar expanded result:
@@ -350,16 +354,16 @@ weight: 11614
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     cmd( 1):

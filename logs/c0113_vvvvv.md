@@ -1,6 +1,6 @@
 ---
 title: "c0113_vvvvv"
-date: 2020-09-18T01:27:40+99:00
+date: 2020-10-06T23:46:11+1010:00
 draft: false
 weight: 11134
 
@@ -23,6 +23,8 @@ weight: 11134
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,25 +37,25 @@ weight: 11134
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175500)(<nil>)
+    (*impl.Scopes)(0xc000177560)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "tom": "this is tom in global",
       "jerry": "this is jerry in global"
-    }
+    })
     
-    (core.Cache) (len=2) {
+    (*core.Cache)(0xc0000b6930)((len=2) {
      (string) (len=3) "tom": (string) (len=21) "this is tom in global",
      (string) (len=5) "jerry": (string) (len=23) "this is jerry in global"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -62,10 +64,10 @@ weight: 11134
     
     -------runtime global final merged with dvars-------
     
-    {
-      "jerry": "this is jerry in global",
-      "tom": "this is tom in global"
-    }
+    (*core.Cache)({
+      "tom": "this is tom in global",
+      "jerry": "this is jerry in global"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: main entry ]
@@ -148,10 +150,10 @@ weight: 11134
           "cmd": "in sub_loop print1: {{.tom}}"
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .tom \"tom created in sub_loop\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
@@ -177,9 +179,9 @@ weight: 11134
     current exec runtime vars:
     (*core.Cache)({
       "john": "john in sub_loop func1",
+      "up_runtime_task_layer_number": 1,
       "tom": "this is tom in global",
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "jerry": "this is jerry in global"
     })
     
     [local] dvar expanded result:
@@ -189,18 +191,18 @@ weight: 11134
     
     scope[local] merged: {
       "john": "john in sub_loop func1",
+      "up_runtime_task_layer_number": 1,
       "tom": "this is tom in global",
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "jerry": "this is jerry in global"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "john": "john in sub_loop func1",
       "tom": "this is tom in global",
       "jerry": "this is jerry in global",
+      "john": "john in sub_loop func1",
       "up_runtime_task_layer_number": 1
     })
     
@@ -217,9 +219,9 @@ weight: 11134
     after reg the var - local:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "tom": "tom created in sub_loop",
       "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1,
       "john": "john in sub_loop func1"
     })
     
@@ -234,8 +236,8 @@ weight: 11134
       Name: "",
       Do: {
         {
-          "cmd": "in sub_loop print2: {{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "in sub_loop print2: {{.tom}}"
         },
         {
           "name": "assert",
@@ -275,8 +277,8 @@ weight: 11134
     
     current exec runtime vars:
     (*core.Cache)({
-      "john": "john in sub_loop func2",
       "jerry": "this is jerry in global",
+      "john": "john in sub_loop func2",
       "up_runtime_task_layer_number": 1,
       "tom": "tom created in sub_loop"
     })
@@ -287,9 +289,9 @@ weight: 11134
     
     
     scope[local] merged: {
+      "john": "john in sub_loop func2",
       "up_runtime_task_layer_number": 1,
       "tom": "tom created in sub_loop",
-      "john": "john in sub_loop func2",
       "jerry": "this is jerry in global"
     }
     
@@ -297,10 +299,10 @@ weight: 11134
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "tom created in sub_loop",
       "john": "john in sub_loop func2",
-      "jerry": "this is jerry in global",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global"
     })
     
     in sub_loop print2: {{.tom}}
@@ -325,15 +327,15 @@ weight: 11134
       Name: "",
       Do: {
         {
-          "cmd": "in main task print3: {{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "in main task print3: {{.tom}}"
         },
         {
+          "name": "assert",
           "desc": "since .tom is returned from callee, it should be accessible here",
           "cmd": {
             "{{eq .tom \"tom created in sub_loop\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -356,8 +358,8 @@ weight: 11134
     
     current exec runtime vars:
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     
@@ -367,8 +369,8 @@ weight: 11134
     
     
     scope[local] merged: {
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     }
     
@@ -376,8 +378,8 @@ weight: 11134
     self: final context exec vars:
     
     (*core.Cache)({
-      "jerry": "this is jerry in global",
       "tom": "tom created in sub_loop",
+      "jerry": "this is jerry in global",
       "up_runtime_task_layer_number": 1
     })
     

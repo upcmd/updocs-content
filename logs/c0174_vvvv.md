@@ -1,6 +1,6 @@
 ---
 title: "c0174_vvvv"
-date: 2020-09-18T01:27:53+99:00
+date: 2020-10-06T23:46:24+1010:00
 draft: false
 weight: 11743
 
@@ -23,6 +23,8 @@ weight: 11743
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11743
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -86,21 +88,10 @@ weight: 11743
     -
      .. failed(suppressed if it is not the last step)
     Step Finally:
-    -Step1: [: ensure the opened file is closed
-     ]
+    -Step1: [
+    ensure the opened file is closed
+    ]
     current exec runtime vars:
-    (*core.Cache)({
-      "up_runtime_shell_exec_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello\"|grep \"world\"",
-        Code: 1,
-        Output: "",
-        ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 0
-    })
-    
-    self: final context exec vars:
-    
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
@@ -109,6 +100,18 @@ weight: 11743
         Output: "",
         ErrMsg: "exit status 1"
       })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_shell_exec_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello\"|grep \"world\"",
+        Code: 1,
+        Output: "",
+        ErrMsg: "exit status 1"
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -149,12 +152,12 @@ weight: 11743
     -
      .. ok
     . ok
-    -Step2: [: see if the exec context result: up_runtime_shell_exec_result is still availabe
+    -Step2: [
+    see if the exec context result: up_runtime_shell_exec_result is still availabe
     conditional do something about the error etc
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
@@ -166,24 +169,25 @@ weight: 11743
         Code: 0,
         Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
-        Code: 0,
-        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"\"\"\nexec command: echo \"hello\"|grep \"world\"\nerror code: 1\nerror message: exit status 1\nerror output: \n\"\"\"\n",
+        Code: 0,
+        Output: "exec command: echo hello|grep world\nerror code: 1\nerror message: exit status 1\nerror output:",
+        ErrMsg: ""
       })
     })
     
@@ -191,9 +195,10 @@ weight: 11743
     error message: exit status 1
     
      WARN: [ignoreError:] - [Error ignored!!!]
-    -Step2: [: this step will not be reached if the ignoreError flag is not set
+    -Step2: [
+    this step will not be reached if the ignoreError flag is not set
     try it yourself to remove the ignoreError flag and see difference
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -208,13 +213,13 @@ weight: 11743
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello\"|grep \"world\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     cmd( 1):

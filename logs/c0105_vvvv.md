@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvv"
-date: 2020-09-18T01:27:38+99:00
+date: 2020-10-06T23:46:09+1010:00
 draft: false
 weight: 11053
 
@@ -23,6 +23,8 @@ weight: 11053
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11053
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -59,9 +61,9 @@ weight: 11053
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "jerry": "this is jerry",
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 0,
-      "jerry": "this is jerry"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -86,8 +88,8 @@ weight: 11053
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print:  ]
@@ -106,9 +108,9 @@ weight: 11053
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func ]
@@ -119,16 +121,16 @@ weight: 11053
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "hitom": "hello, this is tom",
       "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "hitom": "hello, this is tom",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 0
     })
     

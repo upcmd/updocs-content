@@ -1,6 +1,6 @@
 ---
 title: "c0135_vvvv"
-date: 2020-09-18T01:27:45+99:00
+date: 2020-10-06T23:46:16+1010:00
 draft: false
 weight: 11353
 
@@ -23,6 +23,8 @@ weight: 11353
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,25 +38,25 @@ weight: 11353
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "b": "global_bbb",
+    (*core.Cache)({
       "c": "global_ccc",
-      "a": "global_aaa"
-    }
+      "a": "global_aaa",
+      "b": "global_bbb"
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
+      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc",
-      "a": "global_aaa"
-    }
+      "c": "global_ccc"
+    })
     
       located task-> 2 [task]: 
     Task2: [task ==> task:  ]
@@ -63,21 +65,21 @@ weight: 11353
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "c": "global_ccc",
       "a": "local_aaa",
-      "up_runtime_task_layer_number": 0,
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 0,
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
       located task-> 1 [callee_task]: 
@@ -89,43 +91,43 @@ weight: 11353
     (*core.Cache)({
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 1,
       "da": "local_da",
-      "db": "local_db"
+      "db": "local_db",
+      "a": "local_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 1,
       "da": "local_da",
-      "db": "callee_db",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "db": "callee_db"
     })
     
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
       "a": "local_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc",
       "up_runtime_task_layer_number": 1,
       "da": "local_da",
-      "db": "callee_db",
-      "b": "local_bbb",
-      "c": "global_ccc"
+      "db": "callee_db"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "callee_db",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 1,
-      "da": "local_da"
+      "da": "local_da",
+      "db": "callee_db"
     })
     
     ~~SubStep1: [print:  ]

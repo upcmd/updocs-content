@@ -1,6 +1,6 @@
 ---
 title: "c0179_vvvvv"
-date: 2020-09-18T01:27:54+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11794
 
@@ -23,6 +23,8 @@ weight: 11794
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11794
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5280)(<nil>)
+    (*impl.Scopes)(0xc0002966c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0002b20e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11794
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -204,19 +206,19 @@ weight: 11794
           "do": "echo world"
         },
         {
-          "func": "cmd",
           "do": {
             {
               "name": "print",
               "cmd": "{{.last_result.Output}}"
             },
             {
+              "name": "assert",
               "cmd": {
                 "{{eq .last_result.Output \"world\" }}"
-              },
-              "name": "assert"
+              }
             }
-          }
+          },
+          "func": "cmd"
         }
       },
       Dox: <nil>,
@@ -254,19 +256,6 @@ weight: 11794
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo hello",
-        Code: 0,
-        Output: "hello",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hello",
         Code: 0,
@@ -274,6 +263,19 @@ weight: 11794
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo hello",
+        Code: 0,
+        Output: "hello",
+        ErrMsg: ""
+      })
     })
     
     -Step1:
@@ -450,13 +452,13 @@ weight: 11794
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo world",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -465,13 +467,13 @@ weight: 11794
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo world",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     

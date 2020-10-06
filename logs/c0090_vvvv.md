@@ -1,6 +1,6 @@
 ---
 title: "c0090_vvvv"
-date: 2020-09-18T01:27:36+99:00
+date: 2020-10-06T23:46:06+1010:00
 draft: false
 weight: 10903
 
@@ -23,6 +23,8 @@ weight: 10903
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,28 +38,29 @@ weight: 10903
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [wrong_usage: note that you can't access loopitem in dvar processing in curent func
+    -Step1: [
+    wrong_usagenote that you can't access loopitem in dvar processing in curent func
     you can only access loopitem in dvar processing when it is called as callee, as corret_usage shows
     however you can access loopitem in do action
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -120,12 +123,12 @@ weight: 10903
     self: final context exec vars:
     
     (*core.Cache)({
+      "person": "tom",
       "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "person": "tom"
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]
@@ -145,11 +148,11 @@ weight: 10903
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "peter",
       "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     })
     
     dvar> person:
@@ -160,11 +163,11 @@ weight: 10903
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "peter",
       "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
       "person": "peter"
     })
     
@@ -185,11 +188,11 @@ weight: 10903
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "taskvar": "taskvar",
       "loopitem": "james",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
     dvar> person:
@@ -200,12 +203,12 @@ weight: 10903
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "james",
-      "loopindex": 2,
-      "loopindex1": 3,
       "person": "james",
       "up_runtime_task_layer_number": 1,
-      "taskvar": "taskvar"
+      "taskvar": "taskvar",
+      "loopitem": "james",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     ~~SubStep1: [print: as explained, this should be <no value> ]

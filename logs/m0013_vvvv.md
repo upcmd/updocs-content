@@ -1,6 +1,6 @@
 ---
 title: "0013_vvvv"
-date: 2020-09-18T01:28:28+99:00
+date: 2020-10-06T23:46:56+1010:00
 draft: false
 weight: 101303
 
@@ -23,6 +23,8 @@ weight: 101303
                  Timeout -> 3600000
      MaxModuelCallLayers -> 8
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0013
@@ -36,19 +38,19 @@ weight: 101303
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -77,19 +79,19 @@ weight: 101303
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_hello]
     Executing tasker layer: 2
@@ -101,16 +103,16 @@ weight: 101303
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "aaa",
+      "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "a": "aaa"
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
       "up_runtime_task_layer_number": 0,
+      "a": "aaa",
       "up_runtime_tasker_layer_number": 2
     })
     
@@ -119,8 +121,8 @@ weight: 101303
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     hello-module: final context exec vars:
@@ -141,19 +143,19 @@ weight: 101303
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 3
@@ -172,8 +174,8 @@ weight: 101303
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 3,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 3
     })
     
     ~SubStep1: [print:  ]

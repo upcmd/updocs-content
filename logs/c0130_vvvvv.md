@@ -1,6 +1,6 @@
 ---
 title: "c0130_vvvvv"
-date: 2020-09-18T01:27:44+99:00
+date: 2020-10-06T23:46:15+1010:00
 draft: false
 weight: 11304
 
@@ -23,6 +23,8 @@ weight: 11304
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,29 +37,29 @@ weight: 11304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf760)(<nil>)
+    (*impl.Scopes)(0xc000210b00)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "c": "global_ccc",
       "goahead": false,
       "a": "global_aaa",
-      "b": "global_bbb",
-      "c": "global_ccc"
-    }
+      "b": "global_bbb"
+    })
     
-    (core.Cache) (len=4) {
+    (*core.Cache)(0xc000212138)((len=4) {
      (string) (len=7) "goahead": (bool) false,
      (string) (len=1) "a": (string) (len=10) "global_aaa",
      (string) (len=1) "b": (string) (len=10) "global_bbb",
      (string) (len=1) "c": (string) (len=10) "global_ccc"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -66,12 +68,12 @@ weight: 11304
     
     -------runtime global final merged with dvars-------
     
-    {
-      "goahead": false,
-      "a": "global_aaa",
+    (*core.Cache)({
       "b": "global_bbb",
-      "c": "global_ccc"
-    }
+      "c": "global_ccc",
+      "goahead": false,
+      "a": "global_aaa"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -89,15 +91,15 @@ weight: 11304
           }
         },
         {
-          "do": {
-            {
-              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n",
-              "name": "print"
-            }
-          },
           "func": "cmd",
           "vars": {
             "a": "block_layer1_aaa"
+          },
+          "do": {
+            {
+              "name": "print",
+              "cmd": "layer 1\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+            }
           }
         },
         {
@@ -108,25 +110,11 @@ weight: 11304
           }
         },
         {
-          "do": {
-            {
-              "do": {
-                {
-                  "name": "print",
-                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
-                }
-              },
-              "func": "cmd",
-              "vars": {
-                "a": "block_layer2_aaa"
-              }
-            }
-          },
           "func": "block",
           "desc": "test embeded 2nd layer of block",
           "vars": {
-            "b": "local_block_layer2_bbb",
-            "a": "local_block_layer2_aaa"
+            "a": "local_block_layer2_aaa",
+            "b": "local_block_layer2_bbb"
           },
           "dvars": {
             {
@@ -134,8 +122,22 @@ weight: 11304
               "value": "local_da_layer2"
             },
             {
-              "value": "local_db_layer2",
-              "name": "db"
+              "name": "db",
+              "value": "local_db_layer2"
+            }
+          },
+          "do": {
+            {
+              "vars": {
+                "a": "block_layer2_aaa"
+              },
+              "do": {
+                {
+                  "name": "print",
+                  "cmd": "layer 2\nup_runtime_task_layer_number: {{.up_runtime_task_layer_number}}\na: {{.a}}\nb: {{.b}}\nc: {{.c}}\nda: {{.da}}\ndb: {{.db}}\n"
+                }
+              },
+              "func": "cmd"
             }
           }
         },
@@ -150,8 +152,8 @@ weight: 11304
       Dox: <nil>,
       Func: "block",
       Vars: {
-        "a": "local_aaa",
-        "b": "local_bbb"
+        "b": "local_bbb",
+        "a": "local_aaa"
       },
       Dvars: {
         {
@@ -189,11 +191,11 @@ weight: 11304
       If: "{{.goahead}}",
       Else: {
         {
-          "func": "shell",
           "do": {
             "echo \"else step1\"",
             "echo \"else step2\""
-          }
+          },
+          "func": "shell"
         },
         {
           "func": "cmd",
@@ -219,11 +221,11 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": false,
+      "a": "local_aaa"
     })
     
     [local] dvar expanded result:
@@ -235,25 +237,25 @@ weight: 11304
     
     scope[local] merged: {
       "goahead": false,
-      "da": "local_da",
-      "db": "local_db",
-      "a": "local_aaa",
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "up_runtime_task_layer_number": 0
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "goahead": false,
       "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 0,
       "da": "local_da",
       "db": "local_db"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
+      "goahead": false,
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     -Step1:
@@ -283,13 +285,13 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
       "c": "global_ccc",
       "goahead": false,
       "a": "local_aaa",
-      "b": "local_bbb",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_bbb"
     })
     
     [local] dvar expanded result:
@@ -311,13 +313,13 @@ weight: 11304
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
       "db": "local_db",
       "c": "global_ccc",
       "goahead": false,
       "a": "local_aaa",
-      "b": "local_bbb",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da"
+      "b": "local_bbb"
     })
     
     cmd( 1):
@@ -386,6 +388,9 @@ weight: 11304
     
     current exec runtime vars:
     (*core.Cache)({
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
       "goahead": false,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"else step2\"",
@@ -395,10 +400,7 @@ weight: 11304
       }),
       "a": "block_layer1_aaa_else",
       "b": "local_bbb",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db",
-      "c": "global_ccc"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -407,6 +409,25 @@ weight: 11304
     
     
     scope[local] merged: {
+      "a": "block_layer1_aaa_else",
+      "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
+      "goahead": false,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"else step2\"",
+        Code: 0,
+        Output: "else step2",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "db": "local_db",
       "c": "global_ccc",
       "goahead": false,
@@ -420,25 +441,6 @@ weight: 11304
       "b": "local_bbb",
       "up_runtime_task_layer_number": 0,
       "da": "local_da"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "goahead": false,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"else step2\"",
-        Code: 0,
-        Output: "else step2",
-        ErrMsg: ""
-      }),
-      "a": "block_layer1_aaa_else",
-      "b": "local_bbb",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db",
-      "c": "global_ccc"
     })
     
     layer 1

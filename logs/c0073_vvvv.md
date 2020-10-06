@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvv"
-date: 2020-09-18T01:27:32+99:00
+date: 2020-10-06T23:46:03+1010:00
 draft: false
 weight: 10733
 
@@ -23,6 +23,8 @@ weight: 10733
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,31 +38,31 @@ weight: 10733
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "my_interesting_story2": "hello world",
+    (*core.Cache)({
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story1": "hello\nworld\n"
-    }
+      "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story2": "hello world"
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
+    (*core.Cache)({
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
-    }
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -71,9 +73,9 @@ weight: 10733
     (*core.Cache)({
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
       "up_runtime_task_layer_number": 0,
       "isnew": false,
+      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world"
@@ -82,14 +84,14 @@ weight: 10733
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
       "up_runtime_task_layer_number": 0,
-      "isnew": false
+      "isnew": false,
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     })
     
     ~SubStep1: [print:  ]
@@ -111,29 +113,29 @@ weight: 10733
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story5": "hello world",
+      "up_runtime_task_layer_number": 0,
+      "my_interesting_story3": "hello world\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "up_runtime_task_layer_number": 0,
-      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
+      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story4": "hello\nworld",
-      "newstory_clean": "same old story"
+      "my_interesting_story4": "hello\nworld"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story3": "hello world\n",
       "up_runtime_task_layer_number": 0,
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "newstory_clean": "same old story",
+      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story4": "hello\nworld",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story"
     })
     
     cmd( 1):

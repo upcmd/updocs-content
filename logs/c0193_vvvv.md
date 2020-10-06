@@ -1,6 +1,6 @@
 ---
 title: "c0193_vvvv"
-date: 2020-09-18T01:27:59+99:00
+date: 2020-10-06T23:46:28+1010:00
 draft: false
 weight: 11933
 
@@ -23,6 +23,8 @@ weight: 11933
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11933
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: please switch to use case1|case2 ...
@@ -73,9 +75,10 @@ weight: 11933
     =Task4: [task ==> case3:  ]
     Executing task stack layer: 2
     
-    --Step1: [: before sourcing, the env var: AAA does not exist
+    --Step1: [
+    before sourcing, the env var: AAA does not exist
     this will cause an error
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1
@@ -97,39 +100,41 @@ weight: 11933
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    --Step2: [: no source/srcfile input
+    --Step2: [
+    no source/srcfile input
     with name and action
     now it will save current shell env
     which has got no AAA in it
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [virtualEnv:  ]
     -sourcing execution result:
     
-    --Step3: [: since there is no source, this will still cause an error
-     ]
+    --Step3: [
+    since there is no source, this will still cause an error
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -144,13 +149,13 @@ weight: 11933
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
@@ -163,29 +168,30 @@ weight: 11933
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    --Step4: [: now source and save current shell environment variables
-     ]
+    --Step4: [
+    now source and save current shell environment variables
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [virtualEnv:  ]
@@ -193,18 +199,19 @@ weight: 11933
     start of source
     end of source
     
-    --Step5: [: after sourcing, the env var: AAA exist
+    --Step5: [
+    after sourcing, the env var: AAA exist
     the error should be cleared
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -230,9 +237,10 @@ weight: 11933
     -
      .. ok
     . ok
-    --Step6: [: now let's restore to the point of venv0
+    --Step6: [
+    now let's restore to the point of venv0
     which has got no AAA in it
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -259,10 +267,11 @@ weight: 11933
     ~~SubStep1: [virtualEnv:  ]
     -sourcing execution result:
     
-    --Step7: [: this will still cause an error
+    --Step7: [
+    this will still cause an error
     as now the shell env is restored to venv0
     which has got no AAA in it
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -296,39 +305,41 @@ weight: 11933
     -
      .. failed(suppressed if it is not the last step)
      WARN: [ignoreError:] - [Error ignored!!!]
-    --Step8: [: now let's restore to the point of venv1
+    --Step8: [
+    now let's restore to the point of venv1
     which has got AAA in it
     we expect the error is clear
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [virtualEnv:  ]
     -sourcing execution result:
     
-    --Step9: [: after sourcing, the env var: AAA exist
+    --Step9: [
+    after sourcing, the env var: AAA exist
     the error should be cleared
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
@@ -343,13 +354,13 @@ weight: 11933
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep AAA",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

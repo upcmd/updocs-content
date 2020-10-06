@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:53+1010:00
 draft: false
 weight: 10134
 
@@ -23,6 +23,8 @@ weight: 10134
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,29 +37,29 @@ weight: 10134
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e4f20)(<nil>)
+    (*impl.Scopes)(0xc0001befe0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "a": "runtime-a",
+    (*core.Cache)({
       "e": "runtime-e",
       "k": "runtime-k",
-      "studentname": "Jason"
-    }
+      "studentname": "Jason",
+      "a": "runtime-a"
+    })
     
-    (core.Cache) (len=4) {
-     (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=11) "studentname": (string) (len=5) "Jason",
+    (*core.Cache)(0xc00000e908)((len=4) {
      (string) (len=1) "a": (string) (len=9) "runtime-a",
-     (string) (len=1) "e": (string) (len=9) "runtime-e"
-    }
+     (string) (len=1) "e": (string) (len=9) "runtime-e",
+     (string) (len=1) "k": (string) (len=9) "runtime-k",
+     (string) (len=11) "studentname": (string) (len=5) "Jason"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -66,12 +68,12 @@ weight: 10134
     
     -------runtime global final merged with dvars-------
     
-    {
-      "studentname": "Jason",
-      "a": "runtime-a",
+    (*core.Cache)({
       "e": "runtime-e",
-      "k": "runtime-k"
-    }
+      "k": "runtime-k",
+      "studentname": "Jason",
+      "a": "runtime-a"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -107,12 +109,12 @@ weight: 10134
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "school": "SG",
+      "k": "runtime-k",
       "studentname": "Tom",
       "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
+      "up_runtime_task_layer_number": 0,
+      "school": "SG",
+      "e": "runtime-e"
     })
     
     [local] dvar expanded result:
@@ -122,10 +124,10 @@ weight: 10134
     
     scope[local] merged: {
       "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k",
       "up_runtime_task_layer_number": 0,
       "school": "SG",
+      "e": "runtime-e",
+      "k": "runtime-k",
       "studentname": "Tom"
     }
     
@@ -133,12 +135,12 @@ weight: 10134
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "studentname": "Tom",
+      "a": "runtime-a",
       "up_runtime_task_layer_number": 0,
-      "school": "SG",
-      "studentname": "Tom"
+      "school": "SG"
     })
     
     cmd( 1):

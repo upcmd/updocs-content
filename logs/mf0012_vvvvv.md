@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvvvv"
-date: 2020-09-18T01:28:28+99:00
+date: 2020-10-06T23:46:56+1010:00
 draft: false
 weight: 101204
 
@@ -23,6 +23,8 @@ weight: 101204
                  Timeout -> 3600000
      MaxModuelCallLayers -> 8
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/f0012
@@ -35,21 +37,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000204220)(<nil>)
+    (*impl.Scopes)(0xc0001bf180)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8c0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -123,21 +125,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000205440)(<nil>)
+    (*impl.Scopes)(0xc000268480)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000ea90)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -146,8 +148,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_hello]
     Executing tasker layer: 2
@@ -198,9 +200,9 @@ weight: 101204
     
     
     scope[local] merged: {
-      "a": "aaa",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "aaa"
     }
     
     
@@ -239,8 +241,8 @@ weight: 101204
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -277,21 +279,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002ecec0)(<nil>)
+    (*impl.Scopes)(0xc000269fa0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000ece8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -300,8 +302,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 3
@@ -388,8 +390,8 @@ weight: 101204
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 3
+      "up_runtime_tasker_layer_number": 3,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -426,21 +428,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0003fc880)(<nil>)
+    (*impl.Scopes)(0xc00031ba00)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000ef18)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -449,8 +451,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk2] task: [Cross_call2]
     Executing tasker layer: 4
@@ -464,8 +466,8 @@ weight: 101204
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": " .... cross call 2"
+          "cmd": " .... cross call 2",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -498,8 +500,8 @@ weight: 101204
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 4,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 4
     }
     
     
@@ -575,21 +577,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002046c0)(<nil>)
+    (*impl.Scopes)(0xc0003d7460)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000f148)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -598,8 +600,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 5
@@ -647,8 +649,8 @@ weight: 101204
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 5
+      "up_runtime_tasker_layer_number": 5,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -686,8 +688,8 @@ weight: 101204
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 5
+      "up_runtime_tasker_layer_number": 5,
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -710,8 +712,8 @@ weight: 101204
     
     caller's vars to task (crosstalk2.Cross_call2)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 5
+      "up_runtime_tasker_layer_number": 5,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
@@ -724,21 +726,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002ec9e0)(<nil>)
+    (*impl.Scopes)(0xc00000dd00)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0004f6160)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -747,8 +749,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk2] task: [Cross_call2]
     Executing tasker layer: 6
@@ -786,8 +788,8 @@ weight: 101204
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 6
     })
     
     [local] dvar expanded result:
@@ -804,8 +806,8 @@ weight: 101204
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 6
     })
     
      .... cross call 2
@@ -859,8 +861,8 @@ weight: 101204
     
     caller's vars to task (crosstalk1.Cross_call1)::
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 6
     })
     
     loading [Config]:  ./upconfig.yml
@@ -873,21 +875,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002ed1a0)(<nil>)
+    (*impl.Scopes)(0xc0001bede0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0004f62b8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -896,8 +898,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 7
@@ -911,8 +913,8 @@ weight: 101204
       Name: "",
       Do: {
         {
-          "cmd": " .... cross call 1",
-          "name": "print"
+          "name": "print",
+          "cmd": " .... cross call 1"
         }
       },
       Dox: <nil>,
@@ -1022,21 +1024,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c280)(<nil>)
+    (*impl.Scopes)(0xc0003d6000)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e0d8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -1045,8 +1047,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk2] task: [Cross_call2]
     Executing tasker layer: 8
@@ -1084,8 +1086,8 @@ weight: 101204
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 8,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 8
     })
     
     [local] dvar expanded result:
@@ -1102,8 +1104,8 @@ weight: 101204
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 8
+      "up_runtime_tasker_layer_number": 8,
+      "up_runtime_task_layer_number": 0
     })
     
      .... cross call 2
@@ -1171,21 +1173,21 @@ weight: 101204
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002ed060)(<nil>)
+    (*impl.Scopes)(0xc0003d7c00)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -1194,8 +1196,8 @@ weight: 101204
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [crosstalk1] task: [Cross_call1]
     Executing tasker layer: 9

@@ -1,6 +1,6 @@
 ---
 title: "c0173_vvvv"
-date: 2020-09-18T01:27:53+99:00
+date: 2020-10-06T23:46:24+1010:00
 draft: false
 weight: 11733
 
@@ -23,6 +23,8 @@ weight: 11733
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11733
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "global_aaa": "aaa"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "global_aaa": "aaa"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -59,17 +61,17 @@ weight: 11733
     -Step1: [: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
-      "global_aaa": "aaa",
       "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa"
+      "local_aaa": "local_aaa",
+      "global_aaa": "aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "local_aaa": "local_aaa",
       "global_aaa": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -90,33 +92,34 @@ weight: 11733
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_aaa": "aaa",
       "up_runtime_task_layer_number": 0,
       "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa"
     })
     
     ~SubStep1: [print:  ]
     global aaa: aaa
     ~SubStep2: [print:  ]
     local aaa: local_aaa
-    -Step2: [close_file: ensure the opened file is closed
-     ]
+    -Step2: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "global_aaa": "aaa",
       "up_runtime_task_layer_number": 0,
       "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "global_aaa": "aaa",
-      "up_runtime_task_layer_number": 0,
       "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

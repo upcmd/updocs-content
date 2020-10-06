@@ -1,6 +1,6 @@
 ---
 title: "c0092_vvvvv"
-date: 2020-09-18T01:27:36+99:00
+date: 2020-10-06T23:46:06+1010:00
 draft: false
 weight: 10924
 
@@ -23,6 +23,8 @@ weight: 10924
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10924
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf0c0)(<nil>)
+    (*impl.Scopes)(0xc0001c1120)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8f8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10924
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -120,11 +122,11 @@ weight: 10924
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 23
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (tom_action)::
@@ -145,8 +147,8 @@ weight: 10924
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "hello {{.person.name}}"
+          "cmd": "hello {{.person.name}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -171,8 +173,8 @@ weight: 10924
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     
@@ -182,22 +184,22 @@ weight: 10924
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "person": {
         "name": "tom",
         "age": 23
-      },
-      "up_runtime_task_layer_number": 1
+      }
     })
     
     hello {{.person.name}}

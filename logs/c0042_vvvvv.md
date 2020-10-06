@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvvv"
-date: 2020-09-18T01:27:27+99:00
+date: 2020-10-06T23:45:57+1010:00
 draft: false
 weight: 10424
 
@@ -23,6 +23,8 @@ weight: 10424
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10424
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00024f500)(<nil>)
+    (*impl.Scopes)(0xc0001c15e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e938)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10424
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: test the exit scenarios due to different types of validation ]
@@ -146,8 +148,9 @@ weight: 10424
     }
     
     . ok
-    -Step2: [: the last result of hanks will be registered as varname: hellomsg
-     ]
+    -Step2: [
+    the last result of hanks will be registered as varname: hellomsg
+    ]
     {
       Name: "",
       Do: {
@@ -215,30 +218,30 @@ weight: 10424
     
     
     scope[local] merged: {
-      "hellomsg": "hanks",
-      "reg_hello": "hello: hanks\n\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "reg_hello": "hello: hanks\n\n",
+      "hellomsg": "hanks"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "hellomsg": "hanks",
-      "reg_hello": "hello: hanks\n\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "reg_hello": "hello: hanks\n\n",
+      "hellomsg": "hanks"
     })
     
     cmd( 1):
@@ -280,9 +283,10 @@ weight: 10424
     }
     
     . ok
-    -Step3: [: the hellomsg will be still availabe in this step
+    -Step3: [
+    the hellomsg will be still availabe in this step
     it is removed but will be unavailabe in the next step
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -323,14 +327,14 @@ weight: 10424
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
         Output: "reg_hello - hello: hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -340,6 +344,21 @@ weight: 10424
     
     
     scope[local] merged: {
+      "hellomsg": "hanks",
+      "reg_hello": "\n",
+      "up_runtime_task_layer_number": 0,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
+        Code: 0,
+        Output: "reg_hello - hello: hanks",
+        ErrMsg: ""
+      })
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
         Code: 0,
@@ -349,21 +368,6 @@ weight: 10424
       "hellomsg": "hanks",
       "up_runtime_task_layer_number": 0,
       "reg_hello": "\n"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "reg_hello": "\n",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
-        Code: 0,
-        Output: "reg_hello - hello: hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks"
     })
     
     cmd( 1):
@@ -384,8 +388,9 @@ weight: 10424
     }
     
     . ok
-    -Step4: [: now the hellomsg should be <no value>
-     ]
+    -Step4: [
+    now the hellomsg should be <no value>
+    ]
     {
       Name: "",
       Do: {
@@ -411,13 +416,13 @@ weight: 10424
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -599,14 +604,14 @@ weight: 10424
     
     current exec runtime vars:
     (*core.Cache)({
+      "iamvoid": "something",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      }),
-      "iamvoid": "something",
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -629,14 +634,14 @@ weight: 10424
     self: final context exec vars:
     
     (*core.Cache)({
+      "iamvoid": "something",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      }),
-      "iamvoid": "something",
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     cmd( 1):

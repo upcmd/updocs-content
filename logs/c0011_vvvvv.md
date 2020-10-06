@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10114
 
@@ -23,6 +23,8 @@ weight: 10114
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,17 +37,17 @@ weight: 10114
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c700)((len=5 cap=5) {
+    (*impl.Scopes)(0xc0001e92a0)((len=5 cap=5) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
       RefDir: (string) "",
       Members: ([]string) <nil>,
       Vars: (core.Cache) (len=4) {
-       (string) (len=1) "b": (string) (len=8) "global-b",
-       (string) (len=1) "c": (string) (len=8) "global-c",
        (string) (len=1) "d": (string) (len=8) "global-d",
-       (string) (len=1) "a": (string) (len=8) "global-a"
+       (string) (len=1) "a": (string) (len=8) "global-a",
+       (string) (len=1) "b": (string) (len=8) "global-b",
+       (string) (len=1) "c": (string) (len=8) "global-c"
       },
       Dvars: (impl.Dvars) <nil>
      },
@@ -109,10 +111,10 @@ weight: 10114
     
     
     scope[global] merged: {
+      "c": "global-c",
       "d": "global-d",
       "a": "global-a",
-      "b": "global-b",
-      "c": "global-c"
+      "b": "global-b"
     }
     
     
@@ -133,33 +135,33 @@ weight: 10114
     
     
     scope[nonprod] merged: {
+      "b": "non-prod-b",
       "c": "non-prod-c",
-      "a": "non-prod-a",
-      "b": "non-prod-b"
+      "a": "non-prod-a"
     }
     
     
     ---------group vars----------
     
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
+    global: (*core.Cache)({
+      "a": "global-a",
+      "b": "global-b",
+      "c": "global-c",
+      "d": "global-d"
+    })
     
     
-    nonprod: {
+    prod: (*core.Cache)({
+      "a": "prod-a",
+      "c": "prod-c"
+    })
+    
+    
+    nonprod: (*core.Cache)({
       "c": "non-prod-c",
       "a": "non-prod-a",
       "b": "non-prod-b"
-    }
-    
-    
-    global: {
-      "c": "global-c",
-      "d": "global-d",
-      "a": "global-a",
-      "b": "global-b"
-    }
+    })
     
     
     groups members:[dr prod dev st staging]
@@ -169,29 +171,29 @@ weight: 10114
     
     
     scope[dev] merged: {
-      "a": "dev-a",
-      "c": "dev-c"
+      "c": "dev-c",
+      "a": "dev-a"
     }
     
     
     merged[ dev ] runtime vars:
-    {
-      "k": "runtime-k",
-      "d": "global-d",
-      "a": "runtime-a",
-      "b": "non-prod-b",
+    (*core.Cache)({
       "c": "dev-c",
-      "e": "runtime-e"
-    }
+      "d": "global-d",
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "a": "runtime-a",
+      "b": "non-prod-b"
+    })
     
-    (core.Cache) (len=6) {
-     (string) (len=1) "b": (string) (len=10) "non-prod-b",
+    (*core.Cache)(0xc000096a10)((len=6) {
      (string) (len=1) "c": (string) (len=5) "dev-c",
+     (string) (len=1) "d": (string) (len=8) "global-d",
      (string) (len=1) "e": (string) (len=9) "runtime-e",
      (string) (len=1) "k": (string) (len=9) "runtime-k",
-     (string) (len=1) "d": (string) (len=8) "global-d",
-     (string) (len=1) "a": (string) (len=9) "runtime-a"
-    }
+     (string) (len=1) "a": (string) (len=9) "runtime-a",
+     (string) (len=1) "b": (string) (len=10) "non-prod-b"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -200,14 +202,14 @@ weight: 10114
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "e": "runtime-e",
       "k": "runtime-k",
-      "d": "global-d",
       "a": "runtime-a",
       "b": "non-prod-b",
-      "c": "dev-c"
-    }
+      "c": "dev-c",
+      "d": "global-d"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -242,14 +244,14 @@ weight: 10114
     
     current exec runtime vars:
     (*core.Cache)({
-      "k": "runtime-k",
       "d": "global-d",
+      "e": "local-e",
+      "k": "runtime-k",
       "up_runtime_task_layer_number": 0,
       "m": "local-m",
       "a": "runtime-a",
       "b": "non-prod-b",
-      "c": "dev-c",
-      "e": "local-e"
+      "c": "dev-c"
     })
     
     [local] dvar expanded result:
@@ -258,28 +260,28 @@ weight: 10114
     
     
     scope[local] merged: {
-      "b": "non-prod-b",
       "c": "dev-c",
+      "d": "global-d",
       "e": "local-e",
       "k": "runtime-k",
-      "d": "global-d",
       "up_runtime_task_layer_number": 0,
       "m": "local-m",
-      "a": "runtime-a"
+      "a": "runtime-a",
+      "b": "non-prod-b"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "m": "local-m",
-      "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
+      "d": "global-d",
       "e": "local-e",
       "k": "runtime-k",
-      "d": "global-d",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "m": "local-m",
+      "a": "runtime-a"
     })
     
     cmd( 1):

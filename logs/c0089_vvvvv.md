@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvvv"
-date: 2020-09-18T01:27:35+99:00
+date: 2020-10-06T23:46:06+1010:00
 draft: false
 weight: 10894
 
@@ -23,6 +23,8 @@ weight: 10894
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 10894
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e6da0)(<nil>)
+    (*impl.Scopes)(0xc00023ee60)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "dynadir": "./tests/functests"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e8f8)((len=1) {
      (string) (len=7) "dynadir": (string) (len=17) "./tests/functests"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 10894
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "dynadir": "./tests/functests"
-    }
+    })
     
     loading [flow ref]:  ./tests/functests/c0089-task-main.yml
       located task-> 1 [task]: 
@@ -106,8 +108,8 @@ weight: 10894
     
     
     scope[local] merged: {
-      "dynadir": "./tests/functests",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "dynadir": "./tests/functests"
     }
     
     

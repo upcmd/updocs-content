@@ -1,6 +1,6 @@
 ---
 title: "c0142_vvvvv"
-date: 2020-09-18T01:27:47+99:00
+date: 2020-10-06T23:46:18+1010:00
 draft: false
 weight: 11424
 
@@ -23,6 +23,8 @@ weight: 11424
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11424
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bd0e0)(<nil>)
+    (*impl.Scopes)(0xc0000964a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000ac0c0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11424
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -70,12 +72,12 @@ weight: 11424
       Name: "",
       Do: {
         {
-          "name": "colorPrint",
           "cmd": {
             "msg": "hello, world",
             "bg": "blue",
             "fg": "white"
-          }
+          },
+          "name": "colorPrint"
         },
         {
           "name": "colorPrint",
@@ -108,26 +110,26 @@ weight: 11424
         {
           "name": "colorPrint",
           "cmd": {
+            "object": "person",
             "fg": "blue",
-            "bg": "black",
-            "object": "person"
+            "bg": "black"
           }
         },
         {
           "name": "colorPrint",
           "cmd": {
+            "bg": "green",
             "object": "{{.objectname}}",
-            "fg": "blue",
-            "bg": "green"
+            "fg": "blue"
           }
         },
         {
           "name": "colorPrint",
           "cmd": {
+            "object": "person",
             "msg": "person",
             "fg": "blue",
-            "bg": "black",
-            "object": "person"
+            "bg": "black"
           }
         }
       },
@@ -171,24 +173,24 @@ weight: 11424
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
       },
-      "objectname": "person",
-      "up_runtime_task_layer_number": 0
+      "objectname": "person"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "objectname": "person",
-      "up_runtime_task_layer_number": 0,
       "person": {
         "name": "tom",
         "age": 18
-      }
+      },
+      "objectname": "person",
+      "up_runtime_task_layer_number": 0
     })
     
     map[bg:blue fg:white msg:hello, world]

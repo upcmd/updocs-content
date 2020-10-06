@@ -1,6 +1,6 @@
 ---
 title: "c0161_vvvv"
-date: 2020-09-18T01:27:51+99:00
+date: 2020-10-06T23:46:22+1010:00
 draft: false
 weight: 11613
 
@@ -23,6 +23,8 @@ weight: 11613
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,26 +38,27 @@ weight: 11613
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: test var overriding in sub_task
-     ]
+    -Step1: [
+    test var overriding in sub_task
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -64,16 +67,16 @@ weight: 11613
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task"
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -97,18 +100,19 @@ weight: 11613
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
-    })
-    
-    --Step1: [: inspect if the correct parameter has been passed in correctly
-    with default value
-    in block func
-     ]
-    current exec runtime vars:
-    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task"
+    })
+    
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
+    with default value
+    in block func
+    ]
+    current exec runtime vars:
+    (*core.Cache)({
+      "aaa": "var_a_from_task",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -123,15 +127,15 @@ weight: 11613
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     cmd( 1):

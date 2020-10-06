@@ -1,6 +1,6 @@
 ---
 title: "c0178_vvvv"
-date: 2020-09-18T01:27:54+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11783
 
@@ -23,6 +23,8 @@ weight: 11783
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,25 +38,26 @@ weight: 11783
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: this will get a response of:
+    -Step1: [
+    this will get a response of:
     Output: {
       "LoadBalancerDescriptions": [
         {
@@ -73,7 +76,7 @@ weight: 11783
         }
       ]
     }
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -138,10 +141,12 @@ weight: 11783
     self: final context exec vars:
     
     (*core.Cache)({
+      "last_result": {
+        "Output": "{\n \"LoadBalancerDescriptions\": [\n   {\n     \"LoadBalancerName\": \"xx-elb\",\n     \"DNSName\": \"x-y-z.elb.amazonaws.com\",\n     \"Instances\": [\n       {\n         \"InstanceId\": \"i-1234567890\"\n       },\n       {\n         \"InstanceId\": \"i-9876543210\"\n       }\n     ],\n   }\n ]\n }\n"
+      },
       "elb": {
         "LoadBalancerDescriptions": {
           {
-            "DNSName": "x-y-z.elb.amazonaws.com",
             "Instances": {
               {
                 "InstanceId": "i-1234567890"
@@ -150,13 +155,10 @@ weight: 11783
                 "InstanceId": "i-9876543210"
               }
             },
-            "LoadBalancerName": "xx-elb"
+            "LoadBalancerName": "xx-elb",
+            "DNSName": "x-y-z.elb.amazonaws.com"
           }
         }
-      },
-      "up_runtime_task_layer_number": 0,
-      "last_result": {
-        "Output": "{\n \"LoadBalancerDescriptions\": [\n   {\n     \"LoadBalancerName\": \"xx-elb\",\n     \"DNSName\": \"x-y-z.elb.amazonaws.com\",\n     \"Instances\": [\n       {\n         \"InstanceId\": \"i-1234567890\"\n       },\n       {\n         \"InstanceId\": \"i-9876543210\"\n       }\n     ],\n   }\n ]\n }\n"
       },
       "instances_1": (*[]interface {})({
         {
@@ -173,7 +175,8 @@ weight: 11783
         {
           "InstanceId": "i-9876543210"
         }
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [printObj:  ]
@@ -205,44 +208,6 @@ weight: 11783
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "instances_2": (*[]interface {})({
-        {
-          "InstanceId": "i-1234567890"
-        },
-        {
-          "InstanceId": "i-9876543210"
-        }
-      }),
-      "up_runtime_task_layer_number": 0,
-      "elb": {
-        "LoadBalancerDescriptions": {
-          {
-            "DNSName": "x-y-z.elb.amazonaws.com",
-            "Instances": {
-              {
-                "InstanceId": "i-1234567890"
-              },
-              {
-                "InstanceId": "i-9876543210"
-              }
-            },
-            "LoadBalancerName": "xx-elb"
-          }
-        }
-      },
-      "instances_1": (*[]interface {})({
-        {
-          "InstanceId": "i-1234567890"
-        },
-        {
-          "InstanceId": "i-9876543210"
-        }
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "elb": {
         "LoadBalancerDescriptions": {
           {
@@ -259,6 +224,28 @@ weight: 11783
           }
         }
       },
+      "up_runtime_task_layer_number": 0,
+      "instances_1": (*[]interface {})({
+        {
+          "InstanceId": "i-1234567890"
+        },
+        {
+          "InstanceId": "i-9876543210"
+        }
+      }),
+      "instances_2": (*[]interface {})({
+        {
+          "InstanceId": "i-1234567890"
+        },
+        {
+          "InstanceId": "i-9876543210"
+        }
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "instances_1": (*[]interface {})({
         {
           "InstanceId": "i-1234567890"
@@ -275,6 +262,22 @@ weight: 11783
           "InstanceId": "i-9876543210"
         }
       }),
+      "elb": {
+        "LoadBalancerDescriptions": {
+          {
+            "Instances": {
+              {
+                "InstanceId": "i-1234567890"
+              },
+              {
+                "InstanceId": "i-9876543210"
+              }
+            },
+            "LoadBalancerName": "xx-elb",
+            "DNSName": "x-y-z.elb.amazonaws.com"
+          }
+        }
+      },
       "up_runtime_task_layer_number": 0
     })
     
@@ -383,6 +386,7 @@ weight: 11783
       "elb": {
         "LoadBalancerDescriptions": {
           {
+            "LoadBalancerName": "xx-elb",
             "DNSName": "x-y-z.elb.amazonaws.com",
             "Instances": {
               {
@@ -391,11 +395,11 @@ weight: 11783
               {
                 "InstanceId": "i-9876543210"
               }
-            },
-            "LoadBalancerName": "xx-elb"
+            }
           }
         }
       },
+      "up_runtime_task_layer_number": 0,
       "instances_1": (*[]interface {})({
         {
           "InstanceId": "i-1234567890"
@@ -411,30 +415,13 @@ weight: 11783
         {
           "InstanceId": "i-9876543210"
         }
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     --
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "instances_1": (*[]interface {})({
-        {
-          "InstanceId": "i-1234567890"
-        },
-        {
-          "InstanceId": "i-9876543210"
-        }
-      }),
-      "instances_2": (*[]interface {})({
-        {
-          "InstanceId": "i-1234567890"
-        },
-        {
-          "InstanceId": "i-9876543210"
-        }
-      }),
       "elb": {
         "LoadBalancerDescriptions": {
           {
@@ -451,6 +438,22 @@ weight: 11783
           }
         }
       },
+      "instances_1": (*[]interface {})({
+        {
+          "InstanceId": "i-1234567890"
+        },
+        {
+          "InstanceId": "i-9876543210"
+        }
+      }),
+      "instances_2": (*[]interface {})({
+        {
+          "InstanceId": "i-1234567890"
+        },
+        {
+          "InstanceId": "i-9876543210"
+        }
+      }),
       "up_runtime_task_layer_number": 0
     })
     
@@ -474,14 +477,6 @@ weight: 11783
     self: final context exec vars:
     
     (*core.Cache)({
-      "instances_1": (*[]interface {})({
-        {
-          "InstanceId": "i-1234567890"
-        },
-        {
-          "InstanceId": "i-9876543210"
-        }
-      }),
       "instances_2": (*[]interface {})({
         {
           "InstanceId": "i-1234567890"
@@ -490,6 +485,15 @@ weight: 11783
           "InstanceId": "i-9876543210"
         }
       }),
+      "up_runtime_task_layer_number": 0,
+      "instances_3": {
+        {
+          "InstanceId": "i-1234567890"
+        },
+        {
+          "InstanceId": "i-9876543210"
+        }
+      },
       "elb": {
         "LoadBalancerDescriptions": {
           {
@@ -506,15 +510,14 @@ weight: 11783
           }
         }
       },
-      "up_runtime_task_layer_number": 0,
-      "instances_3": {
+      "instances_1": (*[]interface {})({
         {
           "InstanceId": "i-1234567890"
         },
         {
           "InstanceId": "i-9876543210"
         }
-      }
+      })
     })
     
     ~SubStep1: [print:  ]

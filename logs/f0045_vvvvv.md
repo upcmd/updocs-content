@@ -1,6 +1,6 @@
 ---
 title: "f0045_vvvvv"
-date: 2020-09-18T01:28:01+99:00
+date: 2020-10-06T23:46:31+1010:00
 draft: false
 weight: 10454
 
@@ -23,6 +23,8 @@ weight: 10454
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,7 +37,7 @@ weight: 10454
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000174f60)((len=1 cap=1) {
+    (*impl.Scopes)(0xc0001bf020)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",

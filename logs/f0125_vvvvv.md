@@ -1,6 +1,6 @@
 ---
 title: "f0125_vvvvv"
-date: 2020-09-18T01:28:03+99:00
+date: 2020-10-06T23:46:33+1010:00
 draft: false
 weight: 11254
 
@@ -23,6 +23,8 @@ weight: 11254
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11254
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000173320)(<nil>)
+    (*impl.Scopes)(0xc0001f3380)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6908)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11254
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -124,8 +126,8 @@ weight: 11254
       Name: "",
       Do: {
         {
-          "cmd": "up_runtime_task_layer_number: {{.up_runtime_task_layer_number}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "up_runtime_task_layer_number: {{.up_runtime_task_layer_number}}"
         }
       },
       Dox: <nil>,

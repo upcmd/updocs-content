@@ -1,6 +1,6 @@
 ---
 title: "c0096_vvvvv"
-date: 2020-09-18T01:27:37+99:00
+date: 2020-10-06T23:46:07+1010:00
 draft: false
 weight: 10964
 
@@ -23,6 +23,8 @@ weight: 10964
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,18 +37,35 @@ weight: 10964
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c14a0)(<nil>)
+    (*impl.Scopes)(0xc0001c1500)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5",
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            }
+          }
+        }
+      },
       "school_details_object": {
+        "ranking": "No 5",
         "school": {
           "address": "1 fox road, sydney, nsw 2000",
           "name": "sydney grammar"
@@ -55,40 +74,11 @@ weight: 10964
           "peter",
           "tom",
           "jane"
-        },
-        "ranking": "No 5"
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5"
-          }
         }
       }
-    }
+    })
     
-    (core.Cache) (len=2) {
-     (string) (len=21) "school_details_object": (map[string]interface {}) (len=3) {
-      (string) (len=6) "school": (map[string]interface {}) (len=2) {
-       (string) (len=7) "address": (string) (len=28) "1 fox road, sydney, nsw 2000",
-       (string) (len=4) "name": (string) (len=14) "sydney grammar"
-      },
-      (string) (len=10) "principals": ([]interface {}) (len=3 cap=3) {
-       (string) (len=5) "peter",
-       (string) (len=3) "tom",
-       (string) (len=4) "jane"
-      },
-      (string) (len=7) "ranking": (string) (len=4) "No 5"
-     },
+    (*core.Cache)(0xc00000e990)((len=2) {
      (string) (len=4) "root": (map[string]interface {}) (len=1) {
       (string) (len=6) "parent": (map[string]interface {}) (len=1) {
        (string) (len=21) "school_details_object": (map[string]interface {}) (len=3) {
@@ -104,8 +94,20 @@ weight: 10964
         (string) (len=7) "ranking": (string) (len=4) "No 5"
        }
       }
+     },
+     (string) (len=21) "school_details_object": (map[string]interface {}) (len=3) {
+      (string) (len=6) "school": (map[string]interface {}) (len=2) {
+       (string) (len=4) "name": (string) (len=14) "sydney grammar",
+       (string) (len=7) "address": (string) (len=28) "1 fox road, sydney, nsw 2000"
+      },
+      (string) (len=10) "principals": ([]interface {}) (len=3 cap=3) {
+       (string) (len=5) "peter",
+       (string) (len=3) "tom",
+       (string) (len=4) "jane"
+      },
+      (string) (len=7) "ranking": (string) (len=4) "No 5"
      }
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -114,11 +116,27 @@ weight: 10964
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5",
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            }
+          }
+        }
+      },
       "school_details_object": {
         "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
         },
         "principals": {
           "peter",
@@ -126,24 +144,8 @@ weight: 10964
           "jane"
         },
         "ranking": "No 5"
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5"
-          }
-        }
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -183,33 +185,33 @@ weight: 10964
     
     current exec runtime vars:
     (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      },
       "root": {
         "parent": {
           "school_details_object": {
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
             "principals": {
               "peter",
               "tom",
               "jane"
             },
-            "ranking": "No 5"
+            "ranking": "No 5",
+            "school": {
+              "name": "sydney grammar",
+              "address": "1 fox road, sydney, nsw 2000"
+            }
           }
         }
+      },
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -220,21 +222,10 @@ weight: 10964
     
     
     scope[local] merged: {
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      },
       "root": {
         "parent": {
           "school_details_object": {
+            "ranking": "No 5",
             "school": {
               "address": "1 fox road, sydney, nsw 2000",
               "name": "sydney grammar"
@@ -243,10 +234,21 @@ weight: 10964
               "peter",
               "tom",
               "jane"
-            },
-            "ranking": "No 5"
+            }
           }
         }
+      },
+      "school_details_object": {
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
       },
       "up_runtime_task_layer_number": 0
     }
@@ -255,18 +257,6 @@ weight: 10964
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      },
       "root": {
         "parent": {
           "school_details_object": {
@@ -282,6 +272,18 @@ weight: 10964
             }
           }
         }
+      },
+      "school_details_object": {
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -326,24 +328,13 @@ weight: 10964
     
     current exec runtime vars:
     (*core.Cache)({
-      "school_details_object": {
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
+      "up_runtime_task_layer_number": 0,
       "root": {
         "parent": {
           "school_details_object": {
             "school": {
-              "name": "sydney grammar",
-              "address": "1 fox road, sydney, nsw 2000"
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
             },
             "principals": {
               "peter",
@@ -354,7 +345,18 @@ weight: 10964
           }
         }
       },
-      "up_runtime_task_layer_number": 0
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      }
     })
     
     [local] dvar expanded result:
@@ -363,57 +365,44 @@ weight: 10964
     
     
     scope[local] merged: {
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
+      "up_runtime_task_layer_number": 0,
       "root": {
         "parent": {
           "school_details_object": {
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
             "principals": {
               "peter",
               "tom",
               "jane"
             },
-            "ranking": "No 5",
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            }
+            "ranking": "No 5"
           }
         }
       },
-      "up_runtime_task_layer_number": 0
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        }
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_details_object": {
-        "school": {
-          "name": "sydney grammar",
-          "address": "1 fox road, sydney, nsw 2000"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
       "root": {
         "parent": {
           "school_details_object": {
-            "ranking": "No 5",
             "school": {
               "address": "1 fox road, sydney, nsw 2000",
               "name": "sydney grammar"
@@ -422,9 +411,22 @@ weight: 10964
               "peter",
               "tom",
               "jane"
-            }
+            },
+            "ranking": "No 5"
           }
         }
+      },
+      "school_details_object": {
+        "school": {
+          "address": "1 fox road, sydney, nsw 2000",
+          "name": "sydney grammar"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -434,6 +436,22 @@ weight: 10964
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            },
+            "ranking": "No 5"
+          }
+        }
+      },
       "school_details_object": {
         "school": {
           "address": "1 fox road, sydney, nsw 2000",
@@ -445,22 +463,6 @@ weight: 10964
           "jane"
         },
         "ranking": "No 5"
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "ranking": "No 5",
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            }
-          }
-        }
       },
       "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
     })
@@ -468,22 +470,10 @@ weight: 10964
     after reg the var - local:
     
     (*core.Cache)({
-      "school_details_object": {
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "root": {
         "parent": {
           "school_details_object": {
-            "ranking": "No 5",
             "school": {
               "address": "1 fox road, sydney, nsw 2000",
               "name": "sydney grammar"
@@ -492,12 +482,24 @@ weight: 10964
               "peter",
               "tom",
               "jane"
-            }
+            },
+            "ranking": "No 5"
           }
         }
       },
-      "up_runtime_task_layer_number": 0,
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     {{.my_school}}
@@ -547,6 +549,62 @@ weight: 10964
     current exec runtime vars:
     (*core.Cache)({
       "school_details_object": {
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        }
+      },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "up_runtime_task_layer_number": 0,
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "ranking": "No 5",
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            }
+          }
+        }
+      }
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "up_runtime_task_layer_number": 0,
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "ranking": "No 5",
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            }
+          }
+        }
+      },
+      "school_details_object": {
         "school": {
           "name": "sydney grammar",
           "address": "1 fox road, sydney, nsw 2000"
@@ -557,81 +615,14 @@ weight: 10964
           "jane"
         },
         "ranking": "No 5"
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5"
-          }
-        }
-      },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
-      "up_runtime_task_layer_number": 0
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
-      },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            },
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5"
-          }
-        }
-      },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
-      "up_runtime_task_layer_number": 0
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_details_object": {
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        }
-      },
+      "up_runtime_task_layer_number": 0,
       "root": {
         "parent": {
           "school_details_object": {
@@ -648,8 +639,19 @@ weight: 10964
           }
         }
       },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
-      "up_runtime_task_layer_number": 0
+      "school_details_object": {
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        }
+      },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
     })
     
     map[datapath:root.parent.school_details_object dest:/tmp/myschool.txt src:./tests/functests/d0079.template]
@@ -677,13 +679,13 @@ weight: 10964
       Name: "",
       Do: {
         {
+          "name": "readFile",
+          "desc": "read content of a file and register it to a var",
           "cmd": {
             "filename": "myschool.txt",
             "dir": "/tmp",
             "reg": "my_school"
-          },
-          "name": "readFile",
-          "desc": "read content of a file and register it to a var"
+          }
         },
         {
           "name": "print",
@@ -710,19 +712,7 @@ weight: 10964
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "school_details_object": {
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        },
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5"
-      },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "root": {
         "parent": {
           "school_details_object": {
@@ -739,7 +729,19 @@ weight: 10964
           }
         }
       },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
+      "school_details_object": {
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        },
+        "ranking": "No 5"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -748,18 +750,43 @@ weight: 10964
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "root": {
+        "parent": {
+          "school_details_object": {
+            "ranking": "No 5",
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
+            "principals": {
+              "peter",
+              "tom",
+              "jane"
+            }
+          }
+        }
+      },
       "school_details_object": {
-        "ranking": "No 5",
         "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
         },
         "principals": {
           "peter",
           "tom",
           "jane"
-        }
-      },
+        },
+        "ranking": "No 5"
+      }
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "root": {
         "parent": {
           "school_details_object": {
@@ -776,18 +803,10 @@ weight: 10964
           }
         }
       },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
-      "up_runtime_task_layer_number": 0
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "school_details_object": {
         "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
         },
         "principals": {
           "peter",
@@ -796,23 +815,6 @@ weight: 10964
         },
         "ranking": "No 5"
       },
-      "root": {
-        "parent": {
-          "school_details_object": {
-            "principals": {
-              "peter",
-              "tom",
-              "jane"
-            },
-            "ranking": "No 5",
-            "school": {
-              "name": "sydney grammar",
-              "address": "1 fox road, sydney, nsw 2000"
-            }
-          }
-        }
-      },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "up_runtime_task_layer_number": 0
     })
     
@@ -821,22 +823,9 @@ weight: 10964
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      },
       "root": {
         "parent": {
           "school_details_object": {
-            "ranking": "No 5",
             "school": {
               "address": "1 fox road, sydney, nsw 2000",
               "name": "sydney grammar"
@@ -845,8 +834,21 @@ weight: 10964
               "peter",
               "tom",
               "jane"
-            }
+            },
+            "ranking": "No 5"
           }
+        }
+      },
+      "school_details_object": {
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
         }
       },
       "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n"
@@ -855,35 +857,35 @@ weight: 10964
     after reg the var - local:
     
     (*core.Cache)({
-      "school_details_object": {
-        "principals": {
-          "peter",
-          "tom",
-          "jane"
-        },
-        "ranking": "No 5",
-        "school": {
-          "address": "1 fox road, sydney, nsw 2000",
-          "name": "sydney grammar"
-        }
-      },
+      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
       "root": {
         "parent": {
           "school_details_object": {
+            "school": {
+              "address": "1 fox road, sydney, nsw 2000",
+              "name": "sydney grammar"
+            },
             "principals": {
               "peter",
               "tom",
               "jane"
             },
-            "ranking": "No 5",
-            "school": {
-              "address": "1 fox road, sydney, nsw 2000",
-              "name": "sydney grammar"
-            }
+            "ranking": "No 5"
           }
         }
       },
-      "my_school": "\n\nMy school name is: sydney grammar, it is located\nat 1 fox road, sydney, nsw 2000\n\n\nWe have got  peter,  tom,  jane,  as our principals\n\nOur school ranking last year is No 5\n",
+      "school_details_object": {
+        "ranking": "No 5",
+        "school": {
+          "name": "sydney grammar",
+          "address": "1 fox road, sydney, nsw 2000"
+        },
+        "principals": {
+          "peter",
+          "tom",
+          "jane"
+        }
+      },
       "up_runtime_task_layer_number": 0
     })
     

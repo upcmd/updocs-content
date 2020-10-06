@@ -1,6 +1,6 @@
 ---
 title: "c0038_vvvvv"
-date: 2020-09-18T01:27:26+99:00
+date: 2020-10-06T23:45:57+1010:00
 draft: false
 weight: 10384
 
@@ -23,6 +23,8 @@ weight: 10384
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,18 +37,17 @@ weight: 10384
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c900)(<nil>)
+    (*impl.Scopes)(0xc0001f7500)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "pod_name": "web_app",
+    (*core.Cache)({
       "ha": true,
       "age": 34,
       "old": 54,
@@ -61,12 +62,6 @@ weight: 10384
         "alice"
       },
       "student": {
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
         "address": {
           "suburb": {
             "postcode": 2000,
@@ -75,12 +70,19 @@ weight: 10384
           },
           "school": "Sydney Grammar"
         },
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
       },
-      "ns": "prod"
-    }
+      "ns": "prod",
+      "pod_name": "web_app"
+    })
     
-    (core.Cache) (len=8) {
+    (*core.Cache)(0xc0000b6998)((len=8) {
      (string) (len=8) "pod_name": (string) (len=7) "web_app",
      (string) (len=2) "ha": (bool) true,
      (string) (len=3) "age": (int) 34,
@@ -96,8 +98,6 @@ weight: 10384
       (string) (len=5) "alice"
      },
      (string) (len=7) "student": (map[string]interface {}) (len=4) {
-      (string) (len=4) "name": (string) (len=3) "Tom",
-      (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=8) "teachers": ([]interface {}) (len=3 cap=3) {
        (string) (len=3) "tom",
        (string) (len=5) "jason",
@@ -105,15 +105,17 @@ weight: 10384
       },
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "suburb": (map[string]interface {}) (len=3) {
-        (string) (len=3) "cbd": (bool) true,
         (string) (len=4) "name": (string) (len=6) "sydney",
-        (string) (len=8) "postcode": (int) 2000
+        (string) (len=8) "postcode": (int) 2000,
+        (string) (len=3) "cbd": (bool) true
        },
        (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
-      }
+      },
+      (string) (len=4) "name": (string) (len=3) "Tom",
+      (string) (len=6) "gender": (string) (len=4) "Male"
      },
      (string) (len=2) "ns": (string) (len=4) "prod"
-    }
+    })
     
     dvar> sprig_trim:
     "hello"
@@ -137,25 +139,28 @@ weight: 10384
     Hello!              
     [runtime global] dvar expanded result:
     {
-      "gtf_ljust": "Hello!              ",
       "sprig_trim": "hello",
       "var_slice_index": "jason",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd"
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "gtf_ljust": "Hello!              "
     }
     
     
     -------runtime global final merged with dvars-------
     
-    {
-      "ha": true,
+    (*core.Cache)({
+      "pod_name": "web_app",
+      "ns": "prod",
       "sprig_trim": "hello",
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "gtf_ljust": "Hello!              ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
+      "old": 54,
+      "var_slice_index": "jason",
+      "gtf_ljust": "Hello!              ",
+      "age": 34,
       "admins": {
         "tom",
         "jason",
@@ -170,20 +175,17 @@ weight: 10384
           "alice"
         },
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
             "cbd": true,
             "name": "sydney",
             "postcode": 2000
-          },
-          "school": "Sydney Grammar"
+          }
         }
       },
-      "ns": "prod",
-      "pod_name": "web_app",
-      "age": 34,
-      "var_slice_index": "jason",
-      "old": 54
-    }
+      "ha": true,
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -215,71 +217,13 @@ weight: 10384
     
     current exec runtime vars:
     (*core.Cache)({
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
       "ns": "prod",
-      "up_runtime_task_layer_number": 0,
-      "gtf_ljust": "Hello!              ",
+      "old": 54,
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "sprig_trim": "hello",
-      "var_slice_index": "jason",
-      "old": 54,
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "ha": true,
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "pod_name": "web_app",
-      "age": 34
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "var_slice_index": "jason",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "ns": "prod",
-      "gtf_ljust": "Hello!              ",
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "old": 54,
-      "ha": true,
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "pod_name": "web_app",
-      "up_runtime_task_layer_number": 0,
-      "sprig_trim": "hello",
-      "age": 34,
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -296,26 +240,49 @@ weight: 10384
             "postcode": 2000
           }
         }
-      }
+      },
+      "age": 34,
+      "up_runtime_task_layer_number": 0,
+      "sprig_trim": "hello",
+      "gtf_ljust": "Hello!              ",
+      "ha": true,
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "var_slice_index": "jason",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "pod_name": "web_app"
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
+    scope[local] merged: {
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "ns": "prod",
       "ha": true,
-      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
-      "pod_name": "web_app",
       "age": 34,
+      "gtf_ljust": "Hello!              ",
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
       "old": 54,
+      "sprig_trim": "hello",
+      "up_runtime_task_layer_number": 0,
       "student": {
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
+            "postcode": 2000,
             "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
+            "name": "sydney"
+          }
         },
         "name": "Tom",
         "gender": "Male",
@@ -325,21 +292,56 @@ weight: 10384
           "alice"
         }
       },
-      "gtf_ljust": "Hello!              ",
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "sprig_trim": "hello",
       "var_slice_index": "jason",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
+      "pod_name": "web_app"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "gtf_ljust": "Hello!              ",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "sprig_trim": "hello",
+      "up_runtime_task_layer_number": 0,
       "ns": "prod",
-      "up_runtime_task_layer_number": 0
+      "gtf_url_encoding": "http%3A%2F%2Fwww.example.org%2Ffoo%3Fa%3Db%26c%3Dd",
+      "old": 54,
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "age": 34,
+      "pod_name": "web_app",
+      "student": {
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        },
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "var_slice_index": "jason",
+      "ha": true
     })
     
     cmd( 1):

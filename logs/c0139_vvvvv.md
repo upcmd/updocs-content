@@ -1,6 +1,6 @@
 ---
 title: "c0139_vvvvv"
-date: 2020-09-18T01:27:46+99:00
+date: 2020-10-06T23:46:17+1010:00
 draft: false
 weight: 11394
 
@@ -23,6 +23,8 @@ weight: 11394
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11394
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1040)(<nil>)
+    (*impl.Scopes)(0xc000096460)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000c80d0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11394
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -70,8 +72,8 @@ weight: 11394
       Name: "",
       Do: {
         {
-          "cmd": "step1",
-          "name": "print"
+          "name": "print",
+          "cmd": "step1"
         }
       },
       Dox: <nil>,
@@ -146,8 +148,8 @@ weight: 11394
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "person": "tom"
+      "person": "tom",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -164,8 +166,8 @@ weight: 11394
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": "tom",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "person": "tom"
     })
     
     condition failed, skip executing step 
@@ -175,8 +177,8 @@ weight: 11394
       Name: "",
       Do: {
         {
-          "cmdy": "step2",
-          "name": "print"
+          "name": "print",
+          "cmdy": "step2"
         }
       },
       Dox: <nil>,

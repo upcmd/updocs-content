@@ -1,6 +1,6 @@
 ---
 title: "c0195_vvvvv"
-date: 2020-09-18T01:27:59+99:00
+date: 2020-10-06T23:46:28+1010:00
 draft: false
 weight: 11954
 
@@ -23,6 +23,8 @@ weight: 11954
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11954
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c9240)(<nil>)
+    (*impl.Scopes)(0xc000175260)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11954
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -70,11 +72,11 @@ weight: 11954
       Name: "",
       Do: {
         {
-          "name": "tmpFile",
           "cmd": {
-            "content": "hello, world",
-            "reg": "myfile"
-          }
+            "reg": "myfile",
+            "content": "hello, world"
+          },
+          "name": "tmpFile"
         },
         {
           "name": "print",
@@ -88,8 +90,8 @@ weight: 11954
           }
         },
         {
-          "cmd": "file content: {{.my_file_content}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "file content: {{.my_file_content}}"
         }
       },
       Dox: <nil>,
@@ -108,8 +110,8 @@ weight: 11954
       Timeout: 0,
       Finally: {
         {
-          "do": "cat {{.myfile}}",
-          "func": "shell"
+          "func": "shell",
+          "do": "cat {{.myfile}}"
         },
         {
           "func": "shell",
@@ -153,22 +155,22 @@ weight: 11954
     tmp file handler: myfile
     filename: {{.myfile}}
     ~SubStep2: [print:  ]
-    filename: /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306
+    filename: /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706
     map[filename:{{.myfile}} reg:my_file_content]
     ~SubStep3: [readFile:  ]
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "my_file_content": "hello, world",
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306"
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
+      "my_file_content": "hello, world"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
+      "my_file_content": "hello, world",
       "up_runtime_task_layer_number": 0,
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
-      "my_file_content": "hello, world"
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706"
     })
     
     file content: {{.my_file_content}}
@@ -201,10 +203,10 @@ weight: 11954
     
     current exec runtime vars:
     (*core.Cache)({
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
       "my_file_content": "hello, world",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706"
     })
     
     [local] dvar expanded result:
@@ -213,17 +215,17 @@ weight: 11954
     
     
     scope[local] merged: {
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
-      "my_file_content": "hello, world",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
+      "my_file_content": "hello, world"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
       "my_file_content": "hello, world",
       "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
@@ -233,21 +235,22 @@ weight: 11954
     cat {{.myfile}}
     
     cmd=>:
-    cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306
+    cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706
     -
     hello, world
     -
      .. ok
     (utils.ExecResult) {
-     Cmd: (string) (len=42) "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+     Cmd: (string) (len=42) "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
      Code: (int) 0,
      Output: (string) (len=12) "hello, world",
      ErrMsg: (string) ""
     }
     
     . ok
-    -Step2: [: this shows you delete the tmp file in step finally
-     ]
+    -Step2: [
+    this shows you delete the tmp file in step finally
+    ]
     {
       Name: "",
       Do: "rm -f {{.myfile}}",
@@ -272,15 +275,15 @@ weight: 11954
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
-        Cmd: "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+        Cmd: "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
       }),
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
+      "my_file_content": "hello, world",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
-      "my_file_content": "hello, world"
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     [local] dvar expanded result:
@@ -289,31 +292,31 @@ weight: 11954
     
     
     scope[local] merged: {
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
       "my_file_content": "hello, world",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "last_result": (*utils.ExecResult)({
-        Cmd: "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+        Cmd: "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "last_result": (*utils.ExecResult)({
-        Cmd: "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+        Cmd: "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
         Code: 0,
         Output: "hello, world",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
       "my_file_content": "hello, world"
     })
     
@@ -321,13 +324,13 @@ weight: 11954
     rm -f {{.myfile}}
     
     cmd=>:
-    rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306
+    rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706
     -
     
     -
      .. ok
     (utils.ExecResult) {
-     Cmd: (string) (len=44) "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+     Cmd: (string) (len=44) "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
      Code: (int) 0,
      Output: (string) "",
      ErrMsg: (string) ""
@@ -360,16 +363,16 @@ weight: 11954
     
     current exec runtime vars:
     (*core.Cache)({
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
-      "my_file_content": "hello, world",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "last_result": (*utils.ExecResult)({
-        Cmd: "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+        Cmd: "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
+      "my_file_content": "hello, world",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -378,57 +381,58 @@ weight: 11954
     
     
     scope[local] merged: {
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
       "my_file_content": "hello, world",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "last_result": (*utils.ExecResult)({
-        Cmd: "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+        Cmd: "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
-      "my_file_content": "hello, world",
       "last_result": (*utils.ExecResult)({
-        Cmd: "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+        Cmd: "rm -f /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
         Code: 0,
         Output: "",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
+      "my_file_content": "hello, world"
     })
     
     cmd( 1):
     cat {{.myfile}}
     
     cmd=>:
-    cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306
+    cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706
     -
-    cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306': No such file or directory
+    cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706': No such file or directory
     
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
-     Cmd: (string) (len=42) "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+     Cmd: (string) (len=42) "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
      Code: (int) 1,
      Output: (string) "",
-     ErrMsg: (string) (len=84) "cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306': No such file or directory\n"
+     ErrMsg: (string) (len=84) "cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706': No such file or directory\n"
     }
     
      WARN: [ignoreError:] - [Error ignored!!!]
     task Finally:
-    Step1: [: this shows you delete the tmp file in task finally
+    Step1: [
+    this shows you delete the tmp file in task finally
     this is deactivated
     just for reference
-     ]
+    ]
     {
       Name: "",
       Do: <nil>,
@@ -477,10 +481,10 @@ weight: 11954
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
       "my_file_content": "hello, world",
       "last_result": (*utils.ExecResult)(<nil>),
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306"
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -489,10 +493,10 @@ weight: 11954
     
     
     scope[local] merged: {
+      "my_file_content": "hello, world",
       "last_result": (*utils.ExecResult)(<nil>),
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
       "up_runtime_task_layer_number": 0,
-      "my_file_content": "hello, world"
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706"
     }
     
     
@@ -501,25 +505,25 @@ weight: 11954
     (*core.Cache)({
       "my_file_content": "hello, world",
       "last_result": (*utils.ExecResult)(<nil>),
-      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "myfile": "/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706"
     })
     
     cmd( 1):
     cat {{.myfile}}
     
     cmd=>:
-    cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306
+    cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706
     -
-    cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306': No such file or directory
+    cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706': No such file or directory
     
     -
      .. failed(suppressed if it is not the last step)
     (utils.ExecResult) {
-     Cmd: (string) (len=42) "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306",
+     Cmd: (string) (len=42) "cat /tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706",
      Code: (int) 1,
      Output: (string) "",
-     ErrMsg: (string) (len=84) "cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84807381306': No such file or directory\n"
+     ErrMsg: (string) (len=84) "cat: can't open '/tmp/BpLnfgDsc2WD8F2qNfHK5a84592347706': No such file or directory\n"
     }
     
      WARN: [ignoreError:] - [Error ignored!!!]

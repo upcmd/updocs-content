@@ -1,6 +1,6 @@
 ---
 title: "c0127_vvvv"
-date: 2020-09-18T01:27:43+99:00
+date: 2020-10-06T23:46:14+1010:00
 draft: false
 weight: 11273
 
@@ -23,6 +23,8 @@ weight: 11273
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11273
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -78,15 +80,15 @@ weight: 11273
     -Step2: [: show example the route goes to call goelse for the condition of not if condition succeeds ]
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     })
     
       located task-> 3 [goelse]: 
@@ -137,8 +139,8 @@ weight: 11273
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     ~~SubStep1: [print:  ]
@@ -157,8 +159,8 @@ weight: 11273
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -177,8 +179,8 @@ weight: 11273
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -190,8 +192,8 @@ weight: 11273
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": false
     })
     
     self: final context exec vars:
@@ -244,15 +246,15 @@ weight: 11273
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
+      "goahead": true,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": true,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     })
     
     ~~SubStep1: [print:  ]

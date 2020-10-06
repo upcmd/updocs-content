@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvvv"
-date: 2020-09-18T01:27:35+99:00
+date: 2020-10-06T23:46:06+1010:00
 draft: false
 weight: 10884
 
@@ -23,6 +23,8 @@ weight: 10884
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,45 +37,45 @@ weight: 10884
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00025b060)(<nil>)
+    (*impl.Scopes)(0xc0000984e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
         "address": {
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "cbd": true
           },
           "school": "Sydney Grammar"
-        },
-        "name": "Tom"
+        }
       }
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc0000c6130)((len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
       (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
        (string) (len=6) "suburb": (map[string]interface {}) (len=3) {
-        (string) (len=3) "cbd": (bool) true,
         (string) (len=4) "name": (string) (len=6) "sydney",
-        (string) (len=8) "postcode": (int) 2000
+        (string) (len=8) "postcode": (int) 2000,
+        (string) (len=3) "cbd": (bool) true
        },
        (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
       }
      }
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -82,20 +84,20 @@ weight: 10884
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "cbd": true
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: use dynamic dir instead of static ref dir ]
@@ -148,9 +150,7 @@ weight: 10884
     
     current exec runtime vars:
     (*core.Cache)({
-      "dynadir": "./tests/functests",
       "student": {
-        "gender": "Male",
         "address": {
           "suburb": {
             "cbd": true,
@@ -159,9 +159,11 @@ weight: 10884
           },
           "school": "Sydney Grammar"
         },
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "dynadir": "./tests/functests"
     })
     
     dvar> sgp_address_dyna_dir:
@@ -179,9 +181,9 @@ weight: 10884
     {
       "address": {
         "suburb": {
+          "CBD": true,
           "name": "sydney",
-          "postcode": 2000,
-          "CBD": true
+          "postcode": 2000
         },
         "school": "Sydney Grammar"
       }
@@ -189,6 +191,35 @@ weight: 10884
     
     [local] dvar expanded result:
     {
+      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "sgp_address_dyna_dir_object": {
+        "address": {
+          "suburb": {
+            "CBD": true,
+            "name": "sydney",
+            "postcode": 2000
+          },
+          "school": "Sydney Grammar"
+        }
+      }
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "dynadir": "./tests/functests",
+      "student": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male"
+      },
       "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "sgp_address_dyna_dir_object": {
         "address": {
@@ -203,17 +234,20 @@ weight: 10884
     }
     
     
-    scope[local] merged: {
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "dynadir": "./tests/functests",
       "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "sgp_address_dyna_dir_object": {
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
-            "name": "sydney",
             "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
+            "CBD": true,
+            "name": "sydney"
+          }
         }
       },
       "student": {
@@ -227,38 +261,6 @@ weight: 10884
         },
         "name": "Tom",
         "gender": "Male"
-      },
-      "up_runtime_task_layer_number": 0
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          },
-          "school": "Sydney Grammar"
-        },
-        "name": "Tom"
-      },
-      "up_runtime_task_layer_number": 0,
-      "dynadir": "./tests/functests",
-      "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "sgp_address_dyna_dir_object": {
-        "address": {
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          },
-          "school": "Sydney Grammar"
-        }
       }
     })
     

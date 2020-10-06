@@ -1,6 +1,6 @@
 ---
 title: "c0047_vvvvv"
-date: 2020-09-18T01:27:28+99:00
+date: 2020-10-06T23:45:58+1010:00
 draft: false
 weight: 10474
 
@@ -23,6 +23,8 @@ weight: 10474
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,7 +37,7 @@ weight: 10474
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1240)((len=1 cap=1) {
+    (*impl.Scopes)(0xc000173240)((len=1 cap=1) {
      (impl.Scope) {
       Name: (string) (len=6) "global",
       Ref: (string) "",
@@ -90,23 +92,23 @@ weight: 10474
     
     ---------group vars----------
     
-    global: {
+    global: (*core.Cache)({
       "student_name": "Tom Hanks",
       "student_age": "28"
-    }
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
-    }
+    (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "student_age": "28"
+    })
     
-    (core.Cache) (len=2) {
-     (string) (len=11) "student_age": (string) (len=2) "28",
-     (string) (len=12) "student_name": (string) (len=9) "Tom Hanks"
-    }
+    (*core.Cache)(0xc0000b6960)((len=2) {
+     (string) (len=12) "student_name": (string) (len=9) "Tom Hanks",
+     (string) (len=11) "student_age": (string) (len=2) "28"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -116,11 +118,11 @@ weight: 10474
     
     -------runtime global final merged with dvars-------
     
-    {
-      "student_name": "Tom Hanks",
+    (*core.Cache)({
       "student_age": "28",
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
-    }
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "student_name": "Tom Hanks"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]

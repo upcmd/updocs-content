@@ -1,6 +1,6 @@
 ---
 title: "0003_vvvvv"
-date: 2020-09-18T01:28:26+99:00
+date: 2020-10-06T23:46:54+1010:00
 draft: false
 weight: 100304
 
@@ -23,6 +23,8 @@ weight: 100304
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0003
@@ -35,23 +37,23 @@ weight: 100304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022a9c0)(<nil>)
+    (*impl.Scopes)(0xc000177160)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "a": "caller-aaa"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc0000b68f0)((len=1) {
      (string) (len=1) "a": (string) (len=10) "caller-aaa"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 100304
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "a": "caller-aaa"
-    }
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -110,8 +112,8 @@ weight: 100304
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "a": "caller-aaa"
+      "a": "caller-aaa",
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (hello-module.Say_world)::
@@ -130,21 +132,21 @@ weight: 100304
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022bbc0)(<nil>)
+    (*impl.Scopes)(0xc0002223c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6aa8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -153,8 +155,8 @@ weight: 100304
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_world]
     Executing tasker layer: 2
@@ -172,18 +174,18 @@ weight: 100304
           "cmd": "... module world\na: {{.a}}\nb: {{.b}}\n"
         },
         {
-          "name": "assert",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          }
+          },
+          "name": "assert"
         },
         {
+          "name": "return",
           "desc": "var b should be return to caler\n",
           "cmd": {
             "b"
-          },
-          "name": "return"
+          }
         }
       },
       Dox: <nil>,
@@ -209,10 +211,10 @@ weight: 100304
     
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-aaa",
       "b": "module-bbb",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     [local] dvar expanded result:
@@ -221,20 +223,20 @@ weight: 100304
     
     
     scope[local] merged: {
-      "a": "caller-aaa",
       "b": "module-bbb",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2,
+      "a": "caller-aaa"
     })
     
     ... module world
@@ -275,12 +277,12 @@ weight: 100304
           "cmd": "back to main caller\na: {{.a}}\nb: {{.b}}\n"
         },
         {
-          "name": "assert",
-          "des": "var b is returned from module\n",
           "cmd": {
             "{{eq .a \"caller-aaa\"}}",
             "{{eq .b \"module-bbb\"}}"
-          }
+          },
+          "name": "assert",
+          "des": "var b is returned from module\n"
         }
       },
       Dox: <nil>,
@@ -325,20 +327,20 @@ weight: 100304
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
-      "b": "module-bbb"
+      "b": "module-bbb",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [exec_vars exec_base_vars]
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
       "a": "caller-aaa",
       "b": "module-bbb",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
      2: inspect[exec_base_vars]

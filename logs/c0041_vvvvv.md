@@ -1,6 +1,6 @@
 ---
 title: "c0041_vvvvv"
-date: 2020-09-18T01:27:27+99:00
+date: 2020-10-06T23:45:57+1010:00
 draft: false
 weight: 10414
 
@@ -23,6 +23,8 @@ weight: 10414
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10414
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5120)(<nil>)
+    (*impl.Scopes)(0xc0001dd160)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0001028f0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10414
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: test the exit scenarios due to different types of validation ]
@@ -325,13 +327,13 @@ weight: 10414
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:

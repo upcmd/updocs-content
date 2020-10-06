@@ -1,6 +1,6 @@
 ---
 title: "c0162_vvvv"
-date: 2020-09-18T01:27:51+99:00
+date: 2020-10-06T23:46:22+1010:00
 draft: false
 weight: 11623
 
@@ -23,6 +23,8 @@ weight: 11623
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11623
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -57,9 +59,9 @@ weight: 11623
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "my_friend": "joe doe",
       "who_is_trusted": "my_friend",
+      "up_runtime_task_layer_number": 0,
       "friends": {
         "tom",
         "jane",
@@ -77,10 +79,10 @@ weight: 11623
         "hans",
         "coook"
       },
-      "countries": "- Austraila\n- US\n- China\n- Japan\n",
-      "up_runtime_task_layer_number": 0,
       "my_friend": "joe doe",
-      "who_is_trusted": "my_friend"
+      "who_is_trusted": "my_friend",
+      "countries": "- Austraila\n- US\n- China\n- Japan\n",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -103,15 +105,15 @@ weight: 11623
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "my_friend": "john",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "my_friend": "john"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_friend": "john",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "my_friend": "john"
     })
     
     ~SubStep1: [print:  ]

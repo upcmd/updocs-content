@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvvv"
-date: 2020-09-18T01:27:24+99:00
+date: 2020-10-06T23:45:54+1010:00
 draft: false
 weight: 10244
 
@@ -23,6 +23,8 @@ weight: 10244
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,50 +37,50 @@ weight: 10244
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf040)(<nil>)
+    (*impl.Scopes)(0xc00000c4c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e128)((len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
-      (string) (len=4) "name": (string) (len=3) "Tom"
+      (string) (len=4) "name": (string) (len=3) "Tom",
+      (string) (len=6) "gender": (string) (len=4) "Male"
      }
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
-      "studentgender": "Male",
-      "studentname": "Tom"
+      "studentname": "Tom",
+      "studentgender": "Male"
     }
     
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
-        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "school": "Sydney Grammar"
       },
       "studentname": "Tom",
       "studentgender": "Male"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -113,14 +115,14 @@ weight: 10244
     
     current exec runtime vars:
     (*core.Cache)({
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "studentname": "Tom",
       "studentgender": "Male",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "studentname": "Tom"
     })
     
     [local] dvar expanded result:
@@ -143,14 +145,14 @@ weight: 10244
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "studentname": "Tom",
-      "studentgender": "Male"
+      "studentgender": "Male",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

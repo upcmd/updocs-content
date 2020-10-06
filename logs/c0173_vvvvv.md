@@ -1,6 +1,6 @@
 ---
 title: "c0173_vvvvv"
-date: 2020-09-18T01:27:53+99:00
+date: 2020-10-06T23:46:24+1010:00
 draft: false
 weight: 11734
 
@@ -23,6 +23,8 @@ weight: 11734
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11734
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5300)(<nil>)
+    (*impl.Scopes)(0xc0001e7360)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "global_aaa": "aaa"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000126918)((len=1) {
      (string) (len=10) "global_aaa": (string) (len=3) "aaa"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11734
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "global_aaa": "aaa"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -105,8 +107,8 @@ weight: 11734
           "func": "cmd",
           "do": {
             {
-              "cmd": "global aaa: {{.global_aaa}}",
-              "name": "print"
+              "name": "print",
+              "cmd": "global aaa: {{.global_aaa}}"
             },
             {
               "name": "print",
@@ -138,9 +140,9 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
-      "global_aaa": "aaa",
       "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa"
+      "local_aaa": "local_aaa",
+      "global_aaa": "aaa"
     })
     
     [local] dvar expanded result:
@@ -149,9 +151,9 @@ weight: 11734
     
     
     scope[local] merged: {
+      "local_aaa": "local_aaa",
       "global_aaa": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa"
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -177,8 +179,8 @@ weight: 11734
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "global aaa: {{.global_aaa}}"
+          "cmd": "global aaa: {{.global_aaa}}",
+          "name": "print"
         },
         {
           "name": "print",
@@ -205,10 +207,10 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
-      "global_aaa": "aaa",
       "up_runtime_task_layer_number": 0,
       "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa"
     })
     
     [local] dvar expanded result:
@@ -239,8 +241,9 @@ weight: 11734
     local aaa: {{.local_aaa}}
     ~SubStep2: [print:  ]
     local aaa: local_aaa
-    -Step2: [close_file: ensure the opened file is closed
-     ]
+    -Step2: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -266,10 +269,10 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
+      "local_aaa": "local_aaa",
       "global_aaa": "aaa",
       "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "local_aaa": "local_aaa"
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     })
     
     [local] dvar expanded result:
@@ -278,20 +281,20 @@ weight: 11734
     
     
     scope[local] merged: {
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "local_aaa": "local_aaa",
       "global_aaa": "aaa",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "local_aaa": "local_aaa",
       "global_aaa": "aaa",
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -341,16 +344,16 @@ weight: 11734
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
       "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>)
+      })
     })
     
     [local] dvar expanded result:
@@ -359,22 +362,24 @@ weight: 11734
     
     
     scope[local] merged: {
+      "local_aaa": "local_aaa",
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "global_aaa": "aaa"
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
+      "global_aaa": "aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
@@ -382,9 +387,7 @@ weight: 11734
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "local_aaa": "local_aaa",
-      "up_runtime_shell_exec_result": (*utils.ExecResult)(<nil>),
-      "global_aaa": "aaa"
+      "local_aaa": "local_aaa"
     })
     
     extra step
@@ -428,8 +431,8 @@ weight: 11734
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "global_aaa": "aaa"
+      "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -439,13 +442,13 @@ weight: 11734
     
     scope[local] merged: {
       "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     }
     
     
@@ -453,13 +456,13 @@ weight: 11734
     
     (*core.Cache)({
       "global_aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     step 2

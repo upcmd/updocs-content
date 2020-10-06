@@ -1,6 +1,6 @@
 ---
 title: "c0189_vvvv"
-date: 2020-09-18T01:27:58+99:00
+date: 2020-10-06T23:46:27+1010:00
 draft: false
 weight: 11893
 
@@ -23,6 +23,8 @@ weight: 11893
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11893
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "global_aa": "aa"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "global_aa": "aa"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: without rescue, the execution will return a non-zero  return code in shell and also report the error
@@ -87,14 +89,15 @@ weight: 11893
      .. ok
     . ok
     task Finally:
-    Step1: [close_file: ensure the opened file is closed
-     ]
+    Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "global_aa": "aa",
-      "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
-      "finally_cc": "cc"
+      "finally_cc": "cc",
+      "global_aa": "aa",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:

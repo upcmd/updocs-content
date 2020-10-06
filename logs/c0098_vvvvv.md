@@ -1,6 +1,6 @@
 ---
 title: "c0098_vvvvv"
-date: 2020-09-18T01:27:37+99:00
+date: 2020-10-06T23:46:08+1010:00
 draft: false
 weight: 10984
 
@@ -23,6 +23,8 @@ weight: 10984
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,24 +37,24 @@ weight: 10984
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c10e0)(<nil>)
+    (*impl.Scopes)(0xc0001e50e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
+              "gender": "Male",
               "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
+              "name": "Tom"
             }
           }
         }
@@ -60,32 +62,32 @@ weight: 10984
       "aaa": "aaa",
       "datapointer": "student",
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
-    }
+    })
     
-    (core.Cache) (len=4) {
-     (string) (len=3) "nsw": (map[string]interface {}) (len=1) {
-      (string) (len=6) "sydney": (map[string]interface {}) (len=1) {
-       (string) (len=8) "sgschool": (map[string]interface {}) (len=1) {
-        (string) (len=7) "student": (map[string]interface {}) (len=3) {
-         (string) (len=4) "name": (string) (len=3) "Tom",
-         (string) (len=6) "gender": (string) (len=4) "Male",
-         (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
-        }
-       }
-      }
-     },
-     (string) (len=3) "aaa": (string) (len=3) "aaa",
+    (*core.Cache)(0xc000126958)((len=4) {
      (string) (len=11) "datapointer": (string) (len=7) "student",
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
       (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
-     }
-    }
+     },
+     (string) (len=3) "nsw": (map[string]interface {}) (len=1) {
+      (string) (len=6) "sydney": (map[string]interface {}) (len=1) {
+       (string) (len=8) "sgschool": (map[string]interface {}) (len=1) {
+        (string) (len=7) "student": (map[string]interface {}) (len=3) {
+         (string) (len=6) "gender": (string) (len=4) "Male",
+         (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+         (string) (len=4) "name": (string) (len=3) "Tom"
+        }
+       }
+      }
+     },
+     (string) (len=3) "aaa": (string) (len=3) "aaa"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -94,14 +96,14 @@ weight: 10984
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "nsw": {
         "sydney": {
           "sgschool": {
             "student": {
-              "school": "Sydney Grammar",
               "name": "Tom",
-              "gender": "Male"
+              "gender": "Male",
+              "school": "Sydney Grammar"
             }
           }
         }
@@ -109,11 +111,11 @@ weight: 10984
       "aaa": "aaa",
       "datapointer": "student",
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -165,45 +167,7 @@ weight: 10984
     
     current exec runtime vars:
     (*core.Cache)({
-      "datapointer": "student",
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "nsw": {
-        "sydney": {
-          "sgschool": {
-            "student": {
-              "school": "Sydney Grammar",
-              "name": "Tom",
-              "gender": "Male"
-            }
-          }
-        }
-      },
-      "aaa": "aaa",
-      "up_runtime_task_layer_number": 0
-    })
-    
-    (string) (len=11) "sub yml str"
-    
-    (string) (len=97) "sydney:\n  sgschool:\n    student:\n      gender: Male\n      name: Tom\n      school: Sydney Grammar\n"
-    
-    dvar> student_info:
-    "my name is:<no value> and I am in <no value>"
-    
-    -
-    my name is:<no value> and I am in <no value>
-    [local] dvar expanded result:
-    {
-      "student_info": "my name is:<no value> and I am in <no value>"
-    }
-    
-    
-    scope[local] merged: {
       "up_runtime_task_layer_number": 0,
-      "student_info": "my name is:<no value> and I am in <no value>",
       "datapointer": "student",
       "student": {
         "school": "Sydney Grammar",
@@ -222,12 +186,51 @@ weight: 10984
         }
       },
       "aaa": "aaa"
+    })
+    
+    (string) (len=11) "sub yml str"
+    
+    (string) (len=97) "sydney:\n  sgschool:\n    student:\n      gender: Male\n      name: Tom\n      school: Sydney Grammar\n"
+    
+    dvar> student_info:
+    "my name is:<no value> and I am in <no value>"
+    
+    -
+    my name is:<no value> and I am in <no value>
+    [local] dvar expanded result:
+    {
+      "student_info": "my name is:<no value> and I am in <no value>"
+    }
+    
+    
+    scope[local] merged: {
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "nsw": {
+        "sydney": {
+          "sgschool": {
+            "student": {
+              "name": "Tom",
+              "gender": "Male",
+              "school": "Sydney Grammar"
+            }
+          }
+        }
+      },
+      "aaa": "aaa",
+      "up_runtime_task_layer_number": 0,
+      "student_info": "my name is:<no value> and I am in <no value>",
+      "datapointer": "student"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "datapointer": "student",
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
@@ -237,17 +240,16 @@ weight: 10984
         "sydney": {
           "sgschool": {
             "student": {
+              "name": "Tom",
               "gender": "Male",
-              "school": "Sydney Grammar",
-              "name": "Tom"
+              "school": "Sydney Grammar"
             }
           }
         }
       },
       "aaa": "aaa",
       "up_runtime_task_layer_number": 0,
-      "student_info": "my name is:<no value> and I am in <no value>",
-      "datapointer": "student"
+      "student_info": "my name is:<no value> and I am in <no value>"
     })
     
     {{.student_info}}

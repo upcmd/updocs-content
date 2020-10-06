@@ -1,6 +1,6 @@
 ---
 title: "f0188_vvvvv"
-date: 2020-09-18T01:28:05+99:00
+date: 2020-10-06T23:46:35+1010:00
 draft: false
 weight: 11884
 
@@ -23,6 +23,8 @@ weight: 11884
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11884
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1400)(<nil>)
+    (*impl.Scopes)(0xc0001e5400)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc000126908)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,15 +60,16 @@ weight: 11884
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: expect sub_task to close file each time in loop iteration
-     ]
+    -Step1: [
+    expect sub_task to close file each time in loop iteration
+    ]
     {
       Name: "",
       Do: {
@@ -134,8 +137,8 @@ weight: 11884
       Name: "",
       Do: {
         {
-          "cmd": "case {{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "case {{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -180,10 +183,10 @@ weight: 11884
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "item1",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "item1"
     })
     
     case {{.loopitem}}
@@ -216,10 +219,10 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item1"
+      "loopitem": "item1",
+      "loopindex": 0
     })
     
     [local] dvar expanded result:
@@ -228,28 +231,29 @@ weight: 11884
     
     
     scope[local] merged: {
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item1"
+      "loopitem": "item1",
+      "loopindex": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "item1",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "item1"
     })
     
     condition failed, skip executing step step1
     
-    --Step3: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    --Step3: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     {
       Name: "step2",
       Do: {
@@ -278,11 +282,11 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)(<nil>),
       "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1,
-      "last_result": (*utils.ExecResult)(<nil>)
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -291,30 +295,31 @@ weight: 11884
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)(<nil>),
       "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "last_result": (*utils.ExecResult)(<nil>)
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "item1",
       "loopindex": 0,
       "loopindex1": 1,
       "last_result": (*utils.ExecResult)(<nil>),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "item1"
     })
     
     step 2
     ~~SubStep1: [print:  ]
     step 2
     task Finally:
-    -Step1: [close_file: ensure the opened file is closed
-     ]
+    -Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -340,10 +345,10 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [local] dvar expanded result:
@@ -352,20 +357,20 @@ weight: 11884
     
     
     scope[local] merged: {
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "item1",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "item1"
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -411,8 +416,8 @@ weight: 11884
       Name: "",
       Do: {
         {
-          "cmd": "case {{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "case {{.loopitem}}"
         }
       },
       Dox: <nil>,
@@ -435,16 +440,16 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "item2",
+      "loopindex": 1,
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "item2",
-      "loopindex": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -453,23 +458,22 @@ weight: 11884
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
@@ -478,7 +482,8 @@ weight: 11884
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     case {{.loopitem}}
@@ -511,6 +516,7 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 1,
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
@@ -519,8 +525,7 @@ weight: 11884
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item2",
-      "loopindex": 1
+      "loopitem": "item2"
     })
     
     [local] dvar expanded result:
@@ -529,6 +534,8 @@ weight: 11884
     
     
     scope[local] merged: {
+      "loopitem": "item2",
+      "loopindex": 1,
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
@@ -536,25 +543,23 @@ weight: 11884
         Output: "close the file .....",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "item2",
-      "loopindex": 1
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "item2",
+      "loopindex": 1,
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "item2",
-      "loopindex": 1
+      })
     })
     
     cmd( 1):
@@ -593,8 +598,9 @@ weight: 11884
     task Finally:
     Recovered from:   ERROR: Failed And Not Ignored! [You may want to continue and ignore the error]
     
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -620,10 +626,10 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -632,10 +638,10 @@ weight: 11884
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "loopitem": "item2",
       "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 2
     }
     
     
@@ -694,8 +700,8 @@ weight: 11884
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "case {{.loopitem}}"
+          "cmd": "case {{.loopitem}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -736,6 +742,8 @@ weight: 11884
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "item3",
       "loopindex": 2,
       "loopindex1": 3,
       "last_result": (*utils.ExecResult)({
@@ -743,9 +751,7 @@ weight: 11884
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "item3"
+      })
     }
     
     
@@ -794,24 +800,7 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"close the file .....\"",
-        Code: 0,
-        Output: "close the file .....",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 2,
       "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "loopindex": 2,
       "loopindex1": 3,
       "last_result": (*utils.ExecResult)({
@@ -820,38 +809,56 @@ weight: 11884
         Output: "close the file .....",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 2
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
       "up_runtime_task_layer_number": 2,
-      "loopitem": "item3"
+      "loopitem": "item3",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"close the file .....\"",
+        Code: 0,
+        Output: "close the file .....",
+        ErrMsg: ""
+      })
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "item3",
+      "loopindex": 2,
+      "loopindex1": 3,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3
+      })
     })
     
     condition failed, skip executing step step1
     
-    ---Step3: [step2: in this case, since there is no ignoreError, the exception was captured by task level finaly code block
+    ---Step3: [
+    step2in this case, since there is no ignoreError, the exception was captured by task level finaly code block
     opened file is safely closed
     to make the flow to continue to reach step2, use ignoreError
-     ]
+    ]
     {
       Name: "step2",
       Do: {
         {
-          "name": "print",
-          "cmd": "step 2"
+          "cmd": "step 2",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -874,11 +881,11 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "loopitem": "item3",
       "loopindex": 2,
       "loopindex1": 3,
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -898,19 +905,20 @@ weight: 11884
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 3,
+      "last_result": (*utils.ExecResult)(<nil>),
       "up_runtime_task_layer_number": 2,
       "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "last_result": (*utils.ExecResult)(<nil>)
+      "loopindex": 2
     })
     
     step 2
     ~~~SubStep1: [print:  ]
     step 2
     task Finally:
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -936,10 +944,10 @@ weight: 11884
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "item3",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "item3"
+      "up_runtime_task_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -948,20 +956,20 @@ weight: 11884
     
     
     scope[local] merged: {
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 2,
       "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 2,
-      "loopitem": "item3"
+      "loopitem": "item3",
+      "loopindex": 2,
+      "loopindex1": 3
     })
     
     cmd( 1):

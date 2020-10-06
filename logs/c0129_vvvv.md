@@ -1,6 +1,6 @@
 ---
 title: "c0129_vvvv"
-date: 2020-09-18T01:27:44+99:00
+date: 2020-10-06T23:46:15+1010:00
 draft: false
 weight: 11293
 
@@ -23,6 +23,8 @@ weight: 11293
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,25 +38,25 @@ weight: 11293
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "b": "global_bbb",
       "c": "global_ccc",
       "a": "global_aaa"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "b": "global_bbb",
+    (*core.Cache)({
       "c": "global_ccc",
-      "a": "global_aaa"
-    }
+      "a": "global_aaa",
+      "b": "global_bbb"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -65,41 +67,41 @@ weight: 11293
     (*core.Cache)({
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "a": "local_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db",
-      "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 0,
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db",
+      "a": "local_aaa",
+      "b": "local_bbb"
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "da": "local_da",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 0,
-      "db": "local_db",
-      "da": "local_da"
+      "db": "local_db"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "da": "local_da",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
       "up_runtime_task_layer_number": 0,
-      "db": "local_db",
-      "da": "local_da"
+      "db": "local_db"
     })
     
     cmd( 1):
@@ -126,35 +128,35 @@ weight: 11293
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "b": "local_bbb",
-      "c": "global_ccc",
-      "a": "block_layer1_aaa",
       "up_runtime_task_layer_number": 0,
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db",
+      "a": "block_layer1_aaa",
+      "b": "local_bbb",
+      "c": "global_ccc"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "db": "local_db",
+      "a": "block_layer1_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "block_layer1_aaa",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da"
     })
     
     ~SubStep1: [print:  ]
@@ -169,35 +171,35 @@ weight: 11293
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "db": "local_db",
       "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
       "c": "global_ccc",
-      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da"
+      "a": "local_aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "b": "local_bbb",
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
       "c": "global_ccc",
-      "a": "local_aaa",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step2\"",
         Code: 0,
         Output: "shell step2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db"
+      "a": "local_aaa"
     })
     
     cmd( 1):
@@ -224,57 +226,57 @@ weight: 11293
     -Step4: [: test embeded 2nd layer of block ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "da": "local_da",
+      "db": "local_db",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
       }),
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
       "a": "local_block_layer2_aaa",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db"
+      "b": "local_block_layer2_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "local_block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
       "up_runtime_task_layer_number": 0,
       "da": "local_da_layer2",
       "db": "local_db_layer2",
+      "c": "global_ccc",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"shell step4\"",
         Code: 0,
         Output: "shell step4",
         ErrMsg: ""
-      }),
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
-      "a": "local_block_layer2_aaa"
+      })
     })
     
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "local_block_layer2_bbb",
-      "c": "global_ccc",
-      "a": "block_layer2_aaa",
       "up_runtime_task_layer_number": 0,
       "da": "local_da_layer2",
-      "db": "local_db_layer2"
+      "db": "local_db_layer2",
+      "a": "block_layer2_aaa",
+      "b": "local_block_layer2_bbb",
+      "c": "global_ccc"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "db": "local_db_layer2",
       "b": "local_block_layer2_bbb",
       "c": "global_ccc",
-      "a": "block_layer2_aaa",
       "up_runtime_task_layer_number": 0,
-      "da": "local_da_layer2"
+      "da": "local_da_layer2",
+      "db": "local_db_layer2",
+      "a": "block_layer2_aaa"
     })
     
     ~SubStep1: [print:  ]
@@ -289,23 +291,23 @@ weight: 11293
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0,
       "da": "local_da",
       "db": "local_db",
-      "b": "local_bbb",
-      "c": "global_ccc",
       "a": "local_aaa",
-      "up_runtime_task_layer_number": 0
+      "b": "local_bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "da": "local_da",
+      "db": "local_db",
+      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
-      "a": "local_aaa",
-      "up_runtime_task_layer_number": 0,
-      "da": "local_da",
-      "db": "local_db"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

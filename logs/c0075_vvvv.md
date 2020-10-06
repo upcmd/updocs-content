@@ -1,6 +1,6 @@
 ---
 title: "c0075_vvvv"
-date: 2020-09-18T01:27:32+99:00
+date: 2020-10-06T23:46:03+1010:00
 draft: false
 weight: 10753
 
@@ -23,6 +23,8 @@ weight: 10753
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,20 +38,20 @@ weight: 10753
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       }
-    }
+    })
     
     dvar> var_with_range:
     " x  x  x "
@@ -90,20 +92,20 @@ weight: 10753
      peter  peter  peter 
     -------runtime global final merged with dvars-------
     
-    {
-      "var_to_ref_to_outside_of_range_from_within_range": " ",
-      "var_directly_ref_to": "peter",
-      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+    (*core.Cache)({
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range": " x  x  x ",
-      "var_with_range_item": " tom  jason  alice ",
-      "var_with_range_item_simpler": " tom  jason  alice "
-    }
+      "var_to_ref_to_outside_of_range_from_within_range": " ",
+      "var_directly_ref_to": "peter",
+      "var_to_ref_to_outside_of_range_from_within_range_fixed": " peter  peter  peter ",
+      "var_with_range": " x  x  x "
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]

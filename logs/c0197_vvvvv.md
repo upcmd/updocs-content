@@ -1,6 +1,6 @@
 ---
 title: "c0197_vvvvv"
-date: 2020-09-18T01:28:00+99:00
+date: 2020-10-06T23:46:28+1010:00
 draft: false
 weight: 11974
 
@@ -23,6 +23,8 @@ weight: 11974
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11974
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175060)(<nil>)
+    (*impl.Scopes)(0xc0001e50c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0001268e0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11974
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -146,44 +148,43 @@ weight: 11974
     })
     
     dvar> value_encrypted:
-    "vm1RckLUOmPJfbVzM2k4PcAgaBYc5rncOBkFqMU1s3w="
+    "TgOZ8cq0oq7JhIdvZ2PjgEbPmF4q/Zw5QHHoM4POXm0="
     
     -
-    vm1RckLUOmPJfbVzM2k4PcAgaBYc5rncOBkFqMU1s3w=
+    TgOZ8cq0oq7JhIdvZ2PjgEbPmF4q/Zw5QHHoM4POXm0=
     [local] dvar expanded result:
     {
+      "envVar_ENV_AAA": "ENV_AAA",
+      "value_encrypted": "TgOZ8cq0oq7JhIdvZ2PjgEbPmF4q/Zw5QHHoM4POXm0=",
       "ENV_BBB": "I_AM_ENV_VAR_BBB",
       "envVar_ENV_BBB": "I_AM_ENV_VAR_BBB",
       "ENV_AAA": "tdRdCpkHCVz0xzzkthoPUsD6yS6w439zPMDNUot84mM=",
-      "secure_ENV_AAA": "ENV_AAA",
-      "envVar_ENV_AAA": "ENV_AAA",
-      "value_encrypted": "vm1RckLUOmPJfbVzM2k4PcAgaBYc5rncOBkFqMU1s3w="
+      "secure_ENV_AAA": "ENV_AAA"
     }
     
     
     scope[local] merged: {
-      "secure_ENV_AAA": "ENV_AAA",
-      "envVar_ENV_AAA": "ENV_AAA",
       "up_runtime_task_layer_number": 0,
       "enc_key": "my_enc_key",
-      "value_encrypted": "vm1RckLUOmPJfbVzM2k4PcAgaBYc5rncOBkFqMU1s3w=",
+      "value_encrypted": "TgOZ8cq0oq7JhIdvZ2PjgEbPmF4q/Zw5QHHoM4POXm0=",
       "ENV_BBB": "I_AM_ENV_VAR_BBB",
       "envVar_ENV_BBB": "I_AM_ENV_VAR_BBB",
-      "ENV_AAA": "tdRdCpkHCVz0xzzkthoPUsD6yS6w439zPMDNUot84mM="
+      "ENV_AAA": "tdRdCpkHCVz0xzzkthoPUsD6yS6w439zPMDNUot84mM=",
+      "secure_ENV_AAA": "ENV_AAA",
+      "envVar_ENV_AAA": "ENV_AAA"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "envVar_ENV_AAA": "ENV_AAA",
+      "value_encrypted": "TgOZ8cq0oq7JhIdvZ2PjgEbPmF4q/Zw5QHHoM4POXm0=",
       "ENV_BBB": "I_AM_ENV_VAR_BBB",
       "envVar_ENV_BBB": "I_AM_ENV_VAR_BBB",
       "ENV_AAA": "tdRdCpkHCVz0xzzkthoPUsD6yS6w439zPMDNUot84mM=",
-      "secure_ENV_AAA": "ENV_AAA",
-      "envVar_ENV_AAA": "ENV_AAA",
       "up_runtime_task_layer_number": 0,
-      "enc_key": "my_enc_key",
-      "value_encrypted": "vm1RckLUOmPJfbVzM2k4PcAgaBYc5rncOBkFqMU1s3w="
+      "enc_key": "my_enc_key"
     })
     
     cmd( 1):
@@ -195,7 +196,7 @@ weight: 11974
     cmd=>:
     echo """normal env var: $ENV_BBB"""
     echo """expected decrypted secure env var: $ENV_AAA"""
-    echo """normal secure var: ENV_AAA"""
+    echo """normal secure var: SECURE_SENSITIVE_INFO_MASKED"""
     
     -
     normal env var: I_AM_ENV_VAR_BBB

@@ -1,6 +1,6 @@
 ---
 title: "c0105_vvvvv"
-date: 2020-09-18T01:27:38+99:00
+date: 2020-10-06T23:46:09+1010:00
 draft: false
 weight: 11054
 
@@ -23,6 +23,8 @@ weight: 11054
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11054
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001ef300)(<nil>)
+    (*impl.Scopes)(0xc0001bf3c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e928)((len=1) {
      (string) (len=3) "tom": (string) (len=11) "this is tom"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11054
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -73,8 +75,8 @@ weight: 11054
       Name: "",
       Do: {
         {
-          "cmd": "{{.tom}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "{{.tom}}"
         },
         {
           "name": "print",
@@ -123,9 +125,9 @@ weight: 11054
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "up_runtime_task_layer_number": 0,
-      "jerry": "this is jerry"
+      "jerry": "this is jerry",
+      "tom": "this is tom"
     })
     
     {{.tom}}
@@ -232,9 +234,9 @@ weight: 11054
         {
           "name": "reg",
           "cmd": {
-            "name": "hijerry",
             "desc": "hijerry is registered to local scope only",
-            "value": "hello, jerry"
+            "value": "hello, jerry",
+            "name": "hijerry"
           },
           "flags": {
             "localOnly"
@@ -267,8 +269,8 @@ weight: 11054
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
-      "up_runtime_task_layer_number": 0,
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -278,16 +280,16 @@ weight: 11054
     
     scope[local] merged: {
       "hitom": "hello, this is tom",
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "tom": "this is tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "hitom": "hello, this is tom",
       "tom": "this is tom",
+      "hitom": "hello, this is tom",
       "up_runtime_task_layer_number": 0
     })
     
@@ -299,17 +301,17 @@ weight: 11054
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
       "tom": "this is tom",
+      "hitom": "hello, this is tom",
       "up_runtime_task_layer_number": 0,
-      "hijerry": "hello, jerry",
-      "hitom": "hello, this is tom"
+      "hijerry": "hello, jerry"
     })
     
     {{.hijerry}}
@@ -345,8 +347,8 @@ weight: 11054
     
     current exec runtime vars:
     (*core.Cache)({
-      "tom": "this is tom",
       "hitom": "hello, this is tom",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 0
     })
     
@@ -356,8 +358,8 @@ weight: 11054
     
     
     scope[local] merged: {
-      "hitom": "hello, this is tom",
       "up_runtime_task_layer_number": 0,
+      "hitom": "hello, this is tom",
       "tom": "this is tom"
     }
     
@@ -365,9 +367,9 @@ weight: 11054
     self: final context exec vars:
     
     (*core.Cache)({
-      "hitom": "hello, this is tom",
+      "tom": "this is tom",
       "up_runtime_task_layer_number": 0,
-      "tom": "this is tom"
+      "hitom": "hello, this is tom"
     })
     
     {{.hijerry}}

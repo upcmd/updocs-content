@@ -1,6 +1,6 @@
 ---
 title: "c0059_vvvv"
-date: 2020-09-18T01:27:29+99:00
+date: 2020-10-06T23:46:00+1010:00
 draft: false
 weight: 10593
 
@@ -23,6 +23,8 @@ weight: 10593
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10593
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     loading [flow ref]:  ./tests/functests/c0059-task-ref.yml
       located task-> 1 [task]: 
@@ -113,13 +115,13 @@ weight: 10593
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"step3\"",
         Code: 0,
         Output: "step3",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10124
 
@@ -23,6 +23,8 @@ weight: 10124
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,27 +37,27 @@ weight: 10124
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bef60)(<nil>)
+    (*impl.Scopes)(0xc00023efc0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "e": "runtime-e",
+    (*core.Cache)({
       "k": "runtime-k",
-      "a": "runtime-a"
-    }
+      "a": "runtime-a",
+      "e": "runtime-e"
+    })
     
-    (core.Cache) (len=3) {
-     (string) (len=1) "a": (string) (len=9) "runtime-a",
+    (*core.Cache)(0xc00000e900)((len=3) {
      (string) (len=1) "e": (string) (len=9) "runtime-e",
-     (string) (len=1) "k": (string) (len=9) "runtime-k"
-    }
+     (string) (len=1) "k": (string) (len=9) "runtime-k",
+     (string) (len=1) "a": (string) (len=9) "runtime-a"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -64,11 +66,11 @@ weight: 10124
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "k": "runtime-k",
       "a": "runtime-a",
       "e": "runtime-e"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -102,9 +104,9 @@ weight: 10124
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "k": "runtime-k",
       "a": "runtime-a",
-      "e": "runtime-e"
+      "e": "runtime-e",
+      "k": "runtime-k"
     })
     
     [local] dvar expanded result:
@@ -113,9 +115,9 @@ weight: 10124
     
     
     scope[local] merged: {
-      "k": "runtime-k",
       "a": "runtime-a",
       "e": "runtime-e",
+      "k": "runtime-k",
       "up_runtime_task_layer_number": 0
     }
     
@@ -123,10 +125,10 @@ weight: 10124
     self: final context exec vars:
     
     (*core.Cache)({
-      "k": "runtime-k",
+      "up_runtime_task_layer_number": 0,
       "a": "runtime-a",
       "e": "runtime-e",
-      "up_runtime_task_layer_number": 0
+      "k": "runtime-k"
     })
     
     cmd( 1):

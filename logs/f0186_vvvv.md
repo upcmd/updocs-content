@@ -1,6 +1,6 @@
 ---
 title: "f0186_vvvv"
-date: 2020-09-18T01:28:05+99:00
+date: 2020-10-06T23:46:34+1010:00
 draft: false
 weight: 11863
 
@@ -23,6 +23,8 @@ weight: 11863
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11863
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -69,17 +71,17 @@ weight: 11863
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "loopindex": 0,
       "loopindex1": 1,
-      "loopitem": "item1",
-      "loopindex": 0
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "item1"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 0,
       "loopitem": "item1",
       "loopindex": 0
     })
@@ -93,17 +95,17 @@ weight: 11863
     (*core.Cache)({
       "loopitem": "item1",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopindex1": 1,
       "loopitem": "item1",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -111,19 +113,19 @@ weight: 11863
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "loopitem": "item1",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 1,
       "loopindex1": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "item1",
-      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
-      "loopindex1": 1
+      "loopitem": "item1",
+      "loopindex": 0
     })
     
       located task-> 3 [sub_task_layer2]: 
@@ -135,19 +137,19 @@ weight: 11863
     ---Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 2,
       "loopitem": "aaa",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 2,
       "loopindex1": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
-      "loopitem": "aaa",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 2
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "aaa"
     })
     
     cmd( 1):
@@ -170,22 +172,23 @@ weight: 11863
     -
      .. failed(suppressed if it is not the last step)
     task Finally:
-    ---Step1: [close_file: ensure the opened file is closed
-     ]
+    ---Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "aaa",
       "loopindex": 0,
-      "up_runtime_task_layer_number": 2,
       "loopindex1": 1,
-      "loopitem": "aaa"
+      "up_runtime_task_layer_number": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "loopindex": 0,
-      "up_runtime_task_layer_number": 2,
       "loopindex1": 1,
+      "up_runtime_task_layer_number": 2,
       "loopitem": "aaa"
     })
     
@@ -212,31 +215,31 @@ weight: 11863
     ----Step1: [step1: step 1 ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "loopitem": "bbb",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"close the file .....\"",
-        Code: 0,
-        Output: "close the file .....",
-        ErrMsg: ""
-      }),
-      "loopindex": 1,
-      "up_runtime_task_layer_number": 3
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex": 1,
       "up_runtime_task_layer_number": 3,
-      "loopindex1": 2,
       "loopitem": "bbb",
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
         Output: "close the file .....",
         ErrMsg: ""
       })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex1": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"close the file .....\"",
+        Code: 0,
+        Output: "close the file .....",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 3,
+      "loopitem": "bbb",
+      "loopindex": 1
     })
     
     cmd( 1):
@@ -259,23 +262,24 @@ weight: 11863
     -
      .. failed(suppressed if it is not the last step)
     task Finally:
-    ----Step1: [close_file: ensure the opened file is closed
-     ]
+    ----Step1: [
+    close_fileensure the opened file is closed
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 3,
-      "loopindex1": 2,
       "loopitem": "bbb",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "up_runtime_task_layer_number": 3,
       "loopindex1": 2,
-      "loopitem": "bbb"
+      "up_runtime_task_layer_number": 3,
+      "loopitem": "bbb",
+      "loopindex": 1
     })
     
     cmd( 1):

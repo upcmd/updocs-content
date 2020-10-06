@@ -1,6 +1,6 @@
 ---
 title: "c0168_vvvv"
-date: 2020-09-18T01:27:52+99:00
+date: 2020-10-06T23:46:23+1010:00
 draft: false
 weight: 11683
 
@@ -23,6 +23,8 @@ weight: 11683
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,28 +38,29 @@ weight: 11683
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: loopRange func will generate a range list named myloop
+    -Step1: [
+    loopRange func will generate a range list named myloop
     myloop will be registered as local var
     the loop will use myloop to iterate through
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -86,10 +89,11 @@ weight: 11683
     4
     ~SubStep1: [print:  ]
     5
-    -Step2: [: same as above, it will register a range list named my range
+    -Step2: [
+    same as above, it will register a range list named my range
     myrange list's name is then returned from the func call in loopRange, then
     the name myrange will be used to refer to that var registered already
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "myloop": {
@@ -105,14 +109,14 @@ weight: 11683
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "myloop": {
         1,
         2,
         3,
         4,
         5
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
     ~SubStep1: [print:  ]

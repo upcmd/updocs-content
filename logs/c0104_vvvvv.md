@@ -1,6 +1,6 @@
 ---
 title: "c0104_vvvvv"
-date: 2020-09-18T01:27:38+99:00
+date: 2020-10-06T23:46:09+1010:00
 draft: false
 weight: 11044
 
@@ -23,6 +23,8 @@ weight: 11044
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11044
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf480)(<nil>)
+    (*impl.Scopes)(0xc0001c14e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "extra_task_name": "post_task"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e948)((len=1) {
      (string) (len=15) "extra_task_name": (string) (len=9) "post_task"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11044
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "extra_task_name": "post_task"
-    }
+    })
     
       located task-> 4 [task]: 
     Task4: [task ==> task: this is the task and expect the final message (hello I love this world) ]
@@ -161,14 +163,14 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -191,14 +193,14 @@ weight: 11044
     self: final context exec vars:
     
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "extra_task_name": "post_task"
     })
     
     caller's vars to task (post_task)::
@@ -243,14 +245,14 @@ weight: 11044
     
     current exec runtime vars:
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
     })
     
     [local] dvar expanded result:
@@ -259,28 +261,28 @@ weight: 11044
     
     
     scope[local] merged: {
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \" I love this \"",
         Code: 0,
         Output: "I love this",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "extra_task_name": "post_task"
     })
     
     cmd( 1):
@@ -303,14 +305,14 @@ weight: 11044
     . ok
     caller's vars to task (2ndtask)::
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "extra_task_name": "post_task",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"world\"",
         Code: 0,
         Output: "world",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "extra_task_name": "post_task"
     })
     
       located task-> 3 [2ndtask]: 

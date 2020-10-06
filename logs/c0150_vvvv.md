@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvv"
-date: 2020-09-18T01:27:49+99:00
+date: 2020-10-06T23:46:19+1010:00
 draft: false
 weight: 11503
 
@@ -23,6 +23,8 @@ weight: 11503
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11503
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 3 [task]: 
     Task3: [task ==> task: build the showcases automatically ]
@@ -119,7 +121,6 @@ weight: 11503
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
@@ -132,7 +133,8 @@ weight: 11503
         Output: "Linux",
         ErrMsg: ""
       }),
-      "os": "Linux"
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -192,8 +194,8 @@ weight: 11503
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux"
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1
     })
     
     ~SubStep1: [print:  ]

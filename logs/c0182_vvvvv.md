@@ -1,6 +1,6 @@
 ---
 title: "c0182_vvvvv"
-date: 2020-09-18T01:27:56+99:00
+date: 2020-10-06T23:46:26+1010:00
 draft: false
 weight: 11824
 
@@ -23,6 +23,8 @@ weight: 11824
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11824
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001750a0)(<nil>)
+    (*impl.Scopes)(0xc00023f160)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11824
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -138,8 +140,9 @@ weight: 11824
     (*utils.ExecResult)(<nil>)
     
     Recovered from: manual trigger a panic cmd
-    -Step1: [close_file: ensure the opened file is closed
-     ]
+    -Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {

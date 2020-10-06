@@ -1,6 +1,6 @@
 ---
 title: "c0076_vvvv"
-date: 2020-09-18T01:27:33+99:00
+date: 2020-10-06T23:46:03+1010:00
 draft: false
 weight: 10763
 
@@ -23,6 +23,8 @@ weight: 10763
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10763
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: test the exit scenarios due to different types of validation ]
@@ -77,12 +79,41 @@ weight: 10763
     -
      .. ok
     . ok
-    -Step2: [: test register a variable to global vars
+    -Step2: [
+    test register a variable to global vars
     the reg_hello should be <no value> since this is a template action
     you should really use dvar name void instead
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo hanks",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "hellomsg": "hanks",
+      "reg_hello": "hanks\n\n"
+    })
+    
+     WARN: [cmd] - [Not implemented or void for no action!]
+    -Step3:
+    current exec runtime vars:
+    (*core.Cache)({
+      "hellomsg": "hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
@@ -97,40 +128,12 @@ weight: 10763
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
       "hellomsg": "hanks",
-      "reg_hello": "hanks\n\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo hanks",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       })
-    })
-    
-     WARN: [cmd] - [Not implemented or void for no action!]
-    -Step3:
-    current exec runtime vars:
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo hanks",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "up_runtime_task_layer_number": 0
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo hanks",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -154,23 +157,24 @@ weight: 10763
     -
      .. ok
     . ok
-    -Step4: [: the reg_tom's value is a object, but since reg_tom is only a local, it
+    -Step4: [
+    the reg_tom's value is a object, but since reg_tom is only a local, it
     will probably not very useful
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "person": {
-        "name": "tom",
-        "age": 18
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
       }),
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
+      "person": {
+        "name": "tom",
+        "age": 18
+      }
     })
     
     dvar> local_tom:
@@ -184,48 +188,30 @@ weight: 10763
     self: final context exec vars:
     
     (*core.Cache)({
-      "hellomsg": "hanks",
-      "up_runtime_task_layer_number": 0,
-      "person": {
-        "age": 18,
-        "name": "tom"
-      },
-      "tom": {
-        "name": "tom",
-        "age": 18
-      },
       "local_tom": "my name is tom\nage: 18\nname: tom\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0,
+      "person": {
+        "name": "tom",
+        "age": 18
+      },
+      "tom": {
+        "name": "tom",
+        "age": 18
+      }
     })
     
     ~SubStep1: [reg:  ]
     -Step5: [: debug the results ]
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hanks\"",
-        Code: 0,
-        Output: "hanks",
-        ErrMsg: ""
-      }),
-      "hellomsg": "hanks",
-      "tom": {
-        "age": 18,
-        "name": "tom"
-      },
-      "global_tom": "my name is tom\nage: 18\nname: tom\n",
-      "up_runtime_task_layer_number": 0,
-      "objname": "global_tom"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
+      "objname": "global_tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
@@ -238,8 +224,26 @@ weight: 10763
         "age": 18
       },
       "global_tom": "my name is tom\nage: 18\nname: tom\n",
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "hellomsg": "hanks",
+      "tom": {
+        "name": "tom",
+        "age": 18
+      },
+      "global_tom": "my name is tom\nage: 18\nname: tom\n",
       "up_runtime_task_layer_number": 0,
-      "objname": "global_tom"
+      "objname": "global_tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hanks\"",
+        Code: 0,
+        Output: "hanks",
+        ErrMsg: ""
+      })
     })
     
     ~SubStep1: [print: this local_tom should be <no value> as it is in scope of last step ]

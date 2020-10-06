@@ -1,6 +1,6 @@
 ---
 title: "c0094_vvvvv"
-date: 2020-09-18T01:27:36+99:00
+date: 2020-10-06T23:46:07+1010:00
 draft: false
 weight: 10944
 
@@ -23,6 +23,8 @@ weight: 10944
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10944
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bd2e0)(<nil>)
+    (*impl.Scopes)(0xc0002592c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0001828f8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10944
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -98,9 +100,9 @@ weight: 10944
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "layer1_bbb": "layer1_bbb",
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -118,19 +120,19 @@ weight: 10944
     self: final context exec vars:
     
     (*core.Cache)({
+      "layer1_bbb": "layer1_bbb",
       "up_runtime_task_layer_number": 0,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "layer1_aaa": "layer1_aaa"
     })
     
     caller's vars to task (layer2)::
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 0,
-      "layer1_aaa": "layer1_aaa"
+      "loopindex1": 1
     })
     
       located task-> 2 [layer2]: 
@@ -146,8 +148,8 @@ weight: 10944
           "cmd": "hello {{.loopitem}}"
         },
         {
-          "name": "print",
-          "cmd": "hello layer1_aaa: {{.layer1_aaa}}"
+          "cmd": "hello layer1_aaa: {{.layer1_aaa}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -170,12 +172,12 @@ weight: 10944
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-tom"
+      "loopitem": "layer1-tom",
+      "loopindex": 0
     })
     
     [local] dvar expanded result:
@@ -184,24 +186,24 @@ weight: 10944
     
     
     scope[local] merged: {
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-tom"
+      "loopitem": "layer1-tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     hello {{.loopitem}}
@@ -243,12 +245,12 @@ weight: 10944
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -257,24 +259,24 @@ weight: 10944
     
     
     scope[local] merged: {
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-tom",
-      "loopindex": 0
+      "loopitem": "layer1-tom"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa"
     })
     
     hello {{.loopitem}}
@@ -285,12 +287,12 @@ weight: 10944
     hello layer1_bbb: layer1_bbb
     caller's vars to task (layer2)::
     (*core.Cache)({
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
       "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb"
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
       located task-> 2 [layer2]: 
@@ -308,79 +310,6 @@ weight: 10944
         {
           "name": "print",
           "cmd": "hello layer1_aaa: {{.layer1_aaa}}"
-        }
-      },
-      Dox: <nil>,
-      Func: "cmd",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter"
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa"
-    })
-    
-    hello {{.loopitem}}
-    ~~SubStep1: [print:  ]
-    hello layer1-peter
-    hello layer1_aaa: {{.layer1_aaa}}
-    ~~SubStep2: [print:  ]
-    hello layer1_aaa: layer1_aaa
-    --Step2:
-    {
-      Name: "",
-      Do: {
-        {
-          "cmd": "hello {{.loopitem}}",
-          "name": "print"
-        },
-        {
-          "name": "print",
-          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
         }
       },
       Dox: <nil>,
@@ -429,12 +358,85 @@ weight: 10944
     self: final context exec vars:
     
     (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
       "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    hello {{.loopitem}}
+    ~~SubStep1: [print:  ]
+    hello layer1-peter
+    hello layer1_aaa: {{.layer1_aaa}}
+    ~~SubStep2: [print:  ]
+    hello layer1_aaa: layer1_aaa
+    --Step2:
+    {
+      Name: "",
+      Do: {
+        {
+          "name": "print",
+          "cmd": "hello {{.loopitem}}"
+        },
+        {
+          "name": "print",
+          "cmd": "hello layer1_bbb: {{.layer1_bbb}}"
+        }
+      },
+      Dox: <nil>,
+      Func: "cmd",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter"
+      "loopitem": "layer1-peter",
+      "loopindex": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     hello {{.loopitem}}
@@ -445,12 +447,12 @@ weight: 10944
     hello layer1_bbb: layer1_bbb
     caller's vars to task (layer2)::
     (*core.Cache)({
-      "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-james",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "layer1_aaa": "layer1_aaa"
     })
     
       located task-> 2 [layer2]: 
@@ -490,12 +492,12 @@ weight: 10944
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james"
+      "loopitem": "layer1-james",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -504,24 +506,24 @@ weight: 10944
     
     
     scope[local] merged: {
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james",
       "loopindex": 2,
       "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-james"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-james",
       "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 3
     })
     
     hello {{.loopitem}}
@@ -535,8 +537,8 @@ weight: 10944
       Name: "",
       Do: {
         {
-          "cmd": "hello {{.loopitem}}",
-          "name": "print"
+          "name": "print",
+          "cmd": "hello {{.loopitem}}"
         },
         {
           "name": "print",
@@ -563,12 +565,12 @@ weight: 10944
     
     current exec runtime vars:
     (*core.Cache)({
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-james",
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james"
+      "layer1_aaa": "layer1_aaa"
     })
     
     [local] dvar expanded result:
@@ -577,12 +579,12 @@ weight: 10944
     
     
     scope[local] merged: {
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james"
+      "loopitem": "layer1-james",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     }
     
     

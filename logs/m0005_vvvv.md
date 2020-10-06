@@ -1,6 +1,6 @@
 ---
 title: "0005_vvvv"
-date: 2020-09-18T01:28:27+99:00
+date: 2020-10-06T23:46:55+1010:00
 draft: false
 weight: 100503
 
@@ -23,6 +23,8 @@ weight: 100503
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0005
@@ -36,25 +38,25 @@ weight: 100503
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "e": "caller-global-eee"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "b": "caller-global-bbb",
+    (*core.Cache)({
       "e": "caller-global-eee",
-      "a": "caller-global-aaa"
-    }
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb"
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -63,19 +65,19 @@ weight: 100503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "a": "caller-global-aaa",
-      "up_runtime_task_layer_number": 0
+      "a": "caller-global-aaa"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "b": "caller-global-bbb",
+      "e": "caller-global-eee"
     })
     
     ~SubStep1: [inspect: the vars in caller before invoking module task ]
@@ -98,18 +100,18 @@ weight: 100503
     current exec runtime vars:
     (*core.Cache)({
       "a": "caller-global-aaa",
+      "up_runtime_task_layer_number": 0,
       "b": "caller-global-bbb",
-      "e": "caller-global-eee",
-      "up_runtime_task_layer_number": 0
+      "e": "caller-global-eee"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "up_runtime_task_layer_number": 0
+      "a": "caller-global-aaa",
+      "up_runtime_task_layer_number": 0,
+      "b": "caller-global-bbb"
     })
     
      WARN: [config file does not exist] - [use builtin defaults]
@@ -123,23 +125,23 @@ weight: 100503
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
+    (*core.Cache)({
       "c": "module-global-ccc",
       "a": "module-global-aaa"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "c": "module-global-ccc",
-      "a": "module-global-aaa"
-    }
+    (*core.Cache)({
+      "a": "module-global-aaa",
+      "c": "module-global-ccc"
+    })
     
     =>call module: [hello-module] task: [Say_world]
     Executing tasker layer: 2
@@ -151,25 +153,25 @@ weight: 100503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-global-aaa",
-      "b": "caller-global-bbb",
-      "d": "module-local-ddd",
-      "e": "caller-global-eee",
       "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc"
+      "c": "module-global-ccc",
+      "e": "caller-global-eee",
+      "a": "caller-global-aaa",
+      "b": "caller-global-bbb",
+      "d": "module-local-ddd"
     })
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
+      "e": "caller-global-eee",
+      "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
-      "e": "caller-global-eee",
       "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
-      "a": "caller-global-aaa"
+      "c": "module-global-ccc"
     })
     
     ~SubStep1: [inspect: the result would be:
@@ -181,12 +183,12 @@ weight: 100503
      ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2,
-      "c": "module-global-ccc",
       "a": "caller-global-aaa",
       "b": "caller-global-bbb",
       "d": "module-local-ddd",
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2,
+      "c": "module-global-ccc",
       "e": "caller-global-eee"
     })
     
@@ -209,42 +211,42 @@ weight: 100503
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-global-aaa",
-      "c": "module-global-ccc",
+      "e": "caller-global-eee",
       "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2,
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee"
+      "a": "caller-global-aaa",
+      "c": "module-global-ccc",
+      "b": "caller-global-bbb"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "e": "caller-global-eee",
       "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2,
-      "b": "caller-global-bbb",
-      "e": "caller-global-eee",
       "a": "caller-global-aaa",
-      "c": "module-global-ccc"
+      "c": "module-global-ccc",
+      "b": "caller-global-bbb"
     })
     
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "c": "module-global-ccc",
-      "up_runtime_task_layer_number": 0,
       "up_runtime_tasker_layer_number": 2,
+      "a": "caller-global-aaa",
+      "c": "module-global-ccc",
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "up_runtime_task_layer_number": 0
     })
     
      2: inspect[exec_base_vars]
     {
-      "c": "module-global-ccc",
       "b": "caller-global-bbb",
       "e": "caller-global-eee",
-      "a": "caller-global-aaa"
+      "a": "caller-global-aaa",
+      "c": "module-global-ccc"
     }
     
     ~SubStep2: [assert:  ]

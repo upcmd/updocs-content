@@ -1,6 +1,6 @@
 ---
 title: "c0073_vvvvv"
-date: 2020-09-18T01:27:32+99:00
+date: 2020-10-06T23:46:03+1010:00
 draft: false
 weight: 10734
 
@@ -23,6 +23,8 @@ weight: 10734
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,33 +37,33 @@ weight: 10734
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001410e0)(<nil>)
+    (*impl.Scopes)(0xc0001750e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n"
-    }
+    })
     
-    (core.Cache) (len=6) {
+    (*core.Cache)(0xc0000b68f0)((len=6) {
+     (string) (len=21) "my_interesting_story6": (string) (len=14) "hello\nworld\n\n\n",
      (string) (len=21) "my_interesting_story1": (string) (len=12) "hello\nworld\n",
      (string) (len=21) "my_interesting_story2": (string) (len=11) "hello world",
      (string) (len=21) "my_interesting_story3": (string) (len=12) "hello world\n",
      (string) (len=21) "my_interesting_story4": (string) (len=11) "hello\nworld",
-     (string) (len=21) "my_interesting_story5": (string) (len=11) "hello world",
-     (string) (len=21) "my_interesting_story6": (string) (len=14) "hello\nworld\n\n\n"
-    }
+     (string) (len=21) "my_interesting_story5": (string) (len=11) "hello world"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -70,14 +72,14 @@ weight: 10734
     
     -------runtime global final merged with dvars-------
     
-    {
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
+    (*core.Cache)({
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
-    }
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "my_interesting_story6": "hello\nworld\n\n\n"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -97,9 +99,9 @@ weight: 10734
           "cmd": "[{{.my_interesting_story1}}]"
         },
         {
+          "name": "print",
           "desc": "there will be no a line break",
-          "cmd": "[{{.my_interesting_story2}}]",
-          "name": "print"
+          "cmd": "[{{.my_interesting_story2}}]"
         },
         {
           "name": "print",
@@ -149,14 +151,14 @@ weight: 10734
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "isnew": false,
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "up_runtime_task_layer_number": 0,
-      "isnew": false,
-      "my_interesting_story1": "hello\nworld\n"
+      "my_interesting_story5": "hello world"
     })
     
     [local] dvar expanded result:
@@ -165,14 +167,14 @@ weight: 10734
     
     
     scope[local] merged: {
-      "my_interesting_story4": "hello\nworld",
-      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
-      "up_runtime_task_layer_number": 0,
-      "isnew": false,
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
+      "up_runtime_task_layer_number": 0,
+      "isnew": false
     }
     
     
@@ -182,9 +184,9 @@ weight: 10734
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "up_runtime_task_layer_number": 0,
       "isnew": false,
+      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world"
     })
@@ -213,27 +215,27 @@ weight: 10734
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "my_interesting_story4": "hello\nworld"
+      "my_interesting_story3": "hello world\n"
     })
     
     after reg the var - local:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
+      "my_interesting_story3": "hello world\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "my_interesting_story2": "hello world",
       "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
-      "isnew": false,
-      "newstory_with_blank_space_front_and_tail": " same old story "
+      "up_runtime_task_layer_number": 0,
+      "isnew": false
     })
     
     map[name:newstory_clean value:{{if .isnew}}this is a new story{{else}}same old story{{end}}]
@@ -243,9 +245,9 @@ weight: 10734
     (*core.Cache)({
       "my_interesting_story3": "hello world\n",
       "my_interesting_story4": "hello\nworld",
+      "my_interesting_story5": "hello world",
       "newstory_with_blank_space_front_and_tail": " same old story ",
       "newstory_clean": "same old story",
-      "my_interesting_story5": "hello world",
       "my_interesting_story6": "hello\nworld\n\n\n",
       "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world"
@@ -254,16 +256,16 @@ weight: 10734
     after reg the var - local:
     
     (*core.Cache)({
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story4": "hello\nworld",
       "my_interesting_story5": "hello world",
-      "my_interesting_story6": "hello\nworld\n\n\n",
       "up_runtime_task_layer_number": 0,
-      "newstory_clean": "same old story",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story3": "hello world\n",
       "isnew": false,
-      "newstory_with_blank_space_front_and_tail": " same old story "
+      "my_interesting_story2": "hello world",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story3": "hello world\n",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
+      "newstory_clean": "same old story",
+      "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story1": "hello\nworld\n"
     })
     
     -Step2:
@@ -296,14 +298,14 @@ weight: 10734
     
     current exec runtime vars:
     (*core.Cache)({
-      "my_interesting_story3": "hello world\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story2": "hello world",
-      "my_interesting_story4": "hello\nworld",
       "newstory_clean": "same old story",
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story2": "hello world",
+      "my_interesting_story5": "hello world",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "up_runtime_task_layer_number": 0
     })
     
@@ -313,29 +315,29 @@ weight: 10734
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "my_interesting_story3": "hello world\n",
+      "newstory_clean": "same old story",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story5": "hello world",
       "my_interesting_story1": "hello\nworld\n",
-      "my_interesting_story4": "hello\nworld",
-      "newstory_clean": "same old story",
-      "my_interesting_story6": "hello\nworld\n\n\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
       "my_interesting_story2": "hello world",
-      "up_runtime_task_layer_number": 0,
-      "my_interesting_story3": "hello world\n"
+      "my_interesting_story4": "hello\nworld",
+      "my_interesting_story6": "hello\nworld\n\n\n"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "my_interesting_story3": "hello world\n",
-      "newstory_with_blank_space_front_and_tail": " same old story ",
-      "my_interesting_story5": "hello world",
-      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story2": "hello world",
       "my_interesting_story4": "hello\nworld",
       "newstory_clean": "same old story",
+      "my_interesting_story1": "hello\nworld\n",
       "my_interesting_story6": "hello\nworld\n\n\n",
+      "my_interesting_story3": "hello world\n",
+      "my_interesting_story5": "hello world",
+      "newstory_with_blank_space_front_and_tail": " same old story ",
       "up_runtime_task_layer_number": 0
     })
     

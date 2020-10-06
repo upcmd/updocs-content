@@ -1,6 +1,6 @@
 ---
 title: "c0012_vvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10123
 
@@ -23,6 +23,8 @@ weight: 10123
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,25 +38,25 @@ weight: 10123
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -72,10 +74,10 @@ weight: 10123
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "runtime-a",
       "e": "runtime-e",
       "up_runtime_task_layer_number": 0,
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "a": "runtime-a"
     })
     
     cmd( 1):

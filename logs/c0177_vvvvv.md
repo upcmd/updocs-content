@@ -1,6 +1,6 @@
 ---
 title: "c0177_vvvvv"
-date: 2020-09-18T01:27:54+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11774
 
@@ -23,6 +23,8 @@ weight: 11774
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,33 +37,33 @@ weight: 11774
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0000bc3a0)(<nil>)
+    (*impl.Scopes)(0xc000151080)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "env": "dev",
       "person": {
+        "age": 18,
         "name": "tom",
-        "sex": "male",
-        "age": 18
-      },
-      "env": "dev"
-    }
+        "sex": "male"
+      }
+    })
     
-    (core.Cache) (len=2) {
+    (*core.Cache)(0xc00000e918)((len=2) {
      (string) (len=6) "person": (map[string]interface {}) (len=3) {
       (string) (len=3) "age": (int) 18,
       (string) (len=4) "name": (string) (len=3) "tom",
       (string) (len=3) "sex": (string) (len=4) "male"
      },
      (string) (len=3) "env": (string) (len=3) "dev"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -70,22 +72,23 @@ weight: 11774
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "person": {
         "age": 18,
         "name": "tom",
         "sex": "male"
       },
       "env": "dev"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: this is a story about tom
      ]
     Executing task stack layer: 1
     
-    -Step1: [: tom is male
-     ]
+    -Step1: [
+    tom is male
+    ]
     {
       Name: "",
       Do: {
@@ -134,14 +137,14 @@ weight: 11774
     
     current exec runtime vars:
     (*core.Cache)({
+      "school": "sydney grammar",
       "person": {
         "name": "tom",
         "sex": "male",
         "age": 18
       },
       "env": "dev",
-      "up_runtime_task_layer_number": 0,
-      "school": "sydney grammar"
+      "up_runtime_task_layer_number": 0
     })
     
     Enter Value For [continue]: 
@@ -168,15 +171,15 @@ weight: 11774
     self: final context exec vars:
     
     (*core.Cache)({
-      "person": {
-        "age": 18,
-        "name": "tom",
-        "sex": "male"
-      },
       "env": "dev",
       "up_runtime_task_layer_number": 0,
       "school": "sydney grammar",
-      "continue": "N"
+      "continue": "N",
+      "person": {
+        "name": "tom",
+        "sex": "male",
+        "age": 18
+      }
     })
     
     what gender is {{.person.name}}

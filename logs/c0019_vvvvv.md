@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvvv"
-date: 2020-09-18T01:27:23+99:00
+date: 2020-10-06T23:45:53+1010:00
 draft: false
 weight: 10194
 
@@ -23,6 +23,8 @@ weight: 10194
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,31 +37,31 @@ weight: 10194
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001f6f20)(<nil>)
+    (*impl.Scopes)(0xc000174f80)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
       },
       "school": "sydney grammar"
-    }
+    })
     
-    (core.Cache) (len=2) {
+    (*core.Cache)(0xc0000b6908)((len=2) {
+     (string) (len=6) "school": (string) (len=14) "sydney grammar",
      (string) (len=2) "sg": (map[string]interface {}) (len=2) {
       (string) (len=4) "name": (string) (len=14) "sydney grammar",
       (string) (len=7) "address": (string) (len=16) "Sydney, NSW 2000"
-     },
-     (string) (len=6) "school": (string) (len=14) "sydney grammar"
-    }
+     }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -68,13 +70,13 @@ weight: 10194
     
     -------runtime global final merged with dvars-------
     
-    {
-      "school": "sydney grammar",
+    (*core.Cache)({
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
-      }
-    }
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
+      },
+      "school": "sydney grammar"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -112,13 +114,13 @@ weight: 10194
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "studentname": "Tom",
       "school": "sydney grammar",
       "sg": {
         "address": "Sydney, NSW 2000",
         "name": "sydney grammar"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -127,26 +129,26 @@ weight: 10194
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "studentname": "Tom",
       "school": "sydney grammar",
       "sg": {
-        "address": "Sydney, NSW 2000",
-        "name": "sydney grammar"
-      },
-      "up_runtime_task_layer_number": 0
+        "name": "sydney grammar",
+        "address": "Sydney, NSW 2000"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "studentname": "Tom",
+      "school": "sydney grammar",
       "sg": {
         "address": "Sydney, NSW 2000",
         "name": "sydney grammar"
-      },
-      "up_runtime_task_layer_number": 0,
-      "studentname": "Tom",
-      "school": "sydney grammar"
+      }
     })
     
     cmd( 1):

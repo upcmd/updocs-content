@@ -1,6 +1,6 @@
 ---
 title: "0009_vvvv"
-date: 2020-09-18T01:28:27+99:00
+date: 2020-10-06T23:46:55+1010:00
 draft: false
 weight: 100903
 
@@ -23,6 +23,8 @@ weight: 100903
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0009
@@ -36,19 +38,19 @@ weight: 100903
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]

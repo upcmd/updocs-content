@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvvv"
-date: 2020-09-18T01:27:44+99:00
+date: 2020-10-06T23:46:15+1010:00
 draft: false
 weight: 11314
 
@@ -23,6 +23,8 @@ weight: 11314
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11314
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175560)(<nil>)
+    (*impl.Scopes)(0xc0001c1620)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e948)((len=1) {
      (string) (len=7) "goahead": (bool) false
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11314
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -153,10 +155,10 @@ weight: 11314
           }
         },
         {
-          "func": "shell",
           "do": {
             "echo do something else step2 ......."
-          }
+          },
+          "func": "shell"
         },
         {
           "func": "cmd",
@@ -168,14 +170,14 @@ weight: 11314
           }
         },
         {
-          "desc": "show it is same that you could assemble a list of tasks for if true condition",
           "vars": {
             "goahead": true
           },
           "do": {
             "goelse"
           },
-          "func": "call"
+          "func": "call",
+          "desc": "show it is same that you could assemble a list of tasks for if true condition"
         }
       },
       Loop: <nil>,
@@ -199,8 +201,8 @@ weight: 11314
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "goahead": false
+      "goahead": false,
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -240,8 +242,8 @@ weight: 11314
     
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -291,8 +293,8 @@ weight: 11314
     
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     [local] dvar expanded result:
@@ -361,13 +363,13 @@ weight: 11314
     current exec runtime vars:
     (*core.Cache)({
       "goahead": false,
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -376,13 +378,13 @@ weight: 11314
     
     
     scope[local] merged: {
-      "goahead": false,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
       }),
+      "goahead": false,
       "up_runtime_task_layer_number": 0
     }
     
@@ -390,13 +392,13 @@ weight: 11314
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": false,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
       }),
+      "goahead": false,
       "up_runtime_task_layer_number": 0
     })
     
@@ -431,14 +433,14 @@ weight: 11314
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "goahead": true,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0,
+      "goahead": true
     })
     
     [local] dvar expanded result:
@@ -447,20 +449,6 @@ weight: 11314
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "goahead": true,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo do something else step2 .......",
-        Code: 0,
-        Output: "do something else step2 .......",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "goahead": true,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
@@ -469,6 +457,20 @@ weight: 11314
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "goahead": true,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      })
     })
     
     caller's vars to task (goelse)::
@@ -516,22 +518,6 @@ weight: 11314
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo do something else step2 .......",
-        Code: 0,
-        Output: "do something else step2 .......",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "goahead": true
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "goahead": true,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
@@ -540,20 +526,36 @@ weight: 11314
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo do something else step2 .......",
+        Code: 0,
+        Output: "do something else step2 .......",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "goahead": true,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     do something else .......

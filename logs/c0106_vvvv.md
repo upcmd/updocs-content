@@ -1,6 +1,6 @@
 ---
 title: "c0106_vvvv"
-date: 2020-09-18T01:27:38+99:00
+date: 2020-10-06T23:46:09+1010:00
 draft: false
 weight: 11063
 
@@ -23,6 +23,8 @@ weight: 11063
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11063
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "tom": "this is tom"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -107,9 +109,10 @@ weight: 11063
     
     ~~SubStep1: [print: should be <no value> since it is marked localOnly ]
     None
-    -Step2: [: check if hitom is available in global context
+    -Step2: [
+    check if hitom is available in global context
     it should be <no value> as hitom in sub1 is marked localOnly
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
@@ -119,8 +122,8 @@ weight: 11063
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print:  ]
@@ -146,8 +149,8 @@ weight: 11063
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "tom": "this is tom"
+      "tom": "this is tom",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -171,19 +174,20 @@ weight: 11063
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
       "up_runtime_task_layer_number": 1,
-      "hitom": "hello, this is tom"
+      "hitom": "hello, this is tom",
+      "tom": "this is tom"
     })
     
     ~~SubStep1: [print: by default hitom is accessible from global context, that's why it is accessiable cross func
     however this is only available in its own call stack global but not return and available to its parent var scope
      ]
     hello, this is tom
-    -Step4: [: check if hitom is available in global context
+    -Step4: [
+    check if hitom is available in global context
     though hitom was regiser as global var, but it was registered to its own call stack
     however this is only available in its own call stack global but not return and available to its parent var scope
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "tom": "this is tom",
@@ -193,8 +197,8 @@ weight: 11063
     self: final context exec vars:
     
     (*core.Cache)({
-      "tom": "this is tom",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "tom": "this is tom"
     })
     
     ~SubStep1: [print:  ]

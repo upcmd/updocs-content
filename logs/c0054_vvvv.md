@@ -1,6 +1,6 @@
 ---
 title: "c0054_vvvv"
-date: 2020-09-18T01:27:29+99:00
+date: 2020-10-06T23:45:59+1010:00
 draft: false
 weight: 10543
 
@@ -23,6 +23,8 @@ weight: 10543
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10543
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -119,7 +121,8 @@ weight: 10543
     
     condition failed, skip executing step 
     
-    -Step4: [: note that for one step, there will be only one
+    -Step4: [
+    note that for one step, there will be only one
     return, which will be the last do cmd
     in this case, since the step3 exit code is 0
     the whole step will have the return code of 0
@@ -127,18 +130,18 @@ weight: 10543
     you need to consider to reduce the number of do cmds
     or put it to last step, this is not a bug
     this is a feature
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "last_result": (*utils.ExecResult)(<nil>)
+      "last_result": (*utils.ExecResult)(<nil>),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)(<nil>),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "last_result": (*utils.ExecResult)(<nil>)
     })
     
     cmd( 1):
@@ -290,13 +293,13 @@ weight: 10543
     -Step7:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"true\"",
         Code: 0,
         Output: "true",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     self: final context exec vars:
@@ -360,13 +363,13 @@ weight: 10543
     -Step9:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "age": 23,
         "name": "peter",
-        "sex": "male",
-        "age": 23
+        "sex": "male"
       },
-      "last_result": (*utils.ExecResult)(<nil>),
-      "up_runtime_task_layer_number": 0
+      "last_result": (*utils.ExecResult)(<nil>)
     })
     
     dvar> condition:
@@ -401,18 +404,18 @@ weight: 10543
     -Step10:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"simple dvar as condition\"",
-        Code: 0,
-        Output: "simple dvar as condition",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"simple dvar as condition\"",
+        Code: 0,
+        Output: "simple dvar as condition",
+        ErrMsg: ""
+      })
     })
     
     dvar> condition:
@@ -460,9 +463,9 @@ weight: 10543
       }),
       "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "peter",
         "sex": "male",
-        "age": 23
+        "age": 23,
+        "name": "peter"
       }
     })
     
@@ -503,35 +506,35 @@ weight: 10543
     -Step12:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"a even more complicated condition but more readable\"",
-        Code: 0,
-        Output: "a even more complicated condition but more readable",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "student": {
-        "age": 23,
-        "name": "peter",
-        "sex": "male"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"a even more complicated condition but more readable\"",
-        Code: 0,
-        Output: "a even more complicated condition but more readable",
-        ErrMsg: ""
-      }),
       "up_runtime_task_layer_number": 0,
       "student": {
         "name": "peter",
         "sex": "male",
         "age": 23
-      }
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a even more complicated condition but more readable\"",
+        Code: 0,
+        Output: "a even more complicated condition but more readable",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student": {
+        "age": 23,
+        "name": "peter",
+        "sex": "male"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"a even more complicated condition but more readable\"",
+        Code: 0,
+        Output: "a even more complicated condition but more readable",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -545,9 +548,10 @@ weight: 10543
     -
      .. ok
     . ok
-    -Step13: [: show that complicated arg needs to be quoted using ()
+    -Step13: [
+    show that complicated arg needs to be quoted using ()
     otherwise it will cause gt to be confused
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -578,14 +582,14 @@ weight: 10543
     -Step14:
     current exec runtime vars:
     (*core.Cache)({
+      "doc": "hello",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"a complicated condition without dvar\"",
         Code: 0,
         Output: "a complicated condition without dvar",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "doc": "hello"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:

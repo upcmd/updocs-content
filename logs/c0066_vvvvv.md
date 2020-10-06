@@ -1,6 +1,6 @@
 ---
 title: "c0066_vvvvv"
-date: 2020-09-18T01:27:31+99:00
+date: 2020-10-06T23:46:02+1010:00
 draft: false
 weight: 10664
 
@@ -23,6 +23,8 @@ weight: 10664
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,31 +37,31 @@ weight: 10664
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf400)(<nil>)
+    (*impl.Scopes)(0xc0001e5400)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       }
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000126928)((len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
-      (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
-      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
+      (string) (len=6) "school": (string) (len=14) "Sydney Grammar",
+      (string) (len=4) "name": (string) (len=3) "Tom"
      }
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -68,13 +70,13 @@ weight: 10664
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -106,12 +108,12 @@ weight: 10664
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
-      },
-      "up_runtime_task_layer_number": 0
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      }
     })
     
     [local] dvar expanded result:
@@ -121,9 +123,9 @@ weight: 10664
     
     scope[local] merged: {
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "up_runtime_task_layer_number": 0
     }
@@ -133,9 +135,9 @@ weight: 10664
     
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -163,9 +165,9 @@ weight: 10664
       Name: "",
       Do: {
         {
+          "name": "print",
           "desc": "demo of print command",
-          "cmd": "hello, {{.student.school}}",
-          "name": "print"
+          "cmd": "hello, {{.student.school}}"
         },
         {
           "name": "reg",
@@ -176,25 +178,25 @@ weight: 10664
           }
         },
         {
-          "cmd": "hello, {{.greet}}",
           "name": "print",
-          "desc": "show above reg var greet and it is available immediately in current func\nunlike the reg in template, it is available in the next step func execution\n"
+          "desc": "show above reg var greet and it is available immediately in current func\nunlike the reg in template, it is available in the next step func execution\n",
+          "cmd": "hello, {{.greet}}"
         },
         {
+          "desc": "demo greetlocal is registered to local var only\nit is accessible in current func, but not next one\n",
           "cmd": {
-            "value": "hello, {{.student.school}}. registered to local func only",
-            "name": "greetlocal"
+            "name": "greetlocal",
+            "value": "hello, {{.student.school}}. registered to local func only"
           },
           "flags": {
             "localOnly"
           },
-          "name": "reg",
-          "desc": "demo greetlocal is registered to local var only\nit is accessible in current func, but not next one\n"
+          "name": "reg"
         },
         {
-          "cmd": "hello, {{.greetlocal}}",
           "name": "print",
-          "desc": "this show display a correct rendered value\n"
+          "desc": "this show display a correct rendered value\n",
+          "cmd": "hello, {{.greetlocal}}"
         }
       },
       Dox: <nil>,
@@ -253,29 +255,10 @@ weight: 10664
     
     
     scope[local] merged: {
-      "school": "Sydney Grammar",
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -285,6 +268,25 @@ weight: 10664
       }),
       "up_runtime_task_layer_number": 0,
       "school": "Sydney Grammar"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "school": "Sydney Grammar",
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      }
     })
     
     hello, {{.student.school}}
@@ -295,27 +297,27 @@ weight: 10664
     after reg the var - contextual global:
     
     (*core.Cache)({
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      })
     })
     
     after reg the var - local:
     
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -341,9 +343,9 @@ weight: 10664
     
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -358,9 +360,9 @@ weight: 10664
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -413,19 +415,19 @@ weight: 10664
     
     current exec runtime vars:
     (*core.Cache)({
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
       "up_runtime_task_layer_number": 0,
       "student": {
+        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      })
     })
     
     [local] dvar expanded result:
@@ -434,6 +436,11 @@ weight: 10664
     
     
     scope[local] merged: {
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
@@ -441,19 +448,13 @@ weight: 10664
         ErrMsg: ""
       }),
       "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "up_runtime_task_layer_number": 0,
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      }
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "student": {
         "school": "Sydney Grammar",
         "name": "Tom",
@@ -465,7 +466,8 @@ weight: 10664
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
+      "up_runtime_task_layer_number": 0
     })
     
     hello, {{.greetlocal}}
@@ -506,10 +508,11 @@ weight: 10664
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -517,8 +520,7 @@ weight: 10664
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "up_runtime_task_layer_number": 0
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     })
     
     [local] dvar expanded result:
@@ -527,10 +529,11 @@ weight: 10664
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -538,8 +541,7 @@ weight: 10664
         Output: "hello 1",
         ErrMsg: ""
       }),
-      "greet": "from local dvars, Sydney Grammar. registered to global runtime",
-      "up_runtime_task_layer_number": 0
+      "greet": "from local dvars, Sydney Grammar. registered to global runtime"
     }
     
     
@@ -547,9 +549,9 @@ weight: 10664
     
     (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
@@ -567,23 +569,6 @@ weight: 10664
     after reg the var - contextual global:
     
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      }),
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      }
-    })
-    
-    after reg the var - local:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "student": {
         "gender": "Male",
         "school": "Sydney Grammar",
@@ -597,9 +582,27 @@ weight: 10664
       })
     })
     
-    -Step5: [: you will see that greet var is removed from global var map
+    after reg the var - local:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "student": {
+        "school": "Sydney Grammar",
+        "name": "Tom",
+        "gender": "Male"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      })
+    })
+    
+    -Step5: [
+    you will see that greet var is removed from global var map
     you will see <no value> here
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -625,26 +628,6 @@ weight: 10664
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "student": {
-        "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello 1\"",
-        Code: 0,
-        Output: "hello 1",
-        ErrMsg: ""
-      })
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
@@ -653,10 +636,30 @@ weight: 10664
       }),
       "up_runtime_task_layer_number": 0,
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       }
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "school": "Sydney Grammar"
+      },
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello 1\"",
+        Code: 0,
+        Output: "hello 1",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -664,9 +667,9 @@ weight: 10664
     
     (*core.Cache)({
       "student": {
+        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar",
-        "name": "Tom"
+        "school": "Sydney Grammar"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",

@@ -1,6 +1,6 @@
 ---
 title: "c0064_vvvvv"
-date: 2020-09-18T01:27:30+99:00
+date: 2020-10-06T23:46:01+1010:00
 draft: false
 weight: 10644
 
@@ -23,6 +23,8 @@ weight: 10644
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,31 +37,31 @@ weight: 10644
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000176fa0)(<nil>)
+    (*impl.Scopes)(0xc0001c1060)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       }
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e918)((len=1) {
      (string) (len=7) "student": (map[string]interface {}) (len=3) {
       (string) (len=4) "name": (string) (len=3) "Tom",
       (string) (len=6) "gender": (string) (len=4) "Male",
       (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
      }
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -68,13 +70,13 @@ weight: 10644
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -106,12 +108,12 @@ weight: 10644
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
     [local] dvar expanded result:
@@ -121,9 +123,9 @@ weight: 10644
     
     scope[local] merged: {
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "up_runtime_task_layer_number": 0
     }
@@ -132,12 +134,12 @@ weight: 10644
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "Tom",
         "gender": "Male",
         "school": "Sydney Grammar"
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
     cmd( 1):
@@ -163,9 +165,9 @@ weight: 10644
       Name: "",
       Do: {
         {
-          "cmd": "hello, this is print commmand",
           "name": "print",
-          "desc": "print some info"
+          "desc": "print some info",
+          "cmd": "hello, this is print commmand"
         },
         {
           "name": "print",
@@ -196,6 +198,7 @@ weight: 10644
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
         "name": "Tom",
         "gender": "Male",
@@ -206,8 +209,7 @@ weight: 10644
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     [local] dvar expanded result:
@@ -234,18 +236,18 @@ weight: 10644
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "student": {
-        "name": "Tom",
         "gender": "Male",
-        "school": "Sydney Grammar"
+        "school": "Sydney Grammar",
+        "name": "Tom"
       },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello 1\"",
         Code: 0,
         Output: "hello 1",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     hello, this is print commmand

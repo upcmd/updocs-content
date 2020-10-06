@@ -1,6 +1,6 @@
 ---
 title: "c0019_vvvv"
-date: 2020-09-18T01:27:23+99:00
+date: 2020-10-06T23:45:53+1010:00
 draft: false
 weight: 10193
 
@@ -23,6 +23,8 @@ weight: 10193
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,29 +38,29 @@ weight: 10193
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "school": "sydney grammar",
       "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -68,24 +70,24 @@ weight: 10193
     current exec runtime vars:
     (*core.Cache)({
       "studentname": "Tom",
-      "sg": {
-        "name": "sydney grammar",
-        "address": "Sydney, NSW 2000"
-      },
       "school": "sydney grammar",
+      "sg": {
+        "address": "Sydney, NSW 2000",
+        "name": "sydney grammar"
+      },
       "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "studentname": "Tom",
+      "school": "sydney grammar",
       "sg": {
         "name": "sydney grammar",
         "address": "Sydney, NSW 2000"
-      },
-      "school": "sydney grammar",
-      "up_runtime_task_layer_number": 0,
-      "studentname": "Tom"
+      }
     })
     
     cmd( 1):

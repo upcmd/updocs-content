@@ -1,6 +1,6 @@
 ---
 title: "c0044_vvvvv"
-date: 2020-09-18T01:27:27+99:00
+date: 2020-10-06T23:45:58+1010:00
 draft: false
 weight: 10444
 
@@ -23,6 +23,8 @@ weight: 10444
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10444
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00017d160)(<nil>)
+    (*impl.Scopes)(0xc0001751c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6910)({
+    })
     
     dvar> homedir:
     "/root"
@@ -70,10 +72,10 @@ weight: 10444
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "homedir": "/root",
       "yourhome": "Your path is set to /root "
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -112,9 +114,9 @@ weight: 10444
     
     current exec runtime vars:
     (*core.Cache)({
-      "homedir": "/root",
       "yourhome": "Your path is set to /root ",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "homedir": "/root"
     })
     
     [local] dvar expanded result:
@@ -132,9 +134,9 @@ weight: 10444
     self: final context exec vars:
     
     (*core.Cache)({
-      "homedir": "/root",
       "yourhome": "Your path is set to /root ",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "homedir": "/root"
     })
     
     {{.homedir}}
@@ -191,9 +193,9 @@ weight: 10444
     self: final context exec vars:
     
     (*core.Cache)({
-      "homedir": "/root",
       "yourhome": "Your path is set to /root ",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "homedir": "/root"
     })
     
     cmd( 1):

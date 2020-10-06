@@ -1,6 +1,6 @@
 ---
 title: "c0043_vvvvv"
-date: 2020-09-18T01:27:27+99:00
+date: 2020-10-06T23:45:58+1010:00
 draft: false
 weight: 10434
 
@@ -23,6 +23,8 @@ weight: 10434
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10434
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf220)(<nil>)
+    (*impl.Scopes)(0xc0001ef220)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0001308f0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10434
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -149,13 +151,13 @@ weight: 10434
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     }
     
     
@@ -173,11 +175,12 @@ weight: 10434
     
      WARN: [shell] - [Not implemented or void for no action!]
     . ok
-    -Step3: [: this would be totally fine too without shell commands
+    -Step3: [
+    this would be totally fine too without shell commands
     this step could be served as a intermediate step to
     register a var into global var map, and it will be
     avaiable after the next step
-     ]
+    ]
     {
       Name: "",
       Do: <nil>,
@@ -244,22 +247,6 @@ weight: 10434
     
     
     scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "",
-        Code: 0,
-        Output: "",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "a": "aa",
-      "b": "bb",
-      "adebug": "aa"
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "adebug": "aa",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
@@ -270,14 +257,31 @@ weight: 10434
       "up_runtime_task_layer_number": 0,
       "a": "aa",
       "b": "bb"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "a": "aa",
+      "b": "bb",
+      "adebug": "aa",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "",
+        Code: 0,
+        Output: "",
+        ErrMsg: ""
+      })
     })
     
      WARN: [shell] - [Not implemented or void for no action!]
     . ok
-    -Step4: [: in cmd, you can also do reg/deReg var in dvar evaluation
+    -Step4: [
+    in cmd, you can also do reg/deReg var in dvar evaluation
     the cmd func name makes more sense then shell func
     if you really want to do var manipulation only
-     ]
+    ]
     {
       Name: "",
       Do: <nil>,
@@ -321,15 +325,15 @@ weight: 10434
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "c": "cc",
+      "d": "dd",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "d": "dd"
+      })
     })
     
     dvar> cdebug:
@@ -351,8 +355,8 @@ weight: 10434
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "d": "dd",
       "c": "cc",
+      "d": "dd",
       "cdebug": "cc"
     }
     
@@ -360,16 +364,16 @@ weight: 10434
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "c": "cc",
+      "d": "dd",
+      "cdebug": "cc",
       "last_result": (*utils.ExecResult)({
         Cmd: "",
         Code: 0,
         Output: "",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "d": "dd",
-      "c": "cc",
-      "cdebug": "cc"
+      })
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]

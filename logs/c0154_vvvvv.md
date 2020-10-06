@@ -1,6 +1,6 @@
 ---
 title: "c0154_vvvvv"
-date: 2020-09-18T01:27:49+99:00
+date: 2020-10-06T23:46:20+1010:00
 draft: false
 weight: 11544
 
@@ -23,6 +23,8 @@ weight: 11544
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,31 +37,31 @@ weight: 11544
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001774c0)(<nil>)
+    (*impl.Scopes)(0xc0001e5520)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "sydney_grammar": {
         "address": "sydney"
       },
       "a": "aaa",
       "b": "bbb"
-    }
+    })
     
-    (core.Cache) (len=3) {
+    (*core.Cache)(0xc000126930)((len=3) {
+     (string) (len=1) "a": (string) (len=3) "aaa",
      (string) (len=1) "b": (string) (len=3) "bbb",
      (string) (len=14) "sydney_grammar": (map[string]interface {}) (len=1) {
       (string) (len=7) "address": (string) (len=6) "sydney"
-     },
-     (string) (len=1) "a": (string) (len=3) "aaa"
-    }
+     }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -68,20 +70,21 @@ weight: 11544
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "sydney_grammar": {
         "address": "sydney"
       },
       "a": "aaa",
       "b": "bbb"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: access a non-exist var will not cause error or panic while you render it
-     ]
+    -Step1: [
+    access a non-exist var will not cause error or panic while you render it
+    ]
     {
       Name: "",
       Do: {
@@ -112,10 +115,10 @@ weight: 11544
     (*core.Cache)({
       "a": "aaa",
       "b": "bbb",
-      "up_runtime_task_layer_number": 0,
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -124,11 +127,11 @@ weight: 11544
     
     
     scope[local] merged: {
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
       "up_runtime_task_layer_number": 0
     }
     
@@ -136,19 +139,20 @@ weight: 11544
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "aaa",
       "b": "bbb",
-      "up_runtime_task_layer_number": 0,
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa"
+      "up_runtime_task_layer_number": 0
     })
     
     {{.c}}
     ~SubStep1: [print:  ]
     None
-    -Step2: [: however if you access a non exist child element, then it will result in a warning error
-     ]
+    -Step2: [
+    however if you access a non exist child element, then it will result in a warning error
+    ]
     {
       Name: "",
       Do: {
@@ -177,12 +181,12 @@ weight: 11544
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "up_runtime_task_layer_number": 0,
+      "a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -193,21 +197,21 @@ weight: 11544
     scope[local] merged: {
       "a": "aaa",
       "b": "bbb",
-      "up_runtime_task_layer_number": 0,
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
       "up_runtime_task_layer_number": 0
     })
     
@@ -252,8 +256,8 @@ weight: 11544
           "name": "pathExisted",
           "desc": "the state will be rendered as <no value>, this will be treated as not exist\n",
           "cmd": {
-            "reg": "state_existed",
-            "path": "sydney_grammar.state"
+            "path": "sydney_grammar.state",
+            "reg": "state_existed"
           }
         },
         {
@@ -288,11 +292,11 @@ weight: 11544
     
     current exec runtime vars:
     (*core.Cache)({
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
       "up_runtime_task_layer_number": 0
     })
     
@@ -302,24 +306,24 @@ weight: 11544
     
     
     scope[local] merged: {
-      "b": "bbb",
       "up_runtime_task_layer_number": 0,
+      "a": "aaa",
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
-      },
-      "a": "aaa"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb",
-      "up_runtime_task_layer_number": 0,
       "sydney_grammar": {
         "address": "sydney"
-      }
+      },
+      "up_runtime_task_layer_number": 0,
+      "a": "aaa",
+      "b": "bbb"
     })
     
     map[path:a.school_name reg:myschool]
@@ -361,8 +365,8 @@ weight: 11544
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "sydney_grammar.address exist: {{ pathExisted \"sydney_grammar.address\" }}\nsydney_grammar.state exist: {{ pathExisted \"sydney_grammar.state\"}}\nvarb_sub_element_existed exist: {{ pathExisted \"b.not_exist\"}}\n{{ if pathExisted \"b.not_exist\"}}\nI am happy\n{{ else }}\nI am sad\n{{ end }}\n"
+          "cmd": "sydney_grammar.address exist: {{ pathExisted \"sydney_grammar.address\" }}\nsydney_grammar.state exist: {{ pathExisted \"sydney_grammar.state\"}}\nvarb_sub_element_existed exist: {{ pathExisted \"b.not_exist\"}}\n{{ if pathExisted \"b.not_exist\"}}\nI am happy\n{{ else }}\nI am sad\n{{ end }}\n",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -385,17 +389,17 @@ weight: 11544
     
     current exec runtime vars:
     (*core.Cache)({
+      "address_existed": true,
+      "up_runtime_task_layer_number": 0,
+      "school_address": (*string)("sydney"),
+      "myschool": (*string)("aaa"),
+      "b": "bbb",
+      "state_existed": false,
       "sydney_grammar": {
         "address": "sydney"
       },
-      "myschool": (*string)("aaa"),
-      "address_existed": true,
-      "up_runtime_task_layer_number": 0,
       "varb_sub_element_existed": false,
-      "a": "aaa",
-      "b": "bbb",
-      "school_address": (*string)("sydney"),
-      "state_existed": false
+      "a": "aaa"
     })
     
     [local] dvar expanded result:
@@ -404,34 +408,34 @@ weight: 11544
     
     
     scope[local] merged: {
+      "address_existed": true,
       "b": "bbb",
-      "school_address": (*string)("sydney"),
-      "varb_sub_element_existed": false,
+      "myschool": (*string)("aaa"),
       "sydney_grammar": {
         "address": "sydney"
       },
-      "myschool": (*string)("aaa"),
-      "address_existed": true,
-      "state_existed": false,
       "up_runtime_task_layer_number": 0,
-      "a": "aaa"
+      "state_existed": false,
+      "a": "aaa",
+      "school_address": (*string)("sydney"),
+      "varb_sub_element_existed": false
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "aaa",
-      "b": "bbb",
-      "school_address": (*string)("sydney"),
-      "state_existed": false,
       "sydney_grammar": {
         "address": "sydney"
       },
-      "myschool": (*string)("aaa"),
-      "address_existed": true,
       "up_runtime_task_layer_number": 0,
-      "varb_sub_element_existed": false
+      "varb_sub_element_existed": false,
+      "b": "bbb",
+      "address_existed": true,
+      "state_existed": false,
+      "school_address": (*string)("sydney"),
+      "a": "aaa",
+      "myschool": (*string)("aaa")
     })
     
     sydney_grammar.address exist: {{ pathExisted "sydney_grammar.address" }}
@@ -498,17 +502,17 @@ weight: 11544
     
     current exec runtime vars:
     (*core.Cache)({
-      "state_existed": false,
       "up_runtime_task_layer_number": 0,
+      "a": "aaa",
+      "myschool": (*string)("aaa"),
+      "address_existed": true,
+      "state_existed": false,
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb",
-      "myschool": (*string)("aaa"),
-      "school_address": (*string)("sydney"),
-      "address_existed": true,
-      "varb_sub_element_existed": false
+      "varb_sub_element_existed": false,
+      "school_address": (*string)("sydney")
     })
     
     [local] dvar expanded result:
@@ -519,49 +523,49 @@ weight: 11544
     scope[local] merged: {
       "varb_sub_element_existed": false,
       "a": "aaa",
+      "state_existed": false,
       "b": "bbb",
-      "myschool": (*string)("aaa"),
-      "address_existed": true,
-      "up_runtime_task_layer_number": 0,
       "sydney_grammar": {
         "address": "sydney"
       },
+      "up_runtime_task_layer_number": 0,
+      "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
-      "state_existed": false
+      "address_existed": true
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "state_existed": false,
+      "up_runtime_task_layer_number": 0,
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
-      "varb_sub_element_existed": false,
-      "up_runtime_task_layer_number": 0,
+      "state_existed": false,
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "b": "bbb"
+      "varb_sub_element_existed": false,
+      "a": "aaa"
     })
     
     [exec_vars]
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "b": "bbb",
+      "varb_sub_element_existed": false,
+      "a": "aaa",
       "myschool": (*string)("aaa"),
       "school_address": (*string)("sydney"),
       "address_existed": true,
-      "varb_sub_element_existed": false,
-      "up_runtime_task_layer_number": 0,
+      "state_existed": false,
+      "b": "bbb",
       "sydney_grammar": {
         "address": "sydney"
       },
-      "a": "aaa",
-      "state_existed": false
+      "up_runtime_task_layer_number": 0
     })
     
     [{{pathExisted "sydney_grammar.address" }}]

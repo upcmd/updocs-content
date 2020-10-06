@@ -1,6 +1,6 @@
 ---
 title: "c0030_vvvv"
-date: 2020-09-18T01:27:25+99:00
+date: 2020-10-06T23:45:55+1010:00
 draft: false
 weight: 10303
 
@@ -23,6 +23,8 @@ weight: 10303
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,11 +38,10 @@ weight: 10303
     
     ---------group vars----------
     
-    nonprod: {
+    nonprod: (*core.Cache)({
       "c": "non-prod-c",
       "d": "non-prod-d",
       "a": "non-prod-a",
-      "b": "non-prod-b",
       "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "school_nonprod_object": {
         "address": {
@@ -51,11 +52,12 @@ weight: 10303
           },
           "school": "Sydney Grammar"
         }
-      }
-    }
+      },
+      "b": "non-prod-b"
+    })
     
     
-    prod: {
+    prod: (*core.Cache)({
       "a": "prod-a",
       "b": "prod-b",
       "c": "prod-c",
@@ -63,21 +65,19 @@ weight: 10303
       "school_prod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "school_prod_object": {
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
-            "postcode": 2000,
             "CBD": true,
-            "name": "sydney"
-          },
-          "school": "Sydney Grammar"
+            "name": "sydney",
+            "postcode": 2000
+          }
         }
       }
-    }
+    })
     
     
-    global: {
+    global: (*core.Cache)({
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
             "name": "sydney",
@@ -85,7 +85,9 @@ weight: 10303
             "CBD": true
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       },
       "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "school_global_object": {
@@ -98,12 +100,55 @@ weight: 10303
           "school": "Sydney Grammar"
         }
       }
-    }
+    })
     
     
     groups members:[dev staging prod]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "b": "non-prod-b",
+      "a": "non-prod-a",
+      "school_nonprod_object": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "student": {
+        "name": "Tom",
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "CBD": true
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "school_global_object": {
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "CBD": true,
+            "name": "sydney",
+            "postcode": 2000
+          }
+        }
+      },
+      "c": "non-prod-c",
+      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "d": "non-prod-d"
+    })
+    
+    -------runtime global final merged with dvars-------
+    
+    (*core.Cache)({
       "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "school_global_object": {
         "address": {
@@ -113,6 +158,19 @@ weight: 10303
             "postcode": 2000,
             "CBD": true
           }
+        }
+      },
+      "d": "non-prod-d",
+      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "sgp_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "school_nonprod_object": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
         }
       },
       "student": {
@@ -121,82 +179,26 @@ weight: 10303
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          }
-        }
-      },
-      "b": "non-prod-b",
-      "school_nonprod_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "c": "non-prod-c",
-      "a": "non-prod-a",
-      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "d": "non-prod-d"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
-      "student": {
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
             "postcode": 2000,
             "CBD": true,
             "name": "sydney"
           }
-        },
-        "name": "Tom"
-      },
-      "b": "non-prod-b",
-      "school_nonprod_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
-        }
-      },
-      "c": "non-prod-c",
-      "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "school_global_object": {
-        "address": {
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          },
-          "school": "Sydney Grammar"
         }
       },
       "sgp_address_object": {
         "address": {
+          "school": "Sydney Grammar",
           "suburb": {
             "name": "sydney",
             "postcode": 2000,
             "CBD": true
-          },
-          "school": "Sydney Grammar"
+          }
         }
       },
-      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "d": "non-prod-d",
       "a": "non-prod-a",
-      "sgp_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
-    }
+      "b": "non-prod-b",
+      "c": "non-prod-c"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -205,19 +207,63 @@ weight: 10303
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "sgp_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "sgp_address_object": {
+      "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "student": {
+        "gender": "Male",
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          }
+        },
+        "name": "Tom"
+      },
+      "school_nonprod_object": {
         "address": {
           "suburb": {
+            "postcode": 2000,
             "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
+            "name": "sydney"
           },
           "school": "Sydney Grammar"
         }
       },
+      "school_global_object": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "c": "non-prod-c",
+      "d": "non-prod-d",
+      "a": "non-prod-a",
+      "sgp_address_object": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "up_runtime_task_layer_number": 0,
+      "sgp_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "b": "non-prod-b",
+      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "student": {
-        "gender": "Male",
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
@@ -226,9 +272,26 @@ weight: 10303
             "postcode": 2000
           }
         },
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       },
       "school_nonprod_object": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "CBD": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        }
+      },
+      "c": "non-prod-c",
+      "a": "non-prod-a",
+      "up_runtime_task_layer_number": 0,
+      "sgp_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
+      "b": "non-prod-b",
+      "d": "non-prod-d",
+      "school_global_object": {
         "address": {
           "suburb": {
             "CBD": true,
@@ -238,78 +301,17 @@ weight: 10303
           "school": "Sydney Grammar"
         }
       },
-      "c": "non-prod-c",
-      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "d": "non-prod-d",
-      "a": "non-prod-a",
-      "up_runtime_task_layer_number": 0,
-      "school_global_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        }
-      },
-      "b": "non-prod-b",
-      "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "school_global_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          }
-        }
-      },
-      "b": "non-prod-b",
-      "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "student": {
-        "name": "Tom",
-        "gender": "Male",
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
-          }
-        }
-      },
-      "school_nonprod_object": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "CBD": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        }
-      },
-      "c": "non-prod-c",
-      "school_nonprod": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
-      "d": "non-prod-d",
-      "a": "non-prod-a",
-      "sgp_address": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
       "sgp_address_object": {
         "address": {
           "suburb": {
+            "CBD": true,
             "name": "sydney",
-            "postcode": 2000,
-            "CBD": true
+            "postcode": 2000
           },
           "school": "Sydney Grammar"
         }
       },
-      "up_runtime_task_layer_number": 0
+      "school_global": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n"
     })
     
     cmd( 1):

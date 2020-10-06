@@ -1,6 +1,6 @@
 ---
 title: "c0093_vvvvv"
-date: 2020-09-18T01:27:36+99:00
+date: 2020-10-06T23:46:07+1010:00
 draft: false
 weight: 10934
 
@@ -23,6 +23,8 @@ weight: 10934
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10934
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00023f0e0)(<nil>)
+    (*impl.Scopes)(0xc0001750e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10934
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -109,11 +111,11 @@ weight: 10934
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "person": {
-        "name": "tom",
-        "age": 23
-      },
-      "up_runtime_task_layer_number": 0
+        "age": 23,
+        "name": "tom"
+      }
     }
     
     
@@ -195,8 +197,8 @@ weight: 10934
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "person": {
-        "name": "tom",
-        "age": 23
+        "age": 23,
+        "name": "tom"
       }
     })
     

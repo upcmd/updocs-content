@@ -1,6 +1,6 @@
 ---
 title: "f0171_vvvvv"
-date: 2020-09-18T01:28:04+99:00
+date: 2020-10-06T23:46:33+1010:00
 draft: false
 weight: 11714
 
@@ -23,6 +23,8 @@ weight: 11714
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11714
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c4e0)(<nil>)
+    (*impl.Scopes)(0xc0001c1160)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e8f0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,15 +60,16 @@ weight: 11714
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: task fails
-     ]
+    -Step1: [
+    task fails
+    ]
     {
       Name: "",
       Do: {
@@ -167,8 +170,9 @@ weight: 11714
     =Task2: [task ==> close_file:  ]
     Executing task stack layer: 2
     
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -194,13 +198,13 @@ weight: 11714
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"reading the file\" |grep \"cause an exception\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -209,13 +213,13 @@ weight: 11714
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
       "up_runtime_shell_exec_result": (*utils.ExecResult)({
         Cmd: "echo \"reading the file\" |grep \"cause an exception\"",
         Code: 1,
         Output: "",
         ErrMsg: "exit status 1"
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     }
     
     

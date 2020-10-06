@@ -1,6 +1,6 @@
 ---
 title: "c0048_vvvvv"
-date: 2020-09-18T01:27:28+99:00
+date: 2020-10-06T23:45:58+1010:00
 draft: false
 weight: 10484
 
@@ -23,6 +23,8 @@ weight: 10484
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10484
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf280)(<nil>)
+    (*impl.Scopes)(0xc0001bf2e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc00000e910)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,15 +60,16 @@ weight: 10484
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: The envVar flag makes the dvar name STUDENT_NAME is accessible as environment vars
-     ]
+    -Step1: [
+    The envVar flag makes the dvar name STUDENT_NAME is accessible as environment vars
+    ]
     {
       Name: "",
       Do: {
@@ -114,15 +117,15 @@ weight: 10484
     
     [local] dvar expanded result:
     {
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     }
     
     
     scope[local] merged: {
+      "envVar_STUDENT_NAME": "Tom Hanks",
       "up_runtime_task_layer_number": 0,
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
@@ -130,8 +133,8 @@ weight: 10484
     
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "STUDENT_NAME": "Tom Hanks"
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks"
     })
     
     cmd( 1):
@@ -152,8 +155,9 @@ weight: 10484
     }
     
     . ok
-    -Step2: [: STUDENT_NAME is also accessible in dvar processing
-     ]
+    -Step2: [
+    STUDENT_NAME is also accessible in dvar processing
+    ]
     {
       Name: "",
       Do: {
@@ -229,32 +233,32 @@ weight: 10484
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_NAME",
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
       }),
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "student_name_re_map": "Tom Hanks"
+      "up_runtime_task_layer_number": 0,
+      "STUDENT_NAME": "Tom Hanks"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "STUDENT_NAME": "Tom Hanks",
+      "envVar_STUDENT_NAME": "Tom Hanks",
+      "student_name_re_map": "Tom Hanks",
       "last_result": (*utils.ExecResult)({
         Cmd: "env |grep STUDENT_NAME",
         Code: 0,
         Output: "STUDENT_NAME=Tom Hanks",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0,
-      "STUDENT_NAME": "Tom Hanks",
-      "envVar_STUDENT_NAME": "Tom Hanks",
-      "student_name_re_map": "Tom Hanks"
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

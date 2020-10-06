@@ -1,6 +1,6 @@
 ---
 title: "c0065_vvvv"
-date: 2020-09-18T01:27:31+99:00
+date: 2020-10-06T23:46:01+1010:00
 draft: false
 weight: 10653
 
@@ -23,6 +23,8 @@ weight: 10653
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,20 +38,20 @@ weight: 10653
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "person": "peter",
       "managers": {
         "tom",
         "jason",
         "alice"
       }
-    }
+    })
     
     dvar> var_with_range_v:
     " x  x  x "
@@ -83,7 +85,10 @@ weight: 10653
      x  x  x 
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
+      "var_with_range_v": " x  x  x ",
+      "var_with_range_vv": " x  x  x ",
+      "var_with_range_vvv": " x  x  x ",
       "var_with_range_vvvv": " x  x  x ",
       "var_with_range_vvvvv": " x  x  x ",
       "person": "peter",
@@ -92,11 +97,8 @@ weight: 10653
         "jason",
         "alice"
       },
-      "var_with_range_vvvvvv": " x  x  x ",
-      "var_with_range_v": " x  x  x ",
-      "var_with_range_vv": " x  x  x ",
-      "var_with_range_vvv": " x  x  x "
-    }
+      "var_with_range_vvvvvv": " x  x  x "
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]

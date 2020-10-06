@@ -1,6 +1,6 @@
 ---
 title: "c0021_vvvv"
-date: 2020-09-18T01:27:23+99:00
+date: 2020-10-06T23:45:54+1010:00
 draft: false
 weight: 10213
 
@@ -23,6 +23,8 @@ weight: 10213
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10213
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -57,21 +59,21 @@ weight: 10213
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "student": "Tom",
-      "gender": "Male",
-      "school": "Sydney Grammar",
-      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "student": "Tom",
       "gender": "Male",
       "school": "Sydney Grammar",
       "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n",
       "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
+      "student": "Tom",
+      "gender": "Male",
+      "school": "Sydney Grammar",
+      "info": "student: Tom\n gender: Male\n school: Sydney Grammar\n"
     })
     
     cmd( 1):
@@ -139,6 +141,14 @@ weight: 10213
     cmd( 4):
     echo """my school: {{.info.school}}"""
     
+    
+          template rendering -> template: .:1:26: executing "." at <.info.school>: can't evaluate field school in type interface {}
+    WARN:
+        1:echo """my school: {{.info.school}}"""
+        2:
+    
+    trouble shooting tips:
+    <incompatible types for comparison>: the variable might not be registered, use -v vvv to see the cache, or use inspect cmd to debug
     
           template rendering -> template: .:1:26: executing "." at <.info.school>: can't evaluate field school in type interface {}
     WARN:

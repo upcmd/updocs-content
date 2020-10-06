@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvvv"
-date: 2020-09-18T01:27:33+99:00
+date: 2020-10-06T23:46:04+1010:00
 draft: false
 weight: 10784
 
@@ -23,6 +23,8 @@ weight: 10784
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 10784
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf120)(<nil>)
+    (*impl.Scopes)(0xc0001e7120)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0001268e0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 10784
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -118,9 +120,9 @@ weight: 10784
     
     current exec runtime vars:
     (*core.Cache)({
+      "school_address": "1 fox road, sydney, nsw 2000",
       "up_runtime_task_layer_number": 0,
-      "school_name": "sydney grammar",
-      "school_address": "1 fox road, sydney, nsw 2000"
+      "school_name": "sydney grammar"
     })
     
     [local] dvar expanded result:
@@ -130,10 +132,10 @@ weight: 10784
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
-      "school_name": "sydney grammar",
       "school_address": "1 fox road, sydney, nsw 2000",
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
+      "up_runtime_task_layer_number": 0,
+      "school_name": "sydney grammar"
     }
     
     
@@ -181,8 +183,8 @@ weight: 10784
     
     current exec runtime vars:
     (*core.Cache)({
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     
     [local] dvar expanded result:
@@ -199,8 +201,8 @@ weight: 10784
     self: final context exec vars:
     
     (*core.Cache)({
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
     })
     
     {{.school_address}}

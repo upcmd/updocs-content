@@ -1,6 +1,6 @@
 ---
 title: "f0012_vvv"
-date: 2020-09-18T01:28:28+99:00
+date: 2020-10-06T23:46:56+1010:00
 draft: false
 weight: 101202
 
@@ -23,6 +23,8 @@ weight: 101202
                  Timeout -> 3600000
      MaxModuelCallLayers -> 8
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
     work dir: /up_project/up/tests/modtests/f0012
     -exec task: Main
     loading [Task]:  ./up.yml
@@ -66,8 +68,8 @@ weight: 101202
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     loading [Config]:  ./upconfig.yml
@@ -114,8 +116,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 4,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 4
     })
     
     ~SubStep1: [print:  ]
@@ -124,8 +126,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 4,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 4
     })
     
     loading [Config]:  ./upconfig.yml
@@ -143,8 +145,8 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 5,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 5
     })
     
     ~SubStep1: [print:  ]
@@ -153,8 +155,8 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 5,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 5
     })
     
     loading [Config]:  ./upconfig.yml
@@ -172,8 +174,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 6
     })
     
     ~SubStep1: [print:  ]
@@ -182,8 +184,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 6,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 6
     })
     
     loading [Config]:  ./upconfig.yml
@@ -201,8 +203,8 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 7,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 7
     })
     
     ~SubStep1: [print:  ]
@@ -211,8 +213,8 @@ weight: 101202
     crosstalk1: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 7,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 7
     })
     
     loading [Config]:  ./upconfig.yml
@@ -240,8 +242,8 @@ weight: 101202
     crosstalk2: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 8,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 8
     })
     
     loading [Config]:  ./upconfig.yml

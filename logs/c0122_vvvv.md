@@ -1,6 +1,6 @@
 ---
 title: "c0122_vvvv"
-date: 2020-09-18T01:27:42+99:00
+date: 2020-10-06T23:46:13+1010:00
 draft: false
 weight: 11223
 
@@ -23,6 +23,8 @@ weight: 11223
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,27 +38,27 @@ weight: 11223
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: main entry ]
@@ -90,8 +92,8 @@ weight: 11223
     current exec runtime vars:
     (*core.Cache)({
       "student": {
-        "name": "tom",
-        "sex": "male"
+        "sex": "male",
+        "name": "tom"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -100,8 +102,8 @@ weight: 11223
     
     (*core.Cache)({
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -111,22 +113,22 @@ weight: 11223
     -Step3: [: add support if the element does not exist, then if condition should be false by default ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "student": {
-        "sex": "male",
-        "name": "tom"
-      }
+        "name": "tom",
+        "sex": "male"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "student_age": ".student.age",
       "student": {
-        "sex": "male",
-        "name": "tom"
+        "name": "tom",
+        "sex": "male"
       },
-      "up_runtime_task_layer_number": 0,
-      "student_age": ".student.age"
+      "up_runtime_task_layer_number": 0
     })
     
     condition failed, skip executing step 

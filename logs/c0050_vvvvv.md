@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvvv"
-date: 2020-09-18T01:27:28+99:00
+date: 2020-10-06T23:45:59+1010:00
 draft: false
 weight: 10504
 
@@ -23,6 +23,8 @@ weight: 10504
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,48 +37,48 @@ weight: 10504
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00022c460)(<nil>)
+    (*impl.Scopes)(0xc0001c11a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "school": "Sydney Grammar"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc00000e920)((len=1) {
      (string) (len=6) "school": (string) (len=14) "Sydney Grammar"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
+      "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
-      "z": "i am zzz"
+      "o": "o=><no value>"
     }
     
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
+      "school": "Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
       "yv": "y->i am zzz",
       "x": "x=>y->i am zzz",
       "nv": "n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "m": "m=>n=>Sydney Grammar"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -114,15 +116,15 @@ weight: 10504
     
     current exec runtime vars:
     (*core.Cache)({
-      "o": "o=><no value>",
-      "z": "i am zzz",
-      "yv": "y->i am zzz",
-      "up_runtime_task_layer_number": 0,
-      "j": "j=>m=>n=>Sydney Grammar",
-      "nv": "n=>Sydney Grammar",
-      "school": "Sydney Grammar",
       "m": "m=>n=>Sydney Grammar",
-      "x": "x=>y->i am zzz"
+      "o": "o=><no value>",
+      "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
+      "yv": "y->i am zzz",
+      "nv": "n=>Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
+      "z": "i am zzz",
+      "j": "j=>m=>n=>Sydney Grammar"
     })
     
     [local] dvar expanded result:
@@ -131,30 +133,30 @@ weight: 10504
     
     
     scope[local] merged: {
-      "j": "j=>m=>n=>Sydney Grammar",
+      "up_runtime_task_layer_number": 0,
+      "school": "Sydney Grammar",
+      "yv": "y->i am zzz",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar",
       "o": "o=><no value>",
       "z": "i am zzz",
-      "m": "m=>n=>Sydney Grammar",
-      "nv": "n=>Sydney Grammar",
-      "school": "Sydney Grammar",
-      "up_runtime_task_layer_number": 0,
       "x": "x=>y->i am zzz",
-      "yv": "y->i am zzz"
+      "j": "j=>m=>n=>Sydney Grammar"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "yv": "y->i am zzz",
-      "up_runtime_task_layer_number": 0,
       "j": "j=>m=>n=>Sydney Grammar",
-      "o": "o=><no value>",
-      "z": "i am zzz",
-      "m": "m=>n=>Sydney Grammar",
       "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
-      "school": "Sydney Grammar"
+      "up_runtime_task_layer_number": 0,
+      "z": "i am zzz",
+      "school": "Sydney Grammar",
+      "yv": "y->i am zzz",
+      "m": "m=>n=>Sydney Grammar",
+      "o": "o=><no value>",
+      "nv": "n=>Sydney Grammar"
     })
     
     cmd( 1):

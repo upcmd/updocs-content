@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:53+1010:00
 draft: false
 weight: 10144
 
@@ -23,6 +23,8 @@ weight: 10144
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,27 +37,27 @@ weight: 10144
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001750c0)(<nil>)
+    (*impl.Scopes)(0xc0001c1180)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "a": "runtime-a",
       "e": "runtime-e",
-      "k": "runtime-k",
-      "a": "runtime-a"
-    }
+      "k": "runtime-k"
+    })
     
-    (core.Cache) (len=3) {
-     (string) (len=1) "a": (string) (len=9) "runtime-a",
+    (*core.Cache)(0xc00000e918)((len=3) {
      (string) (len=1) "e": (string) (len=9) "runtime-e",
-     (string) (len=1) "k": (string) (len=9) "runtime-k"
-    }
+     (string) (len=1) "k": (string) (len=9) "runtime-k",
+     (string) (len=1) "a": (string) (len=9) "runtime-a"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -64,11 +66,11 @@ weight: 10144
     
     -------runtime global final merged with dvars-------
     
-    {
-      "a": "runtime-a",
+    (*core.Cache)({
       "e": "runtime-e",
-      "k": "runtime-k"
-    }
+      "k": "runtime-k",
+      "a": "runtime-a"
+    })
     
       located task-> 2 [task]: 
     Task2: [task ==> task:  ]
@@ -104,9 +106,9 @@ weight: 10144
     current exec runtime vars:
     (*core.Cache)({
       "k": "runtime-k",
+      "a": "caller-ref-a",
       "up_runtime_task_layer_number": 0,
       "b": "caller-ref-b",
-      "a": "caller-ref-a",
       "e": "runtime-e"
     })
     
@@ -116,9 +118,9 @@ weight: 10144
     
     
     scope[local] merged: {
-      "a": "caller-ref-a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-a",
       "up_runtime_task_layer_number": 0,
       "b": "caller-ref-b"
     }
@@ -127,20 +129,20 @@ weight: 10144
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-ref-a",
-      "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-a",
       "up_runtime_task_layer_number": 0,
-      "b": "caller-ref-b"
+      "b": "caller-ref-b",
+      "e": "runtime-e"
     })
     
     caller's vars to task (callee_task)::
     (*core.Cache)({
+      "e": "runtime-e",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 0,
-      "b": "caller-ref-b",
       "a": "caller-ref-a",
-      "e": "runtime-e"
+      "up_runtime_task_layer_number": 0,
+      "b": "caller-ref-b"
     })
     
       located task-> 1 [callee_task]: 
@@ -180,9 +182,9 @@ weight: 10144
     (*core.Cache)({
       "b": "caller-ref-b",
       "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
       "k": "runtime-k",
+      "up_runtime_task_layer_number": 1,
       "a": "caller-ref-a"
     })
     
@@ -193,11 +195,11 @@ weight: 10144
     
     scope[local] merged: {
       "up_runtime_task_layer_number": 1,
-      "e": "runtime-e",
-      "k": "runtime-k",
       "a": "caller-ref-a",
       "b": "caller-ref-b",
-      "c": "callee-c"
+      "c": "callee-c",
+      "e": "runtime-e",
+      "k": "runtime-k"
     }
     
     
@@ -207,9 +209,9 @@ weight: 10144
       "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
-      "up_runtime_task_layer_number": 1,
       "e": "runtime-e",
-      "k": "runtime-k"
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

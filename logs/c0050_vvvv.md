@@ -1,6 +1,6 @@
 ---
 title: "c0050_vvvv"
-date: 2020-09-18T01:27:28+99:00
+date: 2020-10-06T23:45:59+1010:00
 draft: false
 weight: 10503
 
@@ -23,6 +23,8 @@ weight: 10503
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,28 +38,28 @@ weight: 10503
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "school": "Sydney Grammar"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
-      "school": "Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar",
+    (*core.Cache)({
       "j": "j=>m=>n=>Sydney Grammar",
       "o": "o=><no value>",
-      "z": "i am zzz"
-    }
+      "z": "i am zzz",
+      "yv": "y->i am zzz",
+      "x": "x=>y->i am zzz",
+      "school": "Sydney Grammar",
+      "nv": "n=>Sydney Grammar",
+      "m": "m=>n=>Sydney Grammar"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -66,29 +68,29 @@ weight: 10503
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "j": "j=>m=>n=>Sydney Grammar",
       "up_runtime_task_layer_number": 0,
-      "school": "Sydney Grammar",
+      "nv": "n=>Sydney Grammar",
       "o": "o=><no value>",
+      "school": "Sydney Grammar",
       "z": "i am zzz",
       "yv": "y->i am zzz",
-      "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
-      "m": "m=>n=>Sydney Grammar"
+      "m": "m=>n=>Sydney Grammar",
+      "j": "j=>m=>n=>Sydney Grammar",
+      "x": "x=>y->i am zzz"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "school": "Sydney Grammar",
       "j": "j=>m=>n=>Sydney Grammar",
-      "up_runtime_task_layer_number": 0,
       "x": "x=>y->i am zzz",
-      "nv": "n=>Sydney Grammar",
+      "yv": "y->i am zzz",
       "m": "m=>n=>Sydney Grammar",
       "o": "o=><no value>",
+      "school": "Sydney Grammar",
       "z": "i am zzz",
-      "yv": "y->i am zzz"
+      "up_runtime_task_layer_number": 0,
+      "nv": "n=>Sydney Grammar"
     })
     
     cmd( 1):

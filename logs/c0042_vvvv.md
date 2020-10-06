@@ -1,6 +1,6 @@
 ---
 title: "c0042_vvvv"
-date: 2020-09-18T01:27:27+99:00
+date: 2020-10-06T23:45:57+1010:00
 draft: false
 weight: 10423
 
@@ -23,6 +23,8 @@ weight: 10423
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10423
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: test the exit scenarios due to different types of validation ]
@@ -87,8 +89,9 @@ weight: 10423
     -
      .. ok
     . ok
-    -Step2: [: the last result of hanks will be registered as varname: hellomsg
-     ]
+    -Step2: [
+    the last result of hanks will be registered as varname: hellomsg
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
@@ -117,8 +120,8 @@ weight: 10423
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 0,
-      "reg_hello": "hello: hanks\n\n",
-      "hellomsg": "hanks"
+      "hellomsg": "hanks",
+      "reg_hello": "hello: hanks\n\n"
     })
     
     cmd( 1):
@@ -146,23 +149,11 @@ weight: 10423
     -
      .. ok
     . ok
-    -Step3: [: the hellomsg will be still availabe in this step
+    -Step3: [
+    the hellomsg will be still availabe in this step
     it is removed but will be unavailabe in the next step
-     ]
+    ]
     current exec runtime vars:
-    (*core.Cache)({
-      "hellomsg": "hanks",
-      "up_runtime_task_layer_number": 0,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
-        Code: 0,
-        Output: "reg_hello - hello: hanks",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
     (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
@@ -171,8 +162,21 @@ weight: 10423
         ErrMsg: ""
       }),
       "hellomsg": "hanks",
-      "up_runtime_task_layer_number": 0,
-      "reg_hello": "\n"
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "reg_hello": "\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"reg_hello - hello: hanks\n\n\"",
+        Code: 0,
+        Output: "reg_hello - hello: hanks",
+        ErrMsg: ""
+      }),
+      "hellomsg": "hanks",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -186,17 +190,18 @@ weight: 10423
     -
      .. ok
     . ok
-    -Step4: [: now the hellomsg should be <no value>
-     ]
+    -Step4: [
+    now the hellomsg should be <no value>
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hanks\"",
         Code: 0,
         Output: "hanks",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
@@ -243,14 +248,14 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
-      "iamvoid": "something",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"<no value>\"",
         Code: 0,
         Output: "<no value>",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "iamvoid": "something"
     })
     
     cmd( 1):
@@ -280,14 +285,14 @@ weight: 10423
     self: final context exec vars:
     
     (*core.Cache)({
-      "iamvoid": "something",
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo 'something'",
         Code: 0,
         Output: "something",
         ErrMsg: ""
-      })
+      }),
+      "iamvoid": "something",
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

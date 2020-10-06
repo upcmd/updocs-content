@@ -1,6 +1,6 @@
 ---
 title: "c0063_vvvvv"
-date: 2020-09-18T01:27:30+99:00
+date: 2020-10-06T23:46:01+1010:00
 draft: false
 weight: 10634
 
@@ -23,6 +23,8 @@ weight: 10634
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 10634
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc00000c080)(<nil>)
+    (*impl.Scopes)(0xc0002591c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "a": "global-var-a"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000182918)((len=1) {
      (string) (len=1) "a": (string) (len=12) "global-var-a"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 10634
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "a": "global-var-a"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -198,23 +200,6 @@ weight: 10634
     
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"hello global-var-a\"",
-        Code: 0,
-        Output: "hello global-var-a",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "b": "runtime-var-b",
-      "a": "global-var-a"
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"hello global-var-a\"",
@@ -224,13 +209,29 @@ weight: 10634
       }),
       "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b"
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"hello global-var-a\"",
+        Code: 0,
+        Output: "hello global-var-a",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0,
+      "b": "runtime-var-b",
+      "a": "global-var-a"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "b": "runtime-var-b",
       "a": "global-var-a",
       "last_result": (*utils.ExecResult)({
@@ -238,7 +239,8 @@ weight: 10634
         Code: 0,
         Output: "hello global-var-a",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 0
     })
     
     Enter Value For [pause action to continue]: 

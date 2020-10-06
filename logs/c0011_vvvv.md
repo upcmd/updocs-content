@@ -1,6 +1,6 @@
 ---
 title: "c0011_vvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10113
 
@@ -23,6 +23,8 @@ weight: 10113
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,48 +38,48 @@ weight: 10113
     
     ---------group vars----------
     
-    prod: {
-      "c": "prod-c",
-      "a": "prod-a"
-    }
-    
-    
-    nonprod: {
+    nonprod: (*core.Cache)({
       "b": "non-prod-b",
       "c": "non-prod-c",
       "a": "non-prod-a"
-    }
+    })
     
     
-    global: {
-      "d": "global-d",
+    global: (*core.Cache)({
       "a": "global-a",
       "b": "global-b",
-      "c": "global-c"
-    }
+      "c": "global-c",
+      "d": "global-d"
+    })
+    
+    
+    prod: (*core.Cache)({
+      "a": "prod-a",
+      "c": "prod-c"
+    })
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
-    {
-      "c": "dev-c",
+    (*core.Cache)({
       "e": "runtime-e",
-      "k": "runtime-k",
-      "d": "global-d",
-      "a": "runtime-a",
-      "b": "non-prod-b"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
       "a": "runtime-a",
       "b": "non-prod-b",
       "c": "dev-c",
-      "e": "runtime-e",
+      "d": "global-d",
+      "k": "runtime-k"
+    })
+    
+    -------runtime global final merged with dvars-------
+    
+    (*core.Cache)({
       "k": "runtime-k",
+      "e": "runtime-e",
+      "a": "runtime-a",
+      "b": "non-prod-b",
+      "c": "dev-c",
       "d": "global-d"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -86,27 +88,27 @@ weight: 10113
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "m": "local-m",
-      "k": "runtime-k",
-      "d": "global-d",
-      "a": "runtime-a",
-      "b": "non-prod-b",
       "c": "dev-c",
+      "up_runtime_task_layer_number": 0,
+      "m": "local-m",
+      "d": "global-d",
+      "k": "runtime-k",
       "e": "local-e",
-      "up_runtime_task_layer_number": 0
+      "a": "runtime-a",
+      "b": "non-prod-b"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "b": "non-prod-b",
       "c": "dev-c",
-      "e": "local-e",
       "up_runtime_task_layer_number": 0,
       "m": "local-m",
-      "k": "runtime-k",
       "d": "global-d",
-      "a": "runtime-a"
+      "k": "runtime-k",
+      "e": "local-e",
+      "a": "runtime-a",
+      "b": "non-prod-b"
     })
     
     cmd( 1):

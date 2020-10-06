@@ -1,6 +1,6 @@
 ---
 title: "c0086_vvvv"
-date: 2020-09-18T01:27:35+99:00
+date: 2020-10-06T23:46:05+1010:00
 draft: false
 weight: 10863
 
@@ -23,6 +23,8 @@ weight: 10863
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 10863
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "lines": "hello\nthis\nis a\nbeautiful world"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: generate logs ]
@@ -75,7 +77,6 @@ weight: 10863
     self: final context exec vars:
     
     (*core.Cache)({
-      "linelist": "- hello\n- this\n- is a\n- beautiful world\n",
       "lines": "hello\nthis\nis a\nbeautiful world",
       "up_runtime_task_layer_number": 0,
       "linelist_object": {
@@ -83,7 +84,8 @@ weight: 10863
         "this",
         "is a",
         "beautiful world"
-      }
+      },
+      "linelist": "- hello\n- this\n- is a\n- beautiful world\n"
     })
     
     cmd( 1):
@@ -218,20 +220,20 @@ weight: 10863
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "lines": "hello\nthis\nis a\nbeautiful world",
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     })
     
     dvar> void:
@@ -253,13 +255,13 @@ weight: 10863
         "is a",
         "beautiful world"
       },
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     cmd( 1):
@@ -302,7 +304,6 @@ weight: 10863
     -Step4:
     current exec runtime vars:
     (*core.Cache)({
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
@@ -315,7 +316,8 @@ weight: 10863
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "lines": "hello\nthis\nis a\nbeautiful world"
     })
     
     self: final context exec vars:
@@ -377,20 +379,20 @@ weight: 10863
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "linelist_object": {
-        "hello",
-        "this",
-        "is a",
-        "beautiful world"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo '[hello this is a beautiful world]'",
         Code: 0,
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
+      "up_runtime_task_layer_number": 0,
       "lines": "hello\nthis\nis a\nbeautiful world",
-      "up_runtime_task_layer_number": 0
+      "linelist_object": {
+        "hello",
+        "this",
+        "is a",
+        "beautiful world"
+      }
     })
     
     dvar> void:
@@ -412,6 +414,7 @@ weight: 10863
     self: final context exec vars:
     
     (*core.Cache)({
+      "lines": "hello\nthis\nis a\nbeautiful world",
       "linelist_object": {
         "hello",
         "this",
@@ -424,7 +427,6 @@ weight: 10863
         Output: "[hello this is a beautiful world]",
         ErrMsg: ""
       }),
-      "lines": "hello\nthis\nis a\nbeautiful world",
       "up_runtime_task_layer_number": 0
     })
     

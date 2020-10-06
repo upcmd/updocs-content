@@ -1,6 +1,6 @@
 ---
 title: "c0189_vvvvv"
-date: 2020-09-18T01:27:58+99:00
+date: 2020-10-06T23:46:27+1010:00
 draft: false
 weight: 11894
 
@@ -23,6 +23,8 @@ weight: 11894
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,23 +37,23 @@ weight: 11894
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7100)(<nil>)
+    (*impl.Scopes)(0xc0001e7160)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "global_aa": "aa"
-    }
+    })
     
-    (core.Cache) (len=1) {
+    (*core.Cache)(0xc000126910)((len=1) {
      (string) (len=9) "global_aa": (string) (len=2) "aa"
-    }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -60,9 +62,9 @@ weight: 11894
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "global_aa": "aa"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: without rescue, the execution will return a non-zero  return code in shell and also report the error
@@ -162,8 +164,9 @@ weight: 11894
     
     . ok
     task Finally:
-    Step1: [close_file: ensure the opened file is closed
-     ]
+    Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -191,10 +194,10 @@ weight: 11894
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
       "finally_cc": "cc",
-      "global_aa": "aa",
-      "up_runtime_task_layer_number": 0
+      "global_aa": "aa"
     })
     
     [local] dvar expanded result:
@@ -203,10 +206,10 @@ weight: 11894
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
       "task_tt": "tt",
       "finally_cc": "cc",
-      "global_aa": "aa",
-      "up_runtime_task_layer_number": 0
+      "global_aa": "aa"
     }
     
     

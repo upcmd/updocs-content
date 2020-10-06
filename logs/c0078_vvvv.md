@@ -1,6 +1,6 @@
 ---
 title: "c0078_vvvv"
-date: 2020-09-18T01:27:33+99:00
+date: 2020-10-06T23:46:04+1010:00
 draft: false
 weight: 10783
 
@@ -23,6 +23,8 @@ weight: 10783
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10783
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -65,10 +67,10 @@ weight: 10783
     self: final context exec vars:
     
     (*core.Cache)({
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
       "up_runtime_task_layer_number": 0,
       "school_address": "1 fox road, sydney, nsw 2000",
-      "school_name": "sydney grammar",
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_name": "sydney grammar"
     })
     
     ~SubStep1: [print:  ]
@@ -78,15 +80,15 @@ weight: 10783
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000"
+      "school_details": "sydney grammar : 1 fox road, sydney, nsw 2000",
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

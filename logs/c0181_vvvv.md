@@ -1,6 +1,6 @@
 ---
 title: "c0181_vvvv"
-date: 2020-09-18T01:27:55+99:00
+date: 2020-10-06T23:46:25+1010:00
 draft: false
 weight: 11813
 
@@ -23,6 +23,8 @@ weight: 11813
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,26 +38,27 @@ weight: 11813
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: break loop using until condition
-     ]
+    -Step1: [
+    break loop using until condition
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -71,18 +74,18 @@ weight: 11813
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
+      "loopindex1": 1,
       "loopitem": "item1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "loopindex1": 1,
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -90,10 +93,10 @@ weight: 11813
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
       "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
     })
     
     self: final context exec vars:
@@ -110,19 +113,19 @@ weight: 11813
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "loopitem": "item3",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 0,
+      "loopitem": "item3"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 0,
       "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex": 2
     })
     
     ~SubStep1: [print:  ]
@@ -143,10 +146,11 @@ weight: 11813
     
     ~SubStep1: [print:  ]
     ----------------------------------------------------
-    -Step3: [: in this case the until condition will use a var which is chaning in block func
+    -Step3: [
+    in this case the until condition will use a var which is chaning in block func
     in order to make the interal var accessible by parent block func, you will have to use return cmd to return the value, otherwise the block func can not use right changing value in the condition
     also the_internal_var has be be defined somewhere: scope/global/local, otherwise it will result in a golang templating error
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -172,11 +176,11 @@ weight: 11813
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item1",
-      "loopitem": "item1"
+      "loopitem": "item1",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     ~SubStep1: [print:  ]
@@ -185,21 +189,21 @@ weight: 11813
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "loopitem": "item1",
-      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "None"
+      "the_internal_var": "None",
+      "loopitem": "item1",
+      "loopindex": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "None",
       "loopitem": "item1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
     ~SubStep1: [print:  ]
@@ -207,21 +211,21 @@ weight: 11813
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item1",
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item2",
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     ~SubStep1: [print:  ]
@@ -240,11 +244,11 @@ weight: 11813
     self: final context exec vars:
     
     (*core.Cache)({
+      "the_internal_var": "item1",
       "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item1"
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -252,21 +256,21 @@ weight: 11813
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item2",
+      "loopindex1": 3,
       "loopitem": "item3",
       "loopindex": 2,
-      "loopindex1": 3
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 2,
       "up_runtime_task_layer_number": 0,
       "the_internal_var": "item3",
-      "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "loopitem": "item3"
     })
     
     ~SubStep1: [print:  ]
@@ -275,6 +279,16 @@ weight: 11813
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item2",
+      "loopitem": "item3",
+      "loopindex": 2
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "loopitem": "item3",
       "loopindex": 2,
       "loopindex1": 3,
@@ -282,26 +296,16 @@ weight: 11813
       "the_internal_var": "item2"
     })
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item2",
-      "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3
-    })
-    
     ~SubStep1: [print:  ]
     post process item2 to see if this is executed
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item3",
       "loopitem": "item4",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item3"
     })
     
     self: final context exec vars:
@@ -320,21 +324,21 @@ weight: 11813
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "the_internal_var": "item3",
+      "loopitem": "item4",
       "loopindex": 3,
       "loopindex1": 4,
-      "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item3",
-      "loopitem": "item4"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "the_internal_var": "item3",
       "loopitem": "item4",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]
@@ -351,8 +355,8 @@ weight: 11813
     self: final context exec vars:
     
     (*core.Cache)({
-      "the_internal_var": "item4",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "the_internal_var": "item4"
     })
     
     ~SubStep1: [print:  ]
@@ -368,9 +372,9 @@ weight: 11813
     self: final context exec vars:
     
     (*core.Cache)({
+      "the_internal_var2": "None",
       "up_runtime_task_layer_number": 0,
-      "the_internal_var": "item4",
-      "the_internal_var2": "None"
+      "the_internal_var": "item4"
     })
     
       located task-> 2 [sub_task]: 
@@ -380,23 +384,23 @@ weight: 11813
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "None",
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "the_internal_var": "item4",
+      "the_internal_var2": "None"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item1",
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "the_internal_var": "item4",
+      "the_internal_var2": "item1"
     })
     
     ~~SubStep1: [print:  ]
@@ -409,23 +413,23 @@ weight: 11813
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "the_internal_var2": "item1",
       "loopitem": "item2",
       "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item1"
+      "the_internal_var": "item4"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "the_internal_var": "item4",
       "the_internal_var2": "item2",
-      "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopitem": "item2"
     })
     
     ~~SubStep1: [print:  ]
@@ -438,23 +442,23 @@ weight: 11813
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "the_internal_var2": "item2",
+      "loopitem": "item3",
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4",
-      "the_internal_var2": "item2",
-      "loopitem": "item3"
+      "the_internal_var": "item4"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
       "the_internal_var": "item4",
       "the_internal_var2": "item3",
       "loopitem": "item3",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1
+      "loopindex": 2
     })
     
     ~~SubStep1: [print:  ]
@@ -467,12 +471,12 @@ weight: 11813
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "the_internal_var": "item4",
       "the_internal_var2": "item3",
       "loopitem": "item4",
       "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4"
+      "loopindex1": 4
     })
     
     self: final context exec vars:
@@ -510,9 +514,9 @@ weight: 11813
     ~SubStep1: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "the_internal_var": "item4",
       "the_internal_var2": "item4",
-      "up_runtime_task_layer_number": 1,
-      "the_internal_var": "item4"
+      "up_runtime_task_layer_number": 1
     })
     
     

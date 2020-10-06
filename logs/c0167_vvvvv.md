@@ -1,6 +1,6 @@
 ---
 title: "c0167_vvvvv"
-date: 2020-09-18T01:27:52+99:00
+date: 2020-10-06T23:46:23+1010:00
 draft: false
 weight: 11674
 
@@ -23,6 +23,8 @@ weight: 11674
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,33 +37,33 @@ weight: 11674
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000173000)(<nil>)
+    (*impl.Scopes)(0xc0001c10c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "items": {
         "item1",
         "item2",
         "item3"
       },
       "loopkey": "items"
-    }
+    })
     
-    (core.Cache) (len=2) {
+    (*core.Cache)(0xc00000e908)((len=2) {
+     (string) (len=7) "loopkey": (string) (len=5) "items",
      (string) (len=5) "items": ([]interface {}) (len=3 cap=3) {
       (string) (len=5) "item1",
       (string) (len=5) "item2",
       (string) (len=5) "item3"
-     },
-     (string) (len=7) "loopkey": (string) (len=5) "items"
-    }
+     }
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -70,14 +72,14 @@ weight: 11674
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "items": {
         "item1",
         "item2",
         "item3"
       },
       "loopkey": "items"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -113,12 +115,12 @@ weight: 11674
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0,
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
-      }
+      },
+      "loopkey": "items"
     })
     
     [local] dvar expanded result:
@@ -127,25 +129,25 @@ weight: 11674
     
     
     scope[local] merged: {
-      "loopkey": "items",
+      "up_runtime_task_layer_number": 0,
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "up_runtime_task_layer_number": 0
+      "loopkey": "items"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
+      "loopkey": "items",
       "up_runtime_task_layer_number": 0
     })
     
@@ -192,8 +194,8 @@ weight: 11674
         "item2",
         "item3"
       },
-      "loopkey": "items",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "loopkey": "items"
     })
     
     [local] dvar expanded result:
@@ -202,12 +204,12 @@ weight: 11674
     
     
     scope[local] merged: {
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
       "up_runtime_task_layer_number": 0
     }
     
@@ -215,12 +217,12 @@ weight: 11674
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopkey": "items",
       "items": {
         "item1",
         "item2",
         "item3"
       },
-      "loopkey": "items",
       "up_runtime_task_layer_number": 0
     })
     

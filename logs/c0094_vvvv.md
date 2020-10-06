@@ -1,6 +1,6 @@
 ---
 title: "c0094_vvvv"
-date: 2020-09-18T01:27:36+99:00
+date: 2020-10-06T23:46:07+1010:00
 draft: false
 weight: 10943
 
@@ -23,6 +23,8 @@ weight: 10943
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 10943
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -65,35 +67,35 @@ weight: 10943
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "up_runtime_task_layer_number": 0
+    })
+    
+      located task-> 2 [layer2]: 
+    =Task2: [task ==> layer2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopitem": "layer1-tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb"
     })
     
-      located task-> 2 [layer2]: 
-    =Task2: [task ==> layer2:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-tom",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    })
-    
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
       "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
+      "loopindex1": 1
     })
     
     ~~SubStep1: [print:  ]
@@ -103,55 +105,55 @@ weight: 10943
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-tom",
-      "loopindex": 0
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-tom"
-    })
-    
-    ~~SubStep1: [print:  ]
-    hello layer1-tom
-    ~~SubStep2: [print:  ]
-    hello layer1_bbb: layer1_bbb
-      located task-> 2 [layer2]: 
-    =Task2: [task ==> layer2:  ]
-    Executing task stack layer: 2
-    
-    --Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter",
-      "loopindex": 1,
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa"
     })
     
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "layer1-tom",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb"
+    })
+    
+    ~~SubStep1: [print:  ]
+    hello layer1-tom
+    ~~SubStep2: [print:  ]
+    hello layer1_bbb: layer1_bbb
+      located task-> 2 [layer2]: 
+    =Task2: [task ==> layer2:  ]
+    Executing task stack layer: 2
+    
+    --Step1:
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-peter",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1
+    })
+    
     ~~SubStep1: [print:  ]
     hello layer1-peter
     ~~SubStep2: [print:  ]
@@ -159,23 +161,23 @@ weight: 10943
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-peter",
-      "loopindex": 1
+      "loopitem": "layer1-peter"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-peter",
       "loopindex": 1,
-      "loopindex1": 2
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa",
+      "layer1_bbb": "layer1_bbb"
     })
     
     ~~SubStep1: [print:  ]
@@ -187,32 +189,6 @@ weight: 10943
     Executing task stack layer: 2
     
     --Step1:
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james",
-      "loopindex": 2
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "layer1_aaa": "layer1_aaa",
-      "layer1_bbb": "layer1_bbb",
-      "loopitem": "layer1-james",
-      "loopindex": 2
-    })
-    
-    ~~SubStep1: [print:  ]
-    hello layer1-james
-    ~~SubStep2: [print:  ]
-    hello layer1_aaa: layer1_aaa
-    --Step2:
     current exec runtime vars:
     (*core.Cache)({
       "loopindex": 2,
@@ -226,12 +202,38 @@ weight: 10943
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "layer1_aaa": "layer1_aaa",
       "layer1_bbb": "layer1_bbb",
       "loopitem": "layer1-james",
-      "loopindex": 2
+      "loopindex": 2,
+      "loopindex1": 3
+    })
+    
+    ~~SubStep1: [print:  ]
+    hello layer1-james
+    ~~SubStep2: [print:  ]
+    hello layer1_aaa: layer1_aaa
+    --Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-james",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "layer1_bbb": "layer1_bbb",
+      "loopitem": "layer1-james",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "layer1_aaa": "layer1_aaa"
     })
     
     ~~SubStep1: [print:  ]

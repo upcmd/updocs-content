@@ -1,6 +1,6 @@
 ---
 title: "c0164_vvvvv"
-date: 2020-09-18T01:27:51+99:00
+date: 2020-10-06T23:46:22+1010:00
 draft: false
 weight: 11644
 
@@ -23,6 +23,8 @@ weight: 11644
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11644
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e7600)(<nil>)
+    (*impl.Scopes)(0xc0001f7660)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6920)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11644
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -158,14 +160,14 @@ weight: 11644
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task"
+      }
     }
     
     
@@ -218,14 +220,14 @@ weight: 11644
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     [local] dvar expanded result:
@@ -306,28 +308,28 @@ weight: 11644
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 0,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 0
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task"
     })
     
     caller's vars to task (sub_task)::
@@ -351,16 +353,16 @@ weight: 11644
       Name: "",
       Do: {
         {
+          "func": "cmd",
+          "desc": "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n",
           "do": {
             {
-              "name": "assert",
               "cmd": {
                 "{{eq .aaa \"var_a_from_task\"}}"
-              }
+              },
+              "name": "assert"
             }
-          },
-          "func": "cmd",
-          "desc": "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n"
+          }
         },
         {
           "func": "shell",
@@ -408,34 +410,35 @@ weight: 11644
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
       "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "aaa": "var_a_from_task"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
       "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "aaa": "var_a_from_task"
     })
     
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -466,6 +469,9 @@ weight: 11644
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "Austraila",
+      "loopindex": 0,
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
@@ -473,10 +479,7 @@ weight: 11644
         "US",
         "China",
         "Japan"
-      },
-      "loopitem": "Austraila",
-      "loopindex": 0,
-      "loopindex1": 1
+      }
     })
     
     [local] dvar expanded result:
@@ -485,23 +488,6 @@ weight: 11644
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "loopitem": "Austraila",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "countries": {
         "Austraila",
         "US",
@@ -513,6 +499,23 @@ weight: 11644
       "loopindex1": 1,
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "Austraila",
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     [{{eq .aaa "var_a_from_task"}}]
@@ -545,8 +548,9 @@ weight: 11644
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "Austraila",
+      "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -554,8 +558,7 @@ weight: 11644
         "China",
         "Japan"
       },
-      "loopitem": "Austraila",
-      "loopindex": 0
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -564,25 +567,23 @@ weight: 11644
     
     
     scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "Austraila",
       "loopindex": 0,
       "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "loopitem": "Austraila"
+      }
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -590,8 +591,10 @@ weight: 11644
         "China",
         "Japan"
       },
+      "up_runtime_task_layer_number": 1,
       "loopitem": "Austraila",
-      "loopindex": 0
+      "loopindex": 0,
+      "loopindex1": 1
     })
     
     cmd( 1):
@@ -629,18 +632,19 @@ weight: 11644
     }
     
     . ok
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
         {
+          "name": "assert",
           "cmd": {
             "{{eq .aaa \"var_a_from_task\"}}"
-          },
-          "name": "assert"
+          }
         }
       },
       Dox: <nil>,
@@ -648,6 +652,85 @@ weight: 11644
       Vars: <nil>,
       Dvars: <nil>,
       Desc: "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n",
+      Reg: "",
+      Flags: <nil>,
+      If: "",
+      Else: <nil>,
+      Loop: <nil>,
+      Until: "",
+      RefDir: "",
+      VarsFile: "",
+      Timeout: 0,
+      Finally: <nil>,
+      Rescue: false
+    }
+    
+    current exec runtime vars:
+    (*core.Cache)({
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "US",
+      "loopindex": 1
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "US",
+      "loopindex": 1,
+      "loopindex1": 2
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "US"
+    })
+    
+    [{{eq .aaa "var_a_from_task"}}]
+    ~~SubStep1: [assert:  ]
+     1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
+    --Step2:
+    {
+      Name: "",
+      Do: {
+        "echo \"{{.aaa}}\"",
+        "echo \"{{.loopitem}}\""
+      },
+      Dox: <nil>,
+      Func: "shell",
+      Vars: <nil>,
+      Dvars: <nil>,
+      Desc: "",
       Reg: "",
       Flags: <nil>,
       If: "",
@@ -682,102 +765,7 @@ weight: 11644
     
     
     scope[local] merged: {
-      "loopitem": "US",
-      "loopindex": 1,
       "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "loopitem": "US",
-      "loopindex": 1,
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1
-    })
-    
-    [{{eq .aaa "var_a_from_task"}}]
-    ~~SubStep1: [assert:  ]
-     1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
-    --Step2:
-    {
-      Name: "",
-      Do: {
-        "echo \"{{.aaa}}\"",
-        "echo \"{{.loopitem}}\""
-      },
-      Dox: <nil>,
-      Func: "shell",
-      Vars: <nil>,
-      Dvars: <nil>,
-      Desc: "",
-      Reg: "",
-      Flags: <nil>,
-      If: "",
-      Else: <nil>,
-      Loop: <nil>,
-      Until: "",
-      RefDir: "",
-      VarsFile: "",
-      Timeout: 0,
-      Finally: <nil>,
-      Rescue: false
-    }
-    
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopindex1": 2,
-      "loopitem": "US",
-      "loopindex": 1,
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "loopindex1": 2,
-      "loopitem": "US",
-      "loopindex": 1,
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
@@ -786,9 +774,25 @@ weight: 11644
         "China",
         "Japan"
       },
-      "loopindex1": 2,
       "loopitem": "US",
       "loopindex": 1
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "US",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     cmd( 1):
@@ -826,10 +830,11 @@ weight: 11644
     }
     
     . ok
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -860,7 +865,6 @@ weight: 11644
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -870,7 +874,8 @@ weight: 11644
       },
       "loopitem": "China",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -879,7 +884,6 @@ weight: 11644
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -889,13 +893,15 @@ weight: 11644
       },
       "loopitem": "China",
       "loopindex": 2,
-      "loopindex1": 3
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopitem": "China",
       "loopindex": 2,
       "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
@@ -905,8 +911,7 @@ weight: 11644
         "US",
         "China",
         "Japan"
-      },
-      "loopitem": "China"
+      }
     })
     
     [{{eq .aaa "var_a_from_task"}}]
@@ -940,6 +945,8 @@ weight: 11644
     current exec runtime vars:
     (*core.Cache)({
       "loopitem": "China",
+      "loopindex": 2,
+      "loopindex1": 3,
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
@@ -947,9 +954,7 @@ weight: 11644
         "US",
         "China",
         "Japan"
-      },
-      "loopindex": 2,
-      "loopindex1": 3
+      }
     })
     
     [local] dvar expanded result:
@@ -958,34 +963,34 @@ weight: 11644
     
     
     scope[local] merged: {
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "loopindex": 2,
-      "loopindex1": 3,
-      "loopitem": "China",
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task"
+      "loopitem": "China"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "loopindex": 2,
-      "loopindex1": 3,
       "loopitem": "China",
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task"
+      "loopindex": 2
     })
     
     cmd( 1):
@@ -1023,10 +1028,11 @@ weight: 11644
     }
     
     . ok
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -1057,17 +1063,17 @@ weight: 11644
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopitem": "Japan",
+      "loopindex": 3,
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      },
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "loopitem": "Japan",
-      "loopindex": 3,
-      "loopindex1": 4
+      }
     })
     
     [local] dvar expanded result:
@@ -1076,34 +1082,34 @@ weight: 11644
     
     
     scope[local] merged: {
+      "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
-      "loopitem": "Japan",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopindex1": 4,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
       "loopitem": "Japan",
       "loopindex": 3
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "Japan",
+      "loopindex": 3,
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1
     })
     
     [{{eq .aaa "var_a_from_task"}}]
@@ -1136,25 +1142,6 @@ weight: 11644
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "loopitem": "Japan",
-      "loopindex": 3,
-      "loopindex1": 4
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "loopindex": 3,
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
@@ -1166,14 +1153,14 @@ weight: 11644
         "Japan"
       },
       "loopitem": "Japan"
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "Japan",
-      "loopindex": 3,
+    scope[local] merged: {
       "loopindex1": 4,
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
@@ -1182,7 +1169,26 @@ weight: 11644
         "US",
         "China",
         "Japan"
-      }
+      },
+      "loopitem": "Japan",
+      "loopindex": 3
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "Japan",
+      "loopindex": 3
     })
     
     cmd( 1):

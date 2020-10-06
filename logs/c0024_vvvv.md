@@ -1,6 +1,6 @@
 ---
 title: "c0024_vvvv"
-date: 2020-09-18T01:27:24+99:00
+date: 2020-10-06T23:45:54+1010:00
 draft: false
 weight: 10243
 
@@ -23,6 +23,8 @@ weight: 10243
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,31 +38,31 @@ weight: 10243
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
-        "gender": "Male",
         "school": "Sydney Grammar",
-        "name": "Tom"
+        "name": "Tom",
+        "gender": "Male"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
-      "studentname": "Tom",
-      "studentgender": "Male"
-    }
+      "studentgender": "Male",
+      "studentname": "Tom"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -69,12 +71,12 @@ weight: 10243
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
       "studentgender": "Male",
+      "studentname": "Tom",
       "student": {
+        "school": "Sydney Grammar",
         "name": "Tom",
-        "gender": "Male",
-        "school": "Sydney Grammar"
+        "gender": "Male"
       },
       "up_runtime_task_layer_number": 0
     })
@@ -82,14 +84,14 @@ weight: 10243
     self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "school": "Sydney Grammar",
-        "name": "Tom",
-        "gender": "Male"
-      },
-      "up_runtime_task_layer_number": 0,
+      "studentgender": "Male",
       "studentname": "Tom",
-      "studentgender": "Male"
+      "student": {
+        "gender": "Male",
+        "school": "Sydney Grammar",
+        "name": "Tom"
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):

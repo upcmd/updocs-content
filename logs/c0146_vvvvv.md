@@ -1,6 +1,6 @@
 ---
 title: "c0146_vvvvv"
-date: 2020-09-18T01:27:48+99:00
+date: 2020-10-06T23:46:18+1010:00
 draft: false
 weight: 11464
 
@@ -23,6 +23,8 @@ weight: 11464
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11464
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001c1200)(<nil>)
+    (*impl.Scopes)(0xc0000a25a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000a60e0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11464
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: mock up test to test module.template rendering ]
@@ -81,8 +83,8 @@ weight: 11464
           "name": "template",
           "desc": "render a template file to a file 1",
           "cmd": {
-            "dest": "/tmp/mockup_doc.md",
-            "src": "./tests/functests/d0145.template"
+            "src": "./tests/functests/d0145.template",
+            "dest": "/tmp/mockup_doc.md"
           }
         },
         {
@@ -124,11 +126,11 @@ weight: 11464
     
     current exec runtime vars:
     (*core.Cache)({
-      "school": "james rules",
+      "up_runtime_task_layer_number": 0,
+      "folder": "module",
       "title": "HelloWorld example",
       "personname": "Tom Cruise",
-      "up_runtime_task_layer_number": 0,
-      "folder": "module"
+      "school": "james rules"
     })
     
     [local] dvar expanded result:
@@ -137,21 +139,21 @@ weight: 11464
     
     
     scope[local] merged: {
-      "personname": "Tom Cruise",
       "up_runtime_task_layer_number": 0,
       "folder": "module",
-      "school": "james rules",
-      "title": "HelloWorld example"
+      "title": "HelloWorld example",
+      "personname": "Tom Cruise",
+      "school": "james rules"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "title": "HelloWorld example",
-      "personname": "Tom Cruise",
       "up_runtime_task_layer_number": 0,
       "folder": "module",
+      "title": "HelloWorld example",
+      "personname": "Tom Cruise",
       "school": "james rules"
     })
     
@@ -159,11 +161,11 @@ weight: 11464
     ~SubStep1: [inspect: the vars in caller after invoking module task ]
      1: inspect[exec_vars]
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "folder": "module",
-      "school": "james rules",
       "title": "HelloWorld example",
-      "personname": "Tom Cruise"
+      "personname": "Tom Cruise",
+      "school": "james rules",
+      "up_runtime_task_layer_number": 0
     })
     
      2: inspect[exec_base_vars]
@@ -229,14 +231,14 @@ weight: 11464
     cat /tmp/mockup_doc.md
     -
     title: "HelloWorld example"
-    date: 2020-09-18T00:48:24+99:00
+    date: 2020-10-06T23:42:22+1010:00
     draft: false
     -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=22) "cat /tmp/mockup_doc.md",
      Code: (int) 0,
-     Output: (string) (len=72) "title: \"HelloWorld example\"\ndate: 2020-09-18T00:48:24+99:00\ndraft: false",
+     Output: (string) (len=74) "title: \"HelloWorld example\"\ndate: 2020-10-06T23:42:22+1010:00\ndraft: false",
      ErrMsg: (string) ""
     }
     

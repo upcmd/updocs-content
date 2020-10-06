@@ -1,6 +1,6 @@
 ---
 title: "c0014_vvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:53+1010:00
 draft: false
 weight: 10143
 
@@ -23,6 +23,8 @@ weight: 10143
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,25 +38,25 @@ weight: 10143
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "k": "runtime-k",
-      "a": "runtime-a",
-      "e": "runtime-e"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
+    (*core.Cache)({
       "a": "runtime-a",
       "e": "runtime-e",
       "k": "runtime-k"
-    }
+    })
+    
+    -------runtime global final merged with dvars-------
+    
+    (*core.Cache)({
+      "k": "runtime-k",
+      "a": "runtime-a",
+      "e": "runtime-e"
+    })
     
       located task-> 2 [task]: 
     Task2: [task ==> task:  ]
@@ -63,9 +65,9 @@ weight: 10143
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-a",
       "e": "runtime-e",
       "k": "runtime-k",
+      "a": "caller-ref-a",
       "up_runtime_task_layer_number": 0,
       "b": "caller-ref-b"
     })
@@ -73,11 +75,11 @@ weight: 10143
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "caller-ref-a",
+      "up_runtime_task_layer_number": 0,
+      "b": "caller-ref-b",
       "e": "runtime-e",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 0,
-      "b": "caller-ref-b"
+      "a": "caller-ref-a"
     })
     
       located task-> 1 [callee_task]: 
@@ -87,23 +89,23 @@ weight: 10143
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "caller-ref-a",
       "b": "caller-ref-b",
       "c": "callee-c",
+      "a": "caller-ref-a",
+      "e": "runtime-e",
       "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "e": "runtime-e"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 1,
-      "e": "runtime-e",
-      "a": "caller-ref-a",
       "b": "caller-ref-b",
-      "c": "callee-c"
+      "c": "callee-c",
+      "a": "caller-ref-a",
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

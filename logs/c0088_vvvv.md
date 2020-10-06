@@ -1,6 +1,6 @@
 ---
 title: "c0088_vvvv"
-date: 2020-09-18T01:27:35+99:00
+date: 2020-10-06T23:46:06+1010:00
 draft: false
 weight: 10883
 
@@ -23,6 +23,8 @@ weight: 10883
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,43 +38,43 @@ weight: 10883
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
+            "postcode": 2000,
+            "cbd": true
           },
           "school": "Sydney Grammar"
-        }
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "student": {
-        "name": "Tom",
-        "gender": "Male",
         "address": {
-          "school": "Sydney Grammar",
           "suburb": {
-            "cbd": true,
             "name": "sydney",
-            "postcode": 2000
-          }
-        }
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task: use dynamic dir instead of static ref dir ]
@@ -81,20 +83,20 @@ weight: 10883
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "dynadir": "./tests/functests",
       "student": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        },
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        }
       },
-      "up_runtime_task_layer_number": 0,
-      "dynadir": "./tests/functests"
+      "up_runtime_task_layer_number": 0
     })
     
     dvar> sgp_address_dyna_dir:
@@ -111,30 +113,18 @@ weight: 10883
     dvar[object]> sgp_address_dyna_dir_object:
     {
       "address": {
-        "school": "Sydney Grammar",
         "suburb": {
           "name": "sydney",
           "postcode": 2000,
           "CBD": true
-        }
+        },
+        "school": "Sydney Grammar"
       }
     }
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student": {
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "cbd": true,
-            "name": "sydney",
-            "postcode": 2000
-          }
-        },
-        "name": "Tom",
-        "gender": "Male"
-      },
       "up_runtime_task_layer_number": 0,
       "dynadir": "./tests/functests",
       "sgp_address_dyna_dir": "address:\n  suburb:\n    name: sydney\n    postcode: 2000\n    CBD: yes\n  school: Sydney Grammar\n",
@@ -147,6 +137,18 @@ weight: 10883
           },
           "school": "Sydney Grammar"
         }
+      },
+      "student": {
+        "address": {
+          "school": "Sydney Grammar",
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          }
+        },
+        "name": "Tom",
+        "gender": "Male"
       }
     })
     

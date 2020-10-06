@@ -1,6 +1,6 @@
 ---
 title: "c0172_vvvvv"
-date: 2020-09-18T01:27:52+99:00
+date: 2020-10-06T23:46:23+1010:00
 draft: false
 weight: 11724
 
@@ -23,6 +23,8 @@ weight: 11724
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11724
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf1e0)(<nil>)
+    (*impl.Scopes)(0xc0001751e0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68e8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11724
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -70,15 +72,15 @@ weight: 11724
       Name: "",
       Do: {
         {
-          "cmd": "step 1",
-          "name": "print"
+          "name": "print",
+          "cmd": "step 1"
         },
         {
           "name": "panic"
         },
         {
-          "name": "print",
-          "cmd": "extra step ......... it will never reach here"
+          "cmd": "extra step ......... it will never reach here",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -138,8 +140,9 @@ weight: 11724
     =Task2: [task ==> close_file:  ]
     Executing task stack layer: 2
     
-    --Step1: [close_file: ensure the opened file is closed
-     ]
+    --Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {

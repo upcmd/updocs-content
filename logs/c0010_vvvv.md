@@ -1,6 +1,6 @@
 ---
 title: "c0010_vvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10103
 
@@ -23,6 +23,8 @@ weight: 10103
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,71 +38,70 @@ weight: 10103
     
     ---------group vars----------
     
-    prod: {
+    prod: (*core.Cache)({
       "c": "prod-c",
       "a": "prod-a"
-    }
+    })
     
     
-    nonprod: {
+    nonprod: (*core.Cache)({
+      "a": "non-prod-a",
+      "b": "non-prod-b",
       "c": {
-        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
         "c1": "nonprod-c1",
         "c2": "nonprod-c2",
         "c3": {
-          "c33": "nonprod-c33",
-          "c32": "nonprod-c32"
-        }
-      },
-      "a": "non-prod-a",
-      "b": "non-prod-b"
-    }
+          "c32": "nonprod-c32",
+          "c33": "nonprod-c33"
+        },
+        "c4": "nonprod-c4"
+      }
+    })
     
     
-    global: {
+    global: (*core.Cache)({
       "b": "global-b",
       "c": {
         "c2": "global-c2",
         "c3": {
+          "c31": "global-c31",
           "c32": "global-c32",
-          "c33": "global-c33",
-          "c31": "global-c31"
+          "c33": "global-c33"
         },
         "c4": "global-c4",
         "c1": "global-c1"
       },
       "d": "global-d",
       "a": "global-a"
-    }
+    })
     
     
     groups members:[dr prod dev st staging]
     merged[ dev ] runtime vars:
-    {
-      "a": "dev-a",
+    (*core.Cache)({
       "b": "non-prod-b",
       "c": {
-        "c7": "dev-c7",
-        "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
           "c32": "nonprod-c32",
           "c33": "dev-c33",
           "c31": "global-c31"
         },
-        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
-        "c6": "dev-c6"
+        "c7": "dev-c7",
+        "c6": "dev-c6",
+        "c4": "nonprod-c4",
+        "c1": "dev-c1"
       },
-      "d": "global-d"
-    }
+      "d": "global-d",
+      "a": "dev-a"
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "c": {
-        "c7": "dev-c7",
         "c1": "dev-c1",
         "c2": "dev-c2",
         "c3": {
@@ -108,14 +109,15 @@ weight: 10103
           "c32": "nonprod-c32",
           "c33": "dev-c33"
         },
-        "c4": "nonprod-c4",
         "c5": "nonprod-c5",
-        "c6": "dev-c6"
+        "c7": "dev-c7",
+        "c6": "dev-c6",
+        "c4": "nonprod-c4"
       },
       "d": "global-d",
       "a": "dev-a",
       "b": "non-prod-b"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -124,44 +126,44 @@ weight: 10103
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "a": "dev-a",
       "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0,
       "c": {
-        "c6": "dev-c6",
-        "c7": "dev-c7",
-        "c1": "dev-c1",
-        "c2": "dev-c2",
         "c3": {
-          "c33": "dev-c33",
           "c31": "global-c31",
-          "c32": "nonprod-c32"
+          "c32": "nonprod-c32",
+          "c33": "dev-c33"
         },
+        "c5": "nonprod-c5",
+        "c7": "dev-c7",
+        "c6": "dev-c6",
         "c4": "nonprod-c4",
-        "c5": "nonprod-c5"
+        "c1": "dev-c1",
+        "c2": "dev-c2"
       },
       "d": "global-d",
-      "up_runtime_task_layer_number": 0
+      "a": "dev-a"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "dev-a",
-      "b": "non-prod-b",
       "c": {
-        "c4": "nonprod-c4",
-        "c5": "nonprod-c5",
-        "c6": "dev-c6",
-        "c7": "dev-c7",
-        "c1": "dev-c1",
-        "c2": "dev-c2",
         "c3": {
-          "c32": "nonprod-c32",
           "c33": "dev-c33",
-          "c31": "global-c31"
-        }
+          "c31": "global-c31",
+          "c32": "nonprod-c32"
+        },
+        "c5": "nonprod-c5",
+        "c7": "dev-c7",
+        "c6": "dev-c6",
+        "c4": "nonprod-c4",
+        "c1": "dev-c1",
+        "c2": "dev-c2"
       },
       "d": "global-d",
+      "a": "dev-a",
+      "b": "non-prod-b",
       "up_runtime_task_layer_number": 0
     })
     

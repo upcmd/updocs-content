@@ -1,6 +1,6 @@
 ---
 title: "0004_vvvvv"
-date: 2020-09-18T01:28:27+99:00
+date: 2020-10-06T23:46:54+1010:00
 draft: false
 weight: 100404
 
@@ -23,6 +23,8 @@ weight: 100404
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up/tests/modtests/0004
@@ -35,21 +37,21 @@ weight: 100404
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000226440)(<nil>)
+    (*impl.Scopes)(0xc0001f5100)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b68c8)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 100404
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
@@ -122,8 +124,8 @@ weight: 100404
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "this is a internal task in caller"
+          "cmd": "this is a internal task in caller",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -228,14 +230,14 @@ weight: 100404
     drwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module
     -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
     drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
-    drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
+    drwxr-xr-x   19 root     root           608 Oct  1 21:59 ..
     
     -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=8) "ls -lart",
      Code: (int) 0,
-     Output: (string) (len=396) "total 12\n-rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml\n-rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module\n-rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 .\ndrwxr-xr-x   18 root     root           576 Jul 18 17:03 ..",
+     Output: (string) (len=396) "total 12\n-rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml\n-rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module\n-rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 .\ndrwxr-xr-x   19 root     root           608 Oct  1 21:59 ..",
      ErrMsg: (string) ""
     }
     
@@ -350,21 +352,21 @@ weight: 100404
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000328f40)(<nil>)
+    (*impl.Scopes)(0xc000277f00)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000b6cc0)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -373,8 +375,8 @@ weight: 100404
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello-module] task: [Say_world]
     Executing tasker layer: 2
@@ -430,8 +432,8 @@ weight: 100404
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "up_runtime_tasker_layer_number": 2
     })
     
     cmd( 1):
@@ -506,8 +508,9 @@ weight: 100404
     }
     
     . ok
-    -Step2: [: this should call its own internal task
-     ]
+    -Step2: [
+    this should call its own internal task
+    ]
     {
       Name: "",
       Do: "internal_task",
@@ -547,28 +550,28 @@ weight: 100404
     
     
     scope[local] merged: {
+      "up_runtime_tasker_layer_number": 2,
       "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
-      "up_runtime_tasker_layer_number": 2
+      })
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     caller's vars to task (internal_task)::
@@ -632,28 +635,28 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     this is a internal task in module
@@ -688,14 +691,14 @@ weight: 100404
     
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
-      }),
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     [local] dvar expanded result:
@@ -718,14 +721,14 @@ weight: 100404
     hello-module: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "last_result": (*utils.ExecResult)({
         Cmd: "ls ../../..|grep modtests",
         Code: 0,
         Output: "modtests",
         ErrMsg: ""
       }),
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):
@@ -885,8 +888,8 @@ weight: 100404
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     })
     
     [local] dvar expanded result:
@@ -895,8 +898,8 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -939,8 +942,8 @@ weight: 100404
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_tasker_layer_number": 2,
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "up_runtime_tasker_layer_number": 2
     })
     
     [local] dvar expanded result:
@@ -949,8 +952,8 @@ weight: 100404
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 1
     }
     
     
@@ -973,14 +976,14 @@ weight: 100404
     drwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module
     -rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml
     drwxr-xr-x    6 root     root           192 Jun 11 09:38 .
-    drwxr-xr-x   18 root     root           576 Jul 18 17:03 ..
+    drwxr-xr-x   19 root     root           608 Oct  1 21:59 ..
     
     -
      .. ok
     (utils.ExecResult) {
      Cmd: (string) (len=8) "ls -lart",
      Code: (int) 0,
-     Output: (string) (len=396) "total 12\n-rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml\n-rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module\n-rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 .\ndrwxr-xr-x   18 root     root           576 Jul 18 17:03 ..",
+     Output: (string) (len=396) "total 12\n-rw-r--r--    1 root     root           253 Jun 11 09:38 upconfig.yml\n-rw-r--r--    1 root     root           521 Jun 11 09:38 up.yml\ndrwxr-xr-x    3 root     root            96 Jun 11 09:38 hello-module\n-rw-r--r--    1 root     root          1019 Jun 11 09:38 doc.yml\ndrwxr-xr-x    6 root     root           192 Jun 11 09:38 .\ndrwxr-xr-x   19 root     root           608 Oct  1 21:59 ..",
      ErrMsg: (string) ""
     }
     

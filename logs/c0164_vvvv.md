@@ -1,6 +1,6 @@
 ---
 title: "c0164_vvvv"
-date: 2020-09-18T01:27:51+99:00
+date: 2020-10-06T23:46:22+1010:00
 draft: false
 weight: 11643
 
@@ -23,6 +23,8 @@ weight: 11643
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,19 +38,19 @@ weight: 11643
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -80,28 +82,28 @@ weight: 11643
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task"
     })
     
      WARN: [cmd] - [Not implemented or void for no action!]
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task"
     })
     
     self: final context exec vars:
@@ -124,14 +126,14 @@ weight: 11643
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task"
     })
     
     self: final context exec vars:
@@ -155,20 +157,20 @@ weight: 11643
     current exec runtime vars:
     (*core.Cache)({
       "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
       "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
@@ -177,39 +179,40 @@ weight: 11643
       }
     })
     
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex": 0,
-      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "loopitem": "Austraila"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
       "loopitem": "Austraila",
       "loopindex": 0,
       "loopindex1": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "Austraila",
+      "loopindex": 0,
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      }
     })
     
     ~~SubStep1: [assert:  ]
@@ -217,7 +220,7 @@ weight: 11643
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
+      "loopitem": "Austraila",
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -225,7 +228,7 @@ weight: 11643
         "China",
         "Japan"
       },
-      "loopitem": "Austraila",
+      "up_runtime_task_layer_number": 1,
       "loopindex": 0,
       "loopindex1": 1
     })
@@ -233,17 +236,17 @@ weight: 11643
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopitem": "Austraila",
-      "loopindex": 0,
-      "loopindex1": 1,
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
-      }
+      },
+      "up_runtime_task_layer_number": 1,
+      "loopindex": 0,
+      "loopindex1": 1,
+      "loopitem": "Austraila"
     })
     
     cmd( 1):
@@ -267,49 +270,16 @@ weight: 11643
     -
      .. ok
     . ok
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "loopitem": "US",
-      "loopindex": 1
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "loopitem": "US",
-      "loopindex": 1,
-      "loopindex1": 2
-    })
-    
-    ~~SubStep1: [assert:  ]
-     1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
-    --Step2:
-    current exec runtime vars:
-    (*core.Cache)({
-      "loopitem": "US",
       "loopindex": 1,
       "loopindex1": 2,
+      "loopitem": "US",
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
@@ -323,6 +293,7 @@ weight: 11643
     self: final context exec vars:
     
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -330,9 +301,42 @@ weight: 11643
         "China",
         "Japan"
       },
-      "loopitem": "US",
       "loopindex": 1,
       "loopindex1": 2,
+      "loopitem": "US"
+    })
+    
+    ~~SubStep1: [assert:  ]
+     1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
+    --Step2:
+    current exec runtime vars:
+    (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopindex1": 2,
+      "loopitem": "US",
+      "loopindex": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopindex1": 2,
+      "loopitem": "US",
+      "loopindex": 1,
       "up_runtime_task_layer_number": 1
     })
     
@@ -357,11 +361,28 @@ weight: 11643
     -
      .. ok
     . ok
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     current exec runtime vars:
+    (*core.Cache)({
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "China",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
@@ -374,22 +395,6 @@ weight: 11643
       "loopitem": "China",
       "loopindex": 2,
       "loopindex1": 3
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "loopitem": "China",
-      "loopindex": 2,
-      "loopindex1": 3,
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      }
     })
     
     ~~SubStep1: [assert:  ]
@@ -397,30 +402,30 @@ weight: 11643
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
+      "loopindex": 2,
+      "loopindex1": 3,
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
-      "loopitem": "China",
-      "loopindex": 2,
-      "loopindex1": 3
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "loopitem": "China"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
         "US",
         "China",
         "Japan"
       },
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
       "loopitem": "China",
       "loopindex": 2,
       "loopindex1": 3
@@ -447,13 +452,13 @@ weight: 11643
     -
      .. ok
     . ok
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
       "aaa": "var_a_from_task",
       "countries": {
         "Austraila",
@@ -461,9 +466,10 @@ weight: 11643
         "China",
         "Japan"
       },
-      "loopitem": "Japan",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "loopitem": "Japan",
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
@@ -477,15 +483,31 @@ weight: 11643
         "China",
         "Japan"
       },
-      "loopitem": "Japan",
       "loopindex": 3,
-      "loopindex1": 4
+      "loopindex1": 4,
+      "loopitem": "Japan"
     })
     
     ~~SubStep1: [assert:  ]
      1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
     --Step2:
     current exec runtime vars:
+    (*core.Cache)({
+      "loopindex1": 4,
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task",
+      "countries": {
+        "Austraila",
+        "US",
+        "China",
+        "Japan"
+      },
+      "loopitem": "Japan",
+      "loopindex": 3
+    })
+    
+    self: final context exec vars:
+    
     (*core.Cache)({
       "loopindex": 3,
       "loopindex1": 4,
@@ -498,22 +520,6 @@ weight: 11643
         "Japan"
       },
       "loopitem": "Japan"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "countries": {
-        "Austraila",
-        "US",
-        "China",
-        "Japan"
-      },
-      "loopitem": "Japan",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

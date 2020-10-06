@@ -1,6 +1,6 @@
 ---
 title: "c0062_vvvv"
-date: 2020-09-18T01:27:30+99:00
+date: 2020-10-06T23:46:01+1010:00
 draft: false
 weight: 10623
 
@@ -23,6 +23,8 @@ weight: 10623
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,13 +38,13 @@ weight: 10623
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "student_name": "tom",
       "classes": {
         "1k",
@@ -50,19 +52,19 @@ weight: 10623
         "3j",
         "4s"
       }
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "student_name": "tom",
+    (*core.Cache)({
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      }
-    }
+      },
+      "student_name": "tom"
+    })
     
     loading [c0062-tasks-simple.yml]:  ./tests/functests/c0062-tasks-simple.yml
     loading [c0062-tasks-complicated.yml]:  ./tests/functests/c0062-tasks-complicated.yml
@@ -76,25 +78,25 @@ weight: 10623
     current exec runtime vars:
     (*core.Cache)({
       "student_name": "tom",
+      "up_runtime_task_layer_number": 0,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
-      "up_runtime_task_layer_number": 0
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "up_runtime_task_layer_number": 0
     })
     
@@ -122,32 +124,32 @@ weight: 10623
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task step 2\"",
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -164,12 +166,7 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -177,26 +174,31 @@ weight: 10623
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "student_name": "tom"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
-      },
+      }
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom"
     })
     
     cmd( 1):
@@ -217,32 +219,32 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_a_step1\"",
         Code: 0,
         Output: "task_a_step1",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_a_step1\"",
         Code: 0,
@@ -270,13 +272,32 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
+      "up_runtime_task_layer_number": 1,
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task_c_step1\"",
+        Code: 0,
+        Output: "task_c_step1",
+        ErrMsg: ""
+      })
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task_c_step1\"",
         Code: 0,
@@ -284,25 +305,6 @@ weight: 10623
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task_c_step1\"",
-        Code: 0,
-        Output: "task_c_step1",
-        ErrMsg: ""
-      })
     })
     
     cmd( 1):
@@ -319,13 +321,13 @@ weight: 10623
     -Step3:
     current exec runtime vars:
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -339,19 +341,19 @@ weight: 10623
     
     (*core.Cache)({
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
       located task-> 5 [task_b]: 
@@ -361,34 +363,28 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task step 2\"",
-        Code: 0,
-        Output: "task step 2",
-        ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "1k",
-      "loopindex": 0,
       "loopindex1": 1,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 2\"",
+        Code: 0,
+        Output: "task step 2",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "1k",
+      "loopindex": 0
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
@@ -399,6 +395,12 @@ weight: 10623
       "loopitem": "1k",
       "loopindex": 0,
       "loopindex1": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
       "student_name": "tom"
     })
     
@@ -430,35 +432,35 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "2b",
       "loopindex": 1,
       "loopindex1": 2,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
         Code: 0,
         Output: "0 -> student nameed tom has been in class [1k]",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "2b"
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"0 -> student nameed tom has been in class [1k]\"",
         Code: 0,
@@ -499,36 +501,36 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "loopitem": "3j",
-      "loopindex": 2,
-      "loopindex1": 3,
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
         Output: "1 -> student nameed tom has been in class [2b]",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1,
+      "loopitem": "3j",
+      "loopindex": 2,
+      "loopindex1": 3,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
       "loopindex1": 3,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"1 -> student nameed tom has been in class [2b]\"",
         Code: 0,
@@ -568,6 +570,15 @@ weight: 10623
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 3,
+      "loopindex1": 4,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
         Code: 0,
@@ -575,21 +586,19 @@ weight: 10623
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "4s",
-      "loopindex": 3,
-      "loopindex1": 4,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
+      "loopitem": "4s"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"2 -> student nameed tom has been in class [3j]\"",
         Code: 0,
@@ -599,14 +608,7 @@ weight: 10623
       "up_runtime_task_layer_number": 1,
       "loopitem": "4s",
       "loopindex": 3,
-      "loopindex1": 4,
-      "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      }
+      "loopindex1": 4
     })
     
     cmd( 1):
@@ -634,38 +636,38 @@ weight: 10623
     current exec runtime vars:
     (*core.Cache)({
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
       }),
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
       "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "up_runtime_task_layer_number": 1,
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 2\"",
         Code: 0,
         Output: "task step 2",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 1
+      })
     })
     
     cmd( 1):
@@ -692,32 +694,13 @@ weight: 10623
     -Step5:
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"task step 4\"",
-        Code: 0,
-        Output: "task step 4",
-        ErrMsg: ""
-      })
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "student_name": "tom",
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
@@ -725,6 +708,25 @@ weight: 10623
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "student_name": "tom",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"task step 4\"",
+        Code: 0,
+        Output: "task step 4",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 1,
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      }
     })
     
       located task-> 4 [a_very_complicated_task]: 
@@ -740,19 +742,20 @@ weight: 10623
         "3j",
         "4s"
       },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
         Output: "task step 4",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "student_name": "tom"
+      "up_runtime_task_layer_number": 1
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"task step 4\"",
         Code: 0,
@@ -760,7 +763,6 @@ weight: 10623
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
@@ -803,12 +805,6 @@ weight: 10623
     --Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "classes": {
-        "1k",
-        "2b",
-        "3j",
-        "4s"
-      },
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"i am a very complicated flow of step3\"",
         Code: 0,
@@ -816,26 +812,32 @@ weight: 10623
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "student_name": "tom"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "up_runtime_task_layer_number": 1,
-      "student_name": "tom",
       "classes": {
         "1k",
         "2b",
         "3j",
         "4s"
       },
+      "student_name": "tom"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "classes": {
+        "1k",
+        "2b",
+        "3j",
+        "4s"
+      },
+      "student_name": "tom",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"i am a very complicated flow of step3\"",
         Code: 0,
         Output: "i am a very complicated flow of step3",
         ErrMsg: ""
-      })
+      }),
+      "up_runtime_task_layer_number": 1
     })
     
     cmd( 1):

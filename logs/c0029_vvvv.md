@@ -1,6 +1,6 @@
 ---
 title: "c0029_vvvv"
-date: 2020-09-18T01:27:25+99:00
+date: 2020-10-06T23:45:55+1010:00
 draft: false
 weight: 10293
 
@@ -23,6 +23,8 @@ weight: 10293
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,51 +38,51 @@ weight: 10293
     
     ---------group vars----------
     
-    nonprod: {
-      "a": "non-prod-a",
-      "b": "non-prod-b",
-      "c": "non-prod-c",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "dab": "non-prod-a-and-non-prod-b"
-    }
-    
-    
-    global: {
+    global: (*core.Cache)({
       "b": "global-b",
       "c": "global-c",
       "e": "global-e",
       "da": "global-a",
       "dab": "global-a-and-global-b",
       "a": "global-a"
-    }
+    })
+    
+    
+    nonprod: (*core.Cache)({
+      "c": "non-prod-c",
+      "dvar_np_a": "non-prod-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
+      "a": "non-prod-a",
+      "b": "non-prod-b"
+    })
     
     
     groups members:[dev staging]
     merged[ dev ] runtime vars:
-    {
-      "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
-      "b": "non-prod-b",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
+    (*core.Cache)({
       "c": "non-prod-c",
-      "e": "global-e",
-      "da": "global-a"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
       "e": "global-e",
       "da": "global-a",
       "dab": "non-prod-a-and-non-prod-b",
-      "a": "non-prod-a",
-      "b": "non-prod-b",
       "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
-      "c": "non-prod-c"
-    }
+      "a": "non-prod-a",
+      "b": "non-prod-b"
+    })
+    
+    -------runtime global final merged with dvars-------
+    
+    (*core.Cache)({
+      "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
+      "dvar_np_a": "non-prod-a",
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "e": "global-e",
+      "da": "global-a"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -89,29 +91,29 @@ weight: 10293
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "b": "non-prod-b",
-      "d": "non-prod-d",
-      "dvar_np_a": "non-prod-a",
-      "c": "non-prod-c",
-      "e": "global-e",
-      "da": "global-a",
-      "a": "non-prod-a",
       "up_runtime_task_layer_number": 0,
-      "dab": "non-prod-a-and-non-prod-b"
+      "dvar_np_a": "non-prod-a",
+      "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "c": "non-prod-c",
+      "da": "global-a",
+      "e": "global-e"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "e": "global-e",
-      "da": "global-a",
-      "a": "non-prod-a",
-      "up_runtime_task_layer_number": 0,
-      "b": "non-prod-b",
-      "d": "non-prod-d",
       "dvar_np_a": "non-prod-a",
+      "e": "global-e",
+      "a": "non-prod-a",
+      "b": "non-prod-b",
+      "up_runtime_task_layer_number": 0,
+      "dab": "non-prod-a-and-non-prod-b",
+      "d": "non-prod-d",
       "c": "non-prod-c",
-      "dab": "non-prod-a-and-non-prod-b"
+      "da": "global-a"
     })
     
     cmd( 1):

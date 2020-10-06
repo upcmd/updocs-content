@@ -1,6 +1,6 @@
 ---
 title: "c0132_vvvvv"
-date: 2020-09-18T01:27:45+99:00
+date: 2020-10-06T23:46:15+1010:00
 draft: false
 weight: 11324
 
@@ -23,6 +23,8 @@ weight: 11324
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,27 +37,27 @@ weight: 11324
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0002612c0)(<nil>)
+    (*impl.Scopes)(0xc000177340)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "a": "global_aaa",
       "b": "global_bbb",
       "c": "global_ccc"
-    }
+    })
     
-    (core.Cache) (len=3) {
+    (*core.Cache)(0xc0000b6920)((len=3) {
+     (string) (len=1) "c": (string) (len=10) "global_ccc",
      (string) (len=1) "a": (string) (len=10) "global_aaa",
-     (string) (len=1) "b": (string) (len=10) "global_bbb",
-     (string) (len=1) "c": (string) (len=10) "global_ccc"
-    }
+     (string) (len=1) "b": (string) (len=10) "global_bbb"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -64,11 +66,11 @@ weight: 11324
     
     -------runtime global final merged with dvars-------
     
-    {
-      "a": "global_aaa",
+    (*core.Cache)({
       "b": "global_bbb",
-      "c": "global_ccc"
-    }
+      "c": "global_ccc",
+      "a": "global_aaa"
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -79,7 +81,6 @@ weight: 11324
       Name: "",
       Do: {
         {
-          "func": "cmd",
           "vars": {
             "a": "block_layer2_aaa"
           },
@@ -92,19 +93,20 @@ weight: 11324
               }
             },
             {
+              "name": "assert",
               "cmd": {
                 "{{eq .a \"aaa\"}}"
-              },
-              "name": "assert"
+              }
             },
             {
-              "name": "inspect",
               "cmd": {
                 "exec_vars",
                 "exec_base_vars"
-              }
+              },
+              "name": "inspect"
             }
-          }
+          },
+          "func": "cmd"
         }
       },
       Dox: <nil>,
@@ -159,25 +161,25 @@ weight: 11324
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
       "a": "local_aaa",
+      "up_runtime_task_layer_number": 0,
       "b": "local_bbb",
       "c": "global_ccc"
     })
     
     [local] dvar expanded result:
     {
-      "db": "local_db",
-      "da": "local_da"
+      "da": "local_da",
+      "db": "local_db"
     }
     
     
     scope[local] merged: {
       "c": "global_ccc",
-      "up_runtime_task_layer_number": 0,
       "a": "local_aaa",
       "da": "local_da",
       "db": "local_db",
+      "up_runtime_task_layer_number": 0,
       "b": "local_bbb"
     }
     
@@ -185,9 +187,9 @@ weight: 11324
     self: final context exec vars:
     
     (*core.Cache)({
-      "a": "local_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
+      "a": "local_aaa",
       "up_runtime_task_layer_number": 0,
       "da": "local_da",
       "db": "local_db"
@@ -266,12 +268,12 @@ weight: 11324
     self: final context exec vars:
     
     (*core.Cache)({
-      "c": "global_ccc",
-      "up_runtime_task_layer_number": 0,
       "da": "local_da",
       "db": "local_db",
       "a": "block_layer2_aaa",
-      "b": "local_bbb"
+      "b": "local_bbb",
+      "c": "global_ccc",
+      "up_runtime_task_layer_number": 0
     })
     
     [{{eq .a "aaa"}} {{eq .a "block_layer2_aaa"}}]
@@ -285,19 +287,19 @@ weight: 11324
     ~SubStep3: [inspect:  ]
      1: inspect[exec_vars]
     (*core.Cache)({
+      "a": "block_layer2_aaa",
       "b": "local_bbb",
       "c": "global_ccc",
       "up_runtime_task_layer_number": 0,
       "da": "local_da",
-      "db": "local_db",
-      "a": "block_layer2_aaa"
+      "db": "local_db"
     })
     
      2: inspect[exec_base_vars]
     {
-      "a": "global_aaa",
       "b": "global_bbb",
-      "c": "global_ccc"
+      "c": "global_ccc",
+      "a": "global_aaa"
     }
     
     

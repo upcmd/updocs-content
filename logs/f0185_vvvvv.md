@@ -1,6 +1,6 @@
 ---
 title: "f0185_vvvvv"
-date: 2020-09-18T01:28:05+99:00
+date: 2020-10-06T23:46:34+1010:00
 draft: false
 weight: 11854
 
@@ -23,6 +23,8 @@ weight: 11854
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11854
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5420)(<nil>)
+    (*impl.Scopes)(0xc0000c0800)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc000098100)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11854
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -208,10 +210,10 @@ weight: 11854
     
     current exec runtime vars:
     (*core.Cache)({
+      "loopindex": 0,
       "loopindex1": 1,
       "up_runtime_task_layer_number": 2,
-      "loopitem": "item1",
-      "loopindex": 0
+      "loopitem": "item1"
     })
     
     [local] dvar expanded result:
@@ -220,20 +222,20 @@ weight: 11854
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 2,
-      "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2,
+      "loopitem": "item1"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
+      "loopindex1": 1,
       "up_runtime_task_layer_number": 2,
       "loopitem": "item1",
-      "loopindex": 0,
-      "loopindex1": 1
+      "loopindex": 0
     })
     
     cmd( 1):
@@ -272,8 +274,9 @@ weight: 11854
     task Finally:
     Recovered from:   ERROR: Failed And Not Ignored! [You may want to continue and ignore the error]
     
-    ---Step1: [close_file: ensure the opened file is closed
-     ]
+    ---Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -321,10 +324,10 @@ weight: 11854
     self: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 2,
       "loopitem": "item1",
       "loopindex": 0,
-      "loopindex1": 1
+      "loopindex1": 1,
+      "up_runtime_task_layer_number": 2
     })
     
     cmd( 1):
@@ -350,6 +353,8 @@ weight: 11854
     it is the best practice to test the execution in your ci pipeline to eliminate problems rather than dynamically fix using rescue]
     caller's vars to task (sub_task_layer2)::
     (*core.Cache)({
+      "loopindex": 1,
+      "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
@@ -357,9 +362,7 @@ weight: 11854
         ErrMsg: ""
       }),
       "up_runtime_task_layer_number": 1,
-      "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopitem": "item2"
     })
     
       located task-> 3 [sub_task_layer2]: 
@@ -395,24 +398,7 @@ weight: 11854
     
     current exec runtime vars:
     (*core.Cache)({
-      "up_runtime_task_layer_number": 3,
-      "loopitem": "item2",
-      "loopindex": 1,
       "loopindex1": 2,
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"close the file .....\"",
-        Code: 0,
-        Output: "close the file .....",
-        ErrMsg: ""
-      })
-    })
-    
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"close the file .....\"",
         Code: 0,
@@ -421,14 +407,15 @@ weight: 11854
       }),
       "up_runtime_task_layer_number": 3,
       "loopitem": "item2",
-      "loopindex": 1,
-      "loopindex1": 2
+      "loopindex": 1
+    })
+    
+    [local] dvar expanded result:
+    {
     }
     
     
-    self: final context exec vars:
-    
-    (*core.Cache)({
+    scope[local] merged: {
       "loopindex": 1,
       "loopindex1": 2,
       "last_result": (*utils.ExecResult)({
@@ -439,6 +426,22 @@ weight: 11854
       }),
       "up_runtime_task_layer_number": 3,
       "loopitem": "item2"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "loopitem": "item2",
+      "loopindex": 1,
+      "loopindex1": 2,
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"close the file .....\"",
+        Code: 0,
+        Output: "close the file .....",
+        ErrMsg: ""
+      }),
+      "up_runtime_task_layer_number": 3
     })
     
     cmd( 1):
@@ -477,8 +480,9 @@ weight: 11854
     task Finally:
     Recovered from:   ERROR: Failed And Not Ignored! [You may want to continue and ignore the error]
     
-    ----Step1: [close_file: ensure the opened file is closed
-     ]
+    ----Step1: [
+    close_fileensure the opened file is closed
+    ]
     {
       Name: "close_file",
       Do: {
@@ -504,10 +508,10 @@ weight: 11854
     
     current exec runtime vars:
     (*core.Cache)({
-      "loopindex1": 2,
       "up_runtime_task_layer_number": 3,
       "loopitem": "item2",
-      "loopindex": 1
+      "loopindex": 1,
+      "loopindex1": 2
     })
     
     [local] dvar expanded result:
@@ -516,20 +520,20 @@ weight: 11854
     
     
     scope[local] merged: {
+      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 3,
-      "loopitem": "item2",
-      "loopindex": 1
+      "loopitem": "item2"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "loopindex": 1,
       "loopindex1": 2,
       "up_runtime_task_layer_number": 3,
-      "loopitem": "item2"
+      "loopitem": "item2",
+      "loopindex": 1
     })
     
     cmd( 1):

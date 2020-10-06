@@ -1,6 +1,6 @@
 ---
 title: "c0131_vvvv"
-date: 2020-09-18T01:27:44+99:00
+date: 2020-10-06T23:46:15+1010:00
 draft: false
 weight: 11313
 
@@ -23,6 +23,8 @@ weight: 11313
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 11313
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "goahead": false
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -115,8 +117,8 @@ weight: 11313
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": false,
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": false
     })
     
     cmd( 1):
@@ -134,25 +136,25 @@ weight: 11313
     current exec runtime vars:
     (*core.Cache)({
       "goahead": false,
+      "up_runtime_task_layer_number": 0,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
-      }),
-      "up_runtime_task_layer_number": 0
+      })
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "goahead": false,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
       }),
+      "goahead": false,
       "up_runtime_task_layer_number": 0
     })
     
@@ -161,14 +163,14 @@ weight: 11313
     -Step4: [: show it is same that you could assemble a list of tasks for if true condition ]
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": true,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "goahead": true
     })
     
     self: final context exec vars:
@@ -191,14 +193,14 @@ weight: 11313
     --Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "goahead": true,
       "last_result": (*utils.ExecResult)({
         Cmd: "echo do something else step2 .......",
         Code: 0,
         Output: "do something else step2 .......",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "goahead": true
     })
     
     self: final context exec vars:

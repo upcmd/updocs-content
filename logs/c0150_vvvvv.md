@@ -1,6 +1,6 @@
 ---
 title: "c0150_vvvvv"
-date: 2020-09-18T01:27:49+99:00
+date: 2020-10-06T23:46:19+1010:00
 draft: false
 weight: 11504
 
@@ -23,6 +23,8 @@ weight: 11504
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11504
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001755c0)(<nil>)
+    (*impl.Scopes)(0xc0000c49a0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc0000a0110)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,8 +60,8 @@ weight: 11504
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 3 [task]: 
     Task3: [task ==> task: build the showcases automatically ]
@@ -235,19 +237,19 @@ weight: 11504
     
     current exec runtime vars:
     (*core.Cache)({
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
       "last_result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
       }),
-      "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      })
+      "up_runtime_task_layer_number": 1
     })
     
     dvar> os:
@@ -262,26 +264,6 @@ weight: 11504
     
     
     scope[local] merged: {
-      "result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
@@ -296,6 +278,26 @@ weight: 11504
         ErrMsg: ""
       }),
       "os": "Linux"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1,
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      })
     })
     
     facts OS: {{.os}}
@@ -311,20 +313,20 @@ weight: 11504
     
     caller's vars to task (testingWarning)::
     (*core.Cache)({
-      "last_result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
-      "os": "Linux",
       "up_runtime_task_layer_number": 0,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
         Code: 0,
         Output: "Linux",
         ErrMsg: ""
-      })
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
+      "os": "Linux"
     })
     
       located task-> 2 [testingWarning]: 
@@ -372,6 +374,48 @@ weight: 11504
     
     current exec runtime vars:
     (*core.Cache)({
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1,
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      })
+    })
+    
+    [local] dvar expanded result:
+    {
+    }
+    
+    
+    scope[local] merged: {
+      "up_runtime_task_layer_number": 1,
+      "result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
+      "last_result": (*utils.ExecResult)({
+        Cmd: "uname",
+        Code: 0,
+        Output: "Linux",
+        ErrMsg: ""
+      }),
+      "os": "Linux"
+    }
+    
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
       "up_runtime_task_layer_number": 1,
       "result": (*utils.ExecResult)({
         Cmd: "uname",
@@ -388,48 +432,6 @@ weight: 11504
       "os": "Linux"
     })
     
-    [local] dvar expanded result:
-    {
-    }
-    
-    
-    scope[local] merged: {
-      "last_result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      })
-    }
-    
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "os": "Linux",
-      "up_runtime_task_layer_number": 1,
-      "result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      }),
-      "last_result": (*utils.ExecResult)({
-        Cmd: "uname",
-        Code: 0,
-        Output: "Linux",
-        ErrMsg: ""
-      })
-    })
-    
     condition failed, skip executing step 
     
     -Step2:
@@ -437,8 +439,8 @@ weight: 11504
       Name: "",
       Do: {
         {
-          "name": "print",
-          "cmd": "in main task - building OS: {{.os}}"
+          "cmd": "in main task - building OS: {{.os}}",
+          "name": "print"
         }
       },
       Dox: <nil>,
@@ -471,8 +473,8 @@ weight: 11504
     
     
     scope[local] merged: {
-      "up_runtime_task_layer_number": 1,
-      "os": "Linux"
+      "os": "Linux",
+      "up_runtime_task_layer_number": 1
     }
     
     

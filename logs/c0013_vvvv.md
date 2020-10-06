@@ -1,6 +1,6 @@
 ---
 title: "c0013_vvvv"
-date: 2020-09-18T01:27:22+99:00
+date: 2020-10-06T23:45:52+1010:00
 draft: false
 weight: 10133
 
@@ -23,6 +23,8 @@ weight: 10133
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,27 +38,27 @@ weight: 10133
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "studentname": "Jason"
+    })
+    
+    -------runtime global final merged with dvars-------
+    
+    (*core.Cache)({
       "e": "runtime-e",
       "k": "runtime-k",
       "studentname": "Jason",
       "a": "runtime-a"
-    }
-    
-    -------runtime global final merged with dvars-------
-    
-    {
-      "studentname": "Jason",
-      "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -65,23 +67,23 @@ weight: 10133
     -Step1: [step1: to test display env vars from shell context ]
     current exec runtime vars:
     (*core.Cache)({
-      "studentname": "Tom",
-      "a": "runtime-a",
-      "e": "runtime-e",
-      "k": "runtime-k",
-      "up_runtime_task_layer_number": 0,
-      "school": "SG"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
       "e": "runtime-e",
       "k": "runtime-k",
       "up_runtime_task_layer_number": 0,
       "school": "SG",
       "studentname": "Tom",
       "a": "runtime-a"
+    })
+    
+    self: final context exec vars:
+    
+    (*core.Cache)({
+      "a": "runtime-a",
+      "e": "runtime-e",
+      "k": "runtime-k",
+      "up_runtime_task_layer_number": 0,
+      "school": "SG",
+      "studentname": "Tom"
     })
     
     cmd( 1):

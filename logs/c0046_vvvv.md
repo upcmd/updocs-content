@@ -1,6 +1,6 @@
 ---
 title: "c0046_vvvv"
-date: 2020-09-18T01:27:28+99:00
+date: 2020-10-06T23:45:58+1010:00
 draft: false
 weight: 10463
 
@@ -23,6 +23,8 @@ weight: 10463
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,26 +38,26 @@ weight: 10463
     
     ---------group vars----------
     
-    global: {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
-    }
+    global: (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "student_age": "28"
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "student_age": "28",
-      "student_name": "Tom Hanks"
-    }
+    (*core.Cache)({
+      "student_name": "Tom Hanks",
+      "student_age": "28"
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-      "student_age": "28",
+    (*core.Cache)({
       "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -64,8 +66,8 @@ weight: 10463
     -Step1: [: this show an example of the empty value is mapped to None ]
     current exec runtime vars:
     (*core.Cache)({
-      "student_age": "28",
       "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "up_runtime_task_layer_number": 0,
       "person": ""
@@ -74,14 +76,14 @@ weight: 10463
     self: final context exec vars:
     
     (*core.Cache)({
-      "someone": "None",
+      "person": "",
       "i_am_empty": "None",
       "empty_env_var": "None",
-      "student_age": "28",
+      "someone": "None",
       "student_name": "Tom Hanks",
+      "student_age": "28",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "up_runtime_task_layer_number": 0,
-      "person": ""
+      "up_runtime_task_layer_number": 0
     })
     
     cmd( 1):
@@ -106,24 +108,9 @@ weight: 10463
     -Step2:
     current exec runtime vars:
     (*core.Cache)({
-      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
-      "last_result": (*utils.ExecResult)({
-        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
-        Code: 0,
-        Output: "None\nNone\nNone",
-        ErrMsg: ""
-      }),
-      "student_age": "28",
-      "up_runtime_task_layer_number": 0,
-      "student_name": "Tom Hanks"
-    })
-    
-    self: final context exec vars:
-    
-    (*core.Cache)({
-      "student_age": "28",
-      "up_runtime_task_layer_number": 0,
       "student_name": "Tom Hanks",
+      "student_age": "28",
+      "up_runtime_task_layer_number": 0,
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
@@ -133,10 +120,9 @@ weight: 10463
       })
     })
     
-    ~SubStep1: [inspect:  ]
-     1: inspect[exec_vars]
+    self: final context exec vars:
+    
     (*core.Cache)({
-      "student_name": "Tom Hanks",
       "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
       "last_result": (*utils.ExecResult)({
         Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
@@ -144,6 +130,22 @@ weight: 10463
         Output: "None\nNone\nNone",
         ErrMsg: ""
       }),
+      "student_name": "Tom Hanks",
+      "student_age": "28",
+      "up_runtime_task_layer_number": 0
+    })
+    
+    ~SubStep1: [inspect:  ]
+     1: inspect[exec_vars]
+    (*core.Cache)({
+      "cli": "echo \"\"\"\nstudent details:\nname: Tom Hanks\nage: 28\n\"\"\"\n",
+      "last_result": (*utils.ExecResult)({
+        Cmd: "echo \"None\"\necho \"None\"\necho \"None\"\n",
+        Code: 0,
+        Output: "None\nNone\nNone",
+        ErrMsg: ""
+      }),
+      "student_name": "Tom Hanks",
       "student_age": "28",
       "up_runtime_task_layer_number": 0
     })
@@ -157,8 +159,8 @@ weight: 10463
         Output: "None\nNone\nNone",
         ErrMsg: ""
       }),
-      "student_age": "28",
-      "student_name": "Tom Hanks"
+      "student_name": "Tom Hanks",
+      "student_age": "28"
     }
     
     

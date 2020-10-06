@@ -1,6 +1,6 @@
 ---
 title: "c0159_vvvvv"
-date: 2020-09-18T01:27:50+99:00
+date: 2020-10-06T23:46:21+1010:00
 draft: false
 weight: 11594
 
@@ -23,6 +23,8 @@ weight: 11594
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,21 +37,21 @@ weight: 11594
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001bf5c0)(<nil>)
+    (*impl.Scopes)(0xc0001e55c0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
-    (core.Cache) {
-    }
+    (*core.Cache)(0xc000126920)({
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -58,15 +60,16 @@ weight: 11594
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
     Executing task stack layer: 1
     
-    -Step1: [: test var overriding in sub_task
-     ]
+    -Step1: [
+    test var overriding in sub_task
+    ]
     {
       Name: "",
       Do: {
@@ -104,8 +107,8 @@ weight: 11594
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 0
+      "up_runtime_task_layer_number": 0,
+      "aaa": "var_a_from_task"
     }
     
     
@@ -126,17 +129,18 @@ weight: 11594
     =Task2: [task ==> sub_task:  ]
     Executing task stack layer: 2
     
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     without default value
-     ]
+    ]
     {
       Name: "",
       Do: {
         {
-          "name": "assert",
           "cmd": {
             "{{eq .aaa \"var_a_from_task\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,
@@ -177,8 +181,8 @@ weight: 11594
     self: final context exec vars:
     
     (*core.Cache)({
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     })
     
     [{{eq .aaa "var_a_from_task"}}]
@@ -231,8 +235,8 @@ weight: 11594
     
     
     scope[local] merged: {
-      "aaa": "var_a_from_task",
-      "up_runtime_task_layer_number": 1
+      "up_runtime_task_layer_number": 1,
+      "aaa": "var_a_from_task"
     }
     
     
@@ -243,10 +247,11 @@ weight: 11594
       "aaa": "var_a_from_task"
     })
     
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     without default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -302,9 +307,10 @@ weight: 11594
     [{{eq .aaa "var_a_from_task"}}]
     ~~SubStep1: [assert:  ]
      1 ASSERT OK:     [{{eq .aaa "var_a_from_task"}}]
-    --Step3: [: inspect if the correct parameter has been passed in correctly
+    --Step3: [
+    inspect if the correct parameter has been passed in correctly
     with default value
-     ]
+    ]
     {
       Name: "",
       Do: {
@@ -367,16 +373,16 @@ weight: 11594
       Name: "",
       Do: {
         {
+          "func": "cmd",
+          "desc": "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n",
           "do": {
             {
-              "name": "assert",
               "cmd": {
                 "{{eq .aaa \"var_a_from_task\"}}"
-              }
+              },
+              "name": "assert"
             }
-          },
-          "func": "cmd",
-          "desc": "inspect if the correct parameter has been passed in correctly\nwith default value\nin block func\n"
+          }
         }
       },
       Dox: <nil>,
@@ -423,18 +429,19 @@ weight: 11594
       "up_runtime_task_layer_number": 1
     })
     
-    --Step1: [: inspect if the correct parameter has been passed in correctly
+    --Step1: [
+    inspect if the correct parameter has been passed in correctly
     with default value
     in block func
-     ]
+    ]
     {
       Name: "",
       Do: {
         {
-          "name": "assert",
           "cmd": {
             "{{eq .aaa \"var_a_from_task\"}}"
-          }
+          },
+          "name": "assert"
         }
       },
       Dox: <nil>,

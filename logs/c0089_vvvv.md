@@ -1,6 +1,6 @@
 ---
 title: "c0089_vvvv"
-date: 2020-09-18T01:27:35+99:00
+date: 2020-10-06T23:46:06+1010:00
 draft: false
 weight: 10893
 
@@ -23,6 +23,8 @@ weight: 10893
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,21 +38,21 @@ weight: 10893
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "dynadir": "./tests/functests"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "dynadir": "./tests/functests"
-    }
+    })
     
     loading [flow ref]:  ./tests/functests/c0089-task-main.yml
       located task-> 1 [task]: 

@@ -1,6 +1,6 @@
 ---
 title: "c0036_vvvvv"
-date: 2020-09-18T01:27:26+99:00
+date: 2020-10-06T23:45:56+1010:00
 draft: false
 weight: 10364
 
@@ -23,6 +23,8 @@ weight: 10364
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,59 +37,59 @@ weight: 10364
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc000175f00)(<nil>)
+    (*impl.Scopes)(0xc0001e5fa0)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "where_is_my_deploy": "pod_name",
+    (*core.Cache)({
+      "ns": "prod",
+      "old": 54,
+      "fieldnames": {
+        "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
+      },
+      "pod_name": "web_app",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "pod_name": "web_app",
-      "ha": true,
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "ns": "prod",
-      "old": 54,
-      "age": 34,
-      "fieldnames": {
-        "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
-      }
-    }
+      "ha": true,
+      "where_is_my_deploy": "pod_name",
+      "age": 34
+    })
     
-    (core.Cache) (len=9) {
-     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
-      (string) (len=3) "tom",
-      (string) (len=5) "jason",
-      (string) (len=5) "alice"
-     },
-     (string) (len=2) "ns": (string) (len=4) "prod",
-     (string) (len=3) "old": (int) 54,
-     (string) (len=3) "age": (int) 34,
-     (string) (len=10) "fieldnames": (map[string]interface {}) (len=1) {
-      (string) (len=14) "name-with-dash": (string) (len=148) "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
-     },
+    (*core.Cache)(0xc0001269f0)((len=9) {
      (string) (len=18) "where_is_my_deploy": (string) (len=8) "pod_name",
+     (string) (len=2) "ha": (bool) true,
+     (string) (len=3) "old": (int) 54,
+     (string) (len=8) "pod_name": (string) (len=7) "web_app",
+     (string) (len=3) "age": (int) 34,
+     (string) (len=2) "ns": (string) (len=4) "prod",
      (string) (len=8) "managers": ([]interface {}) (len=3 cap=3) {
       (string) (len=3) "tom",
       (string) (len=5) "jason",
       (string) (len=5) "alice"
      },
-     (string) (len=8) "pod_name": (string) (len=7) "web_app",
-     (string) (len=2) "ha": (bool) true
-    }
+     (string) (len=6) "admins": ([]interface {}) (len=3 cap=3) {
+      (string) (len=3) "tom",
+      (string) (len=5) "jason",
+      (string) (len=5) "alice"
+     },
+     (string) (len=10) "fieldnames": (map[string]interface {}) (len=1) {
+      (string) (len=14) "name-with-dash": (string) (len=148) "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
+     }
+    })
     
     dvar> var_with_range:
     " x  x  x "
@@ -195,96 +197,96 @@ weight: 10364
     
     [runtime global] dvar expanded result:
     {
-      "var_with_range_item": " tom  jason  alice ",
-      "var_test_log_auto_print_object": "prodweb_app",
+      "var_with_print": "prodweb_app",
+      "template_def": "\n\n\nONE TWO\"\n",
+      "var_commented": " prod-web_app",
+      "var_with_range": " x  x  x ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
       "var_with_and": "web_app",
-      "var_slice": "[jason]",
-      "var_equal": "false",
-      "var_greater_and_equal": "hello",
-      "instance_full_name": "prod-web_app",
-      "indirect_var_reference": "None",
       "var_space_trimmed": "prod-web_app",
       "var_commented_trimmed": "prod-web_app",
-      "var_test_log_auto_print": "prodweb_app",
-      "var_concat_values": "web_app: 34 years old",
       "var_with_if": "prod-web_app-HA",
-      "var_with_range": " x  x  x ",
-      "var_length": "12",
       "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "template_def": "\n\n\nONE TWO\"\n",
-      "var_space_not_trimmed": "prod       -            web_app",
-      "var_with_print": "prodweb_app",
       "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
-      "var_greater": "false",
-      "var_slice_index": "jason",
-      "var_not_equal": "true",
-      "var_commented": " prod-web_app",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_with_ifelse": "prod-web_app-HA",
-      "var_with_not": "prod-web_app",
-      "var_with_not_object": "prod-web_app",
-      "var_with_or": "prod",
-      "var_not_equal_another_way": "true",
       "var_use_and_operator": "true",
-      "var_use_or_operator": "true"
+      "var_use_or_operator": "true",
+      "var_with_ifelse": "prod-web_app-HA",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_slice": "[jason]",
+      "var_with_or": "prod",
+      "var_slice_index": "jason",
+      "var_equal": "false",
+      "var_greater": "false",
+      "var_greater_and_equal": "hello",
+      "instance_full_name": "prod-web_app",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_length": "12",
+      "var_concat_values": "web_app: 34 years old",
+      "var_space_not_trimmed": "prod       -            web_app",
+      "var_with_not_object": "prod-web_app",
+      "var_not_equal_another_way": "true",
+      "var_not_equal": "true",
+      "var_with_not": "prod-web_app",
+      "var_test_log_auto_print": "prodweb_app",
+      "indirect_var_reference": "None"
     }
     
     
     -------runtime global final merged with dvars-------
     
-    {
-      "var_slice": "[jason]",
-      "indirect_var_reference": "None",
-      "var_space_trimmed": "prod-web_app",
-      "var_commented_trimmed": "prod-web_app",
-      "var_with_ifelse": "prod-web_app-HA",
-      "var_with_not": "prod-web_app",
-      "var_not_equal": "true",
-      "var_use_and_operator": "true",
-      "var_with_if": "prod-web_app-HA",
-      "var_greater": "false",
-      "var_with_print": "prodweb_app",
-      "ns": "prod",
-      "old": 54,
-      "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "template_def": "\n\n\nONE TWO\"\n",
-      "var_commented": " prod-web_app",
-      "var_with_range_item_simpler": " tom  jason  alice ",
+    (*core.Cache)({
       "var_with_and": "web_app",
-      "var_test_log_auto_print": "prodweb_app",
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "ha": true,
-      "var_with_not_object": "prod-web_app",
-      "var_slice_index": "jason",
+      "var_with_ifelse_multilines": "  prod-web_app-HA ",
+      "var_commented": " prod-web_app",
       "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
-      "fieldnames": {
-        "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
-      },
+      "var_space_trimmed": "prod-web_app",
+      "var_with_not": "prod-web_app",
+      "template_def": "\n\n\nONE TWO\"\n",
+      "instance_full_name": "prod-web_app",
+      "var_slice_index": "jason",
+      "var_not_equal": "true",
+      "var_with_print": "prodweb_app",
+      "var_with_or": "prod",
+      "age": 34,
+      "var_greater_and_equal": "hello",
+      "var_equal": "false",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_with_ifelse": "prod-web_app-HA",
+      "var_slice": "[jason]",
+      "ns": "prod",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
+      "var_test_log_auto_print": "prodweb_app",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "indirect_var_reference": "None",
       "var_not_equal_another_way": "true",
-      "instance_full_name": "prod-web_app",
-      "var_equal": "false",
+      "ha": true,
       "var_with_range_item": " tom  jason  alice ",
-      "var_length": "12",
-      "var_space_not_trimmed": "prod       -            web_app",
-      "where_is_my_deploy": "pod_name",
-      "var_with_or": "prod",
-      "var_concat_values": "web_app: 34 years old",
+      "var_with_not_object": "prod-web_app",
       "var_with_range": " x  x  x ",
-      "pod_name": "web_app",
       "var_use_or_operator": "true",
-      "var_greater_and_equal": "hello",
-      "age": 34,
-      "var_test_log_auto_print_object": "prodweb_app"
-    }
+      "var_commented_trimmed": "prod-web_app",
+      "var_length": "12",
+      "where_is_my_deploy": "pod_name",
+      "var_with_if": "prod-web_app-HA",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "pod_name": "web_app",
+      "var_space_not_trimmed": "prod       -            web_app",
+      "var_greater": "false",
+      "var_concat_values": "web_app: 34 years old",
+      "var_use_and_operator": "true",
+      "fieldnames": {
+        "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
+      },
+      "old": 54
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -329,58 +331,58 @@ weight: 10364
     
     current exec runtime vars:
     (*core.Cache)({
-      "indirect_var_reference": "None",
-      "var_with_if": "prod-web_app-HA",
-      "var_not_equal_another_way": "true",
-      "var_length": "12",
-      "var_with_or": "prod",
-      "pod_name": "web_app",
-      "var_greater_and_equal": "hello",
-      "var_with_range_item": " tom  jason  alice ",
-      "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
-      "var_concat_values": "web_app: 34 years old",
-      "var_with_not": "prod-web_app",
-      "var_with_and": "web_app",
-      "var_use_and_operator": "true",
-      "ns": "prod",
-      "var_test_log_auto_print": "prodweb_app",
+      "var_slice_index": "jason",
       "var_with_not_object": "prod-web_app",
-      "var_use_or_operator": "true",
-      "age": 34,
-      "var_space_trimmed": "prod-web_app",
-      "var_not_equal": "true",
+      "var_greater": "false",
+      "pod_name": "web_app",
+      "var_space_not_trimmed": "prod       -            web_app",
       "fieldnames": {
         "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
       },
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "up_runtime_task_layer_number": 0,
-      "var_equal": "false",
-      "where_is_my_deploy": "pod_name",
-      "var_commented_trimmed": "prod-web_app",
-      "var_with_print": "prodweb_app",
-      "var_space_not_trimmed": "prod       -            web_app",
-      "var_slice": "[jason]",
-      "ha": true,
-      "instance_full_name": "prod-web_app",
-      "var_slice_index": "jason",
-      "var_commented": " prod-web_app",
-      "var_test_log_auto_print_object": "prodweb_app",
+      "var_with_ifelse_multilines": "  prod-web_app-HA ",
+      "var_greater_and_equal": "hello",
+      "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
       "var_with_ifelse": "prod-web_app-HA",
-      "var_greater": "false",
-      "template_def": "\n\n\nONE TWO\"\n",
+      "var_length": "12",
+      "var_space_trimmed": "prod-web_app",
+      "var_not_equal_another_way": "true",
+      "var_use_and_operator": "true",
+      "age": 34,
+      "var_slice": "[jason]",
+      "where_is_my_deploy": "pod_name",
+      "var_with_if": "prod-web_app-HA",
+      "ha": true,
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_with_range": " x  x  x ",
+      "var_commented_trimmed": "prod-web_app",
+      "ns": "prod",
+      "var_with_and": "web_app",
+      "var_commented": " prod-web_app",
+      "template_def": "\n\n\nONE TWO\"\n",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "var_with_or": "prod",
+      "up_runtime_task_layer_number": 0,
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_equal": "false",
       "old": 54,
-      "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "var_with_range_item_simpler": " tom  jason  alice "
+      "var_not_equal": "true",
+      "indirect_var_reference": "None",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_range": " x  x  x ",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_use_or_operator": "true",
+      "var_concat_values": "web_app: 34 years old",
+      "var_with_not": "prod-web_app",
+      "instance_full_name": "prod-web_app",
+      "var_with_print": "prodweb_app",
+      "var_test_log_auto_print": "prodweb_app"
     })
     
     [local] dvar expanded result:
@@ -389,116 +391,116 @@ weight: 10364
     
     
     scope[local] merged: {
-      "var_equal": "false",
-      "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "indirect_var_reference": "None",
-      "var_space_trimmed": "prod-web_app",
-      "pod_name": "web_app",
-      "var_concat_values": "web_app: 34 years old",
-      "age": 34,
-      "var_space_not_trimmed": "prod       -            web_app",
-      "ha": true,
-      "var_test_log_auto_print_object": "prodweb_app",
-      "template_def": "\n\n\nONE TWO\"\n",
-      "var_slice_index": "jason",
       "up_runtime_task_layer_number": 0,
-      "var_greater": "false",
-      "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
-      "var_with_not": "prod-web_app",
-      "var_commented_trimmed": "prod-web_app",
-      "var_with_if": "prod-web_app-HA",
-      "var_with_and": "web_app",
-      "var_use_or_operator": "true",
-      "var_with_print": "prodweb_app",
-      "var_with_range": " x  x  x ",
-      "var_with_range_item_simpler": " tom  jason  alice ",
-      "var_greater_and_equal": "hello",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "instance_full_name": "prod-web_app",
-      "var_with_ifelse": "prod-web_app-HA",
+      "age": 34,
+      "var_slice_index": "jason",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
+      "var_with_if": "prod-web_app-HA",
+      "template_def": "\n\n\nONE TWO\"\n",
+      "where_is_my_deploy": "pod_name",
+      "var_length": "12",
+      "instance_full_name": "prod-web_app",
+      "var_concat_values": "web_app: 34 years old",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "var_greater_and_equal": "hello",
+      "var_with_ifelse": "prod-web_app-HA",
+      "var_space_trimmed": "prod-web_app",
+      "old": 54,
+      "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
+      "var_with_range": " x  x  x ",
+      "var_space_not_trimmed": "prod       -            web_app",
       "var_with_not_object": "prod-web_app",
+      "var_use_or_operator": "true",
+      "var_with_or": "prod",
+      "var_commented_trimmed": "prod-web_app",
+      "var_with_not": "prod-web_app",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_not_equal": "true",
+      "var_test_log_auto_print": "prodweb_app",
+      "ha": true,
+      "var_with_range_item": " tom  jason  alice ",
+      "var_with_and": "web_app",
+      "var_with_ifelse_multilines": "  prod-web_app-HA ",
+      "var_not_equal_another_way": "true",
+      "var_commented": " prod-web_app",
+      "pod_name": "web_app",
       "ns": "prod",
+      "var_slice": "[jason]",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_greater": "false",
+      "indirect_var_reference": "None",
+      "var_with_print": "prodweb_app",
+      "var_use_and_operator": "true",
       "fieldnames": {
         "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
       },
-      "where_is_my_deploy": "pod_name",
-      "var_commented": " prod-web_app",
-      "old": 54,
-      "var_with_range_item": " tom  jason  alice ",
-      "var_not_equal": "true",
-      "var_test_log_auto_print": "prodweb_app",
-      "var_slice": "[jason]",
-      "var_length": "12",
-      "var_with_or": "prod",
-      "var_not_equal_another_way": "true",
-      "var_use_and_operator": "true"
+      "var_equal": "false"
     }
     
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "var_use_or_operator": "true",
-      "age": 34,
-      "var_space_trimmed": "prod-web_app",
-      "var_not_equal": "true",
-      "var_use_and_operator": "true",
-      "ns": "prod",
-      "var_test_log_auto_print": "prodweb_app",
-      "var_with_not_object": "prod-web_app",
-      "fieldnames": {
-        "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
-      },
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "var_equal": "false",
-      "where_is_my_deploy": "pod_name",
-      "var_commented_trimmed": "prod-web_app",
-      "var_with_print": "prodweb_app",
-      "up_runtime_task_layer_number": 0,
+      "pod_name": "web_app",
+      "var_with_and": "web_app",
       "var_space_not_trimmed": "prod       -            web_app",
-      "var_slice": "[jason]",
-      "ha": true,
-      "instance_full_name": "prod-web_app",
-      "var_test_log_auto_print_object": "prodweb_app",
-      "var_with_ifelse": "prod-web_app-HA",
-      "var_greater": "false",
-      "template_def": "\n\n\nONE TWO\"\n",
-      "var_slice_index": "jason",
-      "var_commented": " prod-web_app",
-      "var_with_range": " x  x  x ",
-      "old": 54,
-      "var_with_ifelse_multilines": "  prod-web_app-HA ",
-      "var_with_range_item_simpler": " tom  jason  alice ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "var_length": "12",
       "var_with_or": "prod",
-      "pod_name": "web_app",
-      "var_greater_and_equal": "hello",
-      "indirect_var_reference": "None",
-      "var_with_if": "prod-web_app-HA",
+      "ha": true,
+      "old": 54,
+      "var_equal": "false",
+      "var_with_not_object": "prod-web_app",
+      "var_with_ifelse_multilines": "  prod-web_app-HA ",
       "var_not_equal_another_way": "true",
-      "var_with_range_item": " tom  jason  alice ",
-      "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
-      "var_concat_values": "web_app: 34 years old",
       "var_with_not": "prod-web_app",
-      "var_with_and": "web_app"
+      "var_commented_trimmed": "prod-web_app",
+      "var_greater_and_equal": "hello",
+      "var_with_range": " x  x  x ",
+      "instance_full_name": "prod-web_app",
+      "var_greater": "false",
+      "var_with_if": "prod-web_app-HA",
+      "var_test_log_auto_print_object": "prodweb_app",
+      "var_not_equal": "true",
+      "var_slice_index": "jason",
+      "var_length": "12",
+      "var_use_or_operator": "true",
+      "indirect_var_reference": "None",
+      "fieldnames": {
+        "name-with-dash": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n"
+      },
+      "ns": "prod",
+      "out_of_normal_field_name": "this_is_a_field_with_dash: you will have to use index func to access the field\nnote: direct access this field will trigger template rendering error\n",
+      "var_space_trimmed": "prod-web_app",
+      "up_runtime_task_layer_number": 0,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "var_with_print": "prodweb_app",
+      "var_with_range_item": " tom  jason  alice ",
+      "var_use_and_operator": "true",
+      "where_is_my_deploy": "pod_name",
+      "var_test_log_auto_print": "prodweb_app",
+      "var_commented": " prod-web_app",
+      "template_def": "\n\n\nONE TWO\"\n",
+      "age": 34,
+      "var_slice": "[jason]",
+      "var_with_range_item_simpler": " tom  jason  alice ",
+      "var_concat_values": "web_app: 34 years old",
+      "var_with_ifelse": "prod-web_app-HA"
     })
     
     cmd( 1):

@@ -1,6 +1,6 @@
 ---
 title: "c0037_vvvv"
-date: 2020-09-18T01:27:26+99:00
+date: 2020-10-06T23:45:56+1010:00
 draft: false
 weight: 10373
 
@@ -23,6 +23,8 @@ weight: 10373
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,26 +38,16 @@ weight: 10373
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-      "age": 34,
-      "old": 54,
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
+    (*core.Cache)({
       "student": {
+        "name": "Tom",
+        "gender": "Male",
         "teachers": {
           "tom",
           "jason",
@@ -68,14 +60,24 @@ weight: 10373
             "postcode": 2000
           },
           "school": "Sydney Grammar"
-        },
-        "name": "Tom",
-        "gender": "Male"
+        }
       },
       "ns": "prod",
       "pod_name": "web_app",
-      "ha": true
-    }
+      "ha": true,
+      "age": 34,
+      "old": 54,
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      }
+    })
     
     dvar> sprig_trim:
     "hello"
@@ -128,10 +130,10 @@ weight: 10373
     -
     helloworld
     dvar> sprig_encrypt_AES:
-    "GOUXklpwcF3x6KRSuS/bhkmmqaVMoqvHQE+ipgBLnCg="
+    "yo5Lp1h5xLIYkEJmgUh433MTG1MVuXLeue6xN4ZO3uQ="
     
     -
-    GOUXklpwcF3x6KRSuS/bhkmmqaVMoqvHQE+ipgBLnCg=
+    yo5Lp1h5xLIYkEJmgUh433MTG1MVuXLeue6xN4ZO3uQ=
     dvar> sprig_decrypt_AES:
     "plaintext"
     
@@ -143,10 +145,10 @@ weight: 10373
     -
     web_app-prod
     dvar> sprig_encrypt_AES_using_key_var:
-    "Z6BNpo3c9TynQAz0l7/xsPiyuotZIKrHQArUdSZvvMo="
+    "o1u/7XbBS6VbZS5SELFijryIwWs/O3mqG5jp68tDFlg="
     
     -
-    Z6BNpo3c9TynQAz0l7/xsPiyuotZIKrHQArUdSZvvMo=
+    o1u/7XbBS6VbZS5SELFijryIwWs/O3mqG5jp68tDFlg=
     dvar> sprig_decrypt_AES_using_key_var:
     "plaintext"
     
@@ -295,90 +297,90 @@ weight: 10373
     -
     60
     dvar> sprig_date:
-    "20200918"
+    "20201006"
     
     -
-    20200918
+    20201006
     -------runtime global final merged with dvars-------
     
-    {
-      "sprig_slice_compact": "  [1 a foo]",
-      "var_slice_index": "jason",
-      "sprig_trim_all": "5.00",
-      "sprig_encrypt_AES": "GOUXklpwcF3x6KRSuS/bhkmmqaVMoqvHQE+ipgBLnCg=",
-      "sprig_string_contains": "true",
-      "old": 54,
-      "convert_and_add1": "11",
-      "convert_and_add1_2": "11",
-      "sprig_b64dec": "web_app ",
-      "sprig_trim_suffix": "hello",
-      "sprig_slice": "[jason alice]",
-      "sprig_dict": "  map[name1:value1 name2:value2 name3:value 3]\n value2 ",
-      "sprig_os_env_expand": "Your path is set to /bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin ",
-      "ha": true,
-      "sprig_word_count": "3",
-      "sprig_muliply": "60",
-      "sprig_decrypt_AES_using_key_var": "plaintext",
-      "sprig_slice_uniq": "[1 4 2 3 5]",
-      "sprig_nospace": "helloworld",
-      "random_hello": "Hello!",
-      "age": 34,
-      "sprig_slice_filter_out": " [1 4] ",
-      "sprig_slice_assign": " [1 2 3 4 5] ",
-      "student": {
-        "gender": "Male",
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
-        },
-        "name": "Tom"
-      },
-      "pod_name": "web_app",
-      "sprig_repeat": "web_appweb_appweb_app",
-      "sprig_os_env": "/root",
-      "sprig_repeat_with_space": " [web_app] ",
+    (*core.Cache)({
+      "add1": "101",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "ns": "prod",
+      "sprig_dict": "  map[name1:value1 name2:value2 name3:value 3]\n value2 ",
+      "sprig_b64dec": "web_app ",
       "sprig_slice_append": "  [1 2 3 4 5 6] ",
+      "sprig_slice_new": "[1 2 3 4 5]",
+      "sprig_os_env": "/root",
+      "pod_name": "web_app",
+      "sprig_slice_reverse": "[5 4 3 2 1]",
+      "sprig_substring2": "0011",
+      "sprig_dict_access": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]]\n ",
+      "sprig_repeat": "web_appweb_appweb_app",
+      "ns": "prod",
+      "sprig_nospace": "helloworld",
+      "sprig_decrypt_AES": "plaintext",
+      "sprig_trim_prefix": "hello",
+      "sprig_b64enc": "d2ViX2FwcA==",
       "random_hello_plain": "hi, tom",
-      "sprig_substring": "hello",
-      "sprig_dict_access_using_func": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]] ",
-      "sprig_encrypt_AES_using_key_var": "Z6BNpo3c9TynQAz0l7/xsPiyuotZIKrHQArUdSZvvMo=",
-      "sprig_slice_contains": "true",
+      "sprig_os_env_expand": "Your path is set to /bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "sprig_substring2": "0011",
-      "sprig_date": "20200918",
-      "sprig_decrypt_AES": "plaintext",
-      "sprig_AES_key": "web_app-prod",
-      "sprig_dict_access": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]]\n ",
-      "sprig_repeat_with_space_repeat": " [web_app]  [web_app]  [web_app] ",
+      "sprig_slice_contains": "true",
+      "sprig_word_count": "3",
+      "sprig_encrypt_AES": "yo5Lp1h5xLIYkEJmgUh433MTG1MVuXLeue6xN4ZO3uQ=",
+      "sprig_string_contains": "true",
+      "sprig_trim_all": "5.00",
+      "sprig_slice": "[jason alice]",
+      "ha": true,
+      "sprig_encrypt_AES_using_key_var": "o1u/7XbBS6VbZS5SELFijryIwWs/O3mqG5jp68tDFlg=",
+      "random_hello": "Hello!",
+      "sprig_substring": "hello",
       "sprig_slice_concat": "  [1 2 3 4 5 6 7 8] ",
-      "sprig_slice_reverse": "[5 4 3 2 1]",
-      "sprig_trim": "hello",
-      "sprig_trim_prefix": "hello",
+      "sprig_slice_filter_out": " [1 4] ",
+      "sprig_repeat_with_space_repeat": " [web_app]  [web_app]  [web_app] ",
+      "sprig_AES_key": "web_app-prod",
+      "var_slice_index": "jason",
+      "sprig_decrypt_AES_using_key_var": "plaintext",
+      "age": 34,
+      "old": 54,
+      "sprig_slice_uniq": "[1 4 2 3 5]",
+      "student": {
+        "address": {
+          "suburb": {
+            "name": "sydney",
+            "postcode": 2000,
+            "cbd": true
+          },
+          "school": "Sydney Grammar"
+        },
+        "name": "Tom",
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
+      },
+      "sprig_muliply": "60",
+      "sprig_date": "20201006",
+      "sprig_slice_assign": " [1 2 3 4 5] ",
+      "sprig_slice_compact": "  [1 a foo]",
       "sprig_upper": "WEB_APP",
-      "add1": "101",
-      "sprig_b64enc": "d2ViX2FwcA==",
+      "sprig_trim_suffix": "hello",
+      "sprig_dict_access_using_func": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]] ",
+      "sprig_trim": "hello",
+      "convert_and_add1_2": "11",
       "add": "123",
-      "sprig_slice_new": "[1 2 3 4 5]"
-    }
+      "convert_and_add1": "11",
+      "sprig_repeat_with_space": " [web_app] "
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -387,133 +389,115 @@ weight: 10373
     -Step1:
     current exec runtime vars:
     (*core.Cache)({
-      "sprig_string_contains": "true",
+      "var_slice_index": "jason",
+      "age": 34,
+      "up_runtime_task_layer_number": 0,
+      "sprig_slice_concat": "  [1 2 3 4 5 6 7 8] ",
+      "sprig_slice_compact": "  [1 a foo]",
+      "sprig_slice_contains": "true",
       "sprig_slice_uniq": "[1 4 2 3 5]",
       "pod_name": "web_app",
-      "sprig_trim_all": "5.00",
-      "convert_and_add1_2": "11",
-      "sprig_trim_suffix": "hello",
-      "sprig_slice_assign": " [1 2 3 4 5] ",
-      "sprig_slice_compact": "  [1 a foo]",
-      "sprig_substring": "hello",
-      "sprig_encrypt_AES": "GOUXklpwcF3x6KRSuS/bhkmmqaVMoqvHQE+ipgBLnCg=",
-      "sprig_os_env": "/root",
-      "ha": true,
-      "sprig_slice_append": "  [1 2 3 4 5 6] ",
-      "random_hello_plain": "hi, tom",
       "sprig_b64dec": "web_app ",
-      "sprig_upper": "WEB_APP",
-      "sprig_slice_contains": "true",
-      "sprig_AES_key": "web_app-prod",
-      "add1": "101",
-      "old": 54,
-      "random_hello": "Hello!",
-      "sprig_repeat_with_space_repeat": " [web_app]  [web_app]  [web_app] ",
-      "sprig_trim": "hello",
-      "sprig_repeat": "web_appweb_appweb_app",
+      "sprig_word_count": "3",
       "student": {
+        "address": {
+          "suburb": {
+            "postcode": 2000,
+            "cbd": true,
+            "name": "sydney"
+          },
+          "school": "Sydney Grammar"
+        },
         "name": "Tom",
         "gender": "Male",
         "teachers": {
           "tom",
           "jason",
           "alice"
-        },
-        "address": {
-          "school": "Sydney Grammar",
-          "suburb": {
-            "name": "sydney",
-            "postcode": 2000,
-            "cbd": true
-          }
         }
       },
-      "ns": "prod",
-      "sprig_encrypt_AES_using_key_var": "Z6BNpo3c9TynQAz0l7/xsPiyuotZIKrHQArUdSZvvMo=",
-      "sprig_date": "20200918",
-      "sprig_trim_prefix": "hello",
+      "sprig_slice_reverse": "[5 4 3 2 1]",
+      "sprig_nospace": "helloworld",
+      "sprig_trim": "hello",
+      "sprig_string_contains": "true",
+      "sprig_muliply": "60",
+      "sprig_trim_suffix": "hello",
+      "sprig_trim_all": "5.00",
       "sprig_decrypt_AES_using_key_var": "plaintext",
-      "sprig_os_env_expand": "Your path is set to /bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin ",
+      "sprig_trim_prefix": "hello",
+      "sprig_substring": "hello",
+      "sprig_slice": "[jason alice]",
+      "managers": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "sprig_repeat_with_space_repeat": " [web_app]  [web_app]  [web_app] ",
+      "ns": "prod",
+      "random_hello_plain": "hi, tom",
       "sprig_dict_access": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]]\n ",
-      "add": "123",
-      "sprig_slice_new": "[1 2 3 4 5]",
-      "up_runtime_task_layer_number": 0,
       "sprig_slice_filter_out": " [1 4] ",
+      "sprig_dict_access_using_func": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]] ",
+      "add1": "101",
+      "sprig_dict": "  map[name1:value1 name2:value2 name3:value 3]\n value2 ",
+      "sprig_slice_append": "  [1 2 3 4 5 6] ",
+      "sprig_substring2": "0011",
+      "sprig_encrypt_AES_using_key_var": "o1u/7XbBS6VbZS5SELFijryIwWs/O3mqG5jp68tDFlg=",
+      "sprig_repeat": "web_appweb_appweb_app",
+      "sprig_b64enc": "d2ViX2FwcA==",
+      "convert_and_add1_2": "11",
+      "sprig_slice_new": "[1 2 3 4 5]",
       "admins": {
         "tom",
         "jason",
         "alice"
       },
-      "sprig_dict_access_using_func": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]] ",
-      "sprig_decrypt_AES": "plaintext",
-      "sprig_b64enc": "d2ViX2FwcA==",
-      "sprig_muliply": "60",
-      "age": 34,
-      "sprig_nospace": "helloworld",
+      "sprig_encrypt_AES": "yo5Lp1h5xLIYkEJmgUh433MTG1MVuXLeue6xN4ZO3uQ=",
+      "sprig_date": "20201006",
+      "random_hello": "Hello!",
+      "sprig_slice_assign": " [1 2 3 4 5] ",
       "sprig_repeat_with_space": " [web_app] ",
-      "sprig_slice": "[jason alice]",
-      "sprig_dict": "  map[name1:value1 name2:value2 name3:value 3]\n value2 ",
-      "sprig_slice_reverse": "[5 4 3 2 1]",
-      "managers": {
-        "tom",
-        "jason",
-        "alice"
-      },
-      "sprig_word_count": "3",
-      "sprig_substring2": "0011",
+      "old": 54,
+      "sprig_os_env_expand": "Your path is set to /bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin ",
       "convert_and_add1": "11",
-      "var_slice_index": "jason",
-      "sprig_slice_concat": "  [1 2 3 4 5 6 7 8] "
+      "add": "123",
+      "sprig_AES_key": "web_app-prod",
+      "sprig_os_env": "/root",
+      "sprig_upper": "WEB_APP",
+      "ha": true,
+      "sprig_decrypt_AES": "plaintext"
     })
     
     self: final context exec vars:
     
     (*core.Cache)({
-      "sprig_repeat_with_space": " [web_app] ",
+      "sprig_slice_assign": " [1 2 3 4 5] ",
       "managers": {
         "tom",
         "jason",
         "alice"
       },
-      "sprig_slice_reverse": "[5 4 3 2 1]",
-      "sprig_slice": "[jason alice]",
-      "sprig_dict": "  map[name1:value1 name2:value2 name3:value 3]\n value2 ",
       "sprig_nospace": "helloworld",
-      "sprig_word_count": "3",
-      "sprig_substring2": "0011",
-      "convert_and_add1": "11",
-      "sprig_slice_concat": "  [1 2 3 4 5 6 7 8] ",
-      "var_slice_index": "jason",
       "sprig_string_contains": "true",
-      "pod_name": "web_app",
-      "sprig_trim_all": "5.00",
+      "sprig_repeat_with_space": " [web_app] ",
       "convert_and_add1_2": "11",
-      "sprig_trim_suffix": "hello",
-      "sprig_slice_uniq": "[1 4 2 3 5]",
-      "sprig_slice_assign": " [1 2 3 4 5] ",
-      "sprig_slice_compact": "  [1 a foo]",
-      "sprig_os_env": "/root",
       "sprig_substring": "hello",
-      "sprig_encrypt_AES": "GOUXklpwcF3x6KRSuS/bhkmmqaVMoqvHQE+ipgBLnCg=",
-      "random_hello_plain": "hi, tom",
+      "convert_and_add1": "11",
+      "admins": {
+        "tom",
+        "jason",
+        "alice"
+      },
+      "sprig_encrypt_AES": "yo5Lp1h5xLIYkEJmgUh433MTG1MVuXLeue6xN4ZO3uQ=",
+      "sprig_slice_filter_out": " [1 4] ",
+      "sprig_encrypt_AES_using_key_var": "o1u/7XbBS6VbZS5SELFijryIwWs/O3mqG5jp68tDFlg=",
+      "sprig_slice_uniq": "[1 4 2 3 5]",
+      "sprig_os_env": "/root",
+      "sprig_trim_suffix": "hello",
+      "sprig_slice": "[jason alice]",
       "sprig_slice_contains": "true",
-      "sprig_AES_key": "web_app-prod",
-      "sprig_upper": "WEB_APP",
-      "sprig_b64dec": "web_app ",
-      "ha": true,
-      "sprig_slice_append": "  [1 2 3 4 5 6] ",
-      "random_hello": "Hello!",
-      "add1": "101",
-      "old": 54,
-      "sprig_repeat_with_space_repeat": " [web_app]  [web_app]  [web_app] ",
-      "sprig_trim": "hello",
-      "sprig_repeat": "web_appweb_appweb_app",
+      "random_hello_plain": "hi, tom",
       "student": {
-        "teachers": {
-          "tom",
-          "jason",
-          "alice"
-        },
         "address": {
           "school": "Sydney Grammar",
           "suburb": {
@@ -523,29 +507,47 @@ weight: 10373
           }
         },
         "name": "Tom",
-        "gender": "Male"
+        "gender": "Male",
+        "teachers": {
+          "tom",
+          "jason",
+          "alice"
+        }
       },
-      "ns": "prod",
-      "sprig_encrypt_AES_using_key_var": "Z6BNpo3c9TynQAz0l7/xsPiyuotZIKrHQArUdSZvvMo=",
-      "sprig_date": "20200918",
-      "sprig_trim_prefix": "hello",
-      "sprig_os_env_expand": "Your path is set to /bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin ",
-      "sprig_decrypt_AES_using_key_var": "plaintext",
-      "sprig_dict_access": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]]\n ",
-      "add": "123",
-      "sprig_slice_new": "[1 2 3 4 5]",
-      "up_runtime_task_layer_number": 0,
-      "sprig_slice_filter_out": " [1 4] ",
-      "admins": {
-        "tom",
-        "jason",
-        "alice"
-      },
+      "sprig_upper": "WEB_APP",
       "sprig_dict_access_using_func": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]] ",
-      "sprig_b64enc": "d2ViX2FwcA==",
-      "sprig_muliply": "60",
+      "sprig_AES_key": "web_app-prod",
+      "sprig_repeat_with_space_repeat": " [web_app]  [web_app]  [web_app] ",
+      "sprig_trim": "hello",
+      "ha": true,
+      "sprig_trim_all": "5.00",
+      "pod_name": "web_app",
+      "sprig_slice_compact": "  [1 a foo]",
+      "sprig_decrypt_AES_using_key_var": "plaintext",
+      "old": 54,
       "age": 34,
-      "sprig_decrypt_AES": "plaintext"
+      "sprig_decrypt_AES": "plaintext",
+      "sprig_trim_prefix": "hello",
+      "random_hello": "Hello!",
+      "sprig_slice_new": "[1 2 3 4 5]",
+      "ns": "prod",
+      "sprig_dict_access": " map[school:Sydney Grammar suburb:map[cbd:true name:sydney postcode:2000]]\n ",
+      "sprig_date": "20201006",
+      "sprig_slice_reverse": "[5 4 3 2 1]",
+      "sprig_muliply": "60",
+      "add": "123",
+      "add1": "101",
+      "sprig_slice_append": "  [1 2 3 4 5 6] ",
+      "sprig_word_count": "3",
+      "up_runtime_task_layer_number": 0,
+      "sprig_repeat": "web_appweb_appweb_app",
+      "var_slice_index": "jason",
+      "sprig_dict": "  map[name1:value1 name2:value2 name3:value 3]\n value2 ",
+      "sprig_b64enc": "d2ViX2FwcA==",
+      "sprig_substring2": "0011",
+      "sprig_slice_concat": "  [1 2 3 4 5 6 7 8] ",
+      "sprig_os_env_expand": "Your path is set to /bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin ",
+      "sprig_b64dec": "web_app "
     })
     
     cmd( 1):

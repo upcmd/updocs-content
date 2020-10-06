@@ -1,6 +1,6 @@
 ---
 title: "0008_vvvv"
-date: 2020-09-18T01:28:27+99:00
+date: 2020-10-06T23:46:55+1010:00
 draft: false
 weight: 100803
 
@@ -23,6 +23,8 @@ weight: 100803
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> Main
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up/tests/modtests/0008
@@ -36,26 +38,27 @@ weight: 100803
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
       located task-> 1 [Main]: 
     Task1: [Main ==> Main: main entry ]
     Executing task stack layer: 1
     
-    -Step1: [: note that the module dir is: hello-module, but in upconfig.yml you give the alias hello as module name
-     ]
+    -Step1: [
+    note that the module dir is: hello-module, but in upconfig.yml you give the alias hello as module name
+    ]
     current exec runtime vars:
     (*core.Cache)({
       "up_runtime_task_layer_number": 0
@@ -79,19 +82,19 @@ weight: 100803
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ nonamed ] runtime vars:
-    {
-    }
+    (*core.Cache)({
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
-    }
+    (*core.Cache)({
+    })
     
     =>call module: [hello] task: [Say_world]
     Executing tasker layer: 2
@@ -110,8 +113,8 @@ weight: 100803
     hello: final context exec vars:
     
     (*core.Cache)({
-      "up_runtime_task_layer_number": 0,
-      "up_runtime_tasker_layer_number": 2
+      "up_runtime_tasker_layer_number": 2,
+      "up_runtime_task_layer_number": 0
     })
     
     ~SubStep1: [print:  ]

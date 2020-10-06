@@ -1,6 +1,6 @@
 ---
 title: "c0165_vvvvv"
-date: 2020-09-18T01:27:52+99:00
+date: 2020-10-06T23:46:22+1010:00
 draft: false
 weight: 11654
 
@@ -23,6 +23,8 @@ weight: 11654
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvvv
     work dir: /up_project/up
@@ -35,17 +37,17 @@ weight: 11654
     })
     
     -------full vars in scopes------
-    (*impl.Scopes)(0xc0001e5060)(<nil>)
+    (*impl.Scopes)(0xc0001c1120)(<nil>)
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
@@ -56,20 +58,20 @@ weight: 11654
           "school": "SG"
         }
       }
-    }
+    })
     
-    (core.Cache) (len=2) {
-     (string) (len=3) "yml": (string) (len=72) "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
+    (*core.Cache)(0xc00000e930)((len=2) {
      (string) (len=3) "obj": (map[string]interface {}) (len=1) {
       (string) (len=7) "address": (map[string]interface {}) (len=2) {
+       (string) (len=6) "school": (string) (len=2) "SG",
        (string) (len=6) "suburb": (map[string]interface {}) (len=2) {
         (string) (len=8) "postcode": (int) 2000,
         (string) (len=4) "name": (string) (len=10) "sydney CBD"
-       },
-       (string) (len=6) "school": (string) (len=2) "SG"
+       }
       }
-     }
-    }
+     },
+     (string) (len=3) "yml": (string) (len=72) "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n"
+    })
     
     [runtime global] dvar expanded result:
     {
@@ -78,18 +80,18 @@ weight: 11654
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
           "suburb": {
-            "postcode": 2000,
-            "name": "sydney CBD"
+            "name": "sydney CBD",
+            "postcode": 2000
           },
           "school": "SG"
         }
       }
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -119,14 +121,14 @@ weight: 11654
           "cmd": "{{ .obj | toJson}}"
         },
         {
-          "desc": "convert yml string to obj in print",
           "cmd": "{{.yml | ymlToObj|reg \"this_is_another_obj\"}}",
-          "name": "print"
+          "name": "print",
+          "desc": "convert yml string to obj in print"
         },
         {
+          "name": "print",
           "desc": "print this_is_another_obj",
-          "cmd": "{{.this_is_another_obj}}",
-          "name": "print"
+          "cmd": "{{.this_is_another_obj}}"
         },
         {
           "name": "print",
@@ -179,8 +181,8 @@ weight: 11654
         "address": {
           "school": "SG",
           "suburb": {
-            "postcode": 2000,
-            "name": "sydney CBD"
+            "name": "sydney CBD",
+            "postcode": 2000
           }
         }
       },
@@ -213,17 +215,17 @@ weight: 11654
     
     
     scope[local] merged: {
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "obj": {
         "address": {
-          "school": "SG",
           "suburb": {
-            "postcode": 2000,
-            "name": "sydney CBD"
-          }
+            "name": "sydney CBD",
+            "postcode": 2000
+          },
+          "school": "SG"
         }
       },
       "up_runtime_task_layer_number": 0,
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
       "this_is_an_obj": (*map[interface {}]interface {})({
         "address": {
           "suburb": {
@@ -239,17 +241,6 @@ weight: 11654
     self: final context exec vars:
     
     (*core.Cache)({
-      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
-      "obj": {
-        "address": {
-          "school": "SG",
-          "suburb": {
-            "postcode": 2000,
-            "name": "sydney CBD"
-          }
-        }
-      },
-      "up_runtime_task_layer_number": 0,
       "this_is_an_obj": (*map[interface {}]interface {})({
         "address": {
           "suburb": {
@@ -258,7 +249,18 @@ weight: 11654
           },
           "school": "SG"
         }
-      })
+      }),
+      "yml": "address:\n  suburb:\n    name: sydney CBD\n    postcode: 2000\n  school: SG\n",
+      "obj": {
+        "address": {
+          "suburb": {
+            "name": "sydney CBD",
+            "postcode": 2000
+          },
+          "school": "SG"
+        }
+      },
+      "up_runtime_task_layer_number": 0
     })
     
     {{.yml}}
@@ -275,8 +277,8 @@ weight: 11654
     (*map[interface {}]interface {})({
       "address": {
         "suburb": {
-          "name": "sydney CBD",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney CBD"
         },
         "school": "SG"
       }
@@ -307,8 +309,8 @@ weight: 11654
     (*map[interface {}]interface {})({
       "address": {
         "suburb": {
-          "name": "sydney CBD",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney CBD"
         },
         "school": "SG"
       }
@@ -332,8 +334,8 @@ weight: 11654
       "address": {
         "school": "SG",
         "suburb": {
-          "postcode": 2000,
-          "name": "sydney CBD"
+          "name": "sydney CBD",
+          "postcode": 2000
         }
       }
     })
@@ -349,8 +351,8 @@ weight: 11654
       "address": {
         "school": "SG",
         "suburb": {
-          "name": "sydney CBD",
-          "postcode": 2000
+          "postcode": 2000,
+          "name": "sydney CBD"
         }
       }
     })

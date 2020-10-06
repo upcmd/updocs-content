@@ -1,6 +1,6 @@
 ---
 title: "c0103_vvvv"
-date: 2020-09-18T01:27:38+99:00
+date: 2020-10-06T23:46:09+1010:00
 draft: false
 weight: 11033
 
@@ -23,6 +23,8 @@ weight: 11033
                  Timeout -> 3600000
      MaxModuelCallLayers -> 256
                EntryTask -> task
+      ModRepoUsernameRef -> 
+      ModRepoPasswordRef -> 
      :release version:  1.0.0
      :verbose level:  vvvv
     work dir: /up_project/up
@@ -36,23 +38,23 @@ weight: 11033
     
     ---------group vars----------
     
-    global: {
-    }
+    global: (*core.Cache)({
+    })
     
     
     groups members:[]
     merged[ dev ] runtime vars:
-    {
+    (*core.Cache)({
       "tom": "tom:\n  sex: male\n  age: 23\n",
       "emily": "emily:\n  sex: female\n  age: 32\n"
-    }
+    })
     
     -------runtime global final merged with dvars-------
     
-    {
+    (*core.Cache)({
       "tom": "tom:\n  sex: male\n  age: 23\n",
       "emily": "emily:\n  sex: female\n  age: 32\n"
-    }
+    })
     
       located task-> 1 [task]: 
     Task1: [task ==> task:  ]
@@ -61,9 +63,9 @@ weight: 11033
     -Step1: [: inplace modification ]
     current exec runtime vars:
     (*core.Cache)({
+      "tom": "tom:\n  sex: male\n  age: 23\n",
       "emily": "emily:\n  sex: female\n  age: 32\n",
-      "up_runtime_task_layer_number": 0,
-      "tom": "tom:\n  sex: male\n  age: 23\n"
+      "up_runtime_task_layer_number": 0
     })
     
     self: final context exec vars:
